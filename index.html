@@ -6,8 +6,16 @@
 <title>Surf China — World-Class Waves. Tropical China.</title>
 <meta name="description" content="Official PerfectSwell® partner. The ultimate surf trip to Hainan, China. World-class wave pool sessions, premium accommodation, and tropical adventure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face {
+  font-family: 'Macabro';
+  src: url('Assets/fonts/MACABRO.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -77,16 +85,16 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
 /* Navigation */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1.2rem 0; transition: all 0.4s var(--transition);
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0;
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
 }
-nav.scrolled {
-  background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06); padding: 0.8rem 0;
-}
-nav.scrolled .nav-logo { color: var(--charcoal); }
-nav.scrolled .nav-links a { color: var(--charcoal); }
-nav.scrolled .nav-cta { background: var(--charcoal); color: var(--white); border-color: var(--charcoal); }
+nav .nav-logo { color: var(--charcoal); }
+nav .nav-links a { color: var(--charcoal); }
+nav .nav-cta { background: var(--charcoal); color: var(--white); border-color: var(--charcoal); }
+nav.scrolled { padding: 0.7rem 0; }
 .nav-inner {
   max-width: 1400px; margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
@@ -95,12 +103,12 @@ nav.scrolled .nav-cta { background: var(--charcoal); color: var(--white); border
 .nav-logo {
   font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--white); text-decoration: none; transition: color 0.4s;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
 }
 .nav-links { display: flex; gap: 2.2rem; align-items: center; }
 .nav-links a {
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
-  text-transform: uppercase; color: var(--white); text-decoration: none;
+  text-transform: uppercase; color: var(--charcoal); text-decoration: none;
   transition: all 0.3s; position: relative;
 }
 .nav-links a:hover { opacity: 0.7; }
@@ -109,106 +117,72 @@ nav.scrolled .nav-cta { background: var(--charcoal); color: var(--white); border
 }
 .nav-cta {
   font-size: 0.75rem; padding: 0.6rem 1.4rem;
-  background: rgba(255,255,255,0.15); color: var(--white);
-  border: 1px solid rgba(255,255,255,0.3); border-radius: 2px;
+  background: var(--charcoal); color: var(--white);
+  border: 1px solid var(--charcoal); border-radius: 2px;
   text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
   text-transform: uppercase; transition: all 0.3s;
 }
-.nav-cta:hover { background: var(--white); color: var(--charcoal); }
+.nav-cta:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
-.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
-nav.scrolled .nav-mobile-toggle span { background: var(--charcoal); }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 
-/* Hero */
+/* Hero — desktop default (aspect 2400:1350 = 16:9) */
 .hero {
-  position: relative; height: 100vh; min-height: 700px;
-  display: flex; align-items: flex-end;
-  padding-bottom: clamp(4rem, 8vw, 8rem); overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2400 / 1350;
+  overflow: hidden;
+  background: #0a4d68;
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
-/* Full-page overlay — restored darker gradient for readability + subtle warm glow */
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background:
-    linear-gradient(to top, rgba(5,20,30,0.82) 0%, rgba(5,20,30,0.45) 35%, rgba(5,20,30,0.15) 65%, rgba(5,20,30,0.35) 100%),
-    radial-gradient(ellipse at 20% 80%, rgba(196,162,101,0.18) 0%, transparent 55%);
-}
+.hero-bg img,
+.hero-bg picture { width: 100%; height: 100%; display: block; }
+.hero-bg img { object-fit: cover; object-position: center center; }
+
 .hero-content {
-  position: relative; z-index: 2; color: var(--white);
-  width: min(640px, 92vw);
-  margin-left: clamp(1.5rem, 5vw, 5rem);
-  margin-right: auto;
-}
-.hero-content h1 {
-  margin-bottom: 1.3rem;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.8rem, 5.8vw, 4.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  text-transform: none;
-  text-shadow: 0 3px 22px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.25);
-}
-.hero-content h1 em {
-  font-style: normal; font-weight: 500;
-  color: var(--gold);
-  display: block;
-  margin-top: 0.05em;
-  letter-spacing: -0.025em;
-  text-shadow: 0 3px 22px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3);
-}
-.hero-content h1 strong {
-  font-weight: 700; font-style: normal;
+  position: absolute; z-index: 2;
+  top: 5.5%;
+  left: auto;
+  right: 3.2%;
+  text-align: right;
   color: var(--white);
-  white-space: nowrap;
 }
-.hero-eyebrow {
-  display: inline-block;
-  font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.38em; text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.1rem; padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(196,162,101,0.55);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+.hero-title {
+  font-family: 'Macabro', 'Space Grotesk', sans-serif;
+  font-weight: normal;
+  font-size: 6.2vw;
+  line-height: 1;
+  letter-spacing: 0.005em;
+  color: var(--white);
+  text-shadow: 0 3px 18px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+  margin: 0;
+  text-align: right;
+}
+.hero-title-accent {
+  display: block;
+  font-family: 'Macabro', 'Space Grotesk', sans-serif;
+  font-weight: normal;
+  font-size: 4.6vw;
+  line-height: 1;
+  color: #ffbd59;
+  margin-top: 0.3em;
+  text-align: right;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
 }
 .hero-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(1.02rem, 1.3vw, 1.14rem);
-  font-weight: 500;
-  line-height: 1.75;
-  max-width: 580px; margin-bottom: 2.3rem;
-  color: rgba(255,255,255,0.96);
-  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.45vw;
+  line-height: 1.55;
+  color: var(--white);
+  margin-top: 1.3em;
+  max-width: none;
+  text-align: right;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
-.hero-subtitle strong {
-  color: var(--gold); font-weight: 700;
-}
-.hero-watermark {
-  position: absolute; z-index: 1;
-  right: clamp(-2rem, -3vw, -1rem); bottom: -3vw;
-  font-family: 'Songti SC', 'STSong', 'Space Grotesk', serif;
-  font-size: clamp(20rem, 40vw, 40rem);
-  line-height: 1; font-weight: 400;
-  color: rgba(255,255,255,0.055);
-  pointer-events: none; user-select: none;
-  letter-spacing: 0;
-}
-.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-scroll {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  color: var(--white); opacity: 0.5; font-size: 0.7rem;
-  letter-spacing: 0.15em; text-transform: uppercase; text-align: center; z-index: 2;
-}
-.hero-scroll::after {
-  content: ''; display: block; width: 1px; height: 40px;
-  background: rgba(255,255,255,0.4); margin: 0.8rem auto 0;
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.3); }
-}
+.hero-subtitle p { margin: 0; max-width: none; }
+.hero-subtitle strong { font-weight: 600; color: var(--white); }
+.hero-subtitle em { font-style: normal; color: #ffbd59; }
 
 /* Partner Badge */
 .partner-badge {
@@ -525,11 +499,26 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
   .img-duo { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; }
-  .hero { align-items: flex-end; padding-bottom: 3rem; }
-  .hero-content { text-align: left; margin-left: 1.25rem; margin-right: 1.25rem; }
-  .hero-content h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-ctas { justify-content: flex-start; }
-  .hero-subtitle { margin-left: 0; margin-right: 0; font-size: 0.98rem; }
+
+  /* Hero — mobile (aspect 1500:1875 = 4:5) */
+  .hero { aspect-ratio: 1500 / 1875; }
+  .hero-content {
+    top: 3%;
+    left: 3.5%;
+    right: 3.5%;
+    text-align: left;
+  }
+  .hero-title { font-size: 10.5vw; letter-spacing: 0; text-align: left; }
+  .hero-title-accent { font-size: 6.6vw; margin-top: 0.35em; margin-left: 0.2em; text-align: left; }
+  .hero-subtitle {
+    font-size: 3.3vw;
+    font-weight: 400;
+    margin-top: 1em;
+    margin-left: 1.1em;
+    line-height: 1.55;
+    text-align: left;
+  }
+
   .natural-surf-img { height: 300px; }
   .recovery-grid { grid-template-columns: 1fr; }
   .explore-grid-4 { grid-template-columns: 1fr; }
@@ -578,23 +567,22 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="Assets/wavepool/wavepool-use.JPG" alt="Surfer at PerfectSwell Hainan wave pool">
+      <picture>
+        <source media="(max-width: 768px)" srcset="Assets/wavepool/hero-mobile.jpg">
+        <img src="Assets/wavepool/hero-desktop.jpg" alt="Aerial view of PerfectSwell wave pool in Hainan, China">
+      </picture>
     </div>
-    <span class="hero-watermark" aria-hidden="true">&#28010;</span>
     <div class="hero-content">
-      <div class="partner-badge">
-        <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
-        <span>Official PerfectSwell&reg; Hainan Partner</span>
-      </div>
-      <span class="hero-eyebrow">Hainan &middot; Tropical China</span>
-      <h1>Surf <strong>Hainan</strong>,<em>Beyond the Ordinary.</em></h1>
-      <p class="hero-subtitle">World-class PerfectSwell&reg; waves by day, and a stretch of <strong>secret spots</strong> most travelers never find along <strong>Hainan&rsquo;s</strong> tropical coast &mdash; spitting, <strong>barreling right-handers</strong> that race down the reef, and a <strong>mellow, impossibly long left-hander</strong> that just keeps peeling. A surf journey through <strong>tropical China</strong>, built for the curious, the wild at heart, and anyone ready to trade the expected for the unforgettable.</p>
-      <div class="hero-ctas">
-        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('packages')">Explore the Journey </a>
-        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('contact')">Plan My Trip </a>
+      <h1 class="hero-title">
+        SURF HAINAN, CHINA
+        <span class="hero-title-accent">BEYOND THE ORDINARY.</span>
+      </h1>
+      <div class="hero-subtitle">
+        <p>World-class <strong>PerfectSwell&reg;</strong> wave pool.</p>
+        <p>Off the map surf spot.</p>
+        <p>Tropical China like most travelers never see it.</p>
       </div>
     </div>
-    <div class="hero-scroll">Scroll &darr;</div>
   </section>
 
   <!-- REASSURANCE -->
