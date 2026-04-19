@@ -158,6 +158,8 @@ nav.scrolled { padding: 0.7rem 0; }
   margin: 0;
   text-align: right;
 }
+.hero-title-nowrap { white-space: nowrap; }
+.hero-title-mbreak { display: none; }
 .hero-title-accent {
   display: block;
   font-family: 'Macabro', 'Space Grotesk', sans-serif;
@@ -506,17 +508,18 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
     top: 6%;
     left: 0;
     right: 0;
-    padding: 0 5%;
+    padding: 0 3%;
     text-align: center;
   }
   .hero-title {
-    font-size: 13vw;
+    font-size: 11vw;
     letter-spacing: 0;
     line-height: 1.02;
     text-align: center;
   }
+  .hero-title-mbreak { display: inline; }
   .hero-title-accent {
-    font-size: 7.6vw;
+    font-size: 7vw;
     margin-top: 0.45em;
     margin-left: 0;
     text-align: center;
@@ -585,7 +588,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
     </div>
     <div class="hero-content">
       <h1 class="hero-title">
-        SURF HAINAN, CHINA
+        <span class="hero-title-nowrap">SURF HAINAN,</span><br class="hero-title-mbreak"> <span class="hero-title-nowrap">CHINA</span>
         <span class="hero-title-accent">BEYOND THE ORDINARY.</span>
       </h1>
       <div class="hero-subtitle">
