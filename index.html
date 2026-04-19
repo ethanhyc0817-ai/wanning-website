@@ -536,6 +536,12 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
   .natural-surf-img { height: 300px; }
   .recovery-grid { grid-template-columns: 1fr; }
   .explore-grid-4 { grid-template-columns: 1fr; }
+
+  /* Cloudinary content videos → 4:3 landscape on mobile */
+  .content-video {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+  }
 }
 @media (max-width: 480px) {
   .facilities-grid, .audience-grid { grid-template-columns: 1fr; }
@@ -667,6 +673,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
         </div>
         <div>
           <video
+            class="content-video"
             autoplay
             muted
             loop
@@ -695,14 +702,14 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
       </div>
       <div class="natural-surf-inner">
         <div>
-          <video autoplay muted loop playsinline preload="auto"
+          <video class="content-video" autoplay muted loop playsinline preload="auto"
                  style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mov" type="video/quicktime">
           </video>
         </div>
         <div>
-          <video autoplay muted loop playsinline preload="auto"
+          <video class="content-video" autoplay muted loop playsinline preload="auto"
                  style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mp4" type="video/mp4">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mov" type="video/quicktime">
