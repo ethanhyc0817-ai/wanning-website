@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surf China — World-Class Waves. Tropical China.</title>
+<meta name="description" content="Official PerfectSwell® partner. The ultimate surf trip to Hainan, China. World-class wave pool sessions, premium accommodation, and tropical adventure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif; font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+.overline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  display: block;
+}
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 900px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 8rem) 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none;
+  border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px;
+}
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-teal { background: var(--teal); color: var(--white); }
+.btn-teal:hover { background: var(--ocean); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.2rem 0; transition: all 0.4s var(--transition);
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06); padding: 0.8rem 0;
+}
+nav.scrolled .nav-logo { color: var(--charcoal); }
+nav.scrolled .nav-links a { color: var(--charcoal); }
+nav.scrolled .nav-cta { background: var(--charcoal); color: var(--white); border-color: var(--charcoal); }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--white); text-decoration: none; transition: color 0.4s;
+}
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--white); text-decoration: none;
+  transition: all 0.3s; position: relative;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-links a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 1px; background: currentColor;
+}
+.nav-cta {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  background: rgba(255,255,255,0.15); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 2px;
+  text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--white); color: var(--charcoal); }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: all 0.3s; }
+nav.scrolled .nav-mobile-toggle span { background: var(--charcoal); }
+
+/* Hero */
+.hero {
+  position: relative; height: 100vh; min-height: 700px;
+  display: flex; align-items: flex-end;
+  padding-bottom: clamp(4rem, 8vw, 8rem); overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+/* Full-page overlay — restored darker gradient for readability + subtle warm glow */
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(5,20,30,0.82) 0%, rgba(5,20,30,0.45) 35%, rgba(5,20,30,0.15) 65%, rgba(5,20,30,0.35) 100%),
+    radial-gradient(ellipse at 20% 80%, rgba(196,162,101,0.18) 0%, transparent 55%);
+}
+.hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  width: min(640px, 92vw);
+  margin-left: clamp(1.5rem, 5vw, 5rem);
+  margin-right: auto;
+}
+.hero-content h1 {
+  margin-bottom: 1.3rem;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 5.8vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-shadow: 0 3px 22px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.25);
+}
+.hero-content h1 em {
+  font-style: normal; font-weight: 500;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.05em;
+  letter-spacing: -0.025em;
+  text-shadow: 0 3px 22px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3);
+}
+.hero-content h1 strong {
+  font-weight: 700; font-style: normal;
+  color: var(--white);
+  white-space: nowrap;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.38em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(196,162,101,0.55);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.02rem, 1.3vw, 1.14rem);
+  font-weight: 500;
+  line-height: 1.75;
+  max-width: 580px; margin-bottom: 2.3rem;
+  color: rgba(255,255,255,0.96);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}
+.hero-subtitle strong {
+  color: var(--gold); font-weight: 700;
+}
+.hero-watermark {
+  position: absolute; z-index: 1;
+  right: clamp(-2rem, -3vw, -1rem); bottom: -3vw;
+  font-family: 'Songti SC', 'STSong', 'Space Grotesk', serif;
+  font-size: clamp(20rem, 40vw, 40rem);
+  line-height: 1; font-weight: 400;
+  color: rgba(255,255,255,0.055);
+  pointer-events: none; user-select: none;
+  letter-spacing: 0;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: var(--white); opacity: 0.5; font-size: 0.7rem;
+  letter-spacing: 0.15em; text-transform: uppercase; text-align: center; z-index: 2;
+}
+.hero-scroll::after {
+  content: ''; display: block; width: 1px; height: 40px;
+  background: rgba(255,255,255,0.4); margin: 0.8rem auto 0;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.3); }
+}
+
+/* Partner Badge */
+.partner-badge {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 3px;
+  padding: 0.5rem 1rem; margin-bottom: 1.5rem;
+}
+.partner-badge img { height: 22px; width: auto; }
+.partner-badge span {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.8);
+}
+.partner-badge-dark {
+  background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.08);
+  backdrop-filter: none;
+}
+.partner-badge-dark span { color: var(--warm-gray); }
+
+/* Reassurance */
+.reassurance {
+  position: relative;
+  padding: clamp(3rem, 5vw, 5rem) 0;
+  background:
+    linear-gradient(180deg, #fbf7f1 0%, #f5ece0 100%);
+  overflow: hidden;
+}
+.reassurance::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(196,162,101,0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(45,138,148,0.10) 0%, transparent 45%);
+  pointer-events: none;
+}
+.reassurance-inner {
+  position: relative; z-index: 2; text-align: center;
+}
+.reassurance-overline { color: var(--coral); }
+.reassurance h2 { margin-bottom: 0.5rem; }
+.reassurance h2 em { font-style: normal; color: var(--ocean); font-weight: 500; }
+.reassurance-lead {
+  font-size: 1.15rem; color: var(--charcoal); margin: 0 auto 2rem; max-width: 720px; font-weight: 400; line-height: 1.7;
+}
+.reassurance-pillars {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+  margin-top: 1.75rem; text-align: left;
+}
+.reassurance-pillar {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(196,162,101,0.25);
+  backdrop-filter: blur(4px);
+  padding: 1.4rem 1.4rem; border-radius: 3px;
+  transition: all 0.4s var(--transition);
+}
+.reassurance-pillar:hover {
+  background: rgba(255,255,255,0.9);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.reassurance-pillar-num {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem; font-weight: 600; color: var(--gold);
+  margin-bottom: 0.8rem; letter-spacing: 0;
+}
+.reassurance-pillar h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem; color: var(--charcoal); margin-bottom: 0.5rem;
+  font-weight: 600; letter-spacing: -0.01em;
+}
+.reassurance-pillar p {
+  font-size: 0.9rem; color: var(--warm-gray); line-height: 1.7;
+}
+
+/* Intro */
+.intro { background: var(--sand); }
+.intro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; }
+.intro-card h3 { margin: 0 0 0.8rem; font-size: 1.3rem; }
+.intro-card p { color: var(--warm-gray); font-size: 0.95rem; }
+
+/* Facilities */
+.facilities { background: var(--charcoal); color: var(--white); }
+.facilities h2 { color: var(--white); }
+.facilities .overline { color: var(--gold); }
+.facilities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+.facility-card { padding: 0; border-radius: 3px; overflow: hidden; background: rgba(255,255,255,0.05); }
+.facility-card img { width: 100%; height: 180px; object-fit: cover; }
+.facility-card-body { padding: 1.5rem; }
+.facility-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
+.facility-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+/* Packages */
+.packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.package-card {
+  position: relative; overflow: hidden; border-radius: 3px;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08);
+  transition: all 0.4s var(--transition);
+}
+.package-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.package-img { width: 100%; height: 260px; object-fit: cover; }
+.package-body { padding: 2rem; }
+.package-tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; display: block;
+}
+.package-body h3 { margin-bottom: 0.8rem; }
+.package-body p { color: var(--warm-gray); font-size: 0.9rem; margin-bottom: 1rem; }
+.package-includes { list-style: none; padding: 1rem 0; border-top: 1px solid rgba(0,0,0,0.06); }
+.package-includes li {
+  font-size: 0.85rem; color: var(--warm-gray); padding: 0.3rem 0;
+  padding-left: 1.2rem; position: relative;
+}
+.package-includes li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-size: 0.8rem; }
+.package-card.featured { border: 2px solid var(--teal); }
+.package-featured-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  background: var(--teal); color: var(--white);
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 2px; z-index: 2;
+}
+
+/* Explore */
+.explore { background: var(--sand); }
+.explore-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.explore-card { position: relative; overflow: hidden; border-radius: 3px; height: 360px; cursor: pointer; }
+.explore-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--transition); }
+.explore-card:hover img { transform: scale(1.05); }
+.explore-card-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); color: var(--white);
+}
+.explore-card-overlay h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+.explore-card-overlay p { font-size: 0.85rem; opacity: 0.8; }
+
+/* 4-card explore */
+.explore-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.explore-grid-4 .explore-card { height: 320px; }
+
+/* Natural Surf */
+.natural-surf-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.natural-surf-img { width: 100%; height: 500px; object-fit: cover; border-radius: 3px; }
+
+/* Recovery */
+.recovery-section { position: relative; overflow: hidden; }
+.recovery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 2rem; border-radius: 3px; overflow: hidden; }
+.recovery-grid img { width: 100%; height: 300px; object-fit: cover; }
+
+/* Audience */
+.audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+.audience-card { text-align: center; padding: 2.5rem 1.5rem; background: var(--sand); border-radius: 3px; }
+.audience-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.audience-card p { font-size: 0.85rem; color: var(--warm-gray); }
+.audience-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 3px; margin-bottom: 1.2rem; }
+
+/* Why Us */
+.why-us { background: var(--ocean); color: var(--white); }
+.why-us h2 { color: var(--white); }
+.why-us .overline { color: var(--gold); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
+.why-card { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; }
+.why-card h3 { color: var(--white); font-size: 1.2rem; margin-bottom: 0.6rem; }
+.why-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+
+/* Final CTA */
+.final-cta {
+  position: relative; height: 70vh; min-height: 500px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg::after { background: rgba(0,0,0,0.5); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 600px; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.8); margin: 0 auto 2rem; }
+
+/* Page Hero */
+.page-hero {
+  position: relative; height: 60vh; min-height: 400px;
+  display: flex; align-items: flex-end; padding-bottom: 4rem; overflow: hidden;
+}
+.page-hero .hero-bg::after { background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); }
+.page-hero-content { position: relative; z-index: 2; color: var(--white); }
+.page-hero-content h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 0.5rem; }
+.page-hero-content p { opacity: 0.85; font-size: 1.1rem; }
+
+/* Wave Types */
+.wave-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.wave-type-card { padding: 2rem; border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; transition: all 0.3s; }
+.wave-type-card:hover { border-color: var(--teal); }
+.wave-type-level {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-block; padding: 0.3rem 0.6rem; border-radius: 2px; margin-bottom: 1rem;
+}
+.wave-type-level.beginner { background: #e8f5e9; color: #2e7d32; }
+.wave-type-level.intermediate { background: #fff3e0; color: #e65100; }
+.wave-type-level.advanced { background: #fce4ec; color: #c62828; }
+.wave-type-card h3 { margin-bottom: 0.6rem; }
+.wave-type-card p { font-size: 0.9rem; color: var(--warm-gray); }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 3rem auto 0; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); padding: 1.5rem 0; cursor: pointer; }
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em;
+}
+.faq-question::after {
+  content: '+'; font-family: 'Inter', sans-serif; font-size: 1.5rem;
+  font-weight: 300; color: var(--warm-gray); transition: transform 0.3s;
+}
+.faq-item.open .faq-question::after { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--transition); }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer p { padding-top: 1rem; font-size: 0.9rem; color: var(--warm-gray); }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block; font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--warm-gray);
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.9rem 1rem; border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 2px; font-family: 'Inter', sans-serif; font-size: 0.95rem;
+  transition: border-color 0.3s; background: var(--white);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* Gallery */
+.gallery-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+.gallery-strip img { width: 100%; height: 300px; object-fit: cover; transition: opacity 0.3s; }
+.gallery-strip img:hover { opacity: 0.85; }
+
+/* Plan */
+.plan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+.plan-card { padding: 2.5rem; background: var(--sand); border-radius: 3px; }
+.plan-card h3 { margin-bottom: 0.8rem; }
+.plan-card p { font-size: 0.9rem; color: var(--warm-gray); }
+
+/* Image helpers */
+.img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.img-duo img { width: 100%; height: clamp(250px, 35vw, 450px); object-fit: cover; }
+.section-divider { width: 60px; height: 1px; background: var(--teal); margin: 1.5rem 0; }
+.section-divider-center { width: 60px; height: 1px; background: var(--teal); margin: 1.5rem auto; }
+
+/* Page switching */
+.page { display: none; }
+.page.active { display: block; }
+
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* PerfectSwell inline logo */
+.ps-logo-inline { height: 18px; width: auto; vertical-align: middle; margin: 0 0.2em; }
+.ps-logo-nav { height: 16px; width: auto; opacity: 0.7; margin-left: 0.3rem; vertical-align: middle; }
+
+/* Footer */
+footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4rem 0 2rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand .nav-logo { color: var(--white); display: inline-block; margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.85rem; max-width: 300px; }
+.footer-col h4 {
+  font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); margin-bottom: 1.2rem;
+}
+.footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; padding: 0.25rem 0; transition: color 0.3s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;
+  display: flex; justify-content: space-between; font-size: 0.8rem; align-items: center;
+}
+.footer-partner { display: flex; align-items: center; gap: 0.8rem; }
+.footer-partner img { height: 20px; width: auto; filter: brightness(0) invert(1); opacity: 0.5; }
+.footer-partner span { font-size: 0.75rem; opacity: 0.5; }
+.footer-social { display: flex; gap: 1.5rem; }
+.footer-social a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.footer-social a:hover { color: var(--white); }
+
+/* Mobile Nav */
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; font-size: 1.35rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--charcoal); text-decoration: none; padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--charcoal); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .intro-grid, .wave-types-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+  .facilities-grid { grid-template-columns: 1fr 1fr; }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .explore-grid-4 { grid-template-columns: 1fr 1fr; }
+  .reassurance-pillars { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .intro-grid, .packages-grid, .explore-grid, .wave-types-grid,
+  .why-grid, .contact-grid, .plan-grid, .natural-surf-inner,
+  .reassurance-pillars { grid-template-columns: 1fr; }
+  .facilities-grid, .audience-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-strip { grid-template-columns: 1fr 1fr; }
+  .img-duo { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; }
+  .hero { align-items: flex-end; padding-bottom: 3rem; }
+  .hero-content { text-align: left; margin-left: 1.25rem; margin-right: 1.25rem; }
+  .hero-content h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-ctas { justify-content: flex-start; }
+  .hero-subtitle { margin-left: 0; margin-right: 0; font-size: 0.98rem; }
+  .natural-surf-img { height: 300px; }
+  .recovery-grid { grid-template-columns: 1fr; }
+  .explore-grid-4 { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .facilities-grid, .audience-grid { grid-template-columns: 1fr; }
+  .gallery-strip { grid-template-columns: 1fr; }
+  .gallery-strip img { height: 220px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')">SURF CHINA</a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a>
+      <a href="#" onclick="showPage('wavepool')" data-page="wavepool">Wave Pool</a>
+      <a href="#" onclick="showPage('packages')" data-page="packages">Packages</a>
+      <a href="#" onclick="showPage('explore')" data-page="explore">Explore Hainan</a>
+      <a href="#" onclick="showPage('plan')" data-page="plan">Plan Your Trip</a>
+      <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Start Planning</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()">&times;</button>
+  <a href="#" onclick="showPage('home'); toggleMobile();">Home</a>
+  <a href="#" onclick="showPage('wavepool'); toggleMobile();">Wave Pool</a>
+  <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
+  <a href="#" onclick="showPage('explore'); toggleMobile();">Explore Hainan</a>
+  <a href="#" onclick="showPage('plan'); toggleMobile();">Plan Your Trip</a>
+  <a href="#" onclick="showPage('contact'); toggleMobile();">Contact</a>
+</div>
+
+
+<!-- ======================== HOME ======================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-use.JPG" alt="Surfer at PerfectSwell Hainan wave pool">
+    </div>
+    <span class="hero-watermark" aria-hidden="true">&#28010;</span>
+    <div class="hero-content">
+      <div class="partner-badge">
+        <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+        <span>Official PerfectSwell&reg; Hainan Partner</span>
+      </div>
+      <span class="hero-eyebrow">Hainan &middot; Tropical China</span>
+      <h1>Surf <strong>Hainan</strong>,<em>Beyond the Ordinary.</em></h1>
+      <p class="hero-subtitle">World-class PerfectSwell&reg; waves by day, and a stretch of <strong>secret spots</strong> most travelers never find along <strong>Hainan&rsquo;s</strong> tropical coast &mdash; spitting, <strong>barreling right-handers</strong> that race down the reef, and a <strong>mellow, impossibly long left-hander</strong> that just keeps peeling. A surf journey through <strong>tropical China</strong>, built for the curious, the wild at heart, and anyone ready to trade the expected for the unforgettable.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('packages')">Explore the Journey </a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('contact')">Plan My Trip </a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- REASSURANCE -->
+  <section class="reassurance">
+    <div class="container-narrow reassurance-inner">
+      <span class="overline reassurance-overline">First Time in China</span>
+      <h2>Land easy. <em>Surf hard.</em></h2>
+      <div class="section-divider-center"></div>
+      <p class="lead reassurance-lead">Different language, different rhythm &mdash; that's the whole point. Show up with your board and your curiosity. From the jetway to the lineup, we handle the rest.</p>
+      <div class="reassurance-pillars">
+        <div class="reassurance-pillar">
+          <span class="reassurance-pillar-num">01</span>
+          <h4>Visa-Free Entry</h4>
+          <p>Hainan offers visa-free stays up to 30 days for travelers from most Western countries.</p>
+        </div>
+        <div class="reassurance-pillar">
+          <span class="reassurance-pillar-num">02</span>
+          <h4>Fluent English Guides</h4>
+          <p>Local hosts who know the surf, the food, and the culture &mdash; and translate all of it.</p>
+        </div>
+        <div class="reassurance-pillar">
+          <span class="reassurance-pillar-num">03</span>
+          <h4>Door-to-Door Care</h4>
+          <p>Airport transfers, WhatsApp support, payments, reservations &mdash; fully handled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section class="intro">
+    <div class="container">
+      <span class="overline">Why This Trip Is Different</span>
+      <h2>Come for the waves.<br>Stay for the adventure.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">This is not just a wave pool. It's a full surf-and-discovery trip to tropical China &mdash; where world-class waves, boutique accommodation, and island exploration come together in one destination.</p>
+      <div class="intro-grid">
+        <div class="intro-card fade-in">
+          <h3>PerfectSwell&reg; Wave Pool</h3>
+          <p>The same pneumatic wave technology trusted worldwide &mdash; 23 wave configurations, waves up to 2.7 meters, every six seconds. From your first whitewater push-up to deep barrel sessions.</p>
+        </div>
+        <div class="intro-card fade-in">
+          <h3>A Tropical Destination</h3>
+          <p>Hainan is China's southernmost island &mdash; palm-lined rivers, waterfalls, coffee plantations, night markets, and a coastline most travelers have never seen.</p>
+        </div>
+        <div class="intro-card fade-in">
+          <h3>More Than Just Surfing</h3>
+          <p>Bring your partner, your family, your crew. The wave pool is the anchor, but the trip works beautifully even if not everyone surfs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE POOL TEASER -->
+  <section>
+    <div class="container">
+      <div class="natural-surf-inner">
+        <div>
+          <div class="partner-badge partner-badge-dark">
+            <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+            <span>Powered by PerfectSwell&reg;</span>
+          </div>
+          <h2>Your perfect wave, on demand.</h2>
+          <div class="section-divider"></div>
+          <p class="lead">PerfectSwell&reg; Hainan &mdash; Asia's most advanced wave pool. A 30-chamber pneumatic system generating 23 wave configurations for every level, from first-timers to competitive surfers.</p>
+          <p style="color: var(--warm-gray); font-size: 0.95rem; margin: 1.5rem 0 2rem;">Waves up to 2.7 meters high, every six seconds, with ride times up to 18 seconds. No crowds, no waiting for swell, no guessing. Just wave after wave after wave.</p>
+          <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('wavepool')">Discover the Wave Pool </a>
+        </div>
+        <div>
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="Assets/wavepool/wavepool-surfer-action-01.jpg"
+            style="width:100%; height: 500px; object-fit: cover; border-radius: 3px; display: block;">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mov" type="video/quicktime">
+            <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding wave" style="width:100%; height: 500px; object-fit: cover; border-radius: 3px;">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIDDEN BREAKS - Natural Surf Secret -->
+  <section style="background: var(--sand);">
+    <div class="container">
+      <div style="text-align:center; max-width:720px; margin:0 auto 3rem;">
+        <span class="overline">Hainan's Best-Kept Secret</span>
+        <h2>Wait&hellip; this is China?</h2>
+        <div class="section-divider-center"></div>
+        <p class="lead">Hainan isn't on the global surf map &mdash; and that's exactly the point. Crystal-clear water, palm-lined points, empty line-ups. The waves have always been here. Most people just don't know where to look.</p>
+        <p style="color: var(--warm-gray); font-size: 0.95rem; margin-top: 1rem;">Our local guides have spent years reading this coast &mdash; the swell windows, the wind, the tide, the breaks no one talks about. Come with us, and you'll surf the Hainan travelers never see on Instagram.</p>
+      </div>
+      <div class="natural-surf-inner">
+        <div>
+          <video autoplay muted loop playsinline preload="auto"
+                 style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mov" type="video/quicktime">
+          </video>
+        </div>
+        <div>
+          <video autoplay muted loop playsinline preload="auto"
+                 style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mov" type="video/quicktime">
+          </video>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('contact')">Ask About Ocean Surf </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVERYTHING ON SITE (with real photos) -->
+  <section class="facilities">
+    <div class="container">
+      <span class="overline">Everything You Need on Site</span>
+      <h2>Surf. Recover. Explore. Repeat.</h2>
+      <div class="facilities-grid">
+        <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'surf-shop')">
+          <img src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop interior">
+          <div class="facility-card-body">
+            <h3>Surf Shop</h3>
+            <p>All major brands on site. No need to travel with boards or gear &mdash; everything is here.</p>
+          </div>
+        </a>
+        <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'board-rentals')">
+          <img src="Assets/surf-shop/IMG_5146 2.jpg" alt="Board rentals">
+          <div class="facility-card-body">
+            <h3>Board Rentals</h3>
+            <p>Shortboards, longboards, and soft tops. Travel light, surf heavy.</p>
+          </div>
+        </a>
+        <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'recovery')">
+          <img src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Recovery and wellness">
+          <div class="facility-card-body">
+            <h3>Recovery &amp; Wellness</h3>
+            <p>Sauna, ice bath, and hot bath on site. Premium post-session recovery.</p>
+          </div>
+        </a>
+        <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'cafe')">
+          <img src="Assets/recovery/IMG_5050.jpg" alt="Surf cafe">
+          <div class="facility-card-body">
+            <h3>Surf Caf&eacute;</h3>
+            <p>Coffee, cold drinks, and good energy right at the pool. The perfect post-session hangout.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <div class="gallery-strip">
+    <img src="Assets/wavepool/wavepool-aerial-twilight-01.jpg" alt="Wave pool twilight">
+    <img src="Assets/recovery/recovery-pool-sunset-01.jpg" alt="Recovery pool at sunset">
+    <img src="Assets/wavepool/wavepool-clubhouse-01.jpg" alt="Clubhouse">
+    <img src="Assets/beach-club/beach-club-aerial-01.jpg" alt="Beach club aerial">
+  </div>
+
+  <!-- PACKAGES PREVIEW -->
+  <section>
+    <div class="container">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+        <span class="overline">Packages</span>
+        <h2>Choose your experience.</h2>
+        <div class="section-divider-center"></div>
+        <p class="lead" style="margin: 0 auto;">Every trip is built around the wave pool. What you add around it is up to you.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="package-card fade-in">
+          <img src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" class="package-img" alt="Wave pool daytime">
+          <div class="package-body">
+            <span class="package-tag">3&ndash;4 Days</span>
+            <h3>The Surf Session</h3>
+            <p>Pure wave pool focus. Multiple PerfectSwell&reg; sessions, comfortable accommodation, and everything you need to surf at your best.</p>
+            <ul class="package-includes">
+              <li>3 nights premium accommodation</li>
+              <li>4+ wave pool sessions</li>
+              <li>Board rental included</li>
+              <li>Airport transfer</li>
+              <li>Recovery access</li>
+            </ul>
+            <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('packages')" style="margin-top:1rem;">View Details </a>
+          </div>
+        </div>
+        <div class="package-card featured fade-in">
+          <div class="package-featured-badge">Most Popular</div>
+          <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" class="package-img" alt="Hainan coastal road">
+          <div class="package-body">
+            <span class="package-tag">5&ndash;7 Days</span>
+            <h3>Surf &amp; Discover Hainan</h3>
+            <p>The complete experience. Wave pool sessions plus curated Hainan exploration &mdash; coastlines, culture, nature, and more.</p>
+            <ul class="package-includes">
+              <li>5&ndash;6 nights premium accommodation</li>
+              <li>6+ wave pool sessions</li>
+              <li>Guided Hainan day trip</li>
+              <li>Seasonal natural surf option</li>
+              <li>Recovery &amp; photo add-on</li>
+              <li>Full transport &amp; English support</li>
+            </ul>
+            <a href="#" class="btn btn-teal btn-arrow" onclick="showPage('packages')" style="margin-top:1rem;">View Details </a>
+          </div>
+        </div>
+        <div class="package-card fade-in">
+          <img src="Assets/hotel/outside/hotel-pool-aerial-01.jpg" class="package-img" alt="Hotel pool">
+          <div class="package-body">
+            <span class="package-tag">5&ndash;7 Days</span>
+            <h3>The Hainan Experience</h3>
+            <p>For couples, families, and mixed groups. Wave pool sessions for the surfer, tropical adventure for everyone.</p>
+            <ul class="package-includes">
+              <li>5&ndash;6 nights boutique accommodation</li>
+              <li>Wave pool sessions (flexible count)</li>
+              <li>Non-surf excursions included</li>
+              <li>Couples / family activity options</li>
+              <li>Full English-speaking support</li>
+            </ul>
+            <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('packages')" style="margin-top:1rem;">View Details </a>
+          </div>
+        </div>
+        <div class="package-card fade-in" style="background: var(--sand); border: 1px dashed rgba(0,0,0,0.15);">
+          <div class="package-body" style="display:flex; flex-direction:column; justify-content:center; min-height:400px; text-align:center;">
+            <span class="package-tag" style="display:block; text-align:center;">Fully Flexible</span>
+            <h3 style="text-align:center;">Build a Custom Trip</h3>
+            <p style="text-align:center; margin:0 auto 1.5rem;">Tell us your dates, group, and interests. We'll build the perfect Hainan surf trip around you.</p>
+            <div style="text-align:center;">
+              <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Start Planning </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND THE POOL -->
+  <section class="explore">
+    <div class="container">
+      <span class="overline">Beyond the Pool</span>
+      <h2>Discover a different side of<br>tropical China.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Wanning and the surrounding coast are nothing like what most people picture when they think of China. Think waterfalls, coffee plantations, fire performances, night markets, and empty beaches.</p>
+      <div class="explore-grid-4">
+        <div class="explore-card fade-in">
+          <img src="Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation">
+          <div class="explore-card-overlay">
+            <h3>Coffee &amp; Culture</h3>
+            <p>Tropical plantations &amp; local craft</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/food/lobster-noodles-01.jpg" alt="Local cuisine">
+          <div class="explore-card-overlay">
+            <h3>Local Cuisine</h3>
+            <p>Fresh seafood &amp; night markets</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall">
+          <div class="explore-card-overlay">
+            <h3>Nature</h3>
+            <p>Waterfalls, rivers &amp; mountains</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/culture/fire-performance-01.jpg" alt="Fire performance">
+          <div class="explore-card-overlay">
+            <h3>Nightlife &amp; Shows</h3>
+            <p>Fire performances &amp; local entertainment</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('explore')">Explore Hainan </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR (with real photos) -->
+  <section style="background: var(--sand);">
+    <div class="container">
+      <div style="text-align:center; max-width:600px; margin:0 auto 0;">
+        <span class="overline">Who It's For</span>
+        <h2>Every kind of traveler.<br>One incredible trip.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card fade-in" style="background: var(--white);">
+          <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer">
+          <h3>Surfers</h3>
+          <p>Consistent, powerful PerfectSwell&reg; waves at every level. No swell windows, no crowds.</p>
+        </div>
+        <div class="audience-card fade-in" style="background: var(--white);">
+          <img src="Assets/recovery/recovery-pool-sunset-01.jpg" alt="Couple at recovery pool">
+          <h3>Couples</h3>
+          <p>One surfs, one explores. Or both do both. A tropical trip that works for two different people.</p>
+        </div>
+        <div class="audience-card fade-in" style="background: var(--white);">
+          <img src="Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids training">
+          <h3>Families</h3>
+          <p>Kid-friendly lessons, safe waves, and a whole island of adventure beyond the pool.</p>
+        </div>
+        <div class="audience-card fade-in" style="background: var(--white);">
+          <img src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint">
+          <h3>Explorers</h3>
+          <p>Curious about a different side of Asia? This is tropical China most people don't know exists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why-us">
+    <div class="container">
+      <div style="text-align:center; max-width:600px; margin:0 auto 0;">
+        <span class="overline">Why Travel With Us</span>
+        <h2 style="color:var(--white);">We make Hainan easy.</h2>
+        <div class="section-divider-center" style="background:var(--gold);"></div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card fade-in">
+          <h3>Official PerfectSwell&reg; Partner</h3>
+          <p>We book your sessions directly with PerfectSwell&reg; Hainan &mdash; no middlemen, no markups on pool time. Priority scheduling included with every package.</p>
+        </div>
+        <div class="why-card fade-in">
+          <h3>We Know Western Travelers</h3>
+          <p>We understand what international surfers expect &mdash; from trip logistics to communication style. No language barrier. No confusion. Just a smooth, well-planned experience.</p>
+        </div>
+        <div class="why-card fade-in">
+          <h3>End-to-End Trip Support</h3>
+          <p>From airport pickup to wave pool scheduling to restaurant recommendations &mdash; we handle the details so you can focus on the experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-aerial-dusk-01.jpg" alt="Wave pool at dusk">
+    </div>
+    <div class="final-cta-content">
+      <span class="overline" style="color:var(--gold);">Ready?</span>
+      <h2>Your Hainan surf trip<br>starts here.</h2>
+      <p>Tell us your dates, your crew, and your style. We'll build the rest.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Start Planning </a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('packages')">View Packages </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== WAVE POOL ======================== -->
+<div id="page-wavepool" class="page">
+
+  <section class="page-hero">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-aerial-daytime-03.jpg" alt="Wave pool aerial">
+    </div>
+    <div class="container page-hero-content">
+      <div class="partner-badge">
+        <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+        <span>Official Partner</span>
+      </div>
+      <h1>PerfectSwell&reg; Hainan</h1>
+      <p>Asia's most advanced wave pool. 30-chamber pneumatic technology, 23 wave configurations, waves every six seconds.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow" style="text-align:center;">
+      <h2>How It Works</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin:0 auto;">PerfectSwell&reg; uses a patented air-pressure system to replicate natural ocean swells. Choose your session level, paddle out, and surf &mdash; waves up to 2.7 meters high, with ride times up to 18 seconds. No waiting for swell. No fighting crowds.</p>
+    </div>
+  </section>
+
+  <div class="img-duo" style="padding: 0 clamp(1.5rem, 4vw, 4rem);">
+    <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer action">
+    <img src="Assets/wavepool/wavepool-elevated-surfers-01.jpg" alt="Surfers in pool">
+  </div>
+
+  <section>
+    <div class="container">
+      <div style="text-align:center; max-width:600px; margin:0 auto 0;">
+        <span class="overline">Wave Types</span>
+        <h2>Waves for every level.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="wave-types-grid">
+        <div class="wave-type-card fade-in">
+          <span class="wave-type-level beginner">Beginner</span>
+          <h3>Whitewater &amp; Reform</h3>
+          <p>Gentle, consistent waves perfect for first-timers and building confidence. Safe, controlled, encouraging. Coaching available.</p>
+        </div>
+        <div class="wave-type-card fade-in">
+          <span class="wave-type-level intermediate">Intermediate</span>
+          <h3>Open Face</h3>
+          <p>Clean, shoulder-to-head-high waves for practicing turns, cutbacks, and building flow. The sweet spot for most surfers.</p>
+        </div>
+        <div class="wave-type-card fade-in">
+          <span class="wave-type-level advanced">Advanced</span>
+          <h3>Performance &amp; Barrel</h3>
+          <p>Powerful, hollow, fast-breaking waves for experienced surfers. Tube rides, aerials, and competition-level conditions on demand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- On-site with real photos -->
+  <section class="facilities">
+    <div class="container">
+      <span class="overline">On-Site Amenities</span>
+      <h2>Everything at the pool.</h2>
+      <div class="facilities-grid">
+        <div class="facility-card fade-in">
+          <img src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop">
+          <div class="facility-card-body">
+            <h3>Surf Shop</h3>
+            <p>Full shop with boards, wetsuits, fins, wax, and accessories from all major brands.</p>
+          </div>
+        </div>
+        <div class="facility-card fade-in">
+          <img src="Assets/surf-shop/board-rental-01.jpg" alt="Board rental">
+          <div class="facility-card-body">
+            <h3>Board Rentals</h3>
+            <p>No need to bring your own. Shortboards, longboards, and soft tops available by the session or trip.</p>
+          </div>
+        </div>
+        <div class="facility-card fade-in">
+          <img src="Assets/recovery/recovery-pool-day-01.jpg" alt="Recovery pool">
+          <div class="facility-card-body">
+            <h3>Recovery Suite</h3>
+            <p>Sauna, ice bath, and hot bath. Recharge between sessions and keep your body performing.</p>
+          </div>
+        </div>
+        <div class="facility-card fade-in">
+          <img src="Assets/surf-shop/cafe/cafe-exterior-01.jpg" alt="Surf cafe">
+          <div class="facility-card-body">
+            <h3>Surf Caf&eacute;</h3>
+            <p>Coffee and cold drinks right at the pool. Premium post-session hangout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recovery feature -->
+  <section>
+    <div class="container">
+      <div class="natural-surf-inner">
+        <div>
+          <span class="overline">Recovery &amp; Wellness</span>
+          <h2>Recover like a pro.</h2>
+          <div class="section-divider"></div>
+          <p class="lead">Our dedicated recovery space features a glass-walled sauna surrounded by tropical forest, plunge pools, and hot baths &mdash; all with views over the water.</p>
+          <p style="color: var(--warm-gray); font-size: 0.95rem; margin-top: 1rem;">Recovery access is included in most packages and available as a premium add-on for session-only bookings.</p>
+        </div>
+        <div>
+          <img src="Assets/recovery/recovery-sauna-night-01.jpg" alt="Sauna at night" style="width:100%; height:500px; object-fit:cover; border-radius:3px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gallery-strip">
+    <img src="Assets/wavepool/wavepool-poolside-surfers-01.jpg" alt="Poolside">
+    <img src="Assets/wavepool/wavepool-surf-center-01.jpg" alt="Surf center">
+    <img src="Assets/wavepool/wavepool-spectators-01.jpg" alt="Spectators">
+    <img src="Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids training">
+  </div>
+
+  <section>
+    <div class="container-narrow" style="text-align:center;">
+      <span class="overline">Pricing</span>
+      <h2>Session pricing.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin:0 auto 2rem;">Wave pool sessions are priced per session by level. All packages include sessions &mdash; additional sessions can be added at any time. Contact us for current rates.</p>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Ask About Rates </a>
+    </div>
+  </section>
+
+  <section style="background: var(--sand);">
+    <div class="container-narrow">
+      <div style="text-align:center;">
+        <span class="overline">FAQ</span>
+        <h2>Common questions.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">Do I need to bring my own surfboard?</div>
+          <div class="faq-answer"><p>Not at all. The on-site surf shop has quality boards for every level, and rentals are available by the session or the trip. Many guests travel light and rent here.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What level do I need to be?</div>
+          <div class="faq-answer"><p>The PerfectSwell&reg; pool caters to all levels &mdash; from absolute beginners to advanced competitive surfers. Waves are adjusted per session, so you'll always be in appropriate conditions.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How long is a session?</div>
+          <div class="faq-answer"><p>Sessions typically run 45&ndash;60 minutes depending on wave type and group size. You'll get plenty of waves in every session.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can spectators watch?</div>
+          <div class="faq-answer"><p>Absolutely. The pool has comfortable viewing areas, a caf&eacute;, and a clubhouse where non-surfers can relax and enjoy the atmosphere.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can kids surf here?</div>
+          <div class="faq-answer"><p>Yes. Beginner-friendly waves and coaching sessions are suitable for children. It's a safe, controlled environment ideal for young surfers.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" style="height:50vh; min-height:400px;">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" alt="Wave pool at night">
+    </div>
+    <div class="final-cta-content">
+      <h2>Ready to ride?</h2>
+      <p>Book your PerfectSwell&reg; sessions as part of a trip package or ask about standalone access.</p>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Start Planning </a>
+    </div>
+  </section>
+</div>
+
+
+<!-- ======================== PACKAGES ======================== -->
+<div id="page-packages" class="page">
+
+  <section class="page-hero">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" alt="Wave pool dusk">
+    </div>
+    <div class="container page-hero-content">
+      <span class="overline" style="color:var(--gold);">Packages</span>
+      <h1>Trip packages built<br>around your style.</h1>
+      <p>Whether you want a pure surf trip or a full Hainan adventure, we have a package that fits.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div style="text-align:center; max-width:650px; margin:0 auto 3rem;">
+        <p class="lead">Every package includes premium accommodation, PerfectSwell&reg; sessions, airport transfers, and full English-speaking support. Choose your level of adventure.</p>
+      </div>
+
+      <!-- Package 1 -->
+      <div class="natural-surf-inner" style="margin-bottom:6rem;">
+        <div>
+          <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer" style="width:100%; height:450px; object-fit:cover; border-radius:3px;">
+        </div>
+        <div>
+          <span class="package-tag">3&ndash;4 Days &middot; Surf-Focused</span>
+          <h2>The Surf Session</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--warm-gray); margin-bottom:1.5rem;">For surfers who want maximum wave time. Arrive, surf, recover, repeat.</p>
+          <ul class="package-includes" style="border-top:none; padding-top:0;">
+            <li>3 nights premium accommodation</li>
+            <li>4+ PerfectSwell&reg; sessions (level-matched)</li>
+            <li>Board rental included</li>
+            <li>Airport transfer &amp; transport</li>
+            <li>Recovery suite access</li>
+            <li>English-speaking trip support</li>
+          </ul>
+          <p style="font-size:0.85rem; color:var(--warm-gray); margin:1rem 0;">Optional add-ons: surf photography, extra sessions, coaching, natural surf day trip</p>
+          <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About This Package </a>
+        </div>
+      </div>
+
+      <!-- Package 2 -->
+      <div class="natural-surf-inner" style="margin-bottom:6rem;">
+        <div>
+          <span class="package-tag">5&ndash;7 Days &middot; Surf + Explore &middot; <span style="color:var(--coral);">Most Popular</span></span>
+          <h2>Surf &amp; Discover Hainan</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--warm-gray); margin-bottom:1.5rem;">The full experience. PerfectSwell&reg; sessions combined with curated Hainan exploration &mdash; nature, culture, coastline, and more.</p>
+          <ul class="package-includes" style="border-top:none; padding-top:0;">
+            <li>5&ndash;6 nights premium accommodation</li>
+            <li>6+ wave pool sessions</li>
+            <li>Guided Hainan exploration day(s)</li>
+            <li>Seasonal natural surf experience</li>
+            <li>Recovery suite &amp; surf photography</li>
+            <li>Full transport &amp; English support</li>
+          </ul>
+          <a href="#" class="btn btn-teal btn-arrow" onclick="showPage('contact')">Inquire About This Package </a>
+        </div>
+        <div>
+          <img src="Assets/nature/coastal-highway-aerial-01.jpg" alt="Hainan coastal highway" style="width:100%; height:450px; object-fit:cover; border-radius:3px;">
+        </div>
+      </div>
+
+      <!-- Package 3 -->
+      <div class="natural-surf-inner" style="margin-bottom:6rem;">
+        <div>
+          <img src="Assets/hotel/outside/hotel-pool-aerial-02.jpg" alt="Hotel pool" style="width:100%; height:450px; object-fit:cover; border-radius:3px;">
+        </div>
+        <div>
+          <span class="package-tag">5&ndash;7 Days &middot; Couples, Families &amp; Groups</span>
+          <h2>The Hainan Experience</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--warm-gray); margin-bottom:1.5rem;">Not everyone has to surf for the trip to be incredible. This package balances wave pool sessions with tropical exploration for every traveler in your group.</p>
+          <ul class="package-includes" style="border-top:none; padding-top:0;">
+            <li>5&ndash;6 nights boutique accommodation</li>
+            <li>Flexible wave pool sessions</li>
+            <li>Non-surf activities &amp; excursions</li>
+            <li>Couples / family itinerary options</li>
+            <li>Recovery &amp; wellness access</li>
+            <li>English-speaking guide &amp; support</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About This Package </a>
+        </div>
+      </div>
+
+      <!-- Custom -->
+      <div style="background:var(--sand); padding:4rem; border-radius:3px; text-align:center;">
+        <span class="overline">Fully Custom</span>
+        <h2>Build your own trip.</h2>
+        <div class="section-divider-center"></div>
+        <p class="lead" style="margin:0 auto 2rem; max-width:550px;">Tell us your dates, group size, surf level, and interests &mdash; we'll design a bespoke Hainan trip just for you.</p>
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Plan a Custom Trip </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ======================== EXPLORE HAINAN ======================== -->
+<div id="page-explore" class="page">
+
+  <section class="page-hero">
+    <div class="hero-bg">
+      <img src="Assets/wanning/wanning-river-treehouse-01.jpg" alt="Wanning river treehouse">
+    </div>
+    <div class="container page-hero-content">
+      <span class="overline" style="color:var(--gold);">Explore Hainan</span>
+      <h1>Tropical China,<br>like nothing you'd expect.</h1>
+      <p>Waterfalls, coffee plantations, fire shows, night markets, and empty coastlines. A side of China most travelers never see.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow" style="text-align:center;">
+      <h2>More than a wave pool destination.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin:0 auto;">Hainan is China's tropical island province &mdash; warm year-round, culturally rich, and beautifully undiscovered by international travelers. The wave pool is why you come. Hainan is why you stay longer than you planned.</p>
+    </div>
+  </section>
+
+  <!-- Destination Grid -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="explore-grid-4">
+        <div class="explore-card fade-in">
+          <img src="Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation">
+          <div class="explore-card-overlay">
+            <h3>Coffee Plantations</h3>
+            <p>Xinglong's tropical coffee culture</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall">
+          <div class="explore-card-overlay">
+            <h3>Waterfalls</h3>
+            <p>Hidden cascades in tropical forest</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/culture/fire-performance-01.jpg" alt="Fire show">
+          <div class="explore-card-overlay">
+            <h3>Night Entertainment</h3>
+            <p>Fire performances &amp; cultural shows</p>
+          </div>
+        </div>
+        <div class="explore-card fade-in">
+          <img src="Assets/culture/market/market-peppers-01.jpg" alt="Local market">
+          <div class="explore-card-overlay">
+            <h3>Night Markets</h3>
+            <p>Tropical flavors &amp; local life</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="img-duo" style="padding: 0 clamp(1.5rem, 4vw, 4rem);">
+    <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Coastal road aerial">
+    <img src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint">
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="plan-grid">
+        <div class="plan-card fade-in">
+          <span class="overline">Wanning</span>
+          <h3>Surf Town Atmosphere</h3>
+          <p>The wave pool's home town. A laid-back coastal community with local surf shops, caf&eacute;s, and a growing surf culture that feels genuine and welcoming.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Xinglong</span>
+          <h3>Hot Springs &amp; Coffee Culture</h3>
+          <p>Just minutes away, Xinglong is known for natural hot springs, lush tropical gardens, and a unique Southeast Asian-influenced cuisine brought by returning overseas Chinese.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Nature</span>
+          <h3>Mountains, Rivers &amp; Coastline</h3>
+          <p>Hainan's interior is mountainous and wild. Rivers carve through palm forests. The coastline alternates between dramatic cliffs and long sandy beaches.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Culture &amp; Food</span>
+          <h3>Night Markets &amp; Local Cuisine</h3>
+          <p>Fresh seafood, tropical fruit, local specialties, chocolate-making experiences, and fire performances. Immersive, delicious, and endlessly photogenic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food gallery -->
+  <div class="gallery-strip">
+    <img src="Assets/food/lobster-noodles-01.jpg" alt="Lobster noodles">
+    <img src="Assets/food/crab-dish-01.jpg" alt="Crab dish">
+    <img src="Assets/beach-club/beach-club-aerial-01.jpg" alt="Beach club">
+    <img src="Assets/wanning/wanning-river-paddleboard-01.jpg" alt="Paddleboarding">
+  </div>
+
+  <section style="background:var(--sand);">
+    <div class="container">
+      <div class="natural-surf-inner">
+        <div>
+          <span class="overline">For Non-Surfers</span>
+          <h2>Not everyone has to surf.</h2>
+          <div class="section-divider"></div>
+          <p class="lead">While the surfer in your group is in the pool, there's a full tropical island to explore. Spa treatments, nature hikes, river excursions, cooking experiences, markets, and the beach club.</p>
+          <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">We design itineraries where surfers and non-surfers can split during the day and come back together for incredible shared experiences.</p>
+        </div>
+        <div>
+          <img src="Assets/hotel/outside/hotel-rooftop-lounge-01.jpg" alt="Rooftop lounge" style="width:100%; height:400px; object-fit:cover; border-radius:3px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" style="height:50vh; min-height:400px;">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-resort-aerial-sunset-01.jpg" alt="Resort sunset">
+    </div>
+    <div class="final-cta-content">
+      <h2>See it for yourself.</h2>
+      <p>The best way to understand Hainan is to experience it.</p>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Start Planning </a>
+    </div>
+  </section>
+</div>
+
+
+<!-- ======================== PLAN YOUR TRIP ======================== -->
+<div id="page-plan" class="page">
+
+  <section class="page-hero">
+    <div class="hero-bg">
+      <img src="Assets/hotel/outside/hotel-exterior-aerial-01.jpg" alt="Hotel aerial">
+    </div>
+    <div class="container page-hero-content">
+      <span class="overline" style="color:var(--gold);">Plan Your Trip</span>
+      <h1>Everything you need<br>to know.</h1>
+      <p>Getting to Hainan is easier than you think. Here's what to expect.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="plan-grid">
+        <div class="plan-card fade-in">
+          <span class="overline">Getting There</span>
+          <h3>How to Reach Hainan</h3>
+          <p>Fly into Sanya Phoenix International Airport (SYX) or Haikou Meilan (HAK). Direct flights from major Asian hubs. We handle your transfer to the resort &mdash; approximately 90 minutes of scenic coastal driving.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Accommodation</span>
+          <h3>Where You'll Stay</h3>
+          <p>Premium rooms at the Riyue Bay Surf Resort. Choose between modern hotel rooms with mountain views or designer boutique rooms. All within walking distance of the PerfectSwell&reg; pool.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Language</span>
+          <h3>English Support</h3>
+          <p>Full English-speaking trip coordination from booking to checkout. Your guide, transfers, and all communications are in English. We're available via WhatsApp throughout your stay.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Transport</span>
+          <h3>Getting Around</h3>
+          <p>All packages include airport transfers and resort transport. For exploration days, we arrange guided transport to Hainan's best spots. No local transit to figure out.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Gear</span>
+          <h3>Board Rentals &amp; Surf Shop</h3>
+          <p>Travel light. The on-site surf shop carries all major brands, and quality board rentals are available for every session. Bring your own if you prefer &mdash; but you don't have to.</p>
+        </div>
+        <div class="plan-card fade-in">
+          <span class="overline">Best Time to Visit</span>
+          <h3>When to Come</h3>
+          <p>The PerfectSwell&reg; pool operates year-round. Hainan is tropical &mdash; warm in every season. October through April offers the most comfortable weather and best natural surf conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gallery-strip">
+    <img src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer room">
+    <img src="Assets/hotel/main hotel/main-hotel-room-01.jpg" alt="Hotel room">
+    <img src="Assets/hotel/outside/hotel-lobby-dusk-01.jpg" alt="Lobby dusk">
+    <img src="Assets/hotel/restaurant/restaurant-dining-hall-01.jpg" alt="Restaurant">
+  </div>
+
+  <section style="background:var(--sand);">
+    <div class="container-narrow">
+      <div style="text-align:center;">
+        <span class="overline">FAQ</span>
+        <h2>Trip questions, answered.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">Do I need a visa to visit China?</div>
+          <div class="faq-answer"><p>Hainan offers visa-free entry for visitors from many countries for stays up to 30 days. We'll help you confirm your eligibility during trip planning.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is it worth flying to China for this?</div>
+          <div class="faq-answer"><p>This is not just a wave pool &mdash; it's a full tropical destination trip. PerfectSwell&reg; waves, premium accommodation, unique cultural experiences, and an island most travelers have never explored. Many guests tell us it was their most surprising and memorable surf trip.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if I don't speak Chinese?</div>
+          <div class="faq-answer"><p>We handle everything in English. Your trip coordinator, airport pickup, and all communications are in English. We're also available via WhatsApp throughout your stay.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What if only one person in our group surfs?</div>
+          <div class="faq-answer"><p>Our packages are designed for exactly this. While the surfer is in the pool, non-surfers can enjoy the hotel pool, beach club, spa, Hainan exploration, or simply relax at the recovery suite.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can the trip be customized?</div>
+          <div class="faq-answer"><p>Absolutely. Every trip can be tailored to your dates, group size, interests, and budget.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is it family-friendly?</div>
+          <div class="faq-answer"><p>Very much so. The wave pool offers kid-friendly sessions, the resort is comfortable for families, and Hainan has plenty of activities for all ages.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" style="height:50vh; min-height:400px;">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-dusk-reflection-01.jpg" alt="Wave pool dusk">
+    </div>
+    <div class="final-cta-content">
+      <h2>Let's plan your trip.</h2>
+      <p>Tell us about your group and we'll handle the rest.</p>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Start Planning </a>
+    </div>
+  </section>
+</div>
+
+
+<!-- ======================== CONTACT ======================== -->
+<div id="page-contact" class="page">
+
+  <section class="page-hero" style="height:45vh; min-height:350px;">
+    <div class="hero-bg">
+      <img src="Assets/wavepool/wavepool-aerial-closeup-01.jpg" alt="Wave pool closeup">
+    </div>
+    <div class="container page-hero-content">
+      <span class="overline" style="color:var(--gold);">Contact</span>
+      <h1>Start planning<br>your trip.</h1>
+      <p>Tell us about your group, dates, and interests. We'll get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <h2>Trip Inquiry</h2>
+          <div class="section-divider"></div>
+          <p style="color:var(--warm-gray); margin-bottom:2rem;">Fill out the form and we'll respond with personalized trip options. No commitment &mdash; just a conversation about what's possible.</p>
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="Your first name" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Your last name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Preferred Dates</label>
+                <input type="text" placeholder="e.g. March 2026, Flexible">
+              </div>
+              <div class="form-group">
+                <label>Group Size</label>
+                <select>
+                  <option>Solo</option>
+                  <option>Couple (2)</option>
+                  <option>Small group (3-5)</option>
+                  <option>Large group (6+)</option>
+                  <option>Family with kids</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Surf Level</label>
+                <select>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                  <option>Mixed levels in group</option>
+                  <option>Non-surfer / Companion</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Interested In</label>
+                <select>
+                  <option>The Surf Session (3-4 days)</option>
+                  <option>Surf &amp; Discover Hainan (5-7 days)</option>
+                  <option>The Hainan Experience (couples/family)</option>
+                  <option>Custom Trip</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Tell Us More</label>
+              <textarea placeholder="Anything else? Special interests, questions, group details..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Trip Inquiry </button>
+          </form>
+        </div>
+        <div style="padding-left:2rem;">
+          <div style="background:var(--sand); padding:2.5rem; border-radius:3px; margin-bottom:2rem;">
+            <h3 style="margin-bottom:1.5rem;">Other Ways to Reach Us</h3>
+            <div style="margin-bottom:1.5rem;">
+              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">WhatsApp</p>
+              <p style="font-size:0.95rem;">Message us directly for a quick response</p>
+            </div>
+            <div style="margin-bottom:1.5rem;">
+              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Email</p>
+              <p style="font-size:0.95rem;">hello@surfchina.com</p>
+            </div>
+            <div style="margin-bottom:1.5rem;">
+              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Instagram</p>
+              <p style="font-size:0.95rem;">@surfchina</p>
+            </div>
+            <div>
+              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Response Time</p>
+              <p style="font-size:0.95rem;">We typically respond within 24 hours.</p>
+            </div>
+          </div>
+          <div style="background:var(--charcoal); color:var(--white); padding:2.5rem; border-radius:3px; margin-bottom:2rem;">
+            <h3 style="color:var(--white); margin-bottom:1rem;">What Happens Next?</h3>
+            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
+              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">1</span>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">You send us your inquiry with dates and preferences.</p>
+            </div>
+            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
+              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">2</span>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We design a personalized trip proposal within 24&ndash;48 hours.</p>
+            </div>
+            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
+              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">3</span>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We refine it together until it's exactly right.</p>
+            </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start;">
+              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">4</span>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">Confirm with a deposit and we handle the rest.</p>
+            </div>
+          </div>
+          <!-- Partner badge -->
+          <div style="background:var(--sand); padding:1.5rem; border-radius:3px; text-align:center;">
+            <img src="Assets/perfectswell-logo.png" alt="PerfectSwell" style="height:28px; margin-bottom:0.5rem;">
+            <p style="font-size:0.8rem; color:var(--warm-gray);">Official PerfectSwell&reg; Hainan Partner</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" onclick="showPage('home')">SURF CHINA</a>
+        <p style="margin-bottom:1.5rem;">The world's most exciting surf destination you haven't been to yet. Official PerfectSwell&reg; partner.</p>
+        <div class="footer-partner">
+          <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+          <span>Official Partner</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#" onclick="showPage('wavepool')">Wave Pool</a>
+        <a href="#" onclick="showPage('packages')">Packages</a>
+        <a href="#" onclick="showPage('explore')">Explore Hainan</a>
+        <a href="#" onclick="showPage('plan')">Plan Your Trip</a>
+      </div>
+      <div class="footer-col">
+        <h4>Packages</h4>
+        <a href="#" onclick="showPage('packages')">The Surf Session</a>
+        <a href="#" onclick="showPage('packages')">Surf &amp; Discover</a>
+        <a href="#" onclick="showPage('packages')">Hainan Experience</a>
+        <a href="#" onclick="showPage('contact')">Custom Trip</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">hello@surfchina.com</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Surf China. All rights reserved. PerfectSwell&reg; is a registered trademark of American Wave Machines.</span>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + page);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Re-trigger fade-in animations
+  setTimeout(() => {
+    document.querySelectorAll('.page.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
+  }, 100);
+  return false;
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+});
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+document.addEventListener('click', (e) => {
+  const faqItem = e.target.closest('.faq-item');
+  if (faqItem) faqItem.classList.toggle('open');
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const pageObserver = new MutationObserver(() => {
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
+});
+document.querySelectorAll('.page').forEach(page => {
+  pageObserver.observe(page, { attributes: true, attributeFilter: ['class'] });
+});
+function handleSubmit(e) { e.preventDefault(); alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.'); }
+</script>
+</body>
+</html>

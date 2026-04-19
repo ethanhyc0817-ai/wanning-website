@@ -1,0 +1,32 @@
+# macOS system files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Original (uncompressed) asset backup — keep local, don't push
+Assets-original/
+
+# Videos — served via Cloudinary CDN, not stored in repo
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.webm
+
+# Stray HEIC files (replaced by .jpg versions)
+*.HEIC
+*.heic
+
+# Stray temp files from compression
+_compressed_*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs & env
+*.log
+.env
+.env.*
