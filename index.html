@@ -271,11 +271,39 @@ nav.scrolled { padding: 0.7rem 0; }
 .facilities h2 { color: var(--white); }
 .facilities .overline { color: var(--gold); }
 .facilities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
-.facility-card { padding: 0; border-radius: 3px; overflow: hidden; background: rgba(255,255,255,0.05); }
-.facility-card img { width: 100%; height: 180px; object-fit: cover; }
+.facility-card {
+  padding: 0; border-radius: 3px; overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.facility-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.09);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.facility-card img { width: 100%; height: 180px; object-fit: cover; transition: transform 0.5s ease; }
+.facility-card:hover img { transform: scale(1.04); }
 .facility-card-body { padding: 1.5rem; }
 .facility-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
-.facility-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+.facility-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 1rem; }
+.facility-card .card-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold);
+}
+.facility-card .card-cta::after {
+  content: '\2192';
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.facility-card:hover .card-cta::after { transform: translateX(5px); }
 
 /* Packages */
 .packages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -678,7 +706,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
           </div>
           <h2>Your perfect wave, on demand.</h2>
           <div class="section-divider"></div>
-          <p class="lead">PerfectSwell&reg; Hainan &mdash; Asia's most advanced wave pool, offering 23 wave configurations for first-timers, experienced surfers, and those looking to catch their first barrel.</p>
+          <p class="lead" style="margin-bottom: 2.5rem;">PerfectSwell&reg; Hainan &mdash; Asia's most advanced wave pool, offering 23 wave configurations for first-timers, experienced surfers, and those looking to catch their first barrel.</p>
           <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('wavepool')">Discover the Wave Pool </a>
         </div>
         <div>
@@ -743,6 +771,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
           <div class="facility-card-body">
             <h3>Surf Shop</h3>
             <p>All major brands on site. No need to travel with boards or gear &mdash; everything is here.</p>
+            <span class="card-cta">Learn More</span>
           </div>
         </a>
         <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'board-rentals')">
@@ -750,20 +779,23 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
           <div class="facility-card-body">
             <h3>Board Rentals</h3>
             <p>Shortboards, longboards, and soft tops. Travel light, surf heavy.</p>
+            <span class="card-cta">Learn More</span>
           </div>
         </a>
         <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'cafe')">
-          <img src="Assets/recovery/IMG_5050.jpg" alt="Surf cafe">
+          <img src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Surf cafe">
           <div class="facility-card-body">
             <h3>Surf Caf&eacute;</h3>
             <p>Coffee, cold drinks, and good energy right at the pool. The perfect post-session hangout.</p>
+            <span class="card-cta">Learn More</span>
           </div>
         </a>
         <a href="#" class="facility-card fade-in" onclick="return showPage('facilities', 'recovery')">
-          <img src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Recovery and wellness">
+          <img src="Assets/recovery/IMG_5050.jpg" alt="Recovery and wellness">
           <div class="facility-card-body">
             <h3>Recovery &amp; Wellness</h3>
             <p>Sauna, ice bath, and hot bath on site. Premium post-session recovery.</p>
+            <span class="card-cta">Learn More</span>
           </div>
         </a>
       </div>
