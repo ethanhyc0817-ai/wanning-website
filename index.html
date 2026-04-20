@@ -525,7 +525,23 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
   .why-grid, .contact-grid, .plan-grid, .natural-surf-inner,
   .reassurance-pillars { grid-template-columns: 1fr; }
   .facilities-grid, .audience-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-strip { grid-template-columns: 1fr 1fr; }
+  /* Gallery — horizontal swipe carousel on mobile */
+  .gallery-strip {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+  .gallery-strip::-webkit-scrollbar { display: none; }
+  .gallery-strip img {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+    height: 260px;
+  }
   .img-duo { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; }
@@ -574,7 +590,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
 @media (max-width: 480px) {
   .facilities-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .audience-grid { grid-template-columns: 1fr; }
-  .gallery-strip { grid-template-columns: 1fr; }
   .gallery-strip img { height: 220px; }
   .form-row { grid-template-columns: 1fr; }
   /* Tighter images + text on small mobile so 2-col facility tiles look clean */
