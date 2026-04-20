@@ -445,9 +445,35 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 /* Gallery */
+.gallery-strip-wrap { position: relative; }
 .gallery-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-.gallery-strip img { width: 100%; height: 300px; object-fit: cover; transition: opacity 0.3s; }
+.gallery-strip img { width: 100%; aspect-ratio: 3 / 2; height: auto; object-fit: cover; transition: opacity 0.3s; display: block; }
 .gallery-strip img:hover { opacity: 0.85; }
+/* Arrow buttons — shown on mobile only */
+.gallery-nav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  color: #111;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.gallery-nav:active { transform: translateY(-50%) scale(0.95); }
+.gallery-nav-prev { left: 0.75rem; }
+.gallery-nav-next { right: 0.75rem; }
 
 /* Plan */
 .plan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
@@ -540,8 +566,9 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
   .gallery-strip img {
     flex: 0 0 88%;
     scroll-snap-align: center;
-    height: 260px;
+    height: auto;
   }
+  .gallery-nav { display: flex; }
   .img-duo { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; }
@@ -590,7 +617,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 4re
 @media (max-width: 480px) {
   .facilities-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .audience-grid { grid-template-columns: 1fr; }
-  .gallery-strip img { height: 220px; }
   .form-row { grid-template-columns: 1fr; }
   /* Tighter images + text on small mobile so 2-col facility tiles look clean */
   .facility-card img { height: 140px; }
@@ -1739,6 +1765,45 @@ document.querySelectorAll('.page').forEach(page => {
   pageObserver.observe(page, { attributes: true, attributeFilter: ['class'] });
 });
 function handleSubmit(e) { e.preventDefault(); alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.'); }
+
+// Gallery-strip mobile carousel: wrap each .gallery-strip and add prev/next arrows with looping
+document.querySelectorAll('.gallery-strip').forEach(strip => {
+  const wrap = document.createElement('div');
+  wrap.className = 'gallery-strip-wrap';
+  strip.parentNode.insertBefore(wrap, strip);
+  wrap.appendChild(strip);
+
+  const prev = document.createElement('button');
+  prev.type = 'button';
+  prev.className = 'gallery-nav gallery-nav-prev';
+  prev.setAttribute('aria-label', 'Previous image');
+  prev.innerHTML = '\u2039';
+
+  const next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'gallery-nav gallery-nav-next';
+  next.setAttribute('aria-label', 'Next image');
+  next.innerHTML = '\u203A';
+
+  wrap.appendChild(prev);
+  wrap.appendChild(next);
+
+  const imgs = strip.querySelectorAll('img');
+
+  function step(delta) {
+    const n = imgs.length;
+    if (!n) return;
+    const gap = parseFloat(getComputedStyle(strip).gap) || 8;
+    const itemW = imgs[0].getBoundingClientRect().width + gap;
+    let idx = Math.round(strip.scrollLeft / itemW) + delta;
+    if (idx < 0) idx = n - 1;
+    if (idx >= n) idx = 0;
+    strip.scrollTo({ left: idx * itemW, behavior: 'smooth' });
+  }
+
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+});
 </script>
 </body>
 </html>
