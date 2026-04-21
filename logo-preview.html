@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surf China Co. — Logo Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1a1a1a;
+    --warm-gray: #6b6b6b;
+    --light-gray: #f4f2ee;
+    --sand: #ede6d8;
+    --teal: #2d6e7e;
+    --coral: #d4775a;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: #faf8f4;
+    line-height: 1.6;
+  }
+  .page-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+  }
+  .page-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .page-header p { color: var(--warm-gray); max-width: 640px; }
+  .concepts {
+    max-width: 1100px;
+    margin: 2rem auto 4rem;
+    padding: 0 2rem;
+    display: grid;
+    gap: 2.5rem;
+  }
+  .concept {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .concept-meta {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .concept-meta .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .concept-meta h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .concept-meta p {
+    color: var(--warm-gray);
+    font-size: 0.9rem;
+    max-width: 500px;
+  }
+  .logo-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .logo-display > div {
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+  }
+  .light-bg { background: var(--light-gray); }
+  .dark-bg { background: var(--charcoal); }
+
+  /* SVG text fonts */
+  svg text { font-family: 'Space Grotesk', sans-serif; }
+
+  @media (max-width: 700px) {
+    .logo-display { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>SURF CHINA CO. — Logo Concepts</h1>
+  <p>Four directions, each shown on a light and dark background. Pick the one that feels right, and I'll wire it into the site.</p>
+</div>
+
+<div class="concepts">
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 1: THE LINE (minimal editorial) -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div>
+        <div class="label">Concept 01</div>
+        <h2>The Line</h2>
+      </div>
+      <p>Minimal editorial wordmark. A single horizontal swell-line beneath the name. Reads premium, understated, grown-up.</p>
+    </div>
+    <div class="logo-display">
+      <div class="light-bg">
+        <svg viewBox="0 0 360 120" width="320" xmlns="http://www.w3.org/2000/svg">
+          <text x="180" y="55" text-anchor="middle" font-size="32" font-weight="600" letter-spacing="6" fill="#1a1a1a">SURF CHINA</text>
+          <path d="M 60 75 Q 120 65, 180 75 T 300 75" stroke="#2d6e7e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <text x="180" y="100" text-anchor="middle" font-size="10" font-weight="500" letter-spacing="5" fill="#6b6b6b">— CO. —</text>
+        </svg>
+      </div>
+      <div class="dark-bg">
+        <svg viewBox="0 0 360 120" width="320" xmlns="http://www.w3.org/2000/svg">
+          <text x="180" y="55" text-anchor="middle" font-size="32" font-weight="600" letter-spacing="6" fill="#ffffff">SURF CHINA</text>
+          <path d="M 60 75 Q 120 65, 180 75 T 300 75" stroke="#ffbd59" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <text x="180" y="100" text-anchor="middle" font-size="10" font-weight="500" letter-spacing="5" fill="#b8b8b8">— CO. —</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 2: THE SWELL (wave mark + wordmark) -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div>
+        <div class="label">Concept 02</div>
+        <h2>The Swell</h2>
+      </div>
+      <p>A stylized breaking-wave curl pairs with the wordmark. Friendly, unmistakably surf, still clean enough for premium.</p>
+    </div>
+    <div class="logo-display">
+      <div class="light-bg">
+        <svg viewBox="0 0 420 120" width="360" xmlns="http://www.w3.org/2000/svg">
+          <!-- wave curl icon -->
+          <g transform="translate(20,30)">
+            <path d="M 5 40 Q 20 10, 45 15 Q 65 18, 55 35 Q 50 45, 35 42 Q 25 40, 30 30" stroke="#2d6e7e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 0 55 Q 30 48, 60 55" stroke="#2d6e7e" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+          </g>
+          <text x="100" y="60" font-size="30" font-weight="700" letter-spacing="3" fill="#1a1a1a">SURF CHINA</text>
+          <text x="100" y="85" font-size="11" font-weight="500" letter-spacing="4" fill="#6b6b6b">CO. · HAINAN</text>
+        </svg>
+      </div>
+      <div class="dark-bg">
+        <svg viewBox="0 0 420 120" width="360" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(20,30)">
+            <path d="M 5 40 Q 20 10, 45 15 Q 65 18, 55 35 Q 50 45, 35 42 Q 25 40, 30 30" stroke="#ffbd59" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 0 55 Q 30 48, 60 55" stroke="#ffbd59" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          </g>
+          <text x="100" y="60" font-size="30" font-weight="700" letter-spacing="3" fill="#ffffff">SURF CHINA</text>
+          <text x="100" y="85" font-size="11" font-weight="500" letter-spacing="4" fill="#b8b8b8">CO. · HAINAN</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 3: THE BADGE (circular seal) -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div>
+        <div class="label">Concept 03</div>
+        <h2>The Seal</h2>
+      </div>
+      <p>Boutique circular badge — like a surf-shop crest. Works great as an app icon, Instagram avatar, or merch stamp.</p>
+    </div>
+    <div class="logo-display">
+      <div class="light-bg">
+        <svg viewBox="0 0 200 200" width="180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="circleTop" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+            <path id="circleBot" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/>
+          </defs>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+          <!-- curved top text -->
+          <text font-size="9" font-weight="600" letter-spacing="3" fill="#1a1a1a">
+            <textPath href="#circleTop" startOffset="50%" text-anchor="middle">SURF CHINA CO.</textPath>
+          </text>
+          <text font-size="8" font-weight="500" letter-spacing="4" fill="#1a1a1a">
+            <textPath href="#circleBot" startOffset="50%" text-anchor="middle">· HAINAN · EST. 2026 ·</textPath>
+          </text>
+          <!-- center mark: wave + S/C monogram -->
+          <path d="M 55 108 Q 75 90, 100 100 Q 125 108, 145 95" stroke="#2d6e7e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="100" y="92" text-anchor="middle" font-size="28" font-weight="700" letter-spacing="2" fill="#1a1a1a">SC</text>
+        </svg>
+      </div>
+      <div class="dark-bg">
+        <svg viewBox="0 0 200 200" width="180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="circleTop2" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+            <path id="circleBot2" d="M 30 100 A 70 70 0 0 0 170 100" fill="none"/>
+          </defs>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="#ffffff" stroke-width="1"/>
+          <text font-size="9" font-weight="600" letter-spacing="3" fill="#ffffff">
+            <textPath href="#circleTop2" startOffset="50%" text-anchor="middle">SURF CHINA CO.</textPath>
+          </text>
+          <text font-size="8" font-weight="500" letter-spacing="4" fill="#ffffff">
+            <textPath href="#circleBot2" startOffset="50%" text-anchor="middle">· HAINAN · EST. 2026 ·</textPath>
+          </text>
+          <path d="M 55 108 Q 75 90, 100 100 Q 125 108, 145 95" stroke="#ffbd59" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <text x="100" y="92" text-anchor="middle" font-size="28" font-weight="700" letter-spacing="2" fill="#ffffff">SC</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 4: THE STACK (architectural) -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div>
+        <div class="label">Concept 04</div>
+        <h2>The Stack</h2>
+      </div>
+      <p>Stacked, architectural wordmark. Bold, editorial, confident — the "beyond the ordinary" energy translated into type.</p>
+    </div>
+    <div class="logo-display">
+      <div class="light-bg">
+        <svg viewBox="0 0 280 200" width="240" xmlns="http://www.w3.org/2000/svg">
+          <text x="140" y="60" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="2" fill="#1a1a1a">SURF</text>
+          <text x="140" y="105" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="2" fill="#1a1a1a">CHINA</text>
+          <line x1="90" y1="125" x2="190" y2="125" stroke="#2d6e7e" stroke-width="2"/>
+          <text x="140" y="150" text-anchor="middle" font-size="13" font-weight="500" letter-spacing="8" fill="#6b6b6b">CO.</text>
+        </svg>
+      </div>
+      <div class="dark-bg">
+        <svg viewBox="0 0 280 200" width="240" xmlns="http://www.w3.org/2000/svg">
+          <text x="140" y="60" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="2" fill="#ffffff">SURF</text>
+          <text x="140" y="105" text-anchor="middle" font-size="42" font-weight="700" letter-spacing="2" fill="#ffffff">CHINA</text>
+          <line x1="90" y1="125" x2="190" y2="125" stroke="#ffbd59" stroke-width="2"/>
+          <text x="140" y="150" text-anchor="middle" font-size="13" font-weight="500" letter-spacing="8" fill="#b8b8b8">CO.</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="max-width:1100px;margin:0 auto 5rem;padding:0 2rem;color:var(--warm-gray);font-size:0.9rem;">
+  <p><strong style="color:var(--charcoal);">Next step:</strong> tell me "I want concept 02" (or whichever), and I'll replace the text logo in your nav + footer with the real thing. I can also export the one you pick as a standalone .svg file for Instagram / business cards / signage.</p>
+</div>
+
+</body>
+</html>

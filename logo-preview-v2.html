@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Surf China Co. — Logo Concepts v2 (Chinese Heritage)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1a1a1a;
+    --warm-gray: #6b6b6b;
+    --paper: #f4e9d0;
+    --paper-light: #faf2e0;
+    --sand: #ede6d8;
+    --ink-blue: #1f4788;
+    --ink-blue-dark: #16345f;
+    --gold: #c9a961;
+    --coral: #c94c4c;
+    --teal: #2d6e7e;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: #faf8f4;
+    line-height: 1.6;
+  }
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem 1rem;
+  }
+  .page-header .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-blue);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .page-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .page-header p { color: var(--warm-gray); max-width: 680px; }
+
+  .section-title {
+    max-width: 1200px;
+    margin: 4rem auto 1.5rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .section-title h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-title .num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.6rem;
+    color: var(--ink-blue);
+    font-weight: 500;
+  }
+  .section-title .cn {
+    color: var(--warm-gray);
+    font-family: 'Noto Serif SC', serif;
+    font-size: 0.95rem;
+  }
+
+  .concepts {
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+    display: grid;
+    gap: 2.5rem;
+  }
+  .concept {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .concept-meta {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .concept-meta .left { flex: 0 0 auto; }
+  .concept-meta .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-blue);
+    font-weight: 600;
+  }
+  .concept-meta h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .concept-meta h2 .cn {
+    font-family: 'Noto Serif SC', serif;
+    color: var(--ink-blue);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+  .concept-meta p {
+    color: var(--warm-gray);
+    font-size: 0.9rem;
+    max-width: 500px;
+  }
+  .logo-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .logo-display > div {
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+  }
+  .bg-paper { background: var(--paper); }
+  .bg-ink { background: var(--ink-blue); }
+  .bg-dark { background: var(--charcoal); }
+
+  svg text { font-family: 'Space Grotesk', sans-serif; }
+  .cn-serif { font-family: 'Noto Serif SC', serif !important; }
+
+  /* Pattern usage section */
+  .usage {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .usage-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .usage-card .header {
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .usage-card .header h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .usage-card .header p {
+    color: var(--warm-gray);
+    font-size: 0.85rem;
+  }
+  .usage-body { padding: 0; }
+
+  /* Mock hero */
+  .mock-hero {
+    position: relative;
+    height: 320px;
+    background: linear-gradient(135deg, #2d6e7e 0%, #1f4788 100%);
+    overflow: hidden;
+    color: var(--white);
+  }
+  .mock-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('Assets/wavepool/hero-desktop.jpg') center/cover;
+    opacity: 0.5;
+  }
+  .mock-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    max-width: 800px;
+  }
+  .mock-hero-content .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 0.8rem;
+  }
+  .mock-hero-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .mock-hero-content .accent {
+    color: #ffbd59;
+  }
+  .hero-ornament {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.6;
+  }
+
+  /* Mock divider */
+  .mock-divider {
+    padding: 3rem 2rem;
+    background: var(--paper-light);
+    text-align: center;
+  }
+  .mock-divider .text {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  /* Mock footer */
+  .mock-footer {
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 3rem 2rem 0;
+    position: relative;
+  }
+  .mock-footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .mock-footer h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .mock-footer p { opacity: 0.7; font-size: 0.9rem; max-width: 300px; }
+  .footer-ornament {
+    margin-top: 2rem;
+    width: 100%;
+    height: 40px;
+    display: block;
+  }
+
+  /* Mock package card */
+  .mock-package {
+    padding: 2rem;
+    background: var(--paper-light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .pkg-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .pkg-card .pattern-band {
+    height: 28px;
+    background: var(--ink-blue);
+    position: relative;
+    overflow: hidden;
+  }
+  .pkg-card .body {
+    padding: 1.5rem;
+  }
+  .pkg-card .tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-blue);
+    font-weight: 600;
+  }
+  .pkg-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    margin: 0.4rem 0 0.6rem;
+  }
+  .pkg-card p {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+  }
+
+  .note {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 2rem;
+    background: var(--paper-light);
+    border-left: 3px solid var(--ink-blue);
+    border-radius: 4px;
+    color: var(--charcoal);
+    font-size: 0.95rem;
+  }
+  .note strong { color: var(--ink-blue); }
+
+  @media (max-width: 700px) {
+    .logo-display { grid-template-columns: 1fr; }
+    .mock-package { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 1.8rem; }
+    .mock-hero-content h2 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="eyebrow">Round 2 · Chinese Heritage</div>
+  <h1>SURF CHINA CO. — Logo Concepts v2</h1>
+  <p>这一轮把中国传统水纹（青海波、浪花、祥云、海水江崖）融进 logo，并且配上现代干净的字体，让"China"这个字不是地名标签，而是文化血脉。每个方案在浅色纸感底和深蓝靛色底上都做了展示。</p>
+</div>
+
+<div class="section-title">
+  <span class="num">一</span>
+  <h2>Logo Concepts</h2>
+  <span class="cn">— 标志方案</span>
+</div>
+
+<div class="concepts">
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 5: 青海波印章 THE SEIGAIHA SEAL -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div class="left">
+        <div class="label">Concept 05</div>
+        <h2>The Seigaiha Seal <span class="cn">青海波印</span></h2>
+      </div>
+      <p>圆形徽章内填充青海波鱼鳞纹，中心是"浪"字。兼具中国古代印章的仪式感和冲浪品牌的现代感。最"可做成印花周边"的一版。</p>
+    </div>
+    <div class="logo-display">
+      <div class="bg-paper">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="seal-clip-1"><circle cx="70" cy="80" r="52"/></clipPath>
+          </defs>
+          <!-- Paper disc with thin indigo ring -->
+          <circle cx="70" cy="80" r="52.5" fill="#f4e9d0" stroke="#1f4788" stroke-width="1.2"/>
+          <!-- Simplified seigaiha: 1 row of large scales at bottom, 2 rings each -->
+          <g clip-path="url(#seal-clip-1)" fill="none" stroke="#1f4788" stroke-width="1.8" stroke-linecap="round">
+            <path d="M 4 118 A 26 26 0 0 1 56 118"/>
+            <path d="M 56 118 A 26 26 0 0 1 108 118"/>
+            <path d="M 108 118 A 26 26 0 0 1 160 118"/>
+            <path d="M 18 118 A 12 12 0 0 1 42 118"/>
+            <path d="M 70 118 A 12 12 0 0 1 94 118"/>
+            <path d="M 122 118 A 12 12 0 0 1 146 118"/>
+          </g>
+          <!-- 浪 character -->
+          <text x="70" y="78" text-anchor="middle" font-family="'PingFang SC','Noto Serif SC','SimSun',serif" font-size="42" font-weight="700" fill="#1f4788">浪</text>
+          <!-- wordmark -->
+          <text x="160" y="72" font-size="26" font-weight="700" letter-spacing="3" fill="#1a1a1a">SURF CHINA</text>
+          <line x1="160" y1="88" x2="340" y2="88" stroke="#1f4788" stroke-width="1"/>
+          <text x="160" y="108" font-size="11" font-weight="500" letter-spacing="5" fill="#6b6b6b">CO. · HAINAN</text>
+        </svg>
+      </div>
+      <div class="bg-ink">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="seal-clip-2"><circle cx="70" cy="80" r="52"/></clipPath>
+          </defs>
+          <circle cx="70" cy="80" r="52.5" fill="#f4e9d0" stroke="#1f4788" stroke-width="1.2"/>
+          <g clip-path="url(#seal-clip-2)" fill="none" stroke="#1f4788" stroke-width="1.8" stroke-linecap="round">
+            <path d="M 4 118 A 26 26 0 0 1 56 118"/>
+            <path d="M 56 118 A 26 26 0 0 1 108 118"/>
+            <path d="M 108 118 A 26 26 0 0 1 160 118"/>
+            <path d="M 18 118 A 12 12 0 0 1 42 118"/>
+            <path d="M 70 118 A 12 12 0 0 1 94 118"/>
+            <path d="M 122 118 A 12 12 0 0 1 146 118"/>
+          </g>
+          <text x="70" y="78" text-anchor="middle" font-family="'PingFang SC','Noto Serif SC','SimSun',serif" font-size="42" font-weight="700" fill="#1f4788">浪</text>
+          <text x="160" y="72" font-size="26" font-weight="700" letter-spacing="3" fill="#ffffff">SURF CHINA</text>
+          <line x1="160" y1="88" x2="340" y2="88" stroke="#f4e9d0" stroke-width="1"/>
+          <text x="160" y="108" font-size="11" font-weight="500" letter-spacing="5" fill="#d9c88e">CO. · HAINAN</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 6: 浪花 THE CURL -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div class="left">
+        <div class="label">Concept 06</div>
+        <h2>The Curl <span class="cn">浪花</span></h2>
+      </div>
+      <p>单个中国传统"浪花卷"图形，取自海水江崖纹的浪头部分。极简但极有东方辨识度。最适合做 APP icon、Instagram 头像、烫印名片。</p>
+    </div>
+    <div class="logo-display">
+      <div class="bg-paper">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Chinese wave curl mark -->
+          <g transform="translate(20,40)" fill="#1f4788">
+            <!-- main curl body -->
+            <path d="M 10 60 Q 10 20, 50 20 Q 85 20, 85 45 Q 85 60, 70 60 Q 58 60, 58 50 Q 58 42, 66 42" fill="none" stroke="#1f4788" stroke-width="4" stroke-linecap="round"/>
+            <!-- secondary smaller curl -->
+            <path d="M 80 70 Q 80 50, 98 50 Q 110 50, 110 62 Q 110 70, 102 70 Q 96 70, 96 65" fill="none" stroke="#1f4788" stroke-width="3" stroke-linecap="round"/>
+            <!-- water base lines -->
+            <path d="M 5 82 Q 35 76, 65 82 T 120 82" stroke="#1f4788" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M 10 92 Q 40 88, 70 92 T 120 92" stroke="#1f4788" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+          </g>
+          <text x="160" y="72" font-size="28" font-weight="700" letter-spacing="3" fill="#1a1a1a">SURF CHINA</text>
+          <text x="160" y="98" font-size="11" font-weight="500" letter-spacing="6" fill="#1f4788">CO. · 冲浪中国</text>
+        </svg>
+      </div>
+      <div class="bg-ink">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(20,40)">
+            <path d="M 10 60 Q 10 20, 50 20 Q 85 20, 85 45 Q 85 60, 70 60 Q 58 60, 58 50 Q 58 42, 66 42" fill="none" stroke="#f4e9d0" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 80 70 Q 80 50, 98 50 Q 110 50, 110 62 Q 110 70, 102 70 Q 96 70, 96 65" fill="none" stroke="#f4e9d0" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 5 82 Q 35 76, 65 82 T 120 82" stroke="#f4e9d0" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M 10 92 Q 40 88, 70 92 T 120 92" stroke="#f4e9d0" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+          </g>
+          <text x="160" y="72" font-size="28" font-weight="700" letter-spacing="3" fill="#ffffff">SURF CHINA</text>
+          <text x="160" y="98" font-size="11" font-weight="500" letter-spacing="6" fill="#ffbd59">CO. · 冲浪中国</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 7: 海水江崖 THE MOUNTAIN WAVE -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div class="left">
+        <div class="label">Concept 07</div>
+        <h2>The Mountain Wave <span class="cn">海水江崖</span></h2>
+      </div>
+      <p>取自明清龙袍下摆的"海水江崖纹"——象征山海相接、绵延不绝。最具仪式感和中国皇家质感。适合打在 hero 区域、画册封面、周边礼盒。</p>
+    </div>
+    <div class="logo-display">
+      <div class="bg-paper">
+        <svg viewBox="0 0 440 200" width="380" xmlns="http://www.w3.org/2000/svg">
+          <!-- mountain/wave layered motif -->
+          <g transform="translate(120,30)">
+            <!-- back arcs (mountains far) -->
+            <path d="M 0 90 Q 40 60, 80 90 Q 120 60, 160 90 Q 200 60, 200 90" fill="none" stroke="#1f4788" stroke-width="1.5" opacity="0.4"/>
+            <path d="M 0 96 Q 40 66, 80 96 Q 120 66, 160 96 Q 200 66, 200 96" fill="none" stroke="#1f4788" stroke-width="1.5" opacity="0.4"/>
+            <!-- mid arcs -->
+            <path d="M 0 80 Q 30 45, 60 80 Q 90 45, 120 80 Q 150 45, 180 80 Q 210 45, 210 80" fill="none" stroke="#1f4788" stroke-width="2" opacity="0.65"/>
+            <!-- front wave curls (海水) -->
+            <g fill="none" stroke="#1f4788" stroke-width="2.5" stroke-linecap="round">
+              <path d="M 10 60 Q 10 30, 40 30 Q 65 30, 65 50 Q 65 62, 52 62 Q 42 62, 42 55"/>
+              <path d="M 100 60 Q 100 30, 130 30 Q 155 30, 155 50 Q 155 62, 142 62 Q 132 62, 132 55"/>
+              <path d="M 190 60 Q 190 35, 210 35"/>
+            </g>
+            <!-- water base -->
+            <g stroke="#1f4788" fill="none" stroke-linecap="round">
+              <path d="M -5 105 Q 50 100, 105 105 T 215 105" stroke-width="2"/>
+              <path d="M -5 114 Q 50 109, 105 114 T 215 114" stroke-width="1.5" opacity="0.75"/>
+              <path d="M -5 122 Q 50 118, 105 122 T 215 122" stroke-width="1.2" opacity="0.5"/>
+            </g>
+          </g>
+          <!-- wordmark below -->
+          <text x="220" y="180" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="6" fill="#1a1a1a">SURF CHINA CO.</text>
+        </svg>
+      </div>
+      <div class="bg-ink">
+        <svg viewBox="0 0 440 200" width="380" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(120,30)">
+            <path d="M 0 90 Q 40 60, 80 90 Q 120 60, 160 90 Q 200 60, 200 90" fill="none" stroke="#f4e9d0" stroke-width="1.5" opacity="0.4"/>
+            <path d="M 0 96 Q 40 66, 80 96 Q 120 66, 160 96 Q 200 66, 200 96" fill="none" stroke="#f4e9d0" stroke-width="1.5" opacity="0.4"/>
+            <path d="M 0 80 Q 30 45, 60 80 Q 90 45, 120 80 Q 150 45, 180 80 Q 210 45, 210 80" fill="none" stroke="#f4e9d0" stroke-width="2" opacity="0.7"/>
+            <g fill="none" stroke="#f4e9d0" stroke-width="2.5" stroke-linecap="round">
+              <path d="M 10 60 Q 10 30, 40 30 Q 65 30, 65 50 Q 65 62, 52 62 Q 42 62, 42 55"/>
+              <path d="M 100 60 Q 100 30, 130 30 Q 155 30, 155 50 Q 155 62, 142 62 Q 132 62, 132 55"/>
+              <path d="M 190 60 Q 190 35, 210 35"/>
+            </g>
+            <g stroke="#f4e9d0" fill="none" stroke-linecap="round">
+              <path d="M -5 105 Q 50 100, 105 105 T 215 105" stroke-width="2"/>
+              <path d="M -5 114 Q 50 109, 105 114 T 215 114" stroke-width="1.5" opacity="0.75"/>
+              <path d="M -5 122 Q 50 118, 105 122 T 215 122" stroke-width="1.2" opacity="0.5"/>
+            </g>
+          </g>
+          <text x="220" y="180" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="6" fill="#ffffff">SURF CHINA CO.</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================== -->
+  <!-- CONCEPT 8: INK BRUSH WAVE 水墨浪 -->
+  <!-- =========================================== -->
+  <div class="concept">
+    <div class="concept-meta">
+      <div class="left">
+        <div class="label">Concept 08</div>
+        <h2>Ink Wave <span class="cn">水墨浪</span></h2>
+      </div>
+      <p>中式水墨写意的一笔浪。不对称、有笔意、有气韵。最有艺术气质的一版，适合你的品牌格调定位在"隐士级/高端小众/不是网红店"的时候。</p>
+    </div>
+    <div class="logo-display">
+      <div class="bg-paper">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <!-- ink brush wave -->
+          <g transform="translate(30,50)">
+            <!-- big brushstroke curl -->
+            <path d="M 5 50 C 5 10, 55 0, 85 20 C 110 36, 95 58, 75 58 C 62 58, 58 48, 68 42"
+                  fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+            <!-- accent drop -->
+            <circle cx="98" cy="35" r="3.5" fill="#1a1a1a"/>
+            <!-- sub brushstroke -->
+            <path d="M 10 70 Q 60 62, 115 72" stroke="#1a1a1a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <!-- thin tail -->
+            <path d="M 15 82 Q 65 78, 115 84" stroke="#1a1a1a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+          </g>
+          <!-- red seal -->
+          <g transform="translate(370,42)">
+            <rect x="0" y="0" width="40" height="40" fill="#c94c4c"/>
+            <text x="20" y="28" text-anchor="middle" font-family="'Noto Serif SC',serif" font-weight="700" font-size="22" fill="#f4e9d0">浪</text>
+          </g>
+          <text x="170" y="72" font-size="28" font-weight="700" letter-spacing="3" fill="#1a1a1a">SURF CHINA</text>
+          <text x="170" y="96" font-size="11" font-weight="500" letter-spacing="6" fill="#6b6b6b">CO. · HAINAN</text>
+        </svg>
+      </div>
+      <div class="bg-dark">
+        <svg viewBox="0 0 440 160" width="400" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30,50)">
+            <path d="M 5 50 C 5 10, 55 0, 85 20 C 110 36, 95 58, 75 58 C 62 58, 58 48, 68 42"
+                  fill="none" stroke="#f4e9d0" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="98" cy="35" r="3.5" fill="#f4e9d0"/>
+            <path d="M 10 70 Q 60 62, 115 72" stroke="#f4e9d0" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <path d="M 15 82 Q 65 78, 115 84" stroke="#f4e9d0" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.7"/>
+          </g>
+          <g transform="translate(370,42)">
+            <rect x="0" y="0" width="40" height="40" fill="#c94c4c"/>
+            <text x="20" y="28" text-anchor="middle" font-family="'Noto Serif SC',serif" font-weight="700" font-size="22" fill="#f4e9d0">浪</text>
+          </g>
+          <text x="170" y="72" font-size="28" font-weight="700" letter-spacing="3" fill="#ffffff">SURF CHINA</text>
+          <text x="170" y="96" font-size="11" font-weight="500" letter-spacing="6" fill="#d9c88e">CO. · HAINAN</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ========================================== -->
+<!-- PATTERN USAGE ACROSS THE SITE -->
+<!-- ========================================== -->
+
+<div class="section-title">
+  <span class="num">二</span>
+  <h2>Where These Patterns Can Live on the Site</h2>
+  <span class="cn">— 纹样在网页上的应用</span>
+</div>
+
+<div class="usage">
+
+  <!-- HERO DECORATION -->
+  <div class="usage-card">
+    <div class="header">
+      <h3>01 · Hero 角落装饰 — Hero Corner Ornament</h3>
+      <p>不遮挡画面，但一眼就有"中国"的味道。放在 hero 右下角或左上角。</p>
+    </div>
+    <div class="usage-body">
+      <div class="mock-hero">
+        <div class="mock-hero-content">
+          <div class="eyebrow">SURF CHINA CO. · HAINAN</div>
+          <h2>Surf Hainan, China<br><span class="accent">Beyond the Ordinary.</span></h2>
+        </div>
+        <svg class="hero-ornament" width="140" height="80" viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.9">
+            <!-- seigaiha corner -->
+            <path d="M 10 70 A 14 14 0 0 1 38 70"/>
+            <path d="M 14 70 A 10 10 0 0 1 34 70"/>
+            <path d="M 18 70 A 6 6 0 0 1 30 70"/>
+            <path d="M 38 70 A 14 14 0 0 1 66 70"/>
+            <path d="M 42 70 A 10 10 0 0 1 62 70"/>
+            <path d="M 46 70 A 6 6 0 0 1 58 70"/>
+            <path d="M 66 70 A 14 14 0 0 1 94 70"/>
+            <path d="M 70 70 A 10 10 0 0 1 90 70"/>
+            <path d="M 74 70 A 6 6 0 0 1 86 70"/>
+            <path d="M 94 70 A 14 14 0 0 1 122 70"/>
+            <path d="M 98 70 A 10 10 0 0 1 118 70"/>
+            <path d="M 102 70 A 6 6 0 0 1 114 70"/>
+            <!-- offset row -->
+            <path d="M 24 58 A 14 14 0 0 1 52 58"/>
+            <path d="M 28 58 A 10 10 0 0 1 48 58"/>
+            <path d="M 52 58 A 14 14 0 0 1 80 58"/>
+            <path d="M 56 58 A 10 10 0 0 1 76 58"/>
+            <path d="M 80 58 A 14 14 0 0 1 108 58"/>
+            <path d="M 84 58 A 10 10 0 0 1 104 58"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div class="usage-card">
+    <div class="header">
+      <h3>02 · 章节分隔 — Section Divider Strip</h3>
+      <p>不同章节之间用一条纤细的青海波/浪花横条过渡，代替普通的横线。立刻高级感+东方感。</p>
+    </div>
+    <div class="usage-body">
+      <div class="mock-divider">
+        <div class="text">— Wave Pool · 浪池 —</div>
+        <svg width="600" height="22" viewBox="0 0 600 22" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#1f4788" stroke-width="1.2">
+            <!-- seigaiha strip -->
+            <path d="M 0 18 A 18 18 0 0 1 36 18"/>
+            <path d="M 6 18 A 12 12 0 0 1 30 18"/>
+            <path d="M 12 18 A 6 6 0 0 1 24 18"/>
+            <path d="M 36 18 A 18 18 0 0 1 72 18"/>
+            <path d="M 42 18 A 12 12 0 0 1 66 18"/>
+            <path d="M 48 18 A 6 6 0 0 1 60 18"/>
+            <path d="M 72 18 A 18 18 0 0 1 108 18"/>
+            <path d="M 78 18 A 12 12 0 0 1 102 18"/>
+            <path d="M 84 18 A 6 6 0 0 1 96 18"/>
+            <path d="M 108 18 A 18 18 0 0 1 144 18"/>
+            <path d="M 114 18 A 12 12 0 0 1 138 18"/>
+            <path d="M 120 18 A 6 6 0 0 1 132 18"/>
+            <path d="M 144 18 A 18 18 0 0 1 180 18"/>
+            <path d="M 150 18 A 12 12 0 0 1 174 18"/>
+            <path d="M 156 18 A 6 6 0 0 1 168 18"/>
+            <path d="M 180 18 A 18 18 0 0 1 216 18"/>
+            <path d="M 186 18 A 12 12 0 0 1 210 18"/>
+            <path d="M 192 18 A 6 6 0 0 1 204 18"/>
+            <path d="M 216 18 A 18 18 0 0 1 252 18"/>
+            <path d="M 222 18 A 12 12 0 0 1 246 18"/>
+            <path d="M 228 18 A 6 6 0 0 1 240 18"/>
+            <path d="M 252 18 A 18 18 0 0 1 288 18"/>
+            <path d="M 258 18 A 12 12 0 0 1 282 18"/>
+            <path d="M 264 18 A 6 6 0 0 1 276 18"/>
+            <path d="M 288 18 A 18 18 0 0 1 324 18"/>
+            <path d="M 294 18 A 12 12 0 0 1 318 18"/>
+            <path d="M 300 18 A 6 6 0 0 1 312 18"/>
+            <path d="M 324 18 A 18 18 0 0 1 360 18"/>
+            <path d="M 330 18 A 12 12 0 0 1 354 18"/>
+            <path d="M 336 18 A 6 6 0 0 1 348 18"/>
+            <path d="M 360 18 A 18 18 0 0 1 396 18"/>
+            <path d="M 366 18 A 12 12 0 0 1 390 18"/>
+            <path d="M 372 18 A 6 6 0 0 1 384 18"/>
+            <path d="M 396 18 A 18 18 0 0 1 432 18"/>
+            <path d="M 402 18 A 12 12 0 0 1 426 18"/>
+            <path d="M 408 18 A 6 6 0 0 1 420 18"/>
+            <path d="M 432 18 A 18 18 0 0 1 468 18"/>
+            <path d="M 438 18 A 12 12 0 0 1 462 18"/>
+            <path d="M 444 18 A 6 6 0 0 1 456 18"/>
+            <path d="M 468 18 A 18 18 0 0 1 504 18"/>
+            <path d="M 474 18 A 12 12 0 0 1 498 18"/>
+            <path d="M 480 18 A 6 6 0 0 1 492 18"/>
+            <path d="M 504 18 A 18 18 0 0 1 540 18"/>
+            <path d="M 510 18 A 12 12 0 0 1 534 18"/>
+            <path d="M 516 18 A 6 6 0 0 1 528 18"/>
+            <path d="M 540 18 A 18 18 0 0 1 576 18"/>
+            <path d="M 546 18 A 12 12 0 0 1 570 18"/>
+            <path d="M 552 18 A 6 6 0 0 1 564 18"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGE CARD -->
+  <div class="usage-card">
+    <div class="header">
+      <h3>03 · Package 卡片顶部纹带 — Package Card Top Band</h3>
+      <p>每张套餐卡片顶部加一条很薄的青海波纹带，立刻让卡片从"普通 Tripadvisor 卡"变成"有质感的中式精品体验"。</p>
+    </div>
+    <div class="usage-body">
+      <div class="mock-package">
+        <div class="pkg-card">
+          <div class="pattern-band">
+            <svg width="100%" height="100%" viewBox="0 0 400 28" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#f4e9d0" stroke-width="1.2">
+                <path d="M -10 22 A 18 18 0 0 1 26 22"/>
+                <path d="M -4 22 A 12 12 0 0 1 20 22"/>
+                <path d="M 2 22 A 6 6 0 0 1 14 22"/>
+                <path d="M 26 22 A 18 18 0 0 1 62 22"/>
+                <path d="M 32 22 A 12 12 0 0 1 56 22"/>
+                <path d="M 38 22 A 6 6 0 0 1 50 22"/>
+                <path d="M 62 22 A 18 18 0 0 1 98 22"/>
+                <path d="M 68 22 A 12 12 0 0 1 92 22"/>
+                <path d="M 74 22 A 6 6 0 0 1 86 22"/>
+                <path d="M 98 22 A 18 18 0 0 1 134 22"/>
+                <path d="M 104 22 A 12 12 0 0 1 128 22"/>
+                <path d="M 110 22 A 6 6 0 0 1 122 22"/>
+                <path d="M 134 22 A 18 18 0 0 1 170 22"/>
+                <path d="M 140 22 A 12 12 0 0 1 164 22"/>
+                <path d="M 146 22 A 6 6 0 0 1 158 22"/>
+                <path d="M 170 22 A 18 18 0 0 1 206 22"/>
+                <path d="M 176 22 A 12 12 0 0 1 200 22"/>
+                <path d="M 182 22 A 6 6 0 0 1 194 22"/>
+                <path d="M 206 22 A 18 18 0 0 1 242 22"/>
+                <path d="M 212 22 A 12 12 0 0 1 236 22"/>
+                <path d="M 218 22 A 6 6 0 0 1 230 22"/>
+                <path d="M 242 22 A 18 18 0 0 1 278 22"/>
+                <path d="M 248 22 A 12 12 0 0 1 272 22"/>
+                <path d="M 254 22 A 6 6 0 0 1 266 22"/>
+                <path d="M 278 22 A 18 18 0 0 1 314 22"/>
+                <path d="M 284 22 A 12 12 0 0 1 308 22"/>
+                <path d="M 290 22 A 6 6 0 0 1 302 22"/>
+                <path d="M 314 22 A 18 18 0 0 1 350 22"/>
+                <path d="M 320 22 A 12 12 0 0 1 344 22"/>
+                <path d="M 326 22 A 6 6 0 0 1 338 22"/>
+                <path d="M 350 22 A 18 18 0 0 1 386 22"/>
+                <path d="M 356 22 A 12 12 0 0 1 380 22"/>
+                <path d="M 362 22 A 6 6 0 0 1 374 22"/>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="tag">Essentials · 3–4 Days</span>
+            <h4>Surf Weekend</h4>
+            <p>Wave pool sessions, boutique stay, airport transfers. The quickest hit of tropical China.</p>
+          </div>
+        </div>
+        <div class="pkg-card">
+          <div class="pattern-band">
+            <svg width="100%" height="100%" viewBox="0 0 400 28" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#f4e9d0" stroke-width="1.2">
+                <path d="M -10 22 A 18 18 0 0 1 26 22"/>
+                <path d="M -4 22 A 12 12 0 0 1 20 22"/>
+                <path d="M 2 22 A 6 6 0 0 1 14 22"/>
+                <path d="M 26 22 A 18 18 0 0 1 62 22"/>
+                <path d="M 32 22 A 12 12 0 0 1 56 22"/>
+                <path d="M 38 22 A 6 6 0 0 1 50 22"/>
+                <path d="M 62 22 A 18 18 0 0 1 98 22"/>
+                <path d="M 68 22 A 12 12 0 0 1 92 22"/>
+                <path d="M 74 22 A 6 6 0 0 1 86 22"/>
+                <path d="M 98 22 A 18 18 0 0 1 134 22"/>
+                <path d="M 104 22 A 12 12 0 0 1 128 22"/>
+                <path d="M 110 22 A 6 6 0 0 1 122 22"/>
+                <path d="M 134 22 A 18 18 0 0 1 170 22"/>
+                <path d="M 140 22 A 12 12 0 0 1 164 22"/>
+                <path d="M 146 22 A 6 6 0 0 1 158 22"/>
+                <path d="M 170 22 A 18 18 0 0 1 206 22"/>
+                <path d="M 176 22 A 12 12 0 0 1 200 22"/>
+                <path d="M 182 22 A 6 6 0 0 1 194 22"/>
+                <path d="M 206 22 A 18 18 0 0 1 242 22"/>
+                <path d="M 212 22 A 12 12 0 0 1 236 22"/>
+                <path d="M 218 22 A 6 6 0 0 1 230 22"/>
+                <path d="M 242 22 A 18 18 0 0 1 278 22"/>
+                <path d="M 248 22 A 12 12 0 0 1 272 22"/>
+                <path d="M 254 22 A 6 6 0 0 1 266 22"/>
+                <path d="M 278 22 A 18 18 0 0 1 314 22"/>
+                <path d="M 284 22 A 12 12 0 0 1 308 22"/>
+                <path d="M 290 22 A 6 6 0 0 1 302 22"/>
+                <path d="M 314 22 A 18 18 0 0 1 350 22"/>
+                <path d="M 320 22 A 12 12 0 0 1 344 22"/>
+                <path d="M 326 22 A 6 6 0 0 1 338 22"/>
+                <path d="M 350 22 A 18 18 0 0 1 386 22"/>
+                <path d="M 356 22 A 12 12 0 0 1 380 22"/>
+                <path d="M 362 22 A 6 6 0 0 1 374 22"/>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <span class="tag">Signature · 7 Days</span>
+            <h4>The Full Arc</h4>
+            <p>Wave pool + island exploration + private chef + hidden coastal surf. Hainan, uncut.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="usage-card">
+    <div class="header">
+      <h3>04 · Footer 顶边装饰 — Footer Top Ornament</h3>
+      <p>Footer 最上方一条海水江崖式的小浪花横排，让页面结尾也有"落款"的仪式感。</p>
+    </div>
+    <div class="usage-body">
+      <div class="mock-footer">
+        <svg class="footer-ornament" viewBox="0 0 800 32" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#ffbd59" stroke-width="1.8" stroke-linecap="round" opacity="0.85">
+            <!-- alternating curls -->
+            <path d="M 20 24 Q 20 6, 42 6 Q 60 6, 60 18 Q 60 25, 52 25 Q 46 25, 46 20"/>
+            <path d="M 70 24 Q 70 10, 86 10"/>
+            <path d="M 110 24 Q 110 6, 132 6 Q 150 6, 150 18 Q 150 25, 142 25 Q 136 25, 136 20"/>
+            <path d="M 160 24 Q 160 10, 176 10"/>
+            <path d="M 200 24 Q 200 6, 222 6 Q 240 6, 240 18 Q 240 25, 232 25 Q 226 25, 226 20"/>
+            <path d="M 250 24 Q 250 10, 266 10"/>
+            <path d="M 290 24 Q 290 6, 312 6 Q 330 6, 330 18 Q 330 25, 322 25 Q 316 25, 316 20"/>
+            <path d="M 340 24 Q 340 10, 356 10"/>
+            <path d="M 380 24 Q 380 6, 402 6 Q 420 6, 420 18 Q 420 25, 412 25 Q 406 25, 406 20"/>
+            <path d="M 430 24 Q 430 10, 446 10"/>
+            <path d="M 470 24 Q 470 6, 492 6 Q 510 6, 510 18 Q 510 25, 502 25 Q 496 25, 496 20"/>
+            <path d="M 520 24 Q 520 10, 536 10"/>
+            <path d="M 560 24 Q 560 6, 582 6 Q 600 6, 600 18 Q 600 25, 592 25 Q 586 25, 586 20"/>
+            <path d="M 610 24 Q 610 10, 626 10"/>
+            <path d="M 650 24 Q 650 6, 672 6 Q 690 6, 690 18 Q 690 25, 682 25 Q 676 25, 676 20"/>
+            <path d="M 700 24 Q 700 10, 716 10"/>
+            <path d="M 740 24 Q 740 6, 762 6 Q 780 6, 780 18 Q 780 25, 772 25 Q 766 25, 766 20"/>
+            <!-- base water -->
+            <path d="M 0 30 Q 200 28, 400 30 T 800 30" opacity="0.5"/>
+          </g>
+        </svg>
+        <div class="mock-footer-inner">
+          <h4>SURF CHINA CO.</h4>
+          <p>World-class waves. Tropical China. Off the map.</p>
+          <p style="margin-top:2rem;font-size:0.75rem;opacity:0.4;">© 2026 Surf China Co. · Wanning, Hainan</p>
+        </div>
+        <div style="height:1.5rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATERMARK BG -->
+  <div class="usage-card">
+    <div class="header">
+      <h3>05 · 内页背景暗纹 — Subtle Section Background</h3>
+      <p>某些"故事"类章节（比如 Explore Hainan、About）可以用青海波做**极淡**的底纹（8% 透明度），像宣纸的暗纹一样，只在细看时被发现。</p>
+    </div>
+    <div class="usage-body">
+      <div style="position:relative;padding:4rem 3rem;background:#f4e9d0;overflow:hidden;">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.12;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="bg-seigaiha" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+              <g fill="none" stroke="#1f4788" stroke-width="1">
+                <circle cx="20" cy="20" r="18"/>
+                <circle cx="20" cy="20" r="13"/>
+                <circle cx="20" cy="20" r="8"/>
+                <circle cx="0" cy="20" r="18"/>
+                <circle cx="40" cy="20" r="18"/>
+                <circle cx="20" cy="0" r="18"/>
+                <circle cx="20" cy="0" r="13"/>
+                <circle cx="20" cy="0" r="8"/>
+              </g>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#bg-seigaiha)"/>
+        </svg>
+        <div style="position:relative;max-width:620px;">
+          <div style="font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:#1f4788;font-weight:600;margin-bottom:0.8rem;">Our Story · 关于</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:600;margin-bottom:1rem;letter-spacing:-0.02em;">A surf company rooted in tropical China.</h3>
+          <p style="color:#6b6b6b;font-size:1rem;">Surf China Co. exists at the intersection of world-class surf infrastructure and one of the most beautiful tropical coastlines in Asia. We run small, curated trips — not mass tourism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <strong>我的建议：</strong>用法要克制 —— 这些纹样很强，不要到处都铺。最好的搭配是：<br><br>
+  ① Logo 用 <strong>Concept 05（青海波印章）</strong> 或 <strong>Concept 06（浪花）</strong> —— 这两个最有辨识度、最容易做成各种尺寸<br>
+  ② 网站上只在 3 个地方用纹样：<strong>hero 角落装饰 + 章节分隔条 + footer 顶边</strong><br>
+  ③ 不要在 package 卡片上用太多，会乱<br>
+  ④ 颜色统一用 <code style="background:#1f4788;color:#f4e9d0;padding:2px 6px;border-radius:3px;font-size:0.85rem;">#1f4788</code> 靛蓝 + <code style="background:#f4e9d0;color:#1a1a1a;padding:2px 6px;border-radius:3px;font-size:0.85rem;">#f4e9d0</code> 米色纸
+</div>
+
+<div style="max-width:1200px;margin:0 auto 5rem;padding:0 2rem;color:var(--warm-gray);font-size:0.9rem;">
+  <p><strong style="color:var(--charcoal);">下一步：</strong>告诉我你选 05 / 06 / 07 / 08 哪个 logo，以及你想在网站哪几个位置用纹样，我就去改 index.html，给你 push 上 GitHub 的命令。</p>
+</div>
+
+</body>
+</html>
