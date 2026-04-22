@@ -160,20 +160,40 @@ nav.scrolled { padding: 0.7rem 0; }
   text-align: center;
   color: var(--white);
 }
-.hero-eyebrow {
+.hero-partner {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 3px;
+  padding: 0.5rem 1.1rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+.hero-partner img {
+  height: 28px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.hero-partner span {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.95);
-  margin-bottom: 1.4rem;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  white-space: nowrap;
 }
-.hero-eyebrow svg { width: 14px; height: 14px; opacity: 0.9; }
+.hero-partner .partner-sep {
+  color: #ffbd59;
+  margin: 0 0.2rem;
+  font-size: 0.65em;
+  opacity: 0.85;
+}
 .hero-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -741,11 +761,19 @@ footer::before {
     padding: 0;
     text-align: center;
   }
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.24em;
-    margin-bottom: 1rem;
+  .hero-partner {
+    padding: 0.4rem 0.85rem;
+    gap: 0.55rem;
+    margin-bottom: 1.1rem;
+    flex-wrap: nowrap;
   }
+  .hero-partner img { height: 22px; }
+  .hero-partner span {
+    font-size: 0.6rem;
+    letter-spacing: 0.11em;
+    white-space: nowrap;
+  }
+  .hero-partner .partner-sep { margin: 0 0.15rem; }
   .hero-title {
     font-size: clamp(3rem, 14vw, 5.5rem);
     letter-spacing: -0.02em;
@@ -791,6 +819,16 @@ footer::before {
   .facility-card-body { padding: 1rem; }
   .facility-card h3 { font-size: 1rem; }
   .facility-card p { font-size: 0.8rem; }
+  /* Very narrow phones — squeeze partner badge so long text still fits */
+  .hero-partner {
+    padding: 0.35rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .hero-partner img { height: 20px; }
+  .hero-partner span {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
 }
 /* Mobile: Row 1 = Surf Shop + Board Rentals, Row 2 = Recovery & Wellness + Surf Café */
 @media (max-width: 768px) {
@@ -856,10 +894,10 @@ footer::before {
       </picture>
     </div>
     <div class="hero-content">
-      <span class="hero-eyebrow">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        Surf Hainan, China
-      </span>
+      <div class="hero-partner">
+        <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+        <span>Official PerfectSwell&reg; Partner <span class="partner-sep">&bull;</span> Hainan</span>
+      </div>
       <h1 class="hero-title">
         Beyond
         <span class="hero-title-accent">the Ordinary.</span>
