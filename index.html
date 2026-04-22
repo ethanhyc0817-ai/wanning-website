@@ -351,7 +351,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .package-includes li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-size: 0.8rem; }
 .package-card.featured { border: 2px solid var(--teal); }
 .package-featured-badge {
-  position: absolute; top: 1rem; right: 1rem;
+  position: absolute; top: calc(30px + 1rem); right: 1rem;
   background: var(--teal); color: var(--white);
   font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 2px; z-index: 2;
@@ -526,6 +526,59 @@ footer .section-divider-center,
 [data-divider="light"] .section-divider-center {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 14' fill='none' stroke='%23f4e9d0' stroke-width='1.1' stroke-linecap='round'><path d='M 0 12 A 11 11 0 0 1 22 12'/><path d='M 22 12 A 11 11 0 0 1 44 12'/><path d='M 44 12 A 11 11 0 0 1 66 12'/><path d='M 66 12 A 11 11 0 0 1 88 12'/><path d='M 5 12 A 6 6 0 0 1 17 12'/><path d='M 27 12 A 6 6 0 0 1 39 12'/><path d='M 49 12 A 6 6 0 0 1 61 12'/><path d='M 71 12 A 6 6 0 0 1 83 12'/></svg>");
 }
+
+/* ── Full-width seigaiha chapter strip ── */
+.wave-strip {
+  background: var(--paper);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 0;
+  margin: 0;
+  overflow: hidden;
+}
+.wave-strip-label {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-blue);
+  margin: 0 0 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+.wave-strip-label::before,
+.wave-strip-label::after {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--ink-blue);
+  opacity: 0.55;
+}
+.wave-strip-pattern {
+  height: 64px;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 64' fill='none' stroke='%231f4788' stroke-width='1.2' stroke-linecap='round'><path d='M -20 56 A 20 20 0 0 1 20 56'/><path d='M 20 56 A 20 20 0 0 1 60 56'/><path d='M 60 56 A 20 20 0 0 1 100 56'/><path d='M -20 56 A 13 13 0 0 1 6 56'/><path d='M 14 56 A 13 13 0 0 1 40 56'/><path d='M 48 56 A 13 13 0 0 1 74 56'/><path d='M -20 56 A 6 6 0 0 1 -8 56'/><path d='M 0 56 A 6 6 0 0 1 12 56'/><path d='M 28 56 A 6 6 0 0 1 40 56'/><path d='M 56 56 A 6 6 0 0 1 68 56'/></svg>");
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: 80px 64px;
+}
+
+/* ── Package card top band (seigaiha) ── */
+.package-card::before {
+  content: '';
+  display: block;
+  height: 30px;
+  background-color: var(--ink-blue);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 30' fill='none' stroke='%23f4e9d0' stroke-width='1.2' stroke-linecap='round'><path d='M -20 26 A 20 20 0 0 1 20 26'/><path d='M 20 26 A 20 20 0 0 1 60 26'/><path d='M 60 26 A 20 20 0 0 1 100 26'/><path d='M -20 26 A 13 13 0 0 1 6 26'/><path d='M 14 26 A 13 13 0 0 1 40 26'/><path d='M 48 26 A 13 13 0 0 1 74 26'/></svg>");
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: 80px 30px;
+}
+/* Flexible/custom card — keep its placeholder look, no band */
+.package-card.no-band::before { display: none; }
 
 /* Page switching */
 .page { display: none; }
@@ -1038,7 +1091,7 @@ footer::before {
             <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('packages')" style="margin-top:1rem;">View Details </a>
           </div>
         </div>
-        <div class="package-card fade-in" style="background: var(--sand); border: 1px dashed rgba(0,0,0,0.15);">
+        <div class="package-card no-band fade-in" style="background: var(--sand); border: 1px dashed rgba(0,0,0,0.15);">
           <div class="package-body" style="display:flex; flex-direction:column; justify-content:center; min-height:220px; text-align:center;">
             <span class="package-tag" style="display:block; text-align:center;">Fully Flexible</span>
             <h3 style="text-align:center;">Build a Custom Trip</h3>
@@ -1051,6 +1104,12 @@ footer::before {
       </div>
     </div>
   </section>
+
+  <!-- CHAPTER DIVIDER — SOUTH SEA · 海南 -->
+  <div class="wave-strip" aria-hidden="true">
+    <div class="wave-strip-label">South Sea &middot; 海南</div>
+    <div class="wave-strip-pattern"></div>
+  </div>
 
   <!-- BEYOND THE POOL -->
   <section class="explore">
