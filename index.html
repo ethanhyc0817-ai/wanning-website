@@ -945,6 +945,74 @@ footer::before {
 .wp-final-cta-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; }
 .wp-final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
 .wp-final-cta-content p { color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 2rem; }
+
+/* Make session cards clickable */
+.session-item[onclick] { cursor: pointer; }
+.session-item[onclick]:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(10,77,104,0.12); }
+
+/* ==========================================================
+   SESSION DETAIL PAGE — new styles
+   ========================================================== */
+/* Back link */
+.sd-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); text-decoration: none; transition: color 0.3s; padding: 1.5rem 0 0; }
+.sd-back::before { content: '\2190'; transition: transform 0.3s; }
+.sd-back:hover { color: var(--ocean); }
+.sd-back:hover::before { transform: translateX(-3px); }
+
+/* Hero / intro strip */
+.sd-hero { padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 5vw, 4.5rem); background: var(--sand); }
+.sd-hero-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; }
+.sd-hero-head .s-icon { width: 22px; height: 22px; }
+.sd-hero-head .s-icon.hard { width: 18px; height: 18px; }
+.sd-hero-head .s-icon.expert { width: 34px; height: 22px; }
+.sd-hero-head .s-icon.expert::before, .sd-hero-head .s-icon.expert::after { width: 16px; height: 16px; top: 1px; }
+.sd-hero-head .s-icon.expert::after { left: 14px; }
+.sd-hero-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0; }
+.sd-hero .lead { max-width: 720px; font-size: 1.1rem; }
+
+/* Quick facts list */
+.sd-facts { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 720px; }
+.sd-facts li { padding: 0.85rem 0; border-bottom: 1px solid var(--sand-dark); font-size: 0.98rem; color: var(--charcoal); display: flex; gap: 0.8rem; }
+.sd-facts li::before { content: ''; flex: 0 0 6px; height: 6px; margin-top: 0.75rem; background: var(--teal); border-radius: 50%; }
+.sd-facts li:last-child { border-bottom: none; }
+
+/* Video */
+.sd-video-section { background: var(--charcoal); padding: clamp(3rem, 6vw, 5rem) 0; }
+.sd-video-wrap { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 4px; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+.sd-video-wrap iframe, .sd-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+.sd-video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.55); background: linear-gradient(135deg, #1f3b4d 0%, #0a4d68 100%); gap: 0.8rem; }
+.sd-video-placeholder::before { content: '\25B6'; display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; font-size: 1.6rem; color: rgba(255,255,255,0.85); padding-left: 0.3rem; }
+.sd-video-placeholder span { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.sd-video-quote { text-align: center; color: rgba(255,255,255,0.85); font-family: 'Montserrat', sans-serif; font-style: italic; font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin: 2.5rem auto 0; max-width: 720px; line-height: 1.4; padding: 0 1.5rem; }
+.sd-video-quote::before, .sd-video-quote::after { content: '"'; color: var(--teal); padding: 0 0.1em; }
+
+/* Two-column content: experience + requirements */
+.sd-body { padding: clamp(4rem, 7vw, 6rem) 0; }
+.sd-body-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); }
+@media (max-width: 860px) { .sd-body-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.sd-body h2 { margin-bottom: 0.6rem; }
+.sd-body .overline { margin-bottom: 0.8rem; }
+.sd-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.sd-list li { padding: 0.75rem 0 0.75rem 1.4rem; position: relative; font-size: 0.97rem; color: var(--charcoal); line-height: 1.55; border-bottom: 1px solid var(--sand-dark); }
+.sd-list li:last-child { border-bottom: none; }
+.sd-list li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 8px; height: 2px; background: var(--teal); }
+
+/* Included in your session */
+.sd-included { background: var(--sand); padding: clamp(4rem, 7vw, 6rem) 0; }
+.sd-inc-header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+.sd-inc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem 2rem; max-width: 980px; margin: 0 auto; }
+@media (max-width: 720px) { .sd-inc-grid { grid-template-columns: 1fr; gap: 1.2rem; } }
+.sd-inc-item { background: var(--white); padding: 1.8rem 1.8rem 2rem; border-radius: 4px; display: flex; gap: 1.2rem; align-items: flex-start; }
+.sd-inc-icon { flex: 0 0 42px; width: 42px; height: 42px; color: var(--teal); margin-top: 0.1rem; }
+.sd-inc-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.sd-inc-body h4 { font-size: 1.08rem; margin-bottom: 0.4rem; color: var(--charcoal); }
+.sd-inc-body p { font-size: 0.92rem; color: var(--warm-gray); max-width: none; line-height: 1.55; margin: 0; }
+
+/* Final CTA bar */
+.sd-cta { background: var(--charcoal); padding: clamp(4rem, 7vw, 5.5rem) 0; text-align: center; }
+.sd-cta h2 { color: var(--white); margin-bottom: 0.6rem; }
+.sd-cta p { color: rgba(255,255,255,0.7); max-width: 540px; margin: 0 auto 2rem; }
+.sd-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 </style>
 </head>
 <body>
@@ -1457,7 +1525,7 @@ footer::before {
 
       <div class="session-list">
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-learn'); return false;">
           <div class="session-item-img sim-learn"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Learn to Surf</h3></div>
@@ -1691,6 +1759,168 @@ footer::before {
       </div>
     </div>
   </section>
+</div>
+
+
+<!-- ======================== SESSION: LEARN TO SURF ======================== -->
+<div id="page-session-learn" class="page">
+
+  <!-- Back link -->
+  <section style="background: var(--sand); padding: 0;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool')">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <!-- Hero / intro -->
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-head">
+        <span class="s-icon easy"></span>
+        <h1>Learn to Surf</h1>
+      </div>
+      <p class="lead">Start your surfing journey in a safe, fun environment, guided by coaches who genuinely want you to stand up on day one. Perfect for first-timers &mdash; kids and adults alike. We'll cover water safety, surfing fundamentals, and push you into gentle rolling waves so you can feel the magic of that first ride. Small groups or private lessons &mdash; whichever suits you.</p>
+
+      <ul class="sd-facts">
+        <li>Ages 5 and up</li>
+        <li>No surf experience needed</li>
+        <li>Pre-session instruction and in-water push-ins</li>
+        <li>Small groups (max 4 per coach) or private instructors available</li>
+        <li>All equipment provided &mdash; board and wetsuit included</li>
+        <li>15 to 25 waves per session</li>
+        <li>Photos and video of your waves available</li>
+        <li>Special needs? Just let us know &mdash; we'll take care of it</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Video + quote -->
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <!-- REPLACE with Cloudinary video URL when ready. Example:
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1/learn-to-surf.mp4" type="video/mp4">
+        </video>
+        -->
+        <div class="sd-video-placeholder">
+          <span>Video coming soon</span>
+        </div>
+      </div>
+      <p class="sd-video-quote">Guaranteed waves. Guaranteed good times.</p>
+    </div>
+  </section>
+
+  <!-- The Experience + Requirements -->
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, easy push-ins onto gentle rolling shore break &mdash; one surfer on every wave.</li>
+            <li>Coaches in the water helping you pop up, find your balance, and stand tall.</li>
+            <li>Focus on foot positioning, balance, and the mechanics of your first turns.</li>
+            <li>Waves come in sets of 3&ndash;4, with less than 2 minutes between your rides.</li>
+            <li>1-hour sessions, up to 16 surfers total in the pool.</li>
+            <li>Professional surf instructors in the water (max 4 surfers per coach).</li>
+            <li>Private instructors available on request.</li>
+            <li>Soft-top boards under 9ft only &mdash; safer, stabler, easier to learn on.</li>
+            <li>Life jackets available on request.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Comfortable swimmer &mdash; able to swim at least 15 meters unassisted.</li>
+            <li>Minimum age: 5 years old.</li>
+            <li>Free of injury or illness that could affect water activity.</li>
+            <li>Special needs? Contact us &mdash; we've got you covered.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Included in your session -->
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Beginner Academy</h4>
+            <p>First time on a board? No problem. Our coaches walk you through the basics before you hit the water &mdash; paddling, popping up, and where to stand. You'll be standing by the end of your first session.</p>
+          </div>
+        </div>
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>All equipment available on-site. Bring your own if you prefer &mdash; otherwise, we've got you covered.</p>
+          </div>
+        </div>
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Come stand up on your first wave.</h2>
+      <p>Book a Learn to Surf session, or tell us a bit about your crew and we'll build the right trip around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 
