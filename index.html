@@ -869,6 +869,26 @@ footer::before {
   .s-icon.hard { width: 10px; height: 10px; }
 }
 
+/* Session card images — desktop (default) */
+.sim-learn        { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/learn%20to%20surf%20desktop.jpg'); }
+.sim-beginner     { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/Beginner%20Desktop.jpg'); }
+.sim-intermediate { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/intermidiate%20desktop.jpg'); }
+.sim-advanced     { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/Advanced%20desktop.jpg'); }
+.sim-barrel       { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/barrel%E2%80%94desktop.jpg'); }
+.sim-air          { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/air%20desktop.jpg'); }
+.sim-private      { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/private%20destop.jpg'); }
+
+/* Session card images — mobile overrides */
+@media (max-width: 640px) {
+  .sim-learn        { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/learn%20to%20surf%20mobile.jpg'); }
+  .sim-beginner     { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/Beginner%20mobile.jpg'); }
+  .sim-intermediate { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/intermidiate%20mobile.jpg'); }
+  .sim-advanced     { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/advanced%20mobile.jpeg'); }
+  .sim-barrel       { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/barrel%E2%80%94mobile.jpg'); }
+  .sim-air          { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/air%20mobile.jpg'); }
+  .sim-private      { background-image: url('Assets/wavepool/%E8%AF%A6%E6%83%85%E9%A1%B5/private%20mobile.jpg'); }
+}
+
 /* 7. Pros trained here */
 .wp-pros { background: var(--charcoal); color: var(--white); }
 .wp-pros h2 { color: var(--white); }
@@ -1438,7 +1458,7 @@ footer::before {
       <div class="session-list">
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-surf-lesson-01.jpg');"></div>
+          <div class="session-item-img sim-learn"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Learn to Surf</h3></div>
             <p>Your first wave, ever. Soft boards, a coach in the water, and whitewater waves designed to get you standing up on day one.</p>
@@ -1446,7 +1466,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-kids-training-01.jpg');"></div>
+          <div class="session-item-img sim-beginner"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Beginner</h3></div>
             <p>Past whitewater and ready to ride the shoulder. Mellow, reformed waves to practice your pop-up, trim, and first turns.</p>
@@ -1454,7 +1474,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-surfer-action-01.jpg');"></div>
+          <div class="session-item-img sim-intermediate"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon medium"></span><h3>Intermediate</h3></div>
             <p>Clean, open-face walls you can actually draw a line on. The best wave in the pool for building speed, flow, and real turns.</p>
@@ -1462,7 +1482,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-elevated-surfers-01.jpg');"></div>
+          <div class="session-item-img sim-advanced"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon hard"></span><h3>Advanced</h3></div>
             <p>Faster, punchier, more sections. Uncrowded waves to link turns, commit to the lip, and push every session further than the last.</p>
@@ -1470,7 +1490,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-poolside-surfers-01.jpg');"></div>
+          <div class="session-item-img sim-barrel"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Barrel Session</h3></div>
             <p>Hollow, heavy, and on demand. The session everyone comes for &mdash; get tubed more times in an hour than most surfers get in a lifetime.</p>
@@ -1478,7 +1498,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-surfer-action-01.jpg');"></div>
+          <div class="session-item-img sim-air"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Air Session</h3></div>
             <p>Ramp section on repeat. Punt airs, work rotations, and treat the pool like your own private launch pad.</p>
@@ -1486,7 +1506,7 @@ footer::before {
         </div>
 
         <div class="session-item">
-          <div class="session-item-img" style="background-image:url('Assets/wavepool/wavepool-poolside-surfers-01.jpg');"></div>
+          <div class="session-item-img sim-private"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon private"></span><h3>Private Session</h3></div>
             <p>Book the whole pool. Custom wave settings, your crew only &mdash; perfect for film shoots, family trips, or a dream session dialed to you.</p>
