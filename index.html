@@ -965,10 +965,19 @@ footer::before {
 @media (max-width: 860px) { .sd-hero-grid { grid-template-columns: 1fr; gap: 0; } }
 .sd-hero-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; }
 .sd-hero-head .s-icon { width: 22px; height: 22px; }
-.sd-hero-head .s-icon.hard { width: 18px; height: 18px; }
+.sd-hero-head .s-icon.hard { width: 18px; height: 18px; margin: 0; }
+.sd-hero-head .s-icon.private { width: 18px; height: 18px; margin: 0; }
 .sd-hero-head .s-icon.expert { width: 34px; height: 22px; }
 .sd-hero-head .s-icon.expert::before, .sd-hero-head .s-icon.expert::after { width: 16px; height: 16px; top: 1px; }
 .sd-hero-head .s-icon.expert::after { left: 14px; }
+/* Caption under each video (used for Intermediate two-video layout) */
+.sd-video-caption { text-align: center; color: rgba(255,255,255,0.75); font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.55; margin: 1.4rem auto 0; max-width: 720px; padding: 0 1.5rem; }
+.sd-video-caption strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+.sd-video-stack { display: flex; flex-direction: column; gap: clamp(2.5rem, 5vw, 4rem); }
+/* Wave Menu callout (Private only) */
+.sd-callout { background: var(--sand); border-left: 3px solid var(--teal); padding: 1.5rem 1.8rem; margin-top: 2rem; border-radius: 2px; }
+.sd-callout h4 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; margin: 0 0 0.6rem; color: var(--ocean); }
+.sd-callout p { font-size: 0.97rem; color: var(--charcoal); margin: 0; line-height: 1.6; }
 .sd-hero-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0; }
 .sd-hero .lead { font-size: 1.1rem; }
 .sd-hero-intro { max-width: 560px; }
@@ -1538,7 +1547,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-beginner'); return false;">
           <div class="session-item-img sim-beginner"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Beginner</h3></div>
@@ -1546,7 +1555,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-intermediate'); return false;">
           <div class="session-item-img sim-intermediate"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon medium"></span><h3>Intermediate</h3></div>
@@ -1554,7 +1563,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-advanced'); return false;">
           <div class="session-item-img sim-advanced"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon hard"></span><h3>Advanced</h3></div>
@@ -1562,7 +1571,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-barrel'); return false;">
           <div class="session-item-img sim-barrel"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Barrel Session</h3></div>
@@ -1570,7 +1579,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-air'); return false;">
           <div class="session-item-img sim-air"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Air Session</h3></div>
@@ -1578,7 +1587,7 @@ footer::before {
           </div>
         </div>
 
-        <div class="session-item">
+        <div class="session-item" onclick="showPage('session-private'); return false;">
           <div class="session-item-img sim-private"></div>
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon private"></span><h3>Private Session</h3></div>
@@ -1920,6 +1929,926 @@ footer::before {
       <p>Book a Learn to Surf session, or tell us a bit about your crew and we'll build the right trip around you.</p>
       <div class="sd-cta-row">
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: BEGINNER ======================== -->
+<div id="page-session-beginner" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <!-- Hero / intro -->
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon easy"></span>
+            <h1>Beginner</h1>
+          </div>
+          <p class="lead">Past your first lesson and ready for more. Our Coaster wave delivers safe, gentle ground-swell waves with a long, easy roll-in &mdash; you'll have plenty of time to find your feet, work on balance, and start to turn the board. Friendly, experienced coaches make sure surfing feels both fun and approachable.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Ages 6 and up</li>
+          <li>Soft top boards included</li>
+          <li>Friendly, experienced surf coaches</li>
+          <li>Pre-session instruction in the water</li>
+          <li>Photos and video available</li>
+          <li>3-wave sets &mdash; about 15 waves per session</li>
+          <li>Small groups so you get plenty of attention</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video + quote -->
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776961067/ScreenRecording_04-23-2026_14-37-14_1_il4wzd.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="sd-video-quote">A safe, friendly wave to find your feet on.</p>
+    </div>
+  </section>
+
+  <!-- The Experience + Requirements -->
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, easy roll-in take-offs &mdash; one surfer per wave.</li>
+            <li>Gentle ground-swell waves with plenty of time to find your feet.</li>
+            <li>Work on balance, control, foot positioning, and starting to turn the board.</li>
+            <li>Waves come in 3-wave sets.</li>
+            <li>30 minutes of rights, 30 minutes of lefts (1 hour total).</li>
+            <li>Maximum 15 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and encouragement.</li>
+            <li>Soft boards under 9ft only &mdash; safer and easier to learn on.</li>
+            <li>Life jackets available on request.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Comfortable swimmer &mdash; able to swim at least 25 meters unassisted.</li>
+            <li>Safe, independent handling of surf equipment in the water.</li>
+            <li>Able to paddle with strength and catch your own waves.</li>
+            <li>Able to stand and maintain balance on a moving board.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Included in your session -->
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Beginner Academy</h4>
+            <p>New to surfing? No problem. Our friendly, experienced coaches walk you and your kids through the basics &mdash; paddling, popping up, and where to stand &mdash; before you ever hit the water.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>All equipment available on-site. Bring your own if you prefer &mdash; otherwise, we've got you covered.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Find your feet on your next session.</h2>
+      <p>Book a Beginner session, or tell us about your crew and we'll build the right trip around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: INTERMEDIATE ======================== -->
+<div id="page-session-intermediate" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon medium"></span>
+            <h1>Intermediate</h1>
+          </div>
+          <p class="lead">Get tons of reps and level up your surfing on a consistent, chest-to-head-high Trestles-style wave. The Runner has a roll-in take-off that gives you a long, clean wall to work on connecting turns and trying new manoeuvres. With 4 waves every 90 seconds, this is a super fun, safe way to keep progressing.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Bring your own board or rent on-site</li>
+          <li>Option for sessions with a professional surf coach</li>
+          <li>Similar to chest-to-head-high Trestles</li>
+          <li>Rights and lefts available</li>
+          <li>Photos and video available</li>
+          <li>4 waves every 90 seconds</li>
+          <li>Two wave settings &mdash; Jetty and Nose Rider</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two videos -->
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-stack">
+        <div>
+          <div class="sd-video-wrap">
+            <video autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776960205/cfd36751f0daae5f2919b0ee7917d2_bypnzf.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="sd-video-caption"><strong>The Jetty setting</strong> &mdash; clean, makeable walls. A great wave for stringing together turns and dialing in your intermediate progressions.</p>
+        </div>
+
+        <div>
+          <div class="sd-video-wrap">
+            <video autoplay muted loop playsinline>
+              <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776960841/ScreenRecording_04-23-2026_14-42-35_1_gzeqkd.mp4" type="video/mp4">
+            </video>
+          </div>
+          <p class="sd-video-caption"><strong>The Nose Rider setting</strong> &mdash; long, mellow walls perfect for hang fives, hang tens, and stretching out your noseriding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, angled take-offs &mdash; one surfer per wave.</li>
+            <li>Playful, ripable wave with a clean, open face.</li>
+            <li>Work on connecting turns and trying new manoeuvres.</li>
+            <li>Improve balance, control, speed, and foot positioning.</li>
+            <li>Waves come in 4-wave sets.</li>
+            <li>30 mins of rights, 30 mins of lefts (1 hour total).</li>
+            <li>Maximum 16 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and guidance.</li>
+            <li>Soft and hard boards both allowed.</li>
+            <li>Great for a standard shortboard or a small-wave board with extra volume.</li>
+            <li>Longboards must be under 9ft.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Knowledge of surfing etiquette.</li>
+            <li>Able to paddle with strength and catch your own waves.</li>
+            <li>Able to surf on the face of the wave.</li>
+            <li>Good control of the board and the ability to turn.</li>
+            <li>Confident frontside and backside.</li>
+            <li>Not suitable for first-time or beginner surfers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Professional Guidance</h4>
+            <p>Our friendly, experienced surf guides help you with positioning, timing, and the small adjustments that make a big difference. Optional one-on-one coaching available on request.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>A huge quiver of boards covers all shapes and sizes &mdash; performance shortboards, mid-lengths, and soft tops. Wetsuits for kids and adults available too. Or bring your own.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Level up on every wave.</h2>
+      <p>Book an Intermediate session, or tell us about your crew and we'll build the right trip around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: ADVANCED ======================== -->
+<div id="page-session-advanced" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon hard"></span>
+            <h1>Advanced</h1>
+          </div>
+          <p class="lead">Uncrowded, chest-to-head-high Trestles-style waves &mdash; playful and powerful, the kind of session you've been dreaming about. The Peak has a quick take-off and a long, open face that gives you all the room you need to maneuver. Throw big wrapping turns, get barreled, boost airs &mdash; like a great day on the Gold Coast, every session.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Bring your own board or rent from our quiver</li>
+          <li>Guidance from a professional surf coach</li>
+          <li>Similar to a good day on the Gold Coast</li>
+          <li>Rights and lefts available</li>
+          <li>Photos and video available</li>
+          <li>4 waves every 90 seconds</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776959511/ScreenRecording_04-23-2026_15_p2uhe3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="sd-video-quote">Powerful, uncrowded waves. Every session feels like a dream.</p>
+    </div>
+  </section>
+
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, angled take-offs &mdash; one surfer per wave.</li>
+            <li>Powerful, ripable wave.</li>
+            <li>Work on turns and try new manoeuvres.</li>
+            <li>Turns, airs, and a barrel section all in one wave.</li>
+            <li>Waves come in 4-wave sets.</li>
+            <li>30 mins of rights, 30 mins of lefts (1 hour total).</li>
+            <li>Maximum 12 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and guidance.</li>
+            <li>High-performance boards for a high-performance wave.</li>
+            <li>Grovelers and fun-boards can be a blast &mdash; logs may feel a bit sluggish.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Knowledge of surfing etiquette.</li>
+            <li>Able to paddle with strength and catch waves.</li>
+            <li>Able to surf on the face of an advanced wave.</li>
+            <li>Able to handle steep, fast drop-ins.</li>
+            <li>Control of the board and the ability to turn.</li>
+            <li>Confident frontside and backside.</li>
+            <li>Not suitable for beginner or intermediate surfers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Professional Guidance</h4>
+            <p>Our experienced surf guides help with positioning, take-off timing, and the small calls that turn good sessions into great ones.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>A huge quiver of boards covers all shapes and sizes &mdash; performance shortboards, mid-lengths, and soft tops. Wetsuits for kids and adults available too.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Surf the wave you've been dreaming of.</h2>
+      <p>Book an Advanced session, or tell us about your crew and we'll build the right trip around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: BARREL ======================== -->
+<div id="page-session-barrel" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon expert"></span>
+            <h1>Pro &mdash; Slab Barrel Wave</h1>
+          </div>
+          <p class="lead">Perfect, uncrowded barrels. Our barrel wave delivers a quick, steep take-off into a large, hollow tube &mdash; the best way to dial in your barrel riding and chase that one perfect, dreamy wave. Designed for elite surfers who want time inside the wave, on every wave.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Available exclusively in Private Sessions</li>
+          <li>Bring your own board or rent from our quiver</li>
+          <li>Guidance from a professional surf coach</li>
+          <li>Rights and lefts</li>
+          <li>Photos and video available</li>
+          <li>Contact us for private session details</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776959778/ScreenRecording_04-23-2026_16_rxa9qq.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="sd-video-quote">More tubes in an hour than most surfers get in a lifetime.</p>
+    </div>
+  </section>
+
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, angled take-offs &mdash; one surfer per wave.</li>
+            <li>Powerful, hollow, ripable wave.</li>
+            <li>Work on turns and try new manoeuvres.</li>
+            <li>Perfect, makeable barrels.</li>
+            <li>Choose lefts, rights, or both (1 hour total).</li>
+            <li>Maximum 12 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and guidance.</li>
+            <li>High-performance boards for a high-performance wave.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Knowledge of surfing etiquette.</li>
+            <li>Able to paddle with strength and catch waves.</li>
+            <li>Able to surf on the face of an advanced wave.</li>
+            <li>Able to handle steep, fast drop-ins.</li>
+            <li>Control of the board and the ability to turn.</li>
+            <li>Confident frontside and backside.</li>
+            <li>Not suitable for beginner or intermediate surfers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Professional Guidance</h4>
+            <p>Our experienced surf guides help with positioning, take-off timing, and barrel-riding tips so you make the most of every wave.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>A huge quiver of boards covers all shapes and sizes. Wetsuits for kids and adults available too. Or bring your own.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Get inside the wave.</h2>
+      <p>Barrel sessions are private bookings. Tell us about your crew and we'll set the wave up around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: AIR ======================== -->
+<div id="page-session-air" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon expert"></span>
+            <h1>Pro &mdash; Air Wave</h1>
+          </div>
+          <p class="lead">Take your air game to the next level on a perfect, consistent ramp. Our air wave delivers a quick take-off, an open face to gain speed, and a clean ramp section to close out the wave &mdash; the best way to work on different styles of airs and new manoeuvres.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Available exclusively in Private Sessions</li>
+          <li>Bring your own board or rent from our quiver</li>
+          <li>Guidance from a professional surf coach</li>
+          <li>Rights and lefts</li>
+          <li>Photos and video available</li>
+          <li>Contact us for private session details</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776959299/ScreenRecording_04-23-2026_14-16-17_1_rdx9ys.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="sd-video-quote">Same ramp, every wave. Treat the pool like your launch pad.</p>
+    </div>
+  </section>
+
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, angled take-offs &mdash; one surfer per wave.</li>
+            <li>Powerful, ripable wave.</li>
+            <li>Work on turns and try new manoeuvres.</li>
+            <li>Turns and airs &mdash; designed for boosting.</li>
+            <li>Choose lefts, rights, or both (1 hour total).</li>
+            <li>Maximum 12 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and guidance.</li>
+            <li>High-performance boards for a high-performance wave.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Knowledge of surfing etiquette.</li>
+            <li>Able to paddle with strength and catch waves.</li>
+            <li>Able to surf on the face of an advanced wave.</li>
+            <li>Able to handle steep, fast drop-ins.</li>
+            <li>Control of the board and the ability to turn.</li>
+            <li>Confident frontside and backside.</li>
+            <li>Not suitable for beginner or intermediate surfers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Professional Guidance</h4>
+            <p>Our experienced surf guides help with positioning, timing your launch, and the small calls that put you in the right spot for every air.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>A huge quiver of boards covers all shapes and sizes. Wetsuits for kids and adults available too. Or bring your own.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Send it.</h2>
+      <p>Air sessions are private bookings. Tell us about your crew and we'll set the wave up around you.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
+        <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ======================== SESSION DETAIL: PRIVATE ======================== -->
+<div id="page-session-private" class="page">
+
+  <section style="background: var(--sand); padding-top: 1rem;">
+    <div class="container">
+      <a href="#" class="sd-back" onclick="showPage('wavepool'); return false;">Back to Wave Pool</a>
+    </div>
+  </section>
+
+  <section class="sd-hero">
+    <div class="container">
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon private"></span>
+            <h1>Private Sessions</h1>
+          </div>
+          <p class="lead">Reserve the entire wave pool just for your group. Our Private Sessions let you rent the pool by the hour, choose any wave from our menu, and even mix between settings within the same session. Our technology delivers 30&ndash;50 waves per session in 4-wave sets &mdash; perfect, consistent waves built around your crew.</p>
+        </div>
+
+        <ul class="sd-facts">
+          <li>Bring your own board or rent on-site</li>
+          <li>Choose your waves from our full menu</li>
+          <li>Choose your music playlist</li>
+          <li>Guidance from a professional surf coach</li>
+          <li>Private surf coach available on request</li>
+          <li>Photos and video available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-video-section">
+    <div class="container">
+      <div class="sd-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776961310/ScreenRecording_04-23-2026_17_gyfyrv.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="sd-video-quote">Your crew. Your waves. Your music. Your pool.</p>
+    </div>
+  </section>
+
+  <section class="sd-body">
+    <div class="container">
+      <div class="sd-body-grid">
+        <div>
+          <span class="overline">The Experience</span>
+          <h2>What a session looks like.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Safe, angled take-offs &mdash; one surfer per wave.</li>
+            <li>Private session with just your crew &mdash; nobody else in the lineup.</li>
+            <li>Choose Beginner, Intermediate, Advanced, or Pro waves.</li>
+            <li>Choose rights and lefts.</li>
+            <li>Mix and match: pick Beginner waves for an easy session, or go Advanced/Pro for ripable surf with turns, airs, and barrels.</li>
+            <li>Waves come in 4-wave sets.</li>
+            <li>Maximum 12 surfers per session.</li>
+            <li>Less than 2 minutes between your waves.</li>
+            <li>Professional surf guides in the water for help and guidance.</li>
+          </ul>
+          <div class="sd-callout">
+            <h4>The Wave Menu</h4>
+            <p>Over 50 different wave types are available exclusively in Private Sessions &mdash; from playful longboard walls, to clean intermediate faces, to barrels, to launch-ramp airs. Get exclusive access to our full menu.</p>
+          </div>
+        </div>
+        <div>
+          <span class="overline">Requirements</span>
+          <h2>Before you paddle out.</h2>
+          <div class="section-divider"></div>
+          <ul class="sd-list">
+            <li>Knowledge of surfing etiquette (for Intermediate and above).</li>
+            <li>Able to paddle with strength and catch your own waves.</li>
+            <li>Able to surf on the face of the wave.</li>
+            <li>Control of the board and the ability to turn.</li>
+            <li>Confident frontside and backside.</li>
+            <li>Beginner waves available for first-timers in your group.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-included">
+    <div class="container">
+      <div class="sd-inc-header">
+        <span class="overline">Included In Your Session</span>
+        <h2>Everything you need, on us.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+      <div class="sd-inc-grid">
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Professional Guidance</h4>
+            <p>Our experienced surf guides help everyone in your crew &mdash; from first-timers to advanced surfers &mdash; get the most out of every wave.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surfboard &amp; Wetsuit</h4>
+            <p>A huge quiver of boards covers all shapes and sizes. Wetsuits for kids and adults available too. Or bring your own.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13l5-3v16l-5-3H3z"/><circle cx="10" cy="12" r="3"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Photo &amp; Video</h4>
+            <p>Every wave in the pool is filmed. Watch your session on the lounge screens and take home downloads of your best rides.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="7" x2="9" y2="9"/><line x1="15" y1="7" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Lockers, Showers &amp; Changing</h4>
+            <p>Stash your gear, rinse off, and get changed. Everything you need, steps from the pool.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M7 12c0-3 2-5 5-5s5 2 5 5"/><path d="M5 16h14"/><path d="M7 20h10"/><path d="M12 4v2"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Recovery Suite</h4>
+            <p>Glass-walled sauna, ice bath, and hot plunge right by the pool. Recover between sessions and stay fresh all day.</p>
+          </div>
+        </div>
+        <div class="sd-inc-item">
+          <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M5 10h10v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4z"/><path d="M15 11h2a2 2 0 0 1 0 4h-2"/><path d="M8 6v-1M11 6v-1"/></svg></div>
+          <div class="sd-inc-body">
+            <h4>Surf Caf&eacute;</h4>
+            <p>Specialty coffee, cold drinks, and post-session bites right at the pool. A great spot to catch up with friends between rides.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sd-cta">
+    <div class="container-narrow">
+      <span class="overline" style="color: var(--teal);">Ready To Ride</span>
+      <h2>Build the session around your crew.</h2>
+      <p>Reach out and we'll help you design the perfect Private Session &mdash; for film shoots, family trips, birthdays, or just a dream day with friends.</p>
+      <div class="sd-cta-row">
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
     </div>
