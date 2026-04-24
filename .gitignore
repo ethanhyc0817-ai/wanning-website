@@ -7,6 +7,9 @@
 # Original (uncompressed) asset backup — keep local, don't push
 Assets-original/
 
+# Local working folders — images here get renamed/copied to parent Assets/ folders
+Assets/golf/choose/
+
 # Videos — served via Cloudinary CDN, not stored in repo
 *.mp4
 *.MP4

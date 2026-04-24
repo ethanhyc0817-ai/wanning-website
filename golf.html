@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golf in Hainan — Tiger Woods Has Played Here | Surf China Co.</title>
+<meta name="description" content="Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played on Hainan's tropical fairways. Mission Hills, Shenzhou Peninsula, Dragon Valley — three of Asia's best courses, all within driving distance of the wave pool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --fairway: #3f6b3a;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2rem, 5.5vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 6vw, 4rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(0.98rem, 1.6vw, 1.12rem); max-width: 560px; line-height: 1.65; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: clamp(1rem, 2.5vw, 2rem) clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(1.2rem, 2.5vw, 2rem); padding-top: clamp(1.2rem, 2.5vw, 2rem); border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 20ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= TIGER FEATURE ======= */
+.tiger-feature { background: var(--charcoal); color: var(--white); padding: clamp(4rem, 8vw, 7rem) 0; }
+.tiger-feature .overline { color: var(--gold); }
+.tiger-feature h2 { color: var(--white); max-width: 16ch; margin-bottom: 1.2rem; }
+.tiger-feature .section-divider { background: var(--gold); }
+.tiger-feature p { color: rgba(255,255,255,0.82); }
+.tiger-feature .lead { color: rgba(255,255,255,0.9); }
+.tiger-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+.tiger-image { width: 100%; }
+.tiger-image img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.tiger-image figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 0.9rem;
+}
+.tiger-pull {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.3rem, 2.1vw, 1.6rem);
+  line-height: 1.35;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  font-style: italic;
+  max-width: 520px;
+}
+.legends-list {
+  list-style: none;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+.legends-list .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.8rem; }
+.legends-list .names { font-family: 'Montserrat', sans-serif; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--white); font-weight: 500; line-height: 1.5; }
+
+/* ======= COURSE GRID (3 cards) ======= */
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.course-card { position: relative; overflow: hidden; border-radius: 3px; height: 520px; background: var(--charcoal); }
+.course-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); opacity: 0.92; }
+.course-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.course-card-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.course-card-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
+.course-card-overlay h3 { color: var(--white); margin-bottom: 0.3rem; }
+.course-card-overlay .subtitle { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.8rem; }
+.course-card-overlay p { font-size: 0.9rem; color: rgba(255,255,255,0.88); max-width: none; line-height: 1.55; }
+
+/* ======= GOLF GALLERY (mixed orientation, natural ratio, no crop) ======= */
+.golf-gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+.golf-gallery figure { margin: 0; }
+.golf-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
+.golf-gallery .portrait-solo {
+  max-width: 650px;
+  margin: 0 auto;
+  width: 100%;
+}
+.golf-gallery figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 0.9rem;
+  text-align: left;
+}
+.golf-gallery .portrait-solo figcaption { text-align: center; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1000px) {
+  .tiger-feature-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .course-grid { grid-template-columns: repeat(2, 1fr); }
+  .course-card { height: 440px; }
+}
+@media (max-width: 640px) {
+  .course-grid { grid-template-columns: 1fr; }
+  .course-card { height: 400px; }
+  .page-hero { min-height: 560px; }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .page-hero-content h1 { max-width: 100%; }
+  .hero-meta-item.hide-mobile { display: none; }
+  .golf-gallery .portrait-solo { max-width: 100%; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/golf/sunset-coast-aerial-01.jpg" alt="Hainan oceanfront golf course at sunset">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Beyond the Pool &middot; Golf</span>
+    <h1>China's best golf<br>hides on one island.</h1>
+    <p>Oceanfront PGA-grade courses, volcanic-rock fairways, and tropical valleys an hour from the wave pool. Hainan is where China's golf actually lives &mdash; and where the legends came to play.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Top Courses</span>
+        <span class="value">3 within driving distance</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Season</span>
+        <span class="value">Year-round, 22-30&deg;C</span>
+      </div>
+      <div class="hero-meta-item hide-mobile">
+        <span class="label">Closest to Pool</span>
+        <span class="value">Shenzhou Peninsula &mdash; 30 min</span>
+      </div>
+      <div class="hero-meta-item hide-mobile">
+        <span class="label">Tee Times</span>
+        <span class="value">Arranged for you</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">Hainan's Quiet Reputation</span>
+    <h2>Before the surf,<br>there was the swing.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Hainan has been China's golf destination for more than twenty years &mdash; long before anyone was talking about surfing here. The year-round tropical climate, the volcanic terrain in the north, the ocean coastlines in the east and south: every condition a great course needs, Hainan has it, and within a single hour's drive you can tee off in three completely different landscapes.</p>
+    <p class="lead">The result is a quiet collection of world-class courses that hosted the HSBC Champions, the Omega Mission Hills World Cup, and the Volvo China Open. If you play golf, you have almost certainly watched a tournament on a Hainan fairway without knowing where you were looking.</p>
+  </div>
+</section>
+
+<!-- TIGER WOODS FEATURE -->
+<section class="tiger-feature">
+  <div class="tiger-feature-grid">
+    <div>
+      <span class="overline">And Yes &mdash; Tiger Has Teed Off Here</span>
+      <h2>You read<br>that right.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">This isn't a driving range with a celebrity brochure. The pros have actually played these fairways &mdash; on camera, in real tournaments, for real money.</p>
+      <div class="tiger-pull">
+        &ldquo;Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played on Hainan's tropical fairways.&rdquo;
+      </div>
+      <div class="legends-list">
+        <span class="label">Legends on Hainan</span>
+        <div class="names">Tiger Woods &middot; Rory McIlroy &middot; Greg Norman &middot; Nick Faldo &middot; Gary Player</div>
+      </div>
+    </div>
+    <figure class="tiger-image fade-in">
+      <img src="Assets/golf/tiger-woods-haikou-01.jpg" alt="Tiger Woods teeing off at Mission Hills Haikou">
+      <figcaption>Tiger Woods &middot; Mission Hills Haikou</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 3 COURSE CARDS -->
+<section>
+  <div class="container">
+    <div style="max-width: 640px;">
+      <span class="overline">Where You'll Play</span>
+      <h2>Three courses,<br>three islands.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">You could spend a week playing Hainan and never repeat a landscape. We'll book tee times, transport, and a caddy who speaks English &mdash; all you do is show up.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card fade-in" href="#" style="text-decoration:none;">
+        <img src="Assets/golf/mission-hills-valley-01.jpg" alt="Mission Hills Haikou">
+        <div class="course-card-overlay">
+          <span class="num">01 &mdash; Haikou</span>
+          <h3>Mission Hills Haikou</h3>
+          <span class="subtitle">&#x6D77;&#x53E3; &middot; Observation Lake</span>
+          <p>The largest golf facility in the world &mdash; ten courses carved from volcanic lava rock. This is where Tiger hit the shot in our photo above.</p>
+        </div>
+      </a>
+      <a class="course-card fade-in" href="#" style="text-decoration:none;">
+        <img src="Assets/golf/beachfront-aerial-01.jpg" alt="Shenzhou Peninsula Golf Club">
+        <div class="course-card-overlay">
+          <span class="num">02 &mdash; Wanning</span>
+          <h3>Shenzhou Peninsula</h3>
+          <span class="subtitle">&#x795E;&#x5DDE;&#x534A;&#x5C9B;</span>
+          <p>A 30-minute drive from the wave pool. Two oceanfront courses along a stretch of coastline that's all dunes, rocks, and turquoise water.</p>
+        </div>
+      </a>
+      <a class="course-card fade-in" href="#" style="text-decoration:none;">
+        <img src="Assets/golf/mountain-lake-golfers-01.jpg" alt="Dragon Valley Sanya">
+        <div class="course-card-overlay">
+          <span class="num">03 &mdash; Sanya</span>
+          <h3>Dragon Valley</h3>
+          <span class="subtitle">&#x4E09;&#x4E9A; &middot; &#x9F99;&#x6CC9;&#x8C37;</span>
+          <p>A mountain course inland from Sanya &mdash; rainforest on three sides, water on every fourth hole. The quietest round you'll play in Hainan.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (mixed orientation, no cropping) -->
+<section style="padding-top:0;">
+  <div class="golf-gallery">
+    <figure class="fade-in">
+      <img src="Assets/golf/fairway-bunkers-01.jpg" alt="Fairway with bunkers">
+      <figcaption>Sculpted bunkers &middot; Mission Hills Haikou</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/golf/sunset-sky-fairway-01.jpg" alt="Sunset over fairway">
+      <figcaption>Sunset round &middot; Hainan</figcaption>
+    </figure>
+    <figure class="fade-in portrait-solo">
+      <img src="Assets/golf/IMG_5512.jpg" alt="Oceanfront aerial of golf course">
+      <figcaption>Shenzhou Peninsula &middot; aerial</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/golf/sunset-coast-aerial-01.jpg" alt="Hainan golf at sunset">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Add to Your Trip</span>
+    <h2>One round, or all three.</h2>
+    <p>Build a round into your surf trip, or fly in a few days early and play every course on the island. We'll handle tee times, clubs, transport, and caddies.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Start Planning </a>
+      <a href="index.html" class="btn btn-outline btn-arrow">Back to Home </a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
