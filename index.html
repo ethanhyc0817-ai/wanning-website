@@ -950,6 +950,12 @@ footer::before {
 .gallery-next { right: 0.5rem; }
 @media (max-width: 800px) { .gallery-item, .gallery-item.tall { width: 88%; } .gallery-nav { display: none; } }
 
+/* Tighten vertical rhythm on wavepool page (excludes custom-padded headline/CTA) */
+#page-wavepool section:not(.wp-headline):not(.wp-final-cta) { padding: clamp(2.5rem, 5vw, 5rem) 0; }
+#page-wavepool .wp-video-intro,
+#page-wavepool .wp-sessions-header { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+#page-wavepool .wp-video-caption { margin-top: 0.8rem; margin-bottom: 0; }
+
 /* 10. Final CTA (wave pool variant) */
 .wp-final-cta { position: relative; height: 60vh; min-height: 460px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .wp-final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
