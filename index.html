@@ -442,6 +442,25 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .explore-card-overlay h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
 .explore-card-overlay p { font-size: 0.85rem; opacity: 0.8; }
+.explore-card-cta {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  margin-top: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.92;
+  transition: opacity 0.3s var(--transition);
+}
+.explore-card-cta::after {
+  content: '\2192';
+  display: inline-block;
+  transition: transform 0.3s var(--transition);
+}
+.explore-card:hover .explore-card-cta { opacity: 1; }
+.explore-card:hover .explore-card-cta::after { transform: translateX(4px); }
 
 /* 4-card explore */
 .explore-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -807,6 +826,7 @@ footer::before {
   .explore-grid-4 .explore-card-overlay { padding: 0.9rem 1rem; }
   .explore-grid-4 .explore-card-overlay h3 { font-size: 1.05rem; margin-bottom: 0.15rem; }
   .explore-grid-4 .explore-card-overlay p { font-size: 0.75rem; }
+  .explore-grid-4 .explore-card-cta { font-size: 0.62rem; margin-top: 0.5rem; letter-spacing: 0.14em; }
 
   /* Cloudinary content videos → 4:3 landscape on mobile */
   .content-video {
@@ -1424,6 +1444,7 @@ footer::before {
           <div class="explore-card-overlay">
             <h3>Ancient culture</h3>
             <p>Li heritage &amp; indigenous traditions</p>
+            <span class="explore-card-cta">Explore</span>
           </div>
         </a>
         <a href="golf.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
@@ -1431,6 +1452,7 @@ footer::before {
           <div class="explore-card-overlay">
             <h3>Golf</h3>
             <p>Tiger Woods has played here</p>
+            <span class="explore-card-cta">Explore</span>
           </div>
         </a>
         <a href="cuisine.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
@@ -1438,6 +1460,7 @@ footer::before {
           <div class="explore-card-overlay">
             <h3>Cuisine &amp; Coffee Plantation</h3>
             <p>Seafood, markets, coffee &amp; chocolate</p>
+            <span class="explore-card-cta">Explore</span>
           </div>
         </a>
         <a href="nature.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
@@ -1445,11 +1468,9 @@ footer::before {
           <div class="explore-card-overlay">
             <h3>Nature</h3>
             <p>Waterfalls, rivers &amp; mountains</p>
+            <span class="explore-card-cta">Explore</span>
           </div>
         </a>
-      </div>
-      <div style="text-align:center; margin-top:2.5rem;">
-        <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('explore')">Explore Hainan </a>
       </div>
     </div>
   </section>
