@@ -828,10 +828,11 @@ footer::before {
   .explore-grid-4 .explore-card-overlay p { font-size: 0.75rem; }
   .explore-grid-4 .explore-card-cta { font-size: 0.62rem; margin-top: 0.5rem; letter-spacing: 0.14em; }
 
-  /* Cloudinary content videos → 4:3 landscape on mobile */
+  /* Cloudinary content videos → 16:9 landscape on mobile */
   .content-video {
     height: auto !important;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 }
 @media (max-width: 480px) {
