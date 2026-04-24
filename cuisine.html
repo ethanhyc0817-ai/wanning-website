@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuisine &amp; Coffee Plantation — Hainan's Tropical Table | Surf China Co.</title>
+<meta name="description" content="Seafood straight off the boat, jungle-grown coffee, bean-to-bar chocolate, and morning markets where the island actually shops. A taste of Hainan beyond the surf.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 560px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 20ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= CUISINE GRID (4 cards) ======= */
+.cuisine-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.cuisine-card { position: relative; overflow: hidden; border-radius: 3px; height: 480px; background: var(--charcoal); }
+.cuisine-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); opacity: 0.92; }
+.cuisine-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.cuisine-card-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+  padding: 1.75rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.cuisine-card-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
+.cuisine-card-overlay h3 { color: var(--white); margin-bottom: 0.55rem; font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
+.cuisine-card-overlay p { font-size: 0.88rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
+
+/* ======= IMG NINE (3x3 portrait grid) ======= */
+.img-nine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+.img-nine figure { margin: 0; }
+.img-nine img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+.img-nine figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 0.75rem;
+}
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1100px) {
+  .cuisine-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .cuisine-card { height: 420px; }
+}
+@media (max-width: 640px) {
+  .cuisine-grid { grid-template-columns: 1fr; }
+  .cuisine-card { height: 380px; }
+  .img-nine { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/food/lobster-noodles-01.jpg" alt="Hainan seafood">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Beyond the Pool &middot; Cuisine &amp; Coffee</span>
+    <h1>A tropical table.<br>Fresh off the boat.</h1>
+    <p>Seafood pulled from the bay that morning, coffee grown in the jungle an hour inland, chocolate made from local cacao, and markets where the whole island actually shops. Hainan eats well &mdash; this is how we show you.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">What's Grown Here</span>
+        <span class="value">Coffee, cacao, pepper, coconut</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Best Near</span>
+        <span class="value">Wanning &amp; Xinglong</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Signature</span>
+        <span class="value">Wenchang chicken, lobster noodles</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Half-Day Trip</span>
+        <span class="value">Add-on available</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">Hainan's Tropical Pantry</span>
+    <h2>An island that<br>grows its own menu.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Hainan is the only province in China that can grow real tropical crops at scale &mdash; coffee, cacao, pepper, mango, coconut, lychee. Most of it never leaves the island. What you'll eat here isn't a version of Chinese food you've had somewhere else; it's dishes that only make sense when the ingredient grew a few miles away that morning.</p>
+    <p class="lead">Then there's Xinglong &mdash; a small town a short drive inland, settled in the 1950s by overseas Chinese returning from Southeast Asia. They brought coffee plants, cacao, Nanyang-style cooking, and a separate culinary lineage you won't find on the mainland. It's why Hainan has a coffee culture older than most of China's.</p>
+    <div class="story-pull">
+      "The lobster on your plate was probably alive this morning, the coffee was picked three miles from here, and the chocolate bar started as a cacao pod down the road."
+    </div>
+  </div>
+</section>
+
+<!-- 4 CUISINE CARDS -->
+<section>
+  <div class="container">
+    <div style="max-width: 640px;">
+      <span class="overline">What You'll Taste</span>
+      <h2>Four ways to eat Hainan.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">From a sunrise walk through the local market to an afternoon on a coffee plantation and an evening learning to temper chocolate &mdash; build one in, or all four.</p>
+    </div>
+    <div class="cuisine-grid">
+      <div class="cuisine-card fade-in">
+        <img src="Assets/culture/market/market-scene-01.jpg" alt="Local market">
+        <div class="cuisine-card-overlay">
+          <span class="num">01 &mdash; Market</span>
+          <h3>The Morning Market</h3>
+          <p>Fishermen unloading the night's catch, stacks of tropical fruit you've never seen, pepper and chili piled a foot deep. Go with a local; leave with breakfast.</p>
+        </div>
+      </div>
+      <div class="cuisine-card fade-in">
+        <img src="Assets/food/crab-dish-01.jpg" alt="Local seafood">
+        <div class="cuisine-card-overlay">
+          <span class="num">02 &mdash; Cuisine</span>
+          <h3>Seafood &amp; Hainan Dishes</h3>
+          <p>Wenchang chicken, coconut hotpot, and lobster noodles &mdash; plus the quieter dishes most visitors miss. We'll book the places locals actually eat.</p>
+        </div>
+      </div>
+      <div class="cuisine-card fade-in">
+        <img src="Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation">
+        <div class="cuisine-card-overlay">
+          <span class="num">03 &mdash; Coffee</span>
+          <h3>Xinglong Coffee Plantation</h3>
+          <p>Walk the rows, pick a cherry, see it roasted. Xinglong is where China's coffee culture quietly began &mdash; decades before the first café opened in Beijing.</p>
+        </div>
+      </div>
+      <div class="cuisine-card fade-in">
+        <img src="Assets/culture/chocolate-making-02.jpg" alt="Chocolate making">
+        <div class="cuisine-card-overlay">
+          <span class="num">04 &mdash; Bean to Bar</span>
+          <h3>Chocolate Making</h3>
+          <p>Hainan grows cacao. A small chocolate maker near Xinglong walks you through every step &mdash; pod to paste to tempered bar &mdash; in a two-hour workshop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMG NINE (3x3 portrait grid) -->
+<section style="padding-top:0;">
+  <div class="img-nine">
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-peppers-01.jpg" alt="Market peppers">
+      <figcaption>Chilis &amp; pepper &middot; morning market</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-scene-02.jpg" alt="Market scene">
+      <figcaption>Wet market &middot; Wanning</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-scene-03.jpg" alt="Market scene">
+      <figcaption>Tropical produce &middot; Hainan</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-scene-04.jpg" alt="Market scene">
+      <figcaption>Fresh catch &middot; Shenzhou</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-scene-05.jpg" alt="Market scene">
+      <figcaption>Market life &middot; Hainan</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/food/coconut-hotpot-01.jpg" alt="Coconut hotpot">
+      <figcaption>Coconut hotpot &middot; local classic</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/food/local-street-food-01.jpg" alt="Street food">
+      <figcaption>Street food &middot; Xinglong</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/food/fresh-fish-catch-01.jpg" alt="Fresh fish">
+      <figcaption>Boat-to-table &middot; Shenzhou</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/food/mango-pudding-dessert-01.jpg" alt="Mango dessert">
+      <figcaption>Mango &amp; coconut dessert</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Add to Your Trip</span>
+    <h2>Plan a day around<br>what Hainan grows.</h2>
+    <p>A morning market walk, a long seafood lunch, a coffee plantation in the afternoon, chocolate at sunset &mdash; we'll shape it around your group.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Start Planning </a>
+      <a href="index.html" class="btn btn-outline btn-arrow">Back to Home </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
