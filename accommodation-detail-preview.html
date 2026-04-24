@@ -96,6 +96,42 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 .room-card { background: var(--sand); border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.35s var(--transition), box-shadow 0.35s var(--transition); }
 .room-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(10,77,104,0.1); }
 .room-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: var(--sand-dark); display: block; }
+
+/* Per-card image slider */
+.room-slider { position: relative; width: 100%; aspect-ratio: 4/3; background: var(--sand-dark); overflow: hidden; }
+.room-track { display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; scroll-snap-type: x mandatory; }
+.room-track::-webkit-scrollbar { display: none; }
+.room-slide { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; }
+.room-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.room-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--charcoal); font-size: 1.25rem; line-height: 1;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+  transition: background 0.25s, transform 0.25s;
+  z-index: 3;
+  opacity: 0; /* show on hover (desktop); always shown on touch via fallback below */
+}
+.room-slider:hover .room-nav { opacity: 1; }
+.room-nav:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.room-nav-prev { left: 0.7rem; }
+.room-nav-next { right: 0.7rem; }
+.room-nav svg { width: 14px; height: 14px; }
+/* Always-visible on touch devices (no hover) */
+@media (hover: none) {
+  .room-nav { opacity: 0.92; }
+}
+.room-count {
+  position: absolute; bottom: 0.7rem; right: 0.8rem;
+  background: rgba(0,0,0,0.55); color: #fff;
+  font-size: 0.7rem; letter-spacing: 0.08em;
+  padding: 0.25rem 0.55rem; border-radius: 2px;
+  z-index: 3; pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
 .room-card-body { padding: 1.8rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
 .room-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
 .room-card h3 { margin-bottom: 0.6rem; }
@@ -204,7 +240,20 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
       <!-- DESIGNER ROOM -->
       <div class="room-card">
-        <img src="Assets/hotel/choose/Designer's room/designer-hotel-room-07.jpg" alt="Designer Room" class="room-card-img">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-07.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-08.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-11.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-12.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-13.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-14.jpg" alt="Designer Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's room/designer-hotel-room-15.jpg" alt="Designer Room" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">7</span></span>
+        </div>
         <div class="room-card-body">
           <span class="room-tag">Designed by Shuhei Aoyama</span>
           <h3>Designer Room</h3>
@@ -219,7 +268,18 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
       <!-- DESIGNER SUITE -->
       <div class="room-card">
-        <img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-02.jpg" alt="Designer Suite" class="room-card-img">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-01.jpg" alt="Designer Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-02.jpg" alt="Designer Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-03.jpg" alt="Designer Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-04.jpg" alt="Designer Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-15.jpg" alt="Designer Suite" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">5</span></span>
+        </div>
         <div class="room-card-body">
           <span class="room-tag">Designed by Shuhei Aoyama</span>
           <h3>Designer Suite</h3>
@@ -234,7 +294,18 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
       <!-- OCEAN & POOL VIEW ROOM -->
       <div class="room-card">
-        <img src="Assets/hotel/choose/ocean &amp; pool view room/481DF200-3322-4BF2-BF7B-A0BABA02D5F2 Large.jpeg" alt="Ocean and Pool View Room" class="room-card-img">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="Assets/hotel/choose/ocean &amp; pool view room/481DF200-3322-4BF2-BF7B-A0BABA02D5F2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/ocean &amp; pool view room/24D1F7A7-40BD-41D0-BD3C-D345DE8E4046 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/ocean &amp; pool view room/655B29D8-2BF7-4581-A96A-FC2D6CFACF14 2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/ocean &amp; pool view room/6DFE199A-73B1-4376-A3C6-27BD1B5F4BAF Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/ocean &amp; pool view room/main-hotel-entrance-01.jpg" alt="Ocean and Pool View Room" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">5</span></span>
+        </div>
         <div class="room-card-body">
           <span class="room-tag">Riyue Bay &middot; Wave Pool View</span>
           <h3>Ocean &amp; Pool View Room</h3>
@@ -249,7 +320,18 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
       <!-- OWNER'S SUITE -->
       <div class="room-card">
-        <img src="Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" alt="Owner's Suite" class="room-card-img">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Owner's suite/48907DE9-7C1D-477C-AC6D-D60CB4A1EBC7 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Owner's suite/7A36E8BD-C170-4B9B-A14C-4EA4D2C79167 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Owner's suite/CE9FCB19-AFF9-491A-A599-5D9E7168380B Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="Assets/hotel/choose/Owner's suite/main-hotel-room-05.jpg" alt="Owner's Suite" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">5</span></span>
+        </div>
         <div class="room-card-body">
           <span class="room-tag">Signature Residence</span>
           <h3>Owner's Suite</h3>
@@ -331,7 +413,7 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 </section>
 
 <script>
-  // Gallery slider arrow controls
+  // Outside / Dining gallery slider arrow controls
   document.querySelectorAll('.gallery-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const track = document.getElementById(btn.dataset.target);
@@ -341,6 +423,26 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
       const step = (slide ? slide.offsetWidth : 320) + gap;
       track.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
     });
+  });
+
+  // Per-room card slider: arrows + live 1/N counter
+  document.querySelectorAll('.room-slider').forEach(slider => {
+    const track = slider.querySelector('.room-track');
+    const current = slider.querySelector('.room-count-current');
+
+    slider.querySelectorAll('.room-nav').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const step = track.clientWidth;
+        track.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
+      });
+    });
+
+    if (current && track) {
+      track.addEventListener('scroll', () => {
+        const i = Math.round(track.scrollLeft / track.clientWidth) + 1;
+        current.textContent = i;
+      }, { passive: true });
+    }
   });
 </script>
 
