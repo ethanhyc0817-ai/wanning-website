@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay with us — Surf China Co. × Riyue Bay</title>
+<meta name="description" content="A premium boutique stay by Japanese architect Shuhei Aoyama — steps from the PerfectSwell® wave pool. Free breakfast, 30% off surf sessions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal); background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.8rem, 7vw, 6rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 8rem) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= HERO ======= */
+.hero { position: relative; width: 100%; height: 100vh; min-height: 620px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 38%, rgba(0,0,0,0.65) 100%); }
+.hero-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; max-width: 1100px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.8rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.45); border-radius: 2px; }
+.hero-content h1 { color: var(--white); margin-bottom: 1.4rem; }
+.hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.6; }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--white); opacity: 0.6; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; writing-mode: vertical-rl; animation: bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* ======= HIGHLIGHTS ======= */
+.highlights { background: var(--charcoal); color: var(--white); padding: clamp(3rem, 5vw, 5rem) 0; }
+.highlights-lead { text-align: center; max-width: 780px; margin: 0 auto 3rem; padding: 0 1.5rem; }
+.highlights-lead h2 { color: var(--white); margin-bottom: 1rem; }
+.highlights-lead p { color: rgba(255,255,255,0.72); margin: 0 auto; }
+.highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,0.12); }
+.highlight-cell { padding: 2.4rem 1.8rem; border-right: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.highlight-num { font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 3.6vw, 3rem); font-weight: 800; color: var(--white); line-height: 1; letter-spacing: -0.02em; }
+.highlight-num sup { font-size: 0.5em; vertical-align: super; opacity: 0.8; margin-left: 0.15rem; font-weight: 500; }
+.highlight-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 0.8rem; }
+.highlight-detail { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-top: 0.8rem; line-height: 1.55; max-width: 100%; }
+
+/* ======= DESIGNER INTRO ======= */
+.intro-split { background: var(--sand); }
+.intro-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
+@media (max-width: 860px) { .intro-inner { grid-template-columns: 1fr; } }
+.intro-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 3px; background: var(--sand-dark); display: block; }
+.designer-meta { font-family: 'Montserrat', sans-serif; font-size: 0.78rem; color: var(--warm-gray); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 1.6rem; border-left: 2px solid var(--teal); padding-left: 1rem; }
+
+/* ======= ROOMS ======= */
+.rooms { background: var(--white); }
+.rooms-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.rooms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+@media (max-width: 860px) { .rooms-grid { grid-template-columns: 1fr; } }
+.room-card { background: var(--sand); border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.35s var(--transition), box-shadow 0.35s var(--transition); }
+.room-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(10,77,104,0.1); }
+.room-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; background: var(--sand-dark); display: block; }
+.room-card-body { padding: 1.8rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
+.room-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
+.room-card h3 { margin-bottom: 0.6rem; }
+.room-card p { font-size: 0.95rem; color: var(--warm-gray); margin: 0 0 1.2rem; max-width: 100%; }
+.room-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--sand-dark); }
+.room-meta span { font-size: 0.72rem; letter-spacing: 0.05em; color: var(--charcoal); background: var(--white); padding: 0.4rem 0.75rem; border-radius: 2px; }
+
+/* ======= GALLERY SLIDERS ======= */
+.gallery-slider-section { background: var(--sand); }
+.gallery-slider-header { max-width: 860px; margin: 0 auto 2.5rem; text-align: center; padding: 0 1rem; }
+.gallery-slider { position: relative; overflow: hidden; }
+.gallery-track { display: flex; gap: 0.8rem; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; scroll-snap-type: x mandatory; padding-bottom: 0.5rem; }
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-slide { flex: 0 0 auto; width: clamp(260px, 38vw, 440px); aspect-ratio: 4/3; scroll-snap-align: start; border-radius: 3px; overflow: hidden; background: var(--sand-dark); }
+.gallery-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--transition); }
+.gallery-slide:hover img { transform: scale(1.03); }
+.gallery-nav { display: flex; justify-content: center; gap: 0.8rem; margin-top: 1.8rem; }
+.gallery-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--charcoal); background: var(--white); color: var(--charcoal); cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+.gallery-btn:hover { background: var(--charcoal); color: var(--white); }
+
+/* ======= DINING ======= */
+.dining { background: var(--white); }
+
+/* ======= FINAL CTA ======= */
+.final-cta { position: relative; height: 60vh; min-height: 460px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.final-cta-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 100%); }
+.final-cta-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); max-width: 560px; margin: 0 auto 2rem; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Resort pool by the sea">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Stay with us</span>
+    <h1>Steps from the waves.</h1>
+    <p>A boutique beachfront stay at Riyue Bay &mdash; designed by renowned Japanese architect Shuhei Aoyama, set inside the wave pool grounds, seconds from the South China Sea.</p>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ============ 2. HIGHLIGHTS ============ -->
+<section class="highlights">
+  <div class="highlights-lead">
+    <span class="overline" style="color: var(--teal);">Why Stay With Us</span>
+    <h2>Wake up on the sand.</h2>
+    <p>Three things every guest gets, before we've even started on the room itself.</p>
+  </div>
+  <div class="container">
+    <div class="highlights-grid">
+      <div class="highlight-cell">
+        <div class="highlight-num">0<sup>min</sup></div>
+        <div class="highlight-label">Steps to the Waves</div>
+        <p class="highlight-detail">Roll out of bed and into the sand. The PerfectSwell&reg; pool and Riyue Bay beach are both inside the resort grounds.</p>
+      </div>
+      <div class="highlight-cell">
+        <div class="highlight-num">30<sup>%</sup></div>
+        <div class="highlight-label">Off Surf Sessions</div>
+        <p class="highlight-detail">Every guest who books a room gets 30% off all PerfectSwell&reg; wave pool sessions for the length of their stay.</p>
+      </div>
+      <div class="highlight-cell">
+        <div class="highlight-num">Free</div>
+        <div class="highlight-label">Breakfast Included</div>
+        <p class="highlight-detail">Daily tropical breakfast buffet at the on-site dining hall &mdash; fresh fruit, hot dishes, pastries, and local specialties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. DESIGNER INTRO ============ -->
+<section class="intro-split">
+  <div class="container">
+    <div class="intro-inner">
+      <div>
+        <span class="overline">The Property</span>
+        <h2>A quiet, considered stay by the sea.</h2>
+        <div class="section-divider"></div>
+        <p class="lead">The Designer Room and Designer Suite are the work of <strong>Shuhei Aoyama</strong> &mdash; one of Japan's most celebrated architects working in China. Natural timber, warm stone, and clean lines: a space built to slow you down between sessions.</p>
+        <p style="color: var(--warm-gray); font-size: 0.95rem; margin-top: 1.2rem;">Beyond the designer rooms, the property also offers Ocean &amp; Pool View Rooms looking straight onto the wave pool, and the Owner's Suite &mdash; a residence-style stay for longer trips or small groups.</p>
+        <p class="designer-meta">Architect &middot; Shuhei Aoyama &nbsp;青山周平</p>
+      </div>
+      <div>
+        <img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-01.jpg" alt="Designer suite interior by Shuhei Aoyama" class="intro-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. ROOM OPTIONS ============ -->
+<section class="rooms">
+  <div class="container">
+    <div class="rooms-header">
+      <span class="overline">Room Options</span>
+      <h2>Choose your room.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Four room types &mdash; each available with a king bed or twin beds. Just let us know what you need when you book.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <!-- DESIGNER ROOM -->
+      <div class="room-card">
+        <img src="Assets/hotel/choose/Designer's room/designer-hotel-room-07.jpg" alt="Designer Room" class="room-card-img">
+        <div class="room-card-body">
+          <span class="room-tag">Designed by Shuhei Aoyama</span>
+          <h3>Designer Room</h3>
+          <p>Warm, minimal interiors in timber and linen, softened by natural light and a generous rest-and-read corner. A small private retreat after a session in the pool.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>Twin beds</span>
+            <span>Sleeps 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGNER SUITE -->
+      <div class="room-card">
+        <img src="Assets/hotel/choose/Designer's suite/designer-hotel-room-02.jpg" alt="Designer Suite" class="room-card-img">
+        <div class="room-card-body">
+          <span class="room-tag">Designed by Shuhei Aoyama</span>
+          <h3>Designer Suite</h3>
+          <p>A larger layout with a separate sitting area, deeper tub, and expanded wardrobe. The same Aoyama material palette &mdash; timber, stone, linen &mdash; scaled up for longer stays.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>Twin beds</span>
+            <span>Sleeps 2&ndash;3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OCEAN & POOL VIEW ROOM -->
+      <div class="room-card">
+        <img src="Assets/hotel/choose/ocean &amp; pool view room/481DF200-3322-4BF2-BF7B-A0BABA02D5F2 Large.jpeg" alt="Ocean and Pool View Room" class="room-card-img">
+        <div class="room-card-body">
+          <span class="room-tag">Riyue Bay &middot; Wave Pool View</span>
+          <h3>Ocean &amp; Pool View Room</h3>
+          <p>Floor-to-ceiling windows facing the PerfectSwell&reg; pool and the South China Sea beyond. Wake up and check the session before you even leave the bed.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>Twin beds</span>
+            <span>Sleeps 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OWNER'S SUITE -->
+      <div class="room-card">
+        <img src="Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" alt="Owner's Suite" class="room-card-img">
+        <div class="room-card-body">
+          <span class="room-tag">Signature Residence</span>
+          <h3>Owner's Suite</h3>
+          <p>The top-floor residence &mdash; an expansive living room, private terrace, and uninterrupted views across the bay. Ideal for families, small groups, or a longer creative retreat.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>Additional twin option</span>
+            <span>Sleeps 2&ndash;4</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. OUTSIDE / GROUNDS SLIDER ============ -->
+<section class="gallery-slider-section">
+  <div class="container">
+    <div class="gallery-slider-header">
+      <span class="overline">The Grounds</span>
+      <h2>Garden, pool, and the sea.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">The resort opens onto a palm-lined garden and a quiet lap pool &mdash; with the wave pool and the beach just a short path away.</p>
+    </div>
+    <div class="gallery-slider">
+      <div class="gallery-track" id="outsideTrack">
+        <div class="gallery-slide"><img src="Assets/hotel/outside/outside use/86878487-D902-4437-B0F6-24929327B401 Large.jpeg" alt="Resort exterior" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/outside/outside use/AF03B0AE-7747-4F49-BDAD-95C374094C3A Large.jpeg" alt="Resort gardens" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/outside/outside use/hotel-garden-aerial-01.jpg" alt="Garden aerial view" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Pool aerial view" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="gallery-nav">
+      <button class="gallery-btn" data-target="outsideTrack" data-dir="-1" aria-label="Previous">&larr;</button>
+      <button class="gallery-btn" data-target="outsideTrack" data-dir="1" aria-label="Next">&rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. RESTAURANT / BREAKFAST SLIDER ============ -->
+<section class="dining">
+  <div class="container">
+    <div class="gallery-slider-header">
+      <span class="overline">Breakfast, Included</span>
+      <h2>Fuel up before the first set.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">A tropical breakfast spread at the on-site dining hall &mdash; fresh fruit, pastries, hot dishes, and local Hainan specialties. Included with every stay.</p>
+    </div>
+    <div class="gallery-slider">
+      <div class="gallery-track" id="diningTrack">
+        <div class="gallery-slide"><img src="Assets/hotel/restaurant/restaurant use/restaurant-buffet-hall-01.jpg" alt="Breakfast dining hall" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/restaurant/restaurant use/restaurant-buffet-counter-01.jpg" alt="Buffet counter" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/restaurant/restaurant use/restaurant-buffet-hotfood-01.jpg" alt="Hot dishes" loading="lazy"></div>
+        <div class="gallery-slide"><img src="Assets/hotel/restaurant/restaurant use/restaurant-buffet-pastries-01.jpg" alt="Pastries" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="gallery-nav">
+      <button class="gallery-btn" data-target="diningTrack" data-dir="-1" aria-label="Previous">&larr;</button>
+      <button class="gallery-btn" data-target="diningTrack" data-dir="1" aria-label="Next">&rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="final-cta-bg">
+    <img src="Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Resort at dusk">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline" style="color: rgba(255,255,255,0.85);">Book Your Stay</span>
+    <h2>Stay with us. Surf with us.</h2>
+    <p>Rooms fill up fast around the best swell windows. Tell us your dates and we'll hold a room and a session.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Check Availability</a>
+      <a href="#" class="btn btn-outline btn-arrow">See Trip Packages</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Gallery slider arrow controls
+  document.querySelectorAll('.gallery-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const track = document.getElementById(btn.dataset.target);
+      if (!track) return;
+      const slide = track.querySelector('.gallery-slide');
+      const gap = 12;
+      const step = (slide ? slide.offsetWidth : 320) + gap;
+      track.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
