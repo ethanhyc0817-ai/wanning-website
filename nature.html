@@ -134,17 +134,17 @@ nav {
 .nature-card-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
 .nature-card-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
 
-/* ======= IMG DUO (portrait layout) ======= */
-.img-duo {
+/* ======= IMG QUAD (2x2 portrait grid) ======= */
+.img-quad {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(1rem, 1.6vw, 1.5rem);
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
 }
-.img-duo figure { margin: 0; }
-.img-duo img {
+.img-quad figure { margin: 0; }
+.img-quad img {
   width: 100%;
   aspect-ratio: 3 / 4;
   height: auto;
@@ -152,7 +152,7 @@ nav {
   display: block;
   border-radius: 3px;
 }
-.img-duo figcaption {
+.img-quad figcaption {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
@@ -161,7 +161,6 @@ nav {
   color: var(--warm-gray);
   margin-top: 0.9rem;
 }
-.img-duo figure:nth-child(2) { margin-top: clamp(2rem, 5vw, 4rem); }
 
 /* ======= FINAL CTA ======= */
 .final-cta {
@@ -181,8 +180,7 @@ nav {
 @media (max-width: 900px) {
   .nature-grid { grid-template-columns: 1fr; gap: 1rem; }
   .nature-card { height: 380px; }
-  .img-duo { grid-template-columns: 1fr; gap: 1rem; }
-  .img-duo figure:nth-child(2) { margin-top: 0; }
+  .img-quad { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .hero-meta { gap: 1.2rem; }
 }
 
@@ -283,9 +281,17 @@ nav {
   </div>
 </section>
 
-<!-- IMG DUO (portrait, staggered) -->
+<!-- IMG QUAD (2x2 portrait grid) -->
 <section style="padding-top:0;">
-  <div class="img-duo">
+  <div class="img-quad">
+    <figure class="fade-in">
+      <img src="Assets/nature/pristine%20ocean.jpg" alt="Pristine Hainan ocean">
+      <figcaption>Pristine ocean &middot; East coast</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/nature/mountain-treehouse-misty-01.jpg" alt="Misty mountain treehouse">
+      <figcaption>Mountain treehouse &middot; Misty morning</figcaption>
+    </figure>
     <figure class="fade-in">
       <img src="Assets/nature/rice-field-palm-tree-01.jpg" alt="Rice fields and palm trees">
       <figcaption>Rice &amp; palm &middot; Wanning valley</figcaption>
