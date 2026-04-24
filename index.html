@@ -1419,13 +1419,13 @@ footer::before {
       <div class="section-divider"></div>
       <p class="lead">Hainan is nothing like what most people picture when they think of China — think waterfalls, coffee plantations, night markets, world-class golf, and empty surfs.</p>
       <div class="explore-grid-4">
-        <div class="explore-card fade-in">
+        <a href="culture.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <img src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait">
           <div class="explore-card-overlay">
             <h3>Ancient culture</h3>
             <p>Li heritage &amp; indigenous traditions</p>
           </div>
-        </div>
+        </a>
         <div class="explore-card fade-in">
           <img src="Assets/golf/IMG_5512.jpg" alt="Golf course">
           <div class="explore-card-overlay">
@@ -3470,6 +3470,13 @@ document.querySelectorAll('.page').forEach(page => {
   pageObserver.observe(page, { attributes: true, attributeFilter: ['class'] });
 });
 function handleSubmit(e) { e.preventDefault(); alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.'); }
+
+// Route via URL hash so external pages (e.g. culture.html) can link back with #contact / #packages etc.
+(function () {
+  const validPages = ['home','wavepool','packages','explore','plan','contact','facilities'];
+  const hash = (window.location.hash || '').replace('#','').trim();
+  if (hash && validPages.includes(hash)) { showPage(hash); }
+})();
 
 // Gallery-strip mobile carousel: wrap each .gallery-strip and add prev/next arrows with looping
 document.querySelectorAll('.gallery-strip').forEach(strip => {

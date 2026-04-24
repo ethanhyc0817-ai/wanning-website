@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ancient Culture — The Li People of Hainan | Surf China Co.</title>
+<meta name="description" content="Before the resorts, before the wave pool — the Li people. 3,000 years of indigenous culture on Hainan's tropical shores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 560px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 18ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= CULTURE GRID (3 cards) ======= */
+.culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.culture-card { position: relative; overflow: hidden; border-radius: 3px; height: 460px; background: var(--charcoal); }
+.culture-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); opacity: 0.92; }
+.culture-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.culture-card-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0) 100%);
+  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.culture-card-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
+.culture-card-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
+.culture-card-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
+
+/* ======= IMG DUO ======= */
+.img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.img-duo img { width: 100%; height: clamp(280px, 35vw, 460px); object-fit: cover; border-radius: 3px; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 900px) {
+  .culture-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .culture-card { height: 380px; }
+  .img-duo { grid-template-columns: 1fr; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Beyond the Pool &middot; Ancient Culture</span>
+    <h1>The Li People.<br>3,000 years of Hainan.</h1>
+    <p>Before the resorts, before the wave pool, before the name "China" even reached these shores &mdash; the Li were here. Weavers, storytellers, mountain farmers. This is still their home.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Heritage</span>
+        <span class="value">3,000+ years</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Population</span>
+        <span class="value">~1.5 million</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Best Near</span>
+        <span class="value">Wuzhishan &amp; Baoting</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Half-Day Trip</span>
+        <span class="value">Add-on available</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">Hainan's First People</span>
+    <h2>The island's<br>original storytellers.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">The Li are the indigenous people of Hainan &mdash; here thousands of years before the island was mapped, named, or traded. Their language has no written form, so their history lives in what they make: brocade patterns coded with family stories, wooden villages built without nails, songs sung at harvest and at funerals.</p>
+    <p class="lead">You won't find this in a museum queue in Shanghai. The Li live in the mountains and valleys just inland from the surf &mdash; a short drive from the wave pool into a part of China most visitors never see.</p>
+    <div class="story-pull">
+      "A Li woman's wedding blanket tells you where she's from, who her mother was, and which mountain her village belongs to &mdash; all before you read a single word."
+    </div>
+  </div>
+</section>
+
+<!-- 3 CULTURE CARDS -->
+<section>
+  <div class="container">
+    <div style="max-width: 640px;">
+      <span class="overline">What You'll See</span>
+      <h2>Three ways to step inside.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Cultural experiences we'll build into your trip &mdash; at the depth you want, from a half-day visit to a full cultural day.</p>
+    </div>
+    <div class="culture-grid">
+      <div class="culture-card fade-in">
+        <img src="Assets/culture/li-weaving-artisan-01.jpg" alt="Li brocade weaver">
+        <div class="culture-card-overlay">
+          <span class="num">01 &mdash; Craft</span>
+          <h3>Li Brocade Weaving</h3>
+          <p>Watch a master weaver work a backstrap loom &mdash; a UNESCO-recognized craft with patterns passed mother to daughter for a thousand years.</p>
+        </div>
+      </div>
+      <div class="culture-card fade-in">
+        <img src="Assets/culture/historic-village-tower-01.jpg" alt="Historic Li village tower">
+        <div class="culture-card-overlay">
+          <span class="num">02 &mdash; Place</span>
+          <h3>Ancient Villages</h3>
+          <p>Walk through stilted wooden houses and boat-shaped roofs in a restored Li settlement &mdash; architecture designed for monsoons long before concrete reached the island.</p>
+        </div>
+      </div>
+      <div class="culture-card fade-in">
+        <img src="Assets/culture/fire-performance-01.jpg" alt="Fire performance">
+        <div class="culture-card-overlay">
+          <span class="num">03 &mdash; Story</span>
+          <h3>Fire &amp; Song at Night</h3>
+          <p>A sit-down dinner with a live performance &mdash; bamboo-pole dancing, fire shows, and Li folk songs. Part feast, part concert, part history lesson.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMG DUO -->
+<div class="img-duo">
+  <img src="Assets/culture/street-scene-01.jpg" alt="Local street scene">
+  <img src="Assets/culture/opera-dinner-01.jpg" alt="Opera dinner">
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/culture/historic-village-tower-01.jpg" alt="Historic village">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Add to Your Trip</span>
+    <h2>Make a cultural day<br>part of the itinerary.</h2>
+    <p>Half-day village visit, full-day deep dive, or a single evening dinner &amp; performance &mdash; we'll fit it to your group and your pace.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Start Planning </a>
+      <a href="index.html" class="btn btn-outline btn-arrow">Back to Home </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
