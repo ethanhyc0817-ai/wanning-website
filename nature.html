@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature — Hainan's Rainforest, Rivers &amp; Coast | Surf China Co.</title>
+<meta name="description" content="Waterfalls, rainforest, mountain valleys, and empty tropical coastline. The wild side of tropical China — minutes from the wave pool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 560px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 18ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= NATURE GRID (3 cards) ======= */
+.nature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.nature-card { position: relative; overflow: hidden; border-radius: 3px; height: 460px; background: var(--charcoal); }
+.nature-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); opacity: 0.92; }
+.nature-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.nature-card-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 55%, rgba(0,0,0,0) 100%);
+  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.nature-card-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
+.nature-card-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
+.nature-card-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
+
+/* ======= IMG DUO (portrait layout) ======= */
+.img-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+.img-duo figure { margin: 0; }
+.img-duo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+.img-duo figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 0.9rem;
+}
+.img-duo figure:nth-child(2) { margin-top: clamp(2rem, 5vw, 4rem); }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 900px) {
+  .nature-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .nature-card { height: 380px; }
+  .img-duo { grid-template-columns: 1fr; gap: 1rem; }
+  .img-duo figure:nth-child(2) { margin-top: 0; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/nature/mountain-valley-sunset-01.jpg" alt="Hainan mountain valley at sunset">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Beyond the Pool &middot; Nature</span>
+    <h1>Tropical China,<br>still wild.</h1>
+    <p>Waterfalls, rainforest, river valleys, and a coastline that still goes empty between headlands. Hainan's interior is mountainous, green, and quieter than almost anywhere you'd expect to find in China.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Protected Forest</span>
+        <span class="value">Yinggeling &amp; Wuzhishan</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Highest Peak</span>
+        <span class="value">Wuzhishan, 1,867m</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Coastline</span>
+        <span class="value">~1,800 km</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Best Added As</span>
+        <span class="value">Half or full day</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">Why It Surprises People</span>
+    <h2>Not the China<br>you were picturing.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Think palm-covered mountains, rivers cutting through rainforest, rice paddies under banyan trees, and a coastline where locals still paddle traditional boats at dawn. Hainan is closer in feel to southern Vietnam or rural Thailand than to anywhere on the Chinese mainland &mdash; just cleaner, safer, and easier to travel in.</p>
+    <p class="lead">Most of this sits within a 30&ndash;90 minute drive of the wave pool, so you can surf in the morning, swim under a waterfall by lunch, and be back in time for sunset at the resort.</p>
+    <div class="story-pull">
+      "You come to Hainan thinking you signed up for a wave pool. You leave remembering the waterfall you swam under, the river you paddled at sunset, the mountain road you didn't want to end."
+    </div>
+  </div>
+</section>
+
+<!-- 3 NATURE CARDS -->
+<section>
+  <div class="container">
+    <div style="max-width: 640px;">
+      <span class="overline">What You'll See</span>
+      <h2>Three kinds of wild.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Add any of these to your trip &mdash; a quick morning outing, a guided half-day, or a full day in the mountains or on the water.</p>
+    </div>
+    <div class="nature-grid">
+      <div class="nature-card fade-in">
+        <img src="Assets/nature/rainforest-waterfall-01.jpg" alt="Hainan rainforest waterfall">
+        <div class="nature-card-overlay">
+          <span class="num">01 &mdash; Forest</span>
+          <h3>Waterfalls &amp; Rainforest</h3>
+          <p>Hike into protected rainforest to swim under waterfalls that most visitors to China never even hear about. Canopy walks, suspension bridges, and cold fresh water on a hot day.</p>
+        </div>
+      </div>
+      <div class="nature-card fade-in">
+        <img src="Assets/nature/mountain-road-tropical-01.jpg" alt="Tropical mountain road">
+        <div class="nature-card-overlay">
+          <span class="num">02 &mdash; Mountains</span>
+          <h3>Mountain Valleys &amp; Villages</h3>
+          <p>Drive the inland roads that wind through palm-covered ridges, hill-tribe villages, and farmland that hasn't changed in generations. Stop for fruit, stay for the view.</p>
+        </div>
+      </div>
+      <div class="nature-card fade-in">
+        <img src="Assets/nature/paddleboard-crystal-water-01.jpg" alt="Paddleboarding on clear water">
+        <div class="nature-card-overlay">
+          <span class="num">03 &mdash; Water</span>
+          <h3>Rivers, Reefs &amp; Coast</h3>
+          <p>Paddleboard glassy rivers, snorkel over coral just off the beach, or take a boat to a small island for a day. When the surfer's in the pool, this is where the rest of the group goes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMG DUO (portrait, staggered) -->
+<section style="padding-top:0;">
+  <div class="img-duo">
+    <figure class="fade-in">
+      <img src="Assets/nature/rice-field-palm-tree-01.jpg" alt="Rice fields and palm trees">
+      <figcaption>Rice &amp; palm &middot; Wanning valley</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Coastal road and beach">
+      <figcaption>Coastal drive &middot; East Hainan</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/wanning/wanning-river-treehouse-01.jpg" alt="Wanning river treehouse">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Add to Your Trip</span>
+    <h2>Build a nature day<br>into your itinerary.</h2>
+    <p>A morning waterfall hike, a full day in the rainforest, or a sunset river paddle &mdash; we'll pair it with your surf sessions so no one in the group has to sit still.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Start Planning </a>
+      <a href="index.html#explore" class="btn btn-outline btn-arrow">Explore More of Hainan </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
