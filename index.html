@@ -928,12 +928,13 @@ footer::before {
 
 /* 6. Facilities - compact card variant for wave pool page */
 .wp-facilities { background: var(--sand); }
-.wp-fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.4rem; margin-top: 3rem; }
+.wp-fac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; margin-top: 3rem; }
 .fac-card { background: var(--white); border-radius: 3px; overflow: hidden; }
 .fac-card-img { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); background-size: cover; background-position: center; }
 .fac-card-body { padding: 1.2rem 1.3rem 1.5rem; }
 .fac-card-body h3 { font-size: 1.1rem; margin-bottom: 0.4rem; color: var(--charcoal); }
 .fac-card-body p { font-size: 0.88rem; color: var(--warm-gray); max-width: none; }
+@media (max-width: 900px) { .wp-fac-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
 
 /* 8. Gallery */
 .wp-gallery { background: var(--white); }
@@ -1648,15 +1649,15 @@ footer::before {
           <div class="fac-card-body"><h3>Surf Shop</h3><p>Boards, wetsuits, fins, wax &mdash; all major brands.</p></div>
         </div>
         <div class="fac-card">
-          <div class="fac-card-img" style="background-image:url('Assets/surf-shop/board-rental-01.jpg');"></div>
+          <div class="fac-card-img" style="background-image:url('Assets/surf-shop/IMG_5146 2.jpg');"></div>
           <div class="fac-card-body"><h3>Board Rentals</h3><p>Shortboards, longboards, soft tops &mdash; by the session.</p></div>
         </div>
         <div class="fac-card">
-          <div class="fac-card-img" style="background-image:url('Assets/recovery/recovery-pool-day-01.jpg');"></div>
+          <div class="fac-card-img" style="background-image:url('Assets/recovery/IMG_5050.jpg');"></div>
           <div class="fac-card-body"><h3>Recovery Suite</h3><p>Glass-walled sauna, ice bath, hot plunge.</p></div>
         </div>
         <div class="fac-card">
-          <div class="fac-card-img" style="background-image:url('Assets/surf-shop/cafe/cafe-exterior-01.jpg');"></div>
+          <div class="fac-card-img" style="background-image:url('Assets/surf-shop/cafe/IMG_5171 2.jpg');"></div>
           <div class="fac-card-body"><h3>Surf Caf&eacute;</h3><p>Specialty coffee, cold drinks, post-session bites.</p></div>
         </div>
       </div>
@@ -1668,7 +1669,7 @@ footer::before {
     <div class="container">
       <div class="wp-video-intro">
         <span class="overline">Performance</span>
-        <h2>Turns. Airs. Barrels.</h2>
+        <h2>Watch what's possible.</h2>
         <div class="section-divider-center"></div>
         <p class="lead" style="margin: 0 auto;">When the pool turns up &mdash; every setting, every style, one lineup.</p>
       </div>
