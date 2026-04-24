@@ -961,6 +961,8 @@ footer::before {
 
 /* Hero / intro strip */
 .sd-hero { padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 5vw, 4.5rem); background: var(--sand); }
+.sd-hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
+@media (max-width: 860px) { .sd-hero-grid { grid-template-columns: 1fr; gap: 0; } }
 .sd-hero-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; }
 .sd-hero-head .s-icon { width: 22px; height: 22px; }
 .sd-hero-head .s-icon.hard { width: 18px; height: 18px; }
@@ -968,10 +970,13 @@ footer::before {
 .sd-hero-head .s-icon.expert::before, .sd-hero-head .s-icon.expert::after { width: 16px; height: 16px; top: 1px; }
 .sd-hero-head .s-icon.expert::after { left: 14px; }
 .sd-hero-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0; }
-.sd-hero .lead { max-width: 720px; font-size: 1.1rem; }
+.sd-hero .lead { font-size: 1.1rem; }
+.sd-hero-intro { max-width: 560px; }
+@media (max-width: 860px) { .sd-hero-intro { max-width: 720px; } }
 
 /* Quick facts list */
-.sd-facts { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 720px; }
+.sd-facts { list-style: none; padding: 0; margin: 0; }
+@media (max-width: 860px) { .sd-facts { margin-top: 2rem; max-width: 720px; } }
 .sd-facts li { padding: 0.85rem 0; border-bottom: 1px solid var(--sand-dark); font-size: 0.98rem; color: var(--charcoal); display: flex; gap: 0.8rem; }
 .sd-facts li::before { content: ''; flex: 0 0 6px; height: 6px; margin-top: 0.75rem; background: var(--teal); border-radius: 50%; }
 .sd-facts li:last-child { border-bottom: none; }
@@ -1775,22 +1780,26 @@ footer::before {
   <!-- Hero / intro -->
   <section class="sd-hero">
     <div class="container">
-      <div class="sd-hero-head">
-        <span class="s-icon easy"></span>
-        <h1>Learn to Surf</h1>
-      </div>
-      <p class="lead">Start your surfing journey in a safe, fun environment, guided by coaches who genuinely want you to stand up on day one. Perfect for first-timers &mdash; kids and adults alike. We'll cover water safety, surfing fundamentals, and push you into gentle rolling waves so you can feel the magic of that first ride. Small groups or private lessons &mdash; whichever suits you.</p>
+      <div class="sd-hero-grid">
+        <div class="sd-hero-intro">
+          <div class="sd-hero-head">
+            <span class="s-icon easy"></span>
+            <h1>Learn to Surf</h1>
+          </div>
+          <p class="lead">Start your surfing journey in a safe, fun environment, guided by coaches who genuinely want you to stand up on day one. Perfect for first-timers &mdash; kids and adults alike. We'll cover water safety, surfing fundamentals, and push you into gentle rolling waves so you can feel the magic of that first ride. Small groups or private lessons &mdash; whichever suits you.</p>
+        </div>
 
-      <ul class="sd-facts">
-        <li>Ages 5 and up</li>
-        <li>No surf experience needed</li>
-        <li>Pre-session instruction and in-water push-ins</li>
-        <li>Small groups (max 4 per coach) or private instructors available</li>
-        <li>All equipment provided &mdash; board and wetsuit included</li>
-        <li>15 to 25 waves per session</li>
-        <li>Photos and video of your waves available</li>
-        <li>Special needs? Just let us know &mdash; we'll take care of it</li>
-      </ul>
+        <ul class="sd-facts">
+          <li>Ages 5 and up</li>
+          <li>No surf experience needed</li>
+          <li>Pre-session instruction and in-water push-ins</li>
+          <li>Small groups (max 4 per coach) or private instructors available</li>
+          <li>All equipment provided &mdash; board and wetsuit included</li>
+          <li>15 to 25 waves per session</li>
+          <li>Photos and video of your waves available</li>
+          <li>Special needs? Just let us know &mdash; we'll take care of it</li>
+        </ul>
+      </div>
     </div>
   </section>
 
