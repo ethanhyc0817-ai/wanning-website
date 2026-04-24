@@ -828,9 +828,12 @@ footer::before {
    ========================================================== */
 
 /* 2. Headline dark block */
-.wp-headline { background: var(--charcoal); color: var(--white); padding: clamp(5rem, 10vw, 9rem) 0; text-align: center; }
+.wp-headline { background: var(--charcoal); color: var(--white); padding: clamp(5rem, 10vw, 9rem) 0; text-align: center; position: relative; overflow: hidden; min-height: clamp(480px, 60vh, 680px); display: flex; align-items: center; }
+.wp-headline-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.wp-headline-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; }
+.wp-headline > .container-narrow { position: relative; z-index: 2; width: 100%; }
 .wp-headline .overline { color: var(--teal); }
-.wp-headline h2 { color: var(--white); max-width: 860px; margin: 0 auto 1rem; }
+.wp-headline h2 { color: var(--white); max-width: 860px; margin: 0 auto; }
 .wp-headline p { color: rgba(255,255,255,0.7); max-width: 720px; margin: 1.2rem auto 0; }
 
 /* 3. YouTube video feature */
@@ -1497,12 +1500,14 @@ footer::before {
 <!-- ======================== WAVE POOL ======================== -->
 <div id="page-wavepool" class="page">
 
-  <!-- 1. HEADLINE (dark) -->
+  <!-- 1. HEADLINE (video background) -->
   <section class="wp-headline">
+    <video class="wp-headline-bg" autoplay muted loop playsinline>
+      <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776961310/ScreenRecording_04-23-2026_17_gyfyrv.mp4" type="video/mp4">
+    </video>
+    <div class="wp-headline-overlay"></div>
     <div class="container-narrow">
-      <span class="overline">Not An Ocean. Better.</span>
       <h2>The most advanced wave pool system in Asia.</h2>
-      <p>No swell windows. No crowd battles. No blown-out sessions. Just good waves whenever you want them.</p>
     </div>
   </section>
 
