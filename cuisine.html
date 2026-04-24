@@ -36,7 +36,7 @@ body {
   overflow-x: hidden;
 }
 h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
-h1 { font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.02em; }
+h1 { font-size: clamp(2rem, 5.5vw, 5rem); letter-spacing: -0.02em; }
 h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
 h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
 .overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
@@ -99,14 +99,15 @@ nav {
 }
 .page-hero-content {
   position: relative; z-index: 2; color: var(--white);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 6vw, 4rem);
   max-width: 860px;
 }
 .page-hero-content .overline { color: var(--gold); }
-.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 18ch; }
-.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 560px; line-height: 1.7; }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(0.98rem, 1.6vw, 1.12rem); max-width: 560px; line-height: 1.65; }
 
-.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta { display: flex; flex-wrap: wrap; gap: clamp(1rem, 2.5vw, 2rem) clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(1.2rem, 2.5vw, 2rem); padding-top: clamp(1.2rem, 2.5vw, 2rem); border-top: 1px solid rgba(255,255,255,0.2); }
 .hero-meta-item { color: rgba(255,255,255,0.85); }
 .hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
 .hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
@@ -133,17 +134,17 @@ nav {
 .cuisine-card-overlay h3 { color: var(--white); margin-bottom: 0.55rem; font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
 .cuisine-card-overlay p { font-size: 0.88rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
 
-/* ======= IMG NINE (3x3 portrait grid) ======= */
-.img-nine {
+/* ======= IMG SIX (2 cols x 3 rows portrait grid) ======= */
+.img-six {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.75rem, 1.2vw, 1.25rem);
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
 }
-.img-nine figure { margin: 0; }
-.img-nine img {
+.img-six figure { margin: 0; }
+.img-six img {
   width: 100%;
   aspect-ratio: 3 / 4;
   height: auto;
@@ -151,14 +152,14 @@ nav {
   display: block;
   border-radius: 3px;
 }
-.img-nine figcaption {
+.img-six figcaption {
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--warm-gray);
-  margin-top: 0.75rem;
+  margin-top: 0.9rem;
 }
 
 /* ======= FINAL CTA ======= */
@@ -183,8 +184,13 @@ nav {
 @media (max-width: 640px) {
   .cuisine-grid { grid-template-columns: 1fr; }
   .cuisine-card { height: 380px; }
-  .img-nine { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
-  .hero-meta { gap: 1.2rem; }
+  .img-six { gap: 0.75rem; }
+  .page-hero { min-height: 560px; }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .page-hero-content h1 { max-width: 100%; }
+  .hero-meta-item.hide-mobile { display: none; }
 }
 
 /* fade-in */
@@ -212,7 +218,7 @@ nav {
     <h1>A tropical table.<br>Fresh off the boat.</h1>
     <p>Seafood pulled from the bay that morning, coffee grown in the jungle an hour inland, chocolate made from local cacao, and markets where the whole island actually shops. Hainan eats well &mdash; this is how we show you.</p>
     <div class="hero-meta">
-      <div class="hero-meta-item">
+      <div class="hero-meta-item hide-mobile">
         <span class="label">What's Grown Here</span>
         <span class="value">Coffee, cacao, pepper, coconut</span>
       </div>
@@ -224,7 +230,7 @@ nav {
         <span class="label">Signature</span>
         <span class="value">Wenchang chicken, lobster noodles</span>
       </div>
-      <div class="hero-meta-item">
+      <div class="hero-meta-item hide-mobile">
         <span class="label">Half-Day Trip</span>
         <span class="value">Add-on available</span>
       </div>
@@ -292,40 +298,28 @@ nav {
   </div>
 </section>
 
-<!-- IMG NINE (3x3 portrait grid) -->
+<!-- IMG SIX (2 cols x 3 rows portrait grid) -->
 <section style="padding-top:0;">
-  <div class="img-nine">
+  <div class="img-six">
     <figure class="fade-in">
       <img src="Assets/culture/market/market-peppers-01.jpg" alt="Market peppers">
       <figcaption>Chilis &amp; pepper &middot; morning market</figcaption>
-    </figure>
-    <figure class="fade-in">
-      <img src="Assets/culture/market/market-scene-02.jpg" alt="Market scene">
-      <figcaption>Wet market &middot; Wanning</figcaption>
-    </figure>
-    <figure class="fade-in">
-      <img src="Assets/culture/market/market-scene-03.jpg" alt="Market scene">
-      <figcaption>Tropical produce &middot; Hainan</figcaption>
-    </figure>
-    <figure class="fade-in">
-      <img src="Assets/culture/market/market-scene-04.jpg" alt="Market scene">
-      <figcaption>Fresh catch &middot; Shenzhou</figcaption>
-    </figure>
-    <figure class="fade-in">
-      <img src="Assets/culture/market/market-scene-05.jpg" alt="Market scene">
-      <figcaption>Market life &middot; Hainan</figcaption>
     </figure>
     <figure class="fade-in">
       <img src="Assets/food/coconut-hotpot-01.jpg" alt="Coconut hotpot">
       <figcaption>Coconut hotpot &middot; local classic</figcaption>
     </figure>
     <figure class="fade-in">
-      <img src="Assets/food/local-street-food-01.jpg" alt="Street food">
-      <figcaption>Street food &middot; Xinglong</figcaption>
+      <img src="Assets/culture/market/market-scene-02.jpg" alt="Market scene">
+      <figcaption>Wet market &middot; Wanning</figcaption>
     </figure>
     <figure class="fade-in">
       <img src="Assets/food/fresh-fish-catch-01.jpg" alt="Fresh fish">
       <figcaption>Boat-to-table &middot; Shenzhou</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/market/market-scene-04.jpg" alt="Market scene">
+      <figcaption>Market life &middot; Hainan</figcaption>
     </figure>
     <figure class="fade-in">
       <img src="Assets/food/mango-pudding-dessert-01.jpg" alt="Mango dessert">
