@@ -134,17 +134,17 @@ nav {
 .culture-card-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
 .culture-card-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
 
-/* ======= IMG DUO (portrait layout for vertical photos) ======= */
-.img-duo {
+/* ======= IMG QUAD (2x2 portrait grid) ======= */
+.img-quad {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(1rem, 1.6vw, 1.5rem);
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
 }
-.img-duo figure { margin: 0; }
-.img-duo img {
+.img-quad figure { margin: 0; }
+.img-quad img {
   width: 100%;
   aspect-ratio: 3 / 4;
   height: auto;
@@ -152,7 +152,7 @@ nav {
   display: block;
   border-radius: 3px;
 }
-.img-duo figcaption {
+.img-quad figcaption {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 500;
@@ -161,8 +161,6 @@ nav {
   color: var(--warm-gray);
   margin-top: 0.9rem;
 }
-/* staggered offset for editorial feel */
-.img-duo figure:nth-child(2) { margin-top: clamp(2rem, 5vw, 4rem); }
 
 /* ======= FINAL CTA ======= */
 .final-cta {
@@ -182,8 +180,7 @@ nav {
 @media (max-width: 900px) {
   .culture-grid { grid-template-columns: 1fr; gap: 1rem; }
   .culture-card { height: 380px; }
-  .img-duo { grid-template-columns: 1fr; gap: 1rem; }
-  .img-duo figure:nth-child(2) { margin-top: 0; }
+  .img-quad { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .hero-meta { gap: 1.2rem; }
 }
 
@@ -284,9 +281,17 @@ nav {
   </div>
 </section>
 
-<!-- IMG DUO (portrait, staggered) -->
+<!-- IMG QUAD (2x2 portrait grid) -->
 <section style="padding-top:0;">
-  <div class="img-duo">
+  <div class="img-quad">
+    <figure class="fade-in">
+      <img src="Assets/culture/IMG_5942.jpg" alt="Hainan culture scene">
+      <figcaption>Village life &middot; Hainan interior</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/IMG_5940.jpg" alt="Hainan culture scene">
+      <figcaption>Local tradition &middot; Hainan</figcaption>
+    </figure>
     <figure class="fade-in">
       <img src="Assets/culture/street-scene-01.jpg" alt="Local street scene">
       <figcaption>Old street &middot; Wanning</figcaption>
