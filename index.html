@@ -938,11 +938,17 @@ footer::before {
 
 /* 8. Gallery */
 .wp-gallery { background: var(--white); }
-.gallery-grid { display: flex; gap: 0.75rem; margin-top: 3rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 0.5rem; scroll-padding: 0.75rem; }
+.gallery-wrapper { position: relative; margin-top: 3rem; }
+.gallery-grid { display: flex; gap: 0.75rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 0.5rem; scroll-padding: 0.75rem; }
 .gallery-grid::-webkit-scrollbar { display: none; }
 .gallery-item, .gallery-item.tall { flex: 0 0 auto; width: clamp(260px, 55%, 640px); aspect-ratio: 16 / 9; background: var(--sand-dark); background-size: cover; background-position: center; border-radius: 3px; overflow: hidden; scroll-snap-align: start; transition: transform 0.5s var(--transition); }
 .gallery-item:hover { transform: scale(1.02); }
-@media (max-width: 800px) { .gallery-item, .gallery-item.tall { width: 88%; } }
+.gallery-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.96); border: 1px solid rgba(10,77,104,0.1); box-shadow: 0 6px 20px rgba(10,77,104,0.15); color: var(--charcoal); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2; padding: 0; transition: background 0.2s var(--transition), box-shadow 0.2s var(--transition), transform 0.2s var(--transition); }
+.gallery-nav:hover { background: var(--white); box-shadow: 0 8px 24px rgba(10,77,104,0.22); transform: translateY(-50%) scale(1.06); }
+.gallery-nav svg { width: 18px; height: 18px; }
+.gallery-prev { left: 0.5rem; }
+.gallery-next { right: 0.5rem; }
+@media (max-width: 800px) { .gallery-item, .gallery-item.tall { width: 88%; } .gallery-nav { display: none; } }
 
 /* 10. Final CTA (wave pool variant) */
 .wp-final-cta { position: relative; height: 60vh; min-height: 460px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -1689,19 +1695,27 @@ footer::before {
     <div class="container">
       <div style="text-align:center; max-width:720px; margin:0 auto;">
         <span class="overline">Gallery</span>
-        <h2>In the water. In the air. At sunset.</h2>
+        <h2>From first light to last wave.</h2>
         <div class="section-divider-center"></div>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-dusk-02.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-surfer-action-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-elevated-surfers-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-golden-hour-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-spectators-01.jpg');"></div>
-        <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-twilight-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-kids-training-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-dusk-reflection-01.jpg');"></div>
-        <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-night-panorama-01.jpg');"></div>
+      <div class="gallery-wrapper">
+        <button class="gallery-nav gallery-prev" type="button" aria-label="Previous" onclick="scrollWpGallery(-1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="gallery-grid" id="wp-gallery-grid">
+          <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-dusk-02.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-surfer-action-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-elevated-surfers-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-golden-hour-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-spectators-01.jpg');"></div>
+          <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-twilight-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-kids-training-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-dusk-reflection-01.jpg');"></div>
+          <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-night-panorama-01.jpg');"></div>
+        </div>
+        <button class="gallery-nav gallery-next" type="button" aria-label="Next" onclick="scrollWpGallery(1)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -3388,6 +3402,15 @@ footer::before {
 </footer>
 
 <script>
+function scrollWpGallery(dir) {
+  const el = document.getElementById('wp-gallery-grid');
+  if (!el) return;
+  const item = el.querySelector('.gallery-item');
+  const gap = 12; // matches CSS gap: 0.75rem
+  const amt = (item ? item.offsetWidth : 320) + gap;
+  el.scrollBy({ left: amt * dir, behavior: 'smooth' });
+}
+
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
