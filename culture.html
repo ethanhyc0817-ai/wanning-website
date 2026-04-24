@@ -134,9 +134,35 @@ nav {
 .culture-card-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
 .culture-card-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.85); max-width: none; line-height: 1.55; }
 
-/* ======= IMG DUO ======= */
-.img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 0 clamp(1.5rem, 4vw, 4rem); }
-.img-duo img { width: 100%; height: clamp(280px, 35vw, 460px); object-fit: cover; border-radius: 3px; }
+/* ======= IMG DUO (portrait layout for vertical photos) ======= */
+.img-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+.img-duo figure { margin: 0; }
+.img-duo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+.img-duo figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 0.9rem;
+}
+/* staggered offset for editorial feel */
+.img-duo figure:nth-child(2) { margin-top: clamp(2rem, 5vw, 4rem); }
 
 /* ======= FINAL CTA ======= */
 .final-cta {
@@ -156,7 +182,8 @@ nav {
 @media (max-width: 900px) {
   .culture-grid { grid-template-columns: 1fr; gap: 1rem; }
   .culture-card { height: 380px; }
-  .img-duo { grid-template-columns: 1fr; }
+  .img-duo { grid-template-columns: 1fr; gap: 1rem; }
+  .img-duo figure:nth-child(2) { margin-top: 0; }
   .hero-meta { gap: 1.2rem; }
 }
 
@@ -257,11 +284,19 @@ nav {
   </div>
 </section>
 
-<!-- IMG DUO -->
-<div class="img-duo">
-  <img src="Assets/culture/street-scene-01.jpg" alt="Local street scene">
-  <img src="Assets/culture/opera-dinner-01.jpg" alt="Opera dinner">
-</div>
+<!-- IMG DUO (portrait, staggered) -->
+<section style="padding-top:0;">
+  <div class="img-duo">
+    <figure class="fade-in">
+      <img src="Assets/culture/street-scene-01.jpg" alt="Local street scene">
+      <figcaption>Old street &middot; Wanning</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="Assets/culture/opera-dinner-01.jpg" alt="Hainan opera dinner">
+      <figcaption>Opera &amp; dinner &middot; Xinglong</figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
 <section class="final-cta">
