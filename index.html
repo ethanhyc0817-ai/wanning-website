@@ -828,16 +828,16 @@ footer::before {
    ========================================================== */
 
 /* 2. Headline dark block */
-.wp-headline { background: var(--charcoal); color: var(--white); padding: clamp(5rem, 10vw, 9rem) 0; text-align: center; position: relative; overflow: hidden; min-height: clamp(480px, 60vh, 680px); display: flex; align-items: center; }
+.wp-headline { background: var(--charcoal); color: var(--white); padding: clamp(3rem, 7vw, 5rem) 0 clamp(5rem, 10vw, 9rem); text-align: center; position: relative; overflow: hidden; min-height: clamp(480px, 60vh, 680px); display: flex; align-items: flex-start; }
 .wp-headline-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .wp-headline-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; }
 .wp-headline > .container-narrow { position: relative; z-index: 2; width: 100%; }
 .wp-headline .overline { color: var(--teal); }
 .wp-headline h2 { color: var(--white); max-width: 860px; margin: 0 auto; }
 .wp-headline p { color: rgba(255,255,255,0.7); max-width: 720px; margin: 1.2rem auto 0; }
-.wp-powered { display: flex; flex-direction: column; align-items: center; gap: 0.65rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
-.wp-powered-logo { width: clamp(70px, 9vw, 100px); height: auto; filter: brightness(0) invert(1); opacity: 0.95; }
-.wp-powered-label { color: rgba(255,255,255,0.75); font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
+.wp-powered { display: inline-flex; flex-direction: row; align-items: center; gap: 0.7rem; margin-top: clamp(1.25rem, 2.5vw, 1.75rem); padding: 0.5rem 1.1rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; background: rgba(255,255,255,0.05); backdrop-filter: blur(4px); }
+.wp-powered-logo { width: clamp(22px, 3vw, 28px); height: auto; filter: brightness(0) invert(1); opacity: 0.95; flex-shrink: 0; }
+.wp-powered-label { color: rgba(255,255,255,0.9); font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
 
 /* 3. YouTube video feature */
 .wp-video { background: var(--white); }
@@ -1513,7 +1513,7 @@ footer::before {
       <h2>The most advanced wave pool system in Asia.</h2>
       <div class="wp-powered">
         <img src="Assets/perfectswell-logo.png" alt="PerfectSwell" class="wp-powered-logo">
-        <span class="wp-powered-label">Powered by PerfectSwell</span>
+        <span class="wp-powered-label">Powered by PerfectSwell&reg;</span>
       </div>
     </div>
   </section>
