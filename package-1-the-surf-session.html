@@ -111,7 +111,10 @@ nav.scrolled { padding: 0.7rem 0; }
 /* ======= HERO ======= */
 .hero { position: relative; width: 100%; height: 100vh; min-height: 620px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+@media (max-width: 768px) {
+  .hero-bg video, .hero-bg img { object-position: 25% center; }
+}
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.65) 100%); }
 .hero-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; max-width: 1100px; }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.8rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; }
@@ -384,7 +387,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <h2>You don't have a week. You have a long weekend &mdash; and you want to <em>actually</em> surf.</h2>
       <div class="section-divider"></div>
       <p>Not paddle out, sit, wait, paddle back in for the one you missed. The Wave Pool Escape is built for that.</p>
-      <p>Three nights in a premium villa minutes from the world's only PerfectSwell&reg; pool in China. Six guaranteed sessions, every wave coached and filmed, every hour you're awake either in the water or recovering for it. We handle the airport, the food, the boards, the rest. You handle the surfing.</p>
+      <p>Three nights in a premium boutique suite minutes from the world's only PerfectSwell&reg; pool in China. Six guaranteed sessions, every wave coached and filmed, every hour you're awake either in the water or recovering for it. We handle the airport, the food, the boards, the rest. You handle the surfing.</p>
       <p class="lead">It's for the surfer who wants more reps than a coastal trip can give them &mdash; without the noise of a full week away.</p>
     </div>
   </div>
@@ -402,7 +405,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <div class="rhythm-list">
       <div class="rhythm-row">
         <div class="rhythm-time">6:45 am</div>
-        <div class="rhythm-text">Coffee and Hainanese <em>qinbuliang</em> at the villa. Sunrise over the pool.</div>
+        <div class="rhythm-text">Coffee and Hainanese <em>qinbuliang</em> at the resort. Sunrise over the pool.</div>
       </div>
       <div class="rhythm-row">
         <div class="rhythm-time">7:30 am</div>
@@ -446,7 +449,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="itin-card">
         <div class="itin-day">Day 01</div>
         <div class="itin-title">Arrive &amp; Settle In</div>
-        <p>Pickup at Sanya Phoenix International (SYX). 90-minute drive up the coast to your villa in Wanning. Light dinner, board fitting, early night.</p>
+        <p>Pickup at Haikou Meilan International (HAK). Drive down the coast to the resort in Wanning. Light dinner, board fitting, early night.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 02</div>
@@ -461,7 +464,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="itin-card">
         <div class="itin-day">Day 04</div>
         <div class="itin-title">One More &amp; Out</div>
-        <p>A morning session if you want it. Brunch at the villa. Transfer to SYX.</p>
+        <p>A morning session if you want it. Brunch at the resort. Transfer to HAK.</p>
       </div>
     </div>
     <p class="itin-customize">This is the standard rhythm. We&rsquo;ll adjust around your fitness, your goals, and any specific moves you want to work on.</p>
@@ -486,7 +489,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="surf-card">
         <div class="surf-card-img" style="background-image:url('Assets/wavepool/wavepool-surf-lesson-01.jpg');"></div>
         <h3>Coaching</h3>
-        <p>Every session is coached. Video on every wave, reviewed with you in under an hour. Your coach is a working pro with instruction experience &mdash; capped at two students per coach so you actually get feedback.</p>
+        <p>Every session comes with coaching and guiding included. Your coach is a working pro with real instruction experience &mdash; in the water with you, eyes on every wave, helping you actually progress.</p>
       </div>
       <div class="surf-card">
         <div class="surf-card-img" style="background-image:url('Assets/wavepool/wavepool-surfer-action-01.jpg');"></div>
@@ -495,7 +498,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       </div>
     </div>
     <p style="text-align:center; margin-top: 2rem;">
-      <a href="wavepool-detail-preview.html" class="btn btn-outline-dark btn-arrow">More on the Wave Pool</a>
+      <a href="index.html#wavepool" class="btn btn-outline-dark btn-arrow">More on the Wave Pool</a>
     </p>
   </div>
 </section>
@@ -504,10 +507,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <section class="stay-section">
   <div class="container">
     <div class="stay-grid">
-      <div class="stay-img ph" data-ph="Villa exterior or interior shot" style="background-image:url('Assets/hotel/hotel-room-suite-01.jpg');"></div>
+      <div class="stay-img ph" data-ph="Suite exterior or interior shot" style="background-image:url('Assets/hotel/hotel-room-suite-01.jpg');"></div>
       <div class="stay-text">
         <span class="overline">Where You'll Stay</span>
-        <h2>Premium villa, minutes from the pool.</h2>
+        <h2>Premium suites, steps from the pool.</h2>
         <div class="section-divider"></div>
         <p>Private en-suite room as standard. Pool, garden, open kitchen, outdoor shower. Three accommodation tiers depending on group size and budget.</p>
         <p class="lead">Solo travelers: we can match you with a twin share or hold a private room with a single supplement. Tell us your preference at booking.</p>
@@ -535,21 +538,21 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         </div>
       </div>
       <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/food/wenchang-chicken-01.jpg');"></div>
+        <div class="beyond-card-img" style="background-image:url('Assets/food/crab-dish-01.jpg');"></div>
         <div class="beyond-card-body">
           <h3>Hainanese Table</h3>
           <p>Wenchang chicken, lobster noodles, steamed reef fish. We book the places locals actually eat.</p>
         </div>
       </div>
       <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/ocean-surf/ocean-surf-sunset-01.jpg');"></div>
+        <div class="beyond-card-img" style="background-image:url('Assets/nature/coastal-road-beach-aerial-01.jpg');"></div>
         <div class="beyond-card-body">
           <h3>Sunset Beach Drive</h3>
-          <p>End the day at the coast. Riyue Bay, a black-sand beach, or a quiet point most people miss.</p>
+          <p>End the day at the coast. Riyue Bay, a quiet point most people miss, or just the long, beautiful coastline running south.</p>
         </div>
       </div>
     </div>
-    <p style="text-align:center; font-size:0.85rem; color:var(--warm-gray); margin-top: 2rem; font-style: italic;">Want to extend with culture, nature, or coffee? See the <a href="index.html#packages" style="color: var(--teal); text-decoration: underline;">Surf &amp; Discover Hainan</a> package.</p>
+    <p style="text-align:center; font-size:0.85rem; color:var(--warm-gray); margin-top: 2rem; font-style: italic;">Want to extend with culture, nature, or coffee? See <a href="index.html#packages" style="color: var(--teal); text-decoration: underline;">The Hainan Surf &amp; Explore Package</a>.</p>
   </div>
 </section>
 
@@ -575,9 +578,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="audience-col no">
         <h3>This trip probably isn't for you if&hellip;</h3>
         <ul>
-          <li>You want a full Hainan exploration trip &mdash; that's <em>Surf &amp; Discover Hainan</em></li>
-          <li>You want resort luxury over surf focus &mdash; happy to recommend other operators</li>
-          <li>You travel with non-surfers who'll be bored without their own program</li>
+          <li>You want a full Hainan exploration trip &mdash; that's <em>The Hainan Surf &amp; Explore Package</em></li>
+          <li>You travel with non-surfers who'll be bored without their own program &mdash; that's <em>The Hainan Surf &amp; Explore Package</em></li>
         </ul>
       </div>
     </div>
@@ -596,11 +598,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="included-col yes">
         <h3>What's Included</h3>
         <ul>
-          <li>3 nights premium villa accommodation (twin share)</li>
+          <li>3 nights premium boutique suite accommodation (twin share)</li>
           <li>6+ PerfectSwell&reg; sessions with certified coach</li>
           <li>Video analysis after every session</li>
           <li>All surfboards, wetsuits, rashguards</li>
-          <li>Private airport transfers (SYX &harr; Wanning)</li>
+          <li>Private airport transfers (HAK &harr; Wanning)</li>
           <li>All breakfasts; most lunches and dinners</li>
           <li>One Hainanese herbal recovery massage</li>
           <li>Professional photos and video from your best sessions</li>
@@ -632,13 +634,13 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
     <div class="price-cards">
       <div class="price-card">
-        <h4>Standard Villa</h4>
+        <h4>Standard Suite</h4>
         <div class="price-amount tbd">$X,XXX USD</div>
         <div class="price-amount-sub">From / Per Person</div>
         <p>3 nights, 6+ sessions, twin share. The base trip.</p>
       </div>
       <div class="price-card featured">
-        <h4>Premium Villa Suite</h4>
+        <h4>Premium Boutique Suite</h4>
         <div class="price-amount tbd">$X,XXX USD</div>
         <div class="price-amount-sub">From / Per Person</div>
         <p>Upgrade to a private suite with pool view. Same trip, more room.</p>
@@ -672,7 +674,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       </div>
       <div class="faq-item">
         <div class="faq-q">How do I get there?</div>
-        <div class="faq-a"><p>Fly into Sanya Phoenix International (SYX). We pick you up. Sanya connects to Hong Kong, Singapore, Bangkok, Tokyo, Seoul &mdash; and a few European cities seasonally.</p></div>
+        <div class="faq-a"><p>Fly into Haikou Meilan International (HAK). We pick you up. Haikou connects to Hong Kong, Singapore, Bangkok, Tokyo, Seoul &mdash; and a few European cities seasonally.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">I've never surfed. Can I still come?</div>
