@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural Waves in Hainan — Beyond the Wave Pool | Surf China Co.</title>
+<meta name="description" content="Beyond the wave pool, Hainan has a side of surf most travelers never knew existed. Seasonal swells, longboard-friendly setups, family-friendly beach days, and a quiet coastline guided by local knowledge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2rem, 5.5vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; scroll-margin-top: 80px; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 6vw, 4rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1rem; max-width: 18ch; }
+.page-hero-content .sub {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+  max-width: 38ch;
+}
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(0.98rem, 1.6vw, 1.12rem); max-width: 580px; line-height: 1.65; }
+.hero-cta-row { margin-top: clamp(1.6rem, 3vw, 2.4rem); display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+/* ======= INTRO / STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 22ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 720px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= FEATURED VIDEO ======= */
+.video-feature { background: var(--charcoal); color: var(--white); }
+.video-feature .overline { color: var(--gold); }
+.video-feature h2 { color: var(--white); max-width: 18ch; margin-bottom: 1.2rem; }
+.video-feature .section-divider { background: var(--gold); }
+.video-feature p { color: rgba(255,255,255,0.85); }
+.video-feature .lead { color: rgba(255,255,255,0.92); }
+.video-feature-intro { max-width: 720px; margin: 0 auto 3rem; text-align: center; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.video-feature-intro .section-divider { margin: 1.2rem auto 1.8rem; }
+.video-frame {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+}
+.video-frame .video-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000;
+}
+.video-frame video,
+.video-frame img.video-poster {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.video-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+/* ======= SEASONS GRID ======= */
+.seasons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.season-card {
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  padding: clamp(2rem, 3vw, 2.6rem);
+  border-radius: 3px;
+  transition: all 0.4s var(--transition);
+}
+.season-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+.season-card .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.6rem; }
+.season-card h3 { margin-bottom: 1rem; }
+.season-card p { color: var(--warm-gray); font-size: 1rem; line-height: 1.7; }
+.season-card .points { list-style: none; margin-top: 1.4rem; padding: 0; }
+.season-card .points li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+.season-card .points li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65rem;
+  width: 8px; height: 1px;
+  background: var(--teal);
+}
+
+/* ======= WAVE-TYPE CARDS (3) ======= */
+.wave-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.wave-type-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  height: 460px;
+  background: var(--charcoal);
+}
+.wave-type-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--transition);
+  opacity: 0.92;
+}
+.wave-type-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.wave-type-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.wave-type-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
+.wave-type-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
+.wave-type-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.88); max-width: none; line-height: 1.55; }
+
+/* ======= LOCAL KNOWLEDGE ======= */
+.local-knowledge { background: var(--sand); }
+.local-knowledge .knowledge-pull {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+  line-height: 1.4;
+  color: var(--ocean);
+  font-weight: 500;
+  font-style: italic;
+  max-width: 700px;
+  padding: 2rem 0;
+  border-top: 1px solid var(--sand-dark);
+  border-bottom: 1px solid var(--sand-dark);
+  margin: 2.5rem 0;
+}
+
+/* ======= LEVELS GRID (6 cards) ======= */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.level-card {
+  padding: clamp(1.8rem, 2.5vw, 2.2rem);
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  border-radius: 3px;
+  transition: all 0.4s var(--transition);
+}
+.level-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+.level-card .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.6rem; }
+.level-card h3 { margin-bottom: 0.7rem; font-size: 1.2rem; }
+.level-card p { color: var(--warm-gray); font-size: 0.95rem; line-height: 1.7; max-width: none; }
+
+/* ======= WAVE POOL + OCEAN SURF SPLIT ======= */
+.combo { background: var(--charcoal); color: var(--white); }
+.combo .overline { color: var(--gold); }
+.combo h2 { color: var(--white); max-width: 22ch; margin-bottom: 1.2rem; }
+.combo .section-divider { background: var(--gold); }
+.combo p { color: rgba(255,255,255,0.85); }
+.combo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.combo-block {
+  padding: clamp(1.8rem, 2.6vw, 2.4rem);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+.combo-block .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.7rem; }
+.combo-block h3 { color: var(--white); margin-bottom: 0.9rem; }
+.combo-block p { color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.7; max-width: none; }
+
+/* ======= MYSTERY / WHAT WE DON'T SHARE ======= */
+.mystery { background: var(--sand); }
+.mystery h2 { margin-bottom: 1rem; max-width: 22ch; }
+.mystery p + p { margin-top: 1.1rem; }
+
+/* ======= FAQ ======= */
+.faq-list { margin-top: 3rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+.faq-item {
+  border-bottom: 1px solid var(--sand-dark);
+  padding: 1.6rem 0;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  color: var(--charcoal);
+  line-height: 1.4;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--teal);
+  transition: transform 0.3s var(--transition);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '\2013'; }
+.faq-item p {
+  color: var(--warm-gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+  max-width: none;
+}
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 680px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.9); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1000px) {
+  .seasons-grid { grid-template-columns: 1fr; }
+  .wave-types-grid { grid-template-columns: 1fr; }
+  .wave-type-card { height: 380px; }
+  .levels-grid { grid-template-columns: repeat(2, 1fr); }
+  .combo-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .levels-grid { grid-template-columns: 1fr; }
+  .page-hero { min-height: 560px; }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .page-hero-content h1 { max-width: 100%; }
+  .video-frame .video-shell { aspect-ratio: 4 / 5; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg" alt="Tropical Hainan coastline at sunrise">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Beyond the Pool &middot; Natural Surf</span>
+    <h1>Natural Waves<br>in Hainan.</h1>
+    <p class="sub">Beyond the wave pool, Hainan has a side of surf most travelers never knew existed.</p>
+    <p>This is not a surf spot directory. It is a glimpse into the natural waves, seasonal swells, long tropical rides, family-friendly beach waves, and local knowledge that make Hainan one of Asia&rsquo;s most underrated surf destinations.</p>
+    <div class="hero-cta-row">
+      <a href="index.html#contact" class="btn btn-outline btn-arrow">Ask About Natural Surf Options </a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. INTRO — HAINAN HAS REAL SURF -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">Hainan Has Real Surf</span>
+    <h2>The waves were always here.<br>Most travelers just never looked.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Most surfers do not think of China when they think of tropical waves. That is exactly what makes Hainan different. Beyond the wave pool, the island has real ocean surf, seasonal swells, quiet coastlines, long mellow waves, kid-friendly beach conditions, and a side of surfing that still feels undiscovered to most international travelers.</p>
+    <p class="lead">The coastline shifts with the season. Some days are playful and beginner-friendly. Some are gentle enough for kids and first-timers when the conditions are right. Some setups offer especially long, smooth waves built for longboarding. Other days bring more powerful conditions for experienced surfers. The best part is that most travelers do not even know where to look.</p>
+    <div class="story-pull">
+      The wave pool is the anchor of the trip. The ocean is the surprise &mdash; and Hainan has more of it than almost anyone outside the island realises.
+    </div>
+  </div>
+</section>
+
+<!-- 3. FEATURED VIDEO — A DIFFERENT SIDE OF CHINA -->
+<section class="video-feature">
+  <div class="video-feature-intro fade-in">
+    <span class="overline">A Different Side of China</span>
+    <h2 style="margin-left:auto; margin-right:auto;">The coastline most surfers never see.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">When the right swell, wind, and tide come together, Hainan can reveal waves that feel completely unexpected &mdash; long, clean, tropical, and far from the image most surfers have of China.</p>
+  </div>
+  <div class="video-frame fade-in">
+    <div class="video-shell">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg">
+        <!-- Replace [CLOUDINARY_VIDEO_URL_HERE] with the actual Cloudinary URL when ready. -->
+        <source src="[CLOUDINARY_VIDEO_URL_HERE]" type="video/mp4">
+        <img src="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg" alt="A glimpse of Hainan&rsquo;s tropical coastline">
+      </video>
+    </div>
+    <p class="video-caption">A glimpse of what Hainan can do when the conditions align &mdash; not a map, not a spot guide.</p>
+  </div>
+</section>
+
+<!-- 4. TWO DIFFERENT SURF SEASONS -->
+<section>
+  <div class="container">
+    <div style="max-width: 720px;">
+      <span class="overline">The Surf Calendar</span>
+      <h2>Two different<br>surf seasons.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Hainan has two very different sides to its surf calendar. The wave pool gives the trip structure. The ocean adds the surprise.</p>
+    </div>
+    <div class="seasons-grid">
+      <div class="season-card fade-in">
+        <span class="label">Regular Season</span>
+        <h3>Consistent, approachable, and easier to plan around.</h3>
+        <p>The window most guests build a trip around &mdash; more reliable seasonal surf, gentler days for kids and first-timers, and longer, smoother waves that suit longboarding.</p>
+        <ul class="points">
+          <li>More consistent seasonal surf for trip planning</li>
+          <li>Often more approachable depending on conditions</li>
+          <li>Softer days that work for beginners, kids, and families</li>
+          <li>Long, smooth waves on longboard-friendly days</li>
+          <li>The best window for combining wave-pool sessions with possible ocean surf</li>
+        </ul>
+      </div>
+      <div class="season-card fade-in">
+        <span class="label">Typhoon Swell Season</span>
+        <h3>Unpredictable, occasionally rare, and never guaranteed.</h3>
+        <p>The wild card. Swell-chasers know the kind of windows this season can deliver &mdash; powerful, memorable, and never something you build a trip around in advance.</p>
+        <ul class="points">
+          <li>More unpredictable, forecast-driven windows</li>
+          <li>Can deliver rare and powerful sessions</li>
+          <li>Not something we ever guarantee</li>
+          <li>Better suited for experienced surfers when conditions get serious</li>
+          <li>Part of what makes Hainan exciting for surfers chasing real swell</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MORE THAN ONE KIND OF WAVE -->
+<section style="background: var(--sand);">
+  <div class="container">
+    <div style="max-width: 720px;">
+      <span class="overline">Variety, Not a Spot Guide</span>
+      <h2>More than<br>one kind of wave.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Hainan&rsquo;s natural surf is not only about advanced surfers or heavy waves. When the conditions are right, the same coastline can show very different sides.</p>
+    </div>
+    <div class="wave-types-grid">
+      <div class="wave-type-card fade-in">
+        <img src="Assets/ocean-surf/ocean-surf-sunset-silhouette-01.jpg" alt="A long, smooth tropical wave">
+        <div class="wave-type-overlay">
+          <span class="num">01 &mdash; Longboard</span>
+          <h3>Longboard Waves</h3>
+          <p>Some of Hainan&rsquo;s natural waves can be long, smooth, and beautifully paced &mdash; the kind of waves made for trim, flow, and classic longboard lines.</p>
+        </div>
+      </div>
+      <div class="wave-type-card fade-in">
+        <img src="Assets/ocean-surf/ocean-surf-kid-01.jpg" alt="A friendly beach wave for first-time surfers">
+        <div class="wave-type-overlay">
+          <span class="num">02 &mdash; Family</span>
+          <h3>Family-Friendly Beach Days</h3>
+          <p>When the conditions are soft and safe, there are beach setups that can be great for kids, first-time surfers, and families who want a gentle ocean experience.</p>
+        </div>
+      </div>
+      <div class="wave-type-card fade-in">
+        <img src="Assets/ocean-surf/ocean-surf-action-02.jpg" alt="A more powerful natural wave on Hainan&rsquo;s coast">
+        <div class="wave-type-overlay">
+          <span class="num">03 &mdash; Performance</span>
+          <h3>More Serious Surf</h3>
+          <p>When stronger swells line up, Hainan can also show a completely different side &mdash; faster, cleaner, more powerful, and better suited for experienced surfers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. GUIDED BY LOCAL KNOWLEDGE -->
+<section class="local-knowledge">
+  <div class="container-narrow">
+    <span class="overline">Why Local Guidance Matters</span>
+    <h2>Guided by<br>local knowledge.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Natural surf in Hainan is not something we turn into a public checklist. The right call depends on the forecast, the tide, the wind, and the people in the group. Some days are perfect for a longboard. Some are gentle enough for kids and first-timers. Some are better left to experienced surfers. Some days, the best move is to stay at the wave pool. That is where local knowledge matters.</p>
+    <div class="knowledge-pull">
+      &ldquo;We do not publish every spot online. The best days are guided locally, based on swell, wind, tide, and your level.&rdquo;
+    </div>
+    <p>The right spot depends on swell direction, wind, and tide &mdash; and on the level of the surfer. Conditions can change quickly. The best option is not always the most obvious beach. Our local team helps guests understand what is possible during their travel window, instead of pointing them at a public map.</p>
+  </div>
+</section>
+
+<!-- 7. FOR DIFFERENT LEVELS -->
+<section>
+  <div class="container">
+    <div style="max-width: 720px;">
+      <span class="overline">Who This Is For</span>
+      <h2>For different levels,<br>different days.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Natural surf in Hainan is not a single experience. Depending on conditions, it can suit a first-time surfer, a kid, a longboarder, an experienced traveler chasing a swell &mdash; or someone who does not surf at all.</p>
+    </div>
+    <div class="levels-grid">
+      <div class="level-card fade-in">
+        <span class="num">01</span>
+        <h3>First-Time Surfers</h3>
+        <p>For guests who want to try the ocean in the right conditions after building confidence in the wave pool.</p>
+      </div>
+      <div class="level-card fade-in">
+        <span class="num">02</span>
+        <h3>Kids &amp; Families</h3>
+        <p>For families looking for soft, friendly beach waves when the ocean is suitable.</p>
+      </div>
+      <div class="level-card fade-in">
+        <span class="num">03</span>
+        <h3>Longboarders</h3>
+        <p>For surfers who love longer, smoother waves with room to trim, cruise, and flow.</p>
+      </div>
+      <div class="level-card fade-in">
+        <span class="num">04</span>
+        <h3>Intermediate Surfers</h3>
+        <p>For surfers looking for fun tropical sessions and a more adventurous side of the trip.</p>
+      </div>
+      <div class="level-card fade-in">
+        <span class="num">05</span>
+        <h3>Experienced Surfers</h3>
+        <p>For surfers who want to keep an eye on the forecast and chase better natural conditions when they line up.</p>
+      </div>
+      <div class="level-card fade-in">
+        <span class="num">06</span>
+        <h3>Non-Surfing Guests</h3>
+        <p>For partners, families, or friends who want beaches, caf&eacute;s, local food, nature, and coastline exploration while others surf.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. WAVE POOL + OCEAN SURF -->
+<section class="combo">
+  <div class="container">
+    <div style="max-width: 760px;">
+      <span class="overline">How It Fits Together</span>
+      <h2>Wave pool for the plan.<br>Ocean for the surprise.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">The wave pool is the reliable anchor of the trip. You can plan your sessions, progress faster, and surf without waiting on the forecast. The ocean is different. It is seasonal, changing, and never guaranteed &mdash; but when it works, it adds something completely different to the experience.</p>
+      <p class="lead" style="margin-top:1.2rem;">Some days are soft and playful. Some days are long and perfect for a longboard. Some days are powerful and unforgettable. Together, they make this feel like a true surf trip, not just a wave pool visit.</p>
+    </div>
+    <div class="combo-grid">
+      <div class="combo-block fade-in">
+        <span class="label">The Anchor</span>
+        <h3>Wave Pool</h3>
+        <p>Plannable sessions. Reliable conditions. Fast progression. The part of the trip you can lock in, regardless of forecast.</p>
+      </div>
+      <div class="combo-block fade-in">
+        <span class="label">The Surprise</span>
+        <h3>Natural Surf</h3>
+        <p>Forecast-dependent. Sometimes mellow and family-friendly, sometimes long and longboard-perfect, sometimes powerful and rare. Always added when the conditions align.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. WHAT WE DON'T SHARE ONLINE -->
+<section class="mystery">
+  <div class="container-narrow">
+    <span class="overline">Out of Respect for the Coast</span>
+    <h2>What we don&rsquo;t<br>share online.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">We do not publish exact spot names, maps, or directions to lesser-known waves. This page is meant to show what Hainan can offer &mdash; not to turn the coastline into a public surf guide.</p>
+    <p>If you are planning a trip, tell us your dates, your level, your group, and what kind of waves you are hoping for. We can help you understand what may be possible.</p>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section style="background: var(--sand);">
+  <div class="container">
+    <div style="text-align:center; max-width: 680px; margin: 0 auto;">
+      <span class="overline">Frequently Asked</span>
+      <h2>Before you ask,<br>you might be wondering.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Is natural surf guaranteed?</summary>
+        <p>No. Natural surf depends on season, swell, wind, and tide. The wave pool provides the reliable anchor, while ocean surf is added when conditions work.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to bring my own board?</summary>
+        <p>Not necessarily. Board rental options are available, and we can help recommend what makes sense for your level, board preference, and trip.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are there longboard waves in Hainan?</summary>
+        <p>Yes, when the conditions line up, some waves can be long, smooth, and very suitable for longboarding. We do not publish exact locations online, but we can explain what may be possible during your travel window.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this suitable for kids?</summary>
+        <p>Yes, depending on conditions. Some beach days can be soft and friendly for kids and first-time surfers, while other days are not suitable. We help guide guests toward the right option.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this suitable for beginners?</summary>
+        <p>Yes, depending on conditions. Some natural surf days are beginner-friendly, while others are better for experienced surfers. We help guide guests toward the right option.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will you tell me the exact surf spots before I book?</summary>
+        <p>We can explain what kind of natural surf may be possible during your travel window, but we do not publish or casually share every spot online.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When is the best time for natural waves in Hainan?</summary>
+        <p>Hainan has both regular seasonal surf windows and more unpredictable typhoon swell windows. The best timing depends on what kind of surf experience you are looking for.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this only for advanced surfers?</summary>
+        <p>No. The natural surf option depends on conditions and guest level. Some days may work for kids, beginners, longboarders, and intermediates. Other days are only suitable for experienced surfers.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/ocean-surf/ocean-surf-sunset-silhouette-01.jpg" alt="Sunset on Hainan&rsquo;s coast">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Plan Your Window</span>
+    <h2>Want to see what<br>Hainan can really do?</h2>
+    <p>Tell us your travel dates, surf level, group type, and what kind of waves you are hoping for. We&rsquo;ll help you understand what may be possible during your trip.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Ask About Your Dates </a>
+      <a href="index.html" class="btn btn-outline btn-arrow">Back to Home </a>
+    </div>
+  </div>
+</section>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
