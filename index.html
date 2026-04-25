@@ -67,12 +67,12 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
   letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none;
   border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px;
 }
-.btn-primary { background: var(--charcoal); color: var(--white); }
-.btn-primary:hover { background: var(--ocean); }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
-.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
-.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
 .btn-teal { background: var(--teal); color: var(--white); }
 .btn-teal:hover { background: var(--ocean); }
 .btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
@@ -88,7 +88,7 @@ nav {
 }
 nav .nav-logo { color: var(--charcoal); }
 nav .nav-links a { color: var(--charcoal); }
-nav .nav-links a.nav-cta { background: var(--charcoal); color: var(--white); border-color: var(--charcoal); }
+nav .nav-links a.nav-cta { background: var(--ocean); color: var(--white); border-color: var(--ocean); }
 nav.scrolled { padding: 0.7rem 0; }
 .nav-inner {
   max-width: 1400px; margin: 0 auto;
@@ -123,24 +123,24 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .nav-cta {
   font-size: 0.75rem; padding: 0.6rem 1.4rem;
-  background: var(--charcoal); color: var(--white);
-  border: 1px solid var(--charcoal); border-radius: 2px;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
   text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
   text-transform: uppercase; transition: all 0.3s;
 }
-.nav-cta:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 .nav-mobile-cta {
   display: none;
   font-size: 0.7rem; padding: 0.5rem 0.95rem;
-  background: var(--charcoal); color: var(--white);
-  border: 1px solid var(--charcoal); border-radius: 2px;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
   text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; transition: all 0.3s;
   white-space: nowrap;
 }
-.nav-mobile-cta:hover { background: var(--ocean); border-color: var(--ocean); }
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
 
 /* Hero — desktop default (aspect 2400:1350 = 16:9) */
 .hero {
@@ -1122,7 +1122,7 @@ footer::before {
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="#" class="nav-mobile-cta" onclick="showPage('contact'); return false;">Book Now</a>
+    <a href="#" class="nav-mobile-cta" onclick="showPage('contact'); return false;">Plan Trip</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -1278,7 +1278,7 @@ footer::before {
         </div>
       </div>
       <div style="text-align:center; margin-top:2.5rem;">
-        <a href="natural-surf.html" class="btn btn-outline-dark btn-arrow">Ask About Ocean Surf </a>
+        <a href="natural-surf.html" class="btn btn-outline-dark btn-arrow">Explore Ocean Surf </a>
       </div>
     </div>
   </section>
@@ -1346,7 +1346,7 @@ footer::before {
           <div class="section-divider"></div>
           <p class="lead">A premium boutique stay by renowned Japanese architect Shuhei Aoyama &mdash; set inside the wave pool grounds, just steps from your next session.</p>
           <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">Book your stay with us and enjoy <strong>30% off</strong> your PerfectSwell&reg; wave pool sessions.</p>
-          <a href="accommodation-detail-preview.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">Book Accommodations </a>
+          <a href="accommodation-detail-preview.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
           <img src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
@@ -1376,7 +1376,7 @@ footer::before {
               <li>Premium accommodation</li>
               <li>Board rental &amp; airport transfer</li>
             </ul>
-            <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">Book Now </a>
+            <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card featured fade-in">
@@ -1391,7 +1391,7 @@ footer::before {
               <li>Hainan nature, culture &amp; local food</li>
               <li>Recovery, media &amp; English support</li>
             </ul>
-            <a href="package-2-the-hainan-surf-and-explore.html" class="btn btn-teal btn-arrow" style="margin-top:1rem;">Book Now </a>
+            <a href="package-2-the-hainan-surf-and-explore.html" class="btn btn-teal btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card fade-in">
@@ -1405,7 +1405,7 @@ footer::before {
               <li>Golf in Hainan</li>
               <li>Boutique stay, recovery &amp; full support</li>
             </ul>
-            <a href="package-3-the-surf-and-golf-retreat.html" class="btn btn-outline-dark btn-arrow" style="margin-top:1rem;">Book Now </a>
+            <a href="package-3-the-surf-and-golf-retreat.html" class="btn btn-outline-dark btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card no-band fade-in" style="background: var(--sand); border: 1px dashed rgba(0,0,0,0.15);">
@@ -2953,7 +2953,7 @@ footer::before {
             <li>English-speaking trip support</li>
           </ul>
           <p style="font-size:0.85rem; color:var(--warm-gray); margin:1rem 0;">Optional add-ons: surf photography, extra sessions, coaching, natural surf day trip</p>
-          <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow">Book Now </a>
+          <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow">View Full Itinerary </a>
         </div>
       </div>
 

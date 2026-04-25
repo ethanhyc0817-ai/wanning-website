@@ -48,12 +48,12 @@ p { max-width: 680px; }
 section { padding: clamp(4rem, 8vw, 8rem) 0; }
 
 .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
-.btn-primary { background: var(--charcoal); color: var(--white); }
-.btn-primary:hover { background: var(--ocean); }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
-.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
-.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
 .btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
 .btn-arrow:hover::after { transform: translateX(4px); }
 
@@ -84,12 +84,12 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-links { display: flex; gap: 2.2rem; align-items: center; }
 .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: all 0.3s; position: relative; }
 .nav-links a:hover { opacity: 0.7; }
-.nav-cta { font-size: 0.75rem; padding: 0.6rem 1.4rem; background: var(--charcoal); color: var(--white); border: 1px solid var(--charcoal); border-radius: 2px; text-decoration: none; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.3s; }
-.nav-cta:hover { background: var(--ocean); border-color: var(--ocean); }
+.nav-cta { font-size: 0.75rem; padding: 0.6rem 1.4rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 2px; text-decoration: none; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.3s; }
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
-.nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--charcoal); color: var(--white); border: 1px solid var(--charcoal); border-radius: 2px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
-.nav-mobile-cta:hover { background: var(--ocean); border-color: var(--ocean); }
+.nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 2px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
 .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
@@ -313,12 +313,12 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <a href="index.html#wavepool">Wave Pool</a>
       <a href="accommodation-detail-preview.html">Stay</a>
       <a href="index.html#packages">Packages</a>
-      <a href="mailto:hello@surfchina.co" class="nav-cta">Book Now</a>
+      <a href="index.html#contact" class="nav-cta">Plan Trip</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="mailto:hello@surfchina.co" class="nav-mobile-cta">Book Now</a>
+    <a href="index.html#contact" class="nav-mobile-cta">Plan Trip</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -327,7 +327,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <a href="index.html#wavepool">Wave Pool</a>
   <a href="accommodation-detail-preview.html">Stay</a>
   <a href="index.html#packages">Packages</a>
-  <a href="mailto:hello@surfchina.co">Contact &amp; Book</a>
+  <a href="index.html#contact">Contact</a>
 </div>
 
 <!-- ============ 1. HERO ============ -->
@@ -341,8 +341,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <p>3 nights. 6+ PerfectSwell&reg; sessions. Zero logistics.</p>
     <p style="font-style: normal; opacity: 0.85; max-width: 680px; font-size: clamp(0.98rem, 1.3vw, 1.05rem); margin-top: -1rem;">A short, focused surf trip built for maximum water time &mdash; with accommodation, airport transfer, board rental, coaching, media, and English support handled for you.</p>
     <div class="hero-cta-row">
-      <a href="#booking" class="btn btn-primary btn-arrow">Plan This Trip</a>
-      <a href="mailto:hello@surfchina.co" class="btn btn-outline btn-arrow">Talk to Us</a>
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Plan This Trip</a>
+      <a href="index.html#contact" class="btn btn-outline btn-arrow">Talk to Us</a>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
@@ -590,7 +590,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
     <p class="price-note">Single / private room supplement: <span class="tbd">+ $XXX</span>. Groups of 4+: 5% off per person. Groups of 6+: 10%. 30% deposit confirms your spot. Balance due 30 days before arrival. Fully refundable up to 60 days out.</p>
 
-    <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Reserve a Spot</a>
+    <a href="index.html#contact" class="btn btn-primary btn-arrow">Reserve a Spot</a>
   </div>
 </section>
 
@@ -632,7 +632,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <h2>Ready for a high-volume<br>wave pool trip?</h2>
     <p>Tell us your dates, group size, and surf level. We&rsquo;ll check room availability, session times, and build the easiest 3-night PerfectSwell&reg; escape for you.</p>
     <div class="final-cta-row">
-      <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Request a Quote</a>
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Request a Quote</a>
       <a href="https://wa.me/" class="btn btn-outline btn-arrow">WhatsApp Us</a>
     </div>
     <div class="final-cta-contact">
