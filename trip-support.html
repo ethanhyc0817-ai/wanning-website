@@ -144,6 +144,25 @@ nav.scrolled { padding: 0.7rem 0; }
   .support-grid.reverse .support-img { order: 0; }
 }
 .support-img { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); background-size: cover; background-position: center; border-radius: 3px; }
+
+/* ======= CAROUSEL ======= */
+.carousel { position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 3px; overflow: hidden; background: var(--sand-dark); }
+.carousel-track { position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: center; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.92); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: all 0.3s var(--transition); z-index: 3; }
+.carousel-btn:hover { background: var(--white); transform: translateY(-50%) scale(1.05); }
+.carousel-btn:focus { outline: 2px solid var(--teal); outline-offset: 2px; }
+.carousel-btn svg { width: 18px; height: 18px; stroke: var(--charcoal); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+.carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 3; padding: 5px 9px; background: rgba(0,0,0,0.28); border-radius: 999px; backdrop-filter: blur(4px); }
+.carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: all 0.3s; }
+.carousel-dot.active { background: var(--white); width: 18px; border-radius: 3px; }
+@media (max-width: 480px) {
+  .carousel-btn { width: 36px; height: 36px; }
+  .carousel-btn svg { width: 15px; height: 15px; }
+}
 .support-text h2 { margin-bottom: 0.8rem; }
 .support-text p { font-size: 1.02rem; line-height: 1.8; color: var(--charcoal); max-width: none; margin-bottom: 1rem; }
 .support-text p.lead-bold { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.8rem; line-height: 1.4; letter-spacing: -0.01em; }
@@ -279,14 +298,14 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <p>On-site boards matched to your level, session type, and goals.</p>
         <span class="card-cta">Learn More</span>
       </a>
-      <a href="#surf-cafe" class="glance-card">
-        <h3>Surf Caf&eacute;</h3>
-        <p>Coffee, cold drinks, light snacks, and a place to reset between sessions.</p>
-        <span class="card-cta">Learn More</span>
-      </a>
       <a href="#recovery" class="glance-card">
         <h3>Recovery &amp; Wellness</h3>
         <p>Sauna, ice bath, hot bath, and recovery support about 20 minutes from the wave pool.</p>
+        <span class="card-cta">Learn More</span>
+      </a>
+      <a href="#surf-cafe" class="glance-card">
+        <h3>Surf Caf&eacute;</h3>
+        <p>Coffee, cold drinks, light snacks, and a place to reset between sessions.</p>
         <span class="card-cta">Learn More</span>
       </a>
     </div>
@@ -297,7 +316,15 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <section class="support-section" id="surf-shop">
   <div class="container">
     <div class="support-grid">
-      <div class="support-img" style="background-image:url('Assets/surf-shop/surf-shop-interior-01.jpg');"></div>
+      <div class="carousel" data-carousel>
+        <div class="carousel-track" data-carousel-track>
+          <div class="carousel-slide" role="img" aria-label="Surf shop interior" style="background-image:url('Assets/surf-shop/surf-shop-interior-01.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Surf shop gear" style="background-image:url('Assets/surf-shop/IMG_5137.jpg');"></div>
+        </div>
+        <button class="carousel-btn prev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+        <div class="carousel-dots" data-carousel-dots></div>
+      </div>
       <div class="support-text">
         <span class="overline">On Site &middot; Surf Shop</span>
         <h2>Surf Shop</h2>
@@ -322,7 +349,15 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <section class="support-section alt" id="board-rentals">
   <div class="container">
     <div class="support-grid reverse">
-      <div class="support-img" style="background-image:url('Assets/surf-shop/board-rental-01.jpg');"></div>
+      <div class="carousel" data-carousel>
+        <div class="carousel-track" data-carousel-track>
+          <div class="carousel-slide" role="img" aria-label="Board rental selection" style="background-image:url('Assets/surf-shop/board-rental-01.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Boards lined up" style="background-image:url('Assets/surf-shop/IMG_5146%202.jpg');"></div>
+        </div>
+        <button class="carousel-btn prev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+        <div class="carousel-dots" data-carousel-dots></div>
+      </div>
       <div class="support-text">
         <span class="overline">On Site &middot; Board Rentals</span>
         <h2>Board Rentals</h2>
@@ -341,34 +376,22 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   </div>
 </section>
 
-<!-- ============ 3c. SURF CAFÉ ============ -->
-<section class="support-section" id="surf-cafe">
+<!-- ============ 3c. RECOVERY & WELLNESS ============ -->
+<section class="support-section" id="recovery">
   <div class="container">
     <div class="support-grid">
-      <div class="support-img" style="background-image:url('Assets/surf-shop/cafe/cafe-scene-02.jpg');"></div>
-      <div class="support-text">
-        <span class="overline">On Site &middot; Surf Caf&eacute;</span>
-        <h2>Surf Caf&eacute;</h2>
-        <div class="section-divider"></div>
-        <p class="lead-bold">Coffee, cold drinks, and a place to sit between sessions.</p>
-        <p>The caf&eacute; is your post-surf reset spot &mdash; grab a drink, watch the pool, wait for your next session, or hang out while friends and family watch from the side.</p>
-        <ul class="support-list">
-          <li>Coffee</li>
-          <li>Cold drinks</li>
-          <li>Light snacks</li>
-          <li>Poolside hangout</li>
-          <li>Good for spectators</li>
-        </ul>
+      <div class="carousel" data-carousel>
+        <div class="carousel-track" data-carousel-track>
+          <div class="carousel-slide" role="img" aria-label="Recovery pool" style="background-image:url('Assets/recovery/recovery-pool-day-01.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Recovery pool at sunset" style="background-image:url('Assets/recovery/recovery-pool-sunset-01.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Sauna interior" style="background-image:url('Assets/recovery/recovery-sauna-interior-day-01.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Recovery space" style="background-image:url('Assets/recovery/IMG_5050.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Recovery space" style="background-image:url('Assets/recovery/IMG_5047.jpg');"></div>
+        </div>
+        <button class="carousel-btn prev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+        <div class="carousel-dots" data-carousel-dots></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3d. RECOVERY & WELLNESS ============ -->
-<section class="support-section alt" id="recovery">
-  <div class="container">
-    <div class="support-grid reverse">
-      <div class="support-img" style="background-image:url('Assets/recovery/recovery-pool-day-01.jpg');"></div>
       <div class="support-text">
         <span class="overline">Nearby &middot; About 20 Minutes Away</span>
         <h2>Recovery &amp; Wellness</h2>
@@ -385,7 +408,40 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           <li>Optional massage if available</li>
           <li>Available with selected packages or add-ons</li>
         </ul>
-        <span class="support-note">Recovery is off-site &mdash; we coordinate transport as part of your trip plan.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3d. SURF CAFÉ ============ -->
+<section class="support-section alt" id="surf-cafe">
+  <div class="container">
+    <div class="support-grid reverse">
+      <div class="carousel" data-carousel>
+        <div class="carousel-track" data-carousel-track>
+          <div class="carousel-slide" role="img" aria-label="Surf café scene" style="background-image:url('Assets/surf-shop/cafe/cafe-scene-02.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Surf café scene" style="background-image:url('Assets/surf-shop/cafe/cafe-scene-04.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Surf café" style="background-image:url('Assets/surf-shop/cafe/IMG_6015.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Surf café" style="background-image:url('Assets/surf-shop/cafe/IMG_6018.jpg');"></div>
+          <div class="carousel-slide" role="img" aria-label="Surf café" style="background-image:url('Assets/surf-shop/cafe/IMG_5151%203.jpg');"></div>
+        </div>
+        <button class="carousel-btn prev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><polyline points="15 6 9 12 15 18"/></svg></button>
+        <button class="carousel-btn next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+        <div class="carousel-dots" data-carousel-dots></div>
+      </div>
+      <div class="support-text">
+        <span class="overline">On Site &middot; Surf Caf&eacute;</span>
+        <h2>Surf Caf&eacute;</h2>
+        <div class="section-divider"></div>
+        <p class="lead-bold">Coffee, cold drinks, and a place to sit between sessions.</p>
+        <p>The caf&eacute; is your post-surf reset spot &mdash; grab a drink, watch the pool, wait for your next session, or hang out while friends and family watch from the side.</p>
+        <ul class="support-list">
+          <li>Coffee</li>
+          <li>Cold drinks</li>
+          <li>Light snacks</li>
+          <li>Poolside hangout</li>
+          <li>Good for spectators</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -499,6 +555,58 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Carousels
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('[data-carousel-track]');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dotsWrap = carousel.querySelector('[data-carousel-dots]');
+    if (slides.length <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (dotsWrap) dotsWrap.style.display = 'none';
+      return;
+    }
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('role', 'button');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => scrollToIndex(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+    function getIndex() {
+      const w = track.clientWidth || 1;
+      return Math.round(track.scrollLeft / w);
+    }
+    function scrollToIndex(i) {
+      const w = track.clientWidth;
+      const max = slides.length - 1;
+      const target = Math.max(0, Math.min(max, i));
+      track.scrollTo({ left: target * w, behavior: 'smooth' });
+    }
+    function updateDots() {
+      const i = getIndex();
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+    prevBtn.addEventListener('click', () => scrollToIndex(getIndex() - 1));
+    nextBtn.addEventListener('click', () => scrollToIndex(getIndex() + 1));
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(updateDots, 60);
+    });
+    window.addEventListener('resize', () => {
+      // re-snap to current index on resize
+      const i = getIndex();
+      track.scrollLeft = i * track.clientWidth;
     });
   });
 </script>
