@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hainan Surf &amp; Explore — 7 Days, 12+ Sessions | Surf China Co.</title>
-<meta name="description" content="Our signature Hainan trip. PerfectSwell® mornings, curated island days. Coast, jungle, food, and culture, handled in English.">
+<title>The Hainan Surf &amp; Explore — 5–7 Days, 10+ PerfectSwell® Sessions | Surf China Co.</title>
+<meta name="description" content="Our signature Hainan surf trip. PerfectSwell® mornings, natural surf windows, and curated island days — coast, rainforest, food, and culture, handled in English.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -56,6 +56,10 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 .btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
 .btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
 .btn-arrow:hover::after { transform: translateX(4px); }
+.btn-text { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.3s; }
+.btn-text::after { content: '\2192'; transition: transform 0.3s; }
+.btn-text:hover { color: var(--ocean); }
+.btn-text:hover::after { transform: translateX(3px); }
 
 .section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
 .section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
@@ -170,11 +174,13 @@ nav.scrolled { padding: 0.7rem 0; }
 .beyond-section { background: var(--white); }
 .beyond-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
 .beyond-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
-.beyond-card { background: var(--sand); border-radius: 3px; overflow: hidden; }
+.beyond-card { background: var(--sand); border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; }
 .beyond-card-img { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); background-size: cover; background-position: center; }
-.beyond-card-body { padding: 1.6rem 1.6rem 1.8rem; }
+.beyond-card-body { padding: 1.6rem 1.6rem 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
 .beyond-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-.beyond-card p { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.6; max-width: none; }
+.beyond-card p { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.6; max-width: none; margin-bottom: 1.1rem; flex-grow: 1; }
+.beyond-card .btn-text { align-self: flex-start; }
+.beyond-footer-cta { text-align: center; margin-top: 2.5rem; }
 
 /* ======= AUDIENCE (who this is for) ======= */
 .audience-section { background: var(--sand); }
@@ -309,10 +315,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Hainan coastline aerial view">
   </div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Package 02 &middot; 7 Days / 6 Nights</span>
+    <span class="hero-eyebrow">Package 02 &middot; 5&ndash;7 Days</span>
     <h1>The Hainan Surf &amp; Explore</h1>
     <p>Wave pool mornings. Coastal afternoons. Hainan, the way locals know it.</p>
-    <p style="font-style: normal; opacity: 0.85; max-width: 680px; font-size: clamp(0.98rem, 1.3vw, 1.05rem); margin-top: -1rem;">Our signature trip &mdash; PerfectSwell&reg; sessions paired with the parts of Hainan most travelers never see. Coast, jungle, food, and quiet villages, all handled in English.</p>
+    <p style="font-style: normal; opacity: 0.85; max-width: 680px; font-size: clamp(0.98rem, 1.3vw, 1.05rem); margin-top: -1rem;">Our signature trip &mdash; PerfectSwell&reg; sessions, natural surf windows, local food, recovery, and the tropical side of China most travelers never see.</p>
     <div class="hero-cta-row">
       <a href="#booking" class="btn btn-primary btn-arrow">Plan This Trip</a>
       <a href="mailto:hello@surfchina.co" class="btn btn-outline btn-arrow">Talk to Us</a>
@@ -333,16 +339,16 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="stat-label">Premium stay near the pool</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">8+ Sessions</div>
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">10+ Sessions</div>
       <div class="stat-label">PerfectSwell&reg; wave pool time</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">4+ Day Trips</div>
-      <div class="stat-label">Coast, jungle, culture, food</div>
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">Island Days</div>
+      <div class="stat-label">Coast, rainforest, food, culture</div>
     </div>
     <div class="stat-cell">
       <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">Full Support</div>
-      <div class="stat-label">Transfers, rentals, coaching, English help</div>
+      <div class="stat-label">Transfers, rentals, planning, English help</div>
     </div>
   </div>
 </section>
@@ -352,11 +358,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="container">
     <div class="pitch-inner">
       <span class="overline">The Trip</span>
-      <h2>Surf in the morning. See Hainan in the afternoon.</h2>
+      <h2>This is the full Surf China experience.</h2>
       <div class="section-divider"></div>
-      <p>Hainan is China's southern edge &mdash; a tropical island most Western travelers have never heard of, with a coastline that feels closer to Bali twenty years ago than to anywhere in 2026.</p>
-      <p>Your mornings are at the world's only PerfectSwell&reg; pool in China &mdash; consistent waves, coaching, and real reps. Your afternoons are spent on the parts of the island most visitors miss: black-sand beaches, rainforest interior, fishing villages, Li ethnic culture, and the kind of food you only find when someone local takes you there.</p>
-      <p class="lead">It's for the surfer who wants to come home better than they left &mdash; and who wants to see a part of China that isn't on anyone's feed yet.</p>
+      <p>Start your mornings with consistent PerfectSwell&reg; sessions, then spend the rest of the day exploring the island &mdash; quiet coastlines, local food, rainforest roads, coffee farms, recovery, and natural surf when conditions line up.</p>
+      <p class="lead">It&rsquo;s built for surfers who want guaranteed water time, but also want to come home with more than just pool clips.</p>
     </div>
   </div>
 </section>
@@ -366,48 +371,48 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="container">
     <div class="itin-header">
       <span class="overline">Sample Itinerary</span>
-      <h2>7 days, 6 nights.</h2>
+      <h2>A flexible 7-day plan.</h2>
       <div class="section-divider-center"></div>
-      <p class="lead" style="margin: 0 auto;">A baseline plan. We flex it around your level, your group, and the weather.</p>
+      <p class="lead" style="margin: 0 auto;">A baseline itinerary. We adjust it around your surf level, group, weather, and natural surf conditions.</p>
     </div>
     <div class="itin-grid">
       <div class="itin-card">
         <div class="itin-day">Day 01</div>
-        <div class="itin-title">Arrival</div>
-        <p>Pickup at Haikou Meilan International (HAK). Drive down the coast to the resort in Wanning. Welcome dinner, board fitting, early night.</p>
+        <div class="itin-title">Arrival in Hainan</div>
+        <p>Airport pickup at Haikou Meilan International (HAK), transfer to Wanning, check-in, board fitting, welcome dinner, and a relaxed first night.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 02</div>
         <div class="itin-title">Into the Pool</div>
-        <p>Two PerfectSwell&reg; sessions with coaching or video review. Long lunch, recovery, light dinner. Get your legs back.</p>
+        <p>Two PerfectSwell&reg; sessions matched to your level, with coaching or video review available. Recovery and an easy dinner after surfing.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 03</div>
-        <div class="itin-title">The Coast</div>
-        <p>Morning session, then a day along the coast: Sun &amp; Moon Bay, quiet beaches, lunch at a fishing harbor where the boats are still coming in. Golden-hour session.</p>
+        <div class="itin-title">Coastline Day</div>
+        <p>Morning surf session, then a guided afternoon along Hainan&rsquo;s east coast &mdash; beaches, fishing harbors, local lunch, and golden-hour views.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 04</div>
         <div class="itin-title">Inland Hainan</div>
-        <p>Trade the coast for the interior &mdash; tropical rainforest, a Li minority village, a waterfall swim, a tea plantation visit. Back to the resort by dinner.</p>
+        <p>A slower day off the coast: rainforest roads, waterfalls, coffee or tea, local culture, and time to reset before the next surf block.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 05</div>
         <div class="itin-title">All Waves</div>
-        <p>Double session day. Morning and afternoon in the pool, with video review in between. Dinner at a Sanya night market.</p>
+        <p>Double session day at PerfectSwell&reg;. More reps, more feedback, more progression. Optional recovery after the second session.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 06</div>
-        <div class="itin-title">Coast or Culture</div>
-        <p>A choice day. Natural surf on Hainan's east coast when conditions line up &mdash; or Boao old village, coffee plantations, and a slow afternoon. Recovery dinner at the resort.</p>
+        <div class="itin-title">Natural Surf Window</div>
+        <p>If swell, wind, tide, and safety line up, we head to Hainan&rsquo;s natural breaks with local guides. If not, we keep the day flexible with pool sessions, food, recovery, or a local experience.</p>
       </div>
       <div class="itin-card">
         <div class="itin-day">Day 07</div>
         <div class="itin-title">One More &amp; Out</div>
-        <p>Optional morning session. Brunch at the resort. Transfer to HAK.</p>
+        <p>Optional morning session depending on flight time, brunch, checkout, and airport transfer.</p>
       </div>
     </div>
-    <p class="itin-customize">This is a starting point. We build the trip around your level, your group, and what you want out of Hainan.</p>
+    <p class="itin-customize">This is a starting point. We build the final plan around your group, surf level, and what Hainan is doing that week.</p>
   </div>
 </section>
 
@@ -420,8 +425,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="section-divider-center"></div>
     </div>
     <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 1.4rem;">Eight or more PerfectSwell&reg; sessions over the week, matched to your level &mdash; from beginner-friendly waves to faster sections and barrel settings. Coaching, guiding, and video feedback can be built into the trip depending on your goals.</p>
-      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 2.2rem;">When the swell lines up (October &ndash; April), we drive to Hainan's natural breaks &mdash; Riyue Bay, Sun &amp; Moon Bay, and a few quieter spots. Warm water, beach and reef bottom, almost no crowd.</p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 1.4rem;">PerfectSwell&reg; is the anchor of the trip. You get consistent, repeatable waves every day &mdash; from beginner-friendly settings to faster open-face waves and barrel sessions.</p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 2.2rem;">When the ocean turns on, we add natural surf windows along Hainan&rsquo;s coast. These sessions depend on swell, wind, tide, and safety, but they&rsquo;re what make this trip feel different from a normal wave pool vacation.</p>
       <a href="index.html#wavepool" class="btn btn-outline-dark btn-arrow">More on the Wave Pool</a>
     </div>
   </div>
@@ -437,65 +442,66 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <h2>Premium boutique suites, steps from the pool.</h2>
         <div class="section-divider"></div>
         <p>Stay in a premium boutique suite near the wave pool, with easy access to the surf shop, caf&eacute;, recovery space, and pool facilities.</p>
-        <p class="lead">Room options vary by group size, budget, and availability. Solo travelers, couples, and groups of 4&ndash;8 all welcome.</p>
+        <p class="lead">Room options vary by group size, budget, and availability. Solo travelers, couples, and small groups are all welcome.</p>
         <a href="accommodation-detail-preview.html" class="btn btn-outline-dark btn-arrow">See Accommodation</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 7. HAINAN BEYOND THE POOL ============ -->
+<!-- ============ 7. ISLAND DAYS ============ -->
 <section class="beyond-section">
   <div class="container">
     <div class="beyond-header">
-      <span class="overline">Hainan Beyond the Pool</span>
-      <h2>Curated days, not tourist stops.</h2>
+      <span class="overline">Island Days</span>
+      <h2>Island days, built around your surf.</h2>
       <div class="section-divider-center"></div>
-      <p class="lead" style="margin: 0 auto;">Mix and match. Every trip includes 4+ exploration days &mdash; we'll build them around what you actually want to see.</p>
+      <p class="lead" style="margin: 0 auto;">A few curated days are built into the trip &mdash; coast, rainforest, food, culture, recovery, and natural surf windows when conditions line up.</p>
     </div>
     <div class="beyond-grid">
       <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/nature/rainforest-waterfall-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Tropical Rainforest</h3>
-          <p>A half-day into Hainan's interior. Rainforest trails, a Li minority village, and a waterfall you can swim under.</p>
-        </div>
-      </div>
-      <div class="beyond-card">
         <div class="beyond-card-img" style="background-image:url('Assets/nature/coastal-road-beach-aerial-01.jpg');"></div>
         <div class="beyond-card-body">
-          <h3>The Coastline</h3>
-          <p>A day driving Hainan's east coast. Sun &amp; Moon Bay, fishing harbors, quiet beaches most locals haven't been to.</p>
+          <h3>Coast &amp; Natural Surf</h3>
+          <p>Quiet beaches, local surf zones, fishing harbors, and ocean sessions when conditions allow.</p>
+          <a href="#" class="btn-text">Learn More</a>
         </div>
       </div>
       <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/food/crab-dish-01.jpg');"></div>
+        <div class="beyond-card-img" style="background-image:url('Assets/nature/rainforest-waterfall-01.jpg');"></div>
         <div class="beyond-card-body">
-          <h3>Local Food</h3>
-          <p>Wenchang chicken, lobster noodles, steamed reef fish, mantis shrimp. We book the places locals actually eat.</p>
+          <h3>Rainforest &amp; Waterfalls</h3>
+          <p>A slower inland day through tropical forest, mountain roads, and freshwater swimming spots.</p>
+          <a href="nature.html" class="btn-text">Learn More</a>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-card-img" style="background-image:url('Assets/food/lobster-noodles-01.jpg');"></div>
+        <div class="beyond-card-body">
+          <h3>Food &amp; Coffee</h3>
+          <p>Seafood, Wenchang chicken, night markets, coffee farms, and local places you&rsquo;d never find alone.</p>
+          <a href="cuisine.html" class="btn-text">Learn More</a>
         </div>
       </div>
       <div class="beyond-card">
         <div class="beyond-card-img" style="background-image:url('Assets/culture/li-elder-portrait-01.jpg');"></div>
         <div class="beyond-card-body">
           <h3>Li Culture</h3>
-          <p>A visit with the indigenous Li community &mdash; weaving, music, and a meal cooked the way it's been cooked for generations.</p>
-        </div>
-      </div>
-      <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/culture/coffee-plantation-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Coffee &amp; Tea</h3>
-          <p>Hainan grows coffee &mdash; one of the only places in China that does. Slow morning at a plantation, then a tea ceremony at altitude.</p>
+          <p>Old villages, indigenous Li heritage, local craft, and a deeper look at Hainan beyond the resorts.</p>
+          <a href="culture.html" class="btn-text">Learn More</a>
         </div>
       </div>
       <div class="beyond-card">
         <div class="beyond-card-img" style="background-image:url('Assets/recovery/recovery-pool-day-01.jpg');"></div>
         <div class="beyond-card-body">
           <h3>Recovery</h3>
-          <p>Sauna, ice bath, hot plunge, and Hainanese herbal massage. Built into the week so you actually surf well by Day 5.</p>
+          <p>Sauna, ice bath, hot bath, massage, and proper downtime between surf days.</p>
+          <a href="#" class="btn-text">Learn More</a>
         </div>
       </div>
+    </div>
+    <div class="beyond-footer-cta">
+      <a href="index.html#explore" class="btn btn-outline-dark btn-arrow">View All Hainan Activities</a>
     </div>
   </div>
 </section>
@@ -512,21 +518,20 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="audience-col yes">
         <h3>This trip is for you if&hellip;</h3>
         <ul>
-          <li>You want to surf every day without paddle battles</li>
-          <li>You want to see a part of China that isn't shot for Instagram yet</li>
-          <li>You're a beginner who wants fast progression</li>
-          <li>You're intermediate and want focused volume to break a plateau</li>
-          <li>You travel with a partner or small group with mixed interests</li>
-          <li>You speak no Mandarin and don't want to</li>
+          <li>You want to surf every day, but still experience Hainan</li>
+          <li>You want a first trip to China that feels easy and supported</li>
+          <li>You&rsquo;re traveling with a partner, family, or small group</li>
+          <li>You want a mix of wave pool sessions, natural surf, food, recovery, and island days</li>
+          <li>You want local guidance instead of figuring everything out alone</li>
         </ul>
       </div>
       <div class="audience-col no">
         <h3>This may not be right if&hellip;</h3>
         <ul>
-          <li>You only have a long weekend &mdash; that's <em>The Wave Pool Escape</em></li>
-          <li>You want golf built into the trip &mdash; that's <em>The Surf &amp; Golf Retreat</em></li>
-          <li>You need 5-star resort everything as the main draw</li>
-          <li>You want a hard-partying nightlife trip</li>
+          <li>You only have a long weekend &mdash; choose <em>The Wave Pool Escape</em></li>
+          <li>You want golf built into the trip &mdash; choose <em>The Surf &amp; Golf Retreat</em></li>
+          <li>You only want luxury resort time with no movement</li>
+          <li>You want a nightlife-heavy trip</li>
         </ul>
       </div>
     </div>
@@ -543,20 +548,20 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     </div>
     <div class="included-cols">
       <div class="included-col yes">
-        <h3>What's Included</h3>
+        <h3>What&rsquo;s Included</h3>
         <ul>
-          <li>6 nights premium boutique suite accommodation</li>
-          <li>8+ PerfectSwell&reg; sessions</li>
+          <li>6 nights premium accommodation</li>
+          <li>10+ PerfectSwell&reg; sessions</li>
           <li>Surfboard rental and required surf gear</li>
           <li>Coaching / guiding support</li>
           <li>Video review or session media</li>
-          <li>4+ curated day trips (coast, rainforest, culture, food)</li>
-          <li>Natural surf sessions when conditions allow</li>
+          <li>Curated Hainan day trips</li>
+          <li>Natural surf exploration when conditions allow</li>
           <li>Airport transfers between HAK and Wanning</li>
-          <li>All breakfasts; most lunches and dinners</li>
-          <li>One Hainanese herbal recovery massage</li>
-          <li>Professional photos and video from your sessions</li>
-          <li>Full English-language trip support, 24/7</li>
+          <li>Daily breakfast</li>
+          <li>Selected local meals</li>
+          <li>One recovery session or massage</li>
+          <li>English-language trip support</li>
         </ul>
       </div>
       <div class="included-col no">
@@ -565,8 +570,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           <li>International and domestic flights</li>
           <li>Travel insurance</li>
           <li>Visa, if required</li>
-          <li>Alcohol beyond included dinner pairings</li>
-          <li>Personal spending, extra spa treatments</li>
+          <li>Alcohol and personal spending</li>
+          <li>Extra spa treatments or extra sessions</li>
           <li>Tips for guides</li>
         </ul>
       </div>
@@ -587,7 +592,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <h4>Standard Suite</h4>
         <div class="price-amount tbd">$X,XXX USD</div>
         <div class="price-amount-sub">From / Per Person</div>
-        <p>6 nights, 8+ sessions, 4+ day trips. Twin share. The base trip.</p>
+        <p>6 nights, 10+ PerfectSwell&reg; sessions, 4+ day trips. Twin share. The base trip.</p>
       </div>
       <div class="price-card featured">
         <h4>Premium Boutique Suite</h4>
@@ -620,23 +625,23 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">Do I need surf experience?</div>
-        <div class="faq-a"><p>No. The pool is built for first-timers and the coaching is matched to your level. Most beginners are riding green waves by their third session.</p></div>
+        <div class="faq-a"><p>No. The pool has beginner-friendly settings and coaching options. We&rsquo;ll match sessions to your level.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What if my partner doesn't surf?</div>
-        <div class="faq-a"><p>This trip works well for mixed groups. Non-surfers get full access to the day trips, spa, beaches, and culture days &mdash; pricing is the same.</p></div>
+        <div class="faq-q">What if my partner doesn&rsquo;t surf?</div>
+        <div class="faq-a"><p>This trip works well for mixed groups. Non-surfers can join the island days, food experiences, recovery, beaches, and cultural activities.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How much English is spoken locally?</div>
-        <div class="faq-a"><p>Off-property, very little. Your whole trip is run in English by us &mdash; that's part of why having us makes this trip possible.</p></div>
+        <div class="faq-q">Is natural surf guaranteed?</div>
+        <div class="faq-a"><p>No. Natural surf depends on swell, wind, tide, and safety. PerfectSwell&reg; sessions are the guaranteed surf anchor of the trip.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Where should I fly into?</div>
-        <div class="faq-a"><p>Fly into Haikou Meilan International Airport (HAK). We arrange the transfer to Wanning. Haikou connects to Hong Kong, Singapore, Bangkok, Tokyo, Seoul, and a few European cities seasonally.</p></div>
+        <div class="faq-a"><p>Fly into Haikou Meilan International Airport (HAK). We arrange the transfer to Wanning.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">When's the best time to come?</div>
-        <div class="faq-a"><p>October to April. 22&ndash;28&deg;C, low humidity, warm water, and the best chance of natural surf. May to September is rainier, still surfable, and quieter.</p></div>
+        <div class="faq-q">When is the best time to come?</div>
+        <div class="faq-a"><p>October to April usually offers the best chance of natural surf. The wave pool operates year-round, so the trip can still work outside that window.</p></div>
       </div>
     </div>
   </div>
@@ -648,8 +653,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <img src="Assets/wavepool/wavepool-aerial-twilight-01.jpg" alt="PerfectSwell Hainan at twilight">
   </div>
   <div class="final-cta-content">
-    <h2>Ready to see Hainan<br>the way locals do?</h2>
-    <p>Tell us your dates, group size, and surf level. We&rsquo;ll check room availability, build the day trips around what you want to see, and lock in your sessions.</p>
+    <h2>Ready for the full Hainan<br>surf experience?</h2>
+    <p>Tell us your dates, group size, surf level, and travel style. We&rsquo;ll build the right mix of PerfectSwell&reg; sessions, natural surf windows, island days, food, and recovery.</p>
     <div class="final-cta-row">
       <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Request a Quote</a>
       <a href="https://wa.me/" class="btn btn-outline btn-arrow">WhatsApp Us</a>
