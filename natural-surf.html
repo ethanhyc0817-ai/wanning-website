@@ -133,9 +133,14 @@ nav {
 .video-feature-intro { max-width: 720px; margin: 0 auto 3rem; text-align: center; padding: 0 clamp(1.5rem, 4vw, 4rem); }
 .video-feature-intro .section-divider { margin: 1.2rem auto 1.8rem; }
 .video-frame {
-  max-width: 1180px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 3vw, 3rem);
+}
+.video-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 .video-frame .video-shell {
   position: relative;
@@ -145,7 +150,12 @@ nav {
   border-radius: 4px;
   background: #000;
 }
-.video-frame video,
+.video-frame video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .video-frame img.video-poster {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -352,6 +362,9 @@ nav {
   .levels-grid { grid-template-columns: repeat(2, 1fr); }
   .combo-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 800px) {
+  .video-pair { grid-template-columns: 1fr; }
+}
 @media (max-width: 640px) {
   .levels-grid { grid-template-columns: 1fr; }
   .page-hero { min-height: 560px; }
@@ -359,7 +372,6 @@ nav {
     background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
   }
   .page-hero-content h1 { max-width: 100%; }
-  .video-frame .video-shell { aspect-ratio: 4 / 5; }
 }
 
 /* fade-in */
@@ -399,10 +411,9 @@ nav {
     <span class="overline">Hainan Has Real Surf</span>
     <h2>The waves were always here.<br>Most travelers just never looked.</h2>
     <div class="section-divider"></div>
-    <p class="lead">Most surfers do not think of China when they think of tropical waves. That is exactly what makes Hainan different. Beyond the wave pool, the island has real ocean surf, seasonal swells, quiet coastlines, long mellow waves, kid-friendly beach conditions, and a side of surfing that still feels undiscovered to most international travelers.</p>
-    <p class="lead">The coastline shifts with the season. Some days are playful and beginner-friendly. Some are gentle enough for kids and first-timers when the conditions are right. Some setups offer especially long, smooth waves built for longboarding. Other days bring more powerful conditions for experienced surfers. The best part is that most travelers do not even know where to look.</p>
+    <p class="lead">Beyond the wave pool, Hainan has real ocean surf &mdash; seasonal swells, quiet coastlines, and a side of surfing most international travelers have never seen.</p>
     <div class="story-pull">
-      The wave pool is the anchor of the trip. The ocean is the surprise &mdash; and Hainan has more of it than almost anyone outside the island realises.
+      The wave pool is the anchor of the trip. The ocean is the surprise.
     </div>
   </div>
 </section>
@@ -416,18 +427,33 @@ nav {
     <p class="lead">When the right swell, wind, and tide come together, Hainan can reveal waves that feel completely unexpected &mdash; long, clean, tropical, and far from the image most surfers have of China.</p>
   </div>
   <div class="video-frame fade-in">
-    <div class="video-shell">
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        poster="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg">
-        <!-- Replace [CLOUDINARY_VIDEO_URL_HERE] with the actual Cloudinary URL when ready. -->
-        <source src="[CLOUDINARY_VIDEO_URL_HERE]" type="video/mp4">
-        <img src="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg" alt="A glimpse of Hainan&rsquo;s tropical coastline">
-      </video>
+    <div class="video-pair">
+      <div class="video-shell">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg">
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1777133228/ScreenRecording_04-15-2026_21-15-29_1_esnggd.mp4" type="video/mp4">
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1777133228/ScreenRecording_04-15-2026_21-15-29_1_esnggd.mov" type="video/quicktime">
+          <img src="Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg" alt="A glimpse of Hainan&rsquo;s tropical coastline">
+        </video>
+      </div>
+      <div class="video-shell">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="Assets/ocean-surf/ocean-surf-sunset-silhouette-01.jpg">
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1777133866/ScreenRecording_04-15-2026_21-34-50_1_wycfjh.mp4" type="video/mp4">
+          <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1777133866/ScreenRecording_04-15-2026_21-34-50_1_wycfjh.mov" type="video/quicktime">
+          <img src="Assets/ocean-surf/ocean-surf-sunset-silhouette-01.jpg" alt="A second glimpse of Hainan&rsquo;s tropical coastline">
+        </video>
+      </div>
     </div>
     <p class="video-caption">A glimpse of what Hainan can do when the conditions align &mdash; not a map, not a spot guide.</p>
   </div>
