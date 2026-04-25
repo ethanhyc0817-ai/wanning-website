@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Surf &amp; Golf Retreat — 7–9 Days, 12+ PerfectSwell® Sessions + 3 Rounds | Surf China Co.</title>
+<meta name="description" content="A premium Hainan retreat pairing PerfectSwell® mornings with 3 rounds at one of the best golf courses in China. Tropical fairways, recovery, and full English support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --paper: #f4e9d0;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.8rem, 7vw, 6rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 900px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 8rem) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--charcoal); color: var(--white); }
+.btn-primary:hover { background: var(--ocean); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--charcoal); border: 1px solid var(--charcoal); }
+.btn-outline-dark:hover { background: var(--charcoal); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+.btn-text { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.3s; }
+.btn-text::after { content: '\2192'; transition: transform 0.3s; }
+.btn-text:hover { color: var(--ocean); }
+.btn-text:hover::after { transform: translateX(3px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+nav.scrolled { padding: 0.7rem 0; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
+}
+.nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
+.nav-logo-text { white-space: nowrap; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; transition: all 0.3s; position: relative; }
+.nav-links a:hover { opacity: 0.7; }
+.nav-cta { font-size: 0.75rem; padding: 0.6rem 1.4rem; background: var(--charcoal); color: var(--white); border: 1px solid var(--charcoal); border-radius: 2px; text-decoration: none; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.3s; }
+.nav-cta:hover { background: var(--ocean); border-color: var(--ocean); }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--charcoal); color: var(--white); border: 1px solid var(--charcoal); border-radius: 2px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
+.nav-mobile-cta:hover { background: var(--ocean); border-color: var(--ocean); }
+.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 480px) {
+  .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-logo { font-size: 0.82rem; gap: 0.4rem; }
+  .nav-mobile-cta { font-size: 0.65rem; padding: 0.45rem 0.75rem; }
+}
+@media (max-width: 360px) { .nav-logo-text { display: none; } }
+
+/* ======= HERO ======= */
+.hero { position: relative; width: 100%; height: 100vh; min-height: 620px; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg video, .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+@media (max-width: 768px) {
+  .hero-bg video, .hero-bg img { object-position: 35% center; }
+}
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.65) 100%); }
+.hero-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; max-width: 1100px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.8rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 2px; }
+.hero-content h1 { color: var(--white); margin-bottom: 1.4rem; }
+.hero-content p { color: rgba(255,255,255,0.9); font-size: clamp(1.05rem, 1.6vw, 1.3rem); max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.6; font-style: italic; }
+.hero-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--white); opacity: 0.6; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; writing-mode: vertical-rl; animation: bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* ======= STATS BAR ======= */
+.stats-section { background: var(--charcoal); color: var(--white); padding: clamp(3rem, 5vw, 5rem) 0; }
+.stats-lead { text-align: center; max-width: 780px; margin: 0 auto 3rem; padding: 0 1.5rem; }
+.stats-lead h2 { color: var(--white); margin-bottom: 1rem; }
+.stats-lead p { color: rgba(255,255,255,0.7); margin: 0 auto; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0; border-top: 1px solid rgba(255,255,255,0.12); }
+.stat-cell { padding: 2.2rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); }
+.stat-num { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
+.stat-num sup { font-size: 0.5em; font-weight: 500; vertical-align: super; opacity: 0.7; margin-left: 0.15rem; }
+.stat-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 0.8rem; }
+
+/* ======= PITCH ======= */
+.pitch { background: var(--white); }
+.pitch-inner { max-width: 820px; margin: 0 auto; text-align: left; }
+.pitch-inner .overline { text-align: left; }
+.pitch-inner h2 { margin-bottom: 1.5rem; }
+.pitch-inner p { font-size: 1.08rem; color: var(--charcoal); line-height: 1.85; max-width: none; margin-bottom: 1.4rem; }
+.pitch-inner p.lead { color: var(--warm-gray); }
+
+/* ======= ITINERARY (day cards) ======= */
+.itin-section { background: var(--sand); }
+.itin-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.itin-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.4rem; }
+.itin-card { background: var(--white); padding: 2rem 1.7rem; border-radius: 3px; border-top: 3px solid var(--teal); }
+.itin-card.golf { border-top-color: var(--gold); }
+.itin-day { font-family: 'Montserrat', sans-serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 0.4rem; }
+.itin-card.golf .itin-day { color: var(--gold); }
+.itin-title { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; letter-spacing: -0.01em; line-height: 1.2; }
+.itin-card p { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.6; max-width: none; }
+.itin-customize { text-align: center; margin-top: 2.5rem; font-style: italic; color: var(--warm-gray); font-size: 0.95rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+/* ======= SURF / GOLF (text-only block) ======= */
+.surf-section { background: var(--white); }
+.surf-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.golf-section { background: var(--sand); }
+.golf-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: 1200px; margin: 0 auto; }
+@media (max-width: 860px) { .golf-grid { grid-template-columns: 1fr; } }
+.golf-img { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); background-size: cover; background-position: center; border-radius: 3px; }
+.golf-text h2 { margin-bottom: 1rem; }
+.golf-text p { font-size: 1.02rem; line-height: 1.8; color: var(--charcoal); margin-bottom: 1.2rem; max-width: none; }
+.golf-text .lead { color: var(--warm-gray); }
+.golf-creds { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.4rem 0 1.6rem; }
+.golf-cred { font-size: 0.78rem; letter-spacing: 0.05em; padding: 0.45rem 0.9rem; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 2px; color: var(--charcoal); }
+
+/* ======= STAY ======= */
+.stay-section { background: var(--white); }
+.stay-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: 1200px; margin: 0 auto; }
+@media (max-width: 860px) { .stay-grid { grid-template-columns: 1fr; } }
+.stay-img { width: 100%; aspect-ratio: 3 / 2; background: var(--sand-dark); background-size: cover; background-position: center; border-radius: 3px; }
+.stay-text h2 { margin-bottom: 1rem; }
+.stay-text p { font-size: 1.02rem; line-height: 1.8; color: var(--charcoal); margin-bottom: 1.2rem; max-width: none; }
+.stay-text .lead { color: var(--warm-gray); }
+
+/* ======= BEYOND THE POOL ======= */
+.beyond-section { background: var(--sand); }
+.beyond-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.beyond-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
+.beyond-card { background: var(--white); border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; }
+.beyond-card-img { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); background-size: cover; background-position: center; }
+.beyond-card-body { padding: 1.6rem 1.6rem 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
+.beyond-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+.beyond-card p { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.6; max-width: none; margin-bottom: 1.1rem; flex-grow: 1; }
+.beyond-card .btn-text { align-self: flex-start; }
+.beyond-footer-cta { text-align: center; margin-top: 2.5rem; }
+
+/* ======= AUDIENCE (who this is for) ======= */
+.audience-section { background: var(--white); }
+.audience-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.audience-cols { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+@media (max-width: 720px) { .audience-cols { grid-template-columns: 1fr; gap: 1.5rem; } }
+.audience-col { padding: 2.2rem 1.8rem; border-radius: 3px; background: var(--sand); }
+.audience-col.yes { border-left: 3px solid var(--teal); }
+.audience-col h3 { font-size: 1.15rem; margin-bottom: 1.2rem; }
+.audience-col ul { list-style: none; padding: 0; margin: 0; }
+.audience-col li { padding: 0.55rem 0 0.55rem 1.6rem; position: relative; font-size: 0.97rem; line-height: 1.55; color: var(--charcoal); border-bottom: 1px solid var(--sand-dark); }
+.audience-col li:last-child { border-bottom: none; }
+.audience-col.yes li::before { content: '\2713'; position: absolute; left: 0; top: 0.55rem; color: var(--teal); font-weight: 700; }
+
+/* ======= INCLUDED ======= */
+.included-section { background: var(--charcoal); color: var(--white); }
+.included-section h2 { color: var(--white); }
+.included-section .overline { color: var(--teal); }
+.included-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.included-header p { color: rgba(255,255,255,0.7); margin: 0 auto; }
+.included-cols { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+@media (max-width: 720px) { .included-cols { grid-template-columns: 1fr; } }
+.included-col h3 { color: var(--white); font-size: 1.15rem; margin-bottom: 1.4rem; padding-bottom: 0.7rem; border-bottom: 1px solid rgba(255,255,255,0.18); }
+.included-col ul { list-style: none; padding: 0; margin: 0; }
+.included-col li { padding: 0.7rem 0 0.7rem 1.8rem; position: relative; font-size: 0.95rem; line-height: 1.5; color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.included-col li:last-child { border-bottom: none; }
+.included-col.yes li::before { content: '\2713'; position: absolute; left: 0; top: 0.7rem; color: var(--teal); font-weight: 700; }
+.included-col.no li::before { content: '\00D7'; position: absolute; left: 0; top: 0.5rem; color: rgba(255,255,255,0.4); font-weight: 400; font-size: 1.3rem; }
+
+/* ======= INVESTMENT (price cards) ======= */
+.invest-section { background: var(--white); text-align: center; }
+.invest-section .container-narrow { text-align: center; }
+.invest-section h2 { margin-bottom: 0.5rem; }
+.invest-section .lead { margin: 0 auto; }
+.price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 3rem auto 2rem; max-width: 980px; }
+.price-card { background: var(--sand); padding: 2.2rem 1.8rem; border-radius: 3px; text-align: left; }
+.price-card.featured { background: var(--charcoal); color: var(--white); }
+.price-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.price-card.featured h4 { color: var(--white); }
+.price-amount { font-family: 'Montserrat'; font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; margin: 0.8rem 0 0.6rem; color: var(--charcoal); }
+.price-card.featured .price-amount { color: var(--white); }
+.price-amount-sub { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; color: var(--warm-gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+.price-card.featured .price-amount-sub { color: rgba(255,255,255,0.5); }
+.price-card p { font-size: 0.9rem; color: var(--warm-gray); margin-bottom: 0; max-width: none; }
+.price-card.featured p { color: rgba(255,255,255,0.7); }
+.price-note { font-size: 0.88rem; color: var(--warm-gray); margin: 1.5rem auto 2rem; max-width: 640px; line-height: 1.7; }
+
+/* ======= FAQ ======= */
+.faq-section { background: var(--sand); }
+.faq-header { text-align: center; max-width: 760px; margin: 0 auto 2.5rem; }
+.faq-list { max-width: 820px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--sand-dark); }
+.faq-q { padding: 1.4rem 0; font-size: 1.05rem; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: var(--charcoal); }
+.faq-q::after { content: '+'; font-size: 1.5rem; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--transition); }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { padding: 0 0 1.4rem; font-size: 0.95rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= FINAL CTA ======= */
+.final-cta { position: relative; height: 60vh; min-height: 460px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.final-cta-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 100%); }
+.final-cta-content { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 1.5rem; max-width: 720px; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 2rem; }
+.final-cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.final-cta-contact { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; }
+.final-cta-contact a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 1px; transition: opacity 0.3s; }
+.final-cta-contact a:hover { opacity: 0.7; }
+
+/* ======= FOOTER ======= */
+footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem; }
+.footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
+.footer-inner p { color: rgba(255,255,255,0.55); font-size: 0.85rem; max-width: none; margin: 0; }
+.footer-inner a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+.footer-inner a:hover { color: var(--white); }
+
+/* placeholder for inline price text */
+.tbd { color: var(--warm-gray); border-bottom: 1px dashed var(--coral); padding-bottom: 1px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Surf China Co. — home">
+      <svg class="nav-logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><clipPath id="seal-clip-p3"><circle cx="30" cy="30" r="26"/></clipPath></defs>
+        <circle cx="30" cy="30" r="26.5" fill="#f4e9d0" stroke="#1f4788" stroke-width="1"/>
+        <g clip-path="url(#seal-clip-p3)" fill="none" stroke="#1f4788" stroke-width="1.5" stroke-linecap="round">
+          <path d="M -2 52 A 14 14 0 0 1 26 52"/>
+          <path d="M 26 52 A 14 14 0 0 1 54 52"/>
+          <path d="M 54 52 A 14 14 0 0 1 82 52"/>
+          <path d="M 5 52 A 7 7 0 0 1 19 52"/>
+          <path d="M 33 52 A 7 7 0 0 1 47 52"/>
+          <path d="M 61 52 A 7 7 0 0 1 75 52"/>
+        </g>
+        <text x="30" y="35" text-anchor="middle" font-family="'PingFang SC','Noto Serif SC','SimSun',serif" font-size="22" font-weight="700" fill="#1f4788">浪</text>
+      </svg>
+      <span class="nav-logo-text">Surf China Co.</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#wavepool">Wave Pool</a>
+      <a href="accommodation-detail-preview.html">Stay</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="mailto:hello@surfchina.co" class="nav-cta">Book Now</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="mailto:hello@surfchina.co" class="nav-mobile-cta">Book Now</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="index.html#wavepool">Wave Pool</a>
+  <a href="accommodation-detail-preview.html">Stay</a>
+  <a href="index.html#packages">Packages</a>
+  <a href="mailto:hello@surfchina.co">Contact &amp; Book</a>
+</div>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="Assets/golf/sunset-coast-aerial-01.jpg" alt="Hainan tropical golf course at sunset">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Package 03 &middot; 7&ndash;9 Days</span>
+    <h1>The Surf &amp; Golf Retreat</h1>
+    <p>Wave pool mornings. Tropical fairways in the afternoon.</p>
+    <p style="font-style: normal; opacity: 0.85; max-width: 680px; font-size: clamp(0.98rem, 1.3vw, 1.05rem); margin-top: -1rem;">A premium Hainan retreat &mdash; PerfectSwell&reg; sessions paired with 3 rounds at one of the best golf courses in China. Built for surfers who play, golfers who surf, and mixed-sport groups.</p>
+    <div class="hero-cta-row">
+      <a href="#booking" class="btn btn-primary btn-arrow">Plan This Trip</a>
+      <a href="mailto:hello@surfchina.co" class="btn btn-outline btn-arrow">Talk to Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ============ 2. AT-A-GLANCE ============ -->
+<section class="stats-section">
+  <div class="stats-lead">
+    <span class="overline" style="color: var(--teal);">At a Glance</span>
+    <h2>The trip in four lines.</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">8 Nights</div>
+      <div class="stat-label">Premium stay near the pool</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">12+ Sessions</div>
+      <div class="stat-label">PerfectSwell&reg; wave pool time</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">3 Rounds</div>
+      <div class="stat-label">Championship golf, tropical fairways</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">Full Support</div>
+      <div class="stat-label">Transfers, tee times, English help</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. THE TRIP ============ -->
+<section class="pitch">
+  <div class="container">
+    <div class="pitch-inner">
+      <span class="overline">The Trip</span>
+      <h2>Two sports. One island. Zero logistics.</h2>
+      <div class="section-divider"></div>
+      <p>Surf in the morning. Tee off in the afternoon. Hainan is one of the only places in the world where you can fit world-class surfing and championship golf into a single day &mdash; without a long drive or a packed schedule.</p>
+      <p>Mission Hills, Shenzhou Peninsula, and a few quieter local courses sit within easy reach of the wave pool. Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played these fairways. Most golfers have watched a tournament shot from here without realizing where they were looking.</p>
+      <p class="lead">It&rsquo;s the trip for the friend group, the couple, or the traveler who wants both halves of the day to count.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. SAMPLE ITINERARY ============ -->
+<section class="itin-section">
+  <div class="container">
+    <div class="itin-header">
+      <span class="overline">Sample Itinerary</span>
+      <h2>A flexible 8-day plan.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">A baseline plan. Surf days, golf days, and rest days flex around your group, weather, and tee-time availability.</p>
+    </div>
+    <div class="itin-grid">
+      <div class="itin-card">
+        <div class="itin-day">Day 01</div>
+        <div class="itin-title">Arrival</div>
+        <p>Pickup at Haikou Meilan International (HAK), transfer to Wanning. Welcome dinner, board fitting, early night.</p>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Day 02</div>
+        <div class="itin-title">Into the Pool</div>
+        <p>Two PerfectSwell&reg; sessions matched to your level. Coaching or video review available. Recovery and easy dinner.</p>
+      </div>
+      <div class="itin-card golf">
+        <div class="itin-day">Day 03 &middot; Golf</div>
+        <div class="itin-title">Round One</div>
+        <p>Morning surf session, then 18 holes at one of Hainan&rsquo;s championship courses. Caddies, transport, and tee time handled.</p>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Day 04</div>
+        <div class="itin-title">Coast &amp; Recovery</div>
+        <p>A lighter day. Morning session, drive the east coast, fishing harbor lunch, afternoon spa or sauna and ice bath.</p>
+      </div>
+      <div class="itin-card golf">
+        <div class="itin-day">Day 05 &middot; Golf</div>
+        <div class="itin-title">Round Two</div>
+        <p>Full day at a different course &mdash; ocean views, island breeze, a long lunch at the clubhouse. Optional sunset session after.</p>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Day 06</div>
+        <div class="itin-title">All Waves</div>
+        <p>Double session day. Morning and afternoon in the pool with video review in between. Dinner at a Sanya night market.</p>
+      </div>
+      <div class="itin-card golf">
+        <div class="itin-day">Day 07 &middot; Golf</div>
+        <div class="itin-title">Round Three</div>
+        <p>Final round at your favorite course &mdash; or swap for a natural surf window if conditions line up. Long dinner to close the trip.</p>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Day 08</div>
+        <div class="itin-title">One More &amp; Out</div>
+        <p>Optional morning session. Brunch, checkout, and transfer back to HAK.</p>
+      </div>
+    </div>
+    <p class="itin-customize">This is a starting point. Surf days, golf days, and rest days move around your group, level, and the weather.</p>
+  </div>
+</section>
+
+<!-- ============ 5. THE SURF ============ -->
+<section class="surf-section">
+  <div class="container">
+    <div class="surf-header">
+      <span class="overline">The Surf</span>
+      <h2>Wave pool first. Natural surf when it&rsquo;s on.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 1.4rem;">PerfectSwell&reg; is the anchor of the trip. Twelve or more sessions over the week, matched to your level &mdash; from beginner-friendly waves to faster open-face sections and barrel settings. Coaching, guiding, and video feedback can be built in.</p>
+      <p style="font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); max-width: none; margin-bottom: 2.2rem;">When the ocean turns on, we add a natural surf window along Hainan&rsquo;s coast &mdash; warm water, beach and reef bottom, almost no crowd. Optional, weather-dependent, and worth it when it lines up.</p>
+      <a href="index.html#wavepool" class="btn btn-outline-dark btn-arrow">More on the Wave Pool</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. THE GOLF ============ -->
+<section class="golf-section">
+  <div class="container">
+    <div class="golf-grid">
+      <div class="golf-img" style="background-image:url('Assets/golf/mission-hills-palms-01.jpg');"></div>
+      <div class="golf-text">
+        <span class="overline">The Golf</span>
+        <h2>Three rounds. Two of the best courses in China.</h2>
+        <div class="section-divider"></div>
+        <p>Hainan is China&rsquo;s tropical golf capital. The fairways are warm year-round, the water hazards are real ocean, and the courses have hosted the HSBC Champions, the Mission Hills World Cup, and the Volvo China Open.</p>
+        <div class="golf-creds">
+          <span class="golf-cred">Tiger Woods</span>
+          <span class="golf-cred">Rory McIlroy</span>
+          <span class="golf-cred">Greg Norman</span>
+          <span class="golf-cred">Nick Faldo</span>
+          <span class="golf-cred">Gary Player</span>
+        </div>
+        <p class="lead">Three rounds, transport, tee times, and caddie arrangements are all handled. We&rsquo;ll match the courses to your group &mdash; championship layouts, ocean fronts, or quieter local rounds.</p>
+        <a href="golf.html" class="btn btn-outline-dark btn-arrow">More on Golf in Hainan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. WHERE YOU'LL STAY ============ -->
+<section class="stay-section">
+  <div class="container">
+    <div class="stay-grid">
+      <div class="stay-img" style="background-image:url('Assets/hotel/designer%20hotel/designer-hotel-room-03.jpg'); aspect-ratio: 3 / 2;"></div>
+      <div class="stay-text">
+        <span class="overline">Where You'll Stay</span>
+        <h2>Premium boutique suites, steps from the pool.</h2>
+        <div class="section-divider"></div>
+        <p>Stay in a premium boutique suite near the wave pool, with easy access to the surf shop, caf&eacute;, recovery space, and pool facilities.</p>
+        <p class="lead">Room options vary by group size and budget. Solo travelers, couples, and friend groups of 4&ndash;8 all welcome.</p>
+        <a href="accommodation-detail-preview.html" class="btn btn-outline-dark btn-arrow">See Accommodation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. ISLAND DAYS ============ -->
+<section class="beyond-section">
+  <div class="container">
+    <div class="beyond-header">
+      <span class="overline">Island Days</span>
+      <h2>Rest days, built around the trip.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Between surf and golf, we keep at least one day light &mdash; recovery, food, or a slow drive along the coast or into the rainforest.</p>
+    </div>
+    <div class="beyond-grid">
+      <div class="beyond-card">
+        <div class="beyond-card-img" style="background-image:url('Assets/recovery/recovery-pool-day-01.jpg');"></div>
+        <div class="beyond-card-body">
+          <h3>Recovery</h3>
+          <p>Sauna, ice bath, hot bath, massage. Recover hard so the next surf or golf day actually counts.</p>
+          <a href="#" class="btn-text">Learn More</a>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-card-img" style="background-image:url('Assets/food/lobster-noodles-01.jpg');"></div>
+        <div class="beyond-card-body">
+          <h3>Food &amp; Coffee</h3>
+          <p>Seafood, Wenchang chicken, night markets, coffee farms, and the local places you&rsquo;d never find alone.</p>
+          <a href="cuisine.html" class="btn-text">Learn More</a>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-card-img" style="background-image:url('Assets/nature/coastal-road-beach-aerial-01.jpg');"></div>
+        <div class="beyond-card-body">
+          <h3>Coast &amp; Natural Surf</h3>
+          <p>Quiet beaches, fishing harbors, and a natural surf window when conditions line up.</p>
+          <a href="#" class="btn-text">Learn More</a>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-card-img" style="background-image:url('Assets/nature/rainforest-waterfall-01.jpg');"></div>
+        <div class="beyond-card-body">
+          <h3>Rainforest &amp; Waterfalls</h3>
+          <p>A slower inland day &mdash; tropical forest, mountain roads, and freshwater swimming spots.</p>
+          <a href="nature.html" class="btn-text">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="beyond-footer-cta">
+      <a href="index.html#explore" class="btn btn-outline-dark btn-arrow">View All Hainan Activities</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. IS THIS TRIP FOR YOU? ============ -->
+<section class="audience-section">
+  <div class="container">
+    <div class="audience-header">
+      <span class="overline">Fit Check</span>
+      <h2>Is this trip for you?</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="audience-cols" style="grid-template-columns: 1fr; max-width: 720px;">
+      <div class="audience-col yes">
+        <h3>This trip is for you if&hellip;</h3>
+        <ul>
+          <li>You surf <em>and</em> play golf, and want both in one trip</li>
+          <li>You&rsquo;re traveling with a mixed group &mdash; some surf, some golf, some both</li>
+          <li>You want a longer, more relaxed pace than a quick wave pool weekend</li>
+          <li>You want premium logistics &mdash; tee times, transport, recovery, all handled in English</li>
+          <li>You want a Hainan trip that doesn&rsquo;t feel like a generic tour</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 & 11. WHAT'S INCLUDED / NOT INCLUDED ============ -->
+<section class="included-section">
+  <div class="container">
+    <div class="included-header">
+      <span class="overline">Inclusions</span>
+      <h2>Everything in. Nothing in fine print.</h2>
+      <div class="section-divider-center" style="background: var(--teal);"></div>
+    </div>
+    <div class="included-cols">
+      <div class="included-col yes">
+        <h3>What&rsquo;s Included</h3>
+        <ul>
+          <li>7&ndash;8 nights premium accommodation</li>
+          <li>12+ PerfectSwell&reg; sessions (level-matched)</li>
+          <li>3 rounds of golf at championship courses</li>
+          <li>Surfboard rental and required surf gear</li>
+          <li>Coaching / guiding support</li>
+          <li>Video review or session media</li>
+          <li>Curated Hainan day trips</li>
+          <li>Natural surf exploration when conditions allow</li>
+          <li>Airport transfers between HAK and Wanning</li>
+          <li>Daily breakfast</li>
+          <li>Selected local meals</li>
+          <li>One recovery session or massage</li>
+          <li>English-language trip support</li>
+        </ul>
+      </div>
+      <div class="included-col no">
+        <h3>Not Included</h3>
+        <ul>
+          <li>International and domestic flights</li>
+          <li>Travel insurance</li>
+          <li>Visa, if required</li>
+          <li>Golf club rental (add-on)</li>
+          <li>Extra golf rounds (add-on)</li>
+          <li>Alcohol and personal spending</li>
+          <li>Extra spa treatments or extra sessions</li>
+          <li>Tips for guides and caddies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12. INVESTMENT ============ -->
+<section class="invest-section" id="booking">
+  <div class="container-narrow">
+    <span class="overline">Investment</span>
+    <h2>Pricing.</h2>
+    <div class="section-divider-center"></div>
+    <p class="lead">Per person, twin share. <span class="tbd" data-ph="Final pricing TBD">Final rates pending.</span></p>
+
+    <div class="price-cards">
+      <div class="price-card">
+        <h4>Standard Suite</h4>
+        <div class="price-amount tbd">$X,XXX USD</div>
+        <div class="price-amount-sub">From / Per Person</div>
+        <p>8 nights, 12+ PerfectSwell&reg; sessions, 3 rounds of golf. Twin share. The base trip.</p>
+      </div>
+      <div class="price-card featured">
+        <h4>Premium Boutique Suite</h4>
+        <div class="price-amount tbd">$X,XXX USD</div>
+        <div class="price-amount-sub">From / Per Person</div>
+        <p>Upgrade to a private suite with pool view. Same trip, more room.</p>
+      </div>
+      <div class="price-card">
+        <h4>Add a Round</h4>
+        <div class="price-amount tbd">+ $XXX USD</div>
+        <div class="price-amount-sub">Add-On / Per Person</div>
+        <p>A 4th round at any of Hainan&rsquo;s top courses. Includes transport and tee time.</p>
+      </div>
+    </div>
+
+    <p class="price-note">Single / private room supplement: <span class="tbd">+ $XXX</span>. Groups of 4+: 5% off per person. Groups of 6+: 10%. Club rental, extra rounds, and surf coaching available as add-ons. 30% deposit confirms your spot. Balance due 30 days before arrival. Fully refundable up to 60 days out.</p>
+
+    <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Reserve a Spot</a>
+  </div>
+</section>
+
+<!-- ============ 13. FAQ ============ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <span class="overline">FAQ</span>
+      <h2>The questions everyone asks.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Which courses do we play?</div>
+        <div class="faq-a"><p>We match the courses to your group and the time of year &mdash; usually two championship layouts (Mission Hills, Shenzhou Peninsula, or similar) plus one quieter local round. Tee times, caddies, and transport are all arranged.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to bring my own clubs?</div>
+        <div class="faq-a"><p>No. Club rental is available at every course we play. If you&rsquo;d rather bring your own, we&rsquo;ll handle storage between rounds.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if some of us only surf, or only play golf?</div>
+        <div class="faq-a"><p>Mixed groups are common. Surf-only and golf-only travelers can swap any day for an extra session, a recovery day, or an island day at no extra cost.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need surf experience?</div>
+        <div class="faq-a"><p>No. The pool has beginner-friendly settings and coaching options. We&rsquo;ll match sessions to your level.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where should I fly into?</div>
+        <div class="faq-a"><p>Fly into Haikou Meilan International Airport (HAK). We arrange the transfer to Wanning.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When is the best time to come?</div>
+        <div class="faq-a"><p>October to April. Cooler, drier, and the best conditions for both surf and golf. The wave pool and the courses operate year-round, so the trip can still work outside that window.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="final-cta-bg">
+    <img src="Assets/golf/sunset-sky-fairway-01.jpg" alt="Hainan fairway at sunset">
+  </div>
+  <div class="final-cta-content">
+    <h2>Two sports.<br>One island. Yours.</h2>
+    <p>Tell us your dates, group size, surf level, and golf handicap range. We&rsquo;ll line up tee times, sessions, transport, and recovery around it.</p>
+    <div class="final-cta-row">
+      <a href="mailto:hello@surfchina.co" class="btn btn-primary btn-arrow">Request a Quote</a>
+      <a href="https://wa.me/" class="btn btn-outline btn-arrow">WhatsApp Us</a>
+    </div>
+    <div class="final-cta-contact">
+      <a href="mailto:hello@surfchina.co">hello@surfchina.co</a> &nbsp;&middot;&nbsp; WhatsApp: <span class="tbd" style="color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.3);">+86 XXX XXXX</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Surf China Co. &middot; Wanning, Hainan</p>
+    <div style="display: flex; gap: 1.5rem;">
+      <a href="index.html">Home</a>
+      <a href="index.html#packages">All Packages</a>
+      <a href="mailto:hello@surfchina.co">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav scroll state
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+  });
+
+  // Mobile menu
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item .faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      // open clicked, if it wasn't already open
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
