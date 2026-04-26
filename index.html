@@ -3481,7 +3481,15 @@ function activateLazyMedia(scope) {
     }
   });
 }
-function showPage(page) {
+function showPage(page, fromPopState) {
+  // When called from inline onclick on <a href="#" onclick="showPage(...)">, prevent
+  // the default href="#" navigation so we don't leave stray "#" history entries.
+  try {
+    if (window.event && typeof window.event.preventDefault === 'function') {
+      window.event.preventDefault();
+    }
+  } catch (e) { /* noop */ }
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) {
@@ -3491,13 +3499,43 @@ function showPage(page) {
   document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
     a.classList.toggle('active', a.dataset.page === page);
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (!fromPopState) {
+    // Forward navigation triggered by a user click — sync browser history so the
+    // back button returns to the previous internal page (and to the homepage scroll
+    // position the user came from), not a stale detail section.
+    const newHash = (page === 'home') ? '' : '#' + page;
+    const currentHash = window.location.hash || '';
+    if (currentHash !== newHash) {
+      const newUrl = window.location.pathname + window.location.search + newHash;
+      try { window.history.pushState({ page: page }, '', newUrl); } catch (e) { /* noop */ }
+    }
+    // Show the new page from the top.
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  // When fromPopState is true (browser Back/Forward), do NOT force-scroll —
+  // let the browser naturally restore the previous scroll position.
+
   // Re-trigger fade-in animations
   setTimeout(() => {
     document.querySelectorAll('.page.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
   }, 100);
   return false;
 }
+
+// Browser Back/Forward — restore the prior internal page from history state.
+// Pass fromPopState=true so we don't push a duplicate history entry and don't
+// force-scroll (so the browser's natural scroll restoration can run).
+window.addEventListener('popstate', function (e) {
+  const fromState = e && e.state && e.state.page;
+  const fromHash = (window.location.hash || '').replace('#', '').trim();
+  const page = fromState || fromHash || 'home';
+  if (document.getElementById('page-' + page)) {
+    showPage(page, true);
+  } else {
+    showPage('home', true);
+  }
+});
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
 });
@@ -3521,10 +3559,18 @@ document.querySelectorAll('.page').forEach(page => {
 function handleSubmit(e) { e.preventDefault(); alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.'); }
 
 // Route via URL hash so external pages (e.g. culture.html) can link back with #contact / #packages etc.
+// Also seed the initial history entry with a state object so popstate (browser Back) can restore
+// the correct internal page on the very first back press.
 (function () {
-  const validPages = ['home','wavepool','packages','explore','plan','contact','facilities'];
-  const hash = (window.location.hash || '').replace('#','').trim();
-  if (hash && validPages.includes(hash)) { showPage(hash); }
+  const hash = (window.location.hash || '').replace('#', '').trim();
+  const initialPage = (hash && document.getElementById('page-' + hash)) ? hash : 'home';
+  try {
+    window.history.replaceState({ page: initialPage }, '', window.location.href);
+  } catch (e) { /* noop */ }
+  if (initialPage !== 'home') {
+    // Show the requested page without pushing a new entry (we just replaced the existing one).
+    showPage(initialPage, true);
+  }
 })();
 
 // Gallery-strip mobile carousel: wrap each .gallery-strip and add prev/next arrows with looping
