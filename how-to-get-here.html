@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Get Here — Your Journey to the Wave Pool | Surf China Co.</title>
+<meta name="description" content="Direct flights to Hainan from Europe, Russia, Southeast Asia, and the rest of Asia. We meet you at the airport and drive you to the Wave Pool. Door-to-door, English-speaking, all included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2rem, 5.5vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+h4 { font-size: clamp(1.05rem, 1.4vw, 1.2rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none;
+}
+.nav-back { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; opacity: 0.75; transition: opacity 0.3s; }
+.nav-back:hover { opacity: 1; }
+.nav-back::before { content: '\2190 '; margin-right: 0.3rem; }
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 6vw, 4rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1rem; max-width: 18ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(0.98rem, 1.6vw, 1.12rem); max-width: 580px; line-height: 1.65; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: clamp(1rem, 2.5vw, 2rem) clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(1.2rem, 2.5vw, 2rem); padding-top: clamp(1.2rem, 2.5vw, 2rem); border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= STORY ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 22ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= AIRPORT CARDS (2 cols) ======= */
+.airport-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 2.5vw, 2.25rem); margin-top: 3rem; }
+.airport-card { position: relative; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 3px; overflow: hidden; transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition); }
+.airport-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.airport-card-img { height: 280px; overflow: hidden; }
+.airport-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); }
+.airport-card:hover .airport-card-img img { transform: scale(1.04); }
+.airport-card-body { padding: clamp(1.75rem, 2.5vw, 2.5rem); }
+.airport-card-body .tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; padding: 0.3rem 0.7rem; border: 1px solid var(--teal); border-radius: 2px; margin-bottom: 1rem; }
+.airport-card-body .tag-primary { background: var(--ocean); color: var(--white); border-color: var(--ocean); }
+.airport-card-body h3 { margin-bottom: 0.4rem; }
+.airport-card-body .code { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 1rem; display: block; }
+.airport-card-body p { font-size: 0.96rem; color: var(--warm-gray); margin-bottom: 1.25rem; }
+.airport-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--sand-dark); }
+.airport-stat .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-gray); display: block; margin-bottom: 0.3rem; font-weight: 600; }
+.airport-stat .value { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--charcoal); }
+
+/* ======= ROUTE GRID (4 region cards) ======= */
+.route-intro { max-width: 680px; }
+.route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.route-card { background: var(--white); border: 1px solid var(--sand-dark); padding: clamp(1.5rem, 2vw, 2rem); border-radius: 3px; transition: all 0.4s var(--transition); }
+.route-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+.route-card .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; margin-bottom: 0.6rem; display: block; }
+.route-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+.route-card .duration { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: var(--teal); font-weight: 600; margin-bottom: 1rem; display: block; }
+.route-card ul { list-style: none; padding: 0; margin: 0; }
+.route-card li { font-size: 0.88rem; color: var(--warm-gray); padding: 0.4rem 0; border-top: 1px solid var(--sand-dark); }
+.route-card li:first-child { border-top: 0; padding-top: 0; }
+.route-card li strong { color: var(--charcoal); font-weight: 600; }
+
+/* ======= TIMELINE / PICKUP ======= */
+.pickup { background: var(--charcoal); color: var(--white); }
+.pickup .overline { color: var(--gold); }
+.pickup h2 { color: var(--white); margin-bottom: 1rem; max-width: 24ch; }
+.pickup .lead { color: rgba(255,255,255,0.78); }
+.pickup-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; margin-top: 3.5rem; }
+.pickup-image { position: relative; border-radius: 3px; overflow: hidden; aspect-ratio: 4 / 5; }
+.pickup-image img { width: 100%; height: 100%; object-fit: cover; }
+.pickup-steps { display: flex; flex-direction: column; gap: 0; }
+.pickup-step { display: grid; grid-template-columns: 56px 1fr; gap: 1.4rem; padding: 1.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.pickup-step:last-child { border-bottom: 0; }
+.pickup-step .step-num { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); line-height: 1; padding-top: 0.2rem; }
+.pickup-step h4 { color: var(--white); margin-bottom: 0.4rem; }
+.pickup-step p { color: rgba(255,255,255,0.7); font-size: 0.94rem; line-height: 1.65; max-width: none; }
+
+/* ======= DRIVE / VEHICLE ======= */
+.drive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.drive-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
+.drive-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.2rem; padding-top: 2rem; border-top: 1px solid var(--sand-dark); }
+.drive-detail .item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.3rem; }
+.drive-detail .item .value { font-size: 0.98rem; font-weight: 500; color: var(--charcoal); line-height: 1.5; }
+
+/* ======= VISA NOTE ======= */
+.visa { background: var(--sand); }
+.visa-inner { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.visa-badge { font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: var(--ocean); line-height: 1; letter-spacing: -0.03em; }
+.visa-badge .unit { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-gray); display: block; margin-top: 0.25rem; }
+.visa-text h3 { margin-bottom: 0.4rem; }
+.visa-text p { font-size: 0.95rem; color: var(--warm-gray); margin-top: 0.3rem; }
+.visa-cta { white-space: nowrap; }
+
+/* ======= FAQ ======= */
+.faq { background: var(--white); }
+.faq-list { max-width: 780px; margin: 2.5rem auto 0; }
+.faq-item { border-bottom: 1px solid var(--sand-dark); padding: 1.5rem 0; }
+.faq-q { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.08rem; color: var(--charcoal); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-q::after { content: '+'; font-size: 1.4rem; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--transition); }
+.faq-item.open .faq-a { max-height: 320px; }
+.faq-a p { padding-top: 1rem; color: var(--warm-gray); font-size: 0.96rem; max-width: none; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1100px) {
+  .route-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 1280px) and (min-width: 1101px) {
+  .route-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .airport-grid { grid-template-columns: 1fr; }
+  .pickup-grid { grid-template-columns: 1fr; }
+  .pickup-image { aspect-ratio: 16 / 10; }
+  .drive-grid { grid-template-columns: 1fr; }
+  .visa-inner { grid-template-columns: 1fr; text-align: center; }
+  .visa-cta { justify-self: center; }
+}
+@media (max-width: 640px) {
+  .route-grid { grid-template-columns: 1fr; }
+  .drive-detail { grid-template-columns: 1fr; }
+  .page-hero { min-height: 560px; }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .page-hero-content h1 { max-width: 100%; }
+  .hero-meta-item.hide-mobile { display: none; }
+  .pickup-step { grid-template-columns: 44px 1fr; gap: 1rem; }
+  .pickup-step .step-num { font-size: 1.5rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Surf China Co.</a>
+    <a href="index.html" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="Assets/nature/coastal-highway-aerial-01.jpg" alt="Hainan coastal highway">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Plan Your Trip &middot; How to Get Here</span>
+    <h1>Closer than<br>you think.</h1>
+    <p>Hainan is a tropical island with full international airports &mdash; not a remote outpost you have to fight your way to. Direct flights from Europe, Russia, and most of Asia. We meet you at arrivals and drive you to the Wave Pool.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Two Gateways</span>
+        <span class="value">Haikou (HAK) &middot; Sanya (SYX)</span>
+      </div>
+      <div class="hero-meta-item hide-mobile">
+        <span class="label">Drive to Wave Pool</span>
+        <span class="value">1&ndash;2 hours, coastal road</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Visa</span>
+        <span class="value">30 days visa-free, 59 countries</span>
+      </div>
+      <div class="hero-meta-item hide-mobile">
+        <span class="label">Transfer</span>
+        <span class="value">Included &middot; English-speaking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container-narrow">
+    <span class="overline">The Short Version</span>
+    <h2>Fly to Hainan.<br>We&rsquo;ll do the rest.</h2>
+    <div class="section-divider"></div>
+    <p class="lead">Most people picture Hainan as somewhere obscure. It&rsquo;s not. It&rsquo;s China&rsquo;s southernmost province &mdash; a tropical island the size of Belgium &mdash; with two international airports, a high-speed rail loop, and direct flights from Moscow, London, Singapore, Bangkok, Seoul, and dozens of other hubs.</p>
+    <p class="lead">You book one flight to either Haikou (HAK) or Sanya (SYX). Our driver is waiting at arrivals with your name on a sign. From there it&rsquo;s a one- to two-hour drive down the coast in a private business van, and you&rsquo;re standing at the pool. No domestic transfers, no rental cars, no figuring out a Chinese train app at midnight.</p>
+    <div class="story-pull">
+      &ldquo;One international flight, one driver, one drive. That&rsquo;s the whole journey &mdash; and most of it has an ocean view.&rdquo;
+    </div>
+  </div>
+</section>
+
+<!-- 2 AIRPORT CARDS -->
+<section>
+  <div class="container">
+    <div style="max-width: 680px;">
+      <span class="overline">Step 1 &middot; Fly Into Hainan</span>
+      <h2>Two international airports.<br>Pick whichever flight works.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">Hainan has two full international airports on opposite ends of the island. Haikou is the bigger international hub; Sanya is the closer one to the Wave Pool. Both work &mdash; we transfer from either.</p>
+    </div>
+    <div class="airport-grid">
+
+      <!-- HAIKOU -->
+      <div class="airport-card fade-in">
+        <div class="airport-card-img">
+          <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Haikou coastal landscape">
+        </div>
+        <div class="airport-card-body">
+          <span class="tag tag-primary">Most international flights</span>
+          <h3>Haikou Meilan International</h3>
+          <span class="code">HAK</span>
+          <p>The island&rsquo;s primary international gateway, on the north coast. The widest range of long-haul and Southeast Asian routes &mdash; and where most flights from Europe and Russia land.</p>
+          <div class="airport-stats">
+            <div class="airport-stat">
+              <span class="label">Drive to Wave Pool</span>
+              <span class="value">~2 hours</span>
+            </div>
+            <div class="airport-stat">
+              <span class="label">Distance</span>
+              <span class="value">~150 km</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SANYA -->
+      <div class="airport-card fade-in">
+        <div class="airport-card-img">
+          <img src="Assets/nature/pristine-ocean-01.jpg" alt="Sanya tropical coast">
+        </div>
+        <div class="airport-card-body">
+          <span class="tag">Closer to the resort</span>
+          <h3>Sanya Phoenix International</h3>
+          <span class="code">SYX</span>
+          <p>The southern airport, set in Hainan&rsquo;s tropical resort zone. Strong on Russian and regional Asian routes &mdash; and the shortest drive to the Wave Pool.</p>
+          <div class="airport-stats">
+            <div class="airport-stat">
+              <span class="label">Drive to Wave Pool</span>
+              <span class="value">~1 hour</span>
+            </div>
+            <div class="airport-stat">
+              <span class="label">Distance</span>
+              <span class="value">~70 km</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE GRID -->
+<section style="background: var(--sand); padding-top: clamp(4rem, 7vw, 6rem); padding-bottom: clamp(4rem, 7vw, 6rem);">
+  <div class="container">
+    <div class="route-intro">
+      <span class="overline">Where People Fly From</span>
+      <h2>Direct routes from<br>four corners of the world.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">The flight options below are the direct, non-stop routes operating year-round or seasonally. If you don&rsquo;t see your city, almost any major Asian hub (Hong Kong, Singapore, Bangkok, Seoul) is a one-stop connection.</p>
+    </div>
+    <div class="route-grid">
+
+      <div class="route-card fade-in">
+        <span class="num">01 &mdash; Europe</span>
+        <h3>From Europe</h3>
+        <span class="duration">~10&ndash;11 hour flight</span>
+        <ul>
+          <li><strong>London (LHR)</strong> &rarr; Haikou, year-round</li>
+          <li><strong>Brussels (BRU)</strong> &rarr; Haikou, twice weekly</li>
+          <li>Other cities: 1 stop via London, Frankfurt, or Doha</li>
+        </ul>
+      </div>
+
+      <div class="route-card fade-in">
+        <span class="num">02 &mdash; North America</span>
+        <h3>From the US &amp; Canada</h3>
+        <span class="duration">~17&ndash;20 hours total &middot; 1 stop</span>
+        <ul>
+          <li><strong>West Coast</strong> (LAX, SFO, SEA, YVR) via Hong Kong, Seoul, or Tokyo</li>
+          <li><strong>East Coast</strong> (JFK, EWR, BOS, YYZ) via Hong Kong, Beijing, or Shanghai</li>
+          <li>One same-day onward flight to Haikou or Sanya &mdash; we book the connection</li>
+        </ul>
+      </div>
+
+      <div class="route-card fade-in">
+        <span class="num">03 &mdash; Russia &amp; CIS</span>
+        <h3>From Russia</h3>
+        <span class="duration">~9&ndash;10 hour flight</span>
+        <ul>
+          <li><strong>Moscow (SVO)</strong> &rarr; Sanya, year-round</li>
+          <li><strong>Moscow (SVO)</strong> &rarr; Haikou, year-round</li>
+          <li>Seasonal charters from St. Petersburg, Novosibirsk</li>
+        </ul>
+      </div>
+
+      <div class="route-card fade-in">
+        <span class="num">04 &mdash; Southeast Asia</span>
+        <h3>From SE Asia</h3>
+        <span class="duration">~3&ndash;5 hour flight</span>
+        <ul>
+          <li><strong>Singapore (SIN)</strong> &rarr; Haikou, daily</li>
+          <li><strong>Bangkok (BKK)</strong> &rarr; Haikou, year-round</li>
+          <li><strong>Kuala Lumpur, Hanoi, Ho Chi Minh, Kota Kinabalu</strong></li>
+        </ul>
+      </div>
+
+      <div class="route-card fade-in">
+        <span class="num">05 &mdash; East Asia</span>
+        <h3>From Korea &amp; Japan</h3>
+        <span class="duration">~3&ndash;4 hour flight</span>
+        <ul>
+          <li><strong>Seoul (ICN)</strong> &rarr; Haikou &amp; Sanya, multiple weekly</li>
+          <li><strong>Tokyo, Osaka, Taipei</strong> via Shanghai or Hong Kong</li>
+          <li>Hong Kong is the most reliable hub for any onward connection</li>
+        </ul>
+      </div>
+
+      <div class="route-card fade-in">
+        <span class="num">06 &mdash; Australia</span>
+        <h3>From Australia</h3>
+        <span class="duration">~12&ndash;14 hours total &middot; 1 stop</span>
+        <ul>
+          <li><strong>Sydney / Melbourne / Perth</strong> via Hong Kong, Singapore, or Guangzhou</li>
+          <li>Sydney&rarr;HKG&rarr;HAK is the smoothest routing</li>
+          <li>One same-day connection &mdash; we book it for you</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AIRPORT PICKUP - DARK SECTION -->
+<section class="pickup">
+  <div class="container">
+    <div style="max-width: 680px;">
+      <span class="overline">Step 2 &middot; The Airport Pickup</span>
+      <h2>Land. Walk out.<br>Find your name on a sign.</h2>
+      <div class="section-divider"></div>
+      <p class="lead">The moment you exit customs, an English-speaking driver from our team is waiting in the arrivals hall. You don&rsquo;t need to find a taxi, queue at a counter, or download an app. From the gate to the resort is one continuous handoff.</p>
+    </div>
+
+    <div class="pickup-grid">
+      <div class="pickup-image fade-in">
+        <img src="Assets/nature/mountain-road-tropical-01.jpg" alt="Tropical road in Hainan">
+      </div>
+
+      <div class="pickup-steps">
+        <div class="pickup-step fade-in">
+          <span class="step-num">01</span>
+          <div>
+            <h4>You send us your flight</h4>
+            <p>Once your ticket is booked, you forward us the e-ticket. We track your flight in real time &mdash; if it&rsquo;s delayed, our driver shifts with it. No phone calls needed from your end.</p>
+          </div>
+        </div>
+        <div class="pickup-step fade-in">
+          <span class="step-num">02</span>
+          <div>
+            <h4>Driver waiting at arrivals</h4>
+            <p>An English-speaking driver from our team meets you in the arrivals hall holding a sign with your name. WhatsApp number is shared in advance, so if anything is unclear, you have a real person to call.</p>
+          </div>
+        </div>
+        <div class="pickup-step fade-in">
+          <span class="step-num">03</span>
+          <div>
+            <h4>Private business van</h4>
+            <p>Modern Mercedes / Buick business van (MPV) with Wi-Fi, bottled water, and space for boards and luggage. Up to 6 passengers per vehicle &mdash; bigger groups get a second car.</p>
+          </div>
+        </div>
+        <div class="pickup-step fade-in">
+          <span class="step-num">04</span>
+          <div>
+            <h4>The drive to the wave</h4>
+            <p>From Sanya it&rsquo;s about 60 minutes up the coast. From Haikou, around 2 hours down the east coast. Either way, most of it is highway with the ocean on one side and tropical mountains on the other.</p>
+          </div>
+        </div>
+        <div class="pickup-step fade-in">
+          <span class="step-num">05</span>
+          <div>
+            <h4>Check-in, then surf</h4>
+            <p>Driver drops you at the resort, your trip coordinator meets you in the lobby with a cold towel and the schedule for the next day. If you arrive with energy, the pool is a 5-minute walk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DRIVE / VEHICLE DETAIL -->
+<section>
+  <div class="container">
+    <div class="drive-grid">
+      <div class="fade-in">
+        <img src="Assets/nature/beach-road-aerial-01.jpg" alt="Hainan coastal highway">
+      </div>
+      <div class="fade-in">
+        <span class="overline">The Coastal Drive</span>
+        <h2>One of the better<br>airport transfers<br>you&rsquo;ll do.</h2>
+        <div class="section-divider"></div>
+        <p class="lead">Hainan&rsquo;s east coast highway runs straight along the South China Sea. It&rsquo;s the same road you&rsquo;d drive for the view &mdash; we&rsquo;re just driving it because the airport happens to be at one end.</p>
+        <div class="drive-detail">
+          <div class="item">
+            <span class="label">Vehicle</span>
+            <span class="value">Mercedes V-Class or equivalent business van (MPV)</span>
+          </div>
+          <div class="item">
+            <span class="label">Capacity</span>
+            <span class="value">Up to 6 guests + boards &amp; luggage</span>
+          </div>
+          <div class="item">
+            <span class="label">Onboard</span>
+            <span class="value">Wi-Fi, USB charging, bottled water, A/C</span>
+          </div>
+          <div class="item">
+            <span class="label">Driver</span>
+            <span class="value">English-speaking, vetted, in uniform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISA NOTE -->
+<section class="visa">
+  <div class="container">
+    <div class="visa-inner">
+      <div class="visa-badge">
+        30
+        <span class="unit">Days visa-free</span>
+      </div>
+      <div class="visa-text">
+        <span class="overline">Good news</span>
+        <h3>Hainan is China&rsquo;s easiest entry.</h3>
+        <p>Travelers from 59 countries &mdash; including the US, UK, EU, Canada, Australia, Russia, and most of Southeast Asia &mdash; can enter Hainan visa-free for up to 30 days for tourism, as long as you fly in directly. We&rsquo;ll confirm your eligibility when you book and walk you through the (very short) registration step.</p>
+      </div>
+      <a href="index.html#contact" class="btn btn-outline-dark btn-arrow visa-cta" style="border:1px solid var(--ocean); color:var(--ocean);">Check My Country</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container-narrow">
+    <div style="text-align: center;">
+      <span class="overline">FAQ</span>
+      <h2>The questions we get most.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Which airport should I fly into &mdash; Haikou or Sanya?</div>
+        <div class="faq-a"><p>Whichever has the better flight for you. Sanya (SYX) is closer to the resort (1-hour drive vs. 2 hours from Haikou), but Haikou (HAK) has more international routes &mdash; especially from Europe. Send us your departure city and we&rsquo;ll tell you the best option.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is the airport transfer included?</div>
+        <div class="faq-a"><p>Yes. Every package includes round-trip private transfers between either airport and the resort. There&rsquo;s nothing extra to book or pay for the drive.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if my flight is delayed or arrives late at night?</div>
+        <div class="faq-a"><p>We track your flight live. If you&rsquo;re delayed, the driver shifts with the new arrival time &mdash; no need to call us. Late-night arrivals are fine; the resort accepts check-ins 24/7.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I bring my own surfboard?</div>
+        <div class="faq-a"><p>No problem. Our business vans are sized for boards and bags. If you&rsquo;re traveling with multiple boards or a big group, just let us know in advance and we&rsquo;ll size the vehicle accordingly.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to speak Chinese?</div>
+        <div class="faq-a"><p>No. Your driver, trip coordinator, and resort staff all speak English. WhatsApp is the main channel for communication before, during, and after your stay.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I add a stopover in Sanya or Haikou?</div>
+        <div class="faq-a"><p>Absolutely. A lot of guests spend a night in Sanya at the start or end of the trip &mdash; beach hotels, seafood, the city. We can arrange the extra night and the transfer split.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I&rsquo;m flying from the US, Canada, or Australia &mdash; no direct flights?</div>
+        <div class="faq-a"><p>One stop is all it takes. From North America, the smoothest routings go through Hong Kong, Seoul (ICN), or Tokyo on the West Coast, and through Hong Kong, Beijing, or Shanghai on the East Coast. From Australia, Hong Kong or Singapore is the cleanest. All of these hubs have multiple onward flights to Haikou or Sanya every day &mdash; we&rsquo;ll help you pick the connection.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="Assets/wavepool/wavepool-aerial-dusk-01.jpg" alt="Wave pool dusk">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Ready When You Are</span>
+    <h2>Send us your flight.<br>We&rsquo;ll handle the rest.</h2>
+    <p>Tell us where you&rsquo;re flying from and your dates. We&rsquo;ll come back with the best routing, the right airport, and a pickup plan &mdash; all in one email.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn btn-primary btn-arrow">Start Planning </a>
+      <a href="index.html" class="btn btn-outline btn-arrow">Back to Home </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// fade-in observer
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
