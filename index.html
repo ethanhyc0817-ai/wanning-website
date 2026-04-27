@@ -5,9 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Surf China Co. — World-Class Waves. Tropical China.</title>
 <meta name="description" content="Official PerfectSwell® partner. The ultimate surf trip to Hainan, China. World-class wave pool sessions, premium accommodation, and tropical adventure.">
+
+<!-- Preload LCP hero image — picks the right source for the viewport, fetched at highest priority -->
+<link rel="preload" as="image" href="Assets/wavepool/hero-desktop.jpg"
+      imagesrcset="Assets/wavepool/hero-mobile.jpg 768w, Assets/wavepool/hero-desktop.jpg 1920w"
+      imagesizes="100vw" fetchpriority="high">
+
+<!-- Resource hints: open connections to font + video CDNs early -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+<link rel="dns-prefetch" href="https://res.cloudinary.com">
+
+<!-- Google Fonts loaded asynchronously (media=print + onload) so they don't block render -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1139,7 +1151,10 @@ footer::before {
     <div class="hero-bg">
       <picture>
         <source media="(max-width: 768px)" srcset="Assets/wavepool/hero-mobile.jpg">
-        <img src="Assets/wavepool/hero-desktop.jpg" alt="Aerial view of PerfectSwell wave pool in Hainan, China">
+        <img src="Assets/wavepool/hero-desktop.jpg"
+             alt="Aerial view of PerfectSwell wave pool in Hainan, China"
+             width="1920" height="1080"
+             fetchpriority="high" decoding="async">
       </picture>
     </div>
     <div class="hero-content">
@@ -1219,7 +1234,7 @@ footer::before {
       <div class="natural-surf-inner">
         <div>
           <div class="partner-badge partner-badge-dark">
-            <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+            <img loading="lazy" decoding="async" src="Assets/perfectswell-logo.png" alt="PerfectSwell">
             <span>Powered by PerfectSwell&reg;</span>
           </div>
           <h2>Your perfect wave, on demand.</h2>
@@ -1234,7 +1249,7 @@ footer::before {
             muted
             loop
             playsinline
-            preload="auto"
+            preload="metadata"
             poster="Assets/wavepool/wavepool-surfer-action-01.jpg"
             style="width:100%; height: 500px; object-fit: cover; border-radius: 3px; display: block;">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
@@ -1258,14 +1273,14 @@ footer::before {
       </div>
       <div class="natural-surf-inner">
         <div>
-          <video class="content-video" autoplay muted loop playsinline preload="auto"
+          <video class="content-video" autoplay muted loop playsinline preload="metadata"
                  style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mov" type="video/quicktime">
           </video>
         </div>
         <div>
-          <video class="content-video" autoplay muted loop playsinline preload="auto"
+          <video class="content-video" autoplay muted loop playsinline preload="metadata"
                  style="width:100%; height:500px; object-fit:cover; border-radius:3px; display:block;">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mp4" type="video/mp4">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776528057/ScreenRecording_04-15-2026_23_tkzpvo.mov" type="video/quicktime">
@@ -1285,7 +1300,7 @@ footer::before {
       <h2>Surf. Recover. Explore. Repeat.</h2>
       <div class="facilities-grid">
         <a href="trip-support.html#surf-shop" class="facility-card fade-in">
-          <img src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop interior">
+          <img loading="lazy" decoding="async" src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop interior">
           <div class="facility-card-body">
             <h3>Surf Shop</h3>
             <p>On-site session essentials, accessories, and travel-friendly gear.</p>
@@ -1293,7 +1308,7 @@ footer::before {
           </div>
         </a>
         <a href="trip-support.html#board-rentals" class="facility-card fade-in">
-          <img src="Assets/surf-shop/IMG_5146 2.jpg" alt="Board rentals">
+          <img loading="lazy" decoding="async" src="Assets/surf-shop/IMG_5146 2.jpg" alt="Board rentals">
           <div class="facility-card-body">
             <h3>Board Rentals</h3>
             <p>On-site boards matched to your level, session type, and goals.</p>
@@ -1301,7 +1316,7 @@ footer::before {
           </div>
         </a>
         <a href="trip-support.html#surf-cafe" class="facility-card fade-in">
-          <img src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Surf cafe">
+          <img loading="lazy" decoding="async" src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Surf cafe">
           <div class="facility-card-body">
             <h3>Surf Caf&eacute;</h3>
             <p>Coffee, cold drinks, and a place to reset between sessions.</p>
@@ -1309,7 +1324,7 @@ footer::before {
           </div>
         </a>
         <a href="trip-support.html#recovery" class="facility-card fade-in">
-          <img src="Assets/recovery/IMG_5050.jpg" alt="Recovery and wellness">
+          <img loading="lazy" decoding="async" src="Assets/recovery/IMG_5050.jpg" alt="Recovery and wellness">
           <div class="facility-card-body">
             <h3>Recovery &amp; Wellness</h3>
             <p>Sauna, ice bath, hot bath, and post-session recovery about 20 minutes from the wave pool.</p>
@@ -1325,10 +1340,10 @@ footer::before {
 
   <!-- GALLERY STRIP -->
   <div class="gallery-strip">
-    <img src="Assets/nature/IMG_5193 3.jpg" alt="Hainan nature">
-    <img src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" alt="Wave pool aerial dusk">
-    <img src="Assets/recovery/IMG_5047.jpg" alt="Recovery">
-    <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Wave pool surfer action">
+    <img loading="lazy" decoding="async" src="Assets/nature/IMG_5193 3.jpg" alt="Hainan nature">
+    <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" alt="Wave pool aerial dusk">
+    <img loading="lazy" decoding="async" src="Assets/recovery/IMG_5047.jpg" alt="Recovery">
+    <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Wave pool surfer action">
   </div>
 
   <!-- SURF AND STAY -->
@@ -1344,7 +1359,7 @@ footer::before {
           <a href="accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
-          <img src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
+          <img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
         </div>
       </div>
     </div>
@@ -1361,7 +1376,7 @@ footer::before {
       </div>
       <div class="packages-grid">
         <div class="package-card fade-in">
-          <img src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" class="package-img" alt="Wave pool daytime">
+          <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" class="package-img" alt="Wave pool daytime">
           <div class="package-body">
             <span class="package-tag">3&ndash;4 Days</span>
             <h3>The Wave Pool Escape</h3>
@@ -1376,7 +1391,7 @@ footer::before {
         </div>
         <div class="package-card featured fade-in">
           <div class="package-featured-badge">Most Popular</div>
-          <img src="Assets/nature/coastal-road-beach-aerial-01.jpg" class="package-img" alt="Hainan coastal road">
+          <img loading="lazy" decoding="async" src="Assets/nature/coastal-road-beach-aerial-01.jpg" class="package-img" alt="Hainan coastal road">
           <div class="package-body">
             <span class="package-tag">5&ndash;7 Days</span>
             <h3>The Hainan Surf &amp; Explore</h3>
@@ -1390,7 +1405,7 @@ footer::before {
           </div>
         </div>
         <div class="package-card fade-in">
-          <img src="Assets/golf/IMG_5503.jpeg" class="package-img" alt="Hainan golf course">
+          <img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" class="package-img" alt="Hainan golf course">
           <div class="package-body">
             <span class="package-tag">7&ndash;9 Days</span>
             <h3>The Surf &amp; Golf Retreat</h3>
@@ -1432,7 +1447,7 @@ footer::before {
       <p class="lead">Hainan is nothing like what most people picture when they think of China — think waterfalls, coffee plantations, night markets, world-class golf, and empty surfs.</p>
       <div class="explore-grid-4">
         <a href="culture.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <img src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait">
+          <img loading="lazy" decoding="async" src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait">
           <div class="explore-card-overlay">
             <h3>Ancient culture</h3>
             <p>Li heritage &amp; indigenous traditions</p>
@@ -1440,7 +1455,7 @@ footer::before {
           </div>
         </a>
         <a href="golf.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <img src="Assets/golf/IMG_5512.jpg" alt="Golf course">
+          <img loading="lazy" decoding="async" src="Assets/golf/IMG_5512.jpg" alt="Golf course">
           <div class="explore-card-overlay">
             <h3>Golf</h3>
             <p>Tiger Woods has played here</p>
@@ -1448,7 +1463,7 @@ footer::before {
           </div>
         </a>
         <a href="cuisine.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <img src="Assets/food/lobster-noodles-01.jpg" alt="Cuisine and coffee plantation">
+          <img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" alt="Cuisine and coffee plantation">
           <div class="explore-card-overlay">
             <h3>Cuisine &amp; Coffee Plantation</h3>
             <p>Seafood, markets, coffee &amp; chocolate</p>
@@ -1456,7 +1471,7 @@ footer::before {
           </div>
         </a>
         <a href="nature.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <img src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall">
+          <img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall">
           <div class="explore-card-overlay">
             <h3>Nature</h3>
             <p>Waterfalls, rivers &amp; mountains</p>
@@ -1477,22 +1492,22 @@ footer::before {
       </div>
       <div class="audience-grid">
         <div class="audience-card fade-in" style="background: var(--white);">
-          <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer">
+          <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer">
           <h3>Surfers</h3>
           <p>Consistent, powerful PerfectSwell&reg; waves at every level. No swell windows, no crowds.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <img src="Assets/recovery/recovery-pool-sunset-01.jpg" alt="Couple at recovery pool">
+          <img loading="lazy" decoding="async" src="Assets/recovery/recovery-pool-sunset-01.jpg" alt="Couple at recovery pool">
           <h3>Couples</h3>
           <p>One surfs, one explores. Or both do both. A tropical trip that works for two different people.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <img src="Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids training">
+          <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids training">
           <h3>Families</h3>
           <p>Kid-friendly lessons, safe waves, and a whole island of adventure beyond the pool.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <img src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint">
+          <img loading="lazy" decoding="async" src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint">
           <h3>Explorers</h3>
           <p>Curious about a different side of Asia? This is tropical China most people don't know exists.</p>
         </div>
@@ -1528,7 +1543,7 @@ footer::before {
   <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="hero-bg">
-      <img src="Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="Wave pool golden hour">
+      <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="Wave pool golden hour">
     </div>
     <div class="final-cta-content">
       <span class="overline" style="color:var(--gold);">Ready?</span>
