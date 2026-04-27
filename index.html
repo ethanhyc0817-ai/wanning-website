@@ -1121,7 +1121,7 @@ footer::before {
   <a href="#" onclick="showPage('home'); toggleMobile();">Home</a>
   <a href="#" onclick="showPage('wavepool'); toggleMobile();">Wave Pool</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
-  <a href="#" onclick="showPage('explore'); toggleMobile();">Explore Hainan</a>
+  <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
   <a href="#" onclick="showPage('plan'); toggleMobile();">Plan Your Trip</a>
   <a href="#" onclick="showPage('contact'); toggleMobile();">Contact</a>
 </div>
@@ -1420,7 +1420,7 @@ footer::before {
   </div>
 
   <!-- BEYOND THE POOL -->
-  <section class="explore">
+  <section class="explore" id="explore-hainan">
     <div class="container">
       <span class="overline">Beyond the Pool</span>
       <h2>Discover a different side of<br>tropical China.</h2>
