@@ -1106,7 +1106,7 @@ footer::before {
       <a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a>
       <a href="#" onclick="showPage('wavepool')" data-page="wavepool">Wave Pool</a>
       <a href="#" onclick="showPage('packages')" data-page="packages">Packages</a>
-      <a href="#" onclick="showPage('explore')" data-page="explore">Explore Hainan</a>
+      <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
       <a href="#" onclick="showPage('plan')" data-page="plan">Plan Your Trip</a>
       <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Start Planning</a>
     </div>
