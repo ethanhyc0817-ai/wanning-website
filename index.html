@@ -8,7 +8,7 @@
 
 <!-- Preload LCP hero image — picks the right source for the viewport, fetched at highest priority -->
 <link rel="preload" as="image" href="Assets/wavepool/hero-desktop.jpg"
-      imagesrcset="Assets/wavepool/hero-mobile%20Large.jpeg 768w, Assets/wavepool/hero-desktop.jpg 1920w"
+      imagesrcset="Assets/wavepool/hero-mobile-large.jpeg 768w, Assets/wavepool/hero-desktop.jpg 1920w"
       imagesizes="100vw" fetchpriority="high">
 
 <!-- Resource hints: open connections to font + video CDNs early -->
@@ -1150,7 +1150,7 @@ footer::before {
   <section class="hero">
     <div class="hero-bg">
       <picture>
-        <source media="(max-width: 768px)" srcset="Assets/wavepool/hero-mobile%20Large.jpeg">
+        <source media="(max-width: 768px)" srcset="Assets/wavepool/hero-mobile-large.jpeg">
         <img src="Assets/wavepool/hero-desktop.jpg"
              alt="Aerial view of PerfectSwell wave pool in Hainan, China"
              width="1920" height="1080"
