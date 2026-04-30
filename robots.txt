@@ -8,4 +8,4 @@ Disallow: /hero-variants-preview.html
 Disallow: /logo-preview.html
 Disallow: /logo-preview-v2.html
 
-Sitemap: https://wanning-website.vercel.app/sitemap.xml
+Sitemap: https://www.surfchina.co/sitemap.xml
