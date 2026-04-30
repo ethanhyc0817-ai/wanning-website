@@ -24,6 +24,15 @@ Assets/golf/choose/
 # Stray temp files from compression
 _compressed_*
 
+# Original (pre-compression) backups of assets we keep around locally
+*.original.jpg
+*.original.jpeg
+*.original.png
+
+# Internal preview / draft HTML pages — never deploy
+*-preview.html
+*-preview-*.html
+
 # Editor / IDE
 .vscode/
 .idea/
