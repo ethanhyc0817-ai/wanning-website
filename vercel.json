@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/premium-7nights",
+      "destination": "/brochures/premium-7nights.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/luxury-11nights",
+      "destination": "/brochures/luxury-11nights.pdf",
+      "permanent": false
+    }
+  ]
+}
