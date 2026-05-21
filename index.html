@@ -50,7 +50,7 @@
       "@id": "https://www.surfchina.co/#organization",
       "name": "Surf China Co.",
       "url": "https://www.surfchina.co/",
-      "logo": "https://www.surfchina.co/apple-touch-icon.png",
+      "logo": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png",
       "image": "https://www.surfchina.co/Assets/wavepool/hero-desktop.jpg",
       "description": "Official PerfectSwell® partner offering surf trips to Hainan, China — wave pool sessions, premium accommodation, and tropical adventure.",
       "areaServed": {
@@ -87,10 +87,10 @@
 
 <!-- Favicon / app icons -->
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/Assets/icons/site.webmanifest">
 <meta name="theme-color" content="#0a4d68">
 
 
@@ -1207,9 +1207,9 @@ footer::before {
       <a href="#" onclick="showPage('wavepool')" data-page="wavepool">Wave Pool</a>
       <a href="#" onclick="showPage('packages')" data-page="packages">Packages</a>
       <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
-      <a href="accommodation.html">Accommodation</a>
-      <a href="golf.html">Golf</a>
-      <a href="how-to-get-here.html">How to get here</a>
+      <a href="pages/accommodation.html">Accommodation</a>
+      <a href="pages/golf.html">Golf</a>
+      <a href="pages/how-to-get-here.html">How to get here</a>
       <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -1224,9 +1224,9 @@ footer::before {
   <a href="#" onclick="showPage('wavepool'); toggleMobile();">Wave Pool</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
-  <a href="accommodation.html">Accommodation</a>
-  <a href="golf.html">Golf</a>
-  <a href="how-to-get-here.html">How to get here</a>
+  <a href="pages/accommodation.html">Accommodation</a>
+  <a href="pages/golf.html">Golf</a>
+  <a href="pages/how-to-get-here.html">How to get here</a>
   <a href="#" onclick="showPage('contact'); toggleMobile();">Contact</a>
 </div>
 
@@ -1379,7 +1379,7 @@ footer::before {
         </div>
       </div>
       <div style="text-align:center; margin-top:2.5rem;">
-        <a href="natural-surf.html" class="btn btn-outline-dark btn-arrow">Explore Ocean Surf </a>
+        <a href="pages/natural-surf.html" class="btn btn-outline-dark btn-arrow">Explore Ocean Surf </a>
       </div>
     </div>
   </section>
@@ -1390,7 +1390,7 @@ footer::before {
       <span class="overline">Trip Support &amp; Facilities</span>
       <h2>Surf. Recover. Explore. Repeat.</h2>
       <div class="facilities-grid">
-        <a href="trip-support.html#surf-shop" class="facility-card fade-in">
+        <a href="pages/trip-support.html#surf-shop" class="facility-card fade-in">
           <img loading="lazy" decoding="async" src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop interior">
           <div class="facility-card-body">
             <h3>Surf Shop</h3>
@@ -1398,7 +1398,7 @@ footer::before {
             <span class="card-cta">Learn More</span>
           </div>
         </a>
-        <a href="trip-support.html#board-rentals" class="facility-card fade-in">
+        <a href="pages/trip-support.html#board-rentals" class="facility-card fade-in">
           <img loading="lazy" decoding="async" src="Assets/surf-shop/IMG_5146 2.jpg" alt="Board rentals">
           <div class="facility-card-body">
             <h3>Board Rentals</h3>
@@ -1406,7 +1406,7 @@ footer::before {
             <span class="card-cta">Learn More</span>
           </div>
         </a>
-        <a href="trip-support.html#surf-cafe" class="facility-card fade-in">
+        <a href="pages/trip-support.html#surf-cafe" class="facility-card fade-in">
           <img loading="lazy" decoding="async" src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Surf cafe">
           <div class="facility-card-body">
             <h3>Surf Caf&eacute;</h3>
@@ -1414,7 +1414,7 @@ footer::before {
             <span class="card-cta">Learn More</span>
           </div>
         </a>
-        <a href="trip-support.html#recovery" class="facility-card fade-in">
+        <a href="pages/trip-support.html#recovery" class="facility-card fade-in">
           <img loading="lazy" decoding="async" src="Assets/recovery/IMG_5050.jpg" alt="Recovery and wellness">
           <div class="facility-card-body">
             <h3>Recovery &amp; Wellness</h3>
@@ -1424,7 +1424,7 @@ footer::before {
         </a>
       </div>
       <div style="text-align:center; margin-top:2.5rem;">
-        <a href="trip-support.html" class="btn btn-outline btn-arrow">Explore Trip Support </a>
+        <a href="pages/trip-support.html" class="btn btn-outline btn-arrow">Explore Trip Support </a>
       </div>
     </div>
   </section>
@@ -1447,7 +1447,7 @@ footer::before {
           <div class="section-divider"></div>
           <p class="lead">A premium boutique stay by renowned Japanese architect Shuhei Aoyama &mdash; set inside the wave pool grounds, just steps from your next session.</p>
           <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">Book your stay with us and enjoy <strong>20% off</strong> your PerfectSwell&reg; wave pool sessions.</p>
-          <a href="accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
+          <a href="pages/accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
           <img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
@@ -1478,7 +1478,7 @@ footer::before {
               <li>Premium board rental, video, round-trip transfer, breakfast</li>
             </ul>
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$900 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
-            <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
+            <a href="pages/package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card featured fade-in">
@@ -1494,7 +1494,7 @@ footer::before {
               <li>Two private-charter culture days &middot; English-speaking guides</li>
             </ul>
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$1,990 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
-            <a href="package-2-the-hainan-surf-and-explore.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
+            <a href="pages/package-2-the-hainan-surf-and-explore.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card fade-in">
@@ -1509,7 +1509,7 @@ footer::before {
               <li>Luxury: adds Rosewood Sanya + yacht charter + Lu Hui Tou round</li>
             </ul>
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$2,931 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person (Premium), Luxury US$5,931</span></p>
-            <a href="package-3-the-surf-and-golf-retreat.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
+            <a href="pages/package-3-the-surf-and-golf-retreat.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
         <div class="package-card no-band fade-in" style="background: var(--sand); border: 1px dashed rgba(0,0,0,0.15);">
@@ -1540,7 +1540,7 @@ footer::before {
       <div class="section-divider"></div>
       <p class="lead">Hainan is nothing like what most people picture when they think of China — think waterfalls, coffee plantations, night markets, world-class golf, and empty surfs.</p>
       <div class="explore-grid-4">
-        <a href="culture.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
+        <a href="pages/culture.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <img loading="lazy" decoding="async" src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait">
           <div class="explore-card-overlay">
             <h3>Ancient culture</h3>
@@ -1548,7 +1548,7 @@ footer::before {
             <span class="explore-card-cta">Explore</span>
           </div>
         </a>
-        <a href="golf.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
+        <a href="pages/golf.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <img loading="lazy" decoding="async" src="Assets/golf/IMG_5512.jpg" alt="Golf course">
           <div class="explore-card-overlay">
             <h3>Golf</h3>
@@ -1556,7 +1556,7 @@ footer::before {
             <span class="explore-card-cta">Explore</span>
           </div>
         </a>
-        <a href="cuisine.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
+        <a href="pages/cuisine.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" alt="Cuisine and coffee plantation">
           <div class="explore-card-overlay">
             <h3>Cuisine &amp; Coffee Plantation</h3>
@@ -1564,7 +1564,7 @@ footer::before {
             <span class="explore-card-cta">Explore</span>
           </div>
         </a>
-        <a href="nature.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
+        <a href="pages/nature.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall">
           <div class="explore-card-overlay">
             <h3>Nature</h3>
@@ -3068,7 +3068,7 @@ footer::before {
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); font-size:1.4rem; margin:0 0 0.4rem;">From US$900 <span style="font-weight:400; color:var(--warm-gray); font-size:0.9rem;">/ person, couple sharing (3N)</span></p>
             <p style="font-size:0.78rem; color:var(--warm-gray); line-height:1.6; margin:0;">4N from US$1,150/person. List rates US$1,000/$1,278; 10% New Opening promo applied. Solo travellers welcome &mdash; per-person rate flexes since room and transfer don&rsquo;t split. <a href="#" onclick="showPage('contact')" style="color:var(--teal); text-decoration:underline;">Contact us</a> for a tailored quote.</p>
           </div>
-          <a href="package-1-the-surf-session.html" class="btn btn-primary btn-arrow">View Full Itinerary </a>
+          <a href="pages/package-1-the-surf-session.html" class="btn btn-primary btn-arrow">View Full Itinerary </a>
         </div>
       </div>
 
@@ -3091,7 +3091,7 @@ footer::before {
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); font-size:1.4rem; margin:0 0 0.4rem;">From US$1,990 <span style="font-weight:400; color:var(--warm-gray); font-size:0.9rem;">/ person, couple sharing</span></p>
             <p style="font-size:0.78rem; color:var(--warm-gray); line-height:1.6; margin:0;">List rate US$2,211; 10% New Opening promo applied. Couple total US$3,980. Solo flexes higher (room + private charters don&rsquo;t split). <a href="#" onclick="showPage('contact')" style="color:var(--teal); text-decoration:underline;">Contact us</a> for a tailored quote.</p>
           </div>
-          <a href="package-2-the-hainan-surf-and-explore.html" class="btn btn-teal btn-arrow">View Full Itinerary </a>
+          <a href="pages/package-2-the-hainan-surf-and-explore.html" class="btn btn-teal btn-arrow">View Full Itinerary </a>
         </div>
         <div>
           <img loading="lazy" decoding="async" src="Assets/nature/coastal-highway-aerial-01.jpg" alt="Hainan coastal highway" style="width:100%; height:450px; object-fit:cover; border-radius:3px;">
@@ -3121,7 +3121,7 @@ footer::before {
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); font-size:1.4rem; margin:0 0 0.4rem;">From US$2,931 <span style="font-weight:400; color:var(--warm-gray); font-size:0.9rem;">/ person (Premium) &middot; Luxury US$5,931</span></p>
             <p style="font-size:0.78rem; color:var(--warm-gray); line-height:1.6; margin:0;">List rates Premium US$3,257 / Luxury US$6,590; 10% New Opening promo applied. Per person, couple sharing. <a href="#" onclick="showPage('contact')" style="color:var(--teal); text-decoration:underline;">Contact us</a> for a tailored quote.</p>
           </div>
-          <a href="package-3-the-surf-and-golf-retreat.html" class="btn btn-primary btn-arrow">View Full Itinerary </a>
+          <a href="pages/package-3-the-surf-and-golf-retreat.html" class="btn btn-primary btn-arrow">View Full Itinerary </a>
         </div>
       </div>
 
@@ -3283,7 +3283,7 @@ footer::before {
   <section>
     <div class="container">
       <div class="plan-grid">
-        <a href="how-to-get-here.html" class="plan-card fade-in" style="text-decoration:none; color:inherit; display:block;">
+        <a href="pages/how-to-get-here.html" class="plan-card fade-in" style="text-decoration:none; color:inherit; display:block;">
           <span class="overline">Getting There</span>
           <h3>How to Reach Hainan</h3>
           <p>Fly into Sanya Phoenix International Airport (SYX) or Haikou Meilan (HAK). Direct flights from major Asian hubs. We handle your transfer to the resort &mdash; approximately 90 minutes of scenic coastal driving.</p>
@@ -3531,13 +3531,13 @@ footer::before {
         <a href="#" onclick="showPage('wavepool')">Wave Pool</a>
         <a href="#" onclick="showPage('packages')">Packages</a>
         <a href="#" onclick="showPage('explore')">Explore Hainan</a>
-        <a href="how-to-get-here.html">How to get here</a>
+        <a href="pages/how-to-get-here.html">How to get here</a>
       </div>
       <div class="footer-col">
         <h4>Packages</h4>
-        <a href="package-1-the-surf-session.html">The Wave Pool Escape</a>
-        <a href="package-2-the-hainan-surf-and-explore.html">Surf &amp; Explore</a>
-        <a href="package-3-the-surf-and-golf-retreat.html">Surf &amp; Golf Retreat</a>
+        <a href="pages/package-1-the-surf-session.html">The Wave Pool Escape</a>
+        <a href="pages/package-2-the-hainan-surf-and-explore.html">Surf &amp; Explore</a>
+        <a href="pages/package-3-the-surf-and-golf-retreat.html">Surf &amp; Golf Retreat</a>
         <a href="#" onclick="showPage('contact')">Custom Trip</a>
       </div>
       <div class="footer-col">
