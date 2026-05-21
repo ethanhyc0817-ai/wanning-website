@@ -348,6 +348,98 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
 /* placeholder for inline price text */
 .tbd { color: var(--warm-gray); border-bottom: 1px dashed var(--coral); padding-bottom: 1px; font-style: italic; }
+
+/* ======= TIER COMPARE GRID (replaces stats section content) ======= */
+.tier-compare { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+@media (max-width: 820px) { .tier-compare { grid-template-columns: 1fr; } }
+.tier-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 2.2rem 1.9rem; display: flex; flex-direction: column; }
+.tier-card.luxury { border-color: var(--gold); background: rgba(196,162,101,0.06); }
+.tier-card__eyebrow { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.7rem; }
+.tier-card.luxury .tier-card__eyebrow { color: var(--gold); }
+.tier-card__title { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem, 2.4vw, 1.95rem); font-weight: 700; line-height: 1.15; color: var(--white); margin-bottom: 0.5rem; }
+.tier-card__sub { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin-bottom: 1.6rem; font-style: italic; max-width: none; }
+.tier-card__stats { list-style: none; padding: 0; margin: 0 0 1.6rem; border-top: 1px solid rgba(255,255,255,0.12); }
+.tier-card__stats li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.tier-card__stats .label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.tier-card__stats .value { font-size: 0.92rem; color: var(--white); font-weight: 500; text-align: right; }
+.tier-card__price { margin-top: auto; padding-top: 1.4rem; border-top: 1px solid rgba(255,255,255,0.12); }
+.tier-card__from { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.tier-card__amount { font-family: 'Montserrat', sans-serif; font-size: clamp(1.9rem, 3vw, 2.3rem); font-weight: 700; color: var(--white); line-height: 1.1; margin: 0.2rem 0 0.3rem; }
+.tier-card.luxury .tier-card__amount { color: var(--gold); }
+.tier-card__per { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+/* ======= COURSE CARDS (golf section rebuild) ======= */
+.course-section { background: var(--sand); }
+.course-section .container { display: flex; flex-direction: column; gap: clamp(3rem, 5vw, 4.5rem); }
+.course-header { text-align: center; max-width: 760px; margin: 0 auto; }
+.course-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+.course-card.luxury-only { border-top: 3px solid var(--gold); }
+.course-card__head { padding: 1.8rem 2rem 1.4rem; border-bottom: 1px solid var(--sand-dark); }
+.course-card__eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 0.5rem; }
+.course-card.luxury-only .course-card__eyebrow { color: var(--gold); }
+.course-card__title { font-family: 'Montserrat', sans-serif; font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; color: var(--charcoal); margin-bottom: 0.4rem; }
+.course-card__loc { font-size: 0.92rem; color: var(--warm-gray); font-style: italic; }
+.awards-banner { background: var(--charcoal); color: var(--white); padding: 1.8rem 1.6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.awards-banner__tile { text-align: center; padding: 0 0.6rem; }
+.awards-banner__tile + .awards-banner__tile { border-left: 1px solid rgba(255,255,255,0.12); }
+.awards-banner__statement { font-family: 'Montserrat', sans-serif; font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 700; color: var(--gold); letter-spacing: -0.01em; line-height: 1.15; }
+.awards-banner__caption { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-top: 0.35rem; }
+.awards-banner__source { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+@media (max-width: 640px) {
+  .awards-banner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .awards-banner__tile + .awards-banner__tile { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.5rem; }
+}
+.course-card__body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0; }
+@media (max-width: 860px) { .course-card__body { grid-template-columns: 1fr; } }
+.course-card__hero { width: 100%; aspect-ratio: 3 / 2; background-size: cover; background-position: center; }
+.course-card__detail { padding: 2rem 2rem 2.2rem; }
+.course-card__lede { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 500; color: var(--charcoal); line-height: 1.4; margin-bottom: 1rem; max-width: none; }
+.course-card__copy { font-size: 0.98rem; line-height: 1.75; color: var(--warm-gray); margin-bottom: 1.5rem; max-width: none; }
+.course-card__facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--sand-dark); }
+.course-card__facts dt { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 0.2rem; }
+.course-card__facts dd { font-size: 0.92rem; font-weight: 600; color: var(--charcoal); }
+
+/* ======= HOTELS GRID (replaces single Stay section) ======= */
+.hotels-section { background: var(--white); }
+.hotels-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.hotels-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; }
+.hotel-card { background: var(--sand); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+.hotel-card__img { width: 100%; aspect-ratio: 4 / 3; background-size: cover; background-position: center; background-color: var(--sand-dark); }
+.hotel-card__body { padding: 1.6rem 1.6rem 1.9rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; }
+.hotel-card__city { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
+.hotel-card__name { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--charcoal); letter-spacing: -0.01em; }
+.hotel-card__room { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.5; max-width: none; margin: 0.2rem 0 0.8rem; }
+.hotel-card__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+.hotel-card__tag { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 2px; background: var(--ocean); color: var(--white); }
+.hotel-card__tag.gold { background: var(--gold); color: var(--charcoal); }
+
+/* ======= BEYOND-THE-SPORT TILES (overlay-on-image grid) ======= */
+.tiles-section { background: var(--sand); }
+.tiles-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.tiles-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.tile { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 4px; background: var(--sand-dark); }
+.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--transition); }
+.tile:hover img { transform: scale(1.05); }
+.tile__overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.3rem 1.3rem 1.4rem; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.78) 100%); color: var(--white); }
+.tile__eyebrow { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; }
+.tile__title { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.tile__sub { font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-top: 0.3rem; line-height: 1.4; }
+.tile--feature { aspect-ratio: 4 / 3; grid-column: span 2; }
+@media (max-width: 720px) { .tile--feature { grid-column: span 1; aspect-ratio: 4 / 5; } }
+
+/* ======= TRUST PILLARS (Why Us) ======= */
+.trust-section { background: var(--white); }
+.trust-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.trust-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.6rem; }
+.trust-pillar { padding: 1.8rem 1.5rem; border-top: 3px solid var(--teal); background: var(--sand); border-radius: 0 0 4px 4px; }
+.trust-pillar__num { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 1rem; }
+.trust-pillar h3 { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.7rem; color: var(--charcoal); }
+.trust-pillar p { font-size: 0.93rem; line-height: 1.65; color: var(--warm-gray); margin: 0; max-width: none; }
+
+/* ======= ITINERARY VARIANT ======= */
+.itin-section.luxury-itin { background: var(--white); border-top: 1px solid var(--sand-dark); }
+.itin-card.lux { border-top-color: var(--gold); }
+.itin-card.lux .itin-day { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -408,29 +500,50 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ============ 2. AT-A-GLANCE ============ -->
+<!-- ============ 2. TIER COMPARE ============ -->
 <section class="stats-section">
   <div class="stats-lead">
-    <span class="overline" style="color: var(--teal);">At a Glance</span>
-    <h2>The trip in four lines.</h2>
+    <span class="overline" style="color: var(--teal);">Two Tiers</span>
+    <h2>Choose your length.</h2>
+    <p>Same anchor &mdash; PerfectSwell&reg; in the morning, championship golf in the afternoon. Pick the shape of the week.</p>
   </div>
-  <div class="stats-grid">
-    <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">7 or 11 Nights</div>
-      <div class="stat-label">Premium 7N &middot; Luxury 11N (multi-city)</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">4 Sessions</div>
-      <div class="stat-label">PerfectSwell&reg; &middot; level-matched</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">3 Rounds</div>
-      <div class="stat-label">Championship golf, world-rated courses</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num" style="font-size: clamp(1.4rem, 2.2vw, 1.9rem);">Full Support</div>
-      <div class="stat-label">Tee times, transfers, guide, English help</div>
-    </div>
+  <div class="tier-compare">
+    <article class="tier-card">
+      <div class="tier-card__eyebrow">Premium &middot; 7 Nights / 8 Days</div>
+      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Premium</h3>
+      <p class="tier-card__sub">2 cities &middot; Wanning + Haikou &middot; entry luxury</p>
+      <ul class="tier-card__stats">
+        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+        <li><span class="label">Courses</span><span class="value">The Dunes &middot; Blackstone</span></li>
+        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Ritz-Carlton</span></li>
+        <li><span class="label">Transfers</span><span class="value">Premium Car</span></li>
+        <li><span class="label">Video</span><span class="value">2 &times; sessions</span></li>
+      </ul>
+      <div class="tier-card__price">
+        <div class="tier-card__from">From</div>
+        <div class="tier-card__amount">US$2,931</div>
+        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$5,862</div>
+      </div>
+    </article>
+    <article class="tier-card luxury">
+      <div class="tier-card__eyebrow">Luxury &middot; 11 Nights / 12 Days</div>
+      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Luxury</h3>
+      <p class="tier-card__sub">3 cities &middot; Wanning + Sanya + Haikou &middot; suite-tier</p>
+      <ul class="tier-card__stats">
+        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+        <li><span class="label">Courses</span><span class="value">Dunes &middot; Lu Hui Tou &middot; Blackstone</span></li>
+        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Rosewood &middot; Ritz</span></li>
+        <li><span class="label">Yacht</span><span class="value">3-hour private charter</span></li>
+        <li><span class="label">Video</span><span class="value">4 &times; sessions + drone</span></li>
+      </ul>
+      <div class="tier-card__price">
+        <div class="tier-card__from">From</div>
+        <div class="tier-card__amount">US$5,931</div>
+        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$11,862</div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -499,7 +612,82 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <p>Breakfast at the Ritz, checkout, Premium Car transfer to HAK.</p>
       </div>
     </div>
-    <p class="itin-customize">Premium baseline shown. Luxury adds 5 nights at Rosewood Sanya with a 3-hour private yacht charter, a Lu Hui Tou round in Sanya, an English-guide cultural day, and Owner&rsquo;s Suite + Golf Suite room upgrades. Full Luxury day-by-day in the brochure.</p>
+    <p class="itin-customize">Premium baseline shown. The Luxury day-by-day is below.</p>
+  </div>
+</section>
+
+<!-- ============ 4b. SAMPLE ITINERARY — LUXURY ============ -->
+<section class="itin-section luxury-itin">
+  <div class="container">
+    <div class="itin-header">
+      <span class="overline" style="color: var(--gold);">Sample Itinerary &middot; Luxury 11N</span>
+      <h2>Luxury 11 nights / 12 days. 4N Wanning + 5N Sanya + 2N Haikou.</h2>
+      <div class="section-divider-center" style="background: var(--gold);"></div>
+      <p class="lead" style="margin: 0 auto;">A baseline rhythm for the Luxury tier &mdash; three cities, suite-tier rooms, private yacht, cultural day. Everything flexes around your dates.</p>
+    </div>
+    <div class="itin-grid">
+      <div class="itin-card lux">
+        <div class="itin-day">Day 01</div>
+        <div class="itin-title">Arrival &rarr; Wanning</div>
+        <p>Private <strong>Executive Van</strong> from Sanya Phoenix Intl or Haikou Meilan Intl. Check in to your <strong>Owner&rsquo;s Suite</strong> at the Wave Pool Resort &mdash; top-tier accommodation inside the surf complex.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 02</div>
+        <div class="itin-title">Surf 1 + Drone</div>
+        <p>PerfectSwell&reg; session #1 with Premium board matched to your level and the day&rsquo;s wave. Professional video coverage. Drone session in the afternoon.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 03</div>
+        <div class="itin-title">Surf 2 + 3</div>
+        <p>Morning session #2, afternoon session #3 &mdash; different wave types across the two, professional video coverage throughout.</p>
+      </div>
+      <div class="itin-card lux golf">
+        <div class="itin-day">Day 04 &middot; Golf</div>
+        <div class="itin-title">The Dunes</div>
+        <p>Private charter to <strong>The Dunes at Shenzhou</strong>. 18 holes at China&rsquo;s #2 &mdash; Weiskopf coastal links, sea breeze. Caddy included.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 05</div>
+        <div class="itin-title">Wanning &rarr; Sanya</div>
+        <p>Morning surf session #4 &mdash; final waves at PerfectSwell&reg;. Afternoon charter Wanning &rarr; Sanya (~3 hr coastal highway). Check in to <strong>Rosewood Sanya</strong>, Deluxe Ocean View on Haitang Bay.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 06</div>
+        <div class="itin-title">Sanya &middot; Yacht Charter</div>
+        <p>Private <strong>3-hour yacht charter</strong> out of Sanya Bay. English-speaking guide. Cruise, swim, paddle. Drone coverage of yacht and coastline.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 07</div>
+        <div class="itin-title">Culture + Night Market</div>
+        <p>Private car + English guide. <strong>Areca Manor (槟榔谷)</strong> &mdash; Li &amp; Miao cultural park, traditional weaving, performances. Evening at the <strong>Sanya night market</strong> &mdash; tropical fruit, fresh seafood, Hainanese street food.</p>
+      </div>
+      <div class="itin-card lux golf">
+        <div class="itin-day">Day 08 &middot; Golf</div>
+        <div class="itin-title">Lu Hui Tou</div>
+        <p>Private charter to <strong>Lu Hui Tou Golf Club</strong> for Round 2. Mountain-and-sea views over Sanya Bay. Caddy included.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 09</div>
+        <div class="itin-title">Sanya &middot; Free Day</div>
+        <p>Rest day. Beach, hotel pool, Haitang Bay. Optional add-ons: Atlantis underwater dinner, Yalong Bay Forest Park, Nanshan Guanyin.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 10</div>
+        <div class="itin-title">Sanya &rarr; Haikou</div>
+        <p>Private charter Sanya &rarr; Haikou (~3 hr). Check in to your <strong>Golf Suite at the Ritz-Carlton Haikou</strong> inside Mission Hills.</p>
+      </div>
+      <div class="itin-card lux golf">
+        <div class="itin-day">Day 11 &middot; Golf</div>
+        <div class="itin-title">Mission Hills Blackstone</div>
+        <p>Round 3 at <strong>Mission Hills Blackstone</strong> &mdash; China&rsquo;s #1, World Top 100, the Tiger &times; Rory venue. Caddy included.</p>
+      </div>
+      <div class="itin-card lux">
+        <div class="itin-day">Day 12</div>
+        <div class="itin-title">Qilou Tour &rarr; Departure</div>
+        <p>Morning city tour with English guide &mdash; <strong>Qilou Old Street</strong> (骑楼老街) and the <strong>Wormhole Library</strong> by MAD Architects. Executive Van to Haikou Meilan Intl.</p>
+      </div>
+    </div>
+    <p class="itin-customize">11N &middot; 3 cities &middot; suite-tier &middot; everything flexes.</p>
   </div>
 </section>
 
@@ -519,88 +707,275 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   </div>
 </section>
 
-<!-- ============ 6. THE GOLF ============ -->
-<section class="golf-section">
+<!-- ============ 6. THE GOLF — COURSE CARDS ============ -->
+<section class="course-section">
   <div class="container">
-    <div class="golf-grid">
-      <div class="golf-img" style="background-image:url('Assets/golf/mission-hills-palms-01.jpg');"></div>
-      <div class="golf-text">
-        <span class="overline">The Golf</span>
-        <h2>Three rounds. World-rated courses.</h2>
-        <div class="section-divider"></div>
-        <p>Premium: 2&times; <strong>The Dunes at Shenzhou Peninsula</strong> (Tom Weiskopf&rsquo;s only Asian links design, #2 in China) + 1&times; <strong>Mission Hills Blackstone</strong> (#1 in China, World Top 100). Luxury splits the rounds across three regions: 1&times; The Dunes (Wanning), 1&times; <strong>Lu Hui Tou</strong> (Sanya), 1&times; Mission Hills Blackstone (Haikou).</p>
-        <div class="golf-creds">
-          <span class="golf-cred">Tom Weiskopf</span>
-          <span class="golf-cred">HSBC Champions</span>
-          <span class="golf-cred">Volvo China Open</span>
-          <span class="golf-cred">Tiger Woods</span>
-          <span class="golf-cred">Rory McIlroy</span>
-        </div>
-        <p class="lead">Three rounds, charter cars, tee times, and caddies arranged. Caddy included on every round.</p>
-        <a href="golf.html" class="btn btn-outline-dark btn-arrow">More on Golf in Hainan</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. WHERE YOU'LL STAY ============ -->
-<section class="stay-section">
-  <div class="container">
-    <div class="stay-grid">
-      <div class="stay-img" style="background-image:url('Assets/hotel/designer%20hotel/designer-hotel-room-03.jpg'); aspect-ratio: 3 / 2;"></div>
-      <div class="stay-text">
-        <span class="overline">Where You'll Stay</span>
-        <h2>Wave Pool Resort, Ritz-Carlton Haikou &mdash; and (Luxury) Rosewood Sanya.</h2>
-        <div class="section-divider"></div>
-        <p><strong>Premium 7N:</strong> 5 nights at the Wave Pool Resort, Wanning (Ocean &amp; Pool View Room) + 2 nights at the Ritz-Carlton Haikou Mission Hills (Deluxe Golf Ocean View Room).</p>
-        <p><strong>Luxury 11N:</strong> 4 nights at the Wave Pool Resort Owner&rsquo;s Suite (Wanning) + 5 nights at Rosewood Sanya (Deluxe Ocean View, Haitang Bay) + 2 nights at the Ritz-Carlton Haikou (Golf Suite).</p>
-        <p class="lead">Daily breakfast included at every hotel. Suite upgrades available on request.</p>
-        <a href="accommodation.html" class="btn btn-outline-dark btn-arrow">See Accommodation</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 8. ISLAND DAYS ============ -->
-<section class="beyond-section">
-  <div class="container">
-    <div class="beyond-header">
-      <span class="overline">The Luxury Extras</span>
-      <h2>What Luxury adds on top of Premium.</h2>
+    <div class="course-header">
+      <span class="overline">The Golf</span>
+      <h2>Three rounds. Three of the most decorated courses in Asia.</h2>
       <div class="section-divider-center"></div>
-      <p class="lead" style="margin: 0 auto;">Luxury isn&rsquo;t just longer &mdash; it&rsquo;s a different shape. A Sanya leg with a private yacht, a cultural day with an English-speaking guide, and suite-tier rooms across all three cities.</p>
+      <p class="lead" style="margin: 0 auto;">Caddies included on every round. Tee times, charter cars, and clubhouse arrangements all handled.</p>
     </div>
-    <div class="beyond-grid">
-      <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/yacht/sanya-yacht-charter-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Private Yacht Charter (Sanya)</h3>
-          <p>3-hour private yacht charter on Sanya Bay &mdash; Luxury only. The boat is yours; we handle skipper, fuel, anchor stop.</p>
+
+    <!-- The Dunes at Shenzhou -->
+    <article class="course-card">
+      <div class="course-card__head">
+        <div class="course-card__eyebrow">The Golf &middot; Wanning</div>
+        <h3 class="course-card__title">The Dunes at Shenzhou Peninsula</h3>
+        <div class="course-card__loc">Shenzhou Peninsula &middot; Tom Weiskopf &amp; Phil Smith, 2014</div>
+      </div>
+      <section class="awards-banner">
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">#2</div>
+          <div class="awards-banner__caption">In China</div>
+          <div class="awards-banner__source">Golf Digest &middot; 2022</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">Top 10</div>
+          <div class="awards-banner__caption">Best Courses in Asia</div>
+          <div class="awards-banner__source">Forbes</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">Best New</div>
+          <div class="awards-banner__caption">International Course</div>
+          <div class="awards-banner__source">US Golf Magazine</div>
+        </div>
+      </section>
+      <div class="course-card__body">
+        <div class="course-card__hero" style="background-image:url('Assets/brochure/golf-dunes/dunes-04.jpg');"></div>
+        <div class="course-card__detail">
+          <p class="course-card__lede">A coastal links shaped by sand dunes, ocean wind, and the South China Sea.</p>
+          <p class="course-card__copy">Few golf courses in China have a setting like The Dunes. Built along the coast and shaped by natural sand dunes, ocean winds, dramatic bunkers, and wide-open views of the South China Sea, it delivers a true links-style experience with a tropical island edge. Tom Weiskopf&rsquo;s only Asian design &mdash; raw, cinematic, and deeply connected to the landscape.</p>
+          <dl class="course-card__facts">
+            <div><dt>Designer</dt><dd>Tom Weiskopf</dd></div>
+            <div><dt>Style</dt><dd>Coastal links</dd></div>
+            <div><dt>Par</dt><dd>72</dd></div>
+          </dl>
         </div>
       </div>
-      <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/culture/li-elder-portrait-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Cultural Day &middot; Areca Manor / Night Market</h3>
-          <p>A full English-guide day on the Luxury build &mdash; the Limu Li &amp; Miao villages at Binglanggu, and an evening at a Sanya night market.</p>
-          <a href="culture.html" class="btn-text">More on Hainan Culture</a>
+    </article>
+
+    <!-- Mission Hills Blackstone -->
+    <article class="course-card">
+      <div class="course-card__head">
+        <div class="course-card__eyebrow">The Golf &middot; Haikou</div>
+        <h3 class="course-card__title">Mission Hills Blackstone</h3>
+        <div class="course-card__loc">Mission Hills &middot; Schmidt-Curley, 2009</div>
+      </div>
+      <section class="awards-banner">
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">#1</div>
+          <div class="awards-banner__caption">Ranked Course in China</div>
+          <div class="awards-banner__source">Asian Golf Monthly</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">Best</div>
+          <div class="awards-banner__caption">New Course in Asia</div>
+          <div class="awards-banner__source">Golf Magazine</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">World Top 100</div>
+          <div class="awards-banner__caption">World&rsquo;s Greatest Courses</div>
+          <div class="awards-banner__source">Golf Digest</div>
+        </div>
+      </section>
+      <div class="course-card__body">
+        <div class="course-card__hero" style="background-image:url('Assets/brochure/golf-blackstone/blackstone-07.jpg');"></div>
+        <div class="course-card__detail">
+          <p class="course-card__lede">One of the world&rsquo;s rare black-lava championship courses.</p>
+          <p class="course-card__copy">A dramatic layout carved through black volcanic lava rock, lush tropical scenery, and bold island landscapes. This is the same course where <strong>Tiger Woods and Rory McIlroy</strong> went head-to-head in 2013 &mdash; a true bucket-list venue with real history, world-class design, and a setting you simply don&rsquo;t find anywhere else.</p>
+          <dl class="course-card__facts">
+            <div><dt>Designer</dt><dd>Schmidt-Curley</dd></div>
+            <div><dt>Terrain</dt><dd>Volcanic lava-rock</dd></div>
+            <div><dt>Notable</dt><dd>Tiger &times; Rory, 2013</dd></div>
+          </dl>
         </div>
       </div>
-      <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/hotel/main%20hotel/main-hotel-suite-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Suite-Tier Rooms Across 3 Cities</h3>
-          <p>Wave Pool Resort Owner&rsquo;s Suite (Wanning), Rosewood Sanya Deluxe Ocean View, Ritz-Carlton Haikou Golf Suite &mdash; all on the Luxury tier.</p>
-          <a href="accommodation.html" class="btn-text">More on Hotels</a>
+    </article>
+
+    <!-- Lu Hui Tou — Luxury only -->
+    <article class="course-card luxury-only">
+      <div class="course-card__head">
+        <div class="course-card__eyebrow">The Golf &middot; Sanya &middot; Luxury Only</div>
+        <h3 class="course-card__title">Lu Hui Tou Golf Club</h3>
+        <div class="course-card__loc">Lu Hui Tou Peninsula &middot; Nelson &amp; Haworth, 2009</div>
+      </div>
+      <section class="awards-banner">
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">Sea + Mountain</div>
+          <div class="awards-banner__caption">Headland routing</div>
+          <div class="awards-banner__source">Lu Hui Tou Peninsula</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">7,310 yds</div>
+          <div class="awards-banner__caption">Par 72</div>
+          <div class="awards-banner__source">Championship layout</div>
+        </div>
+        <div class="awards-banner__tile">
+          <div class="awards-banner__statement">2009</div>
+          <div class="awards-banner__caption">Opened</div>
+          <div class="awards-banner__source">Nelson &amp; Haworth design</div>
+        </div>
+      </section>
+      <div class="course-card__body">
+        <div class="course-card__hero" style="background-image:url('Assets/brochure/golf-lu-hui-tou/luhuitou-01.png');"></div>
+        <div class="course-card__detail">
+          <p class="course-card__lede">Sanya&rsquo;s headland course &mdash; sea on one side, mountain on the other.</p>
+          <p class="course-card__copy">Eighteen holes draped across the Lu Hui Tou peninsula, between the South China Sea and the green mountain ridge. Nelson &amp; Haworth routed the course in 2009 with elevation changes that give every approach a different angle. Pair the round with an evening at Rosewood and the polished Sanya day arranges itself.</p>
+          <dl class="course-card__facts">
+            <div><dt>Designer</dt><dd>Nelson &amp; Haworth</dd></div>
+            <div><dt>Routing</dt><dd>Headland peninsula</dd></div>
+            <div><dt>Opened</dt><dd>2009</dd></div>
+          </dl>
         </div>
       </div>
-      <div class="beyond-card">
-        <div class="beyond-card-img" style="background-image:url('Assets/wavepool/wavepool-aerial-closeup-01.jpg');"></div>
-        <div class="beyond-card-body">
-          <h3>Drone Coverage + Premium Boards</h3>
-          <p>Photo + drone coverage on Luxury (vs photo-only on Premium), and Premium board rental every session.</p>
+    </article>
+
+    <p style="text-align:center; color: var(--warm-gray); font-size:0.92rem; max-width: 720px; margin: 0 auto;"><em>Premium plays The Dunes twice + Blackstone (3 rounds in 2 cities). Luxury plays each of the three above once (3 rounds across 3 cities).</em></p>
+  </div>
+</section>
+
+<!-- ============ 7. HOTELS ============ -->
+<section class="hotels-section">
+  <div class="container">
+    <div class="hotels-header">
+      <span class="overline">Where You Stay</span>
+      <h2>Hotels built for the trip.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Three properties across the trip. Premium uses two of them; Luxury uses all three at suite tier. Daily breakfast included everywhere.</p>
+    </div>
+    <div class="hotels-grid">
+      <article class="hotel-card">
+        <div class="hotel-card__img" style="background-image:url('Assets/brochure/wavepool-resort/wp-resort-01.jpg');"></div>
+        <div class="hotel-card__body">
+          <div class="hotel-card__city">Wanning</div>
+          <div class="hotel-card__name">Wave Pool Resort</div>
+          <p class="hotel-card__room">Ocean &amp; Pool View Room (Premium) &middot; Owner&rsquo;s Suite (Luxury). Steps from PerfectSwell&reg;, balconies overlooking the lineup.</p>
+          <div class="hotel-card__tags">
+            <span class="hotel-card__tag">Premium</span>
+            <span class="hotel-card__tag gold">Luxury</span>
+          </div>
+        </div>
+      </article>
+      <article class="hotel-card">
+        <div class="hotel-card__img" style="background-image:url('Assets/brochure/rosewood-sanya/rosewood-01.jpg');"></div>
+        <div class="hotel-card__body">
+          <div class="hotel-card__city">Sanya &middot; Haitang Bay</div>
+          <div class="hotel-card__name">Rosewood Sanya</div>
+          <p class="hotel-card__room">Deluxe Ocean View Room &middot; direct beachfront on Haitang Bay. The polished centre of the Luxury Sanya leg.</p>
+          <div class="hotel-card__tags">
+            <span class="hotel-card__tag gold">Luxury Only</span>
+          </div>
+        </div>
+      </article>
+      <article class="hotel-card">
+        <div class="hotel-card__img" style="background-image:url('Assets/brochure/ritz-carlton-haikou/ritz-01.jpg');"></div>
+        <div class="hotel-card__body">
+          <div class="hotel-card__city">Haikou &middot; Mission Hills</div>
+          <div class="hotel-card__name">Ritz-Carlton Haikou</div>
+          <p class="hotel-card__room">Deluxe Golf Ocean View Room (Premium) &middot; Golf Suite (Luxury). Inside Mission Hills &mdash; on-property for the Blackstone round.</p>
+          <div class="hotel-card__tags">
+            <span class="hotel-card__tag">Premium</span>
+            <span class="hotel-card__tag gold">Luxury</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="accommodation.html" class="btn btn-outline-dark btn-arrow">See Accommodation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. HAINAN, BEYOND THE SPORT ============ -->
+<section class="tiles-section">
+  <div class="container">
+    <div class="tiles-header">
+      <span class="overline">Hainan, Beyond the Sport</span>
+      <h2>Hainan, fully.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Some of these are <strong>built into the Luxury itinerary</strong>; others are <strong>add-ons</strong> we slot in on request. The island gives you a lot more than two sports &mdash; here&rsquo;s what we draw from.</p>
+    </div>
+    <div class="tiles-grid">
+
+      <!-- Included in Luxury -->
+      <div class="tile">
+        <img src="Assets/brochure/areca-manor/areca-01.jpg" alt="Areca Manor — Li & Miao villages, Binglanggu">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Luxury &middot; Included</div>
+          <div class="tile__title">Areca Manor</div>
+          <div class="tile__sub">Li &amp; Miao culture park, Limu highlands</div>
         </div>
       </div>
+      <div class="tile">
+        <img src="Assets/brochure/sanya-night-market/nightmarket-01.jpg" alt="Sanya night market">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Luxury &middot; Included</div>
+          <div class="tile__title">Sanya Night Market</div>
+          <div class="tile__sub">Seafood, tropical fruit, Hainanese street food</div>
+        </div>
+      </div>
+      <div class="tile">
+        <img src="Assets/brochure/qilou-old-street/qilou-01.jpg" alt="Qilou Old Street, Haikou">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Both Tiers &middot; Included</div>
+          <div class="tile__title">Qilou Old Street</div>
+          <div class="tile__sub">Haikou heritage arcade + Wormhole Library by MAD</div>
+        </div>
+      </div>
+      <div class="tile">
+        <img src="Assets/yacht/sanya-yacht-charter-01.jpg" alt="Sanya yacht charter">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Luxury &middot; Included &middot; Premium Add-on</div>
+          <div class="tile__title">Private Yacht Charter</div>
+          <div class="tile__sub">3 hours on Sanya Bay &middot; English-speaking crew</div>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="tile">
+        <img src="Assets/brochure/atlantis-underwater-restaurant/atlantis-01.jpg" alt="Atlantis Underwater Restaurant, Sanya">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Add-on</div>
+          <div class="tile__title">Atlantis Underwater Dinner</div>
+          <div class="tile__sub">Sanya &middot; dinner &middot; priced on request</div>
+        </div>
+      </div>
+      <div class="tile">
+        <img src="Assets/brochure/yalong-bay-forest-park/yalong-01.jpg" alt="Yalong Bay Tropical Paradise Forest Park">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Add-on</div>
+          <div class="tile__title">Yalong Bay Forest Park</div>
+          <div class="tile__sub">Sanya &middot; half-day &middot; tropical canopy walks</div>
+        </div>
+      </div>
+      <div class="tile">
+        <img src="Assets/brochure/nanshan-temple/nanshan-01.jpg" alt="Nanshan Guanyin Temple">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Add-on</div>
+          <div class="tile__title">Nanshan Guanyin</div>
+          <div class="tile__sub">Sanya &middot; half-day &middot; 108m statue on the South China Sea</div>
+        </div>
+      </div>
+      <div class="tile">
+        <img src="Assets/brochure/mission-hills-hot-spring/hotspring-01.jpg" alt="Mission Hills Hot Spring, Haikou">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Add-on</div>
+          <div class="tile__title">Mission Hills Hot Spring</div>
+          <div class="tile__sub">Haikou &middot; half-day &middot; on-property recovery</div>
+        </div>
+      </div>
+
+      <!-- Feature tile — Private Access -->
+      <div class="tile tile--feature">
+        <img src="Assets/brochure/golf-shanqin-bay/shanqin-01.jpg" alt="ShanQin Bay Golf Club — Coore & Crenshaw, Hainan">
+        <div class="tile__overlay">
+          <div class="tile__eyebrow">Private Access &middot; By Inquiry</div>
+          <div class="tile__title">ShanQin Bay Golf Club</div>
+          <div class="tile__sub">Lingshui &middot; Coore &amp; Crenshaw &middot; Not open to the public &mdash; we hold internal access channels for select trips.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -674,6 +1049,39 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <h3 style="color:#fff; font-size:1.1rem; margin-bottom:0.8rem;">Both tiers exclude</h3>
       <p style="color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">International and domestic flights &middot; travel insurance &middot; visa &middot; golf club rental &middot; extra surf sessions and extra golf rounds (available on request) &middot; lunches, dinners, alcohol, personal spending &middot; tips for caddies, guides, and drivers.</p>
       <p style="color:rgba(255,255,255,0.6); font-size:0.85rem; line-height:1.7; margin-top:0.8rem; font-style:italic;">Luxury optional add-on: Private Pool Buyout &mdash; 1hr Master Wave (大师浪), priced on request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11b. WHY US / TRUST PILLARS ============ -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-header">
+      <span class="overline">Why Surf China Co.</span>
+      <h2>Built on the ground in Hainan.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-pillar">
+        <div class="trust-pillar__num">&middot; 01 &middot;</div>
+        <h3>30-Day Visa-Free</h3>
+        <p>Hainan is visa-free for visitors from 59 countries for up to 30 days. Just book and arrive &mdash; no embassy paperwork, no consulate visits, no application fees.</p>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar__num">&middot; 02 &middot;</div>
+        <h3>Official PerfectSwell&reg; Partner</h3>
+        <p>The Hainan wave pool&rsquo;s exclusive English-language travel partner. Direct line to surf operations &mdash; sessions confirmed before you fly.</p>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar__num">&middot; 03 &middot;</div>
+        <h3>English-Language Trip Support</h3>
+        <p>Direct English-language support before, during, and after the trip. From WhatsApp at booking to a real point of contact on the ground.</p>
+      </div>
+      <div class="trust-pillar">
+        <div class="trust-pillar__num">&middot; 04 &middot;</div>
+        <h3>Ground Ops, End to End</h3>
+        <p>Hotel coordination, golf bookings, surf sessions, transfers, and media coverage &mdash; one team accountable from arrival to departure.</p>
+      </div>
     </div>
   </div>
 </section>
