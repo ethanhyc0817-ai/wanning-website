@@ -3812,7 +3812,9 @@ document.querySelectorAll('.page').forEach(page => {
   if (!display || !popover) return;
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
-  const MAX_DATE = new Date(2027, 11, 31); MAX_DATE.setHours(0, 0, 0, 0); // hard cap: Dec 31, 2027
+  // Booking horizon: up to 2 years from today. Rolls forward automatically each day.
+  const MAX_DATE = new Date(today.getFullYear() + 2, today.getMonth(), today.getDate());
+  MAX_DATE.setHours(0, 0, 0, 0);
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
   let selectedDate = null;
   let isTbd = false;
