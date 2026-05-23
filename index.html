@@ -3812,6 +3812,7 @@ document.querySelectorAll('.page').forEach(page => {
   if (!display || !popover) return;
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
+  const MAX_DATE = new Date(2027, 11, 31); MAX_DATE.setHours(0, 0, 0, 0); // hard cap: Dec 31, 2027
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
   let selectedDate = null;
   let isTbd = false;
@@ -3838,6 +3839,11 @@ document.querySelectorAll('.page').forEach(page => {
     const lastDayPrevYearSameMonth = new Date(y - 1, m + 1, 0); lastDayPrevYearSameMonth.setHours(0,0,0,0);
     const disablePrevMonth = lastDayPrevMonth < today;
     const disablePrevYear = lastDayPrevYearSameMonth < today;
+    // Disable next-month / next-year nav when going forward would cross the MAX_DATE cap.
+    const firstDayNextMonth = new Date(y, m + 1, 1); firstDayNextMonth.setHours(0,0,0,0);
+    const firstDayNextYearSameMonth = new Date(y + 1, m, 1); firstDayNextYearSameMonth.setHours(0,0,0,0);
+    const disableNextMonth = firstDayNextMonth > MAX_DATE;
+    const disableNextYear = firstDayNextYearSameMonth > MAX_DATE;
 
     html += '<div class="date-popover-header">';
     html += '<div class="date-popover-nav-group">';
@@ -3846,8 +3852,8 @@ document.querySelectorAll('.page').forEach(page => {
     html += '</div>';
     html += '<div class="date-popover-title">' + MONTHS[m] + ' ' + y + '</div>';
     html += '<div class="date-popover-nav-group">';
-    html += '<button type="button" class="date-popover-nav" data-act="next" aria-label="Next month" title="Next month">&rsaquo;</button>';
-    html += '<button type="button" class="date-popover-nav" data-act="next-year" aria-label="Next year" title="Next year">&raquo;</button>';
+    html += '<button type="button" class="date-popover-nav" data-act="next" aria-label="Next month" title="Next month"' + (disableNextMonth ? ' disabled' : '') + '>&rsaquo;</button>';
+    html += '<button type="button" class="date-popover-nav" data-act="next-year" aria-label="Next year" title="Next year"' + (disableNextYear ? ' disabled' : '') + '>&raquo;</button>';
     html += '</div>';
     html += '</div>';
     // "I'm not sure yet" row — at the top, right below the header
@@ -3861,7 +3867,7 @@ document.querySelectorAll('.page').forEach(page => {
     for (let day = 1; day <= daysInMonth; day++) {
       const cell = new Date(y, m, day); cell.setHours(0, 0, 0, 0);
       let cls = 'date-cal-day';
-      if (cell < today) cls += ' disabled';
+      if (cell < today || cell > MAX_DATE) cls += ' disabled';
       if (sameDay(cell, selectedDate)) cls += ' start';
       html += '<div class="' + cls + '" data-day="' + day + '">' + day + '</div>';
     }
