@@ -713,10 +713,10 @@ nav.scrolled { padding: 0.7rem 0; }
 
 /* Package selector: stacked cards each with a name + price + tagline.
    Multi-select via checkboxes. The card highlights teal when ticked. */
-.package-options { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0; }
+.package-options { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0; }
 .package-option {
-  display: flex; align-items: center; gap: 0.95rem;
-  padding: 0.95rem 1.15rem;
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.75rem 1rem;
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 3px;
   cursor: pointer;
@@ -742,9 +742,12 @@ nav.scrolled { padding: 0.7rem 0; }
   box-shadow: inset 0 0 0 1px var(--teal);
 }
 .package-option-body { flex: 1; min-width: 0; }
-.package-option-head { margin-bottom: 0.45rem; }
+.package-option-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 0.8rem; flex-wrap: wrap;
+  margin-bottom: 0.18rem;
+}
 .package-option-name {
-  display: block;
   font-family: 'Montserrat', sans-serif; font-weight: 600;
   font-size: 1.02rem; color: var(--charcoal); letter-spacing: -0.01em;
   line-height: 1.3;
@@ -756,11 +759,10 @@ nav.scrolled { padding: 0.7rem 0; }
 .package-option-tier-premium { color: var(--ink-blue); font-weight: 700; }
 .package-option-tier-luxury { color: var(--gold); font-weight: 700; }
 .package-option-price {
-  display: block;
-  margin-top: 0.25rem;
   font-family: 'Montserrat', sans-serif; font-weight: 700;
   font-size: 0.95rem; color: var(--teal);
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 .package-option-sub {
   font-size: 0.85rem; color: var(--warm-gray);
@@ -3622,13 +3624,13 @@ footer::before {
     </div>
   </section>
 
-  <section>
+  <section style="padding-top: clamp(2rem, 4vw, 3.5rem);">
     <div class="container">
       <div class="contact-grid">
         <div>
           <h2>Trip Inquiry</h2>
           <div class="section-divider"></div>
-          <p style="color:var(--warm-gray); margin-bottom:2rem;">Fill out the form and we'll respond with personalized trip options. No commitment &mdash; just a conversation about what's possible.</p>
+          <p style="color:var(--warm-gray); margin-bottom:1.5rem;">Fill out the form and we'll respond with personalized trip options. No commitment &mdash; just a conversation about what's possible.</p>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
             <div class="form-row">
@@ -3647,7 +3649,7 @@ footer::before {
             </div>
             <div class="form-group form-group-lg">
               <label>Interested In Which Package?</label>
-              <p class="form-help">Pick one or more &mdash; prices below are rough per-person <em>estimates</em> on a couple share. Your real quote flexes with dates, group size, room choices, and any add-ons.</p>
+              <p class="form-help">Just pick one. Prices below are per-person estimates on a couple share.</p>
               <div class="package-options">
                 <label class="package-option">
                   <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 or 4 nights)">
