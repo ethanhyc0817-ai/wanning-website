@@ -169,6 +169,44 @@ section { padding: clamp(4rem, 8vw, 8rem) 0; }
 }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
+.btn:disabled, .btn:disabled:hover {
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,255,255,0.7);
+  cursor: not-allowed;
+}
+
+/* Inline validation error block above the Send button */
+.form-error {
+  background: rgba(176, 0, 32, 0.06);
+  border: 1px solid rgba(176, 0, 32, 0.28);
+  border-left: 3px solid #b00020;
+  color: #b00020;
+  padding: 0.85rem 1.1rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+.form-error strong { color: #8a0019; font-weight: 700; }
+.form-error ul { margin: 0.35rem 0 0; padding-left: 1.25rem; max-width: none; }
+.form-error li { margin: 0.1rem 0; }
+
+/* Red highlight on the specific fields that are missing */
+.form-group.has-error > input,
+.form-group.has-error > select,
+.form-group.has-error textarea {
+  border-color: #b00020;
+  background: rgba(176, 0, 32, 0.02);
+}
+.form-group.has-error .date-display {
+  border-color: #b00020;
+  background: rgba(176, 0, 32, 0.02);
+}
+.package-options.has-error {
+  outline: 2px solid rgba(176, 0, 32, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
 .btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
@@ -658,13 +696,80 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-/* Slightly larger form group for the prominent Interested-In dropdown */
+/* Slightly larger form group for the prominent Interested-In question */
 .form-group-lg label { font-size: 0.85rem; margin-bottom: 0.55rem; }
 .form-group-lg select,
 .form-group-lg input,
 .form-group-lg textarea {
   padding: 1.05rem 1.15rem;
   font-size: 1.05rem;
+}
+
+/* Helper text under a form label */
+.form-help {
+  font-size: 0.85rem; color: var(--warm-gray);
+  margin: -0.2rem 0 0.9rem; line-height: 1.5; max-width: none;
+}
+
+/* Package selector: stacked cards each with a name + price + tagline.
+   Multi-select via checkboxes. The card highlights teal when ticked. */
+.package-options { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 0; }
+.package-option {
+  display: flex; align-items: center; gap: 0.95rem;
+  padding: 0.95rem 1.15rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: var(--white);
+  /* Override the bold uppercase styling that .form-group label applies */
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: normal;
+  font-size: inherit;
+  color: var(--charcoal);
+  margin-bottom: 0;
+}
+.package-option:hover { border-color: var(--teal); background: rgba(45,138,148,0.03); }
+.package-option input[type="checkbox"] {
+  width: 18px !important; height: 18px;
+  margin: 0; flex-shrink: 0;
+  accent-color: var(--teal); cursor: pointer;
+}
+.package-option:has(input:checked) {
+  border-color: var(--teal);
+  background: rgba(45,138,148,0.06);
+  box-shadow: inset 0 0 0 1px var(--teal);
+}
+.package-option-body { flex: 1; min-width: 0; }
+.package-option-head { margin-bottom: 0.45rem; }
+.package-option-name {
+  display: block;
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: 1.02rem; color: var(--charcoal); letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.package-option-nights {
+  color: var(--ocean);
+  font-weight: 700;
+}
+.package-option-tier-premium { color: var(--ink-blue); font-weight: 700; }
+.package-option-tier-luxury { color: var(--gold); font-weight: 700; }
+.package-option-price {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: 0.95rem; color: var(--teal);
+  letter-spacing: -0.01em;
+}
+.package-option-sub {
+  font-size: 0.85rem; color: var(--warm-gray);
+  line-height: 1.45;
+}
+@media (max-width: 480px) {
+  .package-option { padding: 0.85rem 1rem; gap: 0.75rem; }
+  .package-option-name { font-size: 0.97rem; }
+  .package-option-price { font-size: 0.9rem; }
 }
 
 /* Trip-dates: single readonly input that pops a calendar range picker.
@@ -3524,7 +3629,7 @@ footer::before {
           <h2>Trip Inquiry</h2>
           <div class="section-divider"></div>
           <p style="color:var(--warm-gray); margin-bottom:2rem;">Fill out the form and we'll respond with personalized trip options. No commitment &mdash; just a conversation about what's possible.</p>
-          <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" onsubmit="handleSubmit(event)">
+          <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
             <div class="form-row">
               <div class="form-group">
@@ -3542,13 +3647,59 @@ footer::before {
             </div>
             <div class="form-group form-group-lg">
               <label>Interested In Which Package?</label>
-              <select name="interested_in">
-                <option>The Wave Pool Escape (3 or 4 nights)</option>
-                <option>Surf &amp; Explore (7 nights)</option>
-                <option>Surf &amp; Golf Retreat &middot; Premium (7 nights)</option>
-                <option>Surf &amp; Golf Retreat &middot; Luxury (11 nights)</option>
-                <option>Custom Trip</option>
-              </select>
+              <p class="form-help">Pick one or more &mdash; prices below are rough per-person <em>estimates</em> on a couple share. Your real quote flexes with dates, group size, room choices, and any add-ons.</p>
+              <div class="package-options">
+                <label class="package-option">
+                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 or 4 nights)">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name"><span class="package-option-nights">3 or 4 nights</span> &middot; The Wave Pool Escape</span>
+                      <span class="package-option-price">From ~US$900 pp</span>
+                    </div>
+                    <div class="package-option-sub">At Wave Pool Resort (Ocean &amp; Pool View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
+                  </div>
+                </label>
+                <label class="package-option">
+                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Explore</span>
+                      <span class="package-option-price">From ~US$2,000 pp</span>
+                    </div>
+                    <div class="package-option-sub">5N Wave Pool Resort + 2N 5-star Sanya hotel &middot; 8 PerfectSwell&reg; sessions &middot; two private culture days &middot; all transfers &amp; breakfast</div>
+                  </div>
+                </label>
+                <label class="package-option">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-premium">Premium</span></span>
+                      <span class="package-option-price">From ~US$2,900 pp</span>
+                    </div>
+                    <div class="package-option-sub">5N Wave Pool Resort + 2N Ritz-Carlton Haikou &middot; 4 PerfectSwell&reg; sessions + 3 championship rounds (Dunes &times;2 + Blackstone)</div>
+                  </div>
+                </label>
+                <label class="package-option">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name"><span class="package-option-nights">11 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-luxury">Luxury</span></span>
+                      <span class="package-option-price">From ~US$5,900 pp</span>
+                    </div>
+                    <div class="package-option-sub">4N Wanning Owner&rsquo;s Suite + 5N Rosewood Sanya + 2N Ritz Haikou Golf Suite &middot; 3 rounds across 3 cities &middot; private yacht + cultural day</div>
+                  </div>
+                </label>
+                <label class="package-option">
+                  <input type="checkbox" name="interested_in" value="Custom Trip">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name">Custom Trip</span>
+                      <span class="package-option-price">Tailored</span>
+                    </div>
+                    <div class="package-option-sub">Tell us what you want &mdash; we&rsquo;ll shape it around your group</div>
+                  </div>
+                </label>
+              </div>
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -3587,6 +3738,7 @@ footer::before {
               <label>Tell Us More</label>
               <textarea name="message" placeholder="Anything else? Special interests, questions, group details..."></textarea>
             </div>
+            <div id="formError" class="form-error" role="alert" hidden></div>
             <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
             <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Trip Inquiry </button>
           </form>
@@ -3821,6 +3973,12 @@ document.querySelectorAll('.page').forEach(page => {
 
   const TBD_TEXT = "Dates TBD — we'll figure them out together";
 
+  // Programmatic value changes on hidden inputs don't fire native change
+  // events. We dispatch one ourselves so form-level validators can react.
+  function notify() {
+    startInput.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
   const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DOW = ['S','M','T','W','T','F','S'];
 
@@ -3893,6 +4051,7 @@ document.querySelectorAll('.page').forEach(page => {
           startInput.value = ''; tbdInput.value = '';
           display.value = ''; display.classList.remove('tbd');
           render();
+          notify();
         } else if (act === 'tbd') {
           if (isTbd) {
             // Toggle OFF — back to pickable empty state
@@ -3908,6 +4067,7 @@ document.querySelectorAll('.page').forEach(page => {
             display.value = TBD_TEXT; display.classList.add('tbd');
             closePopover();
           }
+          notify();
         }
       });
     });
@@ -3922,6 +4082,7 @@ document.querySelectorAll('.page').forEach(page => {
         startInput.value = fmtIso(d);
         updateDisplay();
         closePopover();
+        notify();
       });
     });
   }
@@ -3954,11 +4115,98 @@ document.querySelectorAll('.page').forEach(page => {
   });
 })();
 
+// Inquiry form validation: runs on submit, lists what's missing in a red
+// block above the button, and red-highlights the offending fields.
+// As soon as the user edits a flagged field, its red highlight clears.
+function validateInquiryForm(form) {
+  const missing = [];        // human-readable list shown to the user
+  const errorFields = [];    // DOM elements to add .has-error to
+
+  const first = form.querySelector('[name="first_name"]');
+  const last  = form.querySelector('[name="last_name"]');
+  const email = form.querySelector('[name="email"]');
+  const checkboxes = form.querySelectorAll('input[name="interested_in"]');
+  const tripStart = form.querySelector('#tripStartDate');
+  const tbd = form.querySelector('#datesTbd');
+
+  if (!first || !first.value.trim()) {
+    missing.push('First name');
+    if (first) errorFields.push(first.closest('.form-group'));
+  }
+  if (!last || !last.value.trim()) {
+    missing.push('Last name');
+    if (last) errorFields.push(last.closest('.form-group'));
+  }
+  if (!email || !email.value.trim()) {
+    missing.push('Email');
+    if (email) errorFields.push(email.closest('.form-group'));
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    missing.push('A valid email address');
+    errorFields.push(email.closest('.form-group'));
+  }
+  const anyPackage = Array.from(checkboxes).some(cb => cb.checked);
+  if (!anyPackage) {
+    missing.push('Which package you’re interested in');
+    errorFields.push(form.querySelector('.package-options'));
+  }
+  const hasDate = !!((tripStart && tripStart.value) || (tbd && tbd.value === 'yes'));
+  if (!hasDate) {
+    missing.push('A trip start date (or tick “I’m not sure yet”)');
+    errorFields.push(document.getElementById('datePicker'));
+  }
+  return { missing, errorFields };
+}
+
+(function initInquiryLiveErrorClear() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const errorEl = document.getElementById('formError');
+  function onEdit(e) {
+    const group = e.target.closest('.form-group');
+    if (group) group.classList.remove('has-error');
+    const pkg = e.target.closest('.package-options');
+    if (pkg) pkg.classList.remove('has-error');
+    // If the error block was already shown, re-check live and hide it
+    // once everything is filled in.
+    if (errorEl && !errorEl.hidden) {
+      const { missing } = validateInquiryForm(form);
+      if (missing.length === 0) errorEl.hidden = true;
+    }
+  }
+  form.addEventListener('input', onEdit);
+  form.addEventListener('change', onEdit);
+  // After a successful submit the form resets — clear any stale error UI.
+  form.addEventListener('reset', () => {
+    if (errorEl) errorEl.hidden = true;
+    form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+  });
+})();
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
   const status = document.getElementById('formStatus');
+  const errorEl = document.getElementById('formError');
+
+  // Reset previous error state, then validate.
+  form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+  if (errorEl) errorEl.hidden = true;
+  const { missing, errorFields } = validateInquiryForm(form);
+  if (missing.length) {
+    if (errorEl) {
+      let msg = '<strong>Please complete the following before sending:</strong><ul>';
+      missing.forEach(m => { msg += '<li>' + m + '</li>'; });
+      msg += '</ul>';
+      errorEl.innerHTML = msg;
+      errorEl.hidden = false;
+    }
+    errorFields.forEach(el => { if (el) el.classList.add('has-error'); });
+    // Bring the error message + the first offending field into view.
+    if (errorEl) errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
   const originalText = btn.textContent;
   btn.disabled = true;
   btn.textContent = 'Sending…';
