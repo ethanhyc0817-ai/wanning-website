@@ -710,6 +710,14 @@ nav.scrolled { padding: 0.7rem 0; }
   font-size: 0.85rem; color: var(--warm-gray);
   margin: -0.2rem 0 0.9rem; line-height: 1.5; max-width: none;
 }
+.form-help + .form-help { margin-top: -0.5rem; }
+.form-help a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+.form-help a:hover { color: var(--ocean); }
 
 /* Package selector: stacked cards each with a name + price + tagline.
    Multi-select via checkboxes. The card highlights teal when ticked. */
@@ -3649,6 +3657,7 @@ footer::before {
             </div>
             <div class="form-group form-group-lg">
               <label>Interested In Which Package?</label>
+              <p class="form-help">Not sure what&rsquo;s in each? <a href="#" onclick="showPage('packages'); return false;">See the full package details</a>.</p>
               <p class="form-help">Just pick one. Prices below are per-person estimates on a couple share.</p>
               <div class="package-options">
                 <label class="package-option">
