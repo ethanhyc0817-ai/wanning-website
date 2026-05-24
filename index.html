@@ -715,7 +715,7 @@ nav.scrolled { padding: 0.7rem 0; }
    Multi-select via checkboxes. The card highlights teal when ticked. */
 .package-options { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0; }
 .package-option {
-  display: flex; align-items: flex-start; gap: 0.85rem;
+  display: flex; align-items: center; gap: 0.85rem;
   padding: 0.75rem 1rem;
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 3px;
@@ -733,7 +733,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .package-option:hover { border-color: var(--teal); background: rgba(45,138,148,0.03); }
 .package-option input[type="checkbox"] {
   width: 18px !important; height: 18px;
-  margin: 0.22rem 0 0; flex-shrink: 0;
+  margin: 0; flex-shrink: 0;
   accent-color: var(--teal); cursor: pointer;
 }
 .package-option:has(input:checked) {
