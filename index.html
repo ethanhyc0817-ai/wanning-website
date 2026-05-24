@@ -4159,6 +4159,22 @@ function validateInquiryForm(form) {
   return { missing, errorFields };
 }
 
+// Package selector: enforce "only one at a time". When the user ticks a
+// new card, auto-untick any other. Click the same card again to clear.
+(function initSinglePackageSelect() {
+  const boxes = document.querySelectorAll('input[name="interested_in"]');
+  if (!boxes.length) return;
+  boxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      if (cb.checked) {
+        boxes.forEach(other => {
+          if (other !== cb && other.checked) other.checked = false;
+        });
+      }
+    });
+  });
+})();
+
 (function initInquiryLiveErrorClear() {
   const form = document.getElementById('contactForm');
   if (!form) return;
