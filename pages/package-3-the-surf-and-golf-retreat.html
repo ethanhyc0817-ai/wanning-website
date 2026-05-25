@@ -440,6 +440,27 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 .itin-section.luxury-itin { background: var(--white); border-top: 1px solid var(--sand-dark); }
 .itin-card.lux { border-top-color: var(--gold); }
 .itin-card.lux .itin-day { color: var(--gold); }
+
+/* ======= TIER TABS ======= */
+.tier-tabs {
+  max-width: 520px; margin: 0 auto 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--sand-dark); border-radius: 3px; overflow: hidden;
+  background: var(--white);
+}
+.tier-tab {
+  padding: 0.95rem 1.2rem;
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--warm-gray); transition: all 0.2s;
+}
+.tier-tab + .tier-tab { border-left: 1px solid var(--sand-dark); }
+.tier-tab:hover { background: var(--sand); color: var(--charcoal); }
+.tier-tab.active.tier-tab-premium { background: var(--ink-blue); color: var(--white); }
+.tier-tab.active.tier-tab-luxury { background: var(--gold); color: var(--charcoal); }
+.tier-content { display: none; }
+.tier-content.active { display: block; }
 </style>
 </head>
 <body>
@@ -488,10 +509,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <img src="/Assets/golf/sunset-coast-aerial-01.jpg" alt="Hainan tropical golf course at sunset">
   </div>
   <div class="hero-content">
-    <span class="hero-eyebrow">Package 03 &middot; Premium 7N or Luxury 11N</span>
+    <span class="hero-eyebrow">Package 03 &middot; Premium 7 Nights or Luxury 11 Nights</span>
     <h1>The Surf &amp; Golf Retreat</h1>
     <p>PerfectSwell&reg; mornings. Three championship rounds. Two tiers.</p>
-    <p style="font-style: normal; opacity: 0.85; max-width: 680px; font-size: clamp(0.98rem, 1.3vw, 1.05rem); margin-top: -1rem;">Premium: 5N Wanning + 2N Haikou, surf at the Wave Pool Resort, two rounds at The Dunes (Tom Weiskopf, #2 in China) and one at Mission Hills Blackstone (#1 in China, World Top 100). Luxury: 4N Wanning Owner&rsquo;s Suite + 5N Rosewood Sanya + 2N Ritz-Carlton Haikou Golf Suite &mdash; adds private yacht, cultural day, and the Lu Hui Tou round.</p>
     <div class="hero-cta-row">
       <a href="/#contact" class="btn btn-primary btn-arrow">Plan This Trip</a>
       <a href="/#contact" class="btn btn-outline btn-arrow">Talk to Us</a>
@@ -552,7 +572,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="container">
     <div class="pitch-inner">
       <span class="overline">The Trip</span>
-      <h2>Two tiers. Premium 7N or Luxury 11N.</h2>
+      <h2>Two tiers. Premium 7 Nights or Luxury 11 Nights.</h2>
       <div class="section-divider"></div>
       <p>Both tiers anchor on the same two facts: PerfectSwell&reg; (the only American Wave Machines pool in Asia, the same tech behind Waco) and championship golf on courses that have hosted the HSBC Champions and the Volvo China Open. The Dunes at Shenzhou is Tom Weiskopf&rsquo;s only Asian links design, ranked #2 in China. Mission Hills Blackstone is #1 in China, World Top 100 &mdash; Tiger and Rory have played it head-to-head.</p>
       <p><strong>Premium</strong> is single-region: 5N at the Wave Pool Resort in Wanning, 2N at the Ritz-Carlton Haikou, two rounds at The Dunes and one at Blackstone. <strong>Luxury</strong> adds a Sanya leg: 4N in the Wave Pool Resort Owner&rsquo;s Suite, 5N at Rosewood Sanya, 2N at the Ritz-Carlton Haikou Golf Suite &mdash; with a private yacht charter, a cultural day, drone coverage, and the Lu Hui Tou round in Sanya replacing one of the Wanning rounds.</p>
@@ -561,14 +581,23 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   </div>
 </section>
 
-<!-- ============ 4. SAMPLE ITINERARY ============ -->
+<!-- ============ 4. SAMPLE ITINERARY (TABBED) ============ -->
 <section class="itin-section">
   <div class="container">
     <div class="itin-header">
-      <span class="overline">Sample Itinerary &middot; Premium 7N</span>
-      <h2>Premium 7 nights / 8 days. 5N Wanning + 2N Haikou.</h2>
+      <span class="overline">Sample Itinerary</span>
+      <h2>Pick the tier you want to see.</h2>
       <div class="section-divider-center"></div>
-      <p class="lead" style="margin: 0 auto;">A baseline rhythm for the Premium tier. Luxury (11N) adds 5 nights in Sanya with a yacht charter, the Lu Hui Tou round, and an English-guide cultural day &mdash; full Luxury day-by-day on request.</p>
+    </div>
+
+    <div class="tier-tabs" role="tablist" aria-label="Itinerary tier">
+      <button type="button" class="tier-tab tier-tab-premium active" data-tier="premium" role="tab" aria-selected="true">Premium &middot; 7 Nights</button>
+      <button type="button" class="tier-tab tier-tab-luxury" data-tier="luxury" role="tab" aria-selected="false">Luxury &middot; 11 Nights</button>
+    </div>
+
+    <div class="tier-content active" data-tier="premium" role="tabpanel">
+    <div class="itin-header" style="margin-top: 0;">
+      <h3 style="font-family:'Montserrat',sans-serif; font-size: clamp(1.2rem, 2.2vw, 1.5rem); text-align:center; margin-bottom: 1rem;">Premium &middot; 7 Nights / 8 Days &mdash; 5N Wanning + 2N Haikou</h3>
     </div>
     <div class="itin-grid">
       <div class="itin-card">
@@ -612,18 +641,12 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <p>Breakfast at the Ritz, checkout, Premium Car transfer to HAK.</p>
       </div>
     </div>
-    <p class="itin-customize">Premium baseline shown. The Luxury day-by-day is below.</p>
-  </div>
-</section>
+    <p class="itin-customize">Everything flexes around your dates and group.</p>
+    </div><!-- /.tier-content premium -->
 
-<!-- ============ 4b. SAMPLE ITINERARY — LUXURY ============ -->
-<section class="itin-section luxury-itin">
-  <div class="container">
-    <div class="itin-header">
-      <span class="overline" style="color: var(--gold);">Sample Itinerary &middot; Luxury 11N</span>
-      <h2>Luxury 11 nights / 12 days. 4N Wanning + 5N Sanya + 2N Haikou.</h2>
-      <div class="section-divider-center" style="background: var(--gold);"></div>
-      <p class="lead" style="margin: 0 auto;">A baseline rhythm for the Luxury tier &mdash; three cities, suite-tier rooms, private yacht, cultural day. Everything flexes around your dates.</p>
+    <div class="tier-content" data-tier="luxury" role="tabpanel">
+    <div class="itin-header" style="margin-top: 0;">
+      <h3 style="font-family:'Montserrat',sans-serif; font-size: clamp(1.2rem, 2.2vw, 1.5rem); text-align:center; margin-bottom: 1rem; color: var(--charcoal);">Luxury &middot; 11 Nights / 12 Days &mdash; 4N Wanning + 5N Sanya + 2N Haikou</h3>
     </div>
     <div class="itin-grid">
       <div class="itin-card lux">
@@ -687,7 +710,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <p>Morning city tour with English guide &mdash; <strong>Qilou Old Street</strong> (骑楼老街) and the <strong>Wormhole Library</strong> by MAD Architects. Executive Van to Haikou Meilan Intl.</p>
       </div>
     </div>
-    <p class="itin-customize">11N &middot; 3 cities &middot; suite-tier &middot; everything flexes.</p>
+    <p class="itin-customize">3 cities &middot; suite-tier &middot; everything flexes around your dates.</p>
+    </div><!-- /.tier-content luxury -->
+
   </div>
 </section>
 
@@ -1208,6 +1233,24 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Itinerary tier tabs (Premium / Luxury)
+  (function initTierTabs() {
+    const tabs = document.querySelectorAll('.tier-tab');
+    const panels = document.querySelectorAll('.tier-content');
+    if (!tabs.length || !panels.length) return;
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tier = tab.dataset.tier;
+        tabs.forEach(t => {
+          const on = t.dataset.tier === tier;
+          t.classList.toggle('active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(p => p.classList.toggle('active', p.dataset.tier === tier));
+      });
+    });
+  })();
 </script>
 
 </body>
