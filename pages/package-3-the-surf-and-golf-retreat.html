@@ -461,6 +461,22 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 .tier-tab.active.tier-tab-luxury { background: var(--gold); color: var(--charcoal); }
 .tier-content { display: none; }
 .tier-content.active { display: block; }
+
+/* Tabs sitting on a dark section background (e.g. the .stats-section
+   used for "Choose your length") — invert the idle colours. */
+.tier-tabs.tier-tabs-onDark {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.18);
+}
+.tier-tabs.tier-tabs-onDark .tier-tab { color: rgba(255,255,255,0.7); }
+.tier-tabs.tier-tabs-onDark .tier-tab + .tier-tab { border-left-color: rgba(255,255,255,0.18); }
+.tier-tabs.tier-tabs-onDark .tier-tab:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+
+/* Single tier card centred (replaces the side-by-side .tier-compare grid). */
+.tier-compare-single { max-width: 540px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+
+/* Single inclusions column centred (replaces the side-by-side .included-cols). */
+.included-single { max-width: 720px; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -520,50 +536,60 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ============ 2. TIER COMPARE ============ -->
+<!-- ============ 2. CHOOSE YOUR LENGTH (TABBED) ============ -->
 <section class="stats-section">
   <div class="stats-lead">
     <span class="overline" style="color: var(--teal);">Two Tiers</span>
     <h2>Choose your length.</h2>
     <p>Same anchor &mdash; PerfectSwell&reg; in the morning, championship golf in the afternoon. Pick the shape of the week.</p>
   </div>
-  <div class="tier-compare">
-    <article class="tier-card">
-      <div class="tier-card__eyebrow">Premium &middot; 7 Nights / 8 Days</div>
-      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Premium</h3>
-      <p class="tier-card__sub">2 cities &middot; Wanning + Haikou &middot; entry luxury</p>
-      <ul class="tier-card__stats">
-        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
-        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
-        <li><span class="label">Courses</span><span class="value">The Dunes &middot; Blackstone</span></li>
-        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Ritz-Carlton</span></li>
-        <li><span class="label">Transfers</span><span class="value">Premium Car</span></li>
-        <li><span class="label">Video</span><span class="value">2 &times; sessions</span></li>
-      </ul>
-      <div class="tier-card__price">
-        <div class="tier-card__from">From</div>
-        <div class="tier-card__amount">US$2,931</div>
-        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$5,862</div>
-      </div>
-    </article>
-    <article class="tier-card luxury">
-      <div class="tier-card__eyebrow">Luxury &middot; 11 Nights / 12 Days</div>
-      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Luxury</h3>
-      <p class="tier-card__sub">3 cities &middot; Wanning + Sanya + Haikou &middot; suite-tier</p>
-      <ul class="tier-card__stats">
-        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
-        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
-        <li><span class="label">Courses</span><span class="value">Dunes &middot; Lu Hui Tou &middot; Blackstone</span></li>
-        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Rosewood &middot; Ritz</span></li>
-        <li><span class="label">Yacht</span><span class="value">3-hour private charter</span></li>
-        <li><span class="label">Video</span><span class="value">4 &times; sessions + drone</span></li>
-      </ul>
-      <div class="tier-card__price">
-        <div class="tier-card__from">From</div>
-        <div class="tier-card__amount">US$5,931</div>
-        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$11,862</div>
-      </div>
-    </article>
+
+  <div class="tier-tabs tier-tabs-onDark" role="tablist" aria-label="Tier comparison">
+    <button type="button" class="tier-tab tier-tab-premium active" data-tier="premium" role="tab" aria-selected="true">Premium &middot; 7 Nights</button>
+    <button type="button" class="tier-tab tier-tab-luxury" data-tier="luxury" role="tab" aria-selected="false">Luxury &middot; 11 Nights</button>
+  </div>
+
+  <div class="tier-compare-single">
+    <div class="tier-content active" data-tier="premium" role="tabpanel">
+      <article class="tier-card">
+        <div class="tier-card__eyebrow">Premium &middot; 7 Nights / 8 Days</div>
+        <h3 class="tier-card__title">Surf &amp; Golf &mdash; Premium</h3>
+        <p class="tier-card__sub">2 cities &middot; Wanning + Haikou &middot; entry luxury</p>
+        <ul class="tier-card__stats">
+          <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+          <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+          <li><span class="label">Courses</span><span class="value">The Dunes &middot; Blackstone</span></li>
+          <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Ritz-Carlton</span></li>
+          <li><span class="label">Transfers</span><span class="value">Premium Car</span></li>
+          <li><span class="label">Video</span><span class="value">2 &times; sessions</span></li>
+        </ul>
+        <div class="tier-card__price">
+          <div class="tier-card__from">From</div>
+          <div class="tier-card__amount">US$2,931</div>
+          <div class="tier-card__per">per person &middot; couple sharing &middot; total US$5,862</div>
+        </div>
+      </article>
+    </div>
+    <div class="tier-content" data-tier="luxury" role="tabpanel">
+      <article class="tier-card luxury">
+        <div class="tier-card__eyebrow">Luxury &middot; 11 Nights / 12 Days</div>
+        <h3 class="tier-card__title">Surf &amp; Golf &mdash; Luxury</h3>
+        <p class="tier-card__sub">3 cities &middot; Wanning + Sanya + Haikou &middot; suite-tier</p>
+        <ul class="tier-card__stats">
+          <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+          <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+          <li><span class="label">Courses</span><span class="value">Dunes &middot; Lu Hui Tou &middot; Blackstone</span></li>
+          <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Rosewood &middot; Ritz</span></li>
+          <li><span class="label">Yacht</span><span class="value">3-hour private charter</span></li>
+          <li><span class="label">Video</span><span class="value">4 &times; sessions + drone</span></li>
+        </ul>
+        <div class="tier-card__price">
+          <div class="tier-card__from">From</div>
+          <div class="tier-card__amount">US$5,931</div>
+          <div class="tier-card__per">per person &middot; couple sharing &middot; total US$11,862</div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -1033,41 +1059,51 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="container">
     <div class="included-header">
       <span class="overline">Inclusions</span>
-      <h2>Two tiers, side by side.</h2>
+      <h2>What&rsquo;s in each tier.</h2>
       <div class="section-divider-center" style="background: var(--teal);"></div>
     </div>
-    <div class="included-cols">
-      <div class="included-col yes">
-        <h3>Premium &middot; 7N / 8D</h3>
-        <ul>
-          <li>5N Wave Pool Resort, Wanning &mdash; Ocean &amp; Pool View Room</li>
-          <li>2N Ritz-Carlton Haikou &mdash; Deluxe Golf Ocean View Room</li>
-          <li>4 PerfectSwell&reg; sessions per person</li>
-          <li>3 golf rounds: 2&times; The Dunes + 1&times; Mission Hills Blackstone (with caddy)</li>
-          <li>4 days charter car + 1 day English-speaking guide</li>
-          <li>Round-trip Premium Car airport transfer (Wanning)</li>
-          <li>Haikou hotel &rarr; airport transfer (Premium Car)</li>
-          <li>Photo coverage</li>
-          <li>Daily breakfast at both hotels</li>
-          <li>English-language trip support</li>
-        </ul>
+
+    <div class="tier-tabs tier-tabs-onDark" role="tablist" aria-label="Inclusions tier">
+      <button type="button" class="tier-tab tier-tab-premium active" data-tier="premium" role="tab" aria-selected="true">Premium &middot; 7 Nights</button>
+      <button type="button" class="tier-tab tier-tab-luxury" data-tier="luxury" role="tab" aria-selected="false">Luxury &middot; 11 Nights</button>
+    </div>
+
+    <div class="included-single">
+      <div class="tier-content active" data-tier="premium" role="tabpanel">
+        <div class="included-col yes">
+          <h3>Premium &middot; 7 Nights / 8 Days</h3>
+          <ul>
+            <li>5N Wave Pool Resort, Wanning &mdash; Ocean &amp; Pool View Room</li>
+            <li>2N Ritz-Carlton Haikou &mdash; Deluxe Golf Ocean View Room</li>
+            <li>4 PerfectSwell&reg; sessions per person</li>
+            <li>3 golf rounds: 2&times; The Dunes + 1&times; Mission Hills Blackstone (with caddy)</li>
+            <li>4 days charter car + 1 day English-speaking guide</li>
+            <li>Round-trip Premium Car airport transfer (Wanning)</li>
+            <li>Haikou hotel &rarr; airport transfer (Premium Car)</li>
+            <li>Photo coverage</li>
+            <li>Daily breakfast at both hotels</li>
+            <li>English-language trip support</li>
+          </ul>
+        </div>
       </div>
-      <div class="included-col yes">
-        <h3>Luxury &middot; 11N / 12D</h3>
-        <ul>
-          <li>4N Wave Pool Resort, Wanning &mdash; Owner&rsquo;s Suite</li>
-          <li>5N Rosewood Sanya &mdash; Deluxe Ocean View Room (Haitang Bay)</li>
-          <li>2N Ritz-Carlton Haikou &mdash; Golf Suite</li>
-          <li>4 PerfectSwell&reg; sessions per person + Premium board rental every session</li>
-          <li>3 golf rounds: 1&times; The Dunes + 1&times; Lu Hui Tou + 1&times; Mission Hills Blackstone (with caddy)</li>
-          <li>3-hour private yacht charter (Sanya)</li>
-          <li>7 days charter car + 4 days English-speaking guide</li>
-          <li>Cultural day &mdash; Areca Manor / Sanya night market</li>
-          <li>Executive Van airport transfers + Sanya &rarr; Haikou high-speed rail</li>
-          <li>Photo + drone coverage</li>
-          <li>Daily breakfast at all three hotels</li>
-          <li>English-language trip support</li>
-        </ul>
+      <div class="tier-content" data-tier="luxury" role="tabpanel">
+        <div class="included-col yes">
+          <h3>Luxury &middot; 11 Nights / 12 Days</h3>
+          <ul>
+            <li>4N Wave Pool Resort, Wanning &mdash; Owner&rsquo;s Suite</li>
+            <li>5N Rosewood Sanya &mdash; Deluxe Ocean View Room (Haitang Bay)</li>
+            <li>2N Ritz-Carlton Haikou &mdash; Golf Suite</li>
+            <li>4 PerfectSwell&reg; sessions per person + Premium board rental every session</li>
+            <li>3 golf rounds: 1&times; The Dunes + 1&times; Lu Hui Tou + 1&times; Mission Hills Blackstone (with caddy)</li>
+            <li>3-hour private yacht charter (Sanya)</li>
+            <li>7 days charter car + 4 days English-speaking guide</li>
+            <li>Cultural day &mdash; Areca Manor / Sanya night market</li>
+            <li>Executive Van airport transfers + Sanya &rarr; Haikou high-speed rail</li>
+            <li>Photo + drone coverage</li>
+            <li>Daily breakfast at all three hotels</li>
+            <li>English-language trip support</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div style="margin-top:3rem; max-width:760px; margin-left:auto; margin-right:auto; text-align:left;">
