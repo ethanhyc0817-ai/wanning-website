@@ -28,9 +28,9 @@
 <meta property="og:url" content="https://www.surfchina.co/">
 <meta property="og:title" content="Surf China Co. — World-Class Waves. Tropical China.">
 <meta property="og:description" content="The world's only wave pool on a tropical island. Official PerfectSwell® partner in Hainan, China — world-class wave pool sessions, premium accommodation, and tropical adventure.">
-<meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/hero-desktop.jpg">
-<meta property="og:image:width" content="1920">
-<meta property="og:image:height" content="1080">
+<meta property="og:image" content="https://www.surfchina.co/Assets/hero/hero-wavepool.jpg">
+<meta property="og:image:width" content="1751">
+<meta property="og:image:height" content="1050">
 <meta property="og:image:alt" content="PerfectSwell wave pool in Hainan, China — Surf China Co.">
 <meta property="og:locale" content="en_US">
 
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Surf China Co. — World-Class Waves. Tropical China.">
 <meta name="twitter:description" content="The world's only wave pool on a tropical island. Official PerfectSwell® partner in Hainan, China.">
-<meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/hero-desktop.jpg">
+<meta name="twitter:image" content="https://www.surfchina.co/Assets/hero/hero-wavepool.jpg">
 
 <!-- Structured data: TravelAgency + WebSite -->
 <script type="application/ld+json">
@@ -51,7 +51,7 @@
       "name": "Surf China Co.",
       "url": "https://www.surfchina.co/",
       "logo": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png",
-      "image": "https://www.surfchina.co/Assets/wavepool/hero-desktop.jpg",
+      "image": "https://www.surfchina.co/Assets/hero/hero-wavepool.jpg",
       "description": "Official PerfectSwell® partner offering surf trips to Hainan, China — wave pool sessions, premium accommodation, and tropical adventure.",
       "areaServed": {
         "@type": "Place",
@@ -72,7 +72,7 @@
       "@type": "TouristAttraction",
       "name": "PerfectSwell Hainan Wave Pool",
       "description": "The world's only wave pool on a tropical island — PerfectSwell® wave pool surfing experience in Wanning, Hainan, China.",
-      "image": "https://www.surfchina.co/Assets/wavepool/hero-desktop.jpg",
+      "image": "https://www.surfchina.co/Assets/hero/hero-wavepool.jpg",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Wanning",
@@ -94,9 +94,9 @@
 <meta name="theme-color" content="#0a4d68">
 
 
-<!-- Preload LCP hero image — picks the right source for the viewport, fetched at highest priority -->
-<link rel="preload" as="image" href="Assets/wavepool/hero-desktop.jpg"
-      imagesrcset="Assets/wavepool/hero-mobile-large.jpeg 768w, Assets/wavepool/hero-desktop.jpg 1920w"
+<!-- Preload LCP hero image — wave pool panel loads first -->
+<link rel="preload" as="image" href="Assets/hero/hero-wavepool.jpg"
+      imagesrcset="Assets/hero/hero-wavepool.jpg 1751w"
       imagesizes="100vw" fetchpriority="high">
 
 <!-- Resource hints: open connections to font + video CDNs early -->
@@ -280,113 +280,107 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
 
-/* Hero — desktop default (aspect 2400:1350 = 16:9) */
+/* Hero — Surf + Golf split (desktop default, aspect 2400:1350 = 16:9) */
 .hero {
   position: relative;
   width: 100%;
   aspect-ratio: 2400 / 1350;
   overflow: hidden;
   background: #0a4d68;
+  display: flex;
+  flex-direction: row;
 }
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img,
-.hero-bg picture { width: 100%; height: 100%; display: block; }
-.hero-bg img { object-fit: cover; object-position: center center; }
-
-/* Gradient overlay for text contrast */
-.hero-bg::after {
+.hero-panel { position: relative; flex: 1; overflow: hidden; }
+.hero-panel img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Wave pool side — stronger top gradient to hold partner badge over bright sky */
+.hero-panel.hero-wave::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(0,0,0,0.28) 0%,
-    rgba(0,0,0,0) 30%,
-    rgba(0,0,0,0) 55%,
+    rgba(0,0,0,0.48) 0%,
+    rgba(0,0,0,0.12) 35%,
+    rgba(0,0,0,0.10) 60%,
     rgba(0,0,0,0.55) 100%);
-  z-index: 1;
 }
-.hero-content {
+.hero-panel.hero-golf::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.30) 0%,
+    rgba(0,0,0,0.08) 40%,
+    rgba(0,0,0,0.10) 60%,
+    rgba(0,0,0,0.55) 100%);
+}
+.hero-text {
   position: absolute; z-index: 2;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: 92%;
-  text-align: center;
+  left: 8%; right: 8%; bottom: 14%;
   color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-shadow: 0 3px 30px rgba(0,0,0,0.55);
 }
+.hero-headline {
+  font-size: clamp(1.4rem, 2.6vw, 2.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin-top: 0.6em;
+  font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+
+/* Partner badge — desktop: top-center over wave panel */
 .hero-partner {
+  position: absolute; z-index: 5;
+  top: 5%; left: 50%;
+  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  background: rgba(255,255,255,0.12);
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.14);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 3px;
-  padding: 0.5rem 1.1rem;
-  margin-bottom: 1.5rem;
-  max-width: 100%;
+  padding: 0.45rem 0.9rem;
+  white-space: nowrap;
 }
 .hero-partner img {
-  height: 28px;
-  width: auto;
-  display: block;
-  flex-shrink: 0;
+  height: 22px; width: auto;
+  display: block; flex-shrink: 0;
 }
 .hero-partner span {
   font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.95);
-  white-space: nowrap;
 }
 .hero-partner .partner-sep {
   color: #ffbd59;
-  margin: 0 0.2rem;
-  font-size: 0.65em;
+  margin: 0 0.15rem;
+  font-size: 0.6em;
   opacity: 0.85;
 }
-.hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: clamp(3.5rem, 10vw, 11rem);
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  text-shadow: 0 4px 40px rgba(0,0,0,0.45);
-  margin: 0 0 0.45em;
-  text-align: center;
-  text-transform: uppercase;
-}
-.hero-title-accent {
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 1em;
-  line-height: 0.92;
-  color: #ffbd59;
-  margin-top: 0.08em;
-  text-align: center;
-  text-shadow: 0 4px 40px rgba(0,0,0,0.45);
-  text-transform: uppercase;
-}
-.hero-features-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.95rem;
-  flex-wrap: wrap;
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(0.95rem, 1.35vw, 1.2rem);
-  font-weight: 400;
-  color: rgba(255,255,255,0.95);
-  letter-spacing: 0.015em;
-  margin-bottom: 2.2rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
-.hero-features-row strong { font-weight: 600; color: var(--white); }
-.hero-features-row .dot { color: #ffbd59; opacity: 0.75; font-size: 0.55em; }
+
+/* Center Book Now CTA */
 .hero-cta {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -394,7 +388,7 @@ nav.scrolled { padding: 0.7rem 0; }
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.45);
   color: var(--white);
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
@@ -405,19 +399,53 @@ nav.scrolled { padding: 0.7rem 0; }
   border-radius: 2px;
   transition: all 0.3s ease;
   cursor: pointer;
-}
-.hero-cta:hover {
-  background: #ffbd59;
-  border-color: #ffbd59;
-  color: var(--charcoal);
-  transform: translateY(-2px);
+  white-space: nowrap;
 }
 .hero-cta::after {
   content: '\2192';
   font-size: 1.1rem;
   transition: transform 0.3s ease;
 }
+.hero-cta:hover {
+  background: #ffbd59;
+  border-color: #ffbd59;
+  color: var(--charcoal);
+  transform: translate(-50%, calc(-50% - 2px));
+}
 .hero-cta:hover::after { transform: translateX(4px); }
+.hero-cta:focus-visible {
+  outline: 2px solid #ffbd59;
+  outline-offset: 3px;
+}
+
+/* Tagline bar */
+.hero-tagline-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 5;
+  background: #f0e9dd;
+  padding: 14px 20px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #4a5560;
+}
+.hero-tagline-bar strong { color: var(--ocean); font-weight: 600; }
+
+/* Shared background helper used by page-hero, final-cta, wp-final-cta */
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img,
+.hero-bg picture { width: 100%; height: 100%; display: block; }
+.hero-bg img { object-fit: cover; object-position: center center; }
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
 
 /* Partner Badge */
 .partner-badge {
@@ -1169,50 +1197,42 @@ footer::before {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; }
 
-  /* Hero — mobile (aspect 1500:1875 = 4:5) */
-  .hero { aspect-ratio: 1500 / 1875; }
-  .hero-content {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 92%;
-    padding: 0;
-    text-align: center;
+  /* Hero — mobile: split stacks vertically, ratio 3:4 */
+  .hero {
+    aspect-ratio: 3 / 4;
+    flex-direction: column;
   }
+  .hero-text {
+    bottom: 18%;
+    left: 7%; right: 7%;
+  }
+  .hero-headline { font-size: 1.4rem; }
+  .hero-sub { font-size: 0.62rem; }
+
   .hero-partner {
-    padding: 0.4rem 0.85rem;
-    gap: 0.55rem;
-    margin-bottom: 1.1rem;
-    flex-wrap: nowrap;
+    top: 3%; left: 3%;
+    right: auto; transform: none;
+    padding: 0.35rem 0.7rem;
+    gap: 0.4rem;
   }
-  .hero-partner img { height: 22px; }
+  .hero-partner img { height: 16px; }
   .hero-partner span {
     font-size: 0.6rem;
-    letter-spacing: 0.11em;
-    white-space: nowrap;
+    letter-spacing: 0.09em;
   }
-  .hero-partner .partner-sep { margin: 0 0.15rem; }
-  .hero-title {
-    font-size: clamp(3rem, 14vw, 5.5rem);
-    letter-spacing: -0.02em;
-    line-height: 0.95;
-    text-align: center;
-  }
-  .hero-title-accent {
-    font-size: 1em;
-    margin-top: 0.08em;
-    text-align: center;
-  }
-  .hero-features-row {
-    font-size: 0.88rem;
-    gap: 0.45rem 0.7rem;
-    margin-bottom: 1.6rem;
-    margin-top: 1.2rem;
-  }
-  .hero-features-row .dot { font-size: 0.5em; }
+  .hero-partner .partner-sep { margin: 0 0.1rem; }
+
   .hero-cta {
-    padding: 0.85rem 1.6rem;
-    font-size: 0.78rem;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+  .hero-cta::after { font-size: 0.9rem; }
+
+  .hero-tagline-bar {
+    font-size: 0.58rem;
+    padding: 10px 14px;
+    letter-spacing: 0.22em;
   }
 
   .natural-surf-img { height: 300px; }
@@ -1242,14 +1262,14 @@ footer::before {
   .facility-card-body { padding: 1rem; }
   .facility-card h3 { font-size: 1rem; }
   .facility-card p { font-size: 0.8rem; }
-  /* Very narrow phones — squeeze partner badge so long text still fits */
+  /* Very narrow phones — tighten partner badge further */
   .hero-partner {
-    padding: 0.35rem 0.75rem;
-    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    gap: 0.35rem;
   }
-  .hero-partner img { height: 20px; }
+  .hero-partner img { height: 14px; }
   .hero-partner span {
-    font-size: 0.55rem;
+    font-size: 0.52rem;
     letter-spacing: 0.08em;
   }
 }
@@ -1531,33 +1551,36 @@ footer::before {
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg">
-      <picture>
-        <source media="(max-width: 768px)" srcset="Assets/wavepool/hero-mobile-large.jpeg">
-        <img src="Assets/wavepool/hero-desktop.jpg"
-             alt="Aerial view of PerfectSwell wave pool in Hainan, China"
-             width="1920" height="1080"
-             fetchpriority="high" decoding="async">
-      </picture>
+    <div class="hero-panel hero-wave">
+      <img src="Assets/hero/hero-wavepool.jpg"
+           alt="Aerial view of PerfectSwell wave pool in Hainan, China"
+           width="1751" height="1050"
+           fetchpriority="high" decoding="async">
+      <div class="hero-text">
+        <h1 class="hero-headline">World's Only<br>Wave Pool on a<br>Tropical Island</h1>
+        <div class="hero-sub">Hainan Island, China</div>
+      </div>
     </div>
-    <div class="hero-content">
-      <div class="hero-partner">
-        <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
-        <span>Official PerfectSwell&reg; Partner <span class="partner-sep">&bull;</span> Hainan</span>
+    <div class="hero-panel hero-golf">
+      <img src="Assets/hero/hero-golf.jpg"
+           alt="Top 100 oceanfront golf course in Hainan, China"
+           width="1142" height="1600"
+           decoding="async">
+      <div class="hero-text">
+        <div class="hero-headline">World Top 100<br>Greatest<br>Golf Course</div>
+        <div class="hero-sub">Ranked by Golf Digest</div>
       </div>
-      <span class="overline hero-tagline" style="color: #ffbd59; margin-top: 0.9rem; margin-bottom: 0.4rem;">The World's Only Wave Pool on a Tropical Island</span>
-      <h1 class="hero-title">
-        Beyond
-        <span class="hero-title-accent">the Ordinary.</span>
-      </h1>
-      <div class="hero-features-row">
-        <span><strong>PerfectSwell&reg;</strong> Wave Pool</span>
-        <span class="dot">&#9679;</span>
-        <span>Off-the-Map Surf Spot</span>
-        <span class="dot">&#9679;</span>
-        <span>Tropical China Exploration</span>
-      </div>
-      <a href="#" class="hero-cta" onclick="showPage('contact'); return false;">Book Now</a>
+    </div>
+
+    <div class="hero-partner">
+      <img src="Assets/perfectswell-logo.png" alt="PerfectSwell">
+      <span>Official Partner with PerfectSwell&reg; <span class="partner-sep">&bull;</span> Hainan</span>
+    </div>
+
+    <a href="#" class="hero-cta" onclick="showPage('contact'); return false;">Book Now</a>
+
+    <div class="hero-tagline-bar">
+      Most Unexpected <strong>Surf + Golf Trip</strong> on Earth
     </div>
   </section>
 
