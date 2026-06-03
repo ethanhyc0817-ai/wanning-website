@@ -446,6 +446,66 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .hero-tagline-bar strong { color: var(--ocean); font-weight: 600; }
 
+/* Featured-in bar — social proof strip between hero and reassurance */
+.featured-in {
+  background: #ffffff;
+  border-bottom: 1px solid var(--sand-dark);
+  padding: 1.6rem 1.25rem;
+}
+.featured-in-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s var(--transition);
+}
+.featured-in-inner:hover { opacity: 0.72; }
+.featured-in-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  white-space: nowrap;
+}
+.featured-in-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.featured-in-quote {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  max-width: 520px;
+}
+.featured-in-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ocean);
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .featured-in { padding: 1.4rem 1rem; }
+  .featured-in-inner { gap: 0.85rem; flex-direction: column; text-align: center; }
+  .featured-in-logo { height: 24px; }
+  .featured-in-quote { font-size: 0.95rem; max-width: none; }
+}
+
 /* Shared background helper used by page-hero, final-cta, wp-final-cta */
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg img,
@@ -1592,6 +1652,18 @@ footer::before {
     <div class="hero-tagline-bar">
       Most Unexpected <strong>Surf + Golf Trip</strong> on Earth
     </div>
+  </section>
+
+  <!-- AS FEATURED IN — SURFER Magazine -->
+  <section class="featured-in" aria-label="As featured in SURFER Magazine">
+    <a class="featured-in-inner"
+       href="https://www.surfer.com/news/hainan-china-next-big-international-surf-hub-wave-pool"
+       target="_blank" rel="noopener noreferrer">
+      <span class="featured-in-label">As Featured In</span>
+      <img class="featured-in-logo" src="Assets/surfer-magazine-logo.svg" alt="SURFER Magazine" width="72" height="28">
+      <span class="featured-in-quote">&ldquo;Is Hainan About To Be The Next Big International Surf Hub?&rdquo;</span>
+      <span class="featured-in-arrow">Read article &rarr;</span>
+    </a>
   </section>
 
   <!-- REASSURANCE -->
