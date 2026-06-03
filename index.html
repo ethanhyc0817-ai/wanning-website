@@ -297,24 +297,24 @@ nav.scrolled { padding: 0.7rem 0; }
   object-fit: cover;
   display: block;
 }
-/* Wave pool side — stronger top gradient to hold partner badge over bright sky */
+/* Light gradients only — just enough for text contrast, don't drown the photo */
 .hero-panel.hero-wave::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(0,0,0,0.48) 0%,
-    rgba(0,0,0,0.12) 35%,
-    rgba(0,0,0,0.10) 60%,
-    rgba(0,0,0,0.55) 100%);
+    rgba(0,0,0,0.22) 0%,
+    rgba(0,0,0,0.04) 30%,
+    rgba(0,0,0,0.04) 65%,
+    rgba(0,0,0,0.30) 100%);
 }
 .hero-panel.hero-golf::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(0,0,0,0.30) 0%,
-    rgba(0,0,0,0.08) 40%,
-    rgba(0,0,0,0.10) 60%,
-    rgba(0,0,0,0.55) 100%);
+    rgba(0,0,0,0.16) 0%,
+    rgba(0,0,0,0.04) 35%,
+    rgba(0,0,0,0.04) 60%,
+    rgba(0,0,0,0.30) 100%);
 }
 .hero-text {
   position: absolute; z-index: 2;
@@ -325,10 +325,16 @@ nav.scrolled { padding: 0.7rem 0; }
   text-shadow: 0 3px 30px rgba(0,0,0,0.55);
 }
 .hero-headline {
+  /* h1 UA defaults (font-weight: bold, font-size: 2em, margin) would clash with
+     the .hero-text inherited Montserrat 900 — restate explicitly so h1 + div match */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   font-size: clamp(1.4rem, 2.6vw, 2.6rem);
   line-height: 0.95;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
 }
 .hero-sub {
   font-family: 'Inter', sans-serif;
@@ -1197,9 +1203,9 @@ footer::before {
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; gap: 1rem; }
 
-  /* Hero — mobile: split stacks vertically, ratio 3:4 */
+  /* Hero — mobile: split stacks vertically, ratio 5:7 (slightly taller than 3:4) */
   .hero {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 5 / 7;
     flex-direction: column;
   }
   .hero-text {
