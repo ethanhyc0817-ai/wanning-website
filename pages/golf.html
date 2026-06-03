@@ -288,22 +288,122 @@ nav.scrolled { padding: 0.7rem 0; }
 .legends-list .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.8rem; }
 .legends-list .names { font-family: 'Montserrat', sans-serif; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--white); font-weight: 500; line-height: 1.5; }
 
-/* ======= COURSE GRID (3 cards) ======= */
-.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-.course-card { position: relative; overflow: hidden; border-radius: 3px; height: 520px; background: var(--charcoal); }
-.course-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); opacity: 0.92; }
-.course-card:hover img { transform: scale(1.05); opacity: 0.85; }
-.course-card-overlay {
-  position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
-  padding: 2rem;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  color: var(--white);
+/* ======= RECOGNITION STRIP (between Story and Tiger) ======= */
+.recognition-strip { background: var(--white); padding: clamp(3rem, 5vw, 4.5rem) 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); }
+.recognition-strip-inner { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.recognition-header { text-align: center; max-width: 720px; margin: 0 auto 2.5rem; }
+.recognition-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.recognition-card { text-align: center; padding: 1.8rem 1.2rem; background: var(--sand); border-top: 3px solid var(--gold); border-radius: 3px; }
+.recognition-card .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.5vw, 2.6rem); line-height: 1; color: var(--ocean); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+.recognition-card .stat-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); line-height: 1.4; }
+.recognition-card .stat-sub { display: block; margin-top: 0.45rem; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.04em; text-transform: none; color: var(--warm-gray); line-height: 1.45; }
+@media (max-width: 860px) { .recognition-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .recognition-grid { grid-template-columns: 1fr; } }
+
+/* ======= COURSE DETAIL SECTIONS (alternating split) ======= */
+.courses-intro { text-align: left; max-width: 720px; margin: 0 0 3rem; }
+.course-row { padding: clamp(3rem, 5vw, 5rem) 0; }
+.course-row.alt-bg { background: var(--sand); }
+.course-row-grid {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem); align-items: center;
 }
-.course-card-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
-.course-card-overlay h3 { color: var(--white); margin-bottom: 0.3rem; }
-.course-card-overlay .subtitle { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.8rem; }
-.course-card-overlay p { font-size: 0.9rem; color: rgba(255,255,255,0.88); max-width: none; line-height: 1.55; }
+.course-row.reverse .course-row-grid { grid-template-columns: 1fr 1.05fr; }
+.course-row.reverse .course-row-img { order: 2; }
+.course-row-img { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 3px; background: var(--sand-dark); }
+.course-row-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--transition); }
+.course-row-img:hover img { transform: scale(1.04); }
+.course-tag { display: inline-block; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.course-row-content h2 { margin-bottom: 0.3rem; font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.course-row-content .course-meta-line { font-family: 'Inter', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 1rem; font-weight: 500; }
+.course-row-content .course-meta-line strong { color: var(--charcoal); font-weight: 600; }
+.course-row-content p { font-size: 1.02rem; line-height: 1.7; color: var(--charcoal); max-width: none; margin-bottom: 1.2rem; }
+.course-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  margin: 1.4rem 0 1.4rem;
+  border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark);
+  padding: 1rem 0;
+}
+.course-row.alt-bg .course-stats { border-color: rgba(0,0,0,0.1); }
+.course-stat { padding: 0 0.6rem; border-right: 1px solid var(--sand-dark); }
+.course-row.alt-bg .course-stat { border-right-color: rgba(0,0,0,0.1); }
+.course-stat:first-child { padding-left: 0; }
+.course-stat:last-child { border-right: none; padding-right: 0; }
+.course-stat .label { display: block; font-family: 'Inter', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 0.35rem; }
+.course-stat .value { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--charcoal); line-height: 1.3; }
+.course-recognition { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.recognition-tag {
+  display: inline-flex; align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--gold);
+  color: var(--ocean);
+  border-radius: 2px;
+  background: rgba(196,162,101,0.08);
+}
+@media (max-width: 880px) {
+  .course-row-grid { grid-template-columns: 1fr; }
+  .course-row.reverse .course-row-grid { grid-template-columns: 1fr; }
+  .course-row.reverse .course-row-img { order: 0; }
+  .course-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .course-stats { grid-template-columns: 1fr; gap: 0.75rem; padding: 0.75rem 0; }
+  .course-stat { border-right: none; border-bottom: 1px solid var(--sand-dark); padding: 0 0 0.6rem; }
+  .course-row.alt-bg .course-stat { border-bottom-color: rgba(0,0,0,0.1); }
+  .course-stat:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+/* ======= SHANQIN BAY EXCLUSIVE SECTION ======= */
+.shanqin-section { background: var(--charcoal); color: var(--white); padding: clamp(4rem, 7vw, 7rem) 0; position: relative; overflow: hidden; }
+.shanqin-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+}
+.shanqin-grid { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
+.shanqin-img { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 3px; position: relative; }
+.shanqin-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shanqin-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%); }
+.shanqin-img-tag { position: absolute; bottom: 1.2rem; left: 1.2rem; z-index: 2; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); padding: 0.4rem 0.8rem; border: 1px solid var(--gold); background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); }
+.shanqin-content .course-tag { color: var(--gold); }
+.shanqin-content h2 { color: var(--white); margin-bottom: 0.4rem; font-size: clamp(1.9rem, 3.4vw, 2.8rem); letter-spacing: -0.02em; }
+.shanqin-content .shanqin-meta { font-family: 'Inter', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; }
+.shanqin-content .shanqin-meta strong { color: var(--gold); font-weight: 700; }
+.shanqin-pull {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.15rem, 1.75vw, 1.35rem);
+  line-height: 1.4;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+  padding: 1.2rem 0;
+  border-top: 1px solid rgba(196,162,101,0.35);
+  border-bottom: 1px solid rgba(196,162,101,0.35);
+  margin-bottom: 1.5rem;
+}
+.shanqin-content p { color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.75; margin-bottom: 1rem; max-width: none; }
+.shanqin-rules {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(196,162,101,0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 2px 2px 0;
+}
+.shanqin-rules .rules-label { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; }
+.shanqin-rules ul { list-style: none; padding: 0; margin: 0; }
+.shanqin-rules li { padding: 0.35rem 0 0.35rem 1.4rem; position: relative; font-size: 0.93rem; line-height: 1.55; color: rgba(255,255,255,0.92); }
+.shanqin-rules li::before { content: '\2022'; position: absolute; left: 0.4rem; top: 0.25rem; color: var(--gold); font-size: 1.2rem; line-height: 1; }
+.shanqin-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+.btn-gold { background: var(--gold); color: var(--charcoal); border: 1px solid var(--gold); }
+.btn-gold:hover { background: transparent; color: var(--gold); }
+.btn-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline-gold:hover { background: var(--gold); color: var(--charcoal); }
+@media (max-width: 880px) {
+  .shanqin-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 /* ======= GOLF GALLERY (mixed orientation, natural ratio, no crop) ======= */
 .golf-gallery {
@@ -455,8 +555,36 @@ nav.scrolled { padding: 0.7rem 0; }
     <span class="overline">Hainan's Quiet Reputation</span>
     <h2>Before the surf,<br>there was the swing.</h2>
     <div class="section-divider"></div>
-    <p class="lead">Hainan has been China's golf destination for more than twenty years &mdash; long before anyone was talking about surfing here. The year-round tropical climate, the volcanic terrain in the north, the ocean coastlines in the east and south: every condition a great course needs, Hainan has it, and within a single hour's drive you can tee off in three completely different landscapes.</p>
-    <p class="lead">The result is a quiet collection of world-class courses that hosted the HSBC Champions, the Omega Mission Hills World Cup, and the Volvo China Open. If you play golf, you have almost certainly watched a tournament on a Hainan fairway without knowing where you were looking.</p>
+    <p class="lead">Hainan has been China's premier golf destination for more than twenty years &mdash; long before anyone was talking about surfing here. The year-round tropical climate, the volcanic terrain in the north, the coastlines in the east and south: every condition a world-class course needs, Hainan has it. Within a single hour's drive you can tee off in three completely different landscapes.</p>
+    <p class="lead">The result is a quiet collection of world-class courses: <strong>China's #1 and #2 ranked courses</strong>, a Golf Digest World Top 100 layout, and one of Asia's most exclusive private clubs &mdash; all on a single tropical island. The HSBC Champions, the Omega Mission Hills World Cup, the Volvo China Open: if you watch professional golf, you've almost certainly watched a tournament on a Hainan fairway without knowing where you were looking.</p>
+  </div>
+</section>
+
+<!-- RECOGNITION STRIP -->
+<section class="recognition-strip">
+  <div class="recognition-strip-inner">
+    <div class="recognition-header">
+      <span class="overline">By the Numbers</span>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.6rem;">Hainan's golf, ranked.</h2>
+    </div>
+    <div class="recognition-grid">
+      <div class="recognition-card">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">In China<span class="stat-sub">Mission Hills Blackstone &middot; Golf Digest</span></div>
+      </div>
+      <div class="recognition-card">
+        <div class="stat-num">#2</div>
+        <div class="stat-label">In China<span class="stat-sub">The Dunes at Shenzhou &middot; Golf Digest</span></div>
+      </div>
+      <div class="recognition-card">
+        <div class="stat-num">Top 100</div>
+        <div class="stat-label">In the World<span class="stat-sub">Mission Hills Blackstone &middot; Golf Magazine</span></div>
+      </div>
+      <div class="recognition-card">
+        <div class="stat-num">Private</div>
+        <div class="stat-label">Invitation Only<span class="stat-sub">Shanqin Bay &middot; Coore &amp; Crenshaw</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -483,60 +611,192 @@ nav.scrolled { padding: 0.7rem 0; }
   </div>
 </section>
 
-<!-- 3 COURSE CARDS -->
-<section>
+<!-- WHERE YOU PLAY — intro -->
+<section style="padding-bottom: 0;">
   <div class="container">
-    <div style="max-width: 640px;">
+    <div class="courses-intro">
       <span class="overline">Where You'll Play</span>
-      <h2>Three courses,<br>three islands.</h2>
+      <h2>Four courses,<br>one island.</h2>
       <div class="section-divider"></div>
-      <p class="lead">You could spend a week playing Hainan and never repeat a landscape. We'll book tee times, transport, and a caddy who speaks English &mdash; all you do is show up.</p>
+      <p class="lead">A black-lava championship, a coastal links, a headland over the South China Sea, and one of Asia's most exclusive private clubs &mdash; you could spend a week playing Hainan and never repeat a landscape. We'll book tee times, transport, and English-speaking caddies. All you do is show up.</p>
     </div>
-    <div class="course-grid">
-      <a class="course-card fade-in" href="#" style="text-decoration:none;">
-        <img src="/Assets/golf/mission-hills-palms-01.jpg" alt="Mission Hills Haikou">
-        <div class="course-card-overlay">
-          <span class="num">01 &mdash; Haikou</span>
-          <h3>Mission Hills Haikou</h3>
-          <span class="subtitle">&#x6D77;&#x53E3; &middot; Observation Lake</span>
-          <p>The largest golf facility in the world &mdash; ten courses carved from volcanic lava rock. This is where Tiger hit the shot in our photo above.</p>
+  </div>
+</section>
+
+<!-- COURSE 1 — MISSION HILLS BLACKSTONE -->
+<section class="course-row">
+  <div class="course-row-grid">
+    <div class="course-row-img fade-in">
+      <img src="/Assets/brochure/golf-blackstone/blackstone-01.jpg" alt="Mission Hills Blackstone — black-lava championship course">
+    </div>
+    <div class="course-row-content">
+      <span class="course-tag">01 &middot; Haikou &middot; #1 in China</span>
+      <h2>Mission Hills Blackstone</h2>
+      <div class="course-meta-line"><strong>Schmidt-Curley</strong> &middot; 2009 &middot; Volcanic lava-rock</div>
+      <p>One of the world's rare black-lava championship courses. A dramatic layout carved through volcanic rock, lush tropical scenery, and bold island landscapes &mdash; this is the same course where <strong>Tiger Woods and Rory McIlroy went head-to-head in 2013</strong>. A true bucket-list destination for golfers who want real history, world-class design, and a setting you don't find anywhere else.</p>
+      <div class="course-stats">
+        <div class="course-stat">
+          <span class="label">Designer</span>
+          <span class="value">Schmidt-Curley</span>
         </div>
-      </a>
-      <a class="course-card fade-in" href="#" style="text-decoration:none;">
-        <img src="/Assets/golf/beachfront-aerial-01.jpg" alt="Shenzhou Peninsula Golf Club">
-        <div class="course-card-overlay">
-          <span class="num">02 &mdash; Wanning</span>
-          <h3>Shenzhou Peninsula</h3>
-          <span class="subtitle">&#x795E;&#x5DDE;&#x534A;&#x5C9B;</span>
-          <p>A 30-minute drive from the wave pool. Two oceanfront courses along a stretch of coastline that's all dunes, rocks, and turquoise water.</p>
+        <div class="course-stat">
+          <span class="label">Terrain</span>
+          <span class="value">Volcanic lava-rock</span>
         </div>
-      </a>
-      <a class="course-card fade-in" href="#" style="text-decoration:none;">
-        <img src="/Assets/golf/mountain-lake-golfers-01.jpg" alt="Dragon Valley Sanya">
-        <div class="course-card-overlay">
-          <span class="num">03 &mdash; Sanya</span>
-          <h3>Dragon Valley</h3>
-          <span class="subtitle">&#x4E09;&#x4E9A; &middot; &#x9F99;&#x6CC9;&#x8C37;</span>
-          <p>A mountain course inland from Sanya &mdash; rainforest on three sides, water on every fourth hole. The quietest round you'll play in Hainan.</p>
+        <div class="course-stat">
+          <span class="label">Notable</span>
+          <span class="value">Tiger &times; Rory &middot; 2013</span>
         </div>
-      </a>
+      </div>
+      <div class="course-recognition">
+        <span class="recognition-tag">#1 in China &middot; Golf Digest</span>
+        <span class="recognition-tag">World Top 100 &middot; Golf Magazine</span>
+        <span class="recognition-tag">Best New Course in Asia &middot; Asian Golf Monthly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 2 — THE DUNES AT SHENZHOU -->
+<section class="course-row alt-bg reverse">
+  <div class="course-row-grid">
+    <div class="course-row-img fade-in">
+      <img src="/Assets/brochure/golf-dunes/dunes-02.jpg" alt="The Dunes at Shenzhou Peninsula — coastal links">
+    </div>
+    <div class="course-row-content">
+      <span class="course-tag">02 &middot; Wanning &middot; #2 in China</span>
+      <h2>The Dunes at Shenzhou</h2>
+      <div class="course-meta-line"><strong>Tom Weiskopf &amp; Phil Smith</strong> &middot; 2014 &middot; Coastal links &middot; Par 72</div>
+      <p>A coastal links shaped by sand dunes, ocean wind, and the South China Sea. Few golf courses in China have a setting like this &mdash; built along the coast with natural sand dunes, dramatic bunkers, and wide-open ocean views, it delivers a true links experience with a tropical island edge. Raw, cinematic, and deeply connected to the landscape. Just <strong>30 minutes from the wave pool</strong>.</p>
+      <div class="course-stats">
+        <div class="course-stat">
+          <span class="label">Designer</span>
+          <span class="value">Weiskopf &amp; Smith</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">Style</span>
+          <span class="value">Coastal links</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">From Pool</span>
+          <span class="value">30 minutes</span>
+        </div>
+      </div>
+      <div class="course-recognition">
+        <span class="recognition-tag">#2 in China &middot; Golf Digest 2022</span>
+        <span class="recognition-tag">Top 10 in Asia &middot; Forbes</span>
+        <span class="recognition-tag">Best New International &middot; US Golf Magazine</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 3 — LU HUI TOU -->
+<section class="course-row">
+  <div class="course-row-grid">
+    <div class="course-row-img fade-in">
+      <img src="/Assets/brochure/golf-lu-hui-tou/luhuitou-01.png" alt="Lu Hui Tou Golf Club — Sanya headland course">
+    </div>
+    <div class="course-row-content">
+      <span class="course-tag">03 &middot; Sanya &middot; Headland Routing</span>
+      <h2>Lu Hui Tou Golf Club</h2>
+      <div class="course-meta-line"><strong>Nelson &amp; Haworth</strong> &middot; 2009 &middot; 7,310 yds &middot; Par 72</div>
+      <p>Sanya's headland course &mdash; sea on one side, mountain on the other. Eighteen holes draped across the Lu Hui Tou peninsula, between the South China Sea and the green mountain ridge. Nelson &amp; Haworth routed the course with elevation changes that give every approach a different angle. Pair the round with an evening at Rosewood Sanya and the polished island day arranges itself.</p>
+      <div class="course-stats">
+        <div class="course-stat">
+          <span class="label">Designer</span>
+          <span class="value">Nelson &amp; Haworth</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">Routing</span>
+          <span class="value">Headland peninsula</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">Length</span>
+          <span class="value">7,310 yds &middot; Par 72</span>
+        </div>
+      </div>
+      <div class="course-recognition">
+        <span class="recognition-tag">Sea + Mountain Views</span>
+        <span class="recognition-tag">Championship Layout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 4 — SHANQIN BAY (EXCLUSIVE / DARK) -->
+<section class="shanqin-section">
+  <div class="shanqin-grid">
+    <div class="shanqin-img fade-in">
+      <img src="/Assets/brochure/golf-shanqin-bay/shanqin-01.jpg" alt="Shanqin Bay Golf Club — invitation-only private course">
+      <span class="shanqin-img-tag">Invitation Only</span>
+    </div>
+    <div class="shanqin-content">
+      <span class="course-tag">04 &middot; Lingshui &middot; By Inquiry Only</span>
+      <h2>Shanqin Bay Golf Club</h2>
+      <div class="shanqin-meta"><strong>Coore &amp; Crenshaw</strong> &middot; The most exclusive private golf club in Asia</div>
+
+      <div class="shanqin-pull">
+        &ldquo;Once ranked No. 8 in the world by Golf Digest. Not open to the public &mdash; not for sale, not for booking, not for the public eye.&rdquo;
+      </div>
+
+      <p>Shanqin Bay sits on a private stretch of Lingshui coastline behind locked gates. The club doesn't list tee times, doesn't accept walk-ins, and doesn't run a public booking system. Most golfers in China have never seen the course in person &mdash; let alone played it.</p>
+
+      <p>We hold internal access channels and, on a very limited basis, can submit a guest application on your behalf.</p>
+
+      <div class="shanqin-rules">
+        <span class="rules-label">How access works</span>
+        <ul>
+          <li>Every guest goes through an <strong>internal review of guest information</strong> by the club &mdash; not a guaranteed approval.</li>
+          <li>Cannot be booked on its own. <strong>Must be combined</strong> with rounds at our other championship courses as part of a package.</li>
+          <li>Spots are <strong>extremely limited</strong> and released at the club's discretion. We accept a small number of applications per season.</li>
+          <li>Not a standard program &mdash; reviewed on an application basis only.</li>
+        </ul>
+      </div>
+
+      <div class="shanqin-cta-row">
+        <a href="golf-inquiry.html" class="btn btn-gold btn-arrow">Apply for Shanqin Bay Access </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY (mixed orientation, no cropping) -->
-<section style="padding-top:0;">
+<section>
+  <div class="container" style="margin-bottom: 2.5rem;">
+    <div style="max-width: 720px; text-align: center; margin: 0 auto;">
+      <span class="overline">Hainan, Frame by Frame</span>
+      <h2 style="font-size: clamp(1.7rem, 3vw, 2.4rem);">Fairways, light, &amp; ocean.</h2>
+      <div class="section-divider" style="margin: 1.2rem auto 0;"></div>
+    </div>
+  </div>
   <div class="golf-gallery">
     <figure class="fade-in">
-      <img src="/Assets/golf/fairway-bunkers-01.jpg" alt="Fairway with bunkers">
-      <figcaption>Sculpted bunkers &middot; Mission Hills Haikou</figcaption>
+      <img src="/Assets/brochure/golf-blackstone/blackstone-02.jpg" alt="Mission Hills Blackstone fairway through lava rock">
+      <figcaption>Blackstone &middot; black-lava championship, Haikou</figcaption>
     </figure>
     <figure class="fade-in">
-      <img src="/Assets/golf/sunset-sky-fairway-01.jpg" alt="Sunset over fairway">
+      <img src="/Assets/brochure/golf-dunes/dunes-03.jpg" alt="The Dunes at Shenzhou coastal links">
+      <figcaption>The Dunes &middot; coastal links shaped by ocean wind</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="/Assets/brochure/golf-lu-hui-tou/luhuitou-02.jpg" alt="Lu Hui Tou peninsula course">
+      <figcaption>Lu Hui Tou &middot; sea on one side, mountain on the other</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="/Assets/brochure/golf-shanqin-bay/shanqin-02.jpg" alt="Shanqin Bay private golf club">
+      <figcaption>Shanqin Bay &middot; behind the gates, by inquiry only</figcaption>
+    </figure>
+    <figure class="fade-in">
+      <img src="/Assets/golf/sunset-sky-fairway-01.jpg" alt="Sunset over a Hainan fairway">
       <figcaption>Sunset round &middot; Hainan</figcaption>
     </figure>
+    <figure class="fade-in">
+      <img src="/Assets/golf/fairway-bunkers-01.jpg" alt="Sculpted bunkers on a Hainan fairway">
+      <figcaption>Sculpted bunkers &middot; Mission Hills Haikou</figcaption>
+    </figure>
     <figure class="fade-in portrait-solo">
-      <img src="/Assets/golf/IMG_5512.jpg" alt="Oceanfront aerial of golf course">
+      <img src="/Assets/golf/IMG_5512.jpg" alt="Oceanfront aerial of a Hainan golf course">
       <figcaption>Shenzhou Peninsula &middot; aerial</figcaption>
     </figure>
   </div>
@@ -548,9 +808,9 @@ nav.scrolled { padding: 0.7rem 0; }
     <img src="/Assets/golf/sunset-coast-aerial-01.jpg" alt="Hainan golf at sunset">
   </div>
   <div class="final-cta-content">
-    <span class="overline">Add to Your Trip</span>
-    <h2>One round, or all three.</h2>
-    <p>Build a round into your surf trip, or fly in a few days early and play every course on the island. We'll handle tee times, clubs, transport, and caddies.</p>
+    <span class="overline">Plan Your Trip</span>
+    <h2>One round, or all four.</h2>
+    <p>Build a single round into your surf trip, or fly in a few days early and play every course on the island. We'll handle tee times, clubs, transport, English-speaking caddies, and &mdash; on a very limited basis &mdash; the Shanqin Bay guest application.</p>
     <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
       <a href="golf-inquiry.html" class="btn btn-primary btn-arrow">Pure Golf Trip Inquiry </a>
       <a href="/#contact" class="btn btn-outline btn-arrow">Surf &amp; Golf Inquiry </a>
