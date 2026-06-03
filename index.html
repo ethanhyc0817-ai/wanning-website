@@ -798,6 +798,40 @@ nav.scrolled { padding: 0.7rem 0; }
   .package-option-price { font-size: 0.9rem; }
 }
 
+/* Link-style package card: looks like the other options but navigates
+   to a dedicated inquiry page instead of toggling a checkbox. */
+.package-options .package-option-link {
+  text-decoration: none;
+  position: relative;
+  padding-right: 2.4rem; /* room for the arrow */
+}
+.package-options .package-option-link::after {
+  content: '\2192';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teal);
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform 0.25s var(--transition);
+}
+.package-options .package-option-link:hover::after {
+  transform: translateY(-50%) translateX(4px);
+  color: var(--ocean);
+}
+.package-options .package-option-link .package-option-name {
+  color: var(--charcoal);
+}
+.package-options .package-option-link .package-option-cta {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--teal);
+}
+
 /* Trip-dates: single readonly input that pops a calendar range picker.
    The "I'm not sure yet" toggle lives inside the popover. */
 .date-picker { position: relative; }
@@ -3654,7 +3688,6 @@ footer::before {
         <div>
           <h2>Trip Inquiry</h2>
           <div class="section-divider"></div>
-          <p class="form-help" style="margin: -0.5rem 0 1.4rem; font-size: 0.92rem;">Planning a <strong>pure golf trip</strong> (no surf)? <a href="pages/golf-inquiry.html">Use the dedicated golf inquiry &rarr;</a></p>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
             <div class="form-row">
@@ -3720,6 +3753,15 @@ footer::before {
                     <a href="pages/package-3-the-surf-and-golf-retreat.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
                   </div>
                 </label>
+                <a href="pages/golf-inquiry.html" class="package-option package-option-link">
+                  <div class="package-option-body">
+                    <div class="package-option-head">
+                      <span class="package-option-name">Pure Golf Trip</span>
+                    </div>
+                    <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
+                    <span class="package-option-cta">Open dedicated golf inquiry form</span>
+                  </div>
+                </a>
                 <label class="package-option">
                   <input type="checkbox" name="interested_in" value="Custom Trip">
                   <div class="package-option-body">
