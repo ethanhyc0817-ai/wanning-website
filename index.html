@@ -299,6 +299,9 @@ nav.scrolled { padding: 0.7rem 0; }
   object-fit: cover;
   display: block;
 }
+/* Wave pool image: crop from the LEFT edge (keep the wave + pool on the left side) */
+.hero-wave img { object-position: left center; }
+.hero-golf img { object-position: center center; }
 /* Light gradients only — just enough for text contrast, don't drown the photo */
 .hero-panel.hero-wave::after {
   content: '';
