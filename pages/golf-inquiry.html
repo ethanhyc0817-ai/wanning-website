@@ -286,7 +286,14 @@ nav.scrolled { padding: 0.7rem 0; }
   transition: all 0.15s;
 }
 .radio-options label:hover { border-color: var(--teal); background: rgba(45,138,148,0.03); }
-.radio-options input[type="radio"] { accent-color: var(--teal); margin: 0; }
+.radio-options input[type="radio"] {
+  width: 18px !important;
+  height: 18px;
+  accent-color: var(--teal);
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
 .radio-options label:has(input:checked) {
   border-color: var(--teal);
   background: rgba(45,138,148,0.06);
