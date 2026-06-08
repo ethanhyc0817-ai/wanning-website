@@ -1237,6 +1237,8 @@ footer::before {
   .reassurance-pillars { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
+  /* Trip Inquiry hero: keep the surfer + lower-left detail in frame on narrow screens */
+  .trip-inquiry-hero-img { object-position: left bottom !important; }
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
   .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
@@ -3775,7 +3777,7 @@ footer::before {
 
   <section class="page-hero" style="height:45vh; min-height:350px;">
     <div class="hero-bg">
-      <img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-closeup-01.jpg" alt="Wave pool closeup">
+      <img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains behind" class="trip-inquiry-hero-img" style="object-position: center;">
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Contact</span>
