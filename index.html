@@ -3777,7 +3777,11 @@ footer::before {
 
   <section class="page-hero" style="height:45vh; min-height:350px;">
     <div class="hero-bg">
-      <img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains behind" class="trip-inquiry-hero-img" style="object-position: center;">
+      <picture>
+        <!-- Desktop: cropped + compressed hero (bottom crop). Mobile keeps the original shot. -->
+        <source media="(min-width: 769px)" srcset="Assets/inquiry_desktop.jpg">
+        <img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains behind" class="trip-inquiry-hero-img" style="object-position: center bottom;">
+      </picture>
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Contact</span>
