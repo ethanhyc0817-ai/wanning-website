@@ -903,6 +903,27 @@ nav.scrolled { padding: 0.7rem 0; }
   text-decoration: none;
   position: relative;
   padding-right: 2.4rem; /* room for the arrow */
+  border-color: var(--gold);
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(135deg, rgba(196,162,101,0.10), rgba(196,162,101,0.04));
+}
+.package-options .package-option-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  padding: 0.12rem 0.5rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.package-options .package-option-link:hover {
+  border-color: var(--gold);
+  box-shadow: 0 2px 8px rgba(196,162,101,0.18);
 }
 .package-options .package-option-link::after {
   content: '\2192';
@@ -1679,7 +1700,7 @@ footer::before {
         <div class="reassurance-pillar">
           <span class="reassurance-pillar-num">01</span>
           <h4>Visa-Free Entry</h4>
-          <p>Hainan offers visa-free stays up to 30 days for travelers from most Western countries.</p>
+          <p>Travelers from 86 countries can enter Hainan visa-free &mdash; most for stays up to 30 days.</p>
         </div>
         <div class="reassurance-pillar">
           <span class="reassurance-pillar-num">02</span>
@@ -3733,7 +3754,7 @@ footer::before {
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-question">Do I need a visa to visit China?</div>
-          <div class="faq-answer"><p>Hainan offers visa-free entry for visitors from many countries for stays up to 30 days. We'll help you confirm your eligibility during trip planning.</p></div>
+          <div class="faq-answer"><p>Hainan offers visa-free entry for visitors from 86 countries, most for stays up to 30 days. We'll help you confirm your eligibility during trip planning.</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-question">Is it worth flying to China for this?</div>
@@ -3798,6 +3819,17 @@ footer::before {
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
+            <div class="package-options" style="margin-bottom:1.5rem;">
+              <a href="pages/golf-inquiry.html" class="package-option package-option-link">
+                <div class="package-option-body">
+                  <div class="package-option-head">
+                    <span class="package-option-name">Pure Golf Trip <span class="package-option-badge">Golf only</span></span>
+                  </div>
+                  <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
+                  <span class="package-option-cta">Open dedicated golf inquiry form</span>
+                </div>
+              </a>
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label>First Name</label>
@@ -3861,15 +3893,6 @@ footer::before {
                     <a href="pages/package-3-the-surf-and-golf-retreat.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
                   </div>
                 </label>
-                <a href="pages/golf-inquiry.html" class="package-option package-option-link">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name">Pure Golf Trip</span>
-                    </div>
-                    <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
-                    <span class="package-option-cta">Open dedicated golf inquiry form</span>
-                  </div>
-                </a>
                 <label class="package-option">
                   <input type="checkbox" name="interested_in" value="Custom Trip">
                   <div class="package-option-body">
@@ -4379,6 +4402,54 @@ function validateInquiryForm(form) {
   });
 })();
 
+// After a successful submission, open the visitor's mail app with a
+// pre-filled draft addressed to us, so they can also reach out directly.
+function openInquiryMailDraft(form) {
+  try {
+    const fd = new FormData(form);
+    const labels = {
+      first_name: 'First name',
+      last_name: 'Last name',
+      email: 'Email',
+      trip_start_date: 'Trip start date',
+      group_size: 'Group size',
+      surf_level: 'Surf level',
+      message: 'Notes'
+    };
+
+    const first = (fd.get('first_name') || '').toString().trim();
+    const last = (fd.get('last_name') || '').toString().trim();
+    const fullName = [first, last].filter(Boolean).join(' ');
+
+    const lines = [];
+    const interested = fd.getAll('interested_in').filter(Boolean);
+    if (interested.length) lines.push('Interested in: ' + interested.join(', '));
+    Object.keys(labels).forEach(key => {
+      const val = (fd.get(key) || '').toString().trim();
+      if (val) lines.push(labels[key] + ': ' + val);
+    });
+    if ((fd.get('dates_tbd') || '').toString().trim()) lines.push('Dates: To be decided');
+
+    const subject = 'Trip Inquiry' + (fullName ? ' — ' + fullName : '') + ' (surfchina.co)';
+    const body =
+      'Hello Surf China team,\n\n' +
+      'I just submitted a trip inquiry on surfchina.co. Here are my details:\n\n' +
+      lines.join('\n') +
+      '\n\nLooking forward to hearing from you.';
+
+    const mailto = 'mailto:surfchinaco@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    const a = document.createElement('a');
+    a.href = mailto;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } catch (_) { /* mail draft is best-effort; never block the submission flow */ }
+}
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
@@ -4415,9 +4486,10 @@ async function handleSubmit(e) {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      openInquiryMailDraft(form);
       form.reset();
       if (status) {
-        status.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
+        status.textContent = 'Thank you! We\'ll get back to you within 24 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
         status.style.color = 'var(--teal)';
         status.style.display = 'block';
       }

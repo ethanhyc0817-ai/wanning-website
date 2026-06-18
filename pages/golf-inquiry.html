@@ -429,7 +429,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
       <!-- LEFT: Form -->
       <div>
-        <h2>Golf Trip Inquiry</h2>
+        <h2 style="color: var(--gold);">Golf Trip Inquiry</h2>
         <div class="section-divider"></div>
         <p style="color: var(--warm-gray); margin-bottom: 0.4rem;">For pure golf trips, no surf required. If you're after a combined surf &amp; golf itinerary, <a href="/#contact" style="color: var(--teal); border-bottom: 1px solid var(--teal); text-decoration: none;">use the main inquiry form</a> instead.</p>
 
@@ -551,41 +551,16 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Handicap <span class="lbl-meta">&middot; Optional</span></label>
-              <select name="handicap">
-                <option value="">Select if you'd like...</option>
-                <option>Scratch or better (0)</option>
-                <option>Single digit (1-9)</option>
-                <option>10-18</option>
-                <option>19-28</option>
-                <option>28+ / Beginner</option>
-                <option>Mixed levels in group</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Rounds Desired</label>
-              <select name="rounds_desired">
-                <option value="">How many rounds?</option>
-                <option>1 round</option>
-                <option>2 rounds</option>
-                <option>3 rounds</option>
-                <option>4 rounds</option>
-                <option>5+ rounds</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-
           <div class="form-group">
-            <label>Accommodation Preference <span class="lbl-meta">&middot; Optional</span></label>
-            <select name="accommodation_pref">
-              <option value="">Select if you'd like...</option>
-              <option>Premium (5-star, e.g. Ritz-Carlton)</option>
-              <option>Luxury (Rosewood, Ritz Golf Suites tier)</option>
-              <option>Mix of premium &amp; luxury</option>
-              <option>No preference / Recommend for me</option>
+            <label>Rounds Desired</label>
+            <select name="rounds_desired">
+              <option value="">How many rounds?</option>
+              <option>1 round</option>
+              <option>2 rounds</option>
+              <option>3 rounds</option>
+              <option>4 rounds</option>
+              <option>5+ rounds</option>
+              <option>Not sure yet</option>
             </select>
           </div>
 
@@ -598,8 +573,31 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             </div>
           </div>
 
+          <div class="form-row">
+            <div class="form-group">
+              <label>Handicap<br><span class="lbl-meta">Optional</span></label>
+              <select name="handicap">
+                <option value="">Select if you'd like...</option>
+                <option>Scratch or better (0)</option>
+                <option>Single digit (1-9)</option>
+                <option>10-18</option>
+                <option>19-28</option>
+                <option>28+ / Beginner</option>
+                <option>Mixed levels in group</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Accommodation Preference <span class="lbl-meta">Optional</span></label>
+              <select name="accommodation_pref">
+                <option value="">Select if you'd like...</option>
+                <option>Premium (5-star hotels, standard rooms)</option>
+                <option>Luxury (5-star suites)</option>
+              </select>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label>Tell Us More <span class="lbl-meta">&middot; Optional</span></label>
+            <label>Tell Us More <span class="lbl-meta">Optional</span></label>
             <textarea name="message" placeholder="Anything else? Tee-time preferences, non-golf companions, Shanqin Bay application context, dietary needs, special occasions..."></textarea>
           </div>
 
@@ -881,6 +879,60 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     });
   })();
 
+  // After a successful submission, open the visitor's mail app with a
+  // pre-filled draft addressed to us, so they can also reach out directly.
+  function openInquiryMailDraft(form) {
+    try {
+      const fd = new FormData(form);
+      const labels = {
+        first_name: 'First name',
+        last_name: 'Last name',
+        email: 'Email',
+        trip_start_date: 'Trip start date',
+        trip_length: 'Trip length',
+        group_size: 'Group size',
+        num_golfers: 'Number of golfers',
+        handicap: 'Handicap',
+        rounds_desired: 'Rounds desired',
+        accommodation_pref: 'Accommodation preference',
+        own_clubs: 'Own clubs',
+        message: 'Notes'
+      };
+
+      const first = (fd.get('first_name') || '').toString().trim();
+      const last = (fd.get('last_name') || '').toString().trim();
+      const fullName = [first, last].filter(Boolean).join(' ');
+
+      const lines = [];
+      Object.keys(labels).forEach(key => {
+        const val = (fd.get(key) || '').toString().trim();
+        if (val) lines.push(labels[key] + ': ' + val);
+      });
+
+      const courses = fd.getAll('courses').filter(Boolean);
+      if (courses.length) lines.push('Courses of interest: ' + courses.join(', '));
+      if ((fd.get('dates_tbd') || '').toString().trim()) lines.push('Dates: To be decided');
+
+      const subject = 'Golf Trip Inquiry' + (fullName ? ' — ' + fullName : '') + ' (surfchina.co)';
+      const body =
+        'Hello Surf China team,\n\n' +
+        'I just submitted a golf trip inquiry on surfchina.co. Here are my details:\n\n' +
+        lines.join('\n') +
+        '\n\nLooking forward to hearing from you.';
+
+      const mailto = 'mailto:surfchinaco@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      const a = document.createElement('a');
+      a.href = mailto;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (_) { /* mail draft is best-effort; never block the submission flow */ }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -915,9 +967,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
+        openInquiryMailDraft(form);
         form.reset();
         if (status) {
-          status.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
+          status.textContent = 'Thank you! We\'ll get back to you within 24 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
           status.style.color = 'var(--teal)';
           status.style.display = 'block';
         }
