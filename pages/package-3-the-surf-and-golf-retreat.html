@@ -303,15 +303,21 @@ nav.scrolled { padding: 0.7rem 0; }
 .invest-section .lead { margin: 0 auto; }
 .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 3rem auto 2rem; max-width: 980px; }
 .price-card { background: var(--sand); padding: 2.2rem 1.8rem; border-radius: 3px; text-align: left; }
-.price-card.featured { background: var(--charcoal); color: var(--white); }
+/* Premium = ink-blue fill / Luxury = gold fill — matches the tier tabs and at-a-glance CTAs. */
+.price-card--premium { background: var(--ink-blue); color: var(--white); }
+.price-card--luxury { background: var(--gold); color: var(--charcoal); }
 .price-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-.price-card.featured h4 { color: var(--white); }
+.price-card--premium h4 { color: var(--white); }
+.price-card--luxury h4 { color: var(--charcoal); }
 .price-amount { font-family: 'Montserrat'; font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; margin: 0.8rem 0 0.6rem; color: var(--charcoal); }
-.price-card.featured .price-amount { color: var(--white); }
+.price-card--premium .price-amount { color: var(--white); }
+.price-card--luxury .price-amount { color: var(--charcoal); }
 .price-amount-sub { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; color: var(--warm-gray); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
-.price-card.featured .price-amount-sub { color: rgba(255,255,255,0.5); }
+.price-card--premium .price-amount-sub { color: rgba(255,255,255,0.6); }
+.price-card--luxury .price-amount-sub { color: rgba(26,26,26,0.6); }
 .price-card p { font-size: 0.9rem; color: var(--warm-gray); margin-bottom: 0; max-width: none; }
-.price-card.featured p { color: rgba(255,255,255,0.7); }
+.price-card--premium p { color: rgba(255,255,255,0.82); }
+.price-card--luxury p { color: rgba(26,26,26,0.78); }
 .price-note { font-size: 0.88rem; color: var(--warm-gray); margin: 1.5rem auto 2rem; max-width: 640px; line-height: 1.7; }
 
 /* ======= FAQ ======= */
@@ -402,10 +408,13 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 /* ======= HOTELS GRID (replaces single Stay section) ======= */
 .hotels-section { background: var(--white); }
 .hotels-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
-.hotels-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; }
-.hotel-card { background: var(--sand); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
-.hotel-card__img { width: 100%; aspect-ratio: 4 / 3; background-size: cover; background-position: center; background-color: var(--sand-dark); }
-.hotel-card__body { padding: 1.6rem 1.6rem 1.9rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; }
+.hotels-grid { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: clamp(2.5rem, 5vw, 4rem); }
+.hotel-card { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(1.5rem, 3.5vw, 3rem); align-items: start; }
+.hotel-card__text { display: flex; flex-direction: column; gap: 0.45rem; }
+.hotel-card__gallery { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: repeat(2, 1fr); gap: 0.6rem; aspect-ratio: 16 / 11; }
+.hg-img { background-size: cover; background-position: center; background-color: var(--sand-dark); border-radius: 3px; min-height: 90px; }
+.hg-lead { grid-row: 1 / 3; }
+@media (max-width: 820px) { .hotel-card { grid-template-columns: 1fr; } .hotel-card__gallery { aspect-ratio: 16 / 10; } }
 .hotel-card__city { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 700; }
 .hotel-card__name { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--charcoal); letter-spacing: -0.01em; }
 .hotel-card__room { font-size: 0.95rem; color: var(--warm-gray); line-height: 1.5; max-width: none; margin: 0.2rem 0 0.8rem; }
@@ -477,6 +486,43 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
 /* Single inclusions column centred (replaces the side-by-side .included-cols). */
 .included-single { max-width: 720px; margin: 0 auto; }
+
+/* At-a-glance: both tiers side by side, no toggle. */
+.glance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1000px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); align-items: start; }
+@media (max-width: 768px) { .glance-grid { grid-template-columns: 1fr; } }
+
+/* Optional add-ons section. */
+.addons-section { background: var(--sand); }
+.addons-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+.addon-item { background: var(--white); border: 1px solid var(--sand-dark); border-left: 3px solid var(--teal); border-radius: 3px; padding: 1.3rem 1.4rem; }
+.addon-item__name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.02rem; color: var(--charcoal); margin-bottom: 0.3rem; }
+.addon-item__sub { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.5; }
+.addon-item--feature { border-left-color: var(--gold); background: #fffdf8; }
+
+/* ShanQin Bay — private-access feature section (brochure-style). */
+.shanqin-section { position: relative; overflow: hidden; background: var(--charcoal); color: var(--white); }
+.shanqin-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.shanqin-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,37,69,0.72) 0%, rgba(8,20,36,0.9) 100%); }
+.shanqin-content { position: relative; z-index: 2; text-align: center; max-width: 760px; margin: 0 auto; padding-top: clamp(4rem, 7vw, 7rem); padding-bottom: clamp(4rem, 7vw, 7rem); }
+.shanqin-content h2 { color: var(--white); margin: 0.6rem 0 0.4rem; }
+.shanqin-tagline { font-family: 'Montserrat', sans-serif; color: var(--gold); font-size: clamp(1.1rem, 2.2vw, 1.5rem); font-weight: 600; font-style: italic; margin-bottom: 1.2rem; }
+.shanqin-copy { color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0 auto 2rem; }
+.shanqin-facts { display: flex; gap: clamp(1.5rem, 4vw, 3rem); justify-content: center; flex-wrap: wrap; margin: 0 auto 2.2rem; border-top: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); padding: 1.4rem 0; max-width: 620px; }
+.shanqin-facts > div { display: flex; flex-direction: column; gap: 0.3rem; }
+.shanqin-facts .k { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+.shanqin-facts .v { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.98rem; color: #fff; }
+
+/* Sticky price + quote bar (appears after scrolling past the at-a-glance). */
+.quote-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; background: var(--charcoal); color: var(--white); transform: translateY(110%); transition: transform 0.35s var(--transition); box-shadow: 0 -6px 24px rgba(0,0,0,0.18); }
+.quote-bar.show { transform: translateY(0); }
+.quote-bar__inner { max-width: 1100px; margin: 0 auto; padding: 0.75rem clamp(1rem, 4vw, 2rem); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.quote-bar__price { font-size: 0.92rem; line-height: 1.35; }
+.quote-bar__price strong { font-family: 'Montserrat', sans-serif; }
+.quote-bar__price .lux { color: var(--gold); }
+.quote-bar__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.quote-bar .btn { padding: 0.6rem 1.1rem; font-size: 0.8rem; }
+@media (max-width: 600px) { .quote-bar__inner { justify-content: center; text-align: center; } .quote-bar__price { width: 100%; } }
 </style>
 </head>
 <body>
@@ -529,70 +575,63 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <h1>The Surf &amp; Golf Retreat</h1>
     <p>PerfectSwell&reg; mornings. Three championship rounds. Two tiers.</p>
     <div class="hero-cta-row">
-      <a href="/#contact" class="btn btn-primary btn-arrow">Plan This Trip</a>
-      <a href="/#contact" class="btn btn-outline btn-arrow">Talk to Us</a>
+      <a href="#booking" class="btn btn-primary btn-arrow">See Pricing</a>
+      <a href="https://wa.me/8613893402173" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">Talk to Us</a>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ============ 2. CHOOSE YOUR LENGTH (TABBED) ============ -->
-<section class="stats-section">
+<!-- ============ 2. AT A GLANCE (both tiers, static side-by-side) ============ -->
+<section class="stats-section" id="at-a-glance">
   <div class="stats-lead">
-    <span class="overline" style="color: var(--teal);">Two Tiers</span>
-    <h2>Choose your length.</h2>
-    <p>Same anchor &mdash; PerfectSwell&reg; in the morning, championship golf in the afternoon. Pick the shape of the week.</p>
+    <span class="overline" style="color: var(--teal);">At a Glance</span>
+    <h2>The whole trip, at a glance.</h2>
+    <p>Two ways to do it &mdash; same anchor: PerfectSwell&reg; mornings and championship golf. Compare both below, then scroll for the full day-by-day, what&rsquo;s included, and optional add-ons.</p>
   </div>
 
-  <div class="tier-tabs tier-tabs-onDark" role="tablist" aria-label="Tier comparison">
-    <button type="button" class="tier-tab tier-tab-premium active" data-tier="premium" role="tab" aria-selected="true">Premium &middot; 7 Nights</button>
-    <button type="button" class="tier-tab tier-tab-luxury" data-tier="luxury" role="tab" aria-selected="false">Luxury &middot; 11 Nights</button>
-  </div>
+  <div class="glance-grid">
+    <article class="tier-card">
+      <div class="tier-card__eyebrow">Premium &middot; 7 Nights / 8 Days</div>
+      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Premium</h3>
+      <p class="tier-card__sub">2 cities &middot; Wanning + Haikou &middot; entry luxury</p>
+      <ul class="tier-card__stats">
+        <li><span class="label">Length</span><span class="value">7 nights / 8 days</span></li>
+        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+        <li><span class="label">Courses</span><span class="value">The Dunes &middot; Blackstone</span></li>
+        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Ritz-Carlton</span></li>
+        <li><span class="label">Transfer</span><span class="value">Premium Car</span></li>
+        <li><span class="label">Video</span><span class="value">2 &times; sessions</span></li>
+      </ul>
+      <div class="tier-card__price">
+        <div class="tier-card__from">From</div>
+        <div class="tier-card__amount">US$2,581</div>
+        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$5,162</div>
+      </div>
+      <a href="/?package=surf-golf-premium#contact" class="btn btn-primary btn-arrow" style="margin-top:1.4rem; width:100%; justify-content:center;">Request Premium Quote</a>
+    </article>
 
-  <div class="tier-compare-single">
-    <div class="tier-content active" data-tier="premium" role="tabpanel">
-      <article class="tier-card">
-        <div class="tier-card__eyebrow">Premium &middot; 7 Nights / 8 Days</div>
-        <h3 class="tier-card__title">Surf &amp; Golf &mdash; Premium</h3>
-        <p class="tier-card__sub">2 cities &middot; Wanning + Haikou &middot; entry luxury</p>
-        <ul class="tier-card__stats">
-          <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
-          <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
-          <li><span class="label">Courses</span><span class="value">The Dunes &middot; Blackstone</span></li>
-          <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Ritz-Carlton &middot; Premium Rooms</span></li>
-          <li><span class="label">Transfer</span><span class="value">Premium Car</span></li>
-          <li><span class="label">Transportation</span><span class="value">City Tour (Private Premium Car + English-Speaking Guide)</span></li>
-          <li><span class="label">Video</span><span class="value">2 &times; sessions</span></li>
-        </ul>
-        <div class="tier-card__price">
-          <div class="tier-card__from">From</div>
-          <div class="tier-card__amount">US$2,581</div>
-          <div class="tier-card__per">per person &middot; couple sharing &middot; total US$5,162</div>
-        </div>
-      </article>
-    </div>
-    <div class="tier-content" data-tier="luxury" role="tabpanel">
-      <article class="tier-card luxury">
-        <div class="tier-card__eyebrow">Luxury &middot; 11 Nights / 12 Days</div>
-        <h3 class="tier-card__title">Surf &amp; Golf &mdash; Luxury</h3>
-        <p class="tier-card__sub">3 cities &middot; Wanning + Sanya + Haikou &middot; suite-tier</p>
-        <ul class="tier-card__stats">
-          <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
-          <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
-          <li><span class="label">Courses</span><span class="value">Dunes &middot; Lu Hui Tou &middot; Blackstone</span></li>
-          <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Rosewood &middot; Ritz &middot; Signature Suites</span></li>
-          <li><span class="label">Transfer</span><span class="value">Executive Van</span></li>
-          <li><span class="label">Transportation</span><span class="value">City Tour (Private Executive Van + English-Speaking Guide)</span></li>
-          <li><span class="label">Yacht</span><span class="value">3-hour private charter</span></li>
-          <li><span class="label">Video</span><span class="value">4 &times; sessions + drone</span></li>
-        </ul>
-        <div class="tier-card__price">
-          <div class="tier-card__from">From</div>
-          <div class="tier-card__amount">US$5,578</div>
-          <div class="tier-card__per">per person &middot; couple sharing &middot; total US$11,156</div>
-        </div>
-      </article>
-    </div>
+    <article class="tier-card luxury">
+      <div class="tier-card__eyebrow">Luxury &middot; 11 Nights / 12 Days</div>
+      <h3 class="tier-card__title">Surf &amp; Golf &mdash; Luxury</h3>
+      <p class="tier-card__sub">3 cities &middot; Wanning + Sanya + Haikou &middot; suite-tier</p>
+      <ul class="tier-card__stats">
+        <li><span class="label">Length</span><span class="value">11 nights / 12 days</span></li>
+        <li><span class="label">Surf Sessions</span><span class="value">4 &times; PerfectSwell&reg;</span></li>
+        <li><span class="label">Golf Rounds</span><span class="value">3 &times; with caddy</span></li>
+        <li><span class="label">Courses</span><span class="value">Dunes &middot; Lu Hui Tou &middot; Blackstone</span></li>
+        <li><span class="label">Hotels</span><span class="value">Wave Pool &middot; Rosewood &middot; Ritz &middot; Suites</span></li>
+        <li><span class="label">Yacht</span><span class="value">3-hour private charter</span></li>
+        <li><span class="label">Video</span><span class="value">4 &times; sessions + drone</span></li>
+      </ul>
+      <div class="tier-card__price">
+        <div class="tier-card__from">From</div>
+        <div class="tier-card__amount">US$5,578</div>
+        <div class="tier-card__per">per person &middot; couple sharing &middot; total US$11,156</div>
+      </div>
+      <a href="/?package=surf-golf-luxury#contact" class="btn btn-arrow" style="margin-top:1.4rem; width:100%; justify-content:center; background:var(--gold); color:var(--charcoal); border:1px solid var(--gold);">Request Luxury Quote</a>
+    </article>
   </div>
 </section>
 
@@ -615,9 +654,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <section class="itin-section">
   <div class="container">
     <div class="itin-header">
-      <span class="overline">Sample Itinerary</span>
-      <h2>Pick the tier you want to see.</h2>
+      <span class="overline">Day by Day</span>
+      <h2>Your itinerary, fully built.</h2>
       <div class="section-divider-center"></div>
+      <p class="lead" style="margin:0 auto;">Every day planned end to end &mdash; arrival to departure. Switch tiers to see each day of the Premium 7-night or Luxury 11-night build.</p>
     </div>
 
     <div class="tier-tabs" role="tablist" aria-label="Itinerary tier">
@@ -702,7 +742,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="itin-card lux">
         <div class="itin-day">Day 05</div>
         <div class="itin-title">Wanning &rarr; Sanya</div>
-        <p>Morning surf session #4 &mdash; final waves at PerfectSwell&reg;. Afternoon charter Wanning &rarr; Sanya (~3 hr coastal highway). Check in to <strong>Rosewood Sanya</strong>, Deluxe Ocean View on Haitang Bay.</p>
+        <p>Morning surf session #4 &mdash; final waves at PerfectSwell&reg;. Afternoon charter Wanning &rarr; Sanya (~3 hr coastal highway). Check in to <strong>Rosewood Sanya</strong>, Deluxe Ocean View on Haitang Bay &mdash; in a city that now holds its own Michelin Guide.</p>
       </div>
       <div class="itin-card lux">
         <div class="itin-day">Day 06</div>
@@ -873,7 +913,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         </div>
       </section>
       <div class="course-card__body">
-        <div class="course-card__hero" style="background-image:url('/Assets/brochure/golf-lu-hui-tou/luhuitou-01.png');"></div>
+        <div class="course-card__hero" style="background-image:url('/Assets/brochure/golf-lu-hui-tou/luhuitou-01.jpg');"></div>
         <div class="course-card__detail">
           <p class="course-card__lede">Sanya&rsquo;s headland course &mdash; sea on one side, mountain on the other.</p>
           <p class="course-card__copy">Eighteen holes draped across the Lu Hui Tou peninsula, between the South China Sea and the green mountain ridge. Nelson &amp; Haworth routed the course in 2009 with elevation changes that give every approach a different angle. Pair the round with an evening at Rosewood and the polished Sanya day arranges itself.</p>
@@ -890,6 +930,26 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   </div>
 </section>
 
+<!-- ============ 6b. SHANQIN BAY — PRIVATE ACCESS ============ -->
+<section class="shanqin-section">
+  <div class="shanqin-bg" style="background-image:url('/Assets/brochure/golf-shanqin-bay/shanqin-01.jpg');"></div>
+  <div class="shanqin-overlay"></div>
+  <div class="container">
+    <div class="shanqin-content">
+      <span class="overline" style="color:var(--gold);">Private Access &middot; By Inquiry</span>
+      <h2>ShanQin Bay Golf Club</h2>
+      <p class="shanqin-tagline">The most exclusive golf club in China.</p>
+      <p class="shanqin-copy">Lingshui &mdash; a Coore &amp; Crenshaw links tracing the cliffs above the South China Sea, and one of the most coveted rounds in Asia. There is no public tee sheet and no booking page: the club is not open to the public. We hold internal access channels and can arrange a round for select trips.</p>
+      <div class="shanqin-facts">
+        <div><span class="k">Designer</span><span class="v">Coore &amp; Crenshaw</span></div>
+        <div><span class="k">Location</span><span class="v">Lingshui, Hainan</span></div>
+        <div><span class="k">Access</span><span class="v">Invitation only</span></div>
+      </div>
+      <a href="/?package=surf-golf-luxury#contact" class="btn btn-arrow" style="background:var(--gold); color:var(--charcoal); border:1px solid var(--gold);">Ask Us About ShanQin Bay</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 7. HOTELS ============ -->
 <section class="hotels-section">
   <div class="container">
@@ -901,38 +961,50 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     </div>
     <div class="hotels-grid">
       <article class="hotel-card">
-        <div class="hotel-card__img" style="background-image:url('/Assets/brochure/wavepool-resort/wp-resort-01.jpg');"></div>
-        <div class="hotel-card__body">
+        <div class="hotel-card__text">
           <div class="hotel-card__city">Wanning</div>
           <div class="hotel-card__name">Wave Pool Resort</div>
-          <p class="hotel-card__room">Ocean &amp; Pool View Room (Premium) &middot; Owner&rsquo;s Suite (Luxury). Steps from PerfectSwell&reg;, balconies overlooking the lineup.</p>
+          <p class="hotel-card__room">Ocean &amp; Pool View Room (Premium) &middot; Owner&rsquo;s Suite (Luxury). The resort&rsquo;s top suites on the world&rsquo;s only tropical-island wave pool &mdash; balconies over the PerfectSwell&reg; lineup. Daily breakfast included.</p>
           <div class="hotel-card__tags">
             <span class="hotel-card__tag">Premium</span>
             <span class="hotel-card__tag gold">Luxury</span>
           </div>
         </div>
+        <div class="hotel-card__gallery">
+          <div class="hg-img hg-lead" style="background-image:url('/Assets/brochure/wavepool-resort/owners-suite/suite-01.jpeg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/wavepool-resort/owners-suite/suite-02.jpeg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/wavepool-resort/owners-suite/suite-03.jpeg');"></div>
+        </div>
       </article>
       <article class="hotel-card">
-        <div class="hotel-card__img" style="background-image:url('/Assets/brochure/rosewood-sanya/rosewood-01.jpg');"></div>
-        <div class="hotel-card__body">
+        <div class="hotel-card__text">
           <div class="hotel-card__city">Sanya &middot; Haitang Bay</div>
           <div class="hotel-card__name">Rosewood Sanya</div>
-          <p class="hotel-card__room">Deluxe Ocean View Room &middot; direct beachfront on Haitang Bay. The polished centre of the Luxury Sanya leg.</p>
+          <p class="hotel-card__room">Deluxe Ocean View Room &middot; direct beachfront on Haitang Bay. Rosewood&rsquo;s flagship China resort &mdash; ocean-view rooms, pools, and spa. The polished centre of the Luxury Sanya leg. Daily breakfast included.</p>
           <div class="hotel-card__tags">
             <span class="hotel-card__tag gold">Luxury Only</span>
           </div>
         </div>
+        <div class="hotel-card__gallery">
+          <div class="hg-img hg-lead" style="background-image:url('/Assets/brochure/rosewood-sanya/rosewood-01.jpg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/rosewood-sanya/rosewood-02.jpg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/rosewood-sanya/rosewood-03.jpg');"></div>
+        </div>
       </article>
       <article class="hotel-card">
-        <div class="hotel-card__img" style="background-image:url('/Assets/brochure/ritz-carlton-haikou/ritz-01.jpg');"></div>
-        <div class="hotel-card__body">
+        <div class="hotel-card__text">
           <div class="hotel-card__city">Haikou &middot; Mission Hills</div>
-          <div class="hotel-card__name">Ritz-Carlton Haikou</div>
-          <p class="hotel-card__room">Deluxe Golf Ocean View Room (Premium) &middot; Golf Suite (Luxury). Inside Mission Hills &mdash; on-property for the Blackstone round.</p>
+          <div class="hotel-card__name">The Ritz-Carlton, Haikou</div>
+          <p class="hotel-card__room">Deluxe Golf Ocean View Room (Premium) &middot; Golf Suite (Luxury). A suite inside the Mission Hills estate &mdash; minutes from Blackstone, with the Volcanic Mineral Springs and the estate&rsquo;s restaurants on the doorstep. Daily breakfast included.</p>
           <div class="hotel-card__tags">
             <span class="hotel-card__tag">Premium</span>
             <span class="hotel-card__tag gold">Luxury</span>
           </div>
+        </div>
+        <div class="hotel-card__gallery">
+          <div class="hg-img hg-lead" style="background-image:url('/Assets/brochure/ritz-carlton-haikou/ritz-01.jpg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/ritz-carlton-haikou/ritz-02.jpg');"></div>
+          <div class="hg-img" style="background-image:url('/Assets/brochure/ritz-carlton-haikou/ritz-03.jpg');"></div>
         </div>
       </article>
     </div>
@@ -1018,16 +1090,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           <div class="tile__eyebrow">Add-on</div>
           <div class="tile__title">Mission Hills Hot Spring</div>
           <div class="tile__sub">Haikou &middot; half-day &middot; on-property recovery</div>
-        </div>
-      </div>
-
-      <!-- Feature tile — Private Access -->
-      <div class="tile tile--feature">
-        <img src="/Assets/brochure/golf-shanqin-bay/shanqin-01.jpg" alt="ShanQin Bay Golf Club — Coore & Crenshaw, Hainan">
-        <div class="tile__overlay">
-          <div class="tile__eyebrow">Private Access &middot; By Inquiry</div>
-          <div class="tile__title">ShanQin Bay Golf Club</div>
-          <div class="tile__sub">Lingshui &middot; Coore &amp; Crenshaw &middot; Not open to the public &mdash; we hold internal access channels for select trips.</div>
         </div>
       </div>
 
@@ -1118,6 +1180,29 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   </div>
 </section>
 
+<!-- ============ 11a. OPTIONAL ADD-ONS ============ -->
+<section class="addons-section">
+  <div class="container">
+    <div class="addons-header">
+      <span class="overline">Optional Add-Ons</span>
+      <h2>Make it yours.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin:0 auto;">Everything below sits on top of your package &mdash; add any of it to your quote. All priced on request, built into your final number before you book.</p>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-item"><div class="addon-item__name">Extra surf sessions</div><div class="addon-item__sub">More PerfectSwell&reg; time, any level &middot; per session</div></div>
+      <div class="addon-item"><div class="addon-item__name">Extra golf rounds</div><div class="addon-item__sub">Hainan has 40+ courses &middot; add rounds anywhere</div></div>
+      <div class="addon-item"><div class="addon-item__name">Golf club rental</div><div class="addon-item__sub">Full sets at every course &mdash; or we transport your own</div></div>
+      <div class="addon-item"><div class="addon-item__name">Suite &amp; room upgrades</div><div class="addon-item__sub">Owner&rsquo;s Suite, Golf Suite, ocean-front categories</div></div>
+      <div class="addon-item"><div class="addon-item__name">Extra photo &amp; drone</div><div class="addon-item__sub">More coverage across surf and golf days</div></div>
+      <div class="addon-item"><div class="addon-item__name">Private yacht charter</div><div class="addon-item__sub">3 hours, Sanya &middot; included on Luxury, add to Premium</div></div>
+      <div class="addon-item"><div class="addon-item__name">Sanya culture &amp; nature days</div><div class="addon-item__sub">Yalong Bay Forest Park &middot; Nanshan Guanyin &middot; Atlantis underwater dinner</div></div>
+      <div class="addon-item"><div class="addon-item__name">Mission Hills Hot Spring</div><div class="addon-item__sub">Haikou &middot; half-day on-property recovery</div></div>
+      <div class="addon-item"><div class="addon-item__name">Private Pool Buyout &mdash; Master Wave</div><div class="addon-item__sub">Luxury &middot; 1 hr of 大师浪, the pool to yourselves</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 11b. WHY US / TRUST PILLARS ============ -->
 <section class="trust-section">
   <div class="container">
@@ -1130,7 +1215,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="trust-pillar">
         <div class="trust-pillar__num">&middot; 01 &middot;</div>
         <h3>30-Day Visa-Free</h3>
-        <p>Hainan is visa-free for visitors from 59 countries for up to 30 days. Just book and arrive &mdash; no embassy paperwork, no consulate visits, no application fees.</p>
+        <p>Travelers from 86 countries can now enter Hainan visa-free &mdash; for most, up to 30 days. Just book and arrive &mdash; no embassy paperwork, no consulate visits, no application fees.</p>
       </div>
       <div class="trust-pillar">
         <div class="trust-pillar__num">&middot; 02 &middot;</div>
@@ -1154,19 +1239,19 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ 12. INVESTMENT ============ -->
 <section class="invest-section" id="booking">
   <div class="container-narrow">
-    <span class="overline">Investment</span>
-    <h2>Pricing.</h2>
+    <span class="overline">Pricing</span>
+    <h2>What it costs.</h2>
     <div class="section-divider-center"></div>
     <p class="lead">From <strong>US$2,581 / person</strong> on Premium &middot; <strong>US$5,578 / person</strong> on Luxury.</p>
 
     <div class="price-cards" style="grid-template-columns: 1fr 1fr; max-width: 760px;">
-      <div class="price-card featured">
+      <div class="price-card price-card--premium">
         <h4>Premium &middot; 7N / 8D</h4>
         <div class="price-amount">US$2,581</div>
         <div class="price-amount-sub">Per Person &middot; Couple Sharing</div>
         <p>List rate US$2,868 &middot; 10% New Opening promo applied. Couple total US$5,162. 5N Wanning + 2N Haikou, 4 PerfectSwell&reg; sessions, 3 rounds (Dunes &times;2 + Blackstone), photo coverage, all transfers.</p>
       </div>
-      <div class="price-card featured">
+      <div class="price-card price-card--luxury">
         <h4>Luxury &middot; 11N / 12D</h4>
         <div class="price-amount">US$5,578</div>
         <div class="price-amount-sub">Per Person &middot; Couple Sharing</div>
@@ -1178,7 +1263,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
     <p class="price-note">Optional add-ons (priced on request): extra surf sessions &middot; extra golf rounds &middot; suite upgrades &middot; additional photo/drone &middot; (Luxury) Private Pool Buyout &mdash; 1hr Master Wave.</p>
 
-    <a href="/#contact" class="btn btn-primary btn-arrow">Reserve a Spot</a>
+    <p class="price-note" style="font-weight:600; color:var(--charcoal);">Ready to go ahead? Pick your tier and we&rsquo;ll send your exact quote within 24&ndash;48 hours.</p>
+    <div style="display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem;">
+      <a href="/?package=surf-golf-premium#contact" class="btn btn-primary btn-arrow">Request Premium Quote</a>
+      <a href="/?package=surf-golf-luxury#contact" class="btn btn-outline-dark btn-arrow">Request Luxury Quote</a>
+    </div>
   </div>
 </section>
 
@@ -1232,7 +1321,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <a href="https://wa.me/8613893402173" target="_blank" rel="noopener" class="btn btn-outline btn-arrow">WhatsApp Us</a>
     </div>
     <div class="final-cta-contact">
-      <a href="mailto:surfchinaco@gmail.com">surfchinaco@gmail.com</a> &nbsp;&middot;&nbsp; WhatsApp: <a href="https://wa.me/8613893402173" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.85);">+86 138 9340 2173</a> &nbsp;&middot;&nbsp; <a href="https://www.instagram.com/surfchina.co" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.85);">@surfchina.co</a>
+      <a href="mailto:hello@surfchina.co">hello@surfchina.co</a> &nbsp;&middot;&nbsp; WhatsApp: <a href="https://wa.me/8613893402173" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.85);">+86 138 9340 2173</a> &nbsp;&middot;&nbsp; <a href="https://www.instagram.com/surfchina.co" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.85);">@surfchina.co</a>
     </div>
   </div>
 </section>
@@ -1244,7 +1333,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <div style="display: flex; gap: 1.5rem;">
       <a href="/">Home</a>
       <a href="/#packages">All Packages</a>
-      <a href="mailto:surfchinaco@gmail.com">Contact</a>
+      <a href="mailto:hello@surfchina.co">Contact</a>
     </div>
   </div>
 </footer>
@@ -1291,7 +1380,43 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       });
     });
   })();
+
+  // Sticky price/quote bar: reveal once the user scrolls past the at-a-glance, hide near the footer CTA.
+  // Deferred to DOMContentLoaded because the #quoteBar markup sits after this script in the body.
+  (function initQuoteBar() {
+    function setup() {
+      const bar = document.getElementById('quoteBar');
+      const glance = document.getElementById('at-a-glance');
+      const finalCta = document.querySelector('.final-cta');
+      if (!bar || !glance) return;
+      const onScroll = () => {
+        const pastGlance = (glance.getBoundingClientRect().bottom < 0);
+        const atFooter = finalCta ? (finalCta.getBoundingClientRect().top < window.innerHeight) : false;
+        bar.classList.toggle('show', pastGlance && !atFooter);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+  })();
 </script>
+
+<!-- Sticky price + quote bar -->
+<div class="quote-bar" id="quoteBar" aria-hidden="false">
+  <div class="quote-bar__inner">
+    <div class="quote-bar__price">
+      <strong>Surf &amp; Golf Retreat</strong> &middot; Premium from <strong>US$2,581</strong>/pp &middot; <span class="lux">Luxury from <strong>US$5,578</strong>/pp</span>
+    </div>
+    <div class="quote-bar__actions">
+      <a href="/?package=surf-golf-premium#contact" class="btn btn-primary btn-arrow">Premium Quote</a>
+      <a href="/?package=surf-golf-luxury#contact" class="btn btn-arrow" style="background:var(--gold); color:var(--charcoal); border:1px solid var(--gold);">Luxury Quote</a>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

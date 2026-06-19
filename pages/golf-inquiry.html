@@ -416,9 +416,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <img src="/Assets/golf/IMG_7781%204.jpg" alt="Hainan golf — exclusive course">
   </div>
   <div class="page-hero-content">
-    <span class="overline">Pure Golf Trip Inquiry</span>
+    <span class="overline">Pure Golf Trip Quote</span>
     <h1>Play China's Most<br>Exclusive Golf Courses.</h1>
-    <p>Mission Hills, The Dunes, Shanqin Bay, and Lu Hui Tou &mdash; Hainan's championship fairways across one tropical island. Tell us your handicap and dates and we'll handle the rest.</p>
+    <p>Mission Hills, The Dunes, Shanqin Bay, and Lu Hui Tou &mdash; Hainan's championship fairways across one tropical island. <a href="golf.html" style="color:var(--gold); text-decoration:underline;">See the full course lineup first</a>, then tell us your courses, handicap, and dates &mdash; we&rsquo;ll send your tailored quote within 24&ndash;48 hours.</p>
   </div>
 </section>
 
@@ -434,7 +434,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <p style="color: var(--warm-gray); margin-bottom: 0.4rem;">For pure golf trips, no surf required. If you're after a combined surf &amp; golf itinerary, <a href="/#contact" style="color: var(--teal); border-bottom: 1px solid var(--teal); text-decoration: none;">use the main inquiry form</a> instead.</p>
 
         <form id="golfForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="New Golf Trip Inquiry — surfchina.co">
+          <input type="hidden" name="_subject" value="New Golf Quote Request — surfchina.co">
           <input type="hidden" name="inquiry_type" value="Pure Golf Trip">
 
           <div class="form-row">
@@ -603,7 +603,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
           <div id="formError" class="form-error" role="alert" hidden></div>
           <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
-          <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Golf Inquiry </button>
+          <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Golf Quote </button>
         </form>
       </div>
 
@@ -617,7 +617,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           </div>
           <div class="aside-row">
             <p class="aside-label">Email</p>
-            <p><a href="mailto:surfchinaco@gmail.com">surfchinaco@gmail.com</a></p>
+            <p><a href="mailto:hello@surfchina.co">hello@surfchina.co</a></p>
           </div>
           <div class="aside-row">
             <p class="aside-label">Instagram</p>
@@ -657,7 +657,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <a href="/">Home</a>
       <a href="/#packages">All Packages</a>
       <a href="golf.html">Golf</a>
-      <a href="mailto:surfchinaco@gmail.com">Contact</a>
+      <a href="mailto:hello@surfchina.co">Contact</a>
     </div>
   </div>
 </footer>
@@ -920,7 +920,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         lines.join('\n') +
         '\n\nLooking forward to hearing from you.';
 
-      const mailto = 'mailto:surfchinaco@gmail.com'
+      const mailto = 'mailto:hello@surfchina.co'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
 
@@ -975,7 +975,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           status.style.display = 'block';
         }
       } else {
-        let msg = 'Something went wrong. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+        let msg = 'Something went wrong. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
         try {
           const data = await res.json();
           if (data && data.errors && data.errors.length) { msg = data.errors.map(x => x.message).join(' '); }
@@ -984,7 +984,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         else { alert(msg); }
       }
     } catch (err) {
-      const msg = 'Network error. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+      const msg = 'Network error. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
       if (status) { status.textContent = msg; status.style.color = '#b00020'; status.style.display = 'block'; }
       else { alert(msg); }
     } finally {

@@ -3805,9 +3805,9 @@ footer::before {
       </picture>
     </div>
     <div class="container page-hero-content">
-      <span class="overline" style="color:var(--gold);">Contact</span>
-      <h1>Start planning<br>your trip.</h1>
-      <p>Fill out the form and we&rsquo;ll respond with personalized trip options.</p>
+      <span class="overline" style="color:var(--gold);">Get Your Quote</span>
+      <h1>Ready to book?<br>Let&rsquo;s build your quote.</h1>
+      <p>You&rsquo;ve seen the packages, the day-by-day, and the pricing. When you&rsquo;re ready to go ahead, tell us your dates and group &mdash; we&rsquo;ll send an exact quote, tailored to any customizations you need, within 24&ndash;48 hours.</p>
     </div>
   </section>
 
@@ -3815,10 +3815,10 @@ footer::before {
     <div class="container">
       <div class="contact-grid">
         <div>
-          <h2>Trip Inquiry</h2>
+          <h2>Request a Quote</h2>
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
-            <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
+            <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
             <div class="package-options" style="margin-bottom:1.5rem;">
               <a href="pages/golf-inquiry.html" class="package-option package-option-link">
                 <div class="package-option-body">
@@ -3845,12 +3845,11 @@ footer::before {
               <input type="email" name="email" placeholder="your@email.com" required>
             </div>
             <div class="form-group form-group-lg">
-              <label>Interested In Which Package?</label>
-              <p class="form-help">Not sure what&rsquo;s in each? <a href="#" onclick="showPage('packages'); return false;">See the full package details</a>.</p>
-              <p class="form-help">Just pick one. Prices below are per-person estimates on a couple share.</p>
+              <label>Which Package Are You Booking?</label>
+              <p class="form-help">Pick the one you&rsquo;re ready to go ahead with. Want to review the full details, itinerary, and inclusions first? <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
               <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)">
+                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-package-key="wave-pool">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">3 nights+</span> &middot; The Wave Pool Escape</span>
@@ -3861,7 +3860,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)">
+                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)" data-package-key="surf-explore">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Explore</span>
@@ -3872,7 +3871,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-package-key="surf-golf-premium">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-premium">Premium</span></span>
@@ -3883,7 +3882,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-package-key="surf-golf-luxury">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">11 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-luxury">Luxury</span></span>
@@ -3894,7 +3893,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Custom Trip">
+                  <input type="checkbox" name="interested_in" value="Custom Trip" data-package-key="custom">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name">Custom Trip</span>
@@ -3928,6 +3927,10 @@ footer::before {
             </div>
             <div class="form-row">
               <div class="form-group">
+                <label>How Many Nights?</label>
+                <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" required>
+              </div>
+              <div class="form-group">
                 <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
                 <select name="surf_level">
                   <option value="">Select if you&rsquo;d like&hellip;</option>
@@ -3944,7 +3947,7 @@ footer::before {
             </div>
             <div id="formError" class="form-error" role="alert" hidden></div>
             <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
-            <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Trip Inquiry </button>
+            <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Quote </button>
           </form>
         </div>
         <div style="padding-left:2rem;">
@@ -3956,7 +3959,7 @@ footer::before {
             </div>
             <div style="margin-bottom:1.5rem;">
               <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Email</p>
-              <p style="font-size:0.95rem;"><a href="mailto:surfchinaco@gmail.com" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--teal);">surfchinaco@gmail.com</a></p>
+              <p style="font-size:0.95rem;"><a href="mailto:hello@surfchina.co" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--teal);">hello@surfchina.co</a></p>
             </div>
             <div style="margin-bottom:1.5rem;">
               <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Instagram</p>
@@ -3971,11 +3974,11 @@ footer::before {
             <h3 style="color:var(--white); margin-bottom:1rem;">What Happens Next?</h3>
             <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
               <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">1</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">You send us your inquiry with dates and preferences.</p>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">You send your dates, group size, and the package you want to book.</p>
             </div>
             <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
               <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">2</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We design a personalized trip proposal within 24&ndash;48 hours.</p>
+              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We send your exact quote &mdash; with any customizations &mdash; within 24&ndash;48 hours.</p>
             </div>
             <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
               <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">3</span>
@@ -4032,7 +4035,7 @@ footer::before {
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:surfchinaco@gmail.com">surfchinaco@gmail.com</a>
+        <a href="mailto:hello@surfchina.co">hello@surfchina.co</a>
         <a href="https://wa.me/8613893402173" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://www.instagram.com/surfchina.co" target="_blank" rel="noopener">Instagram</a>
       </div>
@@ -4358,6 +4361,16 @@ function validateInquiryForm(form) {
     missing.push('A trip start date (or tick “I’m not sure yet”)');
     errorFields.push(document.getElementById('datePicker'));
   }
+  const nights = form.querySelector('[name="num_nights"]');
+  if (nights) {
+    if (!nights.value.trim()) {
+      missing.push('How many nights');
+      errorFields.push(nights.closest('.form-group'));
+    } else if (!(Number(nights.value) >= 1)) {
+      missing.push('A valid number of nights');
+      errorFields.push(nights.closest('.form-group'));
+    }
+  }
   return { missing, errorFields };
 }
 
@@ -4412,6 +4425,7 @@ function openInquiryMailDraft(form) {
       last_name: 'Last name',
       email: 'Email',
       trip_start_date: 'Trip start date',
+      num_nights: 'Number of nights',
       group_size: 'Group size',
       surf_level: 'Surf level',
       message: 'Notes'
@@ -4437,7 +4451,7 @@ function openInquiryMailDraft(form) {
       lines.join('\n') +
       '\n\nLooking forward to hearing from you.';
 
-    const mailto = 'mailto:surfchinaco@gmail.com'
+    const mailto = 'mailto:hello@surfchina.co'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(body);
 
@@ -4494,7 +4508,7 @@ async function handleSubmit(e) {
         status.style.display = 'block';
       }
     } else {
-      let msg = 'Something went wrong. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+      let msg = 'Something went wrong. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
       try {
         const data = await res.json();
         if (data && data.errors && data.errors.length) { msg = data.errors.map(x => x.message).join(' '); }
@@ -4506,7 +4520,7 @@ async function handleSubmit(e) {
       } else { alert(msg); }
     }
   } catch (err) {
-    const msg = 'Network error. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+    const msg = 'Network error. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
     if (status) {
       status.textContent = msg;
       status.style.color = '#b00020';
@@ -4530,6 +4544,33 @@ async function handleSubmit(e) {
   if (initialPage !== 'home') {
     // Show the requested page without pushing a new entry (we just replaced the existing one).
     showPage(initialPage, true);
+  }
+})();
+
+// Pre-select a package on the quote form when arriving from a package page with
+// ?package=<key> (e.g. /?package=surf-golf-premium#contact). Lets a visitor who has
+// already read the full package details land on a ready-to-book quote request with the
+// right package already chosen.
+(function () {
+  function preselectPackage() {
+    var key;
+    try { key = new URLSearchParams(window.location.search).get('package'); } catch (e) { return; }
+    if (!key) return;
+    var box = document.querySelector('#contactForm input[data-package-key="' + key.replace(/[^a-z0-9-]/gi, '') + '"]');
+    if (!box) return;
+    box.checked = true;
+    // The selected-state highlight is pure CSS (:has(input:checked)); firing change
+    // keeps the single-select handler in sync.
+    box.dispatchEvent(new Event('change', { bubbles: true }));
+    // Make sure the contact page is showing, then bring the form into view.
+    if (document.getElementById('page-contact')) showPage('contact', true);
+    var form = document.getElementById('contactForm');
+    if (form) setTimeout(function () { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', preselectPackage);
+  } else {
+    preselectPackage();
   }
 })();
 

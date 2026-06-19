@@ -13,8 +13,8 @@
   gtag('config', 'G-8F2F546QPF');
 </script>
 
-<title>Plan Your Hainan Surf Trip — Trip Inquiry | Surf China Co.</title>
-<meta name="description" content="Start planning your Hainan surf trip. Pick a package — Wave Pool Escape, Surf & Explore, or the Surf & Golf Retreat — tell us your dates, and we'll send back personalized trip options within 24–48 hours.">
+<title>Request a Quote — Hainan Surf Trip | Surf China Co.</title>
+<meta name="description" content="Ready to book your Hainan surf trip? Pick your package — Wave Pool Escape, Surf & Explore, or the Surf & Golf Retreat — send your dates and group, and we'll send your exact quote within 24–48 hours.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/pages/inquiry.html">
@@ -528,9 +528,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     </picture>
   </div>
   <div class="page-hero-content">
-    <span class="overline">Contact</span>
-    <h1>Start planning<br>your trip.</h1>
-    <p>Fill out the form and we&rsquo;ll respond with personalized trip options.</p>
+    <span class="overline">Get Your Quote</span>
+    <h1>Ready to book?<br>Let&rsquo;s build your quote.</h1>
+    <p>You&rsquo;ve seen the packages, the day-by-day, and the pricing. When you&rsquo;re ready to go ahead, tell us your dates and group &mdash; we&rsquo;ll send an exact quote, tailored to any customizations you need, within 24&ndash;48 hours.</p>
   </div>
 </section>
 
@@ -541,11 +541,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
       <!-- LEFT: Form -->
       <div>
-        <h2>Trip Inquiry</h2>
+        <h2>Request a Quote</h2>
         <div class="section-divider"></div>
 
         <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="New Trip Inquiry — surfchina.co">
+          <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
 
           <div class="form-row">
             <div class="form-group">
@@ -564,9 +564,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           </div>
 
           <div class="form-group form-group-lg">
-            <label>Interested In Which Package?</label>
-            <p class="form-help">Not sure what&rsquo;s in each? <a href="/#packages">See the full package details</a>.</p>
-            <p class="form-help">Just pick one. Prices below are per-person estimates on a couple share.</p>
+            <label>Which Package Are You Booking?</label>
+            <p class="form-help">Pick the one you&rsquo;re ready to go ahead with. Want to review the full details, itinerary, and inclusions first? <a href="/#packages">See all packages</a>.</p>
             <div class="package-options">
               <label class="package-option">
                 <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)">
@@ -658,6 +657,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
           <div class="form-row">
             <div class="form-group">
+              <label>How Many Nights?</label>
+              <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" required>
+            </div>
+            <div class="form-group">
               <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
               <select name="surf_level">
                 <option value="">Select if you&rsquo;d like&hellip;</option>
@@ -676,7 +679,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
           <div id="formError" class="form-error" role="alert" hidden></div>
           <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
-          <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Send Trip Inquiry </button>
+          <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Quote </button>
         </form>
       </div>
 
@@ -690,7 +693,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           </div>
           <div class="aside-row">
             <p class="aside-label">Email</p>
-            <p><a href="mailto:surfchinaco@gmail.com">surfchinaco@gmail.com</a></p>
+            <p><a href="mailto:hello@surfchina.co">hello@surfchina.co</a></p>
           </div>
           <div class="aside-row">
             <p class="aside-label">Instagram</p>
@@ -738,7 +741,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <a href="/">Home</a>
       <a href="/#packages">All Packages</a>
       <a href="golf.html">Golf</a>
-      <a href="mailto:surfchinaco@gmail.com">Contact</a>
+      <a href="mailto:hello@surfchina.co">Contact</a>
     </div>
   </div>
 </footer>
@@ -924,6 +927,16 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       missing.push('A trip start date (or tick “I’m not sure yet”)');
       errorFields.push(document.getElementById('datePicker'));
     }
+    const nights = form.querySelector('[name="num_nights"]');
+    if (nights) {
+      if (!nights.value.trim()) {
+        missing.push('How many nights');
+        errorFields.push(nights.closest('.form-group'));
+      } else if (!(Number(nights.value) >= 1)) {
+        missing.push('A valid number of nights');
+        errorFields.push(nights.closest('.form-group'));
+      }
+    }
     return { missing, errorFields };
   }
 
@@ -1004,7 +1017,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           status.style.display = 'block';
         }
       } else {
-        let msg = 'Something went wrong. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+        let msg = 'Something went wrong. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
         try {
           const data = await res.json();
           if (data && data.errors && data.errors.length) { msg = data.errors.map(x => x.message).join(' '); }
@@ -1013,7 +1026,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         else { alert(msg); }
       }
     } catch (err) {
-      const msg = 'Network error. Please email surfchinaco@gmail.com or WhatsApp +86 138 9340 2173.';
+      const msg = 'Network error. Please email hello@surfchina.co or WhatsApp +86 138 9340 2173.';
       if (status) { status.textContent = msg; status.style.color = '#b00020'; status.style.display = 'block'; }
       else { alert(msg); }
     } finally {
