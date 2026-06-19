@@ -12,6 +12,41 @@
       "source": "/luxury-11nights",
       "destination": "/Assets/brochures/luxury-11nights.pdf",
       "permanent": false
+    },
+    {
+      "source": "/surf-and-golf-premium",
+      "destination": "/Assets/brochures/surf-and-golf-premium.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/surf-and-golf-luxury",
+      "destination": "/Assets/brochures/surf-and-golf-luxury.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/surf-and-explore",
+      "destination": "/Assets/brochures/surf-and-explore.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/package-3-the-surf-and-golf-retreat.html",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/pages/package-3-the-surf-and-golf-retreat.html",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/package-2-the-hainan-surf-and-explore.html",
+      "destination": "/#packages",
+      "permanent": true
+    },
+    {
+      "source": "/pages/package-2-the-hainan-surf-and-explore.html",
+      "destination": "/#packages",
+      "permanent": true
     }
   ]
 }
