@@ -795,6 +795,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
 
 /* Slightly larger form group for the prominent Interested-In question */
 .form-group-lg label { font-size: 0.85rem; margin-bottom: 0.55rem; }
@@ -3926,21 +3927,25 @@ footer::before {
                 </div>
               </div>
               <div class="form-group">
-                <label>Group Size</label>
-                <select name="group_size">
-                  <option>Solo</option>
-                  <option>Couple (2)</option>
-                  <option>Small group (3-5)</option>
-                  <option>Large group (6+)</option>
-                  <option>Family with kids</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
                 <label>How Many Nights?</label>
                 <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" required>
               </div>
+            </div>
+            <div class="form-row form-row-3">
+              <div class="form-group">
+                <label>Adults</label>
+                <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" placeholder="e.g. 2" required>
+              </div>
+              <div class="form-group">
+                <label>Children</label>
+                <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" placeholder="0">
+              </div>
+              <div class="form-group">
+                <label>Rooms</label>
+                <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" placeholder="e.g. 1" required>
+              </div>
+            </div>
+            <div class="form-row">
               <div class="form-group">
                 <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
                 <select name="surf_level">
@@ -4382,6 +4387,20 @@ function validateInquiryForm(form) {
       errorFields.push(nights.closest('.form-group'));
     }
   }
+  const adults = form.querySelector('[name="adults"]');
+  if (adults) {
+    if (!adults.value.trim() || !(Number(adults.value) >= 1)) {
+      missing.push('Number of adults');
+      errorFields.push(adults.closest('.form-group'));
+    }
+  }
+  const rooms = form.querySelector('[name="rooms"]');
+  if (rooms) {
+    if (!rooms.value.trim() || !(Number(rooms.value) >= 1)) {
+      missing.push('Number of rooms');
+      errorFields.push(rooms.closest('.form-group'));
+    }
+  }
   return { missing, errorFields };
 }
 
@@ -4437,7 +4456,9 @@ function openInquiryMailDraft(form) {
       email: 'Email',
       trip_start_date: 'Trip start date',
       num_nights: 'Number of nights',
-      group_size: 'Group size',
+      adults: 'Adults',
+      children: 'Children',
+      rooms: 'Rooms',
       surf_level: 'Surf level',
       message: 'Notes'
     };
