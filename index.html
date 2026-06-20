@@ -781,6 +781,7 @@ nav.scrolled { padding: 0.7rem 0; }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+.contact-aside { padding-left: 2rem; }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
   display: block; font-size: 0.8rem; font-weight: 500;
@@ -1271,6 +1272,7 @@ footer::before {
   .intro-grid, .packages-grid, .explore-grid, .wave-types-grid,
   .why-grid, .contact-grid, .plan-grid, .natural-surf-inner,
   .reassurance-pillars { grid-template-columns: 1fr; }
+  .contact-aside { padding-left: 0; }
   .facilities-grid, .audience-grid { grid-template-columns: 1fr 1fr; }
   /* Gallery — horizontal swipe carousel on mobile */
   .gallery-strip {
@@ -3959,7 +3961,7 @@ footer::before {
             <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Quote </button>
           </form>
         </div>
-        <div style="padding-left:2rem;">
+        <div class="contact-aside">
           <div style="background:var(--sand); padding:2.5rem; border-radius:3px; margin-bottom:2rem;">
             <h3 style="margin-bottom:1.5rem;">Other Ways to Reach Us</h3>
             <div style="margin-bottom:1.5rem;">
