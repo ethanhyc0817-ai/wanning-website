@@ -312,7 +312,7 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .course-row.reverse .course-row-grid { grid-template-columns: 1fr 1.05fr; }
 .course-row.reverse .course-row-img { order: 2; }
-.course-row-img { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 3px; background: var(--sand-dark); }
+.course-row-img { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 3px; background: var(--sand-dark); position: relative; }
 .course-row-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--transition); }
 .course-row-img:hover img { transform: scale(1.04); }
 .course-tag { display: inline-block; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
@@ -404,6 +404,40 @@ nav.scrolled { padding: 0.7rem 0; }
 @media (max-width: 880px) {
   .shanqin-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+/* ======= COURSE IMAGE CAROUSEL (swipeable slider, ported from Golf China) ======= */
+.course-row-img.gal, .shanqin-img.gal { position: relative; }
+.gal img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  opacity: 0; transition: opacity 0.55s ease;
+}
+.gal img.active { opacity: 1; }
+/* keep the carousel a clean crossfade — no hover zoom on stacked images */
+.course-row-img.gal:hover img { transform: none; }
+.gal-btn {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(10,77,104,0.42); color: #fff;
+  font-size: 20px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s var(--transition); backdrop-filter: blur(2px);
+}
+.gal-btn:hover { background: var(--ocean); border-color: var(--gold); }
+.gal-btn.prev { left: 14px; }
+.gal-btn.next { right: 14px; }
+.gal-dots {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; gap: 8px;
+}
+.gal-dot {
+  width: 7px; height: 7px; border-radius: 999px; border: none; padding: 0;
+  background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.25s;
+}
+.gal-dot.on { background: var(--gold); transform: scale(1.25); }
+@media (max-width: 600px) { .gal-btn { display: none; } }
 
 /* ======= GOLF GALLERY (mixed orientation, natural ratio, no crop) ======= */
 .golf-gallery {
@@ -629,8 +663,16 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- COURSE 1 — MISSION HILLS BLACKSTONE -->
 <section class="course-row">
   <div class="course-row-grid">
-    <div class="course-row-img fade-in">
-      <img loading="lazy" decoding="async" src="/Assets/golf/fairway-bunkers-01.jpg" alt="Mission Hills Blackstone — black-lava championship course">
+    <div class="course-row-img gal fade-in">
+      <img class="active" decoding="async" src="/Assets/golf/blackstone-fairway-bunkers.jpg" alt="Rugged white-sand bunkers set against black lava rock on a Blackstone fairway">
+      <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-palm-fairway.jpg" alt="A palm-lined fairway running between walls of volcanic stone at Blackstone">
+      <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-sandy-waste.jpg" alt="A green set beyond a wide sandy waste area dotted with scrub on the Blackstone course">
+      <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-sunrise.jpg" alt="Dawn light over a Blackstone fairway, the sky turning pink above distant hills">
+      <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-tiger-rory.jpg" alt="Tiger Woods and Rory McIlroy walking a fairway together during The Match at Mission Hills Haikou">
+      <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-lava-wall.jpg" alt="A wall of black volcanic rock crossing the fairway toward a green at Blackstone">
+      <button class="gal-btn prev" aria-label="Previous image">&lsaquo;</button>
+      <button class="gal-btn next" aria-label="Next image">&rsaquo;</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
       <span class="course-tag">01 &middot; Haikou &middot; #1 in China</span>
@@ -663,8 +705,15 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- COURSE 2 — THE DUNES AT SHENZHOU -->
 <section class="course-row alt-bg reverse">
   <div class="course-row-grid">
-    <div class="course-row-img fade-in">
-      <img loading="lazy" decoding="async" src="/Assets/golf/shenzhou.jpg" alt="The Dunes at Shenzhou Peninsula — coastal links">
+    <div class="course-row-img gal fade-in">
+      <img class="active" decoding="async" src="/Assets/golf/dunes-shenzhou-headland-aerial.jpg" alt="An aerial view of The Dunes wrapping a rocky headland above a turquoise bay at Shenzhou Peninsula">
+      <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-aerial.jpg" alt="An aerial of The Dunes fairways, water and sand winding toward the sea at Shenzhou Peninsula">
+      <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-clubhouse.jpg" alt="A fairway running up to the clubhouse at The Dunes, Shenzhou Peninsula">
+      <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-sea-green.jpg" alt="A green set above the rocks and breaking surf at The Dunes, Shenzhou Peninsula">
+      <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-lagoon.jpg" alt="A green beside a lagoon with a forested hill behind at The Dunes, Shenzhou Peninsula">
+      <button class="gal-btn prev" aria-label="Previous image">&lsaquo;</button>
+      <button class="gal-btn next" aria-label="Next image">&rsaquo;</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
       <span class="course-tag">02 &middot; Wanning &middot; #2 in China</span>
@@ -697,8 +746,13 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- COURSE 3 — LU HUI TOU -->
 <section class="course-row">
   <div class="course-row-grid">
-    <div class="course-row-img fade-in">
-      <img loading="lazy" decoding="async" src="/Assets/golf/1780920060888.JPG" alt="Lu Hui Tou Golf Club — Sanya headland course">
+    <div class="course-row-img gal fade-in">
+      <img class="active" decoding="async" src="/Assets/golf/1780920060888.JPG" alt="Lu Hui Tou Golf Club — Sanya headland course between sea and mountain">
+      <img loading="lazy" decoding="async" src="/Assets/golf/1780920050054.JPG" alt="Lu Hui Tou Golf Club fairway draped across the Sanya peninsula">
+      <img loading="lazy" decoding="async" src="/Assets/golf/IMG_8160%203.jpg" alt="Lu Hui Tou Golf Club — ocean and mountain views on the Sanya headland">
+      <button class="gal-btn prev" aria-label="Previous image">&lsaquo;</button>
+      <button class="gal-btn next" aria-label="Next image">&rsaquo;</button>
+      <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
       <span class="course-tag">03 &middot; Sanya &middot; Headland Routing</span>
@@ -730,8 +784,17 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- COURSE 4 — SHANQIN BAY (EXCLUSIVE / DARK) -->
 <section class="shanqin-section">
   <div class="shanqin-grid">
-    <div class="shanqin-img fade-in">
-      <img loading="lazy" decoding="async" src="/Assets/golf/IMG_7781%204.jpg" alt="Shanqin Bay Golf Club — invitation-only private course">
+    <div class="shanqin-img gal fade-in">
+      <img class="active" decoding="async" src="/Assets/golf/shanqinbay-clifftop-beach.jpg" alt="A clifftop green above a wild white-sand beach and turquoise sea at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-stonewall-sea.jpg" alt="A hole running toward the sea past an old stone wall at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-beach-fairway.jpg" alt="An aerial of fairways and native-sand bunkers along the beach at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-bunkered-green.jpg" alt="A green flanked by sculpted bunkers above the open sea at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-clubhouse.jpg" alt="The clubhouse on the headland above a stone-walled hole and the sea at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-light-ridge.jpg" alt="Sunbeams breaking over a ridgeline green running down to the sea at Shanqin Bay">
+      <img loading="lazy" decoding="async" src="/Assets/golf/shanqinbay-surf-green.jpg" alt="A green set above breaking surf and rocks at Shanqin Bay">
+      <button class="gal-btn prev" aria-label="Previous image">&lsaquo;</button>
+      <button class="gal-btn next" aria-label="Next image">&rsaquo;</button>
+      <div class="gal-dots"></div>
       <span class="shanqin-img-tag">Invitation Only</span>
     </div>
     <div class="shanqin-content">
@@ -840,6 +903,42 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+// Course image carousels (swipe / arrows / dots)
+document.querySelectorAll('.gal').forEach(g => {
+  const imgs = [...g.querySelectorAll('img')];
+  const dots = g.querySelector('.gal-dots');
+  if (imgs.length < 2) {
+    g.querySelectorAll('.gal-btn').forEach(b => b.remove());
+    if (dots) dots.remove();
+    return;
+  }
+  let i = 0;
+  function go(n) {
+    imgs[i].classList.remove('active');
+    dots.children[i].classList.remove('on');
+    i = (n + imgs.length) % imgs.length;
+    imgs[i].classList.add('active');
+    dots.children[i].classList.add('on');
+  }
+  imgs.forEach((_, k) => {
+    const d = document.createElement('button');
+    d.className = 'gal-dot' + (k === 0 ? ' on' : '');
+    d.setAttribute('aria-label', 'Image ' + (k + 1));
+    d.addEventListener('click', () => go(k));
+    dots.appendChild(d);
+  });
+  g.querySelector('.prev').addEventListener('click', () => go(i - 1));
+  g.querySelector('.next').addEventListener('click', () => go(i + 1));
+  let x0 = null;
+  g.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  g.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
+});
 </script>
 
 </body>
