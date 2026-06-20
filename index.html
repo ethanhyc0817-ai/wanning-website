@@ -3829,6 +3829,10 @@ footer::before {
     <div class="container">
       <div class="contact-grid">
         <div>
+          <a href="pages/golf-inquiry.html" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; text-decoration:none; border:1px solid var(--gold); border-radius:3px; padding:1rem 1.2rem; margin-bottom:1.8rem; background:var(--gold);">
+            <span style="font-size:0.92rem; color:rgba(26,26,26,0.82); line-height:1.5; flex:1; min-width:220px;"><strong style="color:var(--charcoal);">Here for golf only?</strong> No surf &mdash; championship golf across Hainan: Mission Hills, The Dunes, Lu Hui Tou &amp; the invitation-only Shanqin Bay.</span>
+            <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); white-space:nowrap;">Golf Inquiry &rarr;</span>
+          </a>
           <h2>Request a Quote</h2>
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
@@ -3848,11 +3852,12 @@ footer::before {
               <input type="email" name="email" placeholder="your@email.com" required>
             </div>
             <div class="form-group form-group-lg">
-              <label>Which Package Are You Booking?</label>
-              <p class="form-help">Pick the one you&rsquo;re ready to go ahead with. Want to review the full details, itinerary, and inclusions first? <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
+              <label>Which Trip Are You Booking?</label>
+              <p class="form-help">Two ways to do it &mdash; pick the one you&rsquo;re ready to go ahead with. Want the full details, itinerary, and inclusions first? <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
+              <div class="package-group-label" style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin:0.2rem 0 0.6rem;">Surf</div>
               <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-package-key="wave-pool">
+                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-nights="3" data-package-key="wave-pool">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">3 nights+</span> &middot; The Wave Pool Escape</span>
@@ -3863,7 +3868,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)" data-package-key="surf-explore">
+                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)" data-nights="7" data-package-key="surf-explore">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Explore</span>
@@ -3873,8 +3878,11 @@ footer::before {
                     <a href="Assets/brochures/surf-and-explore.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
                   </div>
                 </label>
+              </div>
+              <div class="package-group-label" style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin:1.3rem 0 0.6rem;">Surf &amp; Golf</div>
+              <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-package-key="surf-golf-premium">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-nights="7" data-package-key="surf-golf-premium">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-premium">Premium</span></span>
@@ -3885,7 +3893,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-package-key="surf-golf-luxury">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-nights="11" data-package-key="surf-golf-luxury">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">11 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-luxury">Luxury</span></span>
@@ -3895,40 +3903,15 @@ footer::before {
                     <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
                   </div>
                 </label>
-                <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Custom Trip" data-package-key="custom">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name">Custom Trip</span>
-                      <span class="package-option-price">Tailored</span>
-                    </div>
-                    <div class="package-option-sub">Tell us what you want &mdash; we&rsquo;ll shape it around your group</div>
-                  </div>
-                </label>
-                <a href="pages/golf-inquiry.html" class="package-option package-option-link">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name">Pure Golf Trip <span class="package-option-badge">Golf only</span></span>
-                    </div>
-                    <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
-                    <span class="package-option-cta">Open dedicated golf inquiry form</span>
-                  </div>
-                </a>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Trip Start Date</label>
-                <div class="date-picker" id="datePicker">
-                  <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
-                  <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
-                  <input type="hidden" name="trip_start_date" id="tripStartDate">
-                  <input type="hidden" name="dates_tbd" id="datesTbd" value="">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>How Many Nights?</label>
-                <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" required>
+            <div class="form-group">
+              <label>Trip Start Date</label>
+              <div class="date-picker" id="datePicker">
+                <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
+                <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
+                <input type="hidden" name="trip_start_date" id="tripStartDate">
+                <input type="hidden" name="dates_tbd" id="datesTbd" value="">
               </div>
             </div>
             <div class="form-row form-row-3">
@@ -3955,6 +3938,10 @@ footer::before {
                   <option>Mixed levels in group</option>
                   <option>Non-surfer / Companion</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <label><span class="lbl-meta">Optional</span> &middot; Nights</label>
+                <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="Only if different from the package">
               </div>
             </div>
             <div class="form-group">
@@ -4377,16 +4364,6 @@ function validateInquiryForm(form) {
     missing.push('A trip start date (or tick “I’m not sure yet”)');
     errorFields.push(document.getElementById('datePicker'));
   }
-  const nights = form.querySelector('[name="num_nights"]');
-  if (nights) {
-    if (!nights.value.trim()) {
-      missing.push('How many nights');
-      errorFields.push(nights.closest('.form-group'));
-    } else if (!(Number(nights.value) >= 1)) {
-      missing.push('A valid number of nights');
-      errorFields.push(nights.closest('.form-group'));
-    }
-  }
   const adults = form.querySelector('[name="adults"]');
   if (adults) {
     if (!adults.value.trim() || !(Number(adults.value) >= 1)) {
@@ -4409,12 +4386,18 @@ function validateInquiryForm(form) {
 (function initSinglePackageSelect() {
   const boxes = document.querySelectorAll('input[name="interested_in"]');
   if (!boxes.length) return;
+  // Auto-fill the Nights field with the selected package's length (editable).
+  // Stop auto-filling once the visitor types their own value.
+  const nights = document.querySelector('#contactForm [name="num_nights"]');
+  let nightsManual = false;
+  if (nights) nights.addEventListener('input', () => { nightsManual = nights.value.trim() !== ''; });
   boxes.forEach(cb => {
     cb.addEventListener('change', () => {
       if (cb.checked) {
         boxes.forEach(other => {
           if (other !== cb && other.checked) other.checked = false;
         });
+        if (nights && !nightsManual && cb.dataset.nights) nights.value = cb.dataset.nights;
       }
     });
   });
@@ -4455,7 +4438,7 @@ function openInquiryMailDraft(form) {
       last_name: 'Last name',
       email: 'Email',
       trip_start_date: 'Trip start date',
-      num_nights: 'Number of nights',
+      num_nights: 'Nights (if different from package)',
       adults: 'Adults',
       children: 'Children',
       rooms: 'Rooms',
