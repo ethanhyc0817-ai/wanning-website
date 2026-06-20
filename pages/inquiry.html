@@ -130,6 +130,9 @@ nav.scrolled { padding: 0.7rem 0; }
   .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
   .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
   .nav-logo { order: 2; justify-self: center; }
+  /* Hero (mobile): smaller heading, nudged down so the nav doesn't cover it */
+  section.page-hero { align-items: flex-end; padding-bottom: 2rem; }
+  .page-hero .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; }
 }
 @media (max-width: 480px) {
   .nav-logo-mark { width: 30px; height: 30px; }
@@ -611,15 +614,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <a href="/Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
                 </div>
               </label>
-              <a href="golf-inquiry.html" class="package-option package-option-link">
-                <div class="package-option-body">
-                  <div class="package-option-head">
-                    <span class="package-option-name">Pure Golf Trip</span>
-                  </div>
-                  <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
-                  <span class="package-option-cta">Open dedicated golf inquiry form</span>
-                </div>
-              </a>
               <label class="package-option">
                 <input type="checkbox" name="interested_in" value="Custom Trip">
                 <div class="package-option-body">
@@ -630,6 +624,15 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <div class="package-option-sub">Tell us what you want &mdash; we&rsquo;ll shape it around your group</div>
                 </div>
               </label>
+              <a href="golf-inquiry.html" class="package-option package-option-link">
+                <div class="package-option-body">
+                  <div class="package-option-head">
+                    <span class="package-option-name">Pure Golf Trip</span>
+                  </div>
+                  <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
+                  <span class="package-option-cta">Open dedicated golf inquiry form</span>
+                </div>
+              </a>
             </div>
           </div>
 
