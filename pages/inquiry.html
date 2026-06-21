@@ -630,11 +630,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             <label>Pick a Starting Point &mdash; We Tailor It</label>
             <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="/#packages">See all packages</a>.</p>
             <div class="pkg-tabs" role="tablist" aria-label="Trip type">
-              <button type="button" class="pkg-tab active" data-section="surf">Surf</button>
-              <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf</button>
+              <button type="button" class="pkg-tab active" data-section="surf-golf">Surf &amp; Golf</button>
+              <button type="button" class="pkg-tab" data-section="surf">Surf</button>
               <button type="button" class="pkg-tab" data-section="custom">Custom</button>
             </div>
-            <div class="pkg-section" data-section="surf">
+            <div class="pkg-section" data-section="surf" hidden>
             <div class="package-options">
               <label class="package-option">
                 <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-nights="3" data-package-key="wave-pool">
@@ -672,7 +672,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
               </label>
             </div>
             </div>
-            <div class="pkg-section" data-section="surf-golf" hidden>
+            <div class="pkg-section" data-section="surf-golf">
             <div class="package-options">
               <label class="package-option">
                 <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-nights="7">
