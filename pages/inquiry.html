@@ -169,6 +169,13 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.custom-detail { margin: 0.4rem 0 0.2rem; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--gold); border-radius: 3px; background: var(--sand); }
+.custom-detail__q { margin-bottom: 0.9rem; }
+.custom-detail__q:last-child { margin-bottom: 0; }
+.custom-detail__label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.5rem; }
+.custom-choice { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
+.custom-choice label { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--charcoal); cursor: pointer; }
+.custom-choice input { accent-color: var(--ocean); width: auto; margin: 0; }
 @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
 .form-group-lg label { font-size: 0.85rem; margin-bottom: 0.55rem; }
 
@@ -546,7 +553,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <!-- LEFT: Form -->
       <div>
         <a href="golf-inquiry.html" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; text-decoration:none; border:1px solid var(--gold); border-radius:3px; padding:1rem 1.2rem; margin-bottom:1.8rem; background:var(--gold);">
-          <span style="font-size:0.92rem; color:rgba(26,26,26,0.82); line-height:1.5; flex:1; min-width:220px;"><strong style="color:var(--charcoal);">Here for golf only?</strong> No surf &mdash; championship golf across Hainan: Mission Hills, The Dunes, Lu Hui Tou &amp; the invitation-only Shanqin Bay.</span>
+          <span style="font-size:0.92rem; color:rgba(26,26,26,0.82); line-height:1.5; flex:1; min-width:220px;"><strong style="color:var(--charcoal);">Here for golf only?</strong> No surf &mdash; just championship golf across Hainan.</span>
           <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); white-space:nowrap;">Golf Inquiry &rarr;</span>
         </a>
         <h2>Request a Quote</h2>
@@ -572,8 +579,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           </div>
 
           <div class="form-group form-group-lg">
-            <label>Which Trip Are You Booking?</label>
-            <p class="form-help">Two ways to do it &mdash; pick the one you&rsquo;re ready to go ahead with. Want the full details, itinerary, and inclusions first? <a href="/#packages">See all packages</a>.</p>
+            <label>Pick a Starting Point &mdash; We Tailor It</label>
+            <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="/#packages">See all packages</a>.</p>
             <div class="package-group-label" style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin:0.2rem 0 0.6rem;">Surf</div>
             <div class="package-options">
               <label class="package-option">
@@ -624,6 +631,43 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                 </div>
               </label>
             </div>
+            <div class="package-group-label" style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--charcoal); margin:1.3rem 0 0.6rem;">Build Your Own</div>
+            <div class="package-options">
+              <label class="package-option">
+                <input type="checkbox" name="interested_in" value="Custom / Build Your Own" data-custom="1">
+                <div class="package-option-body">
+                  <div class="package-option-head">
+                    <span class="package-option-name">Custom Trip</span>
+                  </div>
+                  <div class="package-option-sub">Start from our packages and tailor it &mdash; tell us your focus below and we&rsquo;ll come back with a built plan, not a blank page.</div>
+                </div>
+              </label>
+            </div>
+            <div id="customDetail" class="custom-detail" hidden>
+              <div class="custom-detail__q">
+                <label class="custom-detail__label">Surf and/or Golf <span style="color:var(--coral);">*</span></label>
+                <div class="custom-choice">
+                  <label><input type="checkbox" name="custom_focus" value="Surf"> Surf</label>
+                  <label><input type="checkbox" name="custom_focus" value="Golf"> Golf</label>
+                </div>
+              </div>
+              <div class="custom-detail__q">
+                <label class="custom-detail__label">Budget <span style="color:var(--coral);">*</span></label>
+                <div class="custom-choice">
+                  <label><input type="radio" name="custom_budget" value="Essential"> Essential</label>
+                  <label><input type="radio" name="custom_budget" value="Premium"> Premium</label>
+                  <label><input type="radio" name="custom_budget" value="Luxury"> Luxury</label>
+                </div>
+              </div>
+              <div class="custom-detail__q">
+                <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; Activity Add-Ons</label>
+                <div class="custom-choice">
+                  <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing Days"> Culture &amp; Sightseeing Days</label>
+                  <label><input type="checkbox" name="custom_includes" value="Beach Days"> Beach Days</label>
+                  <label><input type="checkbox" name="custom_includes" value="Yacht Charter"> Yacht Charter</label>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
@@ -670,7 +714,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 
           <div class="form-group">
             <label>Tell Us More</label>
-            <textarea name="message" placeholder="Anything else? Special interests, questions, group details..."></textarea>
+            <textarea name="message" placeholder="Describe your ideal trip in as much detail as you can — who's coming, surf level / golf handicap, must-dos, special occasions, anything. The more complete this is, the better the plan we can send back — with less back-and-forth."></textarea>
           </div>
 
           <div id="formError" class="form-error" role="alert" hidden></div>
@@ -801,13 +845,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       let html = '';
       html += '<div class="date-popover-header">';
       html += '<div class="date-popover-nav-group">';
-      html += '<button type="button" class="date-popover-nav" data-act="prev-year" aria-label="Previous year"' + (disablePrevYear ? ' disabled' : '') + '>&laquo;</button>';
       html += '<button type="button" class="date-popover-nav" data-act="prev" aria-label="Previous month"' + (disablePrevMonth ? ' disabled' : '') + '>&lsaquo;</button>';
       html += '</div>';
       html += '<div class="date-popover-title">' + MONTHS[m] + ' ' + y + '</div>';
       html += '<div class="date-popover-nav-group">';
       html += '<button type="button" class="date-popover-nav" data-act="next" aria-label="Next month"' + (disableNextMonth ? ' disabled' : '') + '>&rsaquo;</button>';
-      html += '<button type="button" class="date-popover-nav" data-act="next-year" aria-label="Next year"' + (disableNextYear ? ' disabled' : '') + '>&raquo;</button>';
       html += '</div>';
       html += '</div>';
       html += '<div class="date-popover-tbd' + (isTbd ? ' active' : '') + '" data-act="tbd">';
@@ -836,8 +878,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           const act = btn.dataset.act;
           if (act === 'prev') { viewDate.setMonth(viewDate.getMonth() - 1); render(); }
           else if (act === 'next') { viewDate.setMonth(viewDate.getMonth() + 1); render(); }
-          else if (act === 'prev-year') { viewDate.setFullYear(viewDate.getFullYear() - 1); render(); }
-          else if (act === 'next-year') { viewDate.setFullYear(viewDate.getFullYear() + 1); render(); }
           else if (act === 'clear') {
             selectedDate = null; isTbd = false;
             startInput.value = ''; tbdInput.value = '';
@@ -918,6 +958,15 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       missing.push('Which package you’re interested in');
       errorFields.push(form.querySelector('.package-options'));
     }
+    const customBox = form.querySelector('input[data-custom="1"]');
+    if (customBox && customBox.checked && !form.querySelector('input[name="custom_focus"]:checked')) {
+      missing.push('Your custom trip focus (surf, golf, or both)');
+      errorFields.push(document.getElementById('customDetail'));
+    }
+    if (customBox && customBox.checked && !form.querySelector('input[name="custom_budget"]:checked')) {
+      missing.push('A budget level for your custom trip');
+      errorFields.push(document.getElementById('customDetail'));
+    }
     const hasDate = !!((tripStart && tripStart.value) || (tbd && tbd.value === 'yes'));
     if (!hasDate) {
       missing.push('A trip start date (or tick “I’m not sure yet”)');
@@ -944,14 +993,19 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     const nights = document.querySelector('#contactForm [name="num_nights"]');
     let nightsManual = false;
     if (nights) nights.addEventListener('input', () => { nightsManual = nights.value.trim() !== ''; });
+    const customBox = document.querySelector('#contactForm input[data-custom="1"]');
+    const customDetail = document.getElementById('customDetail');
+    function syncCustom() { if (customDetail) customDetail.hidden = !(customBox && customBox.checked); }
     boxes.forEach(cb => {
       cb.addEventListener('change', () => {
         if (cb.checked) {
           boxes.forEach(other => { if (other !== cb && other.checked) other.checked = false; });
           if (nights && !nightsManual && cb.dataset.nights) nights.value = cb.dataset.nights;
         }
+        syncCustom();
       });
     });
+    syncCustom();
   })();
 
   // Live error clearing as the user edits
