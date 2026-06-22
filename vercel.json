@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/contact", "destination": "/pages/inquiry.html" },
+    { "source": "/book", "destination": "/pages/inquiry.html" },
+    { "source": "/quote", "destination": "/pages/inquiry.html" },
     { "source": "/:slug.html", "destination": "/pages/:slug.html" }
   ],
   "redirects": [
