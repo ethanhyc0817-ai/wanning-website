@@ -760,6 +760,14 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <label><input type="checkbox" name="custom_focus" value="Golf"> Golf</label>
                 </div>
               </div>
+              <div class="custom-detail__q" id="customSurfQ" hidden>
+                <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many surf sessions? <span class="hint">(total, whole group)</span></label>
+                <input type="number" name="custom_surf_sessions" id="customSurfSessions" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 8">
+              </div>
+              <div class="custom-detail__q" id="customGolfQ" hidden>
+                <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many golf rounds? <span class="hint">(total)</span></label>
+                <input type="number" name="custom_golf_rounds" id="customGolfRounds" min="0" max="20" step="1" inputmode="numeric" placeholder="e.g. 3">
+              </div>
               <div class="custom-detail__q">
                 <label class="custom-detail__label">Nights <span style="color:var(--coral);">*</span></label>
                 <input type="number" name="num_nights" id="customNights" min="1" max="30" step="1" inputmode="numeric" placeholder="e.g. 7">
@@ -775,9 +783,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
               <div class="custom-detail__q">
                 <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; Activity Add-Ons</label>
                 <div class="custom-choice">
-                  <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing Days"> Culture &amp; Sightseeing Days</label>
-                  <label><input type="checkbox" name="custom_includes" value="Beach Days"> Beach Days</label>
-                  <label><input type="checkbox" name="custom_includes" value="Yacht Charter"> Yacht Charter</label>
+                  <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing"> Culture &amp; Sightseeing</label>
+                  <label><input type="checkbox" name="custom_includes" value="Beach &amp; Coast"> Beach &amp; Coast</label>
+                  <label><input type="checkbox" name="custom_includes" value="Nature &amp; Adventure"> Nature &amp; Adventure</label>
+                  <label><input type="checkbox" name="custom_includes" value="On the Water / Yacht"> On the Water / Yacht</label>
+                  <label><input type="checkbox" name="custom_includes" value="Food &amp; Dining"> Food &amp; Dining</label>
                   <label><input type="checkbox" name="custom_includes" value="Private Pool Buyout"> Private Pool Buyout</label>
                 </div>
               </div>
@@ -1159,6 +1169,27 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     });
     syncCustom();
     syncWpe();
+  })();
+
+  // Custom Trip: reveal surf-sessions / golf-rounds sub-questions only when the matching
+  // focus is ticked; clear + disable them when hidden so they never submit stray values.
+  (function initCustomFocusDetail() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const focusBoxes = form.querySelectorAll('input[name="custom_focus"]');
+    if (!focusBoxes.length) return;
+    const checked = v => Array.from(focusBoxes).some(b => b.checked && b.value === v);
+    function toggle(on, qId, inputId) {
+      const q = document.getElementById(qId), inp = document.getElementById(inputId);
+      if (q) q.hidden = !on;
+      if (inp) { inp.disabled = !on; if (!on) inp.value = ''; }
+    }
+    function sync() {
+      toggle(checked('Surf'), 'customSurfQ', 'customSurfSessions');
+      toggle(checked('Golf'), 'customGolfQ', 'customGolfRounds');
+    }
+    focusBoxes.forEach(b => b.addEventListener('change', sync));
+    sync();
   })();
 
   // Package picker tabs — show one section (Surf / Surf & Golf / Custom) at a time.
