@@ -14,7 +14,7 @@
 </script>
 
 <title>The Wave Pool Escape — 3 or 4 Nights at PerfectSwell® Hainan | Surf China Co.</title>
-<meta name="description" content="Three or four nights at the Wave Pool Resort in Wanning, 2 sessions a day, all-in. From US$900/person on a couple share. Built around couples; solos welcome.">
+<meta name="description" content="Three or four nights at the Wave Pool Resort in Wanning, 2 sessions a day, all-in. From US$780/person on a couple share. Built around couples; solos welcome.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/package-1-the-surf-session.html">
@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="Surf China Co.">
 <meta property="og:url" content="https://www.surfchina.co/package-1-the-surf-session.html">
 <meta property="og:title" content="The Wave Pool Escape — 3 or 4 Nights at PerfectSwell® Hainan">
-<meta property="og:description" content="3 or 4 nights at the Wave Pool Resort, 2 PerfectSwell® sessions/day, all-in. From US$900/person, couple sharing.">
+<meta property="og:description" content="3 or 4 nights at the Wave Pool Resort, 2 PerfectSwell® sessions/day, all-in. From US$780/person, couple sharing.">
 <meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg">
 <meta property="og:image:alt" content="PerfectSwell Hainan wave pool at golden hour">
 <meta property="og:locale" content="en_US">
@@ -32,7 +32,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Wave Pool Escape — 3 or 4 Nights at PerfectSwell® Hainan">
-<meta name="twitter:description" content="3 or 4 nights at the Wave Pool Resort, 2 PerfectSwell® sessions/day, all-in. From US$900/person.">
+<meta name="twitter:description" content="3 or 4 nights at the Wave Pool Resort, 2 PerfectSwell® sessions/day, all-in. From US$780/person.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg">
 
 <!-- Structured data: TouristTrip -->
@@ -155,6 +155,33 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-links a:hover { opacity: 0.7; }
 .nav-cta { font-size: 0.75rem; padding: 0.6rem 1.4rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 2px; text-decoration: none; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.3s; }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 .nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 2px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
@@ -369,13 +396,17 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <span class="nav-logo-text">Surf China Co.</span>
     </a>
     <div class="nav-links">
-      <a href="/">Home</a>
       <a href="/#wavepool">Wave Pool</a>
-      <a href="/#packages">Packages</a>
-      <a href="/#explore-hainan">Explore Hainan</a>
-      <a href="accommodation.html">Accommodation</a>
       <a href="golf.html">Golf</a>
-      <a href="how-to-get-here.html">How to get here</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="accommodation.html">Accommodation</a>
+          <a href="how-to-get-here.html">Getting Here</a>
+        </div>
+      </div>
       <a href="/#contact" class="nav-cta">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -386,14 +417,14 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
-  <a href="/">Home</a>
   <a href="/#wavepool">Wave Pool</a>
+  <a href="golf.html">Golf</a>
   <a href="/#packages">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="/#explore-hainan">Explore Hainan</a>
   <a href="accommodation.html">Accommodation</a>
-  <a href="golf.html">Golf</a>
-  <a href="how-to-get-here.html">How to get here</a>
-  <a href="/#contact">Contact</a>
+  <a href="how-to-get-here.html">Getting Here</a>
+  <a href="/#contact">Book Now</a>
 </div>
 
 <!-- ============ 1. HERO ============ -->
@@ -606,24 +637,24 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <span class="overline">Pricing</span>
     <h2>What it costs.</h2>
     <div class="section-divider-center"></div>
-    <p class="lead">From <strong>US$900 / person</strong> on the 3-night couple share.</p>
+    <p class="lead">From <strong>US$780 / person</strong> on the 3-night couple share.</p>
 
     <div class="price-cards" style="grid-template-columns: 1fr 1fr; max-width: 760px;">
       <div class="price-card featured">
         <h4>3 Nights / 6 Sessions</h4>
-        <div class="price-amount">US$900</div>
+        <div class="price-amount">US$780</div>
         <div class="price-amount-sub">Per Person &middot; Couple Sharing</div>
-        <p>List rate US$1,000 &middot; 10% New Opening promo applied. Couple total US$1,800.</p>
+        <p>List rate US$867 &middot; 10% New Opening promo applied. Couple total US$1,561.</p>
       </div>
       <div class="price-card featured">
         <h4>4 Nights / 8 Sessions</h4>
-        <div class="price-amount">US$1,150</div>
+        <div class="price-amount">US$989</div>
         <div class="price-amount-sub">Per Person &middot; Couple Sharing</div>
-        <p>List rate US$1,278 &middot; 10% New Opening promo applied. Couple total US$2,300.</p>
+        <p>List rate US$1,099 &middot; 10% New Opening promo applied. Couple total US$1,979.</p>
       </div>
     </div>
 
-    <p class="price-note">Couple-share rates above are the headline. Solo travellers welcome &mdash; the package runs solo with all 2 sessions/day going to you; per-person rates are higher since the room and transfer don&rsquo;t split (3N from US$1,620 / 4N from US$2,080).</p>
+    <p class="price-note">Couple-share rates above are the headline. Solo travellers welcome &mdash; the package runs solo with all 2 sessions/day going to you; per-person rates are higher since the room and transfer don&rsquo;t split (3N from US$1,504 / 4N from US$1,922).</p>
 
     <p class="price-note">Quoted in USD. Final pricing firms up on confirmed dates and group. Owner&rsquo;s Suite upgrade, Executive Van transfer, extra video, and extra surf sessions available on request.</p>
 

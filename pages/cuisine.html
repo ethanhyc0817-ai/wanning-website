@@ -160,6 +160,33 @@ nav.scrolled { padding: 0.7rem 0; }
   text-transform: uppercase; transition: all 0.3s;
 }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 .nav-mobile-cta {
@@ -329,13 +356,17 @@ nav.scrolled { padding: 0.7rem 0; }
       <span class="nav-logo-text">Surf China Co.</span>
     </a>
     <div class="nav-links">
-      <a href="/">Home</a>
       <a href="/#wavepool">Wave Pool</a>
-      <a href="/#packages">Packages</a>
-      <a href="/#explore-hainan">Explore Hainan</a>
-      <a href="accommodation.html">Accommodation</a>
       <a href="golf.html">Golf</a>
-      <a href="how-to-get-here.html">How to get here</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="accommodation.html">Accommodation</a>
+          <a href="how-to-get-here.html">Getting Here</a>
+        </div>
+      </div>
       <a href="/#contact" class="nav-cta">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -346,14 +377,14 @@ nav.scrolled { padding: 0.7rem 0; }
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
-  <a href="/">Home</a>
   <a href="/#wavepool">Wave Pool</a>
+  <a href="golf.html">Golf</a>
   <a href="/#packages">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="/#explore-hainan">Explore Hainan</a>
   <a href="accommodation.html">Accommodation</a>
-  <a href="golf.html">Golf</a>
-  <a href="how-to-get-here.html">How to get here</a>
-  <a href="/#contact">Contact</a>
+  <a href="how-to-get-here.html">Getting Here</a>
+  <a href="/#contact">Book Now</a>
 </div>
 
 <!-- HERO -->

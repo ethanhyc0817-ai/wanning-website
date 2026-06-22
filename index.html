@@ -267,6 +267,33 @@ nav.scrolled { padding: 0.7rem 0; }
   text-transform: uppercase; transition: all 0.3s;
 }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 .nav-mobile-cta {
@@ -795,6 +822,47 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.custom-detail { margin: 0.4rem 0 0.2rem; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--gold); border-radius: 3px; background: var(--sand); }
+.custom-detail__q { margin-bottom: 0.9rem; }
+.custom-detail__q:last-child { margin-bottom: 0; }
+.custom-detail__label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.5rem; }
+.custom-choice { display: flex; flex-wrap: wrap; gap: 0.55rem 0.6rem; }
+.custom-choice label { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.9rem; color: var(--charcoal); cursor: pointer; padding: 0.5rem 0.95rem; border: 1px solid var(--sand-dark); border-radius: 999px; background: var(--white); font-weight: 500; transition: border-color .15s, background .15s, color .15s, box-shadow .15s; }
+.custom-choice label:hover { border-color: var(--ocean); }
+.custom-choice input { accent-color: var(--ocean); width: auto; margin: 0; }
+/* Where :has() is supported, hide the native control and make the whole pill the selected state. */
+@supports selector(:has(*)) {
+  .custom-choice input { position: absolute; opacity: 0; pointer-events: none; }
+  .custom-choice label:has(input:checked) { background: var(--ocean); border-color: var(--ocean); color: #fff; box-shadow: 0 2px 8px rgba(10,77,104,.18); }
+  .custom-choice label:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .custom-choice label:has(input[name="custom_budget"][value="Essential"]:checked) { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .custom-choice label:has(input[name="custom_budget"][value="Premium"]:checked) { background: var(--ink-blue); border-color: var(--ink-blue); color: #fff; }
+  .custom-choice label:has(input[name="custom_budget"][value="Luxury"]:checked) { background: var(--gold); border-color: var(--gold); color: #fff; }
+}
+.custom-detail input[type="number"] { width: 140px; padding: 0.5rem 0.6rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-size: 0.95rem; }
+.wpe-est { margin: 0.2rem 0; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--teal); border-radius: 3px; background: var(--sand); }
+.wpe-est__title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.7rem; }
+.wpe-est__title span { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--warm-gray); }
+.wpe-est__summary { font-size: 0.98rem; color: var(--charcoal); margin-bottom: 0.9rem; }
+.wpe-est__summary strong { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+.wpe-est__setabove { color: var(--warm-gray); font-size: 0.85rem; }
+.wpe-est__inputs { display: flex; gap: 0.9rem; align-items: flex-end; flex-wrap: wrap; }
+.wpe-est__inputs label { display: inline-flex; flex-direction: column; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warm-gray); gap: 0.25rem; }
+.wpe-est__inputs .hint { font-weight: 400; text-transform: none; letter-spacing: 0; }
+.wpe-est__inputs input { width: 140px; padding: 0.5rem 0.6rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-size: 0.95rem; }
+.wpe-est__out { margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--sand-dark); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
+.wpe-est__from { font-size: 0.8rem; color: var(--warm-gray); }
+.wpe-est__pp { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--ocean); }
+.wpe-est__per { font-size: 0.85rem; color: var(--warm-gray); }
+.wpe-est__tot { font-size: 0.82rem; color: var(--warm-gray); }
+.wpe-est__list { text-decoration: line-through; }
+.wpe-est__basis { grid-column: 2 / -1; align-self: end; font-size: 0.8rem; color: var(--warm-gray); }
+.pkg-tabs { display: flex; border: 1px solid var(--sand-dark); border-radius: 5px; overflow: hidden; margin: 0.2rem 0 1rem; }
+.pkg-tab { flex: 1; padding: 0.7rem 0.5rem; background: var(--white); border: none; border-right: 1px solid var(--sand-dark); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.02em; color: var(--warm-gray); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.pkg-tab:last-child { border-right: none; }
+.pkg-tab:hover { background: var(--sand); color: var(--charcoal); }
+.pkg-tab.active { background: var(--ocean); color: #fff; }
 
 /* Slightly larger form group for the prominent Interested-In question */
 .form-group-lg label { font-size: 0.85rem; margin-bottom: 0.55rem; }
@@ -1616,13 +1684,17 @@ footer::before {
       <span class="nav-logo-text">Surf China Co.</span>
     </a>
     <div class="nav-links">
-      <a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a>
       <a href="#" onclick="showPage('wavepool')" data-page="wavepool">Wave Pool</a>
       <a href="pages/golf.html">Golf</a>
       <a href="#" onclick="showPage('packages')" data-page="packages">Packages</a>
-      <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
-      <a href="pages/accommodation.html">Accommodation</a>
-      <a href="pages/how-to-get-here.html">How to get here</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
+          <a href="pages/accommodation.html">Accommodation</a>
+          <a href="pages/how-to-get-here.html">Getting Here</a>
+        </div>
+      </div>
       <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -1633,14 +1705,14 @@ footer::before {
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMobile()">&times;</button>
-  <a href="#" onclick="showPage('home'); toggleMobile();">Home</a>
   <a href="#" onclick="showPage('wavepool'); toggleMobile();">Wave Pool</a>
   <a href="pages/golf.html">Golf</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
   <a href="pages/accommodation.html">Accommodation</a>
-  <a href="pages/how-to-get-here.html">How to get here</a>
-  <a href="#" onclick="showPage('contact'); toggleMobile();">Contact</a>
+  <a href="pages/how-to-get-here.html">Getting Here</a>
+  <a href="#" onclick="showPage('contact'); toggleMobile();">Book Now</a>
 </div>
 
 
@@ -1860,7 +1932,7 @@ footer::before {
               <li>Wave Pool Resort &mdash; Ocean &amp; Pool View Room</li>
               <li>Premium board rental, video, round-trip transfer, breakfast</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$900 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <a href="pages/package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
@@ -3516,7 +3588,7 @@ footer::before {
               <li>Wave Pool Resort &mdash; Ocean &amp; Pool View Room</li>
               <li>Premium board rental, video, round-trip transfer, breakfast</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$900 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <a href="pages/package-1-the-surf-session.html" class="btn btn-primary btn-arrow" style="margin-top:1rem;">View Package </a>
           </div>
         </div>
@@ -3828,6 +3900,10 @@ footer::before {
     <div class="container">
       <div class="contact-grid">
         <div>
+          <a href="pages/golf-inquiry.html" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; text-decoration:none; border:1px solid var(--gold); border-radius:3px; padding:1rem 1.2rem; margin-bottom:1.8rem; background:var(--gold);">
+            <span style="font-size:0.92rem; color:rgba(26,26,26,0.82); line-height:1.5; flex:1; min-width:220px;"><strong style="color:var(--charcoal);">Here for golf only?</strong> No surf &mdash; just championship golf across Hainan.</span>
+            <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); white-space:nowrap;">Golf Inquiry &rarr;</span>
+          </a>
           <h2>Request a Quote</h2>
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
@@ -3842,27 +3918,78 @@ footer::before {
                 <input type="text" name="last_name" placeholder="Your last name" required>
               </div>
             </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
+                <input type="tel" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
+              </div>
+            </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="your@email.com" required>
+              <label>Trip Start Date</label>
+              <div class="date-picker" id="datePicker">
+                <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
+                <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
+                <input type="hidden" name="trip_start_date" id="tripStartDate">
+                <input type="hidden" name="dates_tbd" id="datesTbd" value="">
+              </div>
+            </div>
+            <div class="form-row form-row-3">
+              <div class="form-group">
+                <label>Adults <span style="color:var(--coral);">*</span></label>
+                <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
+              </div>
+              <div class="form-group">
+                <label>Children</label>
+                <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
+              </div>
+              <div class="form-group">
+                <label>Rooms <span style="color:var(--coral);">*</span></label>
+                <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
+              </div>
+            </div>
+            <div class="form-group" id="childrenAgesGroup" hidden>
+              <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
+              <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
             </div>
             <div class="form-group form-group-lg">
-              <label>Which Package Are You Booking?</label>
-              <p class="form-help">Pick the one you&rsquo;re ready to go ahead with. Want to review the full details, itinerary, and inclusions first? <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
+              <label>Pick a Starting Point &mdash; We Tailor It</label>
+              <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
+              <div class="pkg-tabs" role="tablist" aria-label="Trip type">
+                <button type="button" class="pkg-tab active" data-section="surf-golf">Surf &amp; Golf</button>
+                <button type="button" class="pkg-tab" data-section="surf">Surf</button>
+                <button type="button" class="pkg-tab" data-section="custom">Custom</button>
+              </div>
+              <div class="pkg-section" data-section="surf" hidden>
               <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-package-key="wave-pool">
+                  <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-nights="3" data-package-key="wave-pool">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">3 nights+</span> &middot; The Wave Pool Escape</span>
-                      <span class="package-option-price">From ~US$900 pp</span>
+                      <span class="package-option-price">From ~US$780 pp</span>
                     </div>
                     <div class="package-option-sub">At Wave Pool Resort (Ocean &amp; Pool View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
                     <a href="pages/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
                   </div>
                 </label>
+                <div id="wpeEstimate" class="wpe-est" hidden>
+                  <div class="wpe-est__title">Quick estimate <span>&middot; ballpark, we confirm your exact quote</span></div>
+                  <div class="wpe-est__summary">Estimate for <strong id="wpeBasis">2 guests</strong> <span class="wpe-est__setabove">&mdash; from your details above</span></div>
+                  <div class="wpe-est__inputs">
+                    <label>Nights<input type="number" name="num_nights" id="wpeNights" value="3" min="1" max="30" step="1" inputmode="numeric"></label>
+                    <label>Surf sessions / day <span class="hint">(whole group)</span><input type="number" name="sessions_per_day" id="wpeSessionsPerDay" value="2" min="0" max="4" step="1" inputmode="numeric"></label>
+                  </div>
+                  <div class="wpe-est__out">
+                    <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$780</span> <span class="wpe-est__per">/ person</span></div>
+                    <div class="wpe-est__tot"><span id="wpeTot">$1,561 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,734</span></div>
+                  </div>
+                </div>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)" data-package-key="surf-explore">
+                  <input type="checkbox" name="interested_in" value="Surf & Explore (7 nights)" data-nights="7" data-package-key="surf-explore">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Explore</span>
@@ -3872,8 +3999,12 @@ footer::before {
                     <a href="Assets/brochures/surf-and-explore.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
                   </div>
                 </label>
+              </div>
+              </div>
+              <div class="pkg-section" data-section="surf-golf">
+              <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-package-key="surf-golf-premium">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-nights="7" data-package-key="surf-golf-premium">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-premium">Premium</span></span>
@@ -3884,7 +4015,7 @@ footer::before {
                   </div>
                 </label>
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-package-key="surf-golf-luxury">
+                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-nights="11" data-package-key="surf-golf-luxury">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name"><span class="package-option-nights">11 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-luxury">Luxury</span></span>
@@ -3894,59 +4025,72 @@ footer::before {
                     <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
                   </div>
                 </label>
+              </div>
+              </div>
+              <div class="pkg-section" data-section="custom" hidden>
+              <div class="package-options">
                 <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Custom Trip" data-package-key="custom">
+                  <input type="checkbox" name="interested_in" value="Custom / Build Your Own" data-package-key="custom" data-custom="1">
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name">Custom Trip</span>
-                      <span class="package-option-price">Tailored</span>
                     </div>
-                    <div class="package-option-sub">Tell us what you want &mdash; we&rsquo;ll shape it around your group</div>
+                    <div class="package-option-sub">Start from our packages and tailor it &mdash; tell us your focus below and we&rsquo;ll come back with a built plan, not a blank page.</div>
                   </div>
                 </label>
-                <a href="pages/golf-inquiry.html" class="package-option package-option-link">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name">Pure Golf Trip <span class="package-option-badge">Golf only</span></span>
-                    </div>
-                    <div class="package-option-sub">No surf &mdash; just golf across Hainan's championship fairways: Mission Hills, The Dunes, Lu Hui Tou, and the invitation-only Shanqin Bay.</div>
-                    <span class="package-option-cta">Open dedicated golf inquiry form</span>
-                  </div>
-                </a>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Trip Start Date</label>
-                <div class="date-picker" id="datePicker">
-                  <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
-                  <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
-                  <input type="hidden" name="trip_start_date" id="tripStartDate">
-                  <input type="hidden" name="dates_tbd" id="datesTbd" value="">
+              <div id="customDetail" class="custom-detail" hidden>
+                <div class="custom-detail__q">
+                  <label class="custom-detail__label">Surf and/or Golf <span style="color:var(--coral);">*</span></label>
+                  <div class="custom-choice">
+                    <label><input type="checkbox" name="custom_focus" value="Surf"> Surf</label>
+                    <label><input type="checkbox" name="custom_focus" value="Golf"> Golf</label>
+                  </div>
+                </div>
+                <div class="custom-detail__q" id="customSurfQ" hidden>
+                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many surf sessions? <span class="hint">(total for your group<span id="customSurfPax"></span>)</span></label>
+                  <input type="number" name="custom_surf_sessions" id="customSurfSessions" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 8">
+                </div>
+                <div class="custom-detail__q" id="customGolfQ" hidden>
+                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many golf rounds? <span class="hint">(total for your group<span id="customGolfPax"></span>)</span></label>
+                  <input type="number" name="custom_golf_rounds" id="customGolfRounds" min="0" max="20" step="1" inputmode="numeric" placeholder="e.g. 3">
+                </div>
+                <div class="custom-detail__q">
+                  <label class="custom-detail__label">Nights <span style="color:var(--coral);">*</span></label>
+                  <input type="number" name="num_nights" id="customNights" min="1" max="30" step="1" inputmode="numeric" placeholder="e.g. 7">
+                </div>
+                <div class="custom-detail__q">
+                  <label class="custom-detail__label">Budget <span style="color:var(--coral);">*</span></label>
+                  <div class="custom-choice">
+                    <label><input type="radio" name="custom_budget" value="Essential"> Essential</label>
+                    <label><input type="radio" name="custom_budget" value="Premium"> Premium</label>
+                    <label><input type="radio" name="custom_budget" value="Luxury"> Luxury</label>
+                  </div>
+                </div>
+                <div class="custom-detail__q">
+                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; Activity Add-Ons</label>
+                  <div class="custom-choice">
+                    <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing"> Culture &amp; Sightseeing</label>
+                    <label><input type="checkbox" name="custom_includes" value="Beach &amp; Coast"> Beach &amp; Coast</label>
+                    <label><input type="checkbox" name="custom_includes" value="Nature &amp; Adventure"> Nature &amp; Adventure</label>
+                  </div>
+                  <div class="custom-choice" style="margin-top:0.5rem;">
+                    <label><input type="checkbox" name="custom_includes" value="Yacht Charter"> Yacht Charter</label>
+                    <label><input type="checkbox" name="custom_includes" value="Private Pool Buyout"> Private Pool Buyout</label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Group Size</label>
-                <select name="group_size">
-                  <option>Solo</option>
-                  <option>Couple (2)</option>
-                  <option>Small group (3-5)</option>
-                  <option>Large group (6+)</option>
-                  <option>Family with kids</option>
-                </select>
               </div>
             </div>
             <div class="form-row">
-              <div class="form-group">
-                <label>How Many Nights?</label>
-                <input type="number" name="num_nights" min="1" max="60" step="1" inputmode="numeric" placeholder="e.g. 7" required>
-              </div>
               <div class="form-group">
                 <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
                 <select name="surf_level">
                   <option value="">Select if you&rsquo;d like&hellip;</option>
                   <option>Beginner</option>
-                  <option>Intermediate or Advanced</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                  <option>Pro</option>
                   <option>Mixed levels in group</option>
                   <option>Non-surfer / Companion</option>
                 </select>
@@ -3954,7 +4098,7 @@ footer::before {
             </div>
             <div class="form-group">
               <label>Tell Us More</label>
-              <textarea name="message" placeholder="Anything else? Special interests, questions, group details..."></textarea>
+              <textarea name="message" placeholder="Tell us about your ideal trip — who's coming, surf level / golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
             </div>
             <div id="formError" class="form-error" role="alert" hidden></div>
             <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
@@ -4135,6 +4279,20 @@ function showPage(page, fromPopState) {
   setTimeout(() => {
     document.querySelectorAll('.page.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
   }, 100);
+
+  // GA4: log SPA section views as distinct page_views (so #contact / #wavepool /
+  // #packages show up individually). Skip the very first render — GA's default
+  // pageview already covers the landing — to avoid double-counting.
+  try {
+    if (window.__spaNavStarted && typeof gtag === 'function') {
+      gtag('event', 'page_view', {
+        page_title: document.title + ' — ' + page,
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search + (page === 'home' ? '' : '#' + page)
+      });
+    }
+    window.__spaNavStarted = true;
+  } catch (e) { /* analytics is best-effort */ }
   return false;
 }
 
@@ -4225,13 +4383,11 @@ document.querySelectorAll('.page').forEach(page => {
 
     html += '<div class="date-popover-header">';
     html += '<div class="date-popover-nav-group">';
-    html += '<button type="button" class="date-popover-nav" data-act="prev-year" aria-label="Previous year" title="Previous year"' + (disablePrevYear ? ' disabled' : '') + '>&laquo;</button>';
     html += '<button type="button" class="date-popover-nav" data-act="prev" aria-label="Previous month" title="Previous month"' + (disablePrevMonth ? ' disabled' : '') + '>&lsaquo;</button>';
     html += '</div>';
     html += '<div class="date-popover-title">' + MONTHS[m] + ' ' + y + '</div>';
     html += '<div class="date-popover-nav-group">';
     html += '<button type="button" class="date-popover-nav" data-act="next" aria-label="Next month" title="Next month"' + (disableNextMonth ? ' disabled' : '') + '>&rsaquo;</button>';
-    html += '<button type="button" class="date-popover-nav" data-act="next-year" aria-label="Next year" title="Next year"' + (disableNextYear ? ' disabled' : '') + '>&raquo;</button>';
     html += '</div>';
     html += '</div>';
     // "I'm not sure yet" row — at the top, right below the header
@@ -4261,8 +4417,6 @@ document.querySelectorAll('.page').forEach(page => {
         const act = btn.dataset.act;
         if (act === 'prev') { viewDate.setMonth(viewDate.getMonth() - 1); render(); }
         else if (act === 'next') { viewDate.setMonth(viewDate.getMonth() + 1); render(); }
-        else if (act === 'prev-year') { viewDate.setFullYear(viewDate.getFullYear() - 1); render(); }
-        else if (act === 'next-year') { viewDate.setFullYear(viewDate.getFullYear() + 1); render(); }
         else if (act === 'clear') {
           selectedDate = null;
           isTbd = false;
@@ -4365,21 +4519,42 @@ function validateInquiryForm(form) {
   const anyPackage = Array.from(checkboxes).some(cb => cb.checked);
   if (!anyPackage) {
     missing.push('Which package you’re interested in');
-    errorFields.push(form.querySelector('.package-options'));
+    errorFields.push(form.querySelector('.pkg-section:not([hidden]) .package-options') || form.querySelector('.pkg-tabs') || form.querySelector('.package-options'));
+  }
+  // Custom trip must declare a focus (surf / golf / both) so we have a base to plan from.
+  const customBox = form.querySelector('input[data-custom="1"]');
+  if (customBox && customBox.checked && !form.querySelector('input[name="custom_focus"]:checked')) {
+    missing.push('Your custom trip focus (surf, golf, or both)');
+    errorFields.push(document.getElementById('customDetail'));
+  }
+  if (customBox && customBox.checked && !form.querySelector('input[name="custom_budget"]:checked')) {
+    missing.push('A budget level for your custom trip');
+    errorFields.push(document.getElementById('customDetail'));
+  }
+  if (customBox && customBox.checked) {
+    const cn = document.getElementById('customNights');
+    if (!cn || !(Number(cn.value) >= 1)) {
+      missing.push('Number of nights for your custom trip');
+      errorFields.push(document.getElementById('customDetail'));
+    }
   }
   const hasDate = !!((tripStart && tripStart.value) || (tbd && tbd.value === 'yes'));
   if (!hasDate) {
     missing.push('A trip start date (or tick “I’m not sure yet”)');
     errorFields.push(document.getElementById('datePicker'));
   }
-  const nights = form.querySelector('[name="num_nights"]');
-  if (nights) {
-    if (!nights.value.trim()) {
-      missing.push('How many nights');
-      errorFields.push(nights.closest('.form-group'));
-    } else if (!(Number(nights.value) >= 1)) {
-      missing.push('A valid number of nights');
-      errorFields.push(nights.closest('.form-group'));
+  const adults = form.querySelector('[name="adults"]');
+  if (adults) {
+    if (!adults.value.trim() || !(Number(adults.value) >= 1)) {
+      missing.push('Number of adults');
+      errorFields.push(adults.closest('.form-group'));
+    }
+  }
+  const rooms = form.querySelector('[name="rooms"]');
+  if (rooms) {
+    if (!rooms.value.trim() || !(Number(rooms.value) >= 1)) {
+      missing.push('Number of rooms');
+      errorFields.push(rooms.closest('.form-group'));
     }
   }
   return { missing, errorFields };
@@ -4390,15 +4565,140 @@ function validateInquiryForm(form) {
 (function initSinglePackageSelect() {
   const boxes = document.querySelectorAll('input[name="interested_in"]');
   if (!boxes.length) return;
+  // Each package implies its length, so Nights re-fills to the selected package's
+  // length on every switch (still editable within Wave Pool, e.g. 3 vs 4).
+  const nights = document.querySelector('#contactForm [name="num_nights"]');
+  // Reveal the custom-detail block only when the Custom option is selected.
+  const customBox = document.querySelector('#contactForm input[data-custom="1"]');
+  const customDetail = document.getElementById('customDetail');
+  function syncCustom() {
+    const on = !!(customBox && customBox.checked);
+    if (customDetail) customDetail.hidden = !on;
+    // Only one num_nights submits: Custom's when Custom is selected, the Wave Pool / package one otherwise.
+    const cn = document.getElementById('customNights'); if (cn) cn.disabled = !on;
+    const wn = document.getElementById('wpeNights'); if (wn) wn.disabled = on;
+  }
+  const wpeBox = document.querySelector('#contactForm input[data-package-key="wave-pool"]');
+  const wpeEst = document.getElementById('wpeEstimate');
+  // Live Wave Pool Escape estimate — reads the shared group/date fields (asked once above),
+  // adds only its own Surf sessions. calculator.xlsx model: FX 7, component markups,
+  // coordination per room 3N $283 / 4N $390, scaled by rooms.
+  const FX = 7, usd = n => '$' + Math.round(n).toLocaleString();
+  const coordPerRoom = n => (n === 4 ? 390 : n === 3 ? 283 : 94.33 * n);
+  const g = id => document.getElementById(id);
+  const fld = name => document.querySelector('#contactForm [name="' + name + '"]');
+  const numVal = (el, d) => { const v = parseFloat((el && el.value) || ''); return isNaN(v) ? d : v; };
+  // Surf sessions are entered as a per-day cadence (default 2/day, whole group); total = nights × per-day.
+  function readPeople() { const a = Math.max(0, Math.round(numVal(fld('adults'), 0))); const c = Math.max(0, Math.round(numVal(fld('children'), 0))); const p = a + c; return p > 0 ? p : 2; }
+  function readNights() { return Math.max(1, Math.round(numVal(fld('num_nights'), 3))); }
+  function readRooms(people) { const r = Math.round(numVal(fld('rooms'), 0)); return r > 0 ? r : Math.ceil(people / 2); }
+  function readPerDay() { return Math.max(0, Math.round(numVal(g('wpeSessionsPerDay'), 2))); }
+  function calcWpe() {
+    if (!wpeEst) return;
+    const ppl = readPeople(), nts = readNights(), rooms = readRooms(ppl);
+    const ses = nts * readPerDay();  // total group sessions = nights × sessions/day
+    const total = rooms*nts*(935*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts);
+    g('wpePP').textContent = usd(total / ppl);
+    g('wpeTot').textContent = usd(total) + ' total';
+    g('wpeList').textContent = 'was ' + usd(total / 0.9);
+    g('wpeBasis').textContent = ppl + ' guest' + (ppl > 1 ? 's' : '');
+  }
+  function wpeRefresh() { calcWpe(); }
+  function syncWpe() {
+    if (!wpeEst) return;
+    wpeEst.hidden = !(wpeBox && wpeBox.checked);
+    const sp = g('wpeSessionsPerDay'); if (sp) sp.disabled = wpeEst.hidden;  // only submit sessions/day when Wave Pool is selected
+    if (!wpeEst.hidden) wpeRefresh();
+  }
+  if (wpeEst) {
+    g('wpeSessionsPerDay').addEventListener('input', calcWpe);
+    ['adults', 'children', 'rooms', 'num_nights'].forEach(name => { const el = fld(name); if (el) el.addEventListener('input', wpeRefresh); });
+  }
+  // Rooms follows Adults (1 room per 2 adults) until the visitor sets it themselves.
+  const adultsFld = fld('adults'), roomsFld = fld('rooms');
+  let roomsManual = false;
+  if (roomsFld) roomsFld.addEventListener('input', () => { roomsManual = roomsFld.value.trim() !== ''; });
+  if (adultsFld && roomsFld) adultsFld.addEventListener('input', () => {
+    if (!roomsManual) roomsFld.value = Math.max(1, Math.ceil((parseFloat(adultsFld.value) || 1) / 2));
+    if (typeof wpeRefresh === 'function') wpeRefresh();
+  });
+  // Ask for children's ages only when there's at least one child (beds, min surf age, infant gear).
+  const childrenFld = fld('children'), agesGroup = g('childrenAgesGroup'), agesInput = g('childrenAges');
+  function syncAges() {
+    if (!agesGroup) return;
+    const show = Math.round(numVal(childrenFld, 0)) > 0;
+    agesGroup.hidden = !show;
+    if (agesInput) { agesInput.disabled = !show; if (!show) agesInput.value = ''; }
+  }
+  if (childrenFld) childrenFld.addEventListener('input', syncAges);
+  syncAges();
   boxes.forEach(cb => {
     cb.addEventListener('change', () => {
       if (cb.checked) {
         boxes.forEach(other => {
           if (other !== cb && other.checked) other.checked = false;
         });
+        if (nights && cb.dataset.nights) nights.value = cb.dataset.nights;
       }
+      syncCustom();
+      syncWpe();
     });
   });
+  syncCustom();
+  syncWpe();
+})();
+
+// Custom Trip: reveal the surf-sessions / golf-rounds sub-questions only when the
+// matching focus is ticked; clear + disable them when hidden so they never submit stray values.
+(function initCustomFocusDetail() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  const focusBoxes = form.querySelectorAll('input[name="custom_focus"]');
+  if (!focusBoxes.length) return;
+  const checked = v => Array.from(focusBoxes).some(b => b.checked && b.value === v);
+  function toggle(on, qId, inputId) {
+    const q = document.getElementById(qId), inp = document.getElementById(inputId);
+    if (q) q.hidden = !on;
+    if (inp) { inp.disabled = !on; if (!on) inp.value = ''; }
+  }
+  // Live headcount hint next to "How many surf sessions" — pulls the group size
+  // the visitor already entered above, so they calibrate the total correctly.
+  const paxEl = document.getElementById('customSurfPax');
+  const golfPaxEl = document.getElementById('customGolfPax');
+  const adultsFld = form.querySelector('[name="adults"]'), childrenFld = form.querySelector('[name="children"]');
+  function updatePax() {
+    const a = Math.max(0, parseInt((adultsFld && adultsFld.value) || '0', 10) || 0);
+    const c = Math.max(0, parseInt((childrenFld && childrenFld.value) || '0', 10) || 0);
+    if (paxEl) {  // surf: adults + children (kids surf too)
+      let s = a ? (a + ' adult' + (a > 1 ? 's' : '')) : '';
+      if (c) s += (s ? ' + ' : '') + c + (c > 1 ? ' children' : ' child');
+      paxEl.textContent = s ? (' · ' + s) : '';
+    }
+    if (golfPaxEl) {  // golf: adults only (golfers)
+      golfPaxEl.textContent = a ? (' · ' + a + ' adult' + (a > 1 ? 's' : '')) : '';
+    }
+  }
+  function sync() {
+    toggle(checked('Surf'), 'customSurfQ', 'customSurfSessions');
+    toggle(checked('Golf'), 'customGolfQ', 'customGolfRounds');
+    updatePax();
+  }
+  focusBoxes.forEach(b => b.addEventListener('change', sync));
+  if (adultsFld) adultsFld.addEventListener('input', updatePax);
+  if (childrenFld) childrenFld.addEventListener('input', updatePax);
+  sync();
+})();
+
+// Package picker tabs — show one section (Surf / Surf & Golf / Custom) at a time.
+(function initPkgTabs() {
+  const tabs = document.querySelectorAll('#contactForm .pkg-tab');
+  const secs = document.querySelectorAll('#contactForm .pkg-section');
+  if (!tabs.length) return;
+  function show(sec) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.section === sec));
+    secs.forEach(s => { s.hidden = (s.dataset.section !== sec); });
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.section)));
 })();
 
 (function initInquiryLiveErrorClear() {
@@ -4435,9 +4735,17 @@ function openInquiryMailDraft(form) {
       first_name: 'First name',
       last_name: 'Last name',
       email: 'Email',
+      whatsapp: 'WhatsApp / phone',
+      custom_budget: 'Budget',
       trip_start_date: 'Trip start date',
-      num_nights: 'Number of nights',
-      group_size: 'Group size',
+      num_nights: 'Nights',
+      adults: 'Adults',
+      children: 'Children',
+      children_ages: 'Children ages',
+      rooms: 'Rooms',
+      sessions_per_day: 'Surf sessions / day',
+      custom_surf_sessions: 'Custom — surf sessions (total)',
+      custom_golf_rounds: 'Custom — golf rounds (total)',
       surf_level: 'Surf level',
       message: 'Notes'
     };
@@ -4449,6 +4757,10 @@ function openInquiryMailDraft(form) {
     const lines = [];
     const interested = fd.getAll('interested_in').filter(Boolean);
     if (interested.length) lines.push('Interested in: ' + interested.join(', '));
+    const focus = fd.getAll('custom_focus').filter(Boolean);
+    if (focus.length) lines.push('Custom focus: ' + focus.join(' + '));
+    const customIncl = fd.getAll('custom_includes').filter(Boolean);
+    if (customIncl.length) lines.push('Activity add-ons: ' + customIncl.join(', '));
     Object.keys(labels).forEach(key => {
       const val = (fd.get(key) || '').toString().trim();
       if (val) lines.push(labels[key] + ': ' + val);
@@ -4511,6 +4823,17 @@ async function handleSubmit(e) {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      // GA4 conversion: a real Trip Inquiry submission (capture which package, before reset).
+      try {
+        if (typeof gtag === 'function') {
+          const fd = new FormData(form);
+          gtag('event', 'generate_lead', {
+            form_id: 'trip_inquiry',
+            package: fd.getAll('interested_in').filter(Boolean).join(', ') || 'unspecified',
+            page_location: window.location.href
+          });
+        }
+      } catch (_) { /* analytics is best-effort */ }
       openInquiryMailDraft(form);
       form.reset();
       if (status) {
@@ -4569,6 +4892,10 @@ async function handleSubmit(e) {
     if (!key) return;
     var box = document.querySelector('#contactForm input[data-package-key="' + key.replace(/[^a-z0-9-]/gi, '') + '"]');
     if (!box) return;
+    // Open the tab that holds this package so the checked option is visible.
+    var sec = box.closest('.pkg-section');
+    var tab = sec && document.querySelector('#contactForm .pkg-tab[data-section="' + sec.dataset.section + '"]');
+    if (tab) tab.click();
     box.checked = true;
     // The selected-state highlight is pure CSS (:has(input:checked)); firing change
     // keeps the single-select handler in sync.
