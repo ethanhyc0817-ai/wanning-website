@@ -4258,6 +4258,20 @@ function showPage(page, fromPopState) {
   setTimeout(() => {
     document.querySelectorAll('.page.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
   }, 100);
+
+  // GA4: log SPA section views as distinct page_views (so #contact / #wavepool /
+  // #packages show up individually). Skip the very first render — GA's default
+  // pageview already covers the landing — to avoid double-counting.
+  try {
+    if (window.__spaNavStarted && typeof gtag === 'function') {
+      gtag('event', 'page_view', {
+        page_title: document.title + ' — ' + page,
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.search + (page === 'home' ? '' : '#' + page)
+      });
+    }
+    window.__spaNavStarted = true;
+  } catch (e) { /* analytics is best-effort */ }
   return false;
 }
 
@@ -4745,6 +4759,17 @@ async function handleSubmit(e) {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      // GA4 conversion: a real Trip Inquiry submission (capture which package, before reset).
+      try {
+        if (typeof gtag === 'function') {
+          const fd = new FormData(form);
+          gtag('event', 'generate_lead', {
+            form_id: 'trip_inquiry',
+            package: fd.getAll('interested_in').filter(Boolean).join(', ') || 'unspecified',
+            page_location: window.location.href
+          });
+        }
+      } catch (_) { /* analytics is best-effort */ }
       openInquiryMailDraft(form);
       form.reset();
       if (status) {

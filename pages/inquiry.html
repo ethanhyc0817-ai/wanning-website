@@ -1230,6 +1230,17 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
+        // GA4 conversion: a real Trip Inquiry submission (capture which package, before reset).
+        try {
+          if (typeof gtag === 'function') {
+            const fd = new FormData(form);
+            gtag('event', 'generate_lead', {
+              form_id: 'trip_inquiry',
+              package: fd.getAll('interested_in').filter(Boolean).join(', ') || 'unspecified',
+              page_location: window.location.href
+            });
+          }
+        } catch (_) { /* analytics is best-effort */ }
         form.reset();
         if (status) {
           status.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
