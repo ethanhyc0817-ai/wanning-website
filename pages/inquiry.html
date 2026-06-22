@@ -200,9 +200,19 @@ nav.scrolled { padding: 0.7rem 0; }
 .custom-detail__q { margin-bottom: 0.9rem; }
 .custom-detail__q:last-child { margin-bottom: 0; }
 .custom-detail__label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.5rem; }
-.custom-choice { display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem; }
-.custom-choice label { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--charcoal); cursor: pointer; }
+.custom-choice { display: flex; flex-wrap: wrap; gap: 0.55rem 0.6rem; }
+.custom-choice label { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.9rem; color: var(--charcoal); cursor: pointer; padding: 0.5rem 0.95rem; border: 1px solid var(--sand-dark); border-radius: 999px; background: var(--white); font-weight: 500; transition: border-color .15s, background .15s, color .15s, box-shadow .15s; }
+.custom-choice label:hover { border-color: var(--ocean); }
 .custom-choice input { accent-color: var(--ocean); width: auto; margin: 0; }
+/* Where :has() is supported, hide the native control and make the whole pill the selected state. */
+@supports selector(:has(*)) {
+  .custom-choice input { position: absolute; opacity: 0; pointer-events: none; }
+  .custom-choice label:has(input:checked) { background: var(--ocean); border-color: var(--ocean); color: #fff; box-shadow: 0 2px 8px rgba(10,77,104,.18); }
+  .custom-choice label:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .custom-choice label:has(input[name="custom_budget"][value="Essential"]:checked) { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .custom-choice label:has(input[name="custom_budget"][value="Premium"]:checked) { background: var(--ink-blue); border-color: var(--ink-blue); color: #fff; }
+  .custom-choice label:has(input[name="custom_budget"][value="Luxury"]:checked) { background: var(--gold); border-color: var(--gold); color: #fff; }
+}
 .custom-detail input[type="number"] { width: 140px; padding: 0.5rem 0.6rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-size: 0.95rem; }
 .wpe-est { margin: 0.2rem 0; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--teal); border-radius: 3px; background: var(--sand); }
 .wpe-est__title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.7rem; }
