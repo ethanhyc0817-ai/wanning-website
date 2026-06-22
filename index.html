@@ -4038,11 +4038,11 @@ footer::before {
                   </div>
                 </div>
                 <div class="custom-detail__q" id="customSurfQ" hidden>
-                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many surf sessions? <span class="hint">(total, whole group)</span></label>
+                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many surf sessions? <span class="hint">(total for your group<span id="customSurfPax"></span>)</span></label>
                   <input type="number" name="custom_surf_sessions" id="customSurfSessions" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 8">
                 </div>
                 <div class="custom-detail__q" id="customGolfQ" hidden>
-                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many golf rounds? <span class="hint">(total)</span></label>
+                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many golf rounds? <span class="hint">(total for your group<span id="customGolfPax"></span>)</span></label>
                   <input type="number" name="custom_golf_rounds" id="customGolfRounds" min="0" max="20" step="1" inputmode="numeric" placeholder="e.g. 3">
                 </div>
                 <div class="custom-detail__q">
@@ -4063,8 +4063,9 @@ footer::before {
                     <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing"> Culture &amp; Sightseeing</label>
                     <label><input type="checkbox" name="custom_includes" value="Beach &amp; Coast"> Beach &amp; Coast</label>
                     <label><input type="checkbox" name="custom_includes" value="Nature &amp; Adventure"> Nature &amp; Adventure</label>
-                    <label><input type="checkbox" name="custom_includes" value="On the Water / Yacht"> On the Water / Yacht</label>
-                    <label><input type="checkbox" name="custom_includes" value="Food &amp; Dining"> Food &amp; Dining</label>
+                  </div>
+                  <div class="custom-choice" style="margin-top:0.5rem;">
+                    <label><input type="checkbox" name="custom_includes" value="Yacht Charter"> Yacht Charter</label>
                     <label><input type="checkbox" name="custom_includes" value="Private Pool Buyout"> Private Pool Buyout</label>
                   </div>
                 </div>
@@ -4650,11 +4651,31 @@ function validateInquiryForm(form) {
     if (q) q.hidden = !on;
     if (inp) { inp.disabled = !on; if (!on) inp.value = ''; }
   }
+  // Live headcount hint next to "How many surf sessions" — pulls the group size
+  // the visitor already entered above, so they calibrate the total correctly.
+  const paxEl = document.getElementById('customSurfPax');
+  const golfPaxEl = document.getElementById('customGolfPax');
+  const adultsFld = form.querySelector('[name="adults"]'), childrenFld = form.querySelector('[name="children"]');
+  function updatePax() {
+    const a = Math.max(0, parseInt((adultsFld && adultsFld.value) || '0', 10) || 0);
+    const c = Math.max(0, parseInt((childrenFld && childrenFld.value) || '0', 10) || 0);
+    if (paxEl) {  // surf: adults + children (kids surf too)
+      let s = a ? (a + ' adult' + (a > 1 ? 's' : '')) : '';
+      if (c) s += (s ? ' + ' : '') + c + (c > 1 ? ' children' : ' child');
+      paxEl.textContent = s ? (' · ' + s) : '';
+    }
+    if (golfPaxEl) {  // golf: adults only (golfers)
+      golfPaxEl.textContent = a ? (' · ' + a + ' adult' + (a > 1 ? 's' : '')) : '';
+    }
+  }
   function sync() {
     toggle(checked('Surf'), 'customSurfQ', 'customSurfSessions');
     toggle(checked('Golf'), 'customGolfQ', 'customGolfRounds');
+    updatePax();
   }
   focusBoxes.forEach(b => b.addEventListener('change', sync));
+  if (adultsFld) adultsFld.addEventListener('input', updatePax);
+  if (childrenFld) childrenFld.addEventListener('input', updatePax);
   sync();
 })();
 
