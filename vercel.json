@@ -38,7 +38,7 @@
     },
     {
       "source": "/surf-and-explore",
-      "destination": "/Assets/brochures/surf-and-explore.pdf",
+      "destination": "/#packages",
       "permanent": false
     },
     {
