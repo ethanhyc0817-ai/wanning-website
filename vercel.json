@@ -27,6 +27,16 @@
       "permanent": false
     },
     {
+      "source": "/surf-and-golf-essential",
+      "destination": "/Assets/brochures/surf-and-golf-essential.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/essential-5nights",
+      "destination": "/Assets/brochures/surf-and-golf-essential.pdf",
+      "permanent": false
+    },
+    {
       "source": "/surf-and-explore",
       "destination": "/Assets/brochures/surf-and-explore.pdf",
       "permanent": false
