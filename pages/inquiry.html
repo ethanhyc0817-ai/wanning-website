@@ -693,8 +693,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                 <input type="checkbox" name="interested_in" value="The Wave Pool Escape (3 nights+)" data-nights="3" data-package-key="wave-pool">
                 <div class="package-option-body">
                   <div class="package-option-head">
-                    <span class="package-option-name"><span class="package-option-nights">3 nights+</span> &middot; The Wave Pool Escape</span>
-                    <span class="package-option-price">From ~US$780 pp</span>
+                    <span class="package-option-name">The Wave Pool Escape</span>
+                    <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$780 pp</span>
                   </div>
                   <div class="package-option-sub">At Wave Pool Resort (Ocean &amp; Pool View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
                   <a href="package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
@@ -1231,6 +1231,19 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     function show(sec) {
       tabs.forEach(t => t.classList.toggle('active', t.dataset.section === sec));
       secs.forEach(s => { s.hidden = (s.dataset.section !== sec); });
+      const active = Array.from(secs).find(s => s.dataset.section === sec);
+      if (!active) return;
+      const opts = active.querySelectorAll('input[name="interested_in"]');
+      if (opts.length === 1) {
+        // Single-option tabs (Surf, Custom): auto-select it for the visitor.
+        if (!opts[0].checked) { opts[0].checked = true; opts[0].dispatchEvent(new Event('change', { bubbles: true })); }
+      } else {
+        // Multi-option tab (Surf & Golf): clear any selection carried in from
+        // another tab so the visitor picks a tier; keep a tier already chosen here.
+        document.querySelectorAll('#contactForm input[name="interested_in"]:checked').forEach(cb => {
+          if (!active.contains(cb)) { cb.checked = false; cb.dispatchEvent(new Event('change', { bubbles: true })); }
+        });
+      }
     }
     tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.section)));
   })();
