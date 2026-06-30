@@ -151,15 +151,21 @@ nav.scrolled { padding: 0.7rem 0; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
 .mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+.mobile-submit-bar { display: none; }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
   .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
   .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
   .nav-logo { order: 2; justify-self: center; }
-  /* Hero (mobile): smaller heading, nudged down so the nav doesn't cover it */
-  section.page-hero { align-items: flex-end; padding-bottom: 2rem; }
-  .page-hero .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; }
+  /* Hero (mobile): compact — smaller heading, trimmed copy, shorter so the form is reached faster */
+  section.page-hero { align-items: flex-end; padding-bottom: 1.5rem; height: 38vh; min-height: 280px; }
+  .page-hero .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; margin-bottom: 0.4rem; }
+  .page-hero-content p { display: none; }
+  /* Sticky one-tap quote CTA */
+  .mobile-submit-bar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.97); border-top: 1px solid var(--sand-dark); box-shadow: 0 -4px 16px rgba(0,0,0,0.08); }
+  .mobile-submit-bar .btn { width: 100%; justify-content: center; margin: 0; }
+  body { padding-bottom: 4.75rem; }
 }
 @media (max-width: 480px) {
   .nav-logo-mark { width: 30px; height: 30px; }
@@ -548,6 +554,13 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 .footer-inner p { color: rgba(255,255,255,0.55); font-size: 0.85rem; max-width: none; margin: 0; }
 .footer-inner a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
 .footer-inner a:hover { color: var(--white); }
+@media (max-width: 768px) {
+  /* Prevent iOS zoom-on-focus: form controls must be >=16px */
+  .form-group input, .form-group select, .form-group textarea,
+  .custom-detail input, .wpe-est__inputs input, .date-display { font-size: 16px; }
+  /* Comfortable tap targets */
+  .pkg-tab { min-height: 44px; }
+}
 </style>
 </head>
 <body>
@@ -630,18 +643,18 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
-              <input type="text" name="first_name" placeholder="Your first name" required>
+              <input type="text" name="first_name" placeholder="Your first name" autocomplete="given-name" required>
             </div>
             <div class="form-group">
               <label>Last Name</label>
-              <input type="text" name="last_name" placeholder="Your last name" required>
+              <input type="text" name="last_name" placeholder="Your last name" autocomplete="family-name" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Email</label>
-              <input type="email" name="email" placeholder="your@email.com" required>
+              <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
             </div>
             <div class="form-group">
               <label><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
@@ -1341,6 +1354,11 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     }
   }
 </script>
+
+<!-- Sticky mobile quote CTA — one tap to submit (validates + scrolls to anything missing) -->
+<div class="mobile-submit-bar" aria-hidden="false">
+  <button type="button" class="btn btn-primary btn-arrow" onclick="(function(){var f=document.getElementById('contactForm');if(!f)return;if(f.requestSubmit){f.requestSubmit();}else{var b=f.querySelector('button[type=submit]');if(b)b.click();}})()">Request My Quote</button>
+</div>
 
 </body>
 </html>
