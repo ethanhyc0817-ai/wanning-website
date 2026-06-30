@@ -3919,16 +3919,13 @@ footer::before {
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Your first name" autocomplete="given-name" autocapitalize="words" required>
-              </div>
-              <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Your last name" autocomplete="family-name" autocapitalize="words" required>
-              </div>
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
             </div>
+            <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
+            <input type="hidden" name="first_name">
+            <input type="hidden" name="last_name">
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email</label>
@@ -4504,20 +4501,15 @@ function validateInquiryForm(form) {
   const missing = [];        // human-readable list shown to the user
   const errorFields = [];    // DOM elements to add .has-error to
 
-  const first = form.querySelector('[name="first_name"]');
-  const last  = form.querySelector('[name="last_name"]');
+  const fullName = form.querySelector('[name="full_name"]');
   const email = form.querySelector('[name="email"]');
   const checkboxes = form.querySelectorAll('input[name="interested_in"]');
   const tripStart = form.querySelector('#tripStartDate');
   const tbd = form.querySelector('#datesTbd');
 
-  if (!first || !first.value.trim()) {
-    missing.push('First name');
-    if (first) errorFields.push(first.closest('.form-group'));
-  }
-  if (!last || !last.value.trim()) {
-    missing.push('Last name');
-    if (last) errorFields.push(last.closest('.form-group'));
+  if (!fullName || !fullName.value.trim()) {
+    missing.push('Your name');
+    if (fullName) errorFields.push(fullName.closest('.form-group'));
   }
   if (!email || !email.value.trim()) {
     missing.push('Email');
@@ -4810,9 +4802,19 @@ function openInquiryMailDraft(form) {
   } catch (_) { /* mail draft is best-effort; never block the submission flow */ }
 }
 
+function syncNameFields(form) {
+  const full = form.querySelector('[name="full_name"]');
+  if (!full) return;
+  const parts = full.value.trim().split(/\s+/).filter(Boolean);
+  const fn = form.querySelector('input[type="hidden"][name="first_name"]');
+  const ln = form.querySelector('input[type="hidden"][name="last_name"]');
+  if (fn) fn.value = parts.length ? parts[0] : '';
+  if (ln) ln.value = parts.length > 1 ? parts.slice(1).join(' ') : '';
+}
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
+  syncNameFields(form);
   const btn = form.querySelector('button[type="submit"]');
   const status = document.getElementById('formStatus');
   const errorEl = document.getElementById('formError');
