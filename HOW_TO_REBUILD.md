@@ -91,7 +91,7 @@ Save and re-run the script.
 | 6–7 | Mission Hills | `awards_block([("#1", ...)` |
 | 8–9 | Shenzhou Peninsula | `awards_block([("#2", ...)` |
 | 10 | The Ritz-Carlton | search `Ritz-Carlton, Haikou` |
-| 11 | Wave Pool Resort | search `The Wave Pool Resort` |
+| 11 | Surf Pool Resort | search `The Surf Pool Resort` |
 | 12 | Beyond / Shanqin Bay | search `Shanqin Bay` |
 
 ---

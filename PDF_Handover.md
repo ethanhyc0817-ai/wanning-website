@@ -68,13 +68,13 @@ python3 make_pdf.py
 | 1 | **Cover** | Full-bleed cover image (`神州半岛/IMG_cover.JPG`), navy band bottom, "Surf & Golf" title, "A Private Proposal for Two" kicker. **Cover uses cover-fit math (not preserveAspectRatio) so it always fills the page edge-to-edge.** |
 | 2 | **The Proposal** | Two side-by-side cards: Premium ($2,200 pp) / Ultra ($3,965 pp). Bottom: 3-image teaser (Mission Hills · Ritz-Carlton lounge · Shenzhou). |
 | 3 | **Premium Surf & Golf Escape** | Lead image: `Assets/wavepool/wavepool-use.JPG`. Price block: "FROM $2,200 USD per person · package total $4,400 USD". Included/Not Included two-column. Bottom strip: surfer-action · Shenzhou widescreen · Shenzhou fairway. |
-| 4 | **Ultra Luxury Surf & Golf Escape** | Lead image: Ritz-Carlton suite. Price block: "FROM $3,965 USD per person · package total $7,929 USD". Full inclusion table (5 nights Wave Pool Owner's Suite + 2 nights Ritz Golf Suite, 6 golf rounds split 2 Mission Hills / 4 Shenzhou, caddie fees included, 4 photo + 2 drone + 2 recovery). |
+| 4 | **Ultra Luxury Surf & Golf Escape** | Lead image: Ritz-Carlton suite. Price block: "FROM $3,965 USD per person · package total $7,929 USD". Full inclusion table (5 nights Surf Pool Owner's Suite + 2 nights Ritz Golf Suite, 6 golf rounds split 2 Mission Hills / 4 Shenzhou, caddie fees included, 4 photo + 2 drone + 2 recovery). |
 | 5 | **Mission Hills Haikou — Blackstone** | Awards block (navy + gold): **#1 in China · BEST New Course in Asia · WORLD TOP 100**. Brief mention of Tiger Woods and Rory McIlroy. Designer info (Schmidt-Curley, 350 acres lava, 7,800+ yds) in small text. Full-width hero image. |
 | 6 | **Mission Hills — The Gallery** | 6 of the 3:2-cropped photos in a 2-up × 3-row grid. |
 | 7 | **The Dunes at Shenzhou Peninsula** | Awards block: **#2 in China (Golf Digest 2022) · TOP 10 in Asia (Forbes) · BEST New International Course (US Golf Magazine)**. Tom Weiskopf credit in small text. Full-width hero image (IMG_6996). |
 | 8 | **Shenzhou — The Gallery** | 2-up widescreen row + 1 landscape + 1 portrait combo. Uses 24EDDBE1, 7820C2B6, IMG_6996 2, IMG_6993. |
 | 9 | **The Ritz-Carlton, Haikou** | Hotel description (built inside Mission Hills, 360° course views, Golf Suite = 100+ sqm / 1,000+ sqft). 5 Ritz-Carlton photos in 2+3 grid. |
-| 10 | **The Wave Pool Resort** | Two side-by-side columns: left = Ocean & Pool View Room (green header, Premium), right = Owner's Suite (coral header, Ultra Luxury). Each column has `bigpic.jpeg` as lead + 3-up sub-row of thumbs. |
+| 10 | **The Surf Pool Resort** | Two side-by-side columns: left = Ocean & Pool View Room (green header, Premium), right = Owner's Suite (coral header, Ultra Luxury). Each column has `bigpic.jpeg` as lead + 3-up sub-row of thumbs. |
 | 11 | **Beyond the Package / Shanqin Bay** | "Hainan has 40+ golf courses · additional rounds anytime, anywhere." Then a large dramatic navy block with gold accents: **Shanqin Bay.** "The most exclusive golf club in China. — ASK US PRIVATELY —" |
 
 ---
@@ -103,7 +103,7 @@ python3 make_pdf.py
 
 ### Mission Hills photo crops to uniform 3:2
 **Decision:** All 7 Mission Hills photos are programmatically cropped to a uniform 3:2 (1.50) aspect before being placed in the document.
-**Why:** Original photos ranged from 1.45 to 1.82 ratio — looked uneven in the gallery. 3:2 matches the rest of the document's photography (Ritz-Carlton, wave pool hotel rooms are all 3:2).
+**Why:** Original photos ranged from 1.45 to 1.82 ratio — looked uneven in the gallery. 3:2 matches the rest of the document's photography (Ritz-Carlton, surf pool hotel rooms are all 3:2).
 
 ### Footer email/WhatsApp removed
 **Decision:** Page footers show only "Page N" — no `hello@surfchinaco.com · WhatsApp / WeChat available on request` line.
@@ -134,7 +134,7 @@ Assets/planner/
 │   ├── rz-hakrz-*-suite-bathroom*.jpeg
 │   ├── rz-hakrz-deluxe-golf-view-balcony*.jpeg
 │   └── IMG_7017.jpg
-└── wavepool_hotel/      # Wave Pool Resort accommodation
+└── wavepool_hotel/      # Surf Pool Resort accommodation
     ├── ocean & pool view room/
     │   ├── bigpic.jpeg               # → page 10 Premium column lead
     │   ├── 655B29D8-...Large.jpeg    # → page 10 thumb
@@ -146,7 +146,7 @@ Assets/planner/
         ├── CE9FCB19-...Large.jpeg    # → page 10 thumb
         └── 7A36E8BD-...Large.jpeg    # → page 10 thumb
 
-Assets/wavepool/             # Wave pool action shots (separate from hotel)
+Assets/wavepool/             # Surf pool action shots (separate from hotel)
 ├── wavepool-use.JPG                   # → page 3 Premium lead
 └── wavepool-surfer-action-01.jpg      # → page 3 strip thumb
 ```

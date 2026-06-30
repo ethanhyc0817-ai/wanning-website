@@ -1,6 +1,6 @@
 # Surf & Golf — Hainan Itinerary
 
-Two trip lengths, one philosophy: every day either has waves, a championship golf course, or both. PerfectSwell® Hainan is the only Kelly Slater-tech wave pool in Asia. The Dunes at Shenzhou Peninsula is China's #2 golf course (Tom Weiskopf). Mission Hills Blackstone is China's #1, and a World Top 100. The Luxury tier extends the journey to Sanya — Rosewood beachfront, a private yacht, Lu Hui Tou Golf Club, and cultural Hainan.
+Two trip lengths, one philosophy: every day either has waves, a championship golf course, or both. PerfectSwell® Hainan is the only Kelly Slater-tech surf pool in Asia. The Dunes at Shenzhou Peninsula is China's #2 golf course (Tom Weiskopf). Mission Hills Blackstone is China's #1, and a World Top 100. The Luxury tier extends the journey to Sanya — Rosewood beachfront, a private yacht, Lu Hui Tou Golf Club, and cultural Hainan.
 
 All trips include English-language trip support throughout. Pricing is per person, couple sharing one room.
 
@@ -12,11 +12,11 @@ All trips include English-language trip support throughout. Pricing is per perso
 
 ### Day 1 — Arrival → Wanning
 
-Private Premium Car round-trip transfer from Sanya Phoenix International (≈1.5 hrs) or Haikou Meilan International (≈2 hrs). Check in to your **Ocean & Pool View Room at the Wave Pool Resort**. Walk the property, settle into the surf lineup view from your balcony. Casual dinner on site.
+Private Premium Car round-trip transfer from Sanya Phoenix International (≈1.5 hrs) or Haikou Meilan International (≈2 hrs). Check in to your **Ocean & Pool View Room at the Surf Pool Resort**. Walk the property, settle into the surf lineup view from your balcony. Casual dinner on site.
 
 ### Day 2 — Wanning · Surf 1
 
-Morning **PerfectSwell® session #1** at the wave pool. Setting depends on the calendar — odd days run lefts, even days run rights. Photo coverage included during your session.
+Morning **PerfectSwell® session #1** at the surf pool. Setting depends on the calendar — odd days run lefts, even days run rights. Photo coverage included during your session.
 
 Free afternoon — beach, pool, recovery.
 
@@ -36,7 +36,7 @@ Private charter car back to **The Dunes**. 18 holes — second look at the cours
 
 ### Day 6 — Wanning → Haikou
 
-Morning **PerfectSwell® session #3** at the wave pool — final wave day.
+Morning **PerfectSwell® session #3** at the surf pool — final wave day.
 
 Afternoon charter car to Haikou (≈2 hrs). Check in to your **Deluxe Golf Ocean View Room at the Ritz-Carlton Haikou** at Mission Hills.
 
@@ -57,7 +57,7 @@ Afternoon Sedan transfer to Haikou Meilan Intl.
 
 ### Premium — what's included
 
-- 5 nights Ocean & Pool View Room at Wave Pool Resort (Wanning)
+- 5 nights Ocean & Pool View Room at Surf Pool Resort (Wanning)
 - 2 nights Deluxe Golf Ocean View Room at Ritz-Carlton Haikou
 - 3 × PerfectSwell® surf sessions per person · soft-top board rental throughout your Wanning stay
 - 3 × championship golf rounds per person — 2 at The Dunes, 1 at Mission Hills Blackstone · caddies included
@@ -75,7 +75,7 @@ Afternoon Sedan transfer to Haikou Meilan Intl.
 
 ### Day 1 — Arrival → Wanning
 
-Private Executive Van transfer from Sanya Phoenix International or Haikou Meilan International. Check in to your **Owner's Suite at the Wave Pool Resort** — the top-tier accommodation inside the surf complex.
+Private Executive Van transfer from Sanya Phoenix International or Haikou Meilan International. Check in to your **Owner's Suite at the Surf Pool Resort** — the top-tier accommodation inside the surf complex.
 
 ### Day 2 — Wanning · Surf 1 + Photo
 
@@ -139,7 +139,7 @@ Executive Van transfer to Haikou Meilan Intl.
 
 ### Luxury — what's included
 
-- 4 nights Owner's Suite at Wave Pool Resort (Wanning)
+- 4 nights Owner's Suite at Surf Pool Resort (Wanning)
 - 5 nights Deluxe Ocean View Room at Rosewood Sanya (瑰丽酒店), Haitang Bay
 - 2 nights Golf Suite at Ritz-Carlton Haikou
 - 3 × PerfectSwell® surf sessions per person · premium board rental throughout your Wanning stay
@@ -165,7 +165,7 @@ Executive Van transfer to Haikou Meilan Intl.
 
 ## Notes
 
-- **Wave pool rotation:** the pool alternates daily — lefts on odd calendar days, rights on even. Specific wave settings finalized once dates lock.
+- **Surf pool rotation:** the pool alternates daily — lefts on odd calendar days, rights on even. Specific wave settings finalized once dates lock.
 - **Sanya hotel:** Luxury package stays at Rosewood Sanya on Haitang Bay — Deluxe Ocean View Room, direct beachfront, 5 nights.
 - **Areca Manor admission** (Luxury Day 7): admission ticket ≈ ¥170/person, payable on-site or available as a quoted add-on if you'd prefer it included in the package price.
 - **Ground logistics are flexible:** charter car day assignments above are illustrative — exact routing finalized with the operations team once dates lock.
