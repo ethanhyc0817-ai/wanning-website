@@ -640,55 +640,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
           <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
 
-          <div class="form-group">
-            <label for="full_name">Full Name</label>
-            <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
-          </div>
-          <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
-          <input type="hidden" name="first_name">
-          <input type="hidden" name="last_name">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" autocapitalize="off" required>
-            </div>
-            <div class="form-group">
-              <label for="whatsapp"><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
-              <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Trip Start Date <span style="color:var(--coral);">*</span></label>
-            <div class="date-picker" id="datePicker">
-              <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
-              <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
-              <input type="hidden" name="trip_start_date" id="tripStartDate">
-              <input type="hidden" name="dates_tbd" id="datesTbd" value="">
-            </div>
-          </div>
-
-          <div class="form-row form-row-3">
-            <div class="form-group">
-              <label>Adults <span style="color:var(--coral);">*</span></label>
-              <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
-            </div>
-            <div class="form-group">
-              <label>Children</label>
-              <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
-            </div>
-            <div class="form-group">
-              <label>Rooms <span style="color:var(--coral);">*</span></label>
-              <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
-            </div>
-          </div>
-
-          <div class="form-group" id="childrenAgesGroup" hidden>
-            <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
-            <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
-          </div>
-
           <div class="form-group form-group-lg">
             <label>Pick a Starting Point &mdash; We Tailor It</label>
             <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="/#packages">See all packages</a>.</p>
@@ -712,7 +663,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
               </label>
               <div id="wpeEstimate" class="wpe-est" hidden>
                 <div class="wpe-est__title">Quick estimate <span>&middot; ballpark, we confirm your exact quote</span></div>
-                <div class="wpe-est__summary">Estimate for <strong id="wpeBasis">2 guests</strong> <span class="wpe-est__setabove">&mdash; from your details above</span></div>
+                <div class="wpe-est__summary">Estimate for <strong id="wpeBasis">2 guests</strong> <span class="wpe-est__setabove">&mdash; from your trip details</span></div>
                 <div class="wpe-est__inputs">
                   <label>Nights<input type="number" name="num_nights" id="wpeNights" value="3" min="1" max="30" step="1" inputmode="numeric"></label>
                   <label>Surf sessions / day <span class="hint">(whole group)</span><input type="number" name="sessions_per_day" id="wpeSessionsPerDay" value="2" min="0" max="4" step="1" inputmode="numeric"></label>
@@ -815,6 +766,55 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
               </div>
             </div>
             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
+          </div>
+          <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
+          <input type="hidden" name="first_name">
+          <input type="hidden" name="last_name">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" autocapitalize="off" required>
+            </div>
+            <div class="form-group">
+              <label for="whatsapp"><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Trip Start Date <span style="color:var(--coral);">*</span></label>
+            <div class="date-picker" id="datePicker">
+              <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
+              <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
+              <input type="hidden" name="trip_start_date" id="tripStartDate">
+              <input type="hidden" name="dates_tbd" id="datesTbd" value="">
+            </div>
+          </div>
+
+          <div class="form-row form-row-3">
+            <div class="form-group">
+              <label>Adults <span style="color:var(--coral);">*</span></label>
+              <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
+            </div>
+            <div class="form-group">
+              <label>Children</label>
+              <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
+            </div>
+            <div class="form-group">
+              <label>Rooms <span style="color:var(--coral);">*</span></label>
+              <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
+            </div>
+          </div>
+
+          <div class="form-group" id="childrenAgesGroup" hidden>
+            <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
+            <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
           </div>
 
           <div class="form-row">
