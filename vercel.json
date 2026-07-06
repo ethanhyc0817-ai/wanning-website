@@ -60,6 +60,11 @@
       "source": "/pages/package-2-the-hainan-surf-and-explore.html",
       "destination": "/#packages",
       "permanent": true
+    },
+    {
+      "source": "/pages/:slug.html",
+      "destination": "/:slug.html",
+      "permanent": true
     }
   ]
 }
