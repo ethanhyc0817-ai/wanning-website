@@ -1871,7 +1871,7 @@ footer::before {
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="#" class="nav-mobile-cta" onclick="showPage('contact'); return false;">Book Now</a>
+    <a href="#" class="nav-mobile-cta" onclick="showPage('contact'); document.getElementById('mobileMenu').classList.remove('open'); return false;">Book Now</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
