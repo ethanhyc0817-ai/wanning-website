@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF', { transport_type: 'beacon' });
+</script>
+
+<title>Opening brochure&hellip; | Surf China Co.</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Georgia, 'Times New Roman', serif; background: #fdfaf4; color: #1b3a4b; }
+  p { font-size: 1.1rem; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<p>Opening your brochure&hellip;</p>
+<script>
+  // Shortlink slug -> PDF. Keep in sync with the rewrites in vercel.json.
+  var BROCHURES = {
+    'premium-7nights':        '/Assets/brochures/premium-7nights.pdf',
+    'luxury-11nights':        '/Assets/brochures/luxury-11nights.pdf',
+    'surf-and-golf-essential':'/Assets/brochures/surf-and-golf-essential.pdf',
+    'surf-and-golf-premium':  '/Assets/brochures/surf-and-golf-premium.pdf',
+    'surf-and-golf-luxury':   '/Assets/brochures/surf-and-golf-luxury.pdf',
+    'essential-5nights':      '/Assets/brochures/surf-and-golf-essential.pdf',
+    'hainan-golf':            '/Assets/brochures/hainan-golf.pdf'
+  };
+
+  var slug = new URLSearchParams(location.search).get('b') ||
+             location.pathname.replace(/^\/|\/$/g, '');
+  var dest = BROCHURES[slug] || '/';
+
+  var done = false;
+  function go() {
+    if (done) return;
+    done = true;
+    location.replace(dest);
+  }
+
+  gtag('event', 'brochure_open', {
+    brochure: slug || 'unknown',
+    file_name: dest.split('/').pop(),
+    transport_type: 'beacon',
+    event_callback: go
+  });
+  // Don't leave the visitor stranded if GA is blocked or slow.
+  setTimeout(go, 2000);
+</script>
+</body>
+</html>

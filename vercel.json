@@ -3,39 +3,16 @@
     { "source": "/contact", "destination": "/pages/inquiry.html" },
     { "source": "/book", "destination": "/pages/inquiry.html" },
     { "source": "/quote", "destination": "/pages/inquiry.html" },
+    { "source": "/premium-7nights", "destination": "/pages/brochure-open.html" },
+    { "source": "/luxury-11nights", "destination": "/pages/brochure-open.html" },
+    { "source": "/surf-and-golf-premium", "destination": "/pages/brochure-open.html" },
+    { "source": "/surf-and-golf-luxury", "destination": "/pages/brochure-open.html" },
+    { "source": "/surf-and-golf-essential", "destination": "/pages/brochure-open.html" },
+    { "source": "/essential-5nights", "destination": "/pages/brochure-open.html" },
+    { "source": "/hainan-golf", "destination": "/pages/brochure-open.html" },
     { "source": "/:slug.html", "destination": "/pages/:slug.html" }
   ],
   "redirects": [
-    {
-      "source": "/premium-7nights",
-      "destination": "/Assets/brochures/premium-7nights.pdf",
-      "permanent": false
-    },
-    {
-      "source": "/luxury-11nights",
-      "destination": "/Assets/brochures/luxury-11nights.pdf",
-      "permanent": false
-    },
-    {
-      "source": "/surf-and-golf-premium",
-      "destination": "/Assets/brochures/surf-and-golf-premium.pdf",
-      "permanent": false
-    },
-    {
-      "source": "/surf-and-golf-luxury",
-      "destination": "/Assets/brochures/surf-and-golf-luxury.pdf",
-      "permanent": false
-    },
-    {
-      "source": "/surf-and-golf-essential",
-      "destination": "/Assets/brochures/surf-and-golf-essential.pdf",
-      "permanent": false
-    },
-    {
-      "source": "/essential-5nights",
-      "destination": "/Assets/brochures/surf-and-golf-essential.pdf",
-      "permanent": false
-    },
     {
       "source": "/surf-and-explore",
       "destination": "/#packages",
