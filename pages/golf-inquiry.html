@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
@@ -967,6 +983,16 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
+    // GA4: every golf-form submit click — fires even when validation fails.
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'quote_cta_click', {
+          form_id: 'golf_inquiry',
+          quote_entry: 'golf_quote',
+          page_location: window.location.href
+        });
+      }
+    } catch (_) { /* analytics is best-effort */ }
     const btn = form.querySelector('button[type="submit"]');
     const status = document.getElementById('formStatus');
     const errorEl = document.getElementById('formError');
@@ -998,6 +1024,17 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
+        // GA4 conversion: a real golf inquiry submission.
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              form_id: 'golf_inquiry',
+              quote_entry: 'golf_quote',
+              package: 'golf',
+              page_location: window.location.href
+            });
+          }
+        } catch (_) { /* analytics is best-effort */ }
         openInquiryMailDraft(form);
         form.reset();
         if (status) {

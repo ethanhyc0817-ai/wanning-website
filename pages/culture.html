@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
