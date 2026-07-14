@@ -8,6 +8,8 @@
     { "source": "/surf-and-golf-premium", "destination": "/pages/brochure-open.html" },
     { "source": "/surf-and-golf-luxury", "destination": "/pages/brochure-open.html" },
     { "source": "/surf-and-golf-essential", "destination": "/pages/brochure-open.html" },
+    { "source": "/surf-and-golf-complete", "destination": "/pages/brochure-open.html" },
+    { "source": "/surf-and-golf", "destination": "/pages/brochure-open.html" },
     { "source": "/essential-5nights", "destination": "/pages/brochure-open.html" },
     { "source": "/hainan-golf", "destination": "/pages/brochure-open.html" },
     { "source": "/:slug.html", "destination": "/pages/:slug.html" }
