@@ -5080,6 +5080,15 @@ async function handleSubmit(e) {
 // surf-golf-* / custom), or just open the matching tab (e.g. "surf-golf") so the visitor
 // picks a tier. Used by the "Get a Quote" CTAs on the package cards.
 function requestQuote(key) {
+  // GA4: a package-card "Get a Quote" / "Start Planning" click, with which card.
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', 'get_quote_click', {
+        package: key || 'unspecified',
+        page_location: window.location.href
+      });
+    }
+  } catch (_) { /* analytics is best-effort */ }
   showPage('contact');
   var k = key ? String(key).replace(/[^a-z0-9-]/gi, '') : '';
   var form = document.getElementById('contactForm');
