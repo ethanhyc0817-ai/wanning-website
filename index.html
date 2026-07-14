@@ -4974,6 +4974,16 @@ function syncNameFields(form) {
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
+  // GA4: every "Request My Quote" click — fires even when validation fails,
+  // so the click -> generate_lead funnel shows where people drop off.
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', 'quote_cta_click', {
+        form_id: 'trip_inquiry',
+        page_location: window.location.href
+      });
+    }
+  } catch (_) { /* analytics is best-effort */ }
   syncNameFields(form);
   const btn = form.querySelector('button[type="submit"]');
   const status = document.getElementById('formStatus');
