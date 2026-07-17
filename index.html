@@ -1673,6 +1673,20 @@ footer::before {
 .session-head { display: flex; align-items: center; gap: 0.7rem; }
 .session-head h3 { font-size: 1.2rem; margin: 0; letter-spacing: -0.01em; }
 .session-item-body p { font-size: 0.92rem; color: var(--warm-gray); margin: 0; line-height: 1.5; max-width: none; }
+.session-cta {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--teal); margin-top: 0.2rem;
+}
+.session-cta::after {
+  content: '\2192';
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.session-item:hover .session-cta::after { transform: translateX(5px); }
 .s-icon { width: 14px; height: 14px; flex-shrink: 0; display: inline-block; }
 .s-icon.easy { background: #2ea44f; border-radius: 50%; }
 .s-icon.medium { background: #1a7ad1; }
@@ -2433,6 +2447,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Learn to Surf</h3></div>
             <p>Your first wave, ever. Soft boards, a coach in the water, and whitewater waves designed to get you standing up on day one.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2441,6 +2456,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon easy"></span><h3>Beginner</h3></div>
             <p>Past whitewater and ready to ride the shoulder. Mellow, reformed waves to practice your pop-up, trim, and first turns.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2449,6 +2465,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon medium"></span><h3>Intermediate</h3></div>
             <p>Clean, open-face walls you can actually draw a line on. The best wave in the pool for building speed, flow, and real turns.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2457,6 +2474,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon hard"></span><h3>Advanced</h3></div>
             <p>Faster, punchier, more sections. Uncrowded waves to link turns, commit to the lip, and push every session further than the last.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2465,6 +2483,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Barrel Session</h3></div>
             <p>Hollow, heavy, and on demand. The session everyone comes for &mdash; get tubed more times in an hour than most surfers get in a lifetime.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2473,6 +2492,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon expert"></span><h3>Air Session</h3></div>
             <p>Ramp section on repeat. Punt airs, work rotations, and treat the pool like your own private launch pad.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
@@ -2481,6 +2501,7 @@ footer::before {
           <div class="session-item-body">
             <div class="session-head"><span class="s-icon private"></span><h3>Private Session</h3></div>
             <p>Book the whole pool. Custom wave settings, your crew only &mdash; perfect for film shoots, family trips, or a dream session dialed to you.</p>
+            <span class="session-cta">View Details</span>
           </div>
         </div>
 
