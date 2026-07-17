@@ -1829,6 +1829,8 @@ footer::before {
 .sd-video-section { background: var(--charcoal); padding: clamp(3rem, 6vw, 5rem) 0; }
 .sd-video-wrap { position: relative; width: 100%; max-width: 1100px; margin: 0 auto; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 4px; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
 .sd-video-wrap iframe, .sd-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+.sd-video-wrap--portrait { aspect-ratio: 1280 / 1706; max-width: 540px; }
+.sd-video-wrap--portrait video { object-fit: contain; }
 .sd-video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(255,255,255,0.55); background: linear-gradient(135deg, #1f3b4d 0%, #0a4d68 100%); gap: 0.8rem; }
 .sd-video-placeholder::before { content: '\25B6'; display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; font-size: 1.6rem; color: rgba(255,255,255,0.85); padding-left: 0.3rem; }
 .sd-video-placeholder span { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
@@ -2692,7 +2694,7 @@ footer::before {
   <!-- Video + quote -->
   <section class="sd-video-section">
     <div class="container">
-      <div class="sd-video-wrap">
+      <div class="sd-video-wrap sd-video-wrap--portrait">
         <video preload="none" autoplay muted loop playsinline>
           <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_auto,q_auto,w_1280/v1783243489/IMG_7412_4_bfr52u.mp4" type="video/mp4">
         </video>
@@ -3318,7 +3320,7 @@ footer::before {
           <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/v1776959778/ScreenRecording_04-23-2026_16_rxa9qq.mp4" type="video/mp4">
         </video>
       </div>
-      <p class="sd-video-quote">More tubes in an hour than most surfers get in a lifetime.</p>
+      <p class="sd-video-quote">Nothing better than this feeling.</p>
     </div>
   </section>
 
