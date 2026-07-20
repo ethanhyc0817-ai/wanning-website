@@ -1040,17 +1040,35 @@ nav.scrolled { padding: 0.7rem 0; }
 .wpe-est__tot { font-size: 0.82rem; color: var(--warm-gray); }
 .wpe-est__list { text-decoration: line-through; }
 .wpe-est__basis { grid-column: 2 / -1; align-self: end; font-size: 0.8rem; color: var(--warm-gray); }
-.pkg-tabs { display: flex; border: 1px solid var(--sand-dark); border-radius: 5px; overflow: hidden; margin: 0.2rem 0 1rem; }
-.pkg-tab { flex: 1; padding: 0.7rem 0.5rem; background: var(--white); border: none; border-right: 1px solid var(--sand-dark); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.02em; color: var(--warm-gray); cursor: pointer; transition: background 0.2s, color 0.2s; }
-.pkg-tab:last-child { border-right: none; }
-.pkg-tab:hover { background: var(--sand); color: var(--charcoal); }
-.pkg-tab.active { background: var(--ocean); color: #fff; }
+.pkg-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; margin: 0.4rem 0 1.3rem; }
+.pkg-tab {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem;
+  padding: 1rem 1.05rem 0.95rem;
+  background: var(--white);
+  border: 2px solid var(--sand-dark); border-radius: 5px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.04em; text-transform: uppercase; text-align: left;
+  color: var(--charcoal); cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.pkg-tab .pkg-tab-sub {
+  display: block; font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 0.74rem; letter-spacing: 0.01em; text-transform: none;
+  line-height: 1.35; color: var(--warm-gray);
+}
+.pkg-tab:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(10,77,104,0.10); }
+.pkg-tab.active { background: var(--ocean); border-color: var(--ocean); color: #fff; box-shadow: 0 8px 20px rgba(10,77,104,0.22); }
+.pkg-tab.active .pkg-tab-sub { color: rgba(255,255,255,0.78); }
+.trip-details.step-locked { opacity: 0.45; pointer-events: none; }
+.step-hint { font-size: 0.88rem; color: var(--warm-gray); margin: -0.4rem 0 1.4rem; }
 @media (max-width: 768px) {
   /* Prevent iOS zoom-on-focus: form controls must be >=16px */
   .form-group input, .form-group select, .form-group textarea,
   .custom-detail input, .wpe-est__inputs input, .date-display { font-size: 16px; }
   /* Comfortable tap target */
-  .pkg-tab { min-height: 44px; }
+  .pkg-tabs { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .pkg-tab { min-height: 44px; padding: 0.8rem 0.4rem; align-items: center; text-align: center; font-size: 0.8rem; letter-spacing: 0.03em; }
+  .pkg-tab .pkg-tab-sub { display: none; }
   /* Tighten the gap between the hero and the first form content on mobile */
   .contact-grid { margin-top: 0; }
 }
@@ -4106,57 +4124,13 @@ footer::before {
           <div class="section-divider"></div>
           <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
-            <div class="form-group">
-              <label for="full_name">Full Name</label>
-              <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
-            </div>
-            <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
-            <input type="hidden" name="first_name">
-            <input type="hidden" name="last_name">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" autocapitalize="off" required>
-              </div>
-              <div class="form-group">
-                <label for="whatsapp"><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Trip Start Date <span style="color:var(--coral);">*</span></label>
-              <div class="date-picker" id="datePicker">
-                <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
-                <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
-                <input type="hidden" name="trip_start_date" id="tripStartDate">
-                <input type="hidden" name="dates_tbd" id="datesTbd" value="">
-              </div>
-            </div>
-            <div class="form-row form-row-3">
-              <div class="form-group">
-                <label>Adults <span style="color:var(--coral);">*</span></label>
-                <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
-              </div>
-              <div class="form-group">
-                <label>Children</label>
-                <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
-              </div>
-              <div class="form-group">
-                <label>Rooms <span style="color:var(--coral);">*</span></label>
-                <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
-              </div>
-            </div>
-            <div class="form-group" id="childrenAgesGroup" hidden>
-              <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
-              <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
-            </div>
-            <div class="form-group form-group-lg">
-              <label>Pick a Starting Point &mdash; We Tailor It</label>
+<div class="form-group form-group-lg">
+              <label>First &mdash; What Kind of Trip? <span style="color:var(--coral);">*</span></label>
               <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
               <div class="pkg-tabs" role="tablist" aria-label="Trip type">
-                <button type="button" class="pkg-tab active" data-section="surf-golf">Surf &amp; Golf</button>
-                <button type="button" class="pkg-tab" data-section="surf">Surf</button>
-                <button type="button" class="pkg-tab" data-section="custom">Custom</button>
+                <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf<span class="pkg-tab-sub">Surf + championship golf &middot; our flagship trips</span></button>
+                <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; from US$780 pp</span></button>
+                <button type="button" class="pkg-tab" data-section="custom">Custom<span class="pkg-tab-sub">Build your own trip</span></button>
               </div>
               <div class="pkg-section" data-section="surf" hidden>
               <div class="package-options">
@@ -4172,6 +4146,7 @@ footer::before {
                   </div>
                 </label>
                 <div id="wpeEstimate" class="wpe-est" hidden>
+                  <input type="hidden" name="quoted_estimate" id="wpeQuoted" disabled>
                   <div class="wpe-est__title">Quick estimate <span>&middot; ballpark, we confirm your exact quote</span></div>
                   <div class="wpe-est__summary">Estimate for <strong id="wpeBasis">2 guests</strong> <span class="wpe-est__setabove">&mdash; from your details above</span></div>
                   <div class="wpe-est__inputs">
@@ -4185,7 +4160,7 @@ footer::before {
                 </div>
               </div>
               </div>
-              <div class="pkg-section" data-section="surf-golf">
+              <div class="pkg-section" data-section="surf-golf" hidden>
               <div class="package-options">
                 <label class="package-option">
                   <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Essential (5 nights)" data-nights="5" data-package-key="surf-golf-essential">
@@ -4277,6 +4252,63 @@ footer::before {
               </div>
               </div>
             </div>
+<p class="step-hint" id="stepHint">Pick a trip type above and the rest of the form unlocks &mdash; it adapts to what you choose.</p>
+<div id="tripDetails" class="trip-details step-locked">
+            <div class="form-group">
+              <label for="full_name">Full Name</label>
+              <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
+            </div>
+            <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
+            <input type="hidden" name="first_name">
+            <input type="hidden" name="last_name">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" autocapitalize="off" required>
+              </div>
+              <div class="form-group">
+                <label for="whatsapp"><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="dateLabel">Trip Start Date <span style="color:var(--coral);">*</span></label>
+              <div class="date-picker" id="datePicker">
+                <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
+                <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
+                <input type="hidden" name="trip_start_date" id="tripStartDate">
+                <input type="hidden" name="dates_tbd" id="datesTbd" value="">
+              </div>
+              <p class="form-help" id="dateModeHelp" hidden></p>
+              <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
+                <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
+                <select name="rough_timing" id="roughTiming" disabled>
+                  <option value="">Select if you know&hellip;</option>
+                  <option>Next 3 months</option>
+                  <option>3&ndash;6 months out</option>
+                  <option>6&ndash;12 months out</option>
+                  <option>Just exploring for now</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row form-row-3">
+              <div class="form-group">
+                <label>Adults <span style="color:var(--coral);">*</span></label>
+                <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
+              </div>
+              <div class="form-group">
+                <label>Children</label>
+                <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
+              </div>
+              <div class="form-group">
+                <label>Rooms <span style="color:var(--coral);">*</span></label>
+                <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
+              </div>
+            </div>
+            <div class="form-group" id="childrenAgesGroup" hidden>
+              <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
+              <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
+            </div>
             <div class="form-row">
               <div class="form-group">
                 <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
@@ -4307,6 +4339,7 @@ footer::before {
             <div id="formError" class="form-error" role="alert" hidden></div>
             <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
             <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Quote </button>
+          </div>
           </form>
         </div>
         <div class="contact-aside">
@@ -4548,6 +4581,7 @@ document.querySelectorAll('.page').forEach(page => {
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
   let selectedDate = null;
   let isTbd = false;
+  let allowTbd = true;
 
   const TBD_TEXT = "Dates TBD — we'll figure them out together";
 
@@ -4594,10 +4628,12 @@ document.querySelectorAll('.page').forEach(page => {
     html += '</div>';
     // "I'm not sure yet" row — at the top, right below the header. A deliberate
     // choice the visitor must tick; it still counts as answering the (required) date.
-    html += '<div class="date-popover-tbd' + (isTbd ? ' active' : '') + '" data-act="tbd">';
-    html += '<span class="tbd-check" aria-hidden="true"></span>';
-    html += '<span>I&rsquo;m not sure yet</span>';
-    html += '</div>';
+    if (allowTbd) {
+      html += '<div class="date-popover-tbd' + (isTbd ? ' active' : '') + '" data-act="tbd">';
+      html += '<span class="tbd-check" aria-hidden="true"></span>';
+      html += '<span>I&rsquo;m not sure yet</span>';
+      html += '</div>';
+    }
     html += '<div class="date-cal">';
     DOW.forEach(d => html += '<div class="date-cal-dow">' + d + '</div>');
     for (let i = 0; i < startOffset; i++) html += '<div></div>';
@@ -4688,6 +4724,18 @@ document.querySelectorAll('.page').forEach(page => {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && popover.classList.contains('open')) closePopover();
   });
+
+  window.scDatePicker = {
+    setAllowTbd: function (on) {
+      allowTbd = !!on;
+      if (!allowTbd && isTbd) {
+        isTbd = false; tbdInput.value = '';
+        display.value = ''; display.classList.remove('tbd');
+        notify();
+      }
+      if (popover.classList.contains('open')) render();
+    }
+  };
 })();
 
 // Inquiry form validation: runs on submit, lists what's missing in a red
@@ -4736,9 +4784,11 @@ function validateInquiryForm(form) {
       errorFields.push(document.getElementById('customDetail'));
     }
   }
-  const hasDate = !!((tripStart && tripStart.value) || (tbd && tbd.value === 'yes'));
-  if (!hasDate) {
-    missing.push('A trip start date (or tick “I’m not sure yet”)');
+  // Date rules follow the trip type: Surf Escape pricing is date-based, so a
+  // real date is required there; Surf & Golf and Custom quotes can start without one.
+  const seBox = form.querySelector('input[data-package-key="wave-pool"]');
+  if (seBox && seBox.checked && !(tripStart && tripStart.value)) {
+    missing.push('Your trip start date — Surf Escape pricing is date-based');
     errorFields.push(document.getElementById('datePicker'));
   }
   const adults = form.querySelector('[name="adults"]');
@@ -4800,12 +4850,14 @@ function validateInquiryForm(form) {
     g('wpeTot').textContent = usd(total) + ' total';
     g('wpeList').textContent = 'was ' + usd(total / 0.9);
     g('wpeBasis').textContent = ppl + ' guest' + (ppl > 1 ? 's' : '');
+    const q = g('wpeQuoted'); if (q) q.value = usd(total) + ' total · ' + usd(total / ppl) + ' pp · ' + nts + 'N × ' + readPerDay() + ' sessions/day';
   }
   function wpeRefresh() { calcWpe(); }
   function syncWpe() {
     if (!wpeEst) return;
     wpeEst.hidden = !(wpeBox && wpeBox.checked);
-    const sp = g('wpeSessionsPerDay'); if (sp) sp.disabled = wpeEst.hidden;  // only submit sessions/day when Surf Pool is selected
+    const sp = g('wpeSessionsPerDay'); if (sp) sp.disabled = wpeEst.hidden;
+    const qh = g('wpeQuoted'); if (qh) qh.disabled = wpeEst.hidden;  // only submit sessions/day when Surf Pool is selected
     if (!wpeEst.hidden) wpeRefresh();
   }
   if (wpeEst) {
@@ -4912,6 +4964,59 @@ function validateInquiryForm(form) {
   tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.section)));
 })();
 
+// Trip-type modes: Step 1 picks the path, the rest of the form adapts.
+// surf = The Surf Escape (fixed calculator pricing -> date required, no TBD,
+// estimate is the offer). surf-golf / custom = tailored quotes (date optional,
+// TBD allowed with a rough-timing follow-up).
+var currentTripMode = '';
+function syncRoughTiming() {
+  var grp = document.getElementById('roughTimingGroup');
+  var sel = document.getElementById('roughTiming');
+  var tbdInp = document.getElementById('datesTbd');
+  if (!grp) return;
+  var show = !!currentTripMode && currentTripMode !== 'surf' && !!(tbdInp && tbdInp.value === 'yes');
+  grp.hidden = !show;
+  if (sel) { sel.disabled = !show; if (!show) sel.value = ''; }
+}
+function applyTripMode(sec) {
+  currentTripMode = sec || '';
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var unlocked = !!sec;
+  var details = document.getElementById('tripDetails');
+  if (details) details.classList.toggle('step-locked', !unlocked);
+  var hint = document.getElementById('stepHint');
+  if (hint) hint.hidden = unlocked;
+  var surfMode = sec === 'surf';
+  if (window.scDatePicker) window.scDatePicker.setAllowTbd(!surfMode);
+  var dateLabel = document.getElementById('dateLabel');
+  if (dateLabel) dateLabel.innerHTML = surfMode
+    ? 'Trip Start Date <span style="color:var(--coral);">*</span>'
+    : '<span class="lbl-meta">Optional</span> &middot; Trip Start Date';
+  var dateHelp = document.getElementById('dateModeHelp');
+  if (dateHelp) {
+    dateHelp.hidden = !unlocked || surfMode;
+    dateHelp.textContent = surfMode ? '' : 'Not sure yet? Leave it open — we shape the trip first, dates can follow.';
+  }
+  var btn = form.querySelector('button[type="submit"]');
+  if (btn && !btn.disabled) btn.textContent = surfMode ? 'Lock In This Estimate ' : 'Request My Quote ';
+  var sticky = document.getElementById('stickyQuoteBtn');
+  if (sticky) sticky.textContent = surfMode ? 'Lock In This Estimate' : 'Request My Quote';
+  syncRoughTiming();
+}
+(function initTripMode() {
+  if (!document.getElementById('contactForm')) return;
+  document.querySelectorAll('#contactForm .pkg-tab').forEach(function (t) {
+    t.addEventListener('click', function () { applyTripMode(t.dataset.section); });
+  });
+  var startInput = document.getElementById('tripStartTimingHook') || document.getElementById('tripStartDate');
+  if (startInput) startInput.addEventListener('change', syncRoughTiming);
+  // Default path: Surf & Golf opens preselected (our flagship); ?package= deep
+  // links run later and override this when the visitor came from a package card.
+  var defTab = document.querySelector('#contactForm .pkg-tab[data-section="surf-golf"]');
+  if (defTab) defTab.click(); else applyTripMode('');
+})();
+
 (function initInquiryLiveErrorClear() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -4955,6 +5060,8 @@ function openInquiryMailDraft(form) {
       children_ages: 'Children ages',
       rooms: 'Rooms',
       sessions_per_day: 'Surf sessions / day',
+      quoted_estimate: 'Estimate shown on the form',
+      rough_timing: 'Rough timing',
       custom_surf_sessions: 'Custom — surf sessions (total)',
       custom_golf_rounds: 'Custom — golf rounds (total)',
       surf_level: 'Surf level',
