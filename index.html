@@ -1088,6 +1088,12 @@ nav.scrolled { padding: 0.7rem 0; }
   margin: -0.2rem 0 0.9rem; line-height: 1.5; max-width: none;
 }
 .form-help + .form-help { margin-top: -0.5rem; }
+/* Surf pool maintenance note under the date field */
+.maint-note {
+  background: var(--sand); border-left: 3px solid var(--teal);
+  padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0;
+}
+.date-cal-day.maint { text-decoration: line-through; }
 .form-help a {
   color: var(--teal);
   text-decoration: underline;
@@ -4279,6 +4285,7 @@ footer::before {
                 <input type="hidden" name="trip_start_date" id="tripStartDate">
                 <input type="hidden" name="dates_tbd" id="datesTbd" value="">
               </div>
+              <p class="form-help maint-note" id="maintNote" hidden></p>
               <p class="form-help" id="dateModeHelp" hidden></p>
               <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
                 <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
@@ -4578,6 +4585,25 @@ document.querySelectorAll('.page').forEach(page => {
   // Booking horizon: up to 2 years from today. Rolls forward automatically each day.
   const MAX_DATE = new Date(today.getFullYear() + 2, today.getMonth(), today.getDate());
   MAX_DATE.setHours(0, 0, 0, 0);
+  // Surf pool maintenance closures: start dates in these windows can't be
+  // picked, and a note shows under the field until each window has passed.
+  // Add future closures here as they're announced (month is 0-based).
+  const MAINT_RANGES = [
+    { start: new Date(2026, 7, 24), end: new Date(2026, 8, 23) } // 24 Aug – 23 Sep 2026
+  ];
+  MAINT_RANGES.forEach(r => { r.start.setHours(0,0,0,0); r.end.setHours(0,0,0,0); });
+  const inMaintenance = d => MAINT_RANGES.some(r => d >= r.start && d <= r.end);
+  const maintNote = document.getElementById('maintNote');
+  if (maintNote) {
+    const upcoming = MAINT_RANGES.filter(r => today <= r.end);
+    if (upcoming.length) {
+      const fmtNote = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      maintNote.innerHTML = 'Our surf pool is closed for scheduled maintenance '
+        + upcoming.map(r => '<strong>' + fmtNote(r.start) + ' &ndash; ' + fmtNote(r.end) + '</strong>').join(' and ')
+        + ', so trips can&rsquo;t start on those dates.';
+      maintNote.hidden = false;
+    }
+  }
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
   let selectedDate = null;
   let isTbd = false;
@@ -4641,8 +4667,10 @@ document.querySelectorAll('.page').forEach(page => {
       const cell = new Date(y, m, day); cell.setHours(0, 0, 0, 0);
       let cls = 'date-cal-day';
       if (cell < today || cell > MAX_DATE) cls += ' disabled';
+      const maint = inMaintenance(cell);
+      if (maint) cls += ' disabled maint';
       if (sameDay(cell, selectedDate)) cls += ' start';
-      html += '<div class="' + cls + '" data-day="' + day + '">' + day + '</div>';
+      html += '<div class="' + cls + '" data-day="' + day + '"' + (maint ? ' title="Closed for surf pool maintenance"' : '') + '>' + day + '</div>';
     }
     html += '</div>';
     html += '<div class="date-popover-footer">';
