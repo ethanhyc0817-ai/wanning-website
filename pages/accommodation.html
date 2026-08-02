@@ -30,7 +30,7 @@
 </script>
 
 <title>Stay with us — Surf China Co. × Riyue Bay</title>
-<meta name="description" content="A premium boutique stay by Japanese architect Shuhei Aoyama — steps from the PerfectSwell® Surf Pool. Free breakfast, 20% off surf sessions.">
+<meta name="description" content="A premium resort stay at Riyue Bay — inside the surf-park grounds, steps from the PerfectSwell® Surf Pool. Eight room types, free breakfast for every guest.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/accommodation.html">
@@ -40,7 +40,7 @@
 <meta property="og:site_name" content="Surf China Co.">
 <meta property="og:url" content="https://www.surfchina.co/accommodation.html">
 <meta property="og:title" content="Stay with us — Surf China Co. × Riyue Bay">
-<meta property="og:description" content="A premium boutique stay by Japanese architect Shuhei Aoyama — steps from the PerfectSwell® Surf Pool. Free breakfast, 20% off surf sessions.">
+<meta property="og:description" content="A premium resort stay at Riyue Bay — inside the surf-park grounds, steps from the PerfectSwell® Surf Pool. Eight room types, free breakfast for every guest.">
 <meta property="og:image" content="https://www.surfchina.co/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02.jpg">
 <meta property="og:image:alt" content="Resort pool by the sea — Surf China Co. accommodation at Riyue Bay">
 <meta property="og:locale" content="en_US">
@@ -48,7 +48,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Stay with us — Boutique stay at Riyue Bay, Hainan">
-<meta name="twitter:description" content="Steps from the PerfectSwell® Surf Pool. Boutique design by Shuhei Aoyama.">
+<meta name="twitter:description" content="A premium resort stay at Riyue Bay — steps from the PerfectSwell® Surf Pool. Free breakfast for every guest.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02.jpg">
 
 <!-- Structured data: LodgingBusiness -->
@@ -56,8 +56,10 @@
 {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  "name": "Surf China Co. × Riyue Bay Boutique Stay",
-  "description": "A premium boutique stay by Japanese architect Shuhei Aoyama, located steps from the PerfectSwell® Hainan surf pool. Free breakfast and 20% off surf sessions for guests.",
+  "name": "Surf China Co. × Riyue Bay Resort Stay",
+  "description": "A premium resort stay inside the Riyue Bay surf-park grounds, steps from the PerfectSwell® Hainan surf pool. Eight room types and free breakfast for every guest.",
+  "checkinTime": "15:00",
+  "checkoutTime": "12:00",
   "image": "https://www.surfchina.co/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02.jpg",
   "url": "https://www.surfchina.co/accommodation.html",
   "address": {
@@ -68,7 +70,6 @@
   },
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Free breakfast", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "20% off PerfectSwell sessions", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Steps from surf pool", "value": true }
   ]
 }
@@ -335,6 +336,17 @@ nav.scrolled { padding: 0.7rem 0; }
 /* ======= DINING ======= */
 .dining { background: var(--white); }
 
+/* ======= AMENITIES ======= */
+.amenities { background: var(--sand); }
+.amenity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+.amenity-card { background: var(--white); border-radius: 3px; overflow: hidden; }
+.amenity-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.amenity-card-body { padding: 1.2rem 1.4rem 1.4rem; }
+.amenity-card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.amenity-card p { font-size: 0.88rem; color: var(--warm-gray); margin: 0; max-width: 100%; }
+.amenity-list { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 2.2rem; }
+.amenity-list span { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--charcoal); background: var(--white); padding: 0.5rem 1rem; border-radius: 2px; border: 1px solid var(--sand-dark); }
+
 /* ======= FINAL CTA ======= */
 .final-cta { position: relative; height: 60vh; min-height: 460px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .final-cta-bg { position: absolute; inset: 0; z-index: 0; }
@@ -397,7 +409,7 @@ nav.scrolled { padding: 0.7rem 0; }
   <div class="hero-content">
     <span class="hero-eyebrow">Stay with us</span>
     <h1>Steps from the waves.</h1>
-    <p>A boutique beachfront stay at Riyue Bay &mdash; designed by renowned Japanese architect Shuhei Aoyama, set inside the surf pool grounds, seconds from the South China Sea.</p>
+    <p>A purpose-built surf resort at Riyue Bay &mdash; set inside the surf-park grounds, seconds from the South China Sea.</p>
     <a href="/#contact" class="btn btn-primary btn-arrow" style="margin-top: 1rem;">Check Availability</a>
   </div>
   <div class="hero-scroll">Scroll</div>
@@ -408,7 +420,7 @@ nav.scrolled { padding: 0.7rem 0; }
   <div class="highlights-lead">
     <span class="overline" style="color: var(--teal);">Why Stay With Us</span>
     <h2>Wake up on the waves.</h2>
-    <p>Three things every guest gets, before we've even started on the room itself.</p>
+    <p>What every guest gets, before we've even started on the room itself.</p>
   </div>
   <div class="container">
     <div class="highlights-grid">
@@ -418,29 +430,15 @@ nav.scrolled { padding: 0.7rem 0; }
         <p class="highlight-detail">Roll out of bed and into the lineup. The PerfectSwell&reg; pool and Riyue Bay beach are both inside the resort grounds.</p>
       </div>
       <div class="highlight-cell">
-        <div class="highlight-num">20<sup>%</sup></div>
-        <div class="highlight-label">Off Surf Sessions</div>
-        <p class="highlight-detail">Every guest who books a room gets 20% off all PerfectSwell&reg; Surf Pool sessions for the length of their stay.</p>
-      </div>
-      <div class="highlight-cell">
         <div class="highlight-num">Free</div>
         <div class="highlight-label">Breakfast Included</div>
-        <p class="highlight-detail">Daily tropical breakfast buffet at the on-site dining hall &mdash; fresh fruit, hot dishes, pastries, and local specialties.</p>
+        <p class="highlight-detail">Daily tropical breakfast buffet at the on-site dining hall &mdash; fresh fruit, hot dishes, pastries, and local specialties. Served until 1:30 PM.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. DESIGNER INTRO ============ -->
-<section class="intro-split">
-  <div class="container">
-    <div class="intro-inner" style="display:block; max-width: 820px; margin: 0 auto;">
-      <span class="overline">The Property</span>
-      <h2>A quiet, considered stay by the sea.</h2>
-      <div class="section-divider"></div>
-      <p class="lead">The Designer Room and Designer Suite are the work of <strong>Shuhei Aoyama</strong> &mdash; one of Japan's most celebrated architects working in China. Natural timber, warm stone, and clean lines: a space built to slow you down between sessions.</p>
-      <p style="color: var(--warm-gray); font-size: 0.95rem; margin-top: 1.2rem;">Beyond the designer rooms, the property also offers Ocean &amp; Pool View Rooms looking straight onto the surf pool, and the Owner's Suite &mdash; a residence-style stay for longer trips or small groups.</p>
-      <p class="designer-meta">Architect &middot; Shuhei Aoyama &nbsp;青山周平</p>
+      <div class="highlight-cell">
+        <div class="highlight-num">9.6<sup>/10</sup></div>
+        <div class="highlight-label">Guest Rating</div>
+        <p class="highlight-detail">Rated "Excellent" by hundreds of verified guests &mdash; for service, cleanliness, and location alike.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -452,9 +450,163 @@ nav.scrolled { padding: 0.7rem 0; }
       <span class="overline">Room Options</span>
       <h2>Choose your room.</h2>
       <div class="section-divider-center"></div>
-      <p class="lead" style="margin: 0 auto;">Four room types &mdash; each available with a king bed or twin beds. Just let us know what you need when you book.</p>
+      <p class="lead" style="margin: 0 auto;">Eight room types &mdash; from garden-view rooms to the 72&#13217; Owner's Suite. Most are available with a king bed or twin beds; just let us know what you need when you book.</p>
     </div>
     <div class="rooms-grid">
+
+      <!-- OCEAN & POOL VIEW ROOM -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/first.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/481DF200-3322-4BF2-BF7B-A0BABA02D5F2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/24D1F7A7-40BD-41D0-BD3C-D345DE8E4046 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/655B29D8-2BF7-4581-A96A-FC2D6CFACF14 2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/6DFE199A-73B1-4376-A3C6-27BD1B5F4BAF Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/827C014B-A10C-47DC-89C5-86C2D67AE4F4 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/main-hotel-entrance-01.jpg" alt="Ocean and Pool View Room" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">7</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">Riyue Bay &middot; Surf Pool View</span>
+          <h3>Ocean &amp; Pool View Room</h3>
+          <p>On the top floors, with a private balcony facing the PerfectSwell&reg; pool and the South China Sea beyond. Wake up and check the session before you even leave the bed.</p>
+          <div class="room-meta">
+            <span>King or twin beds</span>
+            <span>45&#13217; &middot; Balcony</span>
+            <span>Floors 5&ndash;6</span>
+            <span>Sleeps 2&ndash;4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OWNER'S SUITE -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/7A36E8BD-C170-4B9B-A14C-4EA4D2C79167 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/CE9FCB19-AFF9-491A-A599-5D9E7168380B Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/48907DE9-7C1D-477C-AC6D-D60CB4A1EBC7 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-suite-01.jpg" alt="Owner's Suite living room overlooking the surf pool" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/main-hotel-room-05.jpg" alt="Owner's Suite" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">6</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">Signature Residence</span>
+          <h3>Owner's Suite</h3>
+          <p>The signature residence &mdash; 72&#13217; with a separate living room and views over the surf yard. The most spacious way to stay, for couples or a small family on a longer trip.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>72&#13217; &middot; Living room</span>
+            <span>Sleeps 2&ndash;3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SURFYARD ROOM -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-08.jpg" alt="Surfyard Room sunken lounge" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-22.jpg" alt="Surfyard Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-patio-01.jpg" alt="Ground-floor private patio" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">3</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">Surf Yard &middot; Ground Level</span>
+          <h3>Surfyard Room</h3>
+          <p>A larger 52&#13217; king room on the ground level of the surf yard, with a sunken lounge built for post-session downtime. Walk out of your room and you're on the pool deck.</p>
+          <div class="room-meta">
+            <span>King bed</span>
+            <span>52&#13217; &middot; Sunken lounge</span>
+            <span>Sleeps 2</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GARDEN VIEW ROOM -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-12.jpg" alt="Garden View Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-15.jpg" alt="Garden View Room detail" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-balcony-01.jpg" alt="Private balcony" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">3</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">Garden &amp; Courtyard</span>
+          <h3>Garden View Room</h3>
+          <p>Quiet rooms on the lower floors with a private balcony over the resort's tropical gardens. The same generous 45&#13217; layout, at the gentlest price point in the house.</p>
+          <div class="room-meta">
+            <span>King or twin beds</span>
+            <span>45&#13217; &middot; Balcony</span>
+            <span>Floors 1&ndash;3</span>
+            <span>Sleeps 2&ndash;4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SURF FAMILY ROOM -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-18.jpg" alt="Surf Family Room with two double beds" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-01.jpg" alt="Family living and dining area" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-03.jpg" alt="Surf Family Room bedroom" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">3</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">For Families</span>
+          <h3>Surf Family Room</h3>
+          <p>Two double beds and a proper dining area on the lower floors &mdash; close to the kids' club, the playground, and the pool. Built for families learning to surf together.</p>
+          <div class="room-meta">
+            <span>Two double beds</span>
+            <span>45&#13217; &middot; Dining area</span>
+            <span>Floors 1&ndash;2</span>
+            <span>Sleeps 2&ndash;4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PET-FRIENDLY SURF ROOM -->
+      <div class="room-card">
+        <div class="room-slider">
+          <div class="room-track">
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-25.jpg" alt="Pet-Friendly Surf Room" loading="lazy"></div>
+            <div class="room-slide"><img src="/Assets/hotel/main hotel/main-hotel-room-12.jpg" alt="Pet-Friendly Surf Room" loading="lazy"></div>
+          </div>
+          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">2</span></span>
+        </div>
+        <div class="room-card-body">
+          <span class="room-tag">Traveling with Pets</span>
+          <h3>Pet-Friendly Surf Room</h3>
+          <p>A ground-floor room where dogs and cats are welcome on request &mdash; easy access to the gardens for morning walks before you paddle out. A pet fee applies per night.</p>
+          <div class="room-meta">
+            <span>Two double beds</span>
+            <span>45&#13217; &middot; Ground floor</span>
+            <span>Pets on request</span>
+            <span>Sleeps 2&ndash;4</span>
+          </div>
+        </div>
+      </div>
 
       <!-- DESIGNER ROOM -->
       <div class="room-card">
@@ -510,60 +662,6 @@ nav.scrolled { padding: 0.7rem 0; }
         </div>
       </div>
 
-      <!-- OCEAN & POOL VIEW ROOM -->
-      <div class="room-card">
-        <div class="room-slider">
-          <div class="room-track">
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/first.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/481DF200-3322-4BF2-BF7B-A0BABA02D5F2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/24D1F7A7-40BD-41D0-BD3C-D345DE8E4046 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/655B29D8-2BF7-4581-A96A-FC2D6CFACF14 2 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/6DFE199A-73B1-4376-A3C6-27BD1B5F4BAF Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/827C014B-A10C-47DC-89C5-86C2D67AE4F4 Large.jpeg" alt="Ocean and Pool View Room" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/ocean &amp; pool view room/main-hotel-entrance-01.jpg" alt="Ocean and Pool View Room" loading="lazy"></div>
-          </div>
-          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">7</span></span>
-        </div>
-        <div class="room-card-body">
-          <span class="room-tag">Riyue Bay &middot; Surf Pool View</span>
-          <h3>Ocean &amp; Pool View Room</h3>
-          <p>Floor-to-ceiling windows facing the PerfectSwell&reg; pool and the South China Sea beyond. Wake up and check the session before you even leave the bed.</p>
-          <div class="room-meta">
-            <span>King bed</span>
-            <span>Twin beds</span>
-            <span>Sleeps 2</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- OWNER'S SUITE -->
-      <div class="room-card">
-        <div class="room-slider">
-          <div class="room-track">
-            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/7A36E8BD-C170-4B9B-A14C-4EA4D2C79167 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/CE9FCB19-AFF9-491A-A599-5D9E7168380B Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/48907DE9-7C1D-477C-AC6D-D60CB4A1EBC7 Large.jpeg" alt="Owner's Suite" loading="lazy"></div>
-            <div class="room-slide"><img src="/Assets/hotel/choose/Owner's suite/main-hotel-room-05.jpg" alt="Owner's Suite" loading="lazy"></div>
-          </div>
-          <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-          <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-          <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">5</span></span>
-        </div>
-        <div class="room-card-body">
-          <span class="room-tag">Signature Residence</span>
-          <h3>Owner's Suite</h3>
-          <p>The top-floor residence &mdash; an expansive living room, private terrace, and uninterrupted views across the bay. Ideal for families, small groups, or a longer creative retreat.</p>
-          <div class="room-meta">
-            <span>King bed</span>
-            <span>Additional twin option</span>
-            <span>Sleeps 2&ndash;4</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -583,6 +681,12 @@ nav.scrolled { padding: 0.7rem 0; }
         <div class="gallery-slide"><img src="/Assets/hotel/outside/outside use/AF03B0AE-7747-4F49-BDAD-95C374094C3A Large.jpeg" alt="Resort gardens" loading="lazy"></div>
         <div class="gallery-slide"><img src="/Assets/hotel/outside/outside use/hotel-garden-aerial-01.jpg" alt="Garden aerial view" loading="lazy"></div>
         <div class="gallery-slide"><img src="/Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Pool aerial view" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-pool-aerial-01.jpg" alt="Lap pool from above" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-exterior-aerial-01.jpg" alt="Resort exterior aerial" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-entrance-01.jpg" alt="Hotel entrance" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-lobby-dusk-01.jpg" alt="Lobby at dusk" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-villa-exterior-01.jpg" alt="Villa exterior" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/outside/hotel-villa-patio-01.jpg" alt="Villa patio" loading="lazy"></div>
       </div>
     </div>
     <div class="gallery-nav">
@@ -607,6 +711,8 @@ nav.scrolled { padding: 0.7rem 0; }
         <div class="gallery-slide"><img src="/Assets/hotel/restaurant/restaurant use/restaurant-buffet-counter-01.jpg" alt="Buffet counter" loading="lazy"></div>
         <div class="gallery-slide"><img src="/Assets/hotel/restaurant/restaurant use/restaurant-buffet-hotfood-01.jpg" alt="Hot dishes" loading="lazy"></div>
         <div class="gallery-slide"><img src="/Assets/hotel/restaurant/restaurant use/restaurant-buffet-pastries-01.jpg" alt="Pastries" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/restaurant/restaurant-buffet-fruit-01.jpg" alt="Fresh tropical fruit" loading="lazy"></div>
+        <div class="gallery-slide"><img src="/Assets/hotel/restaurant/restaurant-dining-hall-01.jpg" alt="Dining hall" loading="lazy"></div>
       </div>
     </div>
     <div class="gallery-nav">
@@ -616,7 +722,59 @@ nav.scrolled { padding: 0.7rem 0; }
   </div>
 </section>
 
-<!-- ============ 7. FINAL CTA ============ -->
+<!-- ============ 7. RESORT AMENITIES ============ -->
+<section class="amenities">
+  <div class="container">
+    <div class="gallery-slider-header">
+      <span class="overline">Resort Amenities</span>
+      <h2>Everything a surf trip needs.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Beyond the rooms, the resort is fitted out like a proper surf basecamp &mdash; train, rinse, recover, repeat.</p>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-card">
+        <img src="/Assets/hotel/main hotel/main-hotel-gym-01.jpg" alt="Fitness center" loading="lazy">
+        <div class="amenity-card-body">
+          <h3>Fitness Center</h3>
+          <p>A fully equipped gym looking onto the gardens &mdash; free for all guests, ideal for staying paddle-fit between sessions.</p>
+        </div>
+      </div>
+      <div class="amenity-card">
+        <img src="/Assets/hotel/main hotel/main-hotel-laundry-01.jpg" alt="Guest laundry room" loading="lazy">
+        <div class="amenity-card-body">
+          <h3>Free Guest Laundry</h3>
+          <p>A self-service laundry room with washers and dryers, free of charge &mdash; a small thing that matters on a week of two-session days.</p>
+        </div>
+      </div>
+      <div class="amenity-card">
+        <img src="/Assets/hotel/outside/hotel-rooftop-lounge-01.jpg" alt="Rooftop lounge" loading="lazy">
+        <div class="amenity-card-body">
+          <h3>Rooftop Lounge &amp; Bar</h3>
+          <p>An open-air lounge above the resort &mdash; the place to replay the day's waves over a sundowner.</p>
+        </div>
+      </div>
+      <div class="amenity-card">
+        <img src="/Assets/hotel/outside/hotel-pool-aerial-01.jpg" alt="Outdoor swimming pool" loading="lazy">
+        <div class="amenity-card-body">
+          <h3>Outdoor Pool</h3>
+          <p>A palm-lined lap pool with sunbathing deck, free for guests &mdash; for the days you want water without waves.</p>
+        </div>
+      </div>
+    </div>
+    <div class="amenity-list">
+      <span>Kids' club &amp; playground</span>
+      <span>On-site restaurant &amp; bar</span>
+      <span>24-hour front desk</span>
+      <span>Butler service</span>
+      <span>Free private parking</span>
+      <span>EV charging</span>
+      <span>Free Wi-Fi throughout</span>
+      <span>Luggage storage</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. FINAL CTA ============ -->
 <section class="final-cta">
   <div class="final-cta-bg">
     <img src="/Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Resort at dusk">
