@@ -289,6 +289,25 @@ nav.scrolled { padding: 0.7rem 0; }
   padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0;
 }
 .date-cal-day.maint { text-decoration: line-through; }
+/* National Day Golden Week (Oct 1-7): still selectable, but marked in a deep
+   premium red — a 20% holiday surcharge applies, so we nudge visitors to book
+   around it. */
+.holiday-note {
+  background: rgba(176,58,46,0.08); border-left: 3px solid #b03a2e;
+  padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0;
+}
+.holiday-note.picked { background: rgba(176,58,46,0.14); }
+.date-cal-day.holiday { background: rgba(176,58,46,0.1); color: #b03a2e; font-weight: 600; }
+.date-cal-day.holiday:hover:not(.disabled) { background: rgba(176,58,46,0.24); }
+.date-cal-day.holiday.start { background: var(--teal); color: var(--white); }
+.date-holiday-legend {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.5rem;
+}
+.date-holiday-legend .swatch {
+  width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0;
+  background: rgba(176,58,46,0.22); border: 1px solid rgba(176,58,46,0.5);
+}
 
 /* Inline validation error block */
 .form-error {
@@ -839,6 +858,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
               <input type="hidden" name="dates_tbd" id="datesTbd" value="">
             </div>
               <p class="form-help maint-note" id="maintNote" hidden></p>
+              <p class="form-help holiday-note" id="holidayNote" hidden></p>
               <p class="form-help" id="dateModeHelp" hidden></p>
               <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
                 <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
@@ -929,7 +949,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
           </div>
           <div class="aside-row">
             <p class="aside-label">Response Time</p>
-            <p style="font-size:0.95rem;">We typically respond within 24 hours.</p>
+            <p style="font-size:0.95rem;">We typically respond within 24&ndash;48 hours.</p>
           </div>
         </div>
         <div class="aside-dark">
@@ -1017,14 +1037,43 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         maintNote.hidden = false;
       }
     }
+    // National Day Golden Week (Oct 1-7, every year): still bookable, but stays
+    // over these dates carry a 20% holiday surcharge — we mark the days gold and
+    // nudge visitors to book around them. One range per year in the horizon.
+    const HOLIDAY_RANGES = [];
+    for (let yr = today.getFullYear(); yr <= MAX_DATE.getFullYear(); yr++) {
+      HOLIDAY_RANGES.push({ start: new Date(yr, 9, 1), end: new Date(yr, 9, 7) });
+    }
+    HOLIDAY_RANGES.forEach(r => { r.start.setHours(0,0,0,0); r.end.setHours(0,0,0,0); });
+    const inHoliday = d => HOLIDAY_RANGES.some(r => d >= r.start && d <= r.end);
+    const holidayNote = document.getElementById('holidayNote');
+    const HOLIDAY_INFO = 'Heads-up: <strong>Oct 1&ndash;7</strong> is China&rsquo;s National Day Golden Week &mdash; stays over these dates carry a <strong>20% holiday surcharge</strong>. Start outside this window for standard rates.';
+    const HOLIDAY_PICKED = 'Your start date falls in <strong>Golden Week (Oct 1&ndash;7)</strong>, so a <strong>20% holiday surcharge</strong> applies. Start <strong>Oct 8 or later</strong> for standard rates.';
+    function refreshHolidayNote() {
+      if (!holidayNote) return;
+      if (selectedDate && inHoliday(selectedDate)) {
+        holidayNote.innerHTML = HOLIDAY_PICKED;
+        holidayNote.classList.add('picked');
+        holidayNote.hidden = false;
+      } else {
+        // General nudge only while the next Golden Week is ~4 months out or less.
+        const next = HOLIDAY_RANGES.find(r => today <= r.end);
+        const soon = next && (next.start - today) / 86400000 <= 120;
+        holidayNote.innerHTML = HOLIDAY_INFO;
+        holidayNote.classList.remove('picked');
+        holidayNote.hidden = !soon;
+      }
+    }
     let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
     let selectedDate = null;
     let isTbd = false;
   let allowTbd = true;
+    refreshHolidayNote();
 
     const TBD_TEXT = "Dates TBD — we'll figure them out together";
 
     function notify() {
+      refreshHolidayNote();
       startInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
@@ -1069,16 +1118,24 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       html += '<div class="date-cal">';
       DOW.forEach(d => html += '<div class="date-cal-dow">' + d + '</div>');
       for (let i = 0; i < startOffset; i++) html += '<div></div>';
+      let monthHasHoliday = false;
       for (let day = 1; day <= daysInMonth; day++) {
         const cell = new Date(y, m, day); cell.setHours(0, 0, 0, 0);
         let cls = 'date-cal-day';
         if (cell < today || cell > MAX_DATE) cls += ' disabled';
         const maint = inMaintenance(cell);
         if (maint) cls += ' disabled maint';
+        const holiday = !maint && inHoliday(cell);
+        if (holiday) { cls += ' holiday'; monthHasHoliday = true; }
         if (sameDay(cell, selectedDate)) cls += ' start';
-        html += '<div class="' + cls + '" data-day="' + day + '"' + (maint ? ' title="Closed for surf pool maintenance"' : '') + '>' + day + '</div>';
+        const title = maint ? 'Closed for surf pool maintenance'
+          : (holiday ? 'National Day Golden Week — 20% holiday surcharge' : '');
+        html += '<div class="' + cls + '" data-day="' + day + '"' + (title ? ' title="' + title + '"' : '') + '>' + day + '</div>';
       }
       html += '</div>';
+      if (monthHasHoliday) {
+        html += '<div class="date-holiday-legend"><span class="swatch" aria-hidden="true"></span><span>Oct 1&ndash;7 &middot; Golden Week &middot; 20% holiday surcharge</span></div>';
+      }
       html += '<div class="date-popover-footer">';
       html += '<button type="button" class="btn-clear" data-act="clear">Clear</button>';
       html += '</div>';
@@ -1515,7 +1572,7 @@ function applyTripMode(sec) {
         } catch (_) { /* analytics is best-effort */ }
         form.reset();
         if (status) {
-          status.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
+          status.textContent = 'Thank you! We\'ll get back to you within 24–48 hours.';
           status.style.color = 'var(--teal)';
           status.style.display = 'block';
         }

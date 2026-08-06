@@ -1094,6 +1094,25 @@ nav.scrolled { padding: 0.7rem 0; }
   padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0;
 }
 .date-cal-day.maint { text-decoration: line-through; }
+/* National Day Golden Week (Oct 1-7): still selectable, but marked in a deep
+   premium red — a 20% holiday surcharge applies, so we nudge visitors to book
+   around it. */
+.holiday-note {
+  background: rgba(176,58,46,0.08); border-left: 3px solid #b03a2e;
+  padding: 0.5rem 0.75rem; border-radius: 0 6px 6px 0;
+}
+.holiday-note.picked { background: rgba(176,58,46,0.14); }
+.date-cal-day.holiday { background: rgba(176,58,46,0.1); color: #b03a2e; font-weight: 600; }
+.date-cal-day.holiday:hover:not(.disabled) { background: rgba(176,58,46,0.24); }
+.date-cal-day.holiday.start { background: var(--teal); color: var(--white); }
+.date-holiday-legend {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.5rem;
+}
+.date-holiday-legend .swatch {
+  width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0;
+  background: rgba(176,58,46,0.22); border: 1px solid rgba(176,58,46,0.5);
+}
 .form-help a {
   color: var(--teal);
   text-decoration: underline;
@@ -2155,11 +2174,11 @@ footer::before {
           <div class="package-body">
             <span class="package-tag">3 Nights+</span>
             <h3>The Surf Escape</h3>
-            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 2 PerfectSwell&reg; sessions a day for the couple, all in.</p>
+            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
             <ul class="package-includes">
-              <li>2 PerfectSwell&reg; sessions a day for the couple &mdash; 6 over 3 nights, more on longer stays</li>
+              <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
               <li>Surf Pool Resort &mdash; Ocean &amp; Pool View Room</li>
-              <li>Premium board rental, video, round-trip transfer, breakfast</li>
+              <li>Beginner softboard use for included pool sessions, video, round-trip transfer, breakfast</li>
             </ul>
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <p class="brochure-label">See the full details</p>
@@ -2381,7 +2400,7 @@ footer::before {
       <div class="why-grid">
         <div class="why-card fade-in">
           <h3>PerfectSwell&reg; Destination Partner</h3>
-          <p>We book your sessions directly with PerfectSwell&reg; Hainan &mdash; no middlemen, no markups on pool time. Priority scheduling included with every package.</p>
+          <p>We coordinate your sessions directly with PerfectSwell&reg; Hainan, with priority scheduling and trip support included in every package.</p>
         </div>
         <div class="why-card fade-in">
           <h3>Designed for International Travelers</h3>
@@ -2658,7 +2677,7 @@ footer::before {
         </div>
         <div class="faq-item">
           <div class="faq-question">What's the minimum age?</div>
-          <div class="faq-answer"><p>Kids' programs start at age 6.</p></div>
+          <div class="faq-answer"><p>The normal guideline is age 6 and at least 1.2 m tall. Experienced younger children may be assessed by the coach; complete beginners who do not meet both guidelines cannot enter the surf pool.</p></div>
         </div>
         <div class="faq-item">
           <div class="faq-question">How many waves do I get per session?</div>
@@ -2722,11 +2741,11 @@ footer::before {
         </div>
 
         <ul class="sd-facts">
-          <li>Ages 5 and up</li>
-          <li>No surf experience needed</li>
+          <li>Normal guideline: age 6+ and at least 1.2 m tall</li>
+          <li>Complete beginners must meet both guidelines; experienced younger children may be assessed</li>
           <li>Pre-session instruction and in-water push-ins</li>
           <li>Small groups (max 4 per coach) or private instructors available</li>
-          <li>All equipment provided &mdash; board and wetsuit included</li>
+          <li>Beginner softboard available for the applicable session setup</li>
           <li>Plenty of waves every session</li>
           <li>Photos and video of your waves available</li>
           <li>Special needs? Just let us know &mdash; we'll take care of it</li>
@@ -2802,8 +2821,8 @@ footer::before {
         <div class="sd-inc-item">
           <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
           <div class="sd-inc-body">
-            <h4>Surfboard &amp; Wetsuit</h4>
-            <p>All equipment available on-site. Bring your own if you prefer &mdash; otherwise, we've got you covered.</p>
+            <h4>Boards &amp; Equipment</h4>
+            <p>Beginner softboards are available for the applicable session setup. Other boards can be rented on site, or you can bring your own.</p>
           </div>
         </div>
 
@@ -2883,7 +2902,7 @@ footer::before {
 
         <ul class="sd-facts">
           <li>Ages 6 and up</li>
-          <li>Soft top boards included</li>
+          <li>Soft top boards included for the session setup</li>
           <li>Friendly, experienced surf coaches</li>
           <li>Pre-session instruction in the water</li>
           <li>Photos and video available</li>
@@ -2958,8 +2977,8 @@ footer::before {
         <div class="sd-inc-item">
           <div class="sd-inc-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-5 8-5 12a5 5 0 0 0 10 0c0-4-2-8-5-12z"/><path d="M9 14h6"/></svg></div>
           <div class="sd-inc-body">
-            <h4>Surfboard &amp; Wetsuit</h4>
-            <p>All equipment available on-site. Bring your own if you prefer &mdash; otherwise, we've got you covered.</p>
+            <h4>Boards &amp; Equipment</h4>
+            <p>Beginner softboards are available for the applicable session setup. Other boards can be rented on site, or you can bring your own.</p>
           </div>
         </div>
         <div class="sd-inc-item">
@@ -3801,11 +3820,11 @@ footer::before {
           <div class="package-body">
             <span class="package-tag">3 Nights+</span>
             <h3>The Surf Escape</h3>
-            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 2 PerfectSwell&reg; sessions a day for the couple, all in.</p>
+            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
             <ul class="package-includes">
-              <li>2 PerfectSwell&reg; sessions a day for the couple &mdash; 6 over 3 nights, more on longer stays</li>
+              <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
               <li>Surf Pool Resort &mdash; Ocean &amp; Pool View Room</li>
-              <li>Premium board rental, video, round-trip transfer, breakfast</li>
+              <li>Beginner softboard use for included pool sessions, video, round-trip transfer, breakfast</li>
             </ul>
             <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <p class="brochure-label">See the full details</p>
@@ -4286,6 +4305,7 @@ footer::before {
                 <input type="hidden" name="dates_tbd" id="datesTbd" value="">
               </div>
               <p class="form-help maint-note" id="maintNote" hidden></p>
+              <p class="form-help holiday-note" id="holidayNote" hidden></p>
               <p class="form-help" id="dateModeHelp" hidden></p>
               <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
                 <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
@@ -4366,7 +4386,7 @@ footer::before {
             </div>
             <div>
               <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Response Time</p>
-              <p style="font-size:0.95rem;">We typically respond within 24 hours.</p>
+              <p style="font-size:0.95rem;">We typically respond within 24&ndash;48 hours.</p>
             </div>
           </div>
           <div style="background:var(--charcoal); color:var(--white); padding:2.5rem; border-radius:3px; margin-bottom:2rem;">
@@ -4604,16 +4624,45 @@ document.querySelectorAll('.page').forEach(page => {
       maintNote.hidden = false;
     }
   }
+  // National Day Golden Week (Oct 1-7, every year): still bookable, but stays
+  // over these dates carry a 20% holiday surcharge — we mark the days gold and
+  // nudge visitors to book around them. One range per year in the horizon.
+  const HOLIDAY_RANGES = [];
+  for (let yr = today.getFullYear(); yr <= MAX_DATE.getFullYear(); yr++) {
+    HOLIDAY_RANGES.push({ start: new Date(yr, 9, 1), end: new Date(yr, 9, 7) });
+  }
+  HOLIDAY_RANGES.forEach(r => { r.start.setHours(0,0,0,0); r.end.setHours(0,0,0,0); });
+  const inHoliday = d => HOLIDAY_RANGES.some(r => d >= r.start && d <= r.end);
+  const holidayNote = document.getElementById('holidayNote');
+  const HOLIDAY_INFO = 'Heads-up: <strong>Oct 1&ndash;7</strong> is China&rsquo;s National Day Golden Week &mdash; stays over these dates carry a <strong>20% holiday surcharge</strong>. Start outside this window for standard rates.';
+  const HOLIDAY_PICKED = 'Your start date falls in <strong>Golden Week (Oct 1&ndash;7)</strong>, so a <strong>20% holiday surcharge</strong> applies. Start <strong>Oct 8 or later</strong> for standard rates.';
+  function refreshHolidayNote() {
+    if (!holidayNote) return;
+    if (selectedDate && inHoliday(selectedDate)) {
+      holidayNote.innerHTML = HOLIDAY_PICKED;
+      holidayNote.classList.add('picked');
+      holidayNote.hidden = false;
+    } else {
+      // General nudge only while the next Golden Week is ~4 months out or less.
+      const next = HOLIDAY_RANGES.find(r => today <= r.end);
+      const soon = next && (next.start - today) / 86400000 <= 120;
+      holidayNote.innerHTML = HOLIDAY_INFO;
+      holidayNote.classList.remove('picked');
+      holidayNote.hidden = !soon;
+    }
+  }
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
   let selectedDate = null;
   let isTbd = false;
   let allowTbd = true;
+  refreshHolidayNote();
 
   const TBD_TEXT = "Dates TBD — we'll figure them out together";
 
   // Programmatic value changes on hidden inputs don't fire native change
   // events. We dispatch one ourselves so form-level validators can react.
   function notify() {
+    refreshHolidayNote();
     startInput.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
@@ -4663,16 +4712,24 @@ document.querySelectorAll('.page').forEach(page => {
     html += '<div class="date-cal">';
     DOW.forEach(d => html += '<div class="date-cal-dow">' + d + '</div>');
     for (let i = 0; i < startOffset; i++) html += '<div></div>';
+    let monthHasHoliday = false;
     for (let day = 1; day <= daysInMonth; day++) {
       const cell = new Date(y, m, day); cell.setHours(0, 0, 0, 0);
       let cls = 'date-cal-day';
       if (cell < today || cell > MAX_DATE) cls += ' disabled';
       const maint = inMaintenance(cell);
       if (maint) cls += ' disabled maint';
+      const holiday = !maint && inHoliday(cell);
+      if (holiday) { cls += ' holiday'; monthHasHoliday = true; }
       if (sameDay(cell, selectedDate)) cls += ' start';
-      html += '<div class="' + cls + '" data-day="' + day + '"' + (maint ? ' title="Closed for surf pool maintenance"' : '') + '>' + day + '</div>';
+      const title = maint ? 'Closed for surf pool maintenance'
+        : (holiday ? 'National Day Golden Week — 20% holiday surcharge' : '');
+      html += '<div class="' + cls + '" data-day="' + day + '"' + (title ? ' title="' + title + '"' : '') + '>' + day + '</div>';
     }
     html += '</div>';
+    if (monthHasHoliday) {
+      html += '<div class="date-holiday-legend"><span class="swatch" aria-hidden="true"></span><span>Oct 1&ndash;7 &middot; Golden Week &middot; 20% holiday surcharge</span></div>';
+    }
     html += '<div class="date-popover-footer">';
     html += '<button type="button" class="btn-clear" data-act="clear">Clear</button>';
     html += '</div>';
@@ -4857,7 +4914,7 @@ function validateInquiryForm(form) {
   const wpeBox = document.querySelector('#contactForm input[data-package-key="wave-pool"]');
   const wpeEst = document.getElementById('wpeEstimate');
   // Live The Surf Escape estimate — reads the shared group/date fields (asked once above),
-  // adds only its own Surf sessions. calculator.xlsx model: FX 7, component markups,
+  // adds only its own Surf sessions. Current package model: FX 7,
   // coordination per room 3N $283 / 4N $390, scaled by rooms.
   const FX = 7, usd = n => '$' + Math.round(n).toLocaleString();
   const coordPerRoom = n => (n === 4 ? 390 : n === 3 ? 283 : 94.33 * n);
@@ -5215,7 +5272,7 @@ async function handleSubmit(e) {
       openInquiryMailDraft(form);
       form.reset();
       if (status) {
-        status.textContent = 'Thank you! We\'ll get back to you within 24 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
+        status.textContent = 'Thank you! We\'ll get back to you within 24–48 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
         status.style.color = 'var(--teal)';
         status.style.display = 'block';
       }
