@@ -29,8 +29,8 @@
   gtag('config', 'G-8F2F546QPF');
 </script>
 
-<title>Surf China Co. | PerfectSwell® Hainan Surf Pool Trips</title>
-<meta name="description" content="Book PerfectSwell® surf pool trips in Hainan, China — the world's only surf pool on a tropical island. Accommodation, surf sessions, transfers, and local trip support.">
+<title>PerfectSwell® Surf Pool Trips at Riyue Bay, Hainan | Surf China Co.</title>
+<meta name="description" content="PerfectSwell® surf pool trips at Riyue Bay Surf Resort, Wanning, Hainan — the world's only surf pool on a tropical island. Accommodation, sessions, transfers, trip support.">
 
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="GbR75aFcK5kdkszJ8iM14mFLZTZj_wb9DcpCf6gWUi8" />
@@ -42,8 +42,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Surf China Co.">
 <meta property="og:url" content="https://www.surfchina.co/">
-<meta property="og:title" content="Surf China Co. | PerfectSwell® Hainan Surf Pool Trips">
-<meta property="og:description" content="Book PerfectSwell® surf pool trips in Hainan, China — the world's only surf pool on a tropical island. Accommodation, surf sessions, transfers, and local trip support.">
+<meta property="og:title" content="PerfectSwell® Surf Pool Trips at Riyue Bay, Hainan | Surf China Co.">
+<meta property="og:description" content="PerfectSwell® surf pool trips at Riyue Bay Surf Resort, Wanning, Hainan — the world's only surf pool on a tropical island. Accommodation, sessions, transfers, trip support.">
 <meta property="og:image" content="https://www.surfchina.co/Assets/hero/hero-wavepool.jpg">
 <meta property="og:image:width" content="1751">
 <meta property="og:image:height" content="1050">
@@ -52,8 +52,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Surf China Co. | PerfectSwell® Hainan Surf Pool Trips">
-<meta name="twitter:description" content="Book PerfectSwell® surf pool trips in Hainan, China — the world's only surf pool on a tropical island.">
+<meta name="twitter:title" content="PerfectSwell® Surf Pool Trips at Riyue Bay, Hainan | Surf China Co.">
+<meta name="twitter:description" content="PerfectSwell® surf pool trips at Riyue Bay Surf Resort, Wanning, Hainan — the world's only surf pool on a tropical island.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/hero/hero-wavepool.jpg">
 
 <!-- Structured data: TravelAgency + WebSite -->
@@ -68,14 +68,16 @@
       "url": "https://www.surfchina.co/",
       "logo": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png",
       "image": "https://www.surfchina.co/Assets/hero/hero-wavepool.jpg",
-      "description": "PerfectSwell® Destination Partner offering surf trips to Hainan, China — surf pool sessions, premium accommodation, and tropical adventure.",
+      "description": "PerfectSwell® Destination Partner offering surf trips to Riyue Bay Surf Resort in Wanning, Hainan, China — surf pool sessions, premium accommodation, and tropical adventure.",
       "areaServed": {
         "@type": "Place",
-        "name": "Wanning, Hainan, China"
+        "name": "Riyue Bay, Wanning, Hainan, China"
       },
       "knowsAbout": [
         "Surfing",
         "PerfectSwell surf pool",
+        "Riyue Bay Surf Resort",
+        "Wanning, Hainan",
         "Hainan travel",
         "Surf trips China"
       ],
@@ -228,6 +230,25 @@
         }
       ]
     }
+  ]
+}
+</script>
+
+<!-- Published rate card — helps search engines surface "how much is a PerfectSwell Hainan session" -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "PerfectSwell® Hainan surf session, coaching and room rates",
+  "url": "https://www.surfchina.co/#rates",
+  "provider": { "@id": "https://www.surfchina.co/#organization" },
+  "itemListElement": [
+    { "@type": "Offer", "name": "Surf pool session (55 min, per person)", "price": "349", "priceCurrency": "CNY", "category": "Surf session" },
+    { "@type": "Offer", "name": "Private surf pool session (per hour, whole pool)", "price": "6984", "priceCurrency": "CNY", "category": "Private session" },
+    { "@type": "Offer", "name": "Surf coaching (per person, per hour)", "price": "268", "priceCurrency": "CNY", "category": "Coaching" },
+    { "@type": "Offer", "name": "Session photography and video (per surfer)", "price": "200", "priceCurrency": "CNY", "category": "Photo and video" },
+    { "@type": "Offer", "name": "Performance surfboard rental (per day)", "price": "200", "priceCurrency": "CNY", "category": "Rental" },
+    { "@type": "Offer", "name": "Room at the surf pool resort (per night)", "price": "700", "priceCurrency": "CNY", "category": "Accommodation" }
   ]
 }
 </script>
@@ -710,6 +731,23 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .partner-badge-dark span { color: var(--warm-gray); }
 
+/* Rates board — one surfing table + a short list of extras */
+.rates-section { background: var(--white); }
+.rates-header { text-align: center; max-width: 780px; margin: 0 auto 3rem; }
+.rates-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); max-width: 980px; margin: 0 auto; align-items: start; }
+@media (max-width: 760px) { .rates-cols { grid-template-columns: 1fr; gap: 2.6rem; } }
+.rate-group h3 { font-size: 1.02rem; letter-spacing: -0.01em; margin: 0 0 0.2rem; }
+.rate-group__meta { font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warm-gray); margin: 0 0 1.1rem; }
+.rate-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--sand-dark); }
+.rate-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; padding: 0.8rem 0; border-bottom: 1px solid var(--sand-dark); font-size: 0.94rem; }
+.rate-row__name { color: var(--charcoal); }
+.rate-row__name small { display: block; font-size: 0.78rem; line-height: 1.45; color: var(--warm-gray); margin-top: 0.15rem; }
+.rate-row__price { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.98rem; color: var(--charcoal); white-space: nowrap; }
+.rate-row__price em { font-style: normal; font-weight: 500; font-size: 0.76em; color: var(--warm-gray); }
+.rate-group__note { font-size: 0.84rem; line-height: 1.65; color: var(--warm-gray); margin: 0.9rem 0 0; }
+.rates-foot { text-align: center; margin: 3rem auto 0; max-width: 720px; }
+.rates-foot p { font-size: 0.86rem; color: var(--warm-gray); margin: 0 auto 1.6rem; line-height: 1.7; }
+
 /* Reassurance */
 .reassurance {
   position: relative;
@@ -764,6 +802,14 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .reassurance-pillar p {
   font-size: 0.9rem; color: var(--warm-gray); line-height: 1.7;
+}
+/* Nav: 5 top-level links stop fitting below ~1010px — switch to the mobile menu there. */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
 }
 @media (max-width: 768px) {
   .visa-callout { display: block; }
@@ -1005,6 +1051,8 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+/* Surf-only mode drops the golfers field — keep the surviving field full width. */
+.form-row-solo { grid-template-columns: 1fr; }
 .custom-detail { margin: 0.4rem 0 0.2rem; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--gold); border-radius: 3px; background: var(--sand); }
 .custom-detail__q { margin-bottom: 0.9rem; }
 .custom-detail__q:last-child { margin-bottom: 0; }
@@ -1567,11 +1615,6 @@ footer::before {
   /* Contact hero (mobile): smaller heading, nudged down so the nav doesn't cover it */
   #page-contact .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; }
   #page-contact .page-hero { padding-bottom: 2rem; }
-  .nav-links { display: none; }
-  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
-  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
-  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
-  .nav-logo { order: 2; justify-self: center; }
   .intro-grid, .packages-grid, .explore-grid, .wave-types-grid,
   .why-grid, .contact-grid, .plan-grid, .natural-surf-inner,
   .reassurance-pillars { grid-template-columns: 1fr; }
@@ -1938,12 +1981,12 @@ footer::before {
     <div class="nav-links">
       <a href="#" onclick="showPage('wavepool')" data-page="wavepool">Surf Pool</a>
       <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
       <a href="#" onclick="showPage('packages')" data-page="packages">Packages</a>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
-          <a href="/accommodation.html">Accommodation</a>
           <a href="/how-to-get-here.html">Getting Here</a>
         </div>
       </div>
@@ -1959,10 +2002,10 @@ footer::before {
   <button class="mobile-close" onclick="toggleMobile()">&times;</button>
   <a href="#" onclick="showPage('wavepool'); toggleMobile();">Surf Pool</a>
   <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
-  <a href="/accommodation.html">Accommodation</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="#" onclick="showPage('contact'); toggleMobile();">Book Now</a>
 </div>
@@ -1974,19 +2017,31 @@ footer::before {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-panel hero-wave">
-      <img src="Assets/hero/hero-wavepool.jpg"
-           alt="Aerial view of PerfectSwell surf pool in Hainan, China"
-           width="1751" height="1050"
-           fetchpriority="high" decoding="async">
+      <picture>
+        <source type="image/avif" sizes="(max-width: 768px) 100vw, 50vw"
+                srcset="Assets/hero/hero-wavepool-700.avif 700w, Assets/hero/hero-wavepool-1000.avif 1000w, Assets/hero/hero-wavepool-1400.avif 1400w, Assets/hero/hero-wavepool-1751.avif 1751w">
+        <source type="image/webp" sizes="(max-width: 768px) 100vw, 50vw"
+                srcset="Assets/hero/hero-wavepool-700.webp 700w, Assets/hero/hero-wavepool-1000.webp 1000w, Assets/hero/hero-wavepool-1400.webp 1400w, Assets/hero/hero-wavepool-1751.webp 1751w">
+        <img src="Assets/hero/hero-wavepool.jpg"
+             alt="Aerial view of the PerfectSwell surf pool at Riyue Bay Surf Resort in Wanning, Hainan, China"
+             width="1751" height="1050"
+             fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero-text">
         <h1 class="hero-headline">World's Only<br>Surf Pool on a<br>Tropical Island<span class="hero-sub" style="display:block; line-height:normal;">Hainan Island, China</span></h1>
       </div>
     </div>
     <div class="hero-panel hero-golf">
-      <img src="Assets/hero/hero-golf.jpg"
-           alt="Top 100 oceanfront golf course in Hainan, China"
-           width="1142" height="1600"
-           decoding="async">
+      <picture>
+        <source type="image/avif" sizes="(max-width: 768px) 100vw, 50vw"
+                srcset="Assets/hero/hero-golf-600.avif 600w, Assets/hero/hero-golf-900.avif 900w, Assets/hero/hero-golf-1142.avif 1142w">
+        <source type="image/webp" sizes="(max-width: 768px) 100vw, 50vw"
+                srcset="Assets/hero/hero-golf-600.webp 600w, Assets/hero/hero-golf-900.webp 900w, Assets/hero/hero-golf-1142.webp 1142w">
+        <img src="Assets/hero/hero-golf.jpg"
+             alt="Top 100 oceanfront golf course in Hainan, China"
+             width="1142" height="1600"
+             decoding="async">
+      </picture>
       <div class="hero-text">
         <div class="hero-headline">World Top 100<br>Greatest<br>Golf Course</div>
         <div class="hero-sub">Ranked by Golf Digest</div>
@@ -2072,9 +2127,52 @@ footer::before {
             style="width:100%; height: 500px; object-fit: cover; border-radius: 3px; display: block;">
             <source media="(max-width: 768px)" src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
             <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
-            <img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding wave" style="width:100%; height: 500px; object-fit: cover; border-radius: 3px;">
+            <picture><source type="image/avif" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.avif 900w, Assets/wavepool/wavepool-surfer-action-01-1400.avif 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.avif 1920w"><source type="image/webp" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.webp 900w, Assets/wavepool/wavepool-surfer-action-01-1400.webp 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.webp 1920w"><img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding a wave at the PerfectSwell surf pool, Riyue Bay, Wanning" width="2560" height="1440" decoding="async" style="width:100%; height: 500px; object-fit: cover; border-radius: 3px;"></picture>
           </video>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATES BOARD — surfing table + extras, headline RMB prices -->
+  <section class="rates-section" id="rates">
+    <div class="container">
+      <div class="rates-header">
+        <span class="overline">Rates</span>
+        <h2>What it costs to surf here.</h2>
+        <div class="section-divider-center"></div>
+      </div>
+
+      <div class="rates-cols">
+
+        <div class="rate-group">
+          <h3>Surfing</h3>
+          <p class="rate-group__meta">Per person &middot; 55-minute session</p>
+          <ul class="rate-list">
+            <li class="rate-row"><span class="rate-row__name">Beginner</span><span class="rate-row__price">&yen;358</span></li>
+            <li class="rate-row"><span class="rate-row__name">Intermediate</span><span class="rate-row__price">&yen;349</span></li>
+            <li class="rate-row"><span class="rate-row__name">Advanced</span><span class="rate-row__price">&yen;448</span></li>
+            <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price">&yen;490</span></li>
+            <li class="rate-row"><span class="rate-row__name">Private session<small>The whole pool to your group, per hour</small></span><span class="rate-row__price"><em>from</em> &yen;6,984</span></li>
+          </ul>
+        </div>
+
+        <div class="rate-group">
+          <h3>Extras</h3>
+          <p class="rate-group__meta">Add any of these to a session</p>
+          <ul class="rate-list">
+            <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> &yen;268</span></li>
+            <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> &yen;200</span></li>
+            <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> &yen;200</span></li>
+            <li class="rate-row"><span class="rate-row__name">Rooms at the surf pool<small>Per room, per night</small></span><span class="rate-row__price"><em>from</em> &yen;700</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="rates-foot">
+        <p>Prices in RMB. We are a PerfectSwell&reg; Destination Partner &mdash; your sessions are booked through our surf park&rsquo;s own system, so the slot, the level and the wave setting are confirmed before you land. Rates move with the season; send us your dates and we&rsquo;ll confirm the exact figure.</p>
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
       </div>
     </div>
   </section>
@@ -2149,7 +2247,7 @@ footer::before {
           <h2>Stay at the surf pool resort in Wanning.</h2>
           <div class="section-divider"></div>
           <p class="lead">A premium boutique stay by renowned Japanese architect Shuhei Aoyama &mdash; set inside the surf pool grounds, just steps from your next session.</p>
-          <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">Book your stay with us and enjoy <strong>20% off</strong> your PerfectSwell&reg; Surf Pool sessions.</p>
+          <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">Rooms from <strong>&yen;702</strong> a night &mdash; and your sessions booked, scheduled and coordinated by us. <a href="#rates" style="color:var(--teal);">See all rates &rarr;</a></p>
           <a href="/accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
@@ -2177,10 +2275,10 @@ footer::before {
             <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
             <ul class="package-includes">
               <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
-              <li>Surf Pool Resort &mdash; Ocean &amp; Pool View Room</li>
-              <li>Beginner softboard use for included pool sessions, video, round-trip transfer, breakfast</li>
+              <li>Surf Pool Resort &mdash; Garden View Room, daily breakfast for two</li>
+              <li>Beginner softboard use for included pool sessions, 1 premium video session per surfer, round-trip Premium Car transfer</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$759 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <p class="brochure-label">See the full details</p>
             <div class="brochure-tiers">
               <a href="/package-1-the-surf-session.html" class="brochure-tier" style="--tier: var(--teal);">
@@ -3823,10 +3921,10 @@ footer::before {
             <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
             <ul class="package-includes">
               <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
-              <li>Surf Pool Resort &mdash; Ocean &amp; Pool View Room</li>
-              <li>Beginner softboard use for included pool sessions, video, round-trip transfer, breakfast</li>
+              <li>Surf Pool Resort &mdash; Garden View Room, daily breakfast for two</li>
+              <li>Beginner softboard use for included pool sessions, 1 premium video session per surfer, round-trip Premium Car transfer</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$780 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$759 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
             <p class="brochure-label">See the full details</p>
             <div class="brochure-tiers">
               <a href="/package-1-the-surf-session.html" class="brochure-tier" style="--tier: var(--teal);">
@@ -4039,7 +4137,7 @@ footer::before {
         <div class="plan-card fade-in">
           <span class="overline">Accommodation</span>
           <h3>Where You'll Stay</h3>
-          <p>Premium rooms at the Riyue Bay Surf Resort. Choose between modern hotel rooms with mountain views or designer boutique rooms. All within walking distance of the PerfectSwell&reg; pool.</p>
+          <p>Premium rooms at the Riyue Bay Surf Resort. Choose between modern hotel rooms with mountain views or designer boutique rooms. Both are about a minute&rsquo;s walk from the PerfectSwell&reg; pool.</p>
         </div>
         <div class="plan-card fade-in">
           <span class="overline">Language</span>
@@ -4154,7 +4252,7 @@ footer::before {
               <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
               <div class="pkg-tabs" role="tablist" aria-label="Trip type">
                 <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf<span class="pkg-tab-sub">Surf + championship golf &middot; our flagship trips</span></button>
-                <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; from US$780 pp</span></button>
+                <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; surf-only, 3 nights+</span></button>
                 <button type="button" class="pkg-tab" data-section="custom">Custom<span class="pkg-tab-sub">Build your own trip</span></button>
               </div>
               <div class="pkg-section" data-section="surf" hidden>
@@ -4164,9 +4262,9 @@ footer::before {
                   <div class="package-option-body">
                     <div class="package-option-head">
                       <span class="package-option-name">The Surf Escape</span>
-                      <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$780 pp</span>
+                      <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$759 pp</span>
                     </div>
-                    <div class="package-option-sub">At Surf Pool Resort (Ocean &amp; Pool View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
+                    <div class="package-option-sub">At Surf Pool Resort (Garden View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
                     <a href="/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
                   </div>
                 </label>
@@ -4179,8 +4277,8 @@ footer::before {
                     <label>Surf sessions / day <span class="hint">(whole group)</span><input type="number" name="sessions_per_day" id="wpeSessionsPerDay" value="2" min="0" max="4" step="1" inputmode="numeric"></label>
                   </div>
                   <div class="wpe-est__out">
-                    <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$780</span> <span class="wpe-est__per">/ person</span></div>
-                    <div class="wpe-est__tot"><span id="wpeTot">$1,561 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,734</span></div>
+                    <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$759</span> <span class="wpe-est__per">/ person</span></div>
+                    <div class="wpe-est__tot"><span id="wpeTot">$1,518 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,670</span></div>
                   </div>
                 </div>
               </div>
@@ -4349,19 +4447,19 @@ footer::before {
                 </select>
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" id="paxSplitRow">
               <div class="form-group">
                 <label><span class="lbl-meta">Optional</span> &middot; Number of Surfers</label>
                 <input type="number" name="num_surfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
               </div>
-              <div class="form-group">
+              <div class="form-group" id="golfersGroup">
                 <label><span class="lbl-meta">Optional</span> &middot; Number of Golfers</label>
-                <input type="number" name="num_golfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
+                <input type="number" name="num_golfers" id="numGolfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="messageGroup">
               <label><span class="lbl-meta">Optional</span> &middot; Tell Us More</label>
-              <textarea name="message" placeholder="Tell us about your ideal trip — who's coming, surf level / golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
+              <textarea name="message" id="messageField" placeholder="Tell us about your ideal trip — who&rsquo;s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
             </div>
             <div id="formError" class="form-error" role="alert" hidden></div>
             <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
@@ -4634,8 +4732,9 @@ document.querySelectorAll('.page').forEach(page => {
   HOLIDAY_RANGES.forEach(r => { r.start.setHours(0,0,0,0); r.end.setHours(0,0,0,0); });
   const inHoliday = d => HOLIDAY_RANGES.some(r => d >= r.start && d <= r.end);
   const holidayNote = document.getElementById('holidayNote');
-  const HOLIDAY_INFO = 'Heads-up: <strong>Oct 1&ndash;7</strong> is China&rsquo;s National Day Golden Week &mdash; stays over these dates carry a <strong>20% holiday surcharge</strong>. Start outside this window for standard rates.';
   const HOLIDAY_PICKED = 'Your start date falls in <strong>Golden Week (Oct 1&ndash;7)</strong>, so a <strong>20% holiday surcharge</strong> applies. Start <strong>Oct 8 or later</strong> for standard rates.';
+  // The note only appears once a Golden Week start date is actually picked —
+  // before that, the red calendar marking and legend do the nudging.
   function refreshHolidayNote() {
     if (!holidayNote) return;
     if (selectedDate && inHoliday(selectedDate)) {
@@ -4643,12 +4742,7 @@ document.querySelectorAll('.page').forEach(page => {
       holidayNote.classList.add('picked');
       holidayNote.hidden = false;
     } else {
-      // General nudge only while the next Golden Week is ~4 months out or less.
-      const next = HOLIDAY_RANGES.find(r => today <= r.end);
-      const soon = next && (next.start - today) / 86400000 <= 120;
-      holidayNote.innerHTML = HOLIDAY_INFO;
-      holidayNote.classList.remove('picked');
-      holidayNote.hidden = !soon;
+      holidayNote.hidden = true;
     }
   }
   let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -4914,10 +5008,12 @@ function validateInquiryForm(form) {
   const wpeBox = document.querySelector('#contactForm input[data-package-key="wave-pool"]');
   const wpeEst = document.getElementById('wpeEstimate');
   // Live The Surf Escape estimate — reads the shared group/date fields (asked once above),
-  // adds only its own Surf sessions. Current package model: FX 7,
-  // coordination per room 3N $283 / 4N $390, scaled by rooms.
+  // adds only its own Surf sessions. Current package model (calculator, 2026-08-14 Garden View):
+  // FX 7, coordination per room 3N $282 / 4N $391, scaled by rooms.
   const FX = 7, usd = n => '$' + Math.round(n).toLocaleString();
-  const coordPerRoom = n => (n === 4 ? 390 : n === 3 ? 283 : 94.33 * n);
+  const coordPerRoom = (n, solo) => solo
+      ? (n === 4 ? 388 : n === 3 ? 279 : 93 * n)   // solo room
+      : (n === 4 ? 391 : n === 3 ? 282 : 94 * n);  // shared room
   const g = id => document.getElementById(id);
   const fld = name => document.querySelector('#contactForm [name="' + name + '"]');
   const numVal = (el, d) => { const v = parseFloat((el && el.value) || ''); return isNaN(v) ? d : v; };
@@ -4930,10 +5026,10 @@ function validateInquiryForm(form) {
     if (!wpeEst) return;
     const ppl = readPeople(), nts = readNights(), rooms = readRooms(ppl);
     const ses = nts * readPerDay();  // total group sessions = nights × sessions/day
-    const total = rooms*nts*(935*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts);
+    const total = rooms*nts*(850*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts, ppl === 1);
     g('wpePP').textContent = usd(total / ppl);
     g('wpeTot').textContent = usd(total) + ' total';
-    g('wpeList').textContent = 'was ' + usd(total / 0.9);
+    g('wpeList').textContent = 'was ' + usd(total * 1.1);
     g('wpeBasis').textContent = ppl + ' guest' + (ppl > 1 ? 's' : '');
     const q = g('wpeQuoted'); if (q) q.value = usd(total) + ' total · ' + usd(total / ppl) + ' pp · ' + nts + 'N × ' + readPerDay() + ' sessions/day';
   }
@@ -5017,6 +5113,8 @@ function validateInquiryForm(form) {
     toggle(checked('Surf'), 'customSurfQ', 'customSurfSessions');
     toggle(checked('Golf'), 'customGolfQ', 'customGolfRounds');
     updatePax();
+    // Surf-only custom trips drop the golfers field, same as the Surf tab.
+    if (typeof syncTripModeFields === 'function') syncTripModeFields();
   }
   focusBoxes.forEach(b => b.addEventListener('change', sync));
   if (adultsFld) adultsFld.addEventListener('input', updatePax);
@@ -5054,6 +5152,51 @@ function validateInquiryForm(form) {
 // estimate is the offer). surf-golf / custom = tailored quotes (date optional,
 // TBD allowed with a rough-timing follow-up).
 var currentTripMode = '';
+// "Tell Us More" and "Number of Golfers" only earn their place on the paths where
+// golf is in play or the trip is being built from scratch. On the Surf path the
+// package is fixed and the form already asks surf level, sessions/day, dates and
+// kids' ages — so the open-ended box is dropped rather than left to collect noise.
+// A hoisted function, not a var — the custom-focus block below calls into this
+// one before the trip-mode statements have run.
+function messagePlaceholderFor(mode) {
+  if (mode === 'surf-golf') return 'Tell us about your ideal trip — who’s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you.';
+  if (mode === 'custom') return 'Tell us what this trip is built around — what you want more of, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can shape it.';
+  return '';
+}
+function customFocusIsSurfOnly() {
+  var boxes = document.querySelectorAll('#contactForm input[name="custom_focus"]');
+  if (!boxes.length) return false;
+  var surf = false, golf = false;
+  boxes.forEach(function (b) {
+    if (!b.checked) return;
+    if (b.value === 'Surf') surf = true;
+    if (b.value === 'Golf') golf = true;
+  });
+  return surf && !golf;
+}
+function syncTripModeFields() {
+  var surfOnly = currentTripMode === 'surf';
+  // A Custom trip with Surf ticked and Golf unticked is a surf-only trip too —
+  // it keeps the message box, but the golfers field has nothing to collect.
+  var noGolf = surfOnly || (currentTripMode === 'custom' && customFocusIsSurfOnly());
+  var golfGrp = document.getElementById('golfersGroup');
+  var golfInp = document.getElementById('numGolfers');
+  var row = document.getElementById('paxSplitRow');
+  if (golfGrp) golfGrp.hidden = noGolf;
+  if (golfInp) { golfInp.disabled = noGolf; if (noGolf) golfInp.value = ''; }
+  if (row) row.classList.toggle('form-row-solo', noGolf);
+  var msgGrp = document.getElementById('messageGroup');
+  var msgFld = document.getElementById('messageField');
+  if (msgGrp) msgGrp.hidden = surfOnly;
+  if (msgFld) {
+    // Disabled fields are omitted from the POST, so a hidden box never reaches
+    // Formspree or the leads tracker with stale text from another tab.
+    msgFld.disabled = surfOnly;
+    if (surfOnly) msgFld.value = '';
+    var ph = messagePlaceholderFor(currentTripMode);
+    if (ph) msgFld.placeholder = ph;
+  }
+}
 function syncRoughTiming() {
   var grp = document.getElementById('roughTimingGroup');
   var sel = document.getElementById('roughTiming');
@@ -5087,6 +5230,7 @@ function applyTripMode(sec) {
   if (btn && !btn.disabled) btn.textContent = surfMode ? 'Lock In This Estimate ' : 'Request My Quote ';
   var sticky = document.getElementById('stickyQuoteBtn');
   if (sticky) sticky.textContent = surfMode ? 'Lock In This Estimate' : 'Request My Quote';
+  syncTripModeFields();
   syncRoughTiming();
 }
 (function initTripMode() {

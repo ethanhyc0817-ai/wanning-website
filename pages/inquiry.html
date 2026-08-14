@@ -168,12 +168,15 @@ nav.scrolled { padding: 0.7rem 0; }
 .mobile-menu a { display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
 .mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
 .mobile-submit-bar { display: none; }
-@media (max-width: 768px) {
+/* Nav: 5 top-level links stop fitting below ~1010px — switch to the mobile menu there. */
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
   .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
   .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
   .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 768px) {
   /* Hero (mobile): compact — smaller heading, trimmed copy, shorter so the form is reached faster */
   section.page-hero { align-items: flex-end; padding-bottom: 1.5rem; height: 38vh; min-height: 280px; }
   .page-hero .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; margin-bottom: 0.4rem; }
@@ -218,6 +221,8 @@ nav.scrolled { padding: 0.7rem 0; }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+/* Surf-only mode drops the golfers field — keep the surviving field full width. */
+.form-row-solo { grid-template-columns: 1fr; }
 .custom-detail { margin: 0.4rem 0 0.2rem; padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--gold); border-radius: 3px; background: var(--sand); }
 .custom-detail__q { margin-bottom: 0.9rem; }
 .custom-detail__q:last-child { margin-bottom: 0; }
@@ -639,12 +644,12 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <div class="nav-links">
       <a href="/#wavepool">Surf Pool</a>
       <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
       <a href="/#packages">Packages</a>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
           <a href="/#explore-hainan">Explore Hainan</a>
-          <a href="/accommodation.html">Accommodation</a>
           <a href="/how-to-get-here.html">Getting Here</a>
         </div>
       </div>
@@ -660,10 +665,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
   <a href="/#wavepool">Surf Pool</a>
   <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="/#explore-hainan">Explore Hainan</a>
-  <a href="/accommodation.html">Accommodation</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/#contact">Book Now</a>
 </div>
@@ -704,7 +709,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="/#packages">See all packages</a>.</p>
             <div class="pkg-tabs" role="tablist" aria-label="Trip type">
               <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf<span class="pkg-tab-sub">Surf + championship golf &middot; our flagship trips</span></button>
-              <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; from US$780 pp</span></button>
+              <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; surf-only, 3 nights+</span></button>
               <button type="button" class="pkg-tab" data-section="custom">Custom<span class="pkg-tab-sub">Build your own trip</span></button>
             </div>
             <div class="pkg-section" data-section="surf" hidden>
@@ -714,9 +719,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                 <div class="package-option-body">
                   <div class="package-option-head">
                     <span class="package-option-name">The Surf Escape</span>
-                    <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$780 pp</span>
+                    <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$759 pp</span>
                   </div>
-                  <div class="package-option-sub">At Surf Pool Resort (Ocean &amp; Pool View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
+                  <div class="package-option-sub">At Surf Pool Resort (Garden View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
                   <a href="/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
                 </div>
               </label>
@@ -729,8 +734,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <label>Surf sessions / day <span class="hint">(whole group)</span><input type="number" name="sessions_per_day" id="wpeSessionsPerDay" value="2" min="0" max="4" step="1" inputmode="numeric"></label>
                 </div>
                 <div class="wpe-est__out">
-                  <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$780</span> <span class="wpe-est__per">/ person</span></div>
-                  <div class="wpe-est__tot"><span id="wpeTot">$1,561 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,734</span></div>
+                  <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$759</span> <span class="wpe-est__per">/ person</span></div>
+                  <div class="wpe-est__tot"><span id="wpeTot">$1,518 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,670</span></div>
                 </div>
               </div>
             </div>
@@ -908,20 +913,20 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             </div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row" id="paxSplitRow">
             <div class="form-group">
               <label><span class="lbl-meta">Optional</span> &middot; Number of Surfers</label>
               <input type="number" name="num_surfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="golfersGroup">
               <label><span class="lbl-meta">Optional</span> &middot; Number of Golfers</label>
-              <input type="number" name="num_golfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
+              <input type="number" name="num_golfers" id="numGolfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" id="messageGroup">
             <label><span class="lbl-meta">Optional</span> &middot; Tell Us More</label>
-            <textarea name="message" placeholder="Tell us about your ideal trip — who's coming, surf level / golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
+            <textarea name="message" id="messageField" placeholder="Tell us about your ideal trip — who&rsquo;s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
           </div>
 
           <div id="formError" class="form-error" role="alert" hidden></div>
@@ -1047,8 +1052,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     HOLIDAY_RANGES.forEach(r => { r.start.setHours(0,0,0,0); r.end.setHours(0,0,0,0); });
     const inHoliday = d => HOLIDAY_RANGES.some(r => d >= r.start && d <= r.end);
     const holidayNote = document.getElementById('holidayNote');
-    const HOLIDAY_INFO = 'Heads-up: <strong>Oct 1&ndash;7</strong> is China&rsquo;s National Day Golden Week &mdash; stays over these dates carry a <strong>20% holiday surcharge</strong>. Start outside this window for standard rates.';
     const HOLIDAY_PICKED = 'Your start date falls in <strong>Golden Week (Oct 1&ndash;7)</strong>, so a <strong>20% holiday surcharge</strong> applies. Start <strong>Oct 8 or later</strong> for standard rates.';
+    // The note only appears once a Golden Week start date is actually picked —
+    // before that, the red calendar marking and legend do the nudging.
     function refreshHolidayNote() {
       if (!holidayNote) return;
       if (selectedDate && inHoliday(selectedDate)) {
@@ -1056,12 +1062,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         holidayNote.classList.add('picked');
         holidayNote.hidden = false;
       } else {
-        // General nudge only while the next Golden Week is ~4 months out or less.
-        const next = HOLIDAY_RANGES.find(r => today <= r.end);
-        const soon = next && (next.start - today) / 86400000 <= 120;
-        holidayNote.innerHTML = HOLIDAY_INFO;
-        holidayNote.classList.remove('picked');
-        holidayNote.hidden = !soon;
+        holidayNote.hidden = true;
       }
     }
     let viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -1292,7 +1293,9 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     const wpeEst = document.getElementById('wpeEstimate');
     // Live The Surf Escape estimate — reads the shared group/date fields above; adds only Surf sessions.
     const FX = 7, usd = n => '$' + Math.round(n).toLocaleString();
-    const coordPerRoom = n => (n === 4 ? 390 : n === 3 ? 283 : 94.33 * n);
+    const coordPerRoom = (n, solo) => solo
+        ? (n === 4 ? 388 : n === 3 ? 279 : 93 * n)   // solo room
+        : (n === 4 ? 391 : n === 3 ? 282 : 94 * n);  // shared room
     const g = id => document.getElementById(id);
     const fld = name => document.querySelector('#contactForm [name="' + name + '"]');
     const numVal = (el, d) => { const v = parseFloat((el && el.value) || ''); return isNaN(v) ? d : v; };
@@ -1305,10 +1308,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       if (!wpeEst) return;
       const ppl = readPeople(), nts = readNights(), rooms = readRooms(ppl);
       const ses = nts * readPerDay();  // total group sessions = nights × sessions/day
-      const total = rooms*nts*(935*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts);
+      const total = rooms*nts*(850*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts, ppl === 1);
       g('wpePP').textContent = usd(total / ppl);
       g('wpeTot').textContent = usd(total) + ' total';
-      g('wpeList').textContent = 'was ' + usd(total / 0.9);
+      g('wpeList').textContent = 'was ' + usd(total * 1.1);
       g('wpeBasis').textContent = ppl + ' guest' + (ppl > 1 ? 's' : '');
     const q = g('wpeQuoted'); if (q) q.value = usd(total) + ' total · ' + usd(total / ppl) + ' pp · ' + nts + 'N × ' + readPerDay() + ' sessions/day';
     }
@@ -1389,6 +1392,8 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       toggle(checked('Surf'), 'customSurfQ', 'customSurfSessions');
       toggle(checked('Golf'), 'customGolfQ', 'customGolfRounds');
       updatePax();
+      // Surf-only custom trips drop the golfers field, same as the Surf tab.
+      if (typeof syncTripModeFields === 'function') syncTripModeFields();
     }
     focusBoxes.forEach(b => b.addEventListener('change', sync));
     if (adultsFld) adultsFld.addEventListener('input', updatePax);
@@ -1426,6 +1431,51 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 // estimate is the offer). surf-golf / custom = tailored quotes (date optional,
 // TBD allowed with a rough-timing follow-up).
 var currentTripMode = '';
+// "Tell Us More" and "Number of Golfers" only earn their place on the paths where
+// golf is in play or the trip is being built from scratch. On the Surf path the
+// package is fixed and the form already asks surf level, sessions/day, dates and
+// kids' ages — so the open-ended box is dropped rather than left to collect noise.
+// A hoisted function, not a var — the custom-focus block below calls into this
+// one before the trip-mode statements have run.
+function messagePlaceholderFor(mode) {
+  if (mode === 'surf-golf') return 'Tell us about your ideal trip — who’s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you.';
+  if (mode === 'custom') return 'Tell us what this trip is built around — what you want more of, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can shape it.';
+  return '';
+}
+function customFocusIsSurfOnly() {
+  var boxes = document.querySelectorAll('#contactForm input[name="custom_focus"]');
+  if (!boxes.length) return false;
+  var surf = false, golf = false;
+  boxes.forEach(function (b) {
+    if (!b.checked) return;
+    if (b.value === 'Surf') surf = true;
+    if (b.value === 'Golf') golf = true;
+  });
+  return surf && !golf;
+}
+function syncTripModeFields() {
+  var surfOnly = currentTripMode === 'surf';
+  // A Custom trip with Surf ticked and Golf unticked is a surf-only trip too —
+  // it keeps the message box, but the golfers field has nothing to collect.
+  var noGolf = surfOnly || (currentTripMode === 'custom' && customFocusIsSurfOnly());
+  var golfGrp = document.getElementById('golfersGroup');
+  var golfInp = document.getElementById('numGolfers');
+  var row = document.getElementById('paxSplitRow');
+  if (golfGrp) golfGrp.hidden = noGolf;
+  if (golfInp) { golfInp.disabled = noGolf; if (noGolf) golfInp.value = ''; }
+  if (row) row.classList.toggle('form-row-solo', noGolf);
+  var msgGrp = document.getElementById('messageGroup');
+  var msgFld = document.getElementById('messageField');
+  if (msgGrp) msgGrp.hidden = surfOnly;
+  if (msgFld) {
+    // Disabled fields are omitted from the POST, so a hidden box never reaches
+    // Formspree or the leads tracker with stale text from another tab.
+    msgFld.disabled = surfOnly;
+    if (surfOnly) msgFld.value = '';
+    var ph = messagePlaceholderFor(currentTripMode);
+    if (ph) msgFld.placeholder = ph;
+  }
+}
 function syncRoughTiming() {
   var grp = document.getElementById('roughTimingGroup');
   var sel = document.getElementById('roughTiming');
@@ -1459,6 +1509,7 @@ function applyTripMode(sec) {
   if (btn && !btn.disabled) btn.textContent = surfMode ? 'Lock In This Estimate ' : 'Request My Quote ';
   var sticky = document.getElementById('stickyQuoteBtn');
   if (sticky) sticky.textContent = surfMode ? 'Lock In This Estimate' : 'Request My Quote';
+  syncTripModeFields();
   syncRoughTiming();
 }
 (function initTripMode() {

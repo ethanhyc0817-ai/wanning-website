@@ -222,12 +222,15 @@ nav.scrolled { padding: 0.7rem 0; }
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
-@media (max-width: 768px) {
+/* Nav: 5 top-level links stop fitting below ~1010px — switch to the mobile menu there. */
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
   .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
   .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
   .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 768px) {
 }
 @media (max-width: 480px) {
   .nav-logo-mark { width: 30px; height: 30px; }
@@ -261,6 +264,27 @@ nav.scrolled { padding: 0.7rem 0; }
 .highlight-num sup { font-size: 0.5em; vertical-align: super; opacity: 0.8; margin-left: 0.15rem; font-weight: 500; }
 .highlight-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 0.8rem; }
 .highlight-detail { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-top: 0.8rem; line-height: 1.55; max-width: 100%; }
+
+/* ======= LAYOUT MAP (annotated aerial) ======= */
+.layout-section { background: var(--sand); }
+.layout-header { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.layout-figure { position: relative; margin: 0; border-radius: 3px; overflow: hidden; background: var(--sand-dark); }
+.layout-figure img { display: block; width: 100%; height: auto; }
+/* The pin box is the size of the dot, so --x/--y land the DOT on the building, not the label. */
+.map-pin { position: absolute; left: var(--x); top: var(--y); width: 26px; height: 26px; transform: translate(-50%, -50%); pointer-events: none; }
+.map-pin__num { position: absolute; inset: 0; border-radius: 50%; background: var(--teal); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px rgba(255,255,255,0.9), 0 4px 14px rgba(0,0,0,0.35); }
+.map-pin__text { position: absolute; left: calc(100% + 0.55rem); top: 50%; transform: translateY(-50%); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; color: var(--white); background: rgba(23,32,38,0.78); padding: 0.32rem 0.65rem; border-radius: 2px; white-space: nowrap; }
+.map-pin--left .map-pin__text { left: auto; right: calc(100% + 0.55rem); }
+/* Below tablet the labels would collide — the numbered legend under the photo carries them. */
+@media (max-width: 860px) { .map-pin__text { display: none; } .map-pin { width: 22px; height: 22px; } .map-pin__num { font-size: 0.7rem; } }
+.layout-legend { list-style: none; padding: 0; margin: 2.2rem 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem 2.5rem; }
+@media (max-width: 720px) { .layout-legend { grid-template-columns: 1fr; } }
+.layout-legend li { display: flex; gap: 0.8rem; align-items: flex-start; }
+.legend-num { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--teal); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.legend-text strong { display: block; font-size: 0.92rem; color: var(--charcoal); margin-bottom: 0.2rem; }
+.legend-text span { font-size: 0.86rem; color: var(--warm-gray); line-height: 1.55; }
+.layout-caption { max-width: 760px; margin: 2.4rem auto 0; text-align: center; font-size: 0.98rem; line-height: 1.8; color: var(--warm-gray); }
+.layout-caption strong { color: var(--charcoal); }
 
 /* ======= DESIGNER INTRO ======= */
 .intro-split { background: var(--sand); }
@@ -372,12 +396,12 @@ nav.scrolled { padding: 0.7rem 0; }
     <div class="nav-links">
       <a href="/#wavepool">Surf Pool</a>
       <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
       <a href="/#packages">Packages</a>
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
           <a href="/#explore-hainan">Explore Hainan</a>
-          <a href="/accommodation.html">Accommodation</a>
           <a href="/how-to-get-here.html">Getting Here</a>
         </div>
       </div>
@@ -393,10 +417,10 @@ nav.scrolled { padding: 0.7rem 0; }
   <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
   <a href="/#wavepool">Surf Pool</a>
   <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="/#explore-hainan">Explore Hainan</a>
-  <a href="/accommodation.html">Accommodation</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/#contact">Book Now</a>
 </div>
@@ -440,6 +464,32 @@ nav.scrolled { padding: 0.7rem 0; }
         <p class="highlight-detail">Rated "Excellent" by hundreds of verified guests &mdash; for service, cleanliness, and location alike.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ 3. THE LAYOUT (annotated aerial) ============ -->
+<section class="layout-section" id="layout">
+  <div class="container">
+    <div class="layout-header">
+      <span class="overline">The Layout</span>
+      <h2>The hotel and the surf pool are one place.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead" style="margin: 0 auto;">Everything in this photo is the same property. The rooms are the whole block sitting behind the beach &mdash; you walk out of the lounge and they&rsquo;re right in front of you, about a minute away.</p>
+    </div>
+    <figure class="layout-figure">
+      <img src="/Assets/wavepool/wavepool-aerial-daytime-01.jpg" alt="Aerial view of the resort: the PerfectSwell surf pool in the foreground, the lounge on the pool deck, and the hotel rooms and suites directly behind the beach" loading="lazy" decoding="async">
+      <span class="map-pin" style="--x: 60%; --y: 16%"><span class="map-pin__num">1</span><span class="map-pin__text">Hotel rooms &amp; suites</span></span>
+      <span class="map-pin" style="--x: 53%; --y: 29%"><span class="map-pin__num">2</span><span class="map-pin__text">Garden &amp; courtyard rooms</span></span>
+      <span class="map-pin map-pin--left" style="--x: 81%; --y: 44%"><span class="map-pin__num">3</span><span class="map-pin__text">Lounge, dining &amp; surf club</span></span>
+      <span class="map-pin" style="--x: 28%; --y: 70%"><span class="map-pin__num">4</span><span class="map-pin__text">PerfectSwell&reg; surf pool</span></span>
+    </figure>
+    <ul class="layout-legend">
+      <li><span class="legend-num">1</span><span class="legend-text"><strong>Hotel rooms &amp; suites</strong><span>The long block along the back. Most of the room types sit here, on floors that look out over the pool and the sea beyond it.</span></span></li>
+      <li><span class="legend-num">2</span><span class="legend-text"><strong>Garden &amp; courtyard rooms</strong><span>The low buildings between the hotel and the beach, wrapped in tropical gardens.</span></span></li>
+      <li><span class="legend-num">3</span><span class="legend-text"><strong>Lounge, dining &amp; surf club</strong><span>On the pool deck. Step out of it and you&rsquo;re looking straight at your room.</span></span></li>
+      <li><span class="legend-num">4</span><span class="legend-text"><strong>PerfectSwell&reg; surf pool</strong><span>The lineup itself &mdash; about a minute from your door, boards and all.</span></span></li>
+    </ul>
+    <p class="layout-caption">No taxis, no shuttle, no gate between the two. <strong>You are staying inside the surf park</strong> &mdash; the rooms and the water are next to each other, so breakfast, your board, the lounge and the lineup are all about a minute from your door. The sea is on the other side of the same grounds.</p>
   </div>
 </section>
 
