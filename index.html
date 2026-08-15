@@ -1989,6 +1989,7 @@ footer::before {
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
+          <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
           <a href="/how-to-get-here.html">Getting Here</a>
           <a href="/blog.html">Blog</a>
@@ -2009,6 +2010,7 @@ footer::before {
   <a href="/accommodation.html">Accommodation</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/blog.html">Blog</a>
