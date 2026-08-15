@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<title>Surf &amp; Golf in Hainan: A 6-Day Tropical Island Itinerary | Surf China Co.</title>
+<meta name="description" content="A 6-day surf and golf trip in Hainan, China: PerfectSwell® wave pool sessions at Riyue Bay, links golf at The Dunes, and Mission Hills Blackstone — visa-free for 30 days.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.surfchina.co/blog-hainan-surf-and-golf-6-day-itinerary.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Surf China Co.">
+<meta property="og:url" content="https://www.surfchina.co/blog-hainan-surf-and-golf-6-day-itinerary.html">
+<meta property="og:title" content="Surf &amp; Golf in Hainan: A 6-Day Tropical Island Itinerary">
+<meta property="og:description" content="Surf the world's only tropical island wave pool in the morning, play China's best links course in the afternoon. Here's the full 6-day itinerary.">
+<meta property="og:image" content="https://www.surfchina.co/Assets/golf/dunes-shenzhou-headland-aerial.jpg">
+<meta property="og:image:alt" content="The Dunes at Shenzhou Peninsula — seaside links golf in Hainan, China">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-15">
+<meta property="article:section" content="Trip Guides">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Surf &amp; Golf in Hainan: A 6-Day Tropical Island Itinerary">
+<meta name="twitter:description" content="Wave pool mornings, world-class golf afternoons, visa-free entry. The surf and golf trip almost nobody knows exists.">
+<meta name="twitter:image" content="https://www.surfchina.co/Assets/golf/dunes-shenzhou-headland-aerial.jpg">
+
+<!-- Structured data: BlogPosting + Breadcrumb + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.surfchina.co/blog-hainan-surf-and-golf-6-day-itinerary.html#article",
+      "mainEntityOfPage": "https://www.surfchina.co/blog-hainan-surf-and-golf-6-day-itinerary.html",
+      "headline": "Surf & Golf in Hainan: A 6-Day Tropical Island Itinerary",
+      "description": "A 6-day surf and golf trip in Hainan, China: PerfectSwell wave pool sessions at Riyue Bay, links golf at The Dunes at Shenzhou Peninsula, and Mission Hills Blackstone — visa-free for 30 days.",
+      "image": [
+        "https://www.surfchina.co/Assets/golf/dunes-shenzhou-headland-aerial.jpg",
+        "https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg",
+        "https://www.surfchina.co/Assets/golf/blackstone-lava-wall.jpg"
+      ],
+      "url": "https://www.surfchina.co/blog-hainan-surf-and-golf-6-day-itinerary.html",
+      "datePublished": "2026-08-15",
+      "dateModified": "2026-08-15",
+      "isPartOf": { "@id": "https://www.surfchina.co/blog.html#blog" },
+      "keywords": "surf and golf trip, Hainan itinerary, wave pool China, PerfectSwell, Riyue Bay, The Dunes Shenzhou Peninsula, Mission Hills Blackstone, visa-free China",
+      "author": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "url": "https://www.surfchina.co/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.surfchina.co/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Surf & Golf in Hainan: A 6-Day Itinerary" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a visa to visit Hainan for a surf and golf trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No visa is required for most visitors. Hainan offers 30 days of visa-free entry for passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries. Fly into Haikou (HAK) or Sanya (SYX) — there are direct flights from Sydney and Melbourne to Haikou, plus direct routes from Hong Kong, Singapore, Bangkok, Kuala Lumpur and Seoul."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is the wave pool in Hainan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The PerfectSwell® surf pool is at Riyue Bay Surf Resort in Wanning, on Hainan's east coast — the world's only wave pool on a tropical island. It sits steps from five-star accommodation and minutes from Riyue Bay's ocean surf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which golf courses do you play on this trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two of China's best: The Dunes at Shenzhou Peninsula, widely rated the best links course in China and one of Asia's finest seaside layouts, and Blackstone at Mission Hills Haikou, a former world top-100 course built across black lava fields and played by Tiger Woods and Rory McIlroy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to be an experienced surfer or golfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The PerfectSwell pool has around twenty wave settings, from mellow beginner rollers to barrels and air sections, and sessions can be set to your level. Both courses welcome all handicaps, with caddies standard in China. We tailor every itinerary to your group."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Favicon / app icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/Assets/icons/site.webmanifest">
+<meta name="theme-color" content="#0a4d68">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 780px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+nav.scrolled { padding: 0.7rem 0; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
+}
+.nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
+.nav-logo-text { white-space: nowrap; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--charcoal); text-decoration: none;
+  transition: all 0.3s; position: relative;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-cta {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-cta {
+  display: none;
+  font-size: 0.7rem; padding: 0.5rem 0.95rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; transition: all 0.3s;
+  white-space: nowrap;
+}
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--charcoal); text-decoration: none; padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 480px) {
+  .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-logo { font-size: 0.82rem; gap: 0.4rem; }
+  .nav-mobile-cta { font-size: 0.65rem; padding: 0.45rem 0.75rem; }
+}
+@media (max-width: 360px) {
+  .nav-logo-text { display: none; }
+}
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  max-width: 900px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 22ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 600px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= BREADCRUMB ======= */
+.breadcrumb { padding: 1.1rem 0 0; font-size: 0.8rem; color: var(--warm-gray); }
+.breadcrumb a { color: var(--warm-gray); text-decoration: none; }
+.breadcrumb a:hover { color: var(--ocean); }
+.breadcrumb span.sep { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ======= ARTICLE ======= */
+.post-body { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.post-body h2 { margin: 2.8rem 0 1rem; }
+.post-body h3 { margin: 2rem 0 0.8rem; color: var(--ocean); }
+.post-body p { margin-bottom: 1.2rem; }
+.post-body p.lead { margin-bottom: 1.4rem; }
+.post-body a { color: var(--ocean); text-decoration: underline; text-decoration-color: rgba(10,77,104,0.3); text-underline-offset: 3px; }
+.post-body a:hover { text-decoration-color: var(--ocean); }
+.post-body figure { margin: 2.2rem 0; }
+.post-body figure img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.post-body figcaption { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); margin-top: 0.8rem; }
+.post-body ul { margin: 0 0 1.2rem 1.2rem; max-width: 680px; }
+.post-body ul li { margin-bottom: 0.5rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.45; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 1.8rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin: 2.4rem 0; font-style: italic; }
+
+/* at-a-glance box */
+.glance {
+  background: var(--sand); border-radius: 3px;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 2.4rem 0;
+}
+.glance h3 { margin: 0 0 1.2rem; color: var(--charcoal); }
+.glance-row { display: flex; gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--sand-dark); }
+.glance-row:first-of-type { border-top: none; }
+.glance-day { flex: 0 0 92px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); padding-top: 2px; }
+.glance-what { font-size: 0.95rem; color: var(--charcoal); }
+
+/* ======= FAQ ======= */
+.faq { background: var(--sand); }
+.faq details {
+  background: var(--white); border-radius: 3px; margin-bottom: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.2rem 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 1.4rem; font-weight: 400; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 1.5rem 1.3rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= RELATED ======= */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.related-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--white);
+}
+.related-card:hover { box-shadow: 0 14px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.related-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.related-card .rc-body { padding: 1.3rem 1.4rem 1.5rem; }
+.related-card .rc-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem; }
+.related-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.related-card p { font-size: 0.88rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Surf China Co. — home">
+      <svg class="nav-logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#0a4d68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#0a4d68" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Surf China Co.</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#wavepool">Surf Pool</a>
+      <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/blog.html">Blog</a>
+        </div>
+      </div>
+      <a href="/#contact" class="nav-cta">Book Now</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/#contact" class="nav-mobile-cta">Book Now</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <a href="/#wavepool">Surf Pool</a>
+  <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
+  <a href="/#packages">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/#explore-hainan">Explore Hainan</a>
+  <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/#contact">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero" style="padding:0;">
+  <div class="hero-bg">
+    <img src="/Assets/golf/dunes-shenzhou-headland-aerial.jpg" alt="Aerial view of The Dunes at Shenzhou Peninsula, a seaside links golf course in Hainan, China">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Surf China Journal &middot; Trip Guide</span>
+    <h1>Surf &amp; golf in Hainan: the 6-day trip almost nobody knows exists.</h1>
+    <p>Surf the world's only tropical island wave pool in the morning. Play China's best links course in the afternoon. Repeat. Here's the full itinerary.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Published</span>
+        <span class="value">August 15, 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Read Time</span>
+        <span class="value">6 min</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Trip Length</span>
+        <span class="value">6 days</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Visa</span>
+        <span class="value">Not required &middot; 30 days free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="container-narrow breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span><a href="/blog.html">Blog</a><span class="sep">/</span>Surf &amp; Golf in Hainan: A 6-Day Itinerary
+</div>
+
+<!-- ARTICLE -->
+<article class="container-narrow post-body">
+
+  <p class="lead">This is a surf and golf trip almost nobody knows exists — and it will blow your mind. Six days on a tropical island in China, surfing a <a href="/#wavepool">PerfectSwell&reg; wave pool</a> every morning and playing two of Asia's finest golf courses in the afternoons. No crowds, no five-hour drives between venues, no compromises.</p>
+
+  <p>Most wave pool trips are only about the pool: you fly in, surf, get the clips, eat a burger, and fly home. A surf and golf trip in Hainan is different. The wave pool sits on a tropical island with real ocean surf, world-top-100 golf, five-star resorts, coffee plantations, and more than two thousand years of island culture — all within a couple of hours of each other.</p>
+
+  <h2>Getting to Hainan is easier than you think</h2>
+  <p>Hainan is China's tropical island province, and it runs its own <strong>visa-free entry policy</strong>: passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries get <strong>30 days visa-free</strong>. No paperwork, no embassy queues.</p>
+  <p>There are <strong>direct flights from Sydney and Melbourne to Haikou (HAK)</strong>, plus direct routes from Hong Kong, Singapore, Bangkok, Kuala Lumpur and Seoul into Haikou or Sanya (SYX). After you land, our private executive van takes you straight to the wave pool — around two hours of coastline, coconut groves and buffalo fields. Full details in our <a href="/how-to-get-here.html">getting here guide</a>.</p>
+
+  <h2>Day 1 — Land, transfer, check in steps from the waves</h2>
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-resort-aerial-sunset-01.jpg" alt="Aerial view at sunset of the PerfectSwell wave pool and resort at Riyue Bay, Wanning, Hainan">
+    <figcaption>The wave pool &amp; resort at Riyue Bay &middot; Wanning, Hainan</figcaption>
+  </figure>
+  <p>Your trip starts at <strong>Riyue Bay Surf Resort</strong> in Wanning, on Hainan's east coast — home of the <strong>world's only wave pool on a tropical island</strong>. Check into a <a href="/accommodation.html">five-star resort just steps from the pool</a>, walk the beach, and get an early night. Waves come early here.</p>
+
+  <h2>Days 2&ndash;4 — Surf, golf, repeat</h2>
+  <p>This is the rhythm that makes the trip: <strong>perfect waves in the morning, world-class golf in the afternoon.</strong></p>
+  <p>Mornings are for the PerfectSwell&reg; pool. With around twenty wave settings — barrels, air sections, performance turns, mellow beginner walls — every surfer in your group gets waves matched to their level, with zero crowds and no waiting for sets.</p>
+  <p>Afternoons belong to <strong>The Dunes at Shenzhou Peninsula</strong>, widely rated <strong>the best links course in China</strong> and one of Asia's finest seaside layouts. Fescue-lined fairways run along the South China Sea headland fifteen minutes from the resort — the closest thing Asia has to true links golf, in board shorts weather.</p>
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-sea-green.jpg" alt="Seaside green at The Dunes at Shenzhou Peninsula golf course, rated the best links course in China">
+    <figcaption>The Dunes at Shenzhou Peninsula &middot; the best links golf in China</figcaption>
+  </figure>
+  <p>In between, this is tropical China most people don't know exists: explore the coast, visit the <strong>Xinglong coffee plantations</strong>, eat your way through <a href="/cuisine.html">Wanning's local cuisine</a>, paddle out at <a href="/natural-surf.html">Riyue Bay's ocean break</a> when the swell turns on, and step into <a href="/culture.html">two thousand years of island culture</a>.</p>
+
+  <div class="story-pull">
+    Surf the world's only tropical island wave pool in the morning. Play the best links course in China in the afternoon. Surf, golf, repeat.
+  </div>
+
+  <h2>Days 5&ndash;6 — Mission Hills, Blackstone &amp; volcanic hot springs</h2>
+  <p>Then head north to <strong>Mission Hills Haikou</strong>, check into the Ritz-Carlton, and play <strong>Blackstone</strong> — once a <strong>world top-100 course</strong>, and the stage where <strong>Tiger Woods and Rory McIlroy</strong> went head to head. Its fairways cut through ancient black lava fields, creating one of the most distinctive volcanic golf landscapes anywhere in the world.</p>
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-lava-wall.jpg" alt="Black lava rock walls lining a fairway at Blackstone Course, Mission Hills Haikou, Hainan">
+    <figcaption>Blackstone at Mission Hills Haikou &middot; golf across ancient lava fields</figcaption>
+  </figure>
+  <p>Finish the trip the Hainan way: soaking in <strong>volcanic hot springs</strong> before your flight home. Perfect waves, world-class golf, one tropical island.</p>
+
+  <div class="glance">
+    <h3>The 6-day itinerary at a glance</h3>
+    <div class="glance-row"><span class="glance-day">Day 1</span><span class="glance-what">Fly into Haikou (HAK) or Sanya (SYX) &middot; private transfer to Riyue Bay &middot; check in steps from the wave pool</span></div>
+    <div class="glance-row"><span class="glance-day">Days 2&ndash;4</span><span class="glance-what">PerfectSwell&reg; pool sessions each morning &middot; The Dunes at Shenzhou Peninsula each afternoon &middot; coast, coffee, cuisine &amp; ocean surf in between</span></div>
+    <div class="glance-row"><span class="glance-day">Day 5</span><span class="glance-what">Transfer to Mission Hills Haikou &middot; check into the Ritz-Carlton &middot; play Blackstone (world top-100, Tiger &amp; Rory's course)</span></div>
+    <div class="glance-row"><span class="glance-day">Day 6</span><span class="glance-what">Volcanic hot springs &middot; fly out of Haikou</span></div>
+  </div>
+
+  <p>Every trip we run is private and tailored — group size, surf ability, handicaps, extra nights, extra rounds. See the full <a href="/golf.html">surf &amp; golf experience</a> or <a href="/golf-inquiry.html">request a quote</a> and we'll build your itinerary.</p>
+
+</article>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container-narrow">
+    <span class="overline">Good to Know</span>
+    <h2>Surf &amp; golf in Hainan — FAQ</h2>
+    <div class="section-divider"></div>
+    <div style="margin-top:2rem;">
+      <details>
+        <summary>Do I need a visa to visit Hainan for a surf and golf trip?</summary>
+        <p>No visa is required for most visitors. Hainan offers 30 days of visa-free entry for passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries. Fly into Haikou (HAK) or Sanya (SYX) — there are direct flights from Sydney and Melbourne to Haikou, plus direct routes from Hong Kong, Singapore, Bangkok, Kuala Lumpur and Seoul.</p>
+      </details>
+      <details>
+        <summary>Where is the wave pool in Hainan?</summary>
+        <p>The PerfectSwell&reg; surf pool is at Riyue Bay Surf Resort in Wanning, on Hainan's east coast — the world's only wave pool on a tropical island. It sits steps from five-star accommodation and minutes from Riyue Bay's ocean surf.</p>
+      </details>
+      <details>
+        <summary>Which golf courses do you play on this trip?</summary>
+        <p>Two of China's best: The Dunes at Shenzhou Peninsula, widely rated the best links course in China and one of Asia's finest seaside layouts, and Blackstone at Mission Hills Haikou — a former world top-100 course built across black lava fields and played by Tiger Woods and Rory McIlroy.</p>
+      </details>
+      <details>
+        <summary>Do I need to be an experienced surfer or golfer?</summary>
+        <p>No. The PerfectSwell pool has around twenty wave settings, from mellow beginner rollers to barrels and air sections, and sessions can be set to your level. Both courses welcome all handicaps, with caddies standard in China. We tailor every itinerary to your group.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section>
+  <div class="container">
+    <span class="overline">Keep Planning</span>
+    <h2>More from Surf China Co.</h2>
+    <div class="section-divider"></div>
+    <div class="related-grid">
+      <a href="/golf.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/golf/blackstone-palm-fairway.jpg" alt="Palm-lined fairway at Blackstone Course, Mission Hills Haikou">
+        <div class="rc-body">
+          <span class="rc-tag">Golf</span>
+          <h3>The Surf &amp; Golf Experience</h3>
+          <p>China's best courses, minutes from perfect waves.</p>
+        </div>
+      </a>
+      <a href="/accommodation.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-resort-aerial-sunset-02.jpg" alt="Resort accommodation beside the wave pool at Riyue Bay, Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Stay</span>
+          <h3>Accommodation</h3>
+          <p>Five-star resorts steps from the wave pool.</p>
+        </div>
+      </a>
+      <a href="/how-to-get-here.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="Golden hour aerial of the PerfectSwell wave pool at Riyue Bay, Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Travel</span>
+          <h3>How to Get Here</h3>
+          <p>Visa-free entry, direct flights, private transfers.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="PerfectSwell wave pool at golden hour, Riyue Bay, Hainan">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Ready When You Are</span>
+    <h2>Perfect waves, world-class golf,<br>one tropical island.</h2>
+    <p>Tell us your dates and your group — we'll build the surf &amp; golf itinerary around you.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="/golf-inquiry.html" class="btn btn-primary btn-arrow">Request a Quote </a>
+      <a href="/blog.html" class="btn btn-outline btn-arrow">More from the Journal </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Mobile nav toggle
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  // Shrink nav on scroll
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('nav');
+    if (n) n.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

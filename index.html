@@ -734,8 +734,9 @@ nav.scrolled { padding: 0.7rem 0; }
 /* Rates board — one surfing table + a short list of extras */
 .rates-section { background: var(--white); }
 .rates-header { text-align: center; max-width: 780px; margin: 0 auto 3rem; }
-.rates-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); max-width: 980px; margin: 0 auto; align-items: start; }
-@media (max-width: 760px) { .rates-cols { grid-template-columns: 1fr; gap: 2.6rem; } }
+.rates-cols { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: clamp(2rem, 4.5vw, 4rem); max-width: 1120px; margin: 0 auto; align-items: start; }
+@media (max-width: 980px) { .rates-cols { grid-template-columns: 1.15fr 1fr; } .rates-cols .rate-group:last-child { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .rates-cols { grid-template-columns: 1fr; gap: 2.6rem; } .rates-cols .rate-group:last-child { grid-column: auto; } }
 .rate-group h3 { font-size: 1.02rem; letter-spacing: -0.01em; margin: 0 0 0.2rem; }
 .rate-group__meta { font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warm-gray); margin: 0 0 1.1rem; }
 .rate-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--sand-dark); }
@@ -745,6 +746,8 @@ nav.scrolled { padding: 0.7rem 0; }
 .rate-row__price { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.98rem; color: var(--charcoal); white-space: nowrap; }
 .rate-row__price em { font-style: normal; font-weight: 500; font-size: 0.76em; color: var(--warm-gray); }
 .rate-group__note { font-size: 0.84rem; line-height: 1.65; color: var(--warm-gray); margin: 0.9rem 0 0; }
+.rate-group__link { display: inline-block; margin-top: 1rem; font-size: 0.86rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: opacity 0.25s ease; }
+.rate-group__link:hover { opacity: 0.7; }
 .rates-foot { text-align: center; margin: 3rem auto 0; max-width: 720px; }
 .rates-foot p { font-size: 0.86rem; color: var(--warm-gray); margin: 0 auto 1.6rem; line-height: 1.7; }
 
@@ -1988,6 +1991,7 @@ footer::before {
         <div class="nav-dropdown-menu">
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
           <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/blog.html">Blog</a>
         </div>
       </div>
       <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Book Now</a>
@@ -2007,6 +2011,7 @@ footer::before {
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
   <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/blog.html">Blog</a>
   <a href="#" onclick="showPage('contact'); toggleMobile();">Book Now</a>
 </div>
 
@@ -2164,8 +2169,16 @@ footer::before {
             <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> &yen;268</span></li>
             <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> &yen;200</span></li>
             <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> &yen;200</span></li>
-            <li class="rate-row"><span class="rate-row__name">Rooms at the surf pool<small>Per room, per night</small></span><span class="rate-row__price"><em>from</em> &yen;700</span></li>
           </ul>
+        </div>
+
+        <div class="rate-group">
+          <h3>Rooms at the Surf Pool</h3>
+          <p class="rate-group__meta">Per room &middot; per night</p>
+          <ul class="rate-list">
+            <li class="rate-row"><span class="rate-row__name">Surf pool resort room<small>Steps from the wave</small></span><span class="rate-row__price"><em>from</em> &yen;700</span></li>
+          </ul>
+          <a href="/accommodation.html" class="rate-group__link">Accommodation details &rarr;</a>
         </div>
 
       </div>
@@ -4541,6 +4554,7 @@ footer::before {
         <a href="#" onclick="showPage('packages')">Packages</a>
         <a href="#" onclick="showPage('explore')">Explore Hainan</a>
         <a href="/how-to-get-here.html">How to get here</a>
+        <a href="/blog.html">Blog</a>
       </div>
       <div class="footer-col">
         <h4>Packages</h4>
