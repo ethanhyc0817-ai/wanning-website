@@ -251,6 +251,23 @@ nav.scrolled { padding: 0.7rem 0; }
 .wpe-est__inputs label { display: inline-flex; flex-direction: column; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warm-gray); gap: 0.25rem; }
 .wpe-est__inputs .hint { font-weight: 400; text-transform: none; letter-spacing: 0; }
 .wpe-est__inputs input { width: 140px; padding: 0.5rem 0.6rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-size: 0.95rem; }
+.addons { display: grid; gap: 0.9rem; margin: 1.1rem 0 0.2rem; }
+.ppool { padding: 1rem 1.1rem; border: 1px solid var(--sand-dark); border-left: 3px solid var(--sand-dark); border-radius: 3px; background: var(--white); transition: border-color .15s; }
+.ppool--on { border-left-color: var(--gold); }
+.ppool__add { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ocean); cursor: pointer; border: 1px solid var(--sand-dark); border-radius: 999px; padding: 0.35rem 0.8rem; background: var(--white); }
+.ppool__add input { accent-color: var(--ocean); margin: 0; }
+.ppool--on .ppool__add { border-color: var(--ocean); }
+.ppool__hint { color: var(--warm-gray); font-size: 0.82em; }
+.ppool__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.ppool__label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); }
+.ppool__tag { display: inline-block; margin-left: 0.3rem; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; color: var(--white); background: var(--gold); border-radius: 2px; padding: 0.15rem 0.4rem; vertical-align: 0.1em; }
+.ppool__price { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--charcoal); white-space: nowrap; }
+.ppool__was { font-weight: 500; font-size: 0.8rem; color: var(--warm-gray); text-decoration: line-through; }
+.ppool__unit { font-weight: 500; font-size: 0.78rem; color: var(--warm-gray); }
+.ppool__copy { font-size: 0.83rem; line-height: 1.55; color: var(--warm-gray); margin: 0.55rem 0 0.9rem; }
+.ppool__step { margin-top: 0.9rem; }
+.ppool__steplabel { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 0.5rem; }
+.ppool__step input[type="number"] { width: 140px; padding: 0.5rem 0.6rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-size: 0.95rem; }
 .wpe-est__out { margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--sand-dark); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.3rem; }
 .wpe-est__from { font-size: 0.8rem; color: var(--warm-gray); }
 .wpe-est__pp { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--ocean); }
@@ -269,14 +286,8 @@ nav.scrolled { padding: 0.7rem 0; }
   color: var(--charcoal); cursor: pointer;
   transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
 }
-.pkg-tab .pkg-tab-sub {
-  display: block; font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 0.74rem; letter-spacing: 0.01em; text-transform: none;
-  line-height: 1.35; color: var(--warm-gray);
-}
 .pkg-tab:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(10,77,104,0.10); }
 .pkg-tab.active { background: var(--ocean); border-color: var(--ocean); color: #fff; box-shadow: 0 8px 20px rgba(10,77,104,0.22); }
-.pkg-tab.active .pkg-tab-sub { color: rgba(255,255,255,0.78); }
 .trip-details.step-locked { opacity: 0.45; pointer-events: none; }
 .step-hint { font-size: 0.88rem; color: var(--warm-gray); margin: -0.4rem 0 1.4rem; }
 @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; gap: 0; } .form-row-3 { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; } }
@@ -494,6 +505,8 @@ nav.scrolled { padding: 0.7rem 0; }
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
+.package-options .surf-lead { padding: 0.1rem 0 1rem; }
+.package-options .surf-lead .package-option-info { display: inline-block; margin-top: 0.55rem; }
 .package-options .package-option-sub {
   font-size: 0.85rem; color: var(--warm-gray);
   line-height: 1.45;
@@ -623,7 +636,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   /* Comfortable tap targets */
   .pkg-tabs { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
   .pkg-tab { min-height: 44px; padding: 0.8rem 0.4rem; align-items: center; text-align: center; font-size: 0.8rem; letter-spacing: 0.03em; }
-  .pkg-tab .pkg-tab-sub { display: none; }
   /* Tighten the gap between the hero and the first form content on mobile */
   .contact-grid { margin-top: 0; }
 }
@@ -712,23 +724,23 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             <label>First &mdash; What Kind of Trip? <span style="color:var(--coral);">*</span></label>
             <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="/#packages">See all packages</a>.</p>
             <div class="pkg-tabs" role="tablist" aria-label="Trip type">
-              <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf<span class="pkg-tab-sub">Surf + championship golf &middot; our flagship trips</span></button>
-              <button type="button" class="pkg-tab" data-section="surf">Surf<span class="pkg-tab-sub">The Surf Escape &middot; surf-only, 3 nights+</span></button>
-              <button type="button" class="pkg-tab" data-section="custom">Custom<span class="pkg-tab-sub">Build your own trip</span></button>
+              <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf</button>
+              <button type="button" class="pkg-tab" data-section="surf">Surf</button>
+              <button type="button" class="pkg-tab" data-section="custom">Custom</button>
             </div>
             <div class="pkg-section" data-section="surf" hidden>
             <div class="package-options">
-              <label class="package-option">
-                <input type="checkbox" name="interested_in" value="The Surf Escape (3 nights+)" data-nights="3" data-package-key="wave-pool">
-                <div class="package-option-body">
-                  <div class="package-option-head">
-                    <span class="package-option-name">The Surf Escape</span>
-                    <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$759 pp</span>
-                  </div>
-                  <div class="package-option-sub">At Surf Pool Resort (Garden View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
-                  <a href="/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">View full details &rarr;</a>
+              <!-- Surf has a single package, so it is shown as plain copy; the hidden box keeps the
+                   submitted value, the estimate and the ?package=wave-pool deep link working. -->
+              <input type="checkbox" name="interested_in" value="The Surf Escape (3 nights+)" data-nights="3" data-package-key="wave-pool" hidden>
+              <div class="surf-lead">
+                <div class="package-option-head">
+                  <span class="package-option-name">The Surf Escape</span>
+                  <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$759 pp</span>
                 </div>
-              </label>
+                <div class="package-option-sub">At Surf Pool Resort (Garden View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
+                <a href="/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info">View full details &rarr;</a>
+              </div>
               <div id="wpeEstimate" class="wpe-est" hidden>
                   <input type="hidden" name="quoted_estimate" id="wpeQuoted" disabled>
                 <div class="wpe-est__title">Quick estimate <span>&middot; ballpark, we confirm your exact quote</span></div>
@@ -742,7 +754,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <div class="wpe-est__tot"><span id="wpeTot">$1,518 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,670</span></div>
                 </div>
               </div>
-            </div>
+              </div>
             </div>
             <div class="pkg-section" data-section="surf-golf" hidden>
             <div class="package-options">
@@ -821,18 +833,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
                   <label><input type="radio" name="custom_budget" value="Luxury"> Luxury</label>
                 </div>
               </div>
-              <div class="custom-detail__q">
-                <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; Activity Add-Ons</label>
-                <div class="custom-choice">
-                  <label><input type="checkbox" name="custom_includes" value="Culture &amp; Sightseeing"> Culture &amp; Sightseeing</label>
-                  <label><input type="checkbox" name="custom_includes" value="Beach &amp; Coast"> Beach &amp; Coast</label>
-                  <label><input type="checkbox" name="custom_includes" value="Nature &amp; Adventure"> Nature &amp; Adventure</label>
-                </div>
-                <div class="custom-choice" style="margin-top:0.5rem;">
-                  <label><input type="checkbox" name="custom_includes" value="Yacht Charter"> Yacht Charter</label>
-                  <label><input type="checkbox" name="custom_includes" value="Private Pool Buyout"> Private Pool Buyout</label>
-                </div>
-              </div>
             </div>
             </div>
           </div>
@@ -868,7 +868,6 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             </div>
               <p class="form-help maint-note" id="maintNote" hidden></p>
               <p class="form-help holiday-note" id="holidayNote" hidden></p>
-              <p class="form-help" id="dateModeHelp" hidden></p>
               <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
                 <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
                 <select name="rough_timing" id="roughTiming" disabled>
@@ -928,6 +927,47 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
             </div>
           </div>
 
+          <div class="addons" id="tripAddons" hidden>
+            <div class="ppool" data-addon="pool">
+              <div class="ppool__head">
+                <span class="ppool__label">Private Pool Buyout <span class="ppool__tag">Add-on</span></span>
+                <span class="ppool__price" data-price><span class="ppool__unit">from</span> $776 <span class="ppool__was">$1,109</span> <span class="ppool__unit">/ session</span></span>
+                <label class="ppool__add"><input type="checkbox" data-toggle> Add</label>
+              </div>
+              <p class="ppool__copy">One session = the whole PerfectSwell&reg; pool to your group for an hour &mdash; priced per session, not per person. 30% off while the promo lasts.</p>
+              <div class="ppool__step">
+                <span class="ppool__steplabel">1 &middot; Which wave?</span>
+                <div class="custom-choice">
+                  <label><input type="radio" name="private_pool_wave" value="Intermediate" data-promo="5432" data-list="7760"> Intermediate</label>
+                  <label><input type="radio" name="private_pool_wave" value="Advanced" data-promo="6972" data-list="9960"> Advanced</label>
+                  <label><input type="radio" name="private_pool_wave" value="Pro (barrels &amp; airs)" data-promo="6972" data-list="9960"> Pro &mdash; barrels &amp; airs</label>
+                </div>
+              </div>
+              <div class="ppool__step" data-countstep hidden>
+                <span class="ppool__steplabel">2 &middot; How many sessions?</span>
+                <input type="number" name="private_pool_sessions" data-count value="1" min="0" max="12" step="1" inputmode="numeric" disabled>
+              </div>
+            </div>
+            <div class="ppool" data-addon="coaching">
+              <div class="ppool__head">
+                <span class="ppool__label">Coaching <span class="ppool__tag">Add-on</span></span>
+                <span class="ppool__price" data-price><span class="ppool__unit">from</span> $53 <span class="ppool__unit">/ session</span></span>
+                <label class="ppool__add"><input type="checkbox" data-toggle> Add</label>
+              </div>
+              <p class="ppool__copy">An hour with our surf park&rsquo;s own coaches &mdash; the team that runs the pool every day. English-speaking coaches on request.</p>
+              <div class="ppool__step">
+                <span class="ppool__steplabel">1 &middot; Which kind?</span>
+                <div class="custom-choice">
+                  <label><input type="radio" name="coaching_type" value="One-on-one" data-promo="368" data-list="368"> One-on-one</label>
+                  <label><input type="radio" name="coaching_type" value="One-on-two" data-promo="536" data-list="536"> One-on-two <span class="ppool__hint">(2 surfers)</span></label>
+                </div>
+              </div>
+              <div class="ppool__step" data-countstep hidden>
+                <span class="ppool__steplabel">2 &middot; How many sessions?</span>
+                <input type="number" name="coaching_sessions" data-count value="1" min="0" max="20" step="1" inputmode="numeric" disabled>
+              </div>
+            </div>
+          </div>
           <div class="form-group" id="messageGroup">
             <label><span class="lbl-meta">Optional</span> &middot; Tell Us More</label>
             <textarea name="message" id="messageField" placeholder="Tell us about your ideal trip — who&rsquo;s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
@@ -1312,14 +1352,20 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       if (!wpeEst) return;
       const ppl = readPeople(), nts = readNights(), rooms = readRooms(ppl);
       const ses = nts * readPerDay();  // total group sessions = nights × sessions/day
-      const total = rooms*nts*(850*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts, ppl === 1);
+      // Private pool: ¥5,432/hour under the current 30%-off promo, priced per hour, not per head.
+    const base = rooms*nts*(850*1.15/FX) + ses*(500*1.10/FX) + rooms*(900*1.80/FX) + ppl*(200*2/FX) + rooms*coordPerRoom(nts, ppl === 1);
+    const addons = (typeof window.scAddonsRmb === 'function') ? window.scAddonsRmb() : { promo: 0, list: 0, label: '' };
+    const total = base + addons.promo/FX;
+    // The buyout anchors against its own list rate (¥7,760/hour), not the package uplift.
+    const listTotal = base*1.1 + addons.list/FX;
       g('wpePP').textContent = usd(total / ppl);
       g('wpeTot').textContent = usd(total) + ' total';
-      g('wpeList').textContent = 'was ' + usd(total * 1.1);
+      g('wpeList').textContent = 'was ' + usd(listTotal);
       g('wpeBasis').textContent = ppl + ' guest' + (ppl > 1 ? 's' : '');
-    const q = g('wpeQuoted'); if (q) q.value = usd(total) + ' total · ' + usd(total / ppl) + ' pp · ' + nts + 'N × ' + readPerDay() + ' sessions/day';
+    const q = g('wpeQuoted'); if (q) q.value = usd(total) + ' total · ' + usd(total / ppl) + ' pp · ' + nts + 'N × ' + readPerDay() + ' sessions/day' + (addons.label ? ' + ' + addons.label : '');
     }
     function wpeRefresh() { calcWpe(); }
+  window.scRefreshEstimate = wpeRefresh;
     function syncWpe() {
       if (!wpeEst) return;
       wpeEst.hidden = !(wpeBox && wpeBox.checked);
@@ -1444,6 +1490,7 @@ var currentTripMode = '';
 function messagePlaceholderFor(mode) {
   if (mode === 'surf-golf') return 'Tell us about your ideal trip — who’s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you.';
   if (mode === 'custom') return 'Tell us what this trip is built around — what you want more of, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can shape it.';
+  if (mode === 'surf') return 'Anything we should know?';
   return '';
 }
 function customFocusIsSurfOnly() {
@@ -1470,12 +1517,13 @@ function syncTripModeFields() {
   if (row) row.classList.toggle('form-row-solo', noGolf);
   var msgGrp = document.getElementById('messageGroup');
   var msgFld = document.getElementById('messageField');
-  if (msgGrp) msgGrp.hidden = surfOnly;
+  // The notes box stays available in every mode — surf visitors just get a shorter prompt.
+  if (msgGrp) msgGrp.hidden = !currentTripMode;
   if (msgFld) {
     // Disabled fields are omitted from the POST, so a hidden box never reaches
     // Formspree or the leads tracker with stale text from another tab.
-    msgFld.disabled = surfOnly;
-    if (surfOnly) msgFld.value = '';
+    msgFld.disabled = !currentTripMode;
+    if (!currentTripMode) msgFld.value = '';
     var ph = messagePlaceholderFor(currentTripMode);
     if (ph) msgFld.placeholder = ph;
   }
@@ -1501,18 +1549,24 @@ function applyTripMode(sec) {
   var surfMode = sec === 'surf';
   if (window.scDatePicker) window.scDatePicker.setAllowTbd(!surfMode);
   var dateLabel = document.getElementById('dateLabel');
-  if (dateLabel) dateLabel.innerHTML = surfMode
-    ? 'Trip Start Date <span style="color:var(--coral);">*</span>'
-    : '<span class="lbl-meta">Optional</span> &middot; Trip Start Date';
-  var dateHelp = document.getElementById('dateModeHelp');
-  if (dateHelp) {
-    dateHelp.hidden = !unlocked || surfMode;
-    dateHelp.textContent = surfMode ? '' : 'Not sure yet? Leave it open — we shape the trip first, dates can follow.';
-  }
+  // Always asked for: if the dates really are open, the picker's "I'm not sure yet"
+  // toggle carries that — the field is never presented as optional.
+  if (dateLabel) dateLabel.innerHTML = 'Trip Start Date <span style="color:var(--coral);">*</span>';
   var btn = form.querySelector('button[type="submit"]');
   if (btn && !btn.disabled) btn.textContent = surfMode ? 'Lock In This Estimate ' : 'Request My Quote ';
   var sticky = document.getElementById('stickyQuoteBtn');
   if (sticky) sticky.textContent = surfMode ? 'Lock In This Estimate' : 'Request My Quote';
+  var surfBox = form.querySelector('input[data-package-key="wave-pool"]');
+  if (surfBox && surfBox.checked !== (sec === 'surf')) {
+    surfBox.checked = (sec === 'surf');
+    surfBox.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+  var addons = document.getElementById('tripAddons');
+  if (addons) {
+    addons.hidden = !unlocked;
+    if (!unlocked) addons.querySelectorAll('[data-toggle]').forEach(function (t) { t.checked = false; });
+    if (typeof window.scSyncAddons === 'function') window.scSyncAddons();
+  }
   syncTripModeFields();
   syncRoughTiming();
 }
@@ -1655,6 +1709,67 @@ function applyTripMode(sec) {
 <div class="mobile-submit-bar" aria-hidden="false">
   <button type="button" id="stickyQuoteBtn" class="btn btn-primary btn-arrow" onclick="(function(){var f=document.getElementById('contactForm');if(!f)return;if(f.requestSubmit){f.requestSubmit();}else{var b=f.querySelector('button[type=submit]');if(b)b.click();}})()">Request My Quote</button>
 </div>
+
+<script>
+// Private pool add-on: pick the wave first, then how many sessions. Price follows the wave.
+(function initTripAddons() {
+  var wrap = document.getElementById('tripAddons');
+  if (!wrap) return;
+  var blocks = wrap.querySelectorAll('[data-addon]');
+  // Rates are held in RMB (the park bills in RMB); the form quotes in USD at the package FX.
+  var money = function (rmb) { return '$' + Math.round(Number(rmb) / 7).toLocaleString(); };
+  function picked(b) { return b.querySelector('input[type="radio"]:checked'); }
+  function isOn(b) { var t = b.querySelector('[data-toggle]'); return !!(t && t.checked); }
+  function syncBlock(b) {
+    var on = isOn(b), r = picked(b), base = r || b.querySelector('input[type="radio"]');
+    var priceEl = b.querySelector('[data-price]');
+    var steps = b.querySelectorAll('.ppool__step');
+    var count = b.querySelector('[data-count]');
+    if (priceEl && base) {
+      var promo = base.dataset.promo, list = base.dataset.list;
+      var was = (list && list !== promo) ? ' <span class="ppool__was">' + money(list) + '</span>' : '';
+      priceEl.innerHTML = (r ? '' : '<span class="ppool__unit">from</span> ') + money(promo) + was + ' <span class="ppool__unit">/ session</span>';
+    }
+    // Collapsed until the visitor opts in; the wave/kind choice then unlocks the count.
+    if (steps[0]) steps[0].hidden = !on;
+    if (steps[1]) steps[1].hidden = !on || !r;
+    if (!on) {
+      b.querySelectorAll('input[type="radio"]').forEach(function (x) { x.checked = false; });
+      r = null;
+    }
+    if (count) {
+      count.disabled = !on || !r;
+      if (!on || !r) count.value = '0';
+      else if (count.value === '0' || count.value === '') count.value = '1';
+    }
+    b.classList.toggle('ppool--on', on);
+  }
+  // Totals in RMB, so the estimator can convert once at the package FX.
+  window.scAddonsRmb = function () {
+    var promo = 0, list = 0, parts = [];
+    blocks.forEach(function (b) {
+      if (!isOn(b)) return;
+      var r = picked(b), count = b.querySelector('[data-count]');
+      var n = r && count ? Math.max(0, Math.round(parseFloat(count.value) || 0)) : 0;
+      if (!n) return;
+      promo += n * parseFloat(r.dataset.promo);
+      list += n * parseFloat(r.dataset.list || r.dataset.promo);
+      parts.push(n + ' ' + (b.dataset.addon === 'pool' ? 'private pool' : 'coaching') + ' session' + (n > 1 ? 's' : ''));
+    });
+    return { promo: promo, list: list, label: parts.join(' + ') };
+  };
+  window.scSyncAddons = function () { blocks.forEach(syncBlock); };
+  blocks.forEach(function (b) {
+    var refresh = function () { syncBlock(b); if (typeof window.scRefreshEstimate === 'function') window.scRefreshEstimate(); };
+    var t = b.querySelector('[data-toggle]');
+    if (t) t.addEventListener('change', refresh);
+    b.querySelectorAll('input[type="radio"]').forEach(function (r) { r.addEventListener('change', refresh); });
+    var c = b.querySelector('[data-count]');
+    if (c) c.addEventListener('input', function () { if (typeof window.scRefreshEstimate === 'function') window.scRefreshEstimate(); });
+    syncBlock(b);
+  });
+})();
+</script>
 
 </body>
 </html>
