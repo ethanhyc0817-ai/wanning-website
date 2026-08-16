@@ -763,6 +763,24 @@ nav.scrolled { padding: 0.7rem 0; }
 .rate-group__note { font-size: 0.84rem; line-height: 1.65; color: var(--warm-gray); margin: 0.9rem 0 0; }
 .rate-group__link { display: inline-block; margin-top: 1rem; font-size: 0.86rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: opacity 0.25s ease; }
 .rate-group__link:hover { opacity: 0.7; }
+.rate-row__price--note { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.76rem; letter-spacing: 0.02em; color: var(--teal); white-space: normal; text-align: right; max-width: 10.5rem; }
+
+/* Featured private-session row + settings scroller */
+.rate-row--featured { display: block; margin: 0.9rem -1rem 0; padding: 1rem 1rem 1.15rem; background: var(--sand); border: 1px solid var(--coral); border-radius: 3px; }
+.rate-row--featured .rate-row__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; }
+.ps-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--white); background: var(--coral); border-radius: 2px; padding: 0.22rem 0.5rem; margin-bottom: 0.55rem; }
+.ps-scroll { display: flex; gap: 0.7rem; overflow-x: auto; margin-top: 0.95rem; padding-bottom: 0.4rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.ps-card { flex: 0 0 172px; scroll-snap-align: start; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 3px; padding: 0.8rem 0.85rem 0.9rem; display: flex; flex-direction: column; text-align: left; }
+.ps-card__level { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.84rem; color: var(--charcoal); }
+.ps-card__desc { font-size: 0.72rem; line-height: 1.45; color: var(--warm-gray); margin-top: 0.2rem; }
+.ps-card__price { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.94rem; color: var(--charcoal); margin-top: auto; padding-top: 0.55rem; white-space: nowrap; }
+.ps-card__price s { font-weight: 500; font-size: 0.76em; color: var(--warm-gray); margin-right: 0.3rem; }
+.ps-card__price em { font-style: normal; font-weight: 500; font-size: 0.7em; color: var(--warm-gray); }
+.ps-card__link { margin-top: 0.5rem; font-size: 0.74rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid currentColor; align-self: flex-start; padding-bottom: 1px; }
+.ps-card__link:hover { opacity: 0.7; }
+.ps-book { display: inline-block; margin-top: 0.9rem; font-size: 0.85rem; font-weight: 700; font-family: 'Montserrat', sans-serif; color: var(--white); background: var(--ocean); border-radius: 2px; padding: 0.55rem 1rem; text-decoration: none; transition: background 0.25s ease; }
+.ps-book:hover { background: var(--ocean-light); }
+
 .rates-foot { text-align: center; margin: 3rem auto 0; max-width: 720px; }
 .rates-foot p { font-size: 0.86rem; color: var(--warm-gray); margin: 0 auto 1.6rem; line-height: 1.7; }
 
@@ -2186,8 +2204,35 @@ footer::before {
             <li class="rate-row"><span class="rate-row__name">Beginner</span><span class="rate-row__price">&yen;358</span></li>
             <li class="rate-row"><span class="rate-row__name">Intermediate</span><span class="rate-row__price">&yen;349</span></li>
             <li class="rate-row"><span class="rate-row__name">Advanced</span><span class="rate-row__price">&yen;448</span></li>
-            <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price">&yen;490</span></li>
-            <li class="rate-row"><span class="rate-row__name">Private session<small>The whole pool to your group, per hour &middot; 30% off right now</small></span><span class="rate-row__price"><em>from</em> &yen;5,432</span></li>
+            <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price rate-row__price--note">Available through private sessions</span></li>
+            <li class="rate-row rate-row--featured">
+              <span class="ps-tag">Limited promo &middot; 30% off</span>
+              <div class="rate-row__head">
+                <span class="rate-row__name"><strong>Private session</strong><small>The whole pool to your group, per hour &middot; any wave setting</small></span>
+                <span class="rate-row__price"><em>from</em> &yen;5,432</span>
+              </div>
+              <div class="ps-scroll" aria-label="Private session wave settings and prices">
+                <div class="ps-card">
+                  <span class="ps-card__level">Intermediate</span>
+                  <span class="ps-card__desc">Clean, open-face walls</span>
+                  <span class="ps-card__price"><s>&yen;7,760</s> &yen;5,432<em>/hr</em></span>
+                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+                </div>
+                <div class="ps-card">
+                  <span class="ps-card__level">Advanced</span>
+                  <span class="ps-card__desc">Faster, punchier, more sections</span>
+                  <span class="ps-card__price"><s>&yen;9,960</s> &yen;6,972<em>/hr</em></span>
+                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+                </div>
+                <div class="ps-card">
+                  <span class="ps-card__level">Pro</span>
+                  <span class="ps-card__desc">Barrels and airs</span>
+                  <span class="ps-card__price"><s>&yen;9,960</s> &yen;6,972<em>/hr</em></span>
+                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+                </div>
+              </div>
+              <a href="#" class="ps-book" onclick="showPage('contact'); return false;">Book a Private Session &rarr;</a>
+            </li>
           </ul>
         </div>
 
@@ -2710,7 +2755,7 @@ footer::before {
             <li class="rate-row"><span class="rate-row__name">Beginner</span><span class="rate-row__price">&yen;358</span></li>
             <li class="rate-row"><span class="rate-row__name">Intermediate</span><span class="rate-row__price">&yen;349</span></li>
             <li class="rate-row"><span class="rate-row__name">Advanced</span><span class="rate-row__price">&yen;448</span></li>
-            <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price">&yen;490</span></li>
+            <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price rate-row__price--note">Available through private sessions</span></li>
           </ul>
         </div>
 
