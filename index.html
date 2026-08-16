@@ -1742,6 +1742,10 @@ footer::before {
     aspect-ratio: 16 / 9;
     object-fit: cover;
   }
+
+  /* Tighten gap between surf-pool teaser video and Rates */
+  .pool-teaser { padding-bottom: 1.8rem; }
+  #rates { padding-top: 2.2rem; }
 }
 @media (max-width: 480px) {
   .facilities-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -2158,7 +2162,7 @@ footer::before {
   </section>
 
   <!-- SURF POOL TEASER -->
-  <section>
+  <section class="pool-teaser">
     <div class="container">
       <div class="natural-surf-inner">
         <div>
