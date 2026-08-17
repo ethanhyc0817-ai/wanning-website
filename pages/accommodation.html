@@ -20,7 +20,10 @@
 })();
 </script>
 
-<!-- Google Analytics (GA4) -->
+<title>Stay with us — UECHAO Hotel Riyuebay | Surf China Co.</title>
+<meta name="description" content="UECHAO Hotel Riyuebay — a premium resort stay at Riyue Bay, inside the surf-park grounds, steps from the PerfectSwell® Surf Pool. Six room types, free breakfast for every guest.">
+
+<!-- Google Analytics (GA4). Loaded after <title> so the pageview carries a real page_title. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,9 +31,6 @@
   gtag('js', new Date());
   gtag('config', 'G-8F2F546QPF');
 </script>
-
-<title>Stay with us — UECHAO Hotel Riyuebay | Surf China Co.</title>
-<meta name="description" content="UECHAO Hotel Riyuebay — a premium resort stay at Riyue Bay, inside the surf-park grounds, steps from the PerfectSwell® Surf Pool. Six room types, free breakfast for every guest.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/accommodation.html">
@@ -339,6 +339,15 @@ nav.scrolled { padding: 0.7rem 0; }
   z-index: 3; pointer-events: none;
   font-variant-numeric: tabular-nums;
 }
+.room-badge {
+  position: absolute; top: 0.8rem; left: 0.8rem;
+  background: var(--gold); color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 2px;
+  z-index: 3; pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
 .room-card-body { padding: 1.8rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
 .room-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
 .room-card h3 { margin-bottom: 0.6rem; }
@@ -552,6 +561,7 @@ nav.scrolled { padding: 0.7rem 0; }
           <button class="room-nav room-nav-prev" data-dir="-1" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
           <button class="room-nav room-nav-next" data-dir="1" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
           <span class="room-count"><span class="room-count-current">1</span> / <span class="room-count-total">6</span></span>
+          <span class="room-badge">Recommended</span>
         </div>
         <div class="room-card-body">
           <span class="room-tag">Signature Residence</span>
@@ -843,5 +853,27 @@ nav.scrolled { padding: 0.7rem 0; }
   });
 </script>
 
+
+<!-- GA4: clicks on any link into the quote flow. Content pages had pageviews but no exit
+     signal, so there was no way to see which of them actually feed the form. -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (!/#contact|inquiry\.html|\/book\/surf/.test(href)) return;
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_to_quote', {
+          link_url: href,
+          link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+          source_page: window.location.pathname
+        });
+      }
+    } catch (_) { /* analytics is best-effort */ }
+  }, true);
+})();
+</script>
 </body>
 </html>

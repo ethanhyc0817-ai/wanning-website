@@ -20,7 +20,10 @@
 })();
 </script>
 
-<!-- Google Analytics (GA4) -->
+<title>Golf in Hainan — Tiger Woods Has Played Here | Surf China Co.</title>
+<meta name="description" content="Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played on Hainan's tropical fairways. Mission Hills and Shenzhou Peninsula — two of Asia's best courses, all within driving distance of the surf pool.">
+
+<!-- Google Analytics (GA4). Loaded after <title> so the pageview carries a real page_title. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,9 +31,6 @@
   gtag('js', new Date());
   gtag('config', 'G-8F2F546QPF');
 </script>
-
-<title>Golf in Hainan — Tiger Woods Has Played Here | Surf China Co.</title>
-<meta name="description" content="Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played on Hainan's tropical fairways. Mission Hills and Shenzhou Peninsula — two of Asia's best courses, all within driving distance of the surf pool.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/golf.html">
@@ -904,5 +904,27 @@ document.querySelectorAll('.gal').forEach(g => {
 });
 </script>
 
+
+<!-- GA4: clicks on any link into the quote flow. Content pages had pageviews but no exit
+     signal, so there was no way to see which of them actually feed the form. -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (!/#contact|inquiry\.html|\/book\/surf/.test(href)) return;
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_to_quote', {
+          link_url: href,
+          link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+          source_page: window.location.pathname
+        });
+      }
+    } catch (_) { /* analytics is best-effort */ }
+  }, true);
+})();
+</script>
 </body>
 </html>

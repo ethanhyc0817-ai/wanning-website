@@ -20,7 +20,10 @@
 })();
 </script>
 
-<!-- Google Analytics (GA4) -->
+<title>How to Get to the Surf Pool — Riyue Bay, Wanning, Hainan | Surf China Co.</title>
+<meta name="description" content="Direct flights to Hainan from Europe, Russia, and Asia, then a private transfer to Riyue Bay Surf Resort in Wanning. Door-to-door, English-speaking, all included.">
+
+<!-- Google Analytics (GA4). Loaded after <title> so the pageview carries a real page_title. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,9 +31,6 @@
   gtag('js', new Date());
   gtag('config', 'G-8F2F546QPF');
 </script>
-
-<title>How to Get to the Surf Pool — Riyue Bay, Wanning, Hainan | Surf China Co.</title>
-<meta name="description" content="Direct flights to Hainan from Europe, Russia, and Asia, then a private transfer to Riyue Bay Surf Resort in Wanning. Door-to-door, English-speaking, all included.">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://www.surfchina.co/how-to-get-here.html">
@@ -821,5 +821,27 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 </script>
 
+
+<!-- GA4: clicks on any link into the quote flow. Content pages had pageviews but no exit
+     signal, so there was no way to see which of them actually feed the form. -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (!/#contact|inquiry\.html|\/book\/surf/.test(href)) return;
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_to_quote', {
+          link_url: href,
+          link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+          source_page: window.location.pathname
+        });
+      }
+    } catch (_) { /* analytics is best-effort */ }
+  }, true);
+})();
+</script>
 </body>
 </html>

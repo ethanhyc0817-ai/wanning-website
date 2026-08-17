@@ -20,17 +20,49 @@
 })();
 </script>
 
-<!-- Google Analytics (GA4) -->
+<title>PerfectSwell® Surf Pool Trips at Riyue Bay, Hainan | Surf China Co.</title>
+<meta name="description" content="PerfectSwell® surf pool trips at Riyue Bay Surf Resort, Wanning, Hainan — the world's only surf pool on a tropical island. Accommodation, sessions, transfers, trip support.">
+
+<!-- Google Analytics (GA4). Loaded after <title> so the first pageview carries a real
+     page_title. This homepage is a single file with several full-screen sections that
+     behave like pages (#wavepool, #packages, #contact, …), but GA4 strips the fragment
+     when it derives the page path, so every one of them would report as "/". scPageView()
+     sends them as real paths instead ("/wavepool"), and the automatic pageview is off so
+     the landing isn't counted twice. It is the only place a page_view is sent. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-8F2F546QPF');
-</script>
+  gtag('config', 'G-8F2F546QPF', { send_page_view: false });
 
-<title>PerfectSwell® Surf Pool Trips at Riyue Bay, Hainan | Surf China Co.</title>
-<meta name="description" content="PerfectSwell® surf pool trips at Riyue Bay Surf Resort, Wanning, Hainan — the world's only surf pool on a tropical island. Accommodation, sessions, transfers, trip support.">
+  // The sections that act as pages — keep in sync with the id="page-*" elements below.
+  // Anything else in the hash (#rates, #explore-hainan and other in-page scroll anchors)
+  // is part of the homepage and stays reported as "/".
+  window.SC_SECTIONS = ['wavepool', 'packages', 'explore', 'plan', 'contact',
+    'session-learn', 'session-beginner', 'session-intermediate', 'session-advanced',
+    'session-barrel', 'session-air', 'session-private'];
+
+  window.scPageView = function (page) {
+    try {
+      if (typeof gtag !== 'function') return;
+      var isSection = page && page !== 'home' && window.SC_SECTIONS.indexOf(page) !== -1;
+      // Query string goes last so UTM attribution still works on section views.
+      var path = isSection
+        ? window.location.pathname.replace(/\/$/, '') + '/' + page
+        : (window.location.pathname || '/');
+      gtag('event', 'page_view', {
+        page_title: isSection ? document.title + ' — ' + page : document.title,
+        page_location: window.location.origin + path + window.location.search,
+        page_referrer: document.referrer || undefined
+      });
+    } catch (e) { /* analytics is best-effort */ }
+  };
+
+  // Landing pageview. Fires here rather than on DOMContentLoaded so it still lands if
+  // something further down the page throws.
+  window.scPageView((window.location.hash || '').replace('#', '').trim());
+</script>
 
 <!-- Google Search Console verification -->
 <meta name="google-site-verification" content="GbR75aFcK5kdkszJ8iM14mFLZTZj_wb9DcpCf6gWUi8" />
@@ -4725,7 +4757,7 @@ function activateLazyMedia(scope) {
     }
   });
 }
-function showPage(page, fromPopState) {
+function showPage(page, fromPopState, skipTracking) {
   // When called from inline onclick on <a href="#" onclick="showPage(...)">, prevent
   // the default href="#" navigation so we don't leave stray "#" history entries.
   try {
@@ -4765,19 +4797,12 @@ function showPage(page, fromPopState) {
     document.querySelectorAll('.page.active .fade-in:not(.visible)').forEach(el => observer.observe(el));
   }, 100);
 
-  // GA4: log SPA section views as distinct page_views (so #contact / #wavepool /
-  // #packages show up individually). Skip the very first render — GA's default
-  // pageview already covers the landing — to avoid double-counting.
-  try {
-    if (window.__spaNavStarted && typeof gtag === 'function') {
-      gtag('event', 'page_view', {
-        page_title: document.title + ' — ' + page,
-        page_location: window.location.href,
-        page_path: window.location.pathname + window.location.search + (page === 'home' ? '' : '#' + page)
-      });
-    }
-    window.__spaNavStarted = true;
-  } catch (e) { /* analytics is best-effort */ }
+  // GA4: log each section view as its own page_view, so #contact / #wavepool / #packages
+  // show up as /contact, /wavepool, /packages. skipTracking is set only by the initial
+  // hash routing below, where the landing pageview has already gone out from the head.
+  if (!skipTracking && typeof window.scPageView === 'function') {
+    window.scPageView(page);
+  }
   return false;
 }
 
@@ -5596,8 +5621,9 @@ async function handleSubmit(e) {
     window.history.replaceState({ page: initialPage }, '', window.location.href);
   } catch (e) { /* noop */ }
   if (initialPage !== 'home') {
-    // Show the requested page without pushing a new entry (we just replaced the existing one).
-    showPage(initialPage, true);
+    // Show the requested page without pushing a new entry (we just replaced the existing one),
+    // and without a second page_view — the head already logged this landing.
+    showPage(initialPage, true, true);
   }
 })();
 
