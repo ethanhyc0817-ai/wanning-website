@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://www.surfchina.co/blog.html</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -93,6 +93,12 @@
   <url>
     <loc>https://www.surfchina.co/blog-worlds-most-unique-surf-and-golf-trip.html</loc>
     <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.surfchina.co/blog-riyue-bay-surf-season-ocean-surf-guide.html</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
