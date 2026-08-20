@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Design Your Buyout — Private PerfectSwell® Surf Pool, Hainan | Surf China Co.</title>
+<meta name="description" content="Build a private buyout of the PerfectSwell® Surf Pool in Hainan: choose your suite, your wave setting and how many sessions. See your price, then unlock the current private-session offer.">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<link rel="canonical" href="https://www.surfchina.co/design-your-buyout.html">
+<meta name="robots" content="noindex">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Surf China Co.">
+<meta property="og:url" content="https://www.surfchina.co/design-your-buyout.html">
+<meta property="og:title" content="Design Your Buyout — The Whole Surf Pool, Yours">
+<meta property="og:description" content="Choose your suite, your wave and your sessions. The entire PerfectSwell® Surf Pool, closed to everyone but you.">
+<meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-twilight-01.jpg">
+<meta property="og:locale" content="en_US">
+
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap">
+
+<style>
+/* ═══ A committed dark room. One look, painted explicitly. ═══════════════ */
+:root {
+  --ink:        #070d11;
+  --ink-2:      #0b1519;
+  --surface:    rgba(255,255,255,0.038);
+  --surface-2:  rgba(255,255,255,0.065);
+  --line:       rgba(233,222,203,0.14);
+  --line-2:     rgba(233,222,203,0.28);
+  --cream:      #ece3d4;
+  --cream-dim:  rgba(236,227,212,0.62);
+  --cream-faint:rgba(236,227,212,0.36);
+  --gold:       #c4a265;
+  --gold-lift:  #dcc08b;
+  --ocean:      #0a4d68;
+  --teal:       #2d8a94;
+  --ease:       cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+.shell { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.1rem, 4vw, 2.2rem); }
+.over {
+  display: block;
+  font-family: 'Montserrat', sans-serif; font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+}
+
+/* ═══ Header ════════════════════════════════════════════════════════════ */
+.top {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(7,13,17,0.82);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.top__in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 66px; }
+.brand { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--cream); }
+.brand svg { width: 34px; height: 34px; }
+.brand span { font-size: 0.86rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+.top__exit { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-faint); text-decoration: none; transition: color .3s var(--ease); }
+.top__exit:hover { color: var(--gold); }
+
+/* ═══ Hero ══════════════════════════════════════════════════════════════ */
+.hero { position: relative; padding: clamp(3.2rem, 9vw, 6rem) 0 clamp(2.2rem, 5vw, 3.4rem); overflow: hidden; }
+.hero__bg {
+  position: absolute; inset: -10% -5% 0; z-index: 0;
+  background: url('../Assets/wavepool/wavepool-aerial-twilight-01.jpg') center 38% / cover no-repeat;
+  opacity: .38; filter: saturate(.8) contrast(1.05);
+  transform: scale(1.06);
+  animation: driftIn 2.4s var(--ease-out) both;
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(90% 70% at 50% 0%, rgba(7,13,17,0.30) 0%, rgba(7,13,17,0.86) 62%, var(--ink) 100%),
+    linear-gradient(180deg, rgba(7,13,17,.55) 0%, rgba(7,13,17,0) 30%);
+}
+.hero__in { position: relative; z-index: 2; max-width: 640px; }
+.hero h1 {
+  font-size: clamp(2.15rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.06;
+  margin: 1rem 0 0; color: #fff;
+}
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero__sub { margin-top: 1.1rem; max-width: 46ch; color: var(--cream-dim); font-size: 1.02rem; line-height: 1.7; }
+@keyframes driftIn { from { opacity: 0; transform: scale(1.14); } to { opacity: .38; transform: scale(1.06); } }
+
+.reveal { opacity: 0; transform: translateY(14px); animation: rise .9s var(--ease-out) forwards; }
+.reveal.d1 { animation-delay: .10s; } .reveal.d2 { animation-delay: .22s; } .reveal.d3 { animation-delay: .34s; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+/* ═══ Progress rail ═════════════════════════════════════════════════════ */
+.rail { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 2vw, 1.6rem); padding-bottom: 2.2rem; }
+.rail__step { text-align: left; padding-top: .8rem; border-top: 1px solid var(--line); position: relative; transition: border-color .5s var(--ease); }
+.rail__step::after {
+  content: ""; position: absolute; top: -1px; left: 0; height: 1px; width: 0; background: var(--gold);
+  transition: width .7s var(--ease);
+}
+.rail__step.is-done::after, .rail__step.is-now::after { width: 100%; }
+.rail__n { font-family: 'Montserrat', sans-serif; font-size: .64rem; font-weight: 700; letter-spacing: .18em; color: var(--cream-faint); transition: color .4s var(--ease); }
+.rail__t { display: block; font-family: 'Montserrat', sans-serif; font-size: .88rem; font-weight: 600; color: var(--cream-faint); margin-top: .12rem; transition: color .4s var(--ease); }
+.rail__step.is-now .rail__n, .rail__step.is-done .rail__n { color: var(--gold); }
+.rail__step.is-now .rail__t { color: var(--cream); }
+.rail__step.is-done .rail__t { color: var(--cream-dim); }
+
+/* ═══ Steps ═════════════════════════════════════════════════════════════ */
+.step { display: none; padding-bottom: 8rem; }
+.step.is-active { display: block; }
+.step.is-active > * { animation: stepIn .7s var(--ease-out) both; }
+.step.is-active > *:nth-child(2) { animation-delay: .06s; }
+.step.is-active > *:nth-child(3) { animation-delay: .12s; }
+.step.is-active > *:nth-child(4) { animation-delay: .18s; }
+@keyframes stepIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.step__head { max-width: 52ch; margin-bottom: 2rem; }
+.step__head h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-top: .6rem; line-height: 1.12; }
+.step__head p { margin-top: .8rem; color: var(--cream-dim); font-size: .98rem; }
+
+/* ═══ Room cards ════════════════════════════════════════════════════════ */
+/* The Owner's Suite gets the room; everything else is an alternate. */
+.roomHero {
+  display: grid; grid-template-columns: 1.15fr 1fr; width: 100%; text-align: left;
+  border: 1px solid var(--line-2); border-radius: 3px; background: var(--surface); overflow: hidden;
+  transition: border-color .45s var(--ease), box-shadow .45s var(--ease), background .45s var(--ease);
+}
+.roomHero:hover { border-color: var(--gold); }
+.roomHero.is-sel { border-color: var(--gold); background: var(--surface-2); box-shadow: 0 0 0 1px var(--gold) inset, 0 26px 60px rgba(0,0,0,.5); }
+.roomHero__imgwrap { display: block; position: relative; overflow: hidden; min-height: 300px; }
+.roomHero__img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+.roomHero:hover .roomHero__img { transform: scale(1.045); }
+.roomHero__body { display: flex; flex-direction: column; gap: .55rem; padding: clamp(1.4rem, 3vw, 2.1rem); }
+.roomHero__name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.35rem, 2.6vw, 1.85rem); line-height: 1.1; }
+.roomHero__meta { font-size: .8rem; letter-spacing: .04em; color: var(--cream-faint); }
+.roomHero__note { font-size: .93rem; color: var(--cream-dim); line-height: 1.65; }
+.roomHero__list { list-style: none; margin: .4rem 0 0; padding: 0; display: flex; flex-direction: column; gap: .35rem; }
+.roomHero__list li { position: relative; padding-left: 1.1rem; font-size: .84rem; color: var(--cream-dim); }
+.roomHero__list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+.roomHero__rate { margin-top: auto; padding-top: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.roomHero__rate small { font-family: 'Inter', sans-serif; font-weight: 400; font-size: .76rem; color: var(--cream-faint); }
+
+.altLbl { display: flex; align-items: center; gap: .9rem; margin: 2.2rem 0 1rem; font-family: 'Montserrat', sans-serif; font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-faint); }
+.altLbl::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: .9rem; }
+.room {
+  position: relative; text-align: left; border: 1px solid var(--line); border-radius: 3px;
+  background: var(--surface); overflow: hidden; padding: 0; display: flex; flex-direction: column;
+  transition: border-color .45s var(--ease), transform .45s var(--ease), box-shadow .45s var(--ease), background .45s var(--ease);
+}
+.room:hover { transform: translateY(-4px); border-color: var(--line-2); box-shadow: 0 20px 44px rgba(0,0,0,.45); }
+.room.is-sel { border-color: var(--gold); background: var(--surface-2); box-shadow: 0 0 0 1px var(--gold) inset, 0 22px 50px rgba(0,0,0,.5); }
+.room__img { display: block; width: 100%; height: 108px; object-fit: cover; transition: transform 1.1s var(--ease); }
+.room:hover .room__img { transform: scale(1.05); }
+.room__imgwrap { display: block; overflow: hidden; position: relative; }
+.room__body { padding: 1rem 1.05rem 1.15rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.room__flag {
+  position: absolute; top: .7rem; left: .7rem; z-index: 2;
+  font-family: 'Montserrat', sans-serif; font-size: .56rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: #14232b; background: var(--gold); padding: .26rem .5rem; border-radius: 2px;
+}
+.room__name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; }
+.room__meta { font-size: .78rem; color: var(--cream-faint); }
+.room__note { font-size: .8rem; color: var(--cream-dim); line-height: 1.5; }
+.room__rate { margin-top: auto; padding-top: .6rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .88rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.room__rate small { font-family: 'Inter', sans-serif; font-weight: 400; font-size: .72rem; color: var(--cream-faint); letter-spacing: 0; }
+.room__tick {
+  position: absolute; top: .7rem; right: .7rem; z-index: 2; width: 22px; height: 22px; border-radius: 50%;
+  border: 1px solid var(--line-2); background: rgba(7,13,17,.6); display: grid; place-items: center;
+  transition: all .4s var(--ease);
+}
+.room.is-sel .room__tick { background: var(--gold); border-color: var(--gold); }
+.room__tick svg { width: 11px; height: 11px; opacity: 0; transform: scale(.4); transition: all .4s var(--ease-out); }
+.room.is-sel .room__tick svg { opacity: 1; transform: none; }
+
+/* ═══ Steppers & choices ════════════════════════════════════════════════ */
+.panel { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: 1.4rem 1.5rem; }
+.panel + .panel { margin-top: 1rem; }
+.panel__lbl { font-family: 'Montserrat', sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.panel__hint { font-size: .84rem; color: var(--cream-faint); margin-top: .35rem; line-height: 1.55; }
+
+.dials { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-top: 1.1rem; }
+.dial { border: 1px solid var(--line); border-radius: 3px; padding: .9rem 1rem; background: rgba(255,255,255,.02); }
+.dial__t { display: block; font-size: .78rem; color: var(--cream-dim); }
+.dial__t em { font-style: normal; color: var(--cream-faint); font-size: .72rem; display: block; margin-top: .1rem; }
+.dial__row { display: flex; align-items: center; justify-content: space-between; gap: .7rem; margin-top: .55rem; }
+.dial__val { font-family: 'Montserrat', sans-serif; font-size: 1.75rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; min-width: 2ch; text-align: center; }
+.dial__val.bump { animation: bump .32s var(--ease-out); }
+@keyframes bump { 0% { transform: scale(1); } 45% { transform: scale(1.18); color: var(--gold); } 100% { transform: scale(1); } }
+.pm {
+  width: 34px; height: 34px; border: 1px solid var(--line-2); border-radius: 2px; display: grid; place-items: center;
+  font-size: 1.05rem; color: var(--cream-dim); transition: all .3s var(--ease); flex: none;
+}
+.pm:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); background: rgba(196,162,101,.10); }
+.pm:disabled { opacity: .25; cursor: not-allowed; }
+
+.waves { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; margin-top: 1.1rem; }
+.wave {
+  text-align: left; border: 1px solid var(--line); border-radius: 3px; padding: 1rem 1.05rem;
+  background: rgba(255,255,255,.02); transition: all .4s var(--ease);
+  display: flex; flex-direction: column; gap: .3rem;
+}
+.wave:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.wave.is-sel { border-color: var(--gold); background: rgba(196,162,101,.09); }
+.wave__n { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .92rem; }
+.wave__d { font-size: .78rem; color: var(--cream-faint); line-height: 1.5; }
+.wave__p { margin-top: .4rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .84rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+.wave__p s { color: var(--cream-faint); font-weight: 400; margin-right: .35rem; }
+
+.tog { display: flex; width: 100%; text-align: left; align-items: flex-start; gap: .9rem; padding: .95rem 0; border-top: 1px solid var(--line); cursor: pointer; }
+.tog:first-of-type { border-top: 0; padding-top: .4rem; }
+.tog__sw { width: 42px; height: 24px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); position: relative; flex: none; margin-top: .1rem; transition: all .4s var(--ease); }
+.tog__sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--cream-faint); transition: all .4s var(--ease-out); }
+.tog.is-on .tog__sw { background: rgba(196,162,101,.28); border-color: var(--gold); }
+.tog.is-on .tog__sw::after { left: 21px; background: var(--gold); }
+.tog__t { display: block; font-size: .9rem; font-weight: 500; }
+.tog__d { display: block; font-size: .8rem; color: var(--cream-faint); line-height: 1.55; margin-top: .12rem; }
+.tog__p { margin-left: auto; font-family: 'Montserrat', sans-serif; font-size: .8rem; font-weight: 700; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: .1rem; }
+
+/* ═══ Step 3 — the price ════════════════════════════════════════════════ */
+.priceStage { border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: clamp(1.6rem, 4vw, 2.6rem); text-align: center; position: relative; overflow: hidden; }
+.priceStage::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(70% 90% at 50% 0%, rgba(196,162,101,.20) 0%, rgba(196,162,101,0) 68%);
+  transition: opacity 1.4s var(--ease);
+}
+.priceStage.is-open::before { opacity: 1; }
+.priceStage__lbl { font-family: 'Montserrat', sans-serif; font-size: .64rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--cream-faint); }
+.priceBig {
+  font-family: 'Montserrat', sans-serif; font-weight: 800; line-height: 1;
+  font-size: clamp(2.9rem, 9vw, 5rem); font-variant-numeric: tabular-nums; margin-top: .5rem;
+  transition: color .8s var(--ease);
+}
+.priceStage.is-open .priceBig { color: var(--gold); }
+.priceBig.struck { position: relative; color: var(--cream-faint); font-size: clamp(1.3rem, 3.4vw, 1.8rem); }
+.priceSub { margin-top: .6rem; font-size: .9rem; color: var(--cream-dim); font-variant-numeric: tabular-nums; }
+
+.wasLine { display: none; align-items: baseline; justify-content: center; gap: .7rem; margin-bottom: .2rem; }
+.wasLine.on { display: flex; animation: rise .7s var(--ease-out) both; }
+.wasLine s { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(1.1rem, 3vw, 1.5rem); color: var(--cream-faint); font-variant-numeric: tabular-nums; }
+.wasLine em { font-style: normal; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-faint); }
+
+.unlock {
+  display: inline-flex; align-items: center; gap: .7rem; margin-top: 1.8rem;
+  background: var(--gold); color: #14232b; border-radius: 2px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem;
+  letter-spacing: .12em; text-transform: uppercase; padding: 1.05rem 2rem;
+  position: relative; overflow: hidden; transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  box-shadow: 0 14px 34px rgba(196,162,101,.24);
+}
+.unlock:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(196,162,101,.34); }
+.unlock::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 50%, rgba(255,255,255,0) 100%);
+  animation: sheen 3.4s var(--ease) infinite; animation-delay: 1.2s;
+}
+@keyframes sheen { 0% { left: -60%; } 55%, 100% { left: 130%; } }
+.unlock.gone { display: none; }
+
+.offerSeal {
+  display: none; margin: 1.5rem auto 0; align-items: center; gap: .6rem; width: fit-content;
+  border: 1px solid var(--gold); border-radius: 999px; padding: .45rem 1.1rem;
+  font-family: 'Montserrat', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold); background: rgba(196,162,101,.10);
+}
+.offerSeal.on { display: flex; animation: sealIn .8s var(--ease-out) both; }
+@keyframes sealIn { from { opacity: 0; transform: translateY(10px) scale(.94); } to { opacity: 1; transform: none; } }
+.saveLine { display: none; margin-top: 1rem; font-size: .95rem; color: var(--cream); font-variant-numeric: tabular-nums; }
+.saveLine.on { display: block; animation: rise .8s var(--ease-out) .15s both; }
+.saveLine b { color: var(--gold); font-family: 'Montserrat', sans-serif; }
+
+.afterOffer { display: none; }
+.afterOffer.on { display: block; animation: rise .9s var(--ease-out) .3s both; }
+
+.bd { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; text-align: left; }
+.bd__row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .82rem 1.15rem; border-bottom: 1px solid var(--line); font-size: .89rem; }
+.bd__row:last-child { border-bottom: 0; }
+.bd__row span small { display: block; font-size: .76rem; color: var(--cream-faint); margin-top: .1rem; line-height: 1.5; }
+.bd__row b { font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bd__row.free b { color: var(--gold); }
+.bd__row.tot { background: rgba(196,162,101,.09); border-top: 1px solid var(--gold); }
+.bd__row.tot b { font-size: 1.15rem; color: var(--gold); }
+
+.incl { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 3px; padding: 1.5rem 1.6rem; background: var(--surface); text-align: left; }
+.incl__lbl { font-family: 'Montserrat', sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+.incl__hint { font-size: .84rem; color: var(--cream-faint); margin-top: .35rem; line-height: 1.55; }
+.incl__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .75rem 1.6rem; margin-top: 1.1rem; }
+.incl__grid span { position: relative; padding-left: 1.15rem; font-size: .87rem; color: var(--cream-dim); line-height: 1.55; }
+.incl__grid span b { display: block; color: var(--cream); font-weight: 500; }
+.incl__grid span::before { content: ""; position: absolute; left: 0; top: .58em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+
+/* The same promise, stated once on the way in — a strip, not a list. */
+.strip { margin-top: 1rem; border: 1px solid var(--line); border-radius: 3px; padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .9rem; }
+.strip__lbl { font-family: 'Montserrat', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); width: 100%; }
+.strip span { font-size: .84rem; color: var(--cream-dim); }
+.strip span + span::before { content: "·"; color: var(--cream-faint); margin-right: .9rem; }
+.strip .strip__lbl + span::before { content: none; }
+
+.ctaRow { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1.8rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem; border-radius: 2px; text-decoration: none;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .1em;
+  text-transform: uppercase; padding: .95rem 1.7rem; transition: all .4s var(--ease);
+}
+.btn--gold { background: var(--gold); color: #14232b; }
+.btn--gold:hover { background: var(--gold-lift); transform: translateY(-2px); }
+.btn--ghost { border: 1px solid var(--line-2); color: var(--cream); }
+.btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.fine { margin-top: 1.4rem; text-align: left; font-size: .78rem; color: var(--cream-faint); line-height: 1.7; max-width: 62ch; margin-left: auto; margin-right: auto; }
+
+/* ═══ Sticky footer bar ═════════════════════════════════════════════════ */
+.bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: rgba(7,13,17,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line);
+  transform: translateY(0); transition: transform .5s var(--ease);
+}
+.bar.hidden { transform: translateY(110%); }
+.bar__in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 0; }
+.bar__sum { min-width: 0; }
+.bar__k { font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-faint); }
+.bar__v { font-size: .86rem; color: var(--cream-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar__v b { color: var(--cream); font-weight: 500; }
+.wave { width: 100%; }
+.bar__act { display: flex; align-items: center; gap: .6rem; flex: none; }
+.bar__back { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--cream-faint); padding: .8rem .4rem; transition: color .3s var(--ease); }
+.bar__back:hover { color: var(--cream); }
+.bar__back.gone { display: none; }
+.bar__next {
+  background: var(--gold); color: #14232b; border-radius: 2px; padding: .85rem 1.5rem;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.bar__next:hover { background: var(--gold-lift); }
+.bar__next.gone { display: none; }
+
+/* ═══ Foot ══════════════════════════════════════════════════════════════ */
+.foot { border-top: 1px solid var(--line); padding: 2.2rem 0 7rem; margin-top: 3rem; }
+.foot__in { display: flex; flex-wrap: wrap; gap: 1.4rem; align-items: center; justify-content: space-between; }
+.foot img { max-width: 148px; height: auto; opacity: .78; }
+.foot p { font-size: .78rem; color: var(--cream-faint); max-width: 46ch; line-height: 1.7; }
+
+@media (max-width: 820px) {
+  .roomHero { grid-template-columns: 1fr; }
+  .roomHero__imgwrap { min-height: 190px; }
+}
+@media (max-width: 640px) {
+  .rail__t { font-size: .74rem; }
+  .bar__v { font-size: .78rem; }
+  .bar__in { padding: .7rem 0; }
+  .tog { flex-wrap: wrap; }
+  .tog__p { margin-left: 0; width: 100%; padding-left: calc(42px + .9rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="shell top__in">
+    <a class="brand" href="/" aria-label="Surf China Co. — home">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#c4a265" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#c4a265" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span>Surf China Co.</span>
+    </a>
+    <a class="top__exit" href="/">Exit</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="shell hero__in">
+    <span class="over reveal d1">Private Buyout</span>
+    <h1 class="reveal d2">Design the pool around <em>your crew.</em></h1>
+    <p class="hero__sub reveal d3">Three questions. Your suite, your wave, your sessions — and the whole PerfectSwell&reg; Surf Pool closed to everyone but you.</p>
+  </div>
+</section>
+
+<div class="shell">
+  <nav class="rail" aria-label="Progress">
+    <button class="rail__step is-now" data-goto="1"><span class="rail__n">01</span><span class="rail__t">The Suite</span></button>
+    <button class="rail__step" data-goto="2"><span class="rail__n">02</span><span class="rail__t">The Sessions</span></button>
+    <button class="rail__step" data-goto="3"><span class="rail__n">03</span><span class="rail__t">Your Price</span></button>
+  </nav>
+
+  <!-- ═══ STEP 1 ═══════════════════════════════════════════════════════ -->
+  <section class="step is-active" id="step1" aria-labelledby="s1h">
+    <div class="step__head">
+      <span class="over">Step One</span>
+      <h2 id="s1h">Where you wake up.</h2>
+      <p>Every room sits inside the resort, a short walk from the water. The Owner&rsquo;s Suite is the top of the house &mdash; 72&nbsp;m&sup2;, and the one we put our own guests in.</p>
+    </div>
+
+    <div id="roomHero" role="radiogroup" aria-label="Featured room"></div>
+    <p class="altLbl">Or another room in the resort</p>
+    <div class="rooms" id="rooms" role="radiogroup" aria-label="Alternative rooms"></div>
+
+    <div class="panel">
+      <span class="panel__lbl">Your party</span>
+      <p class="panel__hint">The Owner&rsquo;s Suite sleeps two to three. We&rsquo;ll confirm the exact configuration with you before anything is held.</p>
+      <div class="dials">
+        <div class="dial">
+          <div class="dial__t">Guests<em>Everyone travelling</em></div>
+          <div class="dial__row">
+            <button class="pm" data-dec="guests" aria-label="Fewer guests">&minus;</button>
+            <span class="dial__val" id="vGuests">4</span>
+            <button class="pm" data-inc="guests" aria-label="More guests">+</button>
+          </div>
+        </div>
+        <div class="dial">
+          <div class="dial__t">Rooms<em id="roomsHint">Two Owner&rsquo;s Suites</em></div>
+          <div class="dial__row">
+            <button class="pm" data-dec="rooms" aria-label="Fewer rooms">&minus;</button>
+            <span class="dial__val" id="vRooms">2</span>
+            <button class="pm" data-inc="rooms" aria-label="More rooms">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 2 ═══════════════════════════════════════════════════════ -->
+  <section class="step" id="step2" aria-labelledby="s2h">
+    <div class="step__head">
+      <span class="over">Step Two</span>
+      <h2 id="s2h">How much water you want.</h2>
+      <p>A session is one hour of the pool with nobody else in it. Pick the setting, then how often you want to paddle out &mdash; and note that within a private session, the wave can change whenever you ask it to.</p>
+    </div>
+
+    <div class="panel">
+      <span class="panel__lbl">The wave</span>
+      <p class="panel__hint">Hundreds of wave types open up in a private session &mdash; longboard walls, clean open faces, barrels and launch ramps. Price follows the setting you book the hour at.</p>
+      <div class="waves" id="waves" role="radiogroup" aria-label="Wave setting"></div>
+    </div>
+
+    <div class="panel">
+      <span class="panel__lbl">The rhythm</span>
+      <p class="panel__hint">Total sessions follows nights &times; sessions per day &mdash; adjust it directly if you want a different shape to the trip.</p>
+      <div class="dials">
+        <div class="dial">
+          <div class="dial__t">Nights<em>At the resort</em></div>
+          <div class="dial__row">
+            <button class="pm" data-dec="nights" aria-label="Fewer nights">&minus;</button>
+            <span class="dial__val" id="vNights">2</span>
+            <button class="pm" data-inc="nights" aria-label="More nights">+</button>
+          </div>
+        </div>
+        <div class="dial">
+          <div class="dial__t">Sessions per day<em>Hours in the pool</em></div>
+          <div class="dial__row">
+            <button class="pm" data-dec="perDay" aria-label="Fewer sessions per day">&minus;</button>
+            <span class="dial__val" id="vPerDay">2</span>
+            <button class="pm" data-inc="perDay" aria-label="More sessions per day">+</button>
+          </div>
+        </div>
+        <div class="dial">
+          <div class="dial__t">Total private sessions<em id="sessHint">Following your rhythm</em></div>
+          <div class="dial__row">
+            <button class="pm" data-dec="sessions" aria-label="Fewer sessions">&minus;</button>
+            <span class="dial__val" id="vSessions">4</span>
+            <button class="pm" data-inc="sessions" aria-label="More sessions">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <span class="strip__lbl">Every design already includes</span>
+      <span>Executive van airport transfer, Haikou or Sanya</span>
+      <span>Trip support, 24/7</span>
+      <span>Premium boards</span>
+      <span>Daily breakfast</span>
+      <span>Recovery suite</span>
+      <span>Filmed sessions</span>
+    </div>
+
+    <div class="panel">
+      <span class="panel__lbl">Refinements</span>
+      <div style="margin-top:.9rem;">
+        <button class="tog is-on" id="togPhoto" role="switch" aria-checked="true">
+          <span class="tog__sw" aria-hidden="true"></span>
+          <span>
+            <span class="tog__t">A photographer on every session</span>
+            <span class="tog__d">Every ride shot, cut and delivered &mdash; for each surfer, from each session.</span>
+          </span>
+          <span class="tog__p" id="pPhoto">&mdash;</span>
+        </button>
+        <button class="tog" id="togCoach" role="switch" aria-checked="false">
+          <span class="tog__sw" aria-hidden="true"></span>
+          <span>
+            <span class="tog__t">A coach in the water</span>
+            <span class="tog__d">One of the park&rsquo;s own coaches, one-to-one, for the first session of each day.</span>
+          </span>
+          <span class="tog__p" id="pCoach">&mdash;</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STEP 3 ═══════════════════════════════════════════════════════ -->
+  <section class="step" id="step3" aria-labelledby="s3h">
+    <div class="step__head">
+      <span class="over">Step Three</span>
+      <h2 id="s3h">What you&rsquo;ve designed.</h2>
+      <p id="designLine">&nbsp;</p>
+    </div>
+
+    <div class="priceStage" id="stage">
+      <div class="wasLine" id="wasLine"><em>Published</em> <s id="wasVal">&mdash;</s></div>
+      <div class="priceStage__lbl" id="stageLbl">Your design at published rates</div>
+      <div class="priceBig" id="bigVal">&mdash;</div>
+      <div class="priceSub" id="bigSub">&nbsp;</div>
+
+      <button class="unlock" id="unlock">Access Special Offer Now</button>
+
+      <div class="offerSeal" id="seal">25% off every private session</div>
+      <div class="saveLine" id="saveLine">You save <b id="saveVal">&mdash;</b> on this design.</div>
+
+      <div class="afterOffer" id="after">
+        <div class="bd" id="bd"></div>
+        <div class="ctaRow">
+          <a class="btn btn--gold" id="ctaQuote" href="/contact">Hold these dates &rarr;</a>
+          <a class="btn btn--ghost" id="ctaWa" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Talk it through on WhatsApp</a>
+        </div>
+        <p class="fine">Prices in US dollars at an indicative rate, for the whole party unless marked per person. Every figure shown includes our 5% service fee — there is nothing added afterwards. Private session rates rise a little from 1 July to 31 August and over Chinese national holidays, and the pool is closed for scheduled maintenance from 24 August to 23 September 2026. Nothing is held until we confirm your dates in writing.</p>
+      </div>
+    </div>
+
+    <div class="incl" id="incl"></div>
+  </section>
+</div>
+
+<footer class="foot">
+  <div class="shell foot__in">
+    <img src="../Assets/perfectswell-white-mono.png" alt="PerfectSwell" loading="lazy" decoding="async">
+    <p>Surf China Co. is a PerfectSwell&reg; Destination Partner. Private sessions are booked through the surf park&rsquo;s own system, so your hour, your setting and your wave programme are confirmed before you land.</p>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <div class="shell bar__in">
+    <div class="bar__sum">
+      <div class="bar__k">Your design</div>
+      <div class="bar__v" id="barSum">&nbsp;</div>
+    </div>
+    <div class="bar__act">
+      <button class="bar__back gone" id="btnBack">Back</button>
+      <button class="bar__next" id="btnNext">Continue</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Rates ──────────────────────────────────────────────────────────────
+  // RMB is the source of truth (the park and the hotel both bill in RMB).
+  // Room rates are the client rate per night; buyout rates are per one-hour
+  // session, list vs the current private-session offer.
+  var FX = 7;
+  var ROOMS = [
+    { key: 'owner',    name: "Owner's Suite",      meta: '72 m² · sleeps 2–3', rate: 1662,
+      note: 'The top of the house. Separate living space, the best outlook on the property.',
+      flag: 'Our pick',
+      img: "../Assets/hotel/choose/Owner's suite/7744277F-E20C-4910-9B24-33A816B7C875 Large.jpeg" },
+    { key: 'ocean',    name: 'Ocean & Pool View',  meta: '45 m² · sleeps 2–4', rate: 1075,
+      note: 'Upper floors, looking straight out over the pool and the sea beyond.',
+      img: "../Assets/hotel/choose/ocean & pool view room/827C014B-A10C-47DC-89C5-86C2D67AE4F4 Large.jpeg" },
+    { key: 'surfyard', name: 'Surfyard Room',      meta: '52 m² · ground floor', rate: 1271,
+      note: 'Ground floor with its own yard — walk out, grab a board, walk back.',
+      img: "../Assets/hotel/choose/Surfyard room/third pic-web.jpg" },
+    { key: 'garden',   name: 'Garden View',        meta: 'Sleeps 2', rate: 978,
+      note: 'Quiet side of the resort, over the gardens. The considered way in.',
+      img: "../Assets/hotel/main hotel/main-hotel-room-12.jpg" }
+  ];
+  var WAVES = [
+    { key: 'intermediate', name: 'Intermediate', desc: 'Clean, open-face walls with room to turn.',        list: 7760, now: 5820 },
+    { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: 9960, now: 7470 },
+    { key: 'master',       name: 'Pro',          desc: 'Barrels and launch ramps. The full menu opens.',   list: 9960, now: 7470 }
+  ];
+  var MEDIA_PER = 400;      // photographer, per surfer per session (client rate)
+  var COACH_PER = 368;      // 1-on-1 coach, per surfer per session — sold at cost
+  var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
+  var ANCHOR    = 1.10;     // published-rate uplift used across the site
+
+  var state = { room: 'owner', guests: 4, rooms: 2, nights: 2, perDay: 2, sessions: 4,
+                wave: 'master', photo: true, coach: false, sessionsTouched: false, revealed: false };
+  var step = 1;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var usd = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  var room = function () { return ROOMS.filter(function (r) { return r.key === state.room; })[0]; };
+  var wave = function () { return WAVES.filter(function (w) { return w.key === state.wave; })[0]; };
+
+  // ── Price ──────────────────────────────────────────────────────────────
+  // The package side (rooms, media, transfer, concierge) sells at its rate and
+  // anchors against the published uplift. The buyout side carries its own
+  // offer and is never folded into the package discount.
+  function price() {
+    var w = wave();
+    var vans = Math.max(1, Math.ceil(state.guests / 6));
+    var rooms  = room().rate * state.rooms * state.nights / FX;
+    var photo  = state.photo ? MEDIA_PER * state.guests * state.sessions / FX : 0;
+    var coach  = state.coach ? COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX : 0;
+    var pkg    = rooms + photo + coach;
+    var buyNow = w.now  * state.sessions / FX;
+    var buyWas = w.list * state.sessions / FX;
+    var subNow = pkg + buyNow;
+    var subWas = pkg * ANCHOR + buyWas;
+    var feeNow = subNow * SERVICE;
+    var now    = subNow + feeNow;
+    var was    = subWas * (1 + SERVICE);
+    return { rooms: rooms, photo: photo, coach: coach, vans: vans,
+             buyNow: buyNow, buyWas: buyWas, sub: subNow, fee: feeNow,
+             now: now, was: was, save: was - now, pp: now / Math.max(1, state.guests) };
+  }
+
+  // ── Build the choice cards ─────────────────────────────────────────────
+  // Filenames carry spaces, apostrophes and an ampersand — encode once, here.
+  var src = function (p) { return encodeURI(p).replace(/'/g, '%27').replace(/&/g, '%26'); };
+
+  var tick = '<span class="room__tick"><svg viewBox="0 0 24 24" fill="none" stroke="#14232b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span>';
+  var HERO = ROOMS[0];
+  function paintHero() {
+    $('roomHero').innerHTML =
+      '<button class="roomHero' + (HERO.key === state.room ? ' is-sel' : '') + '" data-room="' + HERO.key + '" role="radio" aria-checked="' + (HERO.key === state.room) + '">' +
+        '<span class="roomHero__imgwrap">' +
+          '<span class="room__flag">' + HERO.flag + '</span>' + tick +
+          '<img class="roomHero__img" src="' + src(HERO.img) + '" alt="' + HERO.name + ' at the surf pool resort in Wanning" decoding="async">' +
+        '</span>' +
+        '<span class="roomHero__body">' +
+          '<span class="roomHero__meta">' + HERO.meta + '</span>' +
+          '<span class="roomHero__name">' + HERO.name + '</span>' +
+          '<span class="roomHero__note">' + HERO.note + '</span>' +
+          '<ul class="roomHero__list">' +
+            '<li>A separate living room, not a corner of the bedroom</li>' +
+            '<li>The best outlook on the property, over pool and sea</li>' +
+            '<li>Terrace with its own tub, for after the last session</li>' +
+          '</ul>' +
+          '<span class="roomHero__rate">' + usd(HERO.rate / FX) + ' <small>/ night</small></span>' +
+        '</span>' +
+      '</button>';
+  }
+  paintHero();
+
+  $('rooms').innerHTML = ROOMS.slice(1).map(function (r) {
+    return '<button class="room' + (r.key === state.room ? ' is-sel' : '') + '" data-room="' + r.key + '" role="radio" aria-checked="' + (r.key === state.room) + '">' +
+      '<span class="room__imgwrap">' +
+        (r.flag ? '<span class="room__flag">' + r.flag + '</span>' : '') + tick +
+        '<img class="room__img" src="' + src(r.img) + '" alt="' + r.name + ' at the surf pool resort in Wanning" loading="lazy" decoding="async">' +
+      '</span>' +
+      '<span class="room__body">' +
+        '<span class="room__name">' + r.name + '</span>' +
+        '<span class="room__meta">' + r.meta + '</span>' +
+        '<span class="room__note">' + r.note + '</span>' +
+        '<span class="room__rate">' + usd(r.rate / FX) + ' <small>/ night</small></span>' +
+      '</span></button>';
+  }).join('');
+
+  $('waves').innerHTML = WAVES.map(function (w) {
+    return '<button class="wave' + (w.key === state.wave ? ' is-sel' : '') + '" data-wave="' + w.key + '" role="radio" aria-checked="' + (w.key === state.wave) + '">' +
+      '<span class="wave__n">' + w.name + '</span>' +
+      '<span class="wave__d">' + w.desc + '</span>' +
+      '<span class="wave__p"><s>' + usd(w.list / FX) + '</s>' + usd(w.now / FX) + ' / session</span>' +
+      '</button>';
+  }).join('');
+
+  // ── Limits ─────────────────────────────────────────────────────────────
+  var LIM = { guests: [1, 24], rooms: [1, 12], nights: [1, 14], perDay: [1, 4], sessions: [1, 40] };
+
+  function bump(el) {
+    if (!el) return;
+    el.classList.remove('bump');
+    void el.offsetWidth;
+    el.classList.add('bump');
+  }
+
+  function nudge(key, delta) {
+    var lim = LIM[key];
+    var next = Math.min(lim[1], Math.max(lim[0], state[key] + delta));
+    if (next === state[key]) return;
+    state[key] = next;
+    if (key === 'sessions') state.sessionsTouched = true;
+    if (key === 'nights' || key === 'perDay') {
+      if (!state.sessionsTouched) state.sessions = Math.max(1, state.nights * state.perDay);
+    }
+    if (key === 'guests') {
+      // Rooms follow the party — the Owner's Suite tops out at three, the rest at four.
+      var cap = state.room === 'owner' ? 2 : 2;
+      state.rooms = Math.max(1, Math.ceil(state.guests / cap));
+    }
+    render();
+    bump($('v' + key.charAt(0).toUpperCase() + key.slice(1)));
+  }
+
+  // ── Render ─────────────────────────────────────────────────────────────
+  function render() {
+    $('vGuests').textContent   = state.guests;
+    $('vRooms').textContent    = state.rooms;
+    $('vNights').textContent   = state.nights;
+    $('vPerDay').textContent   = state.perDay;
+    $('vSessions').textContent = state.sessions;
+
+    var r = room();
+    $('roomsHint').textContent = state.rooms + ' × ' + r.name;
+    $('sessHint').textContent  = state.sessionsTouched ? 'Set by you' : state.nights + ' nights × ' + state.perDay + ' a day';
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-room]'), function (el) {
+      var on = el.dataset.room === state.room;
+      el.classList.toggle('is-sel', on);
+      el.setAttribute('aria-checked', on);
+    });
+    $('roomHero').firstChild.classList.toggle('is-sel', state.room === HERO.key);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-wave]'), function (el) {
+      var on = el.dataset.wave === state.wave;
+      el.classList.toggle('is-sel', on);
+      el.setAttribute('aria-checked', on);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-dec],[data-inc]'), function (b) {
+      var key = b.dataset.dec || b.dataset.inc;
+      var d = b.dataset.dec ? -1 : 1;
+      b.disabled = (state[key] + d < LIM[key][0]) || (state[key] + d > LIM[key][1]);
+    });
+
+    var p = price();
+    $('pPhoto').textContent = state.photo ? usd(p.photo) : 'from ' + usd(MEDIA_PER * state.guests * state.sessions / FX);
+    $('pCoach').textContent = state.coach ? usd(p.coach) : 'from ' + usd(COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX);
+    $('togPhoto').classList.toggle('is-on', state.photo);
+    $('togPhoto').setAttribute('aria-checked', state.photo);
+    $('togCoach').classList.toggle('is-on', state.coach);
+    $('togCoach').setAttribute('aria-checked', state.coach);
+
+    $('barSum').innerHTML = '<b>' + state.guests + '</b> guests · <b>' + state.rooms + '</b> × ' + r.name +
+      ' · <b>' + state.nights + '</b> nights · <b>' + state.sessions + '</b> ' + wave().name + ' sessions';
+
+    $('designLine').textContent = state.sessions + ' private ' + (state.sessions === 1 ? 'session' : 'sessions') +
+      ' at the ' + wave().name + ' setting, ' + state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') +
+      ' across ' + state.rooms + ' × ' + r.name + ', for ' + state.guests + '.';
+
+    // A change to the design puts the offer back behind the button.
+    if (state.revealed) resetStage();
+    if (step === 3) paintStage(p);
+    buildLinks(p);
+  }
+
+  // ── Stage ──────────────────────────────────────────────────────────────
+  function resetStage() {
+    state.revealed = false;
+    $('stage').classList.remove('is-open');
+    $('unlock').classList.remove('gone');
+    $('seal').classList.remove('on');
+    $('saveLine').classList.remove('on');
+    $('after').classList.remove('on');
+    $('wasLine').classList.remove('on');
+    $('bigVal').classList.remove('struck');
+  }
+
+  function paintStage(p) {
+    if (state.revealed) return;
+    $('stageLbl').textContent = 'Your design at published rates';
+    $('bigVal').textContent = usd(p.was);
+    $('bigSub').textContent = usd(p.was / Math.max(1, state.guests)) + ' per person · ' + state.guests + ' guests';
+  }
+
+  function countTo(el, from, to, ms, done) {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { el.textContent = usd(to); if (done) done(); return; }
+    var t0 = null;
+    function frame(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / ms);
+      var e = 1 - Math.pow(1 - k, 4);
+      el.textContent = usd(from + (to - from) * e);
+      if (k < 1) requestAnimationFrame(frame); else if (done) done();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function reveal() {
+    if (state.revealed) return;
+    var p = price();
+    state.revealed = true;
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'buyout_offer_unlocked', {
+          room: state.room, wave: state.wave, sessions: state.sessions,
+          nights: state.nights, guests: state.guests, value: Math.round(p.now), currency: 'USD'
+        });
+      }
+    } catch (_) { /* analytics is best-effort */ }
+
+    $('unlock').classList.add('gone');
+    $('stage').classList.add('is-open');
+    $('wasVal').textContent = usd(p.was);
+    $('wasLine').classList.add('on');
+    $('stageLbl').textContent = 'Your price';
+
+    countTo($('bigVal'), p.was, p.now, 1100, function () {
+      $('bigSub').textContent = usd(p.pp) + ' per person · ' + state.guests + ' guests · 5% service fee included';
+      $('seal').classList.add('on');
+      $('saveVal').textContent = usd(p.save);
+      $('saveLine').classList.add('on');
+      buildBreakdown(p);
+      $('after').classList.add('on');
+    });
+  }
+
+  function row(name, sub, val, cls) {
+    return '<div class="bd__row' + (cls ? ' ' + cls : '') + '"><span>' + name +
+      (sub ? '<small>' + sub + '</small>' : '') + '</span><b>' + val + '</b></div>';
+  }
+
+  function buildBreakdown(p) {
+    var r = room(), w = wave(), out = '';
+    out += row(state.rooms + ' × ' + r.name,
+               state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') + ' at the resort · breakfast every morning', usd(p.rooms));
+    out += row(state.sessions + ' private ' + (state.sessions === 1 ? 'session' : 'sessions'),
+               w.name + ' setting · the pool closed to everyone else · change the wave whenever you ask', usd(p.buyNow));
+    if (p.photo) out += row('Photographer on every session', 'Every surfer, every session — shot, cut and delivered', usd(p.photo));
+    if (p.coach) out += row('Coach in the water', 'One of the park’s own coaches, one-to-one, first session each day', usd(p.coach));
+    out += row('Executive van airport transfer',
+               'From Haikou or Sanya airport — either one · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting before you clear arrivals', 'Included', 'free');
+    out += row('Comprehensive trip support, 24/7',
+               'One number, around the clock, from the moment you book to the moment you fly home — sessions rebooked, tables found, anything at 2am', 'Included', 'free');
+    out += row('Premium board quiver', 'The performance boards, yours throughout the stay', 'Included', 'free');
+    out += row('Service fee', '5% — our fee for building the trip, holding the pool and running it on the day', usd(p.fee));
+    out += row('<strong>Your price</strong>', 'Published ' + usd(p.was) + ' · you save ' + usd(p.save), usd(p.now), 'tot');
+    $('bd').innerHTML = out;
+
+  }
+
+  // Everything a buyout carries whatever you choose. Stated plainly, in front of
+  // the price rather than behind it.
+  function paintIncluded() {
+    $('incl').innerHTML =
+      '<div class="incl__lbl">In every buyout, whatever you design</div>' +
+      '<p class="incl__hint">These are not extras and they are not priced separately — they come with the trip.</p>' +
+      '<div class="incl__grid">' +
+        '<span><b>Executive van airport transfer</b>From Haikou or Sanya airport — fly into whichever suits you. A private six-seat van to your suite and back, with your driver waiting before you clear arrivals.</span>' +
+        '<span><b>Comprehensive trip support, 24/7</b>One number, around the clock, from the moment you book to the moment you fly home.</span>' +
+        '<span><b>The premium board quiver</b>The performance boards are yours throughout, at no charge. Bring your own if you’d rather.</span>' +
+        '<span><b>One fee, stated up front</b>A 5% service fee is already inside every price on this page. No booking fees, no card surcharge, nothing added at the end.</span>' +
+        '<span><b>Breakfast every morning</b>For every guest, every day of the stay.</span>' +
+        '<span><b>Your sessions arranged with the park</b>Slots held and the wave programme set before you land.</span>' +
+        '<span><b>Recovery suite</b>Sauna, ice bath and hot plunge between sessions.</span>' +
+        '<span><b>Filmed as standard</b>Every wave caught on the pool’s own system and shown back on the lounge screens.</span>' +
+        '<span><b>Wetsuits, lockers, showers</b>Changing rooms steps from the water. Turn up with nothing.</span>' +
+      '</div>';
+  }
+  paintIncluded();
+
+  // ── Hand-off ───────────────────────────────────────────────────────────
+  function summary(p) {
+    return 'Private buyout — ' + state.guests + ' guests, ' + state.rooms + ' × ' + room().name + ', ' +
+      state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
+      (state.photo ? ', photographer on every session' : '') + (state.coach ? ', coach in the water' : '') +
+      ' — ' + usd(p.now) + ' (published ' + usd(p.was) + ')';
+  }
+  function buildLinks(p) {
+    var s = summary(p);
+    $('ctaQuote').href = '/contact?package=private-escape&design=' + encodeURIComponent(s);
+    $('ctaWa').href = 'https://wa.me/8613893402173?text=' + encodeURIComponent("Hi Surf China — I've designed a private buyout on your site: " + s);
+  }
+
+  // ── Steps ──────────────────────────────────────────────────────────────
+  function go(n) {
+    step = Math.min(3, Math.max(1, n));
+    [1, 2, 3].forEach(function (i) { $('step' + i).classList.toggle('is-active', i === step); });
+    Array.prototype.forEach.call(document.querySelectorAll('.rail__step'), function (el, i) {
+      el.classList.toggle('is-now', i + 1 === step);
+      el.classList.toggle('is-done', i + 1 < step);
+    });
+    $('btnBack').classList.toggle('gone', step === 1);
+    $('btnNext').classList.toggle('gone', step === 3);
+    $('btnNext').textContent = step === 2 ? 'See your price' : 'Continue';
+    if (step === 3) paintStage(price());
+    try { history.replaceState(null, '', '#step-' + step); } catch (_) { /* fine without it */ }
+    var top = document.querySelector('.rail');
+    if (top) window.scrollTo({ top: top.offsetTop - 90, behavior: 'smooth' });
+  }
+
+  // ── Wiring ─────────────────────────────────────────────────────────────
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-room],[data-wave],[data-dec],[data-inc],[data-goto]');
+    if (!t) return;
+    if (t.dataset.room)  { state.room = t.dataset.room;
+                           var cap = 2;
+                           state.rooms = Math.max(1, Math.ceil(state.guests / cap));
+                           render(); return; }
+    if (t.dataset.wave)  { state.wave = t.dataset.wave; render(); return; }
+    if (t.dataset.dec)   { nudge(t.dataset.dec, -1); return; }
+    if (t.dataset.inc)   { nudge(t.dataset.inc, 1); return; }
+    if (t.dataset.goto)  { go(parseInt(t.dataset.goto, 10)); return; }
+  });
+
+  $('togPhoto').addEventListener('click', function () { state.photo = !state.photo; render(); });
+  $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
+  $('btnNext').addEventListener('click', function () { go(step + 1); });
+  $('btnBack').addEventListener('click', function () { go(step - 1); });
+  $('unlock').addEventListener('click', reveal);
+
+  render();
+
+  // Deep link straight to a step — /design#step-2 picks up where a share left off.
+  var m = /^#step-([123])$/.exec(window.location.hash || '');
+  if (m) go(parseInt(m[1], 10));
+})();
+</script>
+</body>
+</html>
