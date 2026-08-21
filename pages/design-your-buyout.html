@@ -398,7 +398,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   <div class="shell hero__in">
     <span class="over reveal d1">Private Buyout</span>
     <h1 class="reveal d2">Design the pool around <em>your crew.</em></h1>
-    <p class="hero__sub reveal d3">Pick your suite, your wave setting and your sessions. When it&rsquo;s time to paddle out, the PerfectSwell&reg; Surf Pool is yours and your crew&rsquo;s alone.</p>
+    <p class="hero__sub reveal d3">Reserve the entire PerfectSwell&reg; Surf Pool for your crew &mdash; up to 20 surfers, perfect, consistent waves, and no one else in the lineup. Pick your suite, your wave settings and your sessions, and we&rsquo;ll build the trip around you.</p>
   </div>
 </section>
 
@@ -450,12 +450,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     <div class="step__head">
       <span class="over">Step Two</span>
       <h2 id="s2h">How much water you want.</h2>
-      <p>A private session is one hour with the whole pool to yourselves. Pick your wave setting, then decide how often you want to paddle out &mdash; and within a session, the wave changes whenever you ask.</p>
+      <p>A private session is one hour with the whole pool to yourselves. Pick your wave setting, then decide how often you want to paddle out &mdash; and you can mix different waves throughout the session, changing whenever you ask.</p>
     </div>
 
     <div class="panel">
       <span class="panel__lbl">The wave</span>
-      <p class="panel__hint">A private session opens up the full wave menu &mdash; longboard walls, clean open faces, barrels and ramps. The price follows the setting you book the hour at.</p>
+      <p class="panel__hint">More than 20 wave types are available exclusively in private sessions, across four broad categories &mdash; intermediate, advanced, barrel and air. From perfect faces for working on turns to barrels and air sections. The price follows the setting you book the hour at.</p>
       <div class="waves" id="waves" role="radiogroup" aria-label="Wave setting"></div>
     </div>
 
@@ -514,7 +514,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
         <button class="tog" id="togCoach" role="switch" aria-checked="false">
           <span class="tog__sw" aria-hidden="true"></span>
           <span>
-            <span class="tog__t">A coach in the water</span>
+            <span class="tog__t">Private surf coach</span>
             <span class="tog__d">One of the park&rsquo;s own coaches, one-to-one, for the first session of each day.</span>
           </span>
           <span class="tog__p" id="pCoach">&mdash;</span>
@@ -807,7 +807,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     out += row(state.sessions + ' private ' + w.name + ' ' + (state.sessions === 1 ? 'session' : 'sessions'),
                'The pool is exclusively yours — set the wave programme for your crew and switch settings whenever you ask', usd(p.buyNow));
     if (p.photo) out += row('Dedicated surf photographer', 'Every surfer, every session — shot, edited and delivered', usd(p.photo));
-    if (p.coach) out += row('Coach in the water', 'One of the park’s own coaches, one-to-one, first session each day', usd(p.coach));
+    if (p.coach) out += row('Private surf coach', 'One of the park’s own coaches, one-to-one, first session each day', usd(p.coach));
     out += row('Private airport transfers',
                'Haikou or Sanya — whichever suits your flights · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting when you land', 'Included', 'free');
     out += row('Our team, throughout the trip',
@@ -843,7 +843,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   function summary(p) {
     return 'Private pool buyout — ' + state.guests + ' guests, ' + state.rooms + ' × ' + room().name + ', ' +
       state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
-      (state.photo ? ', surf photographer on every session' : '') + (state.coach ? ', coach in the water' : '') +
+      (state.photo ? ', surf photographer on every session' : '') + (state.coach ? ', private surf coach' : '') +
       ' — ' + usd(p.now) + ' (standard price ' + usd(p.was) + ')';
   }
   function buildLinks(p) {
