@@ -486,15 +486,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
             <div class="waves" id="waves" role="radiogroup" aria-label="Wave setting"></div>
             <div class="dials">
               <div class="dial">
-                <div class="dial__t">Sessions per day<em>Hours in the pool</em></div>
-                <div class="dial__row">
-                  <button class="pm" data-dec="perDay" aria-label="Fewer sessions per day">&minus;</button>
-                  <span class="dial__val" id="vPerDay">2</span>
-                  <button class="pm" data-inc="perDay" aria-label="More sessions per day">+</button>
-                </div>
-              </div>
-              <div class="dial">
-                <div class="dial__t">Total private sessions<em id="sessHint">Following your rhythm</em></div>
+                <div class="dial__t">Total private sessions<em>One hour each, pool to yourselves</em></div>
                 <div class="dial__row">
                   <button class="pm" data-dec="sessions" aria-label="Fewer sessions">&minus;</button>
                   <span class="dial__val" id="vSessions">4</span>
@@ -707,12 +699,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('vGuests').textContent   = state.guests;
     $('vRooms').textContent    = state.rooms;
     $('vNights').textContent   = state.nights;
-    $('vPerDay').textContent   = state.perDay;
     $('vSessions').textContent = state.sessions;
 
     var r = room();
     $('roomsHint').textContent = state.rooms + ' × ' + r.name;
-    $('sessHint').textContent  = state.sessionsTouched ? 'Set by you' : state.nights + ' nights × ' + state.perDay + ' a day';
 
     Array.prototype.forEach.call(document.querySelectorAll('[data-room]'), function (el) {
       var on = el.dataset.room === state.room;
