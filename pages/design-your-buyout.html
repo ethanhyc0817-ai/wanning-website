@@ -308,6 +308,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bd__row.tot { background: rgba(196,162,101,.09); border-top: 1px solid var(--gold); }
 .bd__row.tot b { font-size: 1.15rem; color: var(--gold); }
 
+.bd__row.hl { background: rgba(196,162,101,.08); box-shadow: inset 3px 0 0 var(--gold); }
+.bd__row.hl > span:first-child > span:first-child { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; }
+
 .bd__act { display: flex; align-items: center; gap: .8rem; flex: none; }
 .bd__adj {
   font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 700;
@@ -447,7 +450,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       <div class="afterOffer on" id="after">
         <div class="bd" id="bd">
 
-          <div class="bd__row">
+          <div class="bd__row hl">
             <span><span id="rRoomsName">&mdash;</span><small id="rRoomsSub">&mdash;</small></span>
             <span class="bd__act"><button class="bd__adj" data-edit="editRooms" aria-expanded="false">Adjust</button><b id="rRoomsVal">&mdash;</b></span>
           </div>
@@ -483,7 +486,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
             </div>
           </div>
 
-          <div class="bd__row">
+          <div class="bd__row hl">
             <span><span id="rSessName">&mdash;</span><small>The pool is exclusively yours &mdash; set the wave programme for your crew and switch settings whenever you ask</small></span>
             <span class="bd__act"><button class="bd__adj" data-edit="editSessions" aria-expanded="false">Adjust</button><b id="rSessVal">&mdash;</b></span>
           </div>
@@ -515,25 +518,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
                   <button class="pm pm--sm" data-inc="photoCount" aria-label="More photographed sessions">+</button>
                 </span>
               </div>
-              <button class="tog" id="togCoach" role="switch" aria-checked="false">
-                <span class="tog__sw" aria-hidden="true"></span>
+              <div class="tog addRow">
                 <span>
-                  <span class="tog__t">Private surf coach</span>
-                  <span class="tog__d">One of the park&rsquo;s own coaches, one-to-one, for the first session of each day.</span>
+                  <span class="tog__t">Professional surf coach</span>
+                  <span class="tog__d">A professional coach will guide you, whether you&rsquo;re a beginner or an advanced surfer &mdash; and can even push you into waves.</span>
                 </span>
-                <span class="tog__p" id="pCoach">&mdash;</span>
-              </button>
+                <span class="addRow__ctrl">
+                  <span class="tog__p">Price on request</span>
+                </span>
+              </div>
             </div>
           </div>
 
-          <div class="bd__row" id="rPhoto" style="display:none;">
-            <span>Professional surf photographer<small id="rPhotoSub">&mdash;</small></span>
-            <b id="rPhotoVal">&mdash;</b>
-          </div>
-          <div class="bd__row" id="rCoach" style="display:none;">
-            <span>Private surf coach<small>One of the park&rsquo;s own coaches, one-to-one, first session each day</small></span>
-            <b id="rCoachVal">&mdash;</b>
-          </div>
           <div class="bd__row free">
             <span>Private airport transfers<small id="rVansSub">Haikou or Sanya &mdash; whichever suits your flights</small></span>
             <b>Included</b>
@@ -735,9 +731,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     });
 
     var p = price();
-    $('pCoach').textContent = state.coach ? usd(p.coach) : 'from ' + usd(COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX);
-    $('togCoach').classList.toggle('is-on', state.coach);
-    $('togCoach').setAttribute('aria-checked', state.coach);
 
     $('barSum').innerHTML = '<b>' + state.guests + '</b> guests · <b>' + state.rooms + '</b> × ' + r.name +
       ' · <b>' + state.nights + '</b> nights · <b>' + state.sessions + '</b> ' + wave().name + ' sessions';
@@ -767,11 +760,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('rRoomsVal').textContent = usd(p.rooms);
     $('rSessName').textContent = state.sessions + ' private ' + w.name + ' ' + (state.sessions === 1 ? 'session' : 'sessions');
     $('rSessVal').textContent = usd(p.buyNow);
-    $('rPhoto').style.display = state.photoCount > 0 ? '' : 'none';
-    $('rPhotoSub').textContent = state.photoCount + ' ' + (state.photoCount === 1 ? 'session' : 'sessions') + ' × $340 — every surfer, shot, edited and delivered';
-    $('rPhotoVal').textContent = usd(p.photo);
-    $('rCoach').style.display = state.coach ? '' : 'none';
-    $('rCoachVal').textContent = usd(p.coach);
     $('rVansSub').textContent = 'Haikou or Sanya — whichever suits your flights · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting when you land';
     $('rFeeVal').textContent = usd(p.fee);
     $('rTotSub').textContent = 'Standard price ' + usd(p.was) + ' · you save ' + usd(p.save) + ' · ' + usd(p.pp) + ' per person';
@@ -816,7 +804,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   function summary(p) {
     return 'Private pool buyout — ' + state.guests + ' guests, ' + state.rooms + ' × ' + room().name + ', ' +
       state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
-      (state.photoCount > 0 ? ', surf photographer on ' + state.photoCount + (state.photoCount === 1 ? ' session' : ' sessions') : '') + (state.coach ? ', private surf coach' : '') +
+      (state.photoCount > 0 ? ', surf photographer on ' + state.photoCount + (state.photoCount === 1 ? ' session' : ' sessions') : '') +
       ' — ' + usd(p.now) + ' (standard price ' + usd(p.was) + ')';
   }
   function buildLinks(p) {
@@ -846,8 +834,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       return;
     }
   });
-
-  $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
 
   render();
   trackPrice(price());
