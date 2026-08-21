@@ -230,6 +230,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .wave:hover { border-color: var(--line-2); transform: translateY(-2px); }
 .wave.is-sel { border-color: var(--gold); background: rgba(196,162,101,.09); }
+.wave__vid {
+  display: block; width: calc(100% + 2.1rem); margin: -1rem -1.05rem .7rem;
+  height: 150px; object-fit: cover; border-radius: 3px 3px 0 0; background: var(--ink-2);
+}
 .wave__n { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .92rem; }
 .wave__d { font-size: .78rem; color: var(--cream-faint); line-height: 1.5; }
 .wave__p { margin-top: .4rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .84rem; color: var(--gold); font-variant-numeric: tabular-nums; }
@@ -604,10 +608,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       img: "../Assets/hotel/main hotel/main-hotel-room-12.jpg" }
   ];
   var WAVES = [
-    { key: 'intermediate', name: 'Intermediate', desc: 'Clean, open-face walls with room to turn.',        list: 7760, now: 5820 },
-    { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: 9960, now: 7470 },
-    { key: 'master',       name: 'Pro',          desc: 'Barrels and ramps. The full menu opens up.',       list: 9960, now: 7470 }
+    { key: 'intermediate', name: 'Intermediate', desc: 'Clean, open-face walls with room to turn.',        list: 7760, now: 5820,
+      vid: 'v1776960205/cfd36751f0daae5f2919b0ee7917d2_bypnzf' },
+    { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: 9960, now: 7470,
+      vid: 'v1776959511/ScreenRecording_04-23-2026_15_p2uhe3' },
+    { key: 'master',       name: 'Pro',          desc: 'Barrels and ramps. The full menu opens up.',       list: 9960, now: 7470,
+      vid: 'v1776959778/ScreenRecording_04-23-2026_16_rxa9qq' }
   ];
+  var CLD = 'https://res.cloudinary.com/dk7isqhi7/video/upload/';
   var MEDIA_SESSION = 340;  // photographer, per session, USD — every surfer covered
   var COACH_PER = 368;      // 1-on-1 coach, per surfer per session — sold at cost
   var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
@@ -666,6 +674,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
   $('waves').innerHTML = WAVES.map(function (w) {
     return '<button class="wave' + (w.key === state.wave ? ' is-sel' : '') + '" data-wave="' + w.key + '" role="radio" aria-checked="' + (w.key === state.wave) + '">' +
+      '<video class="wave__vid" muted loop playsinline preload="none" poster="' + CLD + 'so_0,w_640,q_auto:eco,f_jpg/' + w.vid + '.jpg">' +
+        '<source src="' + CLD + 'f_mp4,q_auto:eco,vc_h264,w_720,br_800k/' + w.vid + '.mp4" type="video/mp4">' +
+      '</video>' +
       '<span class="wave__n">' + w.name + '</span>' +
       '<span class="wave__d">' + w.desc + '</span>' +
       '<span class="wave__p"><s>' + usd(w.list / FX) + '</s>' + usd(w.now / FX) + ' / session</span>' +
@@ -832,6 +843,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       t.classList.toggle('on', on);
       t.setAttribute('aria-expanded', on);
       t.textContent = on ? 'Done' : 'Adjust';
+      // Wave previews only load and play while the panel is open.
+      Array.prototype.forEach.call(panel.querySelectorAll('video'), function (v) {
+        if (on) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else v.pause();
+      });
       return;
     }
   });
