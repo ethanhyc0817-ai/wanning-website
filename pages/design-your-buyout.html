@@ -268,22 +268,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .wasLine s { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(1.1rem, 3vw, 1.5rem); color: var(--cream-faint); font-variant-numeric: tabular-nums; }
 .wasLine em { font-style: normal; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-faint); }
 
-.unlock {
-  display: inline-flex; align-items: center; gap: .7rem; margin-top: 1.8rem;
-  background: var(--gold); color: #14232b; border-radius: 2px;
-  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem;
-  letter-spacing: .12em; text-transform: uppercase; padding: 1.05rem 2rem;
-  position: relative; overflow: hidden; transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-  box-shadow: 0 14px 34px rgba(196,162,101,.24);
+.groupNote {
+  margin: 1.4rem auto 0; max-width: 52ch;
+  border: 1px solid var(--gold); border-radius: 3px;
+  background: rgba(196,162,101,.12);
+  padding: .9rem 1.2rem;
+  font-size: .97rem; line-height: 1.6; color: var(--cream);
 }
-.unlock:hover { transform: translateY(-2px); box-shadow: 0 20px 44px rgba(196,162,101,.34); }
-.unlock::after {
-  content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
-  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 50%, rgba(255,255,255,0) 100%);
-  animation: sheen 3.4s var(--ease) infinite; animation-delay: 1.2s;
-}
-@keyframes sheen { 0% { left: -60%; } 55%, 100% { left: 130%; } }
-.unlock.gone { display: none; }
+.groupNote b { color: var(--gold-lift); font-weight: 600; }
 
 .offerSeal {
   display: none; margin: 1.5rem auto 0; align-items: center; gap: .6rem; width: fit-content;
@@ -437,15 +429,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
           <div class="dial__t">Guests<em>Everyone travelling</em></div>
           <div class="dial__row">
             <button class="pm" data-dec="guests" aria-label="Fewer guests">&minus;</button>
-            <span class="dial__val" id="vGuests">4</span>
+            <span class="dial__val" id="vGuests">6</span>
             <button class="pm" data-inc="guests" aria-label="More guests">+</button>
           </div>
         </div>
         <div class="dial">
-          <div class="dial__t">Rooms<em id="roomsHint">Two Owner&rsquo;s Suites</em></div>
+          <div class="dial__t">Rooms<em id="roomsHint">Three Owner&rsquo;s Suites</em></div>
           <div class="dial__row">
             <button class="pm" data-dec="rooms" aria-label="Fewer rooms">&minus;</button>
-            <span class="dial__val" id="vRooms">2</span>
+            <span class="dial__val" id="vRooms">3</span>
             <button class="pm" data-inc="rooms" aria-label="More rooms">+</button>
           </div>
         </div>
@@ -539,18 +531,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       <p id="designLine">&nbsp;</p>
     </div>
 
-    <div class="priceStage" id="stage">
-      <div class="wasLine" id="wasLine"><em>Published</em> <s id="wasVal">&mdash;</s></div>
-      <div class="priceStage__lbl" id="stageLbl">Your design at published rates</div>
+    <div class="priceStage is-open" id="stage">
+      <div class="wasLine on" id="wasLine"><em>Published</em> <s id="wasVal">&mdash;</s></div>
+      <div class="priceStage__lbl" id="stageLbl">Your price, per person</div>
       <div class="priceBig" id="bigVal">&mdash;</div>
       <div class="priceSub" id="bigSub">&nbsp;</div>
 
-      <button class="unlock" id="unlock">Access Special Offer Now</button>
+      <p class="groupNote">The pool costs the same however many of you surf it &mdash; <b>bring a larger group and the price per person only gets cheaper.</b></p>
 
-      <div class="offerSeal" id="seal">25% off every private session</div>
-      <div class="saveLine" id="saveLine">You save <b id="saveVal">&mdash;</b> on this design.</div>
+      <div class="offerSeal on" id="seal">25% off every private session</div>
+      <div class="saveLine on" id="saveLine">You save <b id="saveVal">&mdash;</b> on this design.</div>
 
-      <div class="afterOffer" id="after">
+      <div class="afterOffer on" id="after">
         <div class="bd" id="bd"></div>
         <div class="ctaRow">
           <a class="btn btn--gold" id="ctaQuote" href="/contact">Hold these dates &rarr;</a>
@@ -618,8 +610,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
   var ANCHOR    = 1.10;     // published-rate uplift used across the site
 
-  var state = { room: 'owner', guests: 4, rooms: 2, nights: 2, perDay: 2, sessions: 4,
-                wave: 'master', photo: true, coach: false, sessionsTouched: false, revealed: false };
+  var state = { room: 'owner', guests: 6, rooms: 3, nights: 2, perDay: 2, sessions: 4,
+                wave: 'master', photo: true, coach: false, sessionsTouched: false };
   var step = 1;
 
   var $ = function (id) { return document.getElementById(id); };
@@ -773,72 +765,34 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       ' at the ' + wave().name + ' setting, ' + state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') +
       ' across ' + state.rooms + ' × ' + r.name + ', for ' + state.guests + '.';
 
-    // A change to the design puts the offer back behind the button.
-    if (state.revealed) resetStage();
     if (step === 3) paintStage(p);
     buildLinks(p);
   }
 
   // ── Stage ──────────────────────────────────────────────────────────────
-  function resetStage() {
-    state.revealed = false;
-    $('stage').classList.remove('is-open');
-    $('unlock').classList.remove('gone');
-    $('seal').classList.remove('on');
-    $('saveLine').classList.remove('on');
-    $('after').classList.remove('on');
-    $('wasLine').classList.remove('on');
-    $('bigVal').classList.remove('struck');
-  }
-
+  // The offer is on the table from the start: the discounted price is shown
+  // directly, per person, with the whole-party total beneath it.
   function paintStage(p) {
-    if (state.revealed) return;
-    $('stageLbl').textContent = 'Your design at published rates';
-    $('bigVal').textContent = usd(p.was);
-    $('bigSub').textContent = usd(p.was / Math.max(1, state.guests)) + ' per person · ' + state.guests + ' guests';
+    var g = Math.max(1, state.guests);
+    $('wasVal').textContent = usd(p.was / g) + ' per person';
+    $('bigVal').textContent = usd(p.pp);
+    $('bigSub').textContent = usd(p.now) + ' total · ' + state.guests + ' guests · 5% service fee included';
+    $('saveVal').textContent = usd(p.save);
+    buildBreakdown(p);
   }
 
-  function countTo(el, from, to, ms, done) {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { el.textContent = usd(to); if (done) done(); return; }
-    var t0 = null;
-    function frame(t) {
-      if (t0 === null) t0 = t;
-      var k = Math.min(1, (t - t0) / ms);
-      var e = 1 - Math.pow(1 - k, 4);
-      el.textContent = usd(from + (to - from) * e);
-      if (k < 1) requestAnimationFrame(frame); else if (done) done();
-    }
-    requestAnimationFrame(frame);
-  }
-
-  function reveal() {
-    if (state.revealed) return;
-    var p = price();
-    state.revealed = true;
+  var priceSeen = false;
+  function trackPrice(p) {
+    if (priceSeen) return;
+    priceSeen = true;
     try {
       if (typeof gtag === 'function') {
-        gtag('event', 'buyout_offer_unlocked', {
+        gtag('event', 'buyout_price_viewed', {
           room: state.room, wave: state.wave, sessions: state.sessions,
           nights: state.nights, guests: state.guests, value: Math.round(p.now), currency: 'USD'
         });
       }
     } catch (_) { /* analytics is best-effort */ }
-
-    $('unlock').classList.add('gone');
-    $('stage').classList.add('is-open');
-    $('wasVal').textContent = usd(p.was);
-    $('wasLine').classList.add('on');
-    $('stageLbl').textContent = 'Your price';
-
-    countTo($('bigVal'), p.was, p.now, 1100, function () {
-      $('bigSub').textContent = usd(p.pp) + ' per person · ' + state.guests + ' guests · 5% service fee included';
-      $('seal').classList.add('on');
-      $('saveVal').textContent = usd(p.save);
-      $('saveLine').classList.add('on');
-      buildBreakdown(p);
-      $('after').classList.add('on');
-    });
   }
 
   function row(name, sub, val, cls) {
@@ -860,7 +814,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
                'One number, around the clock, from the moment you book to the moment you fly home — sessions rebooked, tables found, anything at 2am', 'Included', 'free');
     out += row('Premium board quiver', 'The performance boards, yours throughout the stay', 'Included', 'free');
     out += row('Service fee', '5% — our fee for building the trip, holding the pool and running it on the day', usd(p.fee));
-    out += row('<strong>Your price</strong>', 'Published ' + usd(p.was) + ' · you save ' + usd(p.save), usd(p.now), 'tot');
+    out += row('<strong>Your price</strong>', 'Published ' + usd(p.was) + ' · you save ' + usd(p.save) + ' · ' + usd(p.pp) + ' per person', usd(p.now), 'tot');
     $('bd').innerHTML = out;
 
   }
@@ -909,7 +863,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('btnBack').classList.toggle('gone', step === 1);
     $('btnNext').classList.toggle('gone', step === 3);
     $('btnNext').textContent = step === 2 ? 'See your price' : 'Continue';
-    if (step === 3) paintStage(price());
+    if (step === 3) { var p3 = price(); paintStage(p3); trackPrice(p3); }
     try { history.replaceState(null, '', '#step-' + step); } catch (_) { /* fine without it */ }
     var top = document.querySelector('.rail');
     if (top) window.scrollTo({ top: top.offsetTop - 90, behavior: 'smooth' });
@@ -933,7 +887,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
   $('btnNext').addEventListener('click', function () { go(step + 1); });
   $('btnBack').addEventListener('click', function () { go(step - 1); });
-  $('unlock').addEventListener('click', reveal);
 
   render();
 
