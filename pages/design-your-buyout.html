@@ -245,6 +245,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .tog__d { display: block; font-size: .8rem; color: var(--cream-faint); line-height: 1.55; margin-top: .12rem; }
 .tog__p { margin-left: auto; font-family: 'Montserrat', sans-serif; font-size: .8rem; font-weight: 700; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: .1rem; }
 
+.addRow { cursor: default; }
+.addRow__ctrl { margin-left: auto; display: flex; align-items: center; gap: .5rem; flex: none; }
+.addRow__ctrl .tog__p { margin-left: 0; margin-right: .4rem; }
+.addRow__n { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; min-width: 1.4ch; text-align: center; font-variant-numeric: tabular-nums; }
+.pm--sm { width: 26px; height: 26px; font-size: .9rem; }
+.addRow + .tog { border-top: 1px solid var(--line); padding-top: .95rem; }
+
 /* ═══ Step 3 — the price ════════════════════════════════════════════════ */
 .priceStage { border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: clamp(1.6rem, 4vw, 2.6rem); text-align: center; position: relative; overflow: hidden; }
 .priceStage::before {
@@ -495,17 +502,19 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
               </div>
             </div>
             <span class="panel__lbl" style="display:block; margin-top:1.3rem;">Dial it in</span>
-            <div class="dials">
-              <div class="dial">
-                <div class="dial__t">Professional surf photographer<em>$340 per session &mdash; every surfer, shot, edited and delivered</em></div>
-                <div class="dial__row">
-                  <button class="pm" data-dec="photoCount" aria-label="Fewer photographed sessions">&minus;</button>
-                  <span class="dial__val" id="vPhotoCount">0</span>
-                  <button class="pm" data-inc="photoCount" aria-label="More photographed sessions">+</button>
-                </div>
-              </div>
-            </div>
             <div style="margin-top:.4rem;">
+              <div class="tog addRow">
+                <span>
+                  <span class="tog__t">Professional surf photographer</span>
+                  <span class="tog__d">Every surfer, shot, edited and delivered. Pick how many sessions.</span>
+                </span>
+                <span class="addRow__ctrl">
+                  <span class="tog__p">$340 / session</span>
+                  <button class="pm pm--sm" data-dec="photoCount" aria-label="Fewer photographed sessions">&minus;</button>
+                  <span class="addRow__n" id="vPhotoCount">0</span>
+                  <button class="pm pm--sm" data-inc="photoCount" aria-label="More photographed sessions">+</button>
+                </span>
+              </div>
               <button class="tog" id="togCoach" role="switch" aria-checked="false">
                 <span class="tog__sw" aria-hidden="true"></span>
                 <span>
