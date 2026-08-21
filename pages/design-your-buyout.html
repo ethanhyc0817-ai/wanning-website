@@ -518,15 +518,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
                   <button class="pm pm--sm" data-inc="photoCount" aria-label="More photographed sessions">+</button>
                 </span>
               </div>
-              <div class="tog addRow">
+              <button class="tog" id="togCoach" role="switch" aria-checked="false">
+                <span class="tog__sw" aria-hidden="true"></span>
                 <span>
                   <span class="tog__t">Professional surf coach</span>
-                  <span class="tog__d">A professional coach will guide you, whether you&rsquo;re a beginner or an advanced surfer &mdash; and can even push you into waves.</span>
+                  <span class="tog__d">A professional coach will guide you, whether you&rsquo;re a beginner or an advanced surfer.</span>
                 </span>
-                <span class="addRow__ctrl">
-                  <span class="tog__p">Price on request</span>
-                </span>
-              </div>
+                <span class="tog__p">Price on request</span>
+              </button>
             </div>
           </div>
 
@@ -631,7 +630,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     var vans = Math.max(1, Math.ceil(state.guests / 6));
     var rooms  = room().rate * state.rooms * state.nights / FX;
     var photo  = MEDIA_SESSION * Math.min(state.photoCount, state.sessions);
-    var coach  = state.coach ? COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX : 0;
+    var coach  = 0; // the coach is quoted separately — price on request
     var pkg    = rooms + photo + coach;
     var buyNow = w.now  * state.sessions / FX;
     var buyWas = w.list * state.sessions / FX;
@@ -731,6 +730,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     });
 
     var p = price();
+    $('togCoach').classList.toggle('is-on', state.coach);
+    $('togCoach').setAttribute('aria-checked', state.coach);
 
     $('barSum').innerHTML = '<b>' + state.guests + '</b> guests · <b>' + state.rooms + '</b> × ' + r.name +
       ' · <b>' + state.nights + '</b> nights · <b>' + state.sessions + '</b> ' + wave().name + ' sessions';
@@ -805,6 +806,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     return 'Private pool buyout — ' + state.guests + ' guests, ' + state.rooms + ' × ' + room().name + ', ' +
       state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
       (state.photoCount > 0 ? ', surf photographer on ' + state.photoCount + (state.photoCount === 1 ? ' session' : ' sessions') : '') +
+      (state.coach ? ', professional surf coach (price on request)' : '') +
       ' — ' + usd(p.now) + ' (standard price ' + usd(p.was) + ')';
   }
   function buildLinks(p) {
@@ -834,6 +836,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       return;
     }
   });
+
+  $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
 
   render();
   trackPrice(price());
