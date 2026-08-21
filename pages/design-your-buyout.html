@@ -495,15 +495,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
               </div>
             </div>
             <span class="panel__lbl" style="display:block; margin-top:1.3rem;">Dial it in</span>
+            <div class="dials">
+              <div class="dial">
+                <div class="dial__t">Professional surf photographer<em>$340 per session &mdash; every surfer, shot, edited and delivered</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="photoCount" aria-label="Fewer photographed sessions">&minus;</button>
+                  <span class="dial__val" id="vPhotoCount">0</span>
+                  <button class="pm" data-inc="photoCount" aria-label="More photographed sessions">+</button>
+                </div>
+              </div>
+            </div>
             <div style="margin-top:.4rem;">
-              <button class="tog is-on" id="togPhoto" role="switch" aria-checked="true">
-                <span class="tog__sw" aria-hidden="true"></span>
-                <span>
-                  <span class="tog__t">Dedicated surf photographer</span>
-                  <span class="tog__d">Every surfer, every session &mdash; shot, edited and delivered.</span>
-                </span>
-                <span class="tog__p" id="pPhoto">&mdash;</span>
-              </button>
               <button class="tog" id="togCoach" role="switch" aria-checked="false">
                 <span class="tog__sw" aria-hidden="true"></span>
                 <span>
@@ -515,8 +517,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
             </div>
           </div>
 
-          <div class="bd__row" id="rPhoto">
-            <span>Dedicated surf photographer<small>Every surfer, every session &mdash; shot, edited and delivered</small></span>
+          <div class="bd__row" id="rPhoto" style="display:none;">
+            <span>Professional surf photographer<small id="rPhotoSub">&mdash;</small></span>
             <b id="rPhotoVal">&mdash;</b>
           </div>
           <div class="bd__row" id="rCoach" style="display:none;">
@@ -602,13 +604,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: 9960, now: 7470 },
     { key: 'master',       name: 'Pro',          desc: 'Barrels and ramps. The full menu opens up.',       list: 9960, now: 7470 }
   ];
-  var MEDIA_PER = 400;      // photographer, per surfer per session (client rate)
+  var MEDIA_SESSION = 340;  // photographer, per session, USD — every surfer covered
   var COACH_PER = 368;      // 1-on-1 coach, per surfer per session — sold at cost
   var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
   var ANCHOR    = 1.10;     // published-rate uplift used across the site
 
   var state = { room: 'garden', guests: 6, rooms: 3, nights: 2, perDay: 2, sessions: 4,
-                wave: 'master', photo: true, coach: false, sessionsTouched: false };
+                wave: 'master', photoCount: 0, coach: false, sessionsTouched: false };
 
   var $ = function (id) { return document.getElementById(id); };
   var usd = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
@@ -623,7 +625,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     var w = wave();
     var vans = Math.max(1, Math.ceil(state.guests / 6));
     var rooms  = room().rate * state.rooms * state.nights / FX;
-    var photo  = state.photo ? MEDIA_PER * state.guests * state.sessions / FX : 0;
+    var photo  = MEDIA_SESSION * Math.min(state.photoCount, state.sessions);
     var coach  = state.coach ? COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX : 0;
     var pkg    = rooms + photo + coach;
     var buyNow = w.now  * state.sessions / FX;
@@ -667,7 +669,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   }).join('');
 
   // ── Limits ─────────────────────────────────────────────────────────────
-  var LIM = { guests: [1, 24], rooms: [1, 12], nights: [1, 14], perDay: [1, 4], sessions: [1, 40] };
+  var LIM = { guests: [1, 24], rooms: [1, 12], nights: [1, 14], perDay: [1, 4], sessions: [1, 40], photoCount: [0, 40] };
 
   function bump(el) {
     if (!el) return;
@@ -696,10 +698,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
   // ── Render ─────────────────────────────────────────────────────────────
   function render() {
+    if (state.photoCount > state.sessions) state.photoCount = state.sessions;
     $('vGuests').textContent   = state.guests;
     $('vRooms').textContent    = state.rooms;
     $('vNights').textContent   = state.nights;
     $('vSessions').textContent = state.sessions;
+    $('vPhotoCount').textContent = state.photoCount;
 
     var r = room();
     $('roomsHint').textContent = state.rooms + ' × ' + r.name;
@@ -722,10 +726,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     });
 
     var p = price();
-    $('pPhoto').textContent = state.photo ? usd(p.photo) : 'from ' + usd(MEDIA_PER * state.guests * state.sessions / FX);
     $('pCoach').textContent = state.coach ? usd(p.coach) : 'from ' + usd(COACH_PER * state.guests * Math.min(state.sessions, state.nights + 1) / FX);
-    $('togPhoto').classList.toggle('is-on', state.photo);
-    $('togPhoto').setAttribute('aria-checked', state.photo);
     $('togCoach').classList.toggle('is-on', state.coach);
     $('togCoach').setAttribute('aria-checked', state.coach);
 
@@ -757,7 +758,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('rRoomsVal').textContent = usd(p.rooms);
     $('rSessName').textContent = state.sessions + ' private ' + w.name + ' ' + (state.sessions === 1 ? 'session' : 'sessions');
     $('rSessVal').textContent = usd(p.buyNow);
-    $('rPhoto').style.display = state.photo ? '' : 'none';
+    $('rPhoto').style.display = state.photoCount > 0 ? '' : 'none';
+    $('rPhotoSub').textContent = state.photoCount + ' ' + (state.photoCount === 1 ? 'session' : 'sessions') + ' × $340 — every surfer, shot, edited and delivered';
     $('rPhotoVal').textContent = usd(p.photo);
     $('rCoach').style.display = state.coach ? '' : 'none';
     $('rCoachVal').textContent = usd(p.coach);
@@ -805,7 +807,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   function summary(p) {
     return 'Private pool buyout — ' + state.guests + ' guests, ' + state.rooms + ' × ' + room().name + ', ' +
       state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
-      (state.photo ? ', surf photographer on every session' : '') + (state.coach ? ', private surf coach' : '') +
+      (state.photoCount > 0 ? ', surf photographer on ' + state.photoCount + (state.photoCount === 1 ? ' session' : ' sessions') : '') + (state.coach ? ', private surf coach' : '') +
       ' — ' + usd(p.now) + ' (standard price ' + usd(p.was) + ')';
   }
   function buildLinks(p) {
@@ -836,7 +838,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     }
   });
 
-  $('togPhoto').addEventListener('click', function () { state.photo = !state.photo; render(); });
   $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
 
   render();
