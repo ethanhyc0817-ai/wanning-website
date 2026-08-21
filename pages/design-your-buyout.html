@@ -301,6 +301,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bd__row.tot { background: rgba(196,162,101,.09); border-top: 1px solid var(--gold); }
 .bd__row.tot b { font-size: 1.15rem; color: var(--gold); }
 
+.bd__act { display: flex; align-items: center; gap: .8rem; flex: none; }
+.bd__adj {
+  font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
+  border: 1px solid var(--line-2); border-radius: 2px; padding: .32rem .6rem;
+  transition: all .3s var(--ease); white-space: nowrap;
+}
+.bd__adj:hover, .bd__adj.on { border-color: var(--gold); background: rgba(196,162,101,.12); }
+.bd__edit {
+  display: none; padding: 1.15rem 1.15rem 1.35rem;
+  border-bottom: 1px solid var(--line); background: rgba(255,255,255,.02); text-align: left;
+}
+.bd__edit.on { display: block; animation: rise .5s var(--ease-out) both; }
+.bd__edit .rooms, .bd__edit .waves, .bd__edit .dials { margin-top: 1rem; }
+
 .incl { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 3px; padding: 1.5rem 1.6rem; background: var(--surface); text-align: left; }
 .incl__lbl { font-family: 'Montserrat', sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 .incl__hint { font-size: .84rem; color: var(--cream-faint); margin-top: .35rem; line-height: 1.55; }
@@ -403,130 +418,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 </section>
 
 <div class="shell">
-  <nav class="rail" aria-label="Progress">
-    <button class="rail__step is-now" data-goto="1"><span class="rail__n">01</span><span class="rail__t">The Suite</span></button>
-    <button class="rail__step" data-goto="2"><span class="rail__n">02</span><span class="rail__t">The Sessions</span></button>
-    <button class="rail__step" data-goto="3"><span class="rail__n">03</span><span class="rail__t">Your Price</span></button>
-  </nav>
-
-  <!-- ═══ STEP 1 ═══════════════════════════════════════════════════════ -->
-  <section class="step is-active" id="step1" aria-labelledby="s1h">
+  <!-- ═══ THE TRIP — one page, price up front, adjust in place ═════════ -->
+  <section class="step is-active" id="step3" aria-labelledby="s3h">
     <div class="step__head">
-      <span class="over">Step One</span>
-      <h2 id="s1h">Where you wake up.</h2>
-      <p>Every room sits inside the resort, a short walk from the water. The Owner&rsquo;s Suite is the top of the house &mdash; 72&nbsp;m&sup2;, and the one we put our own guests in.</p>
-    </div>
-
-    <div id="roomHero" role="radiogroup" aria-label="Featured room"></div>
-    <p class="altLbl">Or another room in the resort</p>
-    <div class="rooms" id="rooms" role="radiogroup" aria-label="Alternative rooms"></div>
-
-    <div class="panel">
-      <span class="panel__lbl">Your crew</span>
-      <p class="panel__hint">The Owner&rsquo;s Suite sleeps two to three. We&rsquo;ll confirm the exact room setup with you before anything is held.</p>
-      <div class="dials">
-        <div class="dial">
-          <div class="dial__t">Guests<em>Everyone travelling</em></div>
-          <div class="dial__row">
-            <button class="pm" data-dec="guests" aria-label="Fewer guests">&minus;</button>
-            <span class="dial__val" id="vGuests">6</span>
-            <button class="pm" data-inc="guests" aria-label="More guests">+</button>
-          </div>
-        </div>
-        <div class="dial">
-          <div class="dial__t">Rooms<em id="roomsHint">Three Owner&rsquo;s Suites</em></div>
-          <div class="dial__row">
-            <button class="pm" data-dec="rooms" aria-label="Fewer rooms">&minus;</button>
-            <span class="dial__val" id="vRooms">3</span>
-            <button class="pm" data-inc="rooms" aria-label="More rooms">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ STEP 2 ═══════════════════════════════════════════════════════ -->
-  <section class="step" id="step2" aria-labelledby="s2h">
-    <div class="step__head">
-      <span class="over">Step Two</span>
-      <h2 id="s2h">How much water you want.</h2>
-      <p>A private session is one hour with the whole pool to yourselves. Pick your wave setting, then decide how often you want to paddle out &mdash; and you can mix different waves throughout the session, changing whenever you ask.</p>
-    </div>
-
-    <div class="panel">
-      <span class="panel__lbl">The wave</span>
-      <p class="panel__hint">More than 20 wave types are available exclusively in private sessions, across four broad categories &mdash; intermediate, advanced, barrel and air. From perfect faces for working on turns to barrels and air sections. The price follows the setting you book the hour at.</p>
-      <div class="waves" id="waves" role="radiogroup" aria-label="Wave setting"></div>
-    </div>
-
-    <div class="panel">
-      <span class="panel__lbl">The rhythm</span>
-      <p class="panel__hint">Total sessions follows nights &times; sessions per day &mdash; adjust it directly if you want a different shape to the trip.</p>
-      <div class="dials">
-        <div class="dial">
-          <div class="dial__t">Nights<em>At the resort</em></div>
-          <div class="dial__row">
-            <button class="pm" data-dec="nights" aria-label="Fewer nights">&minus;</button>
-            <span class="dial__val" id="vNights">2</span>
-            <button class="pm" data-inc="nights" aria-label="More nights">+</button>
-          </div>
-        </div>
-        <div class="dial">
-          <div class="dial__t">Sessions per day<em>Hours in the pool</em></div>
-          <div class="dial__row">
-            <button class="pm" data-dec="perDay" aria-label="Fewer sessions per day">&minus;</button>
-            <span class="dial__val" id="vPerDay">2</span>
-            <button class="pm" data-inc="perDay" aria-label="More sessions per day">+</button>
-          </div>
-        </div>
-        <div class="dial">
-          <div class="dial__t">Total private sessions<em id="sessHint">Following your rhythm</em></div>
-          <div class="dial__row">
-            <button class="pm" data-dec="sessions" aria-label="Fewer sessions">&minus;</button>
-            <span class="dial__val" id="vSessions">4</span>
-            <button class="pm" data-inc="sessions" aria-label="More sessions">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="strip">
-      <span class="strip__lbl">Every buyout already includes</span>
-      <span>Private airport transfers, Haikou or Sanya</span>
-      <span>Our team on call, 24/7</span>
-      <span>Premium board quiver</span>
-      <span>Daily breakfast</span>
-      <span>Recovery suite</span>
-      <span>Every wave filmed</span>
-    </div>
-
-    <div class="panel">
-      <span class="panel__lbl">Dial it in</span>
-      <div style="margin-top:.9rem;">
-        <button class="tog is-on" id="togPhoto" role="switch" aria-checked="true">
-          <span class="tog__sw" aria-hidden="true"></span>
-          <span>
-            <span class="tog__t">Dedicated surf photographer</span>
-            <span class="tog__d">Every surfer, every session &mdash; shot, edited and delivered.</span>
-          </span>
-          <span class="tog__p" id="pPhoto">&mdash;</span>
-        </button>
-        <button class="tog" id="togCoach" role="switch" aria-checked="false">
-          <span class="tog__sw" aria-hidden="true"></span>
-          <span>
-            <span class="tog__t">Private surf coach</span>
-            <span class="tog__d">One of the park&rsquo;s own coaches, one-to-one, for the first session of each day.</span>
-          </span>
-          <span class="tog__p" id="pCoach">&mdash;</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ STEP 3 ═══════════════════════════════════════════════════════ -->
-  <section class="step" id="step3" aria-labelledby="s3h">
-    <div class="step__head">
-      <span class="over">Step Three</span>
+      <span class="over">Your trip</span>
       <h2 id="s3h">Your private surf trip.</h2>
       <p id="designLine">&nbsp;</p>
     </div>
@@ -543,7 +438,121 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       <div class="saveLine on" id="saveLine">Your crew saves <b id="saveVal">&mdash;</b> on this trip.</div>
 
       <div class="afterOffer on" id="after">
-        <div class="bd" id="bd"></div>
+        <div class="bd" id="bd">
+
+          <div class="bd__row">
+            <span><span id="rRoomsName">&mdash;</span><small id="rRoomsSub">&mdash;</small></span>
+            <span class="bd__act"><button class="bd__adj" data-edit="editRooms" aria-expanded="false">Adjust</button><b id="rRoomsVal">&mdash;</b></span>
+          </div>
+          <div class="bd__edit" id="editRooms">
+            <span class="panel__lbl">The suite</span>
+            <p class="panel__hint">Every room sits inside the resort, a short walk from the water. We&rsquo;ll confirm the exact room setup with you before anything is held.</p>
+            <div class="rooms" id="rooms" role="radiogroup" aria-label="Rooms"></div>
+            <div class="dials">
+              <div class="dial">
+                <div class="dial__t">Guests<em>Everyone travelling</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="guests" aria-label="Fewer guests">&minus;</button>
+                  <span class="dial__val" id="vGuests">6</span>
+                  <button class="pm" data-inc="guests" aria-label="More guests">+</button>
+                </div>
+              </div>
+              <div class="dial">
+                <div class="dial__t">Rooms<em id="roomsHint">&mdash;</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="rooms" aria-label="Fewer rooms">&minus;</button>
+                  <span class="dial__val" id="vRooms">3</span>
+                  <button class="pm" data-inc="rooms" aria-label="More rooms">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bd__row">
+            <span><span id="rSessName">&mdash;</span><small>The pool is exclusively yours &mdash; set the wave programme for your crew and switch settings whenever you ask</small></span>
+            <span class="bd__act"><button class="bd__adj" data-edit="editSessions" aria-expanded="false">Adjust</button><b id="rSessVal">&mdash;</b></span>
+          </div>
+          <div class="bd__edit" id="editSessions">
+            <span class="panel__lbl">The wave</span>
+            <p class="panel__hint">More than 20 wave types are available exclusively in private sessions, across four broad categories &mdash; intermediate, advanced, barrel and air. From perfect faces for working on turns to barrels and air sections. Mix different waves throughout the session &mdash; the price follows the setting you book the hour at.</p>
+            <div class="waves" id="waves" role="radiogroup" aria-label="Wave setting"></div>
+            <div class="dials">
+              <div class="dial">
+                <div class="dial__t">Nights<em>At the resort</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="nights" aria-label="Fewer nights">&minus;</button>
+                  <span class="dial__val" id="vNights">2</span>
+                  <button class="pm" data-inc="nights" aria-label="More nights">+</button>
+                </div>
+              </div>
+              <div class="dial">
+                <div class="dial__t">Sessions per day<em>Hours in the pool</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="perDay" aria-label="Fewer sessions per day">&minus;</button>
+                  <span class="dial__val" id="vPerDay">2</span>
+                  <button class="pm" data-inc="perDay" aria-label="More sessions per day">+</button>
+                </div>
+              </div>
+              <div class="dial">
+                <div class="dial__t">Total private sessions<em id="sessHint">Following your rhythm</em></div>
+                <div class="dial__row">
+                  <button class="pm" data-dec="sessions" aria-label="Fewer sessions">&minus;</button>
+                  <span class="dial__val" id="vSessions">4</span>
+                  <button class="pm" data-inc="sessions" aria-label="More sessions">+</button>
+                </div>
+              </div>
+            </div>
+            <span class="panel__lbl" style="display:block; margin-top:1.3rem;">Dial it in</span>
+            <div style="margin-top:.4rem;">
+              <button class="tog is-on" id="togPhoto" role="switch" aria-checked="true">
+                <span class="tog__sw" aria-hidden="true"></span>
+                <span>
+                  <span class="tog__t">Dedicated surf photographer</span>
+                  <span class="tog__d">Every surfer, every session &mdash; shot, edited and delivered.</span>
+                </span>
+                <span class="tog__p" id="pPhoto">&mdash;</span>
+              </button>
+              <button class="tog" id="togCoach" role="switch" aria-checked="false">
+                <span class="tog__sw" aria-hidden="true"></span>
+                <span>
+                  <span class="tog__t">Private surf coach</span>
+                  <span class="tog__d">One of the park&rsquo;s own coaches, one-to-one, for the first session of each day.</span>
+                </span>
+                <span class="tog__p" id="pCoach">&mdash;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bd__row" id="rPhoto">
+            <span>Dedicated surf photographer<small>Every surfer, every session &mdash; shot, edited and delivered</small></span>
+            <b id="rPhotoVal">&mdash;</b>
+          </div>
+          <div class="bd__row" id="rCoach" style="display:none;">
+            <span>Private surf coach<small>One of the park&rsquo;s own coaches, one-to-one, first session each day</small></span>
+            <b id="rCoachVal">&mdash;</b>
+          </div>
+          <div class="bd__row free">
+            <span>Private airport transfers<small id="rVansSub">Haikou or Sanya &mdash; whichever suits your flights</small></span>
+            <b>Included</b>
+          </div>
+          <div class="bd__row free">
+            <span>Our team, throughout the trip<small>One number for the whole stay &mdash; session changes, restaurants, transport, whatever your crew needs</small></span>
+            <b>Included</b>
+          </div>
+          <div class="bd__row free">
+            <span>Premium board quiver<small>Performance boards for the whole stay, or bring your own favourites</small></span>
+            <b>Included</b>
+          </div>
+          <div class="bd__row">
+            <span>Service fee<small>5% &mdash; already inside every price shown, for building the trip and holding the pool</small></span>
+            <b id="rFeeVal">&mdash;</b>
+          </div>
+          <div class="bd__row tot">
+            <span><strong>Your price</strong><small id="rTotSub">&mdash;</small></span>
+            <b id="rTotVal">&mdash;</b>
+          </div>
+
+        </div>
         <div class="ctaRow">
           <a class="btn btn--gold" id="ctaQuote" href="/contact">Hold these dates &rarr;</a>
           <a class="btn btn--ghost" id="ctaWa" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Plan it with us on WhatsApp</a>
@@ -568,10 +577,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     <div class="bar__sum">
       <div class="bar__k">Your trip</div>
       <div class="bar__v" id="barSum">&nbsp;</div>
-    </div>
-    <div class="bar__act">
-      <button class="bar__back gone" id="btnBack">Back</button>
-      <button class="bar__next" id="btnNext">Continue</button>
     </div>
   </div>
 </div>
@@ -610,9 +615,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
   var ANCHOR    = 1.10;     // published-rate uplift used across the site
 
-  var state = { room: 'owner', guests: 6, rooms: 3, nights: 2, perDay: 2, sessions: 4,
+  var state = { room: 'garden', guests: 6, rooms: 3, nights: 2, perDay: 2, sessions: 4,
                 wave: 'master', photo: true, coach: false, sessionsTouched: false };
-  var step = 1;
 
   var $ = function (id) { return document.getElementById(id); };
   var usd = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
@@ -647,30 +651,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   var src = function (p) { return encodeURI(p).replace(/'/g, '%27').replace(/&/g, '%26'); };
 
   var tick = '<span class="room__tick"><svg viewBox="0 0 24 24" fill="none" stroke="#14232b" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span>';
-  var HERO = ROOMS[0];
-  function paintHero() {
-    $('roomHero').innerHTML =
-      '<button class="roomHero' + (HERO.key === state.room ? ' is-sel' : '') + '" data-room="' + HERO.key + '" role="radio" aria-checked="' + (HERO.key === state.room) + '">' +
-        '<span class="roomHero__imgwrap">' +
-          '<span class="room__flag">' + HERO.flag + '</span>' + tick +
-          '<img class="roomHero__img" src="' + src(HERO.img) + '" alt="' + HERO.name + ' at the surf pool resort in Wanning" decoding="async">' +
-        '</span>' +
-        '<span class="roomHero__body">' +
-          '<span class="roomHero__meta">' + HERO.meta + '</span>' +
-          '<span class="roomHero__name">' + HERO.name + '</span>' +
-          '<span class="roomHero__note">' + HERO.note + '</span>' +
-          '<ul class="roomHero__list">' +
-            '<li>A separate living room, not a corner of the bedroom</li>' +
-            '<li>The best outlook on the property, over pool and sea</li>' +
-            '<li>Terrace with its own tub, for after the last session</li>' +
-          '</ul>' +
-          '<span class="roomHero__rate">' + usd(HERO.rate / FX) + ' <small>/ night</small></span>' +
-        '</span>' +
-      '</button>';
-  }
-  paintHero();
 
-  $('rooms').innerHTML = ROOMS.slice(1).map(function (r) {
+  $('rooms').innerHTML = ROOMS.map(function (r) {
     return '<button class="room' + (r.key === state.room ? ' is-sel' : '') + '" data-room="' + r.key + '" role="radio" aria-checked="' + (r.key === state.room) + '">' +
       '<span class="room__imgwrap">' +
         (r.flag ? '<span class="room__flag">' + r.flag + '</span>' : '') + tick +
@@ -737,7 +719,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       el.classList.toggle('is-sel', on);
       el.setAttribute('aria-checked', on);
     });
-    $('roomHero').firstChild.classList.toggle('is-sel', state.room === HERO.key);
     Array.prototype.forEach.call(document.querySelectorAll('[data-wave]'), function (el) {
       var on = el.dataset.wave === state.wave;
       el.classList.toggle('is-sel', on);
@@ -765,20 +746,35 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       ' · ' + state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') +
       ' · ' + state.rooms + ' × ' + r.name + ' · ' + state.guests + ' guests';
 
-    if (step === 3) paintStage(p);
+    paintStage(p);
     buildLinks(p);
   }
 
   // ── Stage ──────────────────────────────────────────────────────────────
   // The offer is on the table from the start: the discounted price is shown
-  // directly, per person, with the whole-party total beneath it.
+  // directly, per person, with the whole-party total beneath it. Each line
+  // of the breakdown can be adjusted in place.
   function paintStage(p) {
     var g = Math.max(1, state.guests);
+    var r = room(), w = wave();
     $('wasVal').textContent = usd(p.was / g) + ' per person';
     $('bigVal').textContent = usd(p.pp);
     $('bigSub').textContent = usd(p.now) + ' total for ' + state.guests + ' guests · 5% service fee included';
     $('saveVal').textContent = usd(p.save);
-    buildBreakdown(p);
+
+    $('rRoomsName').textContent = state.rooms + ' × ' + r.name;
+    $('rRoomsSub').textContent = state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') + ' at the resort · daily breakfast included';
+    $('rRoomsVal').textContent = usd(p.rooms);
+    $('rSessName').textContent = state.sessions + ' private ' + w.name + ' ' + (state.sessions === 1 ? 'session' : 'sessions');
+    $('rSessVal').textContent = usd(p.buyNow);
+    $('rPhoto').style.display = state.photo ? '' : 'none';
+    $('rPhotoVal').textContent = usd(p.photo);
+    $('rCoach').style.display = state.coach ? '' : 'none';
+    $('rCoachVal').textContent = usd(p.coach);
+    $('rVansSub').textContent = 'Haikou or Sanya — whichever suits your flights · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting when you land';
+    $('rFeeVal').textContent = usd(p.fee);
+    $('rTotSub').textContent = 'Standard price ' + usd(p.was) + ' · you save ' + usd(p.save) + ' · ' + usd(p.pp) + ' per person';
+    $('rTotVal').textContent = usd(p.now);
   }
 
   var priceSeen = false;
@@ -793,30 +789,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
         });
       }
     } catch (_) { /* analytics is best-effort */ }
-  }
-
-  function row(name, sub, val, cls) {
-    return '<div class="bd__row' + (cls ? ' ' + cls : '') + '"><span>' + name +
-      (sub ? '<small>' + sub + '</small>' : '') + '</span><b>' + val + '</b></div>';
-  }
-
-  function buildBreakdown(p) {
-    var r = room(), w = wave(), out = '';
-    out += row(state.rooms + ' × ' + r.name,
-               state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') + ' at the resort · daily breakfast included', usd(p.rooms));
-    out += row(state.sessions + ' private ' + w.name + ' ' + (state.sessions === 1 ? 'session' : 'sessions'),
-               'The pool is exclusively yours — set the wave programme for your crew and switch settings whenever you ask', usd(p.buyNow));
-    if (p.photo) out += row('Dedicated surf photographer', 'Every surfer, every session — shot, edited and delivered', usd(p.photo));
-    if (p.coach) out += row('Private surf coach', 'One of the park’s own coaches, one-to-one, first session each day', usd(p.coach));
-    out += row('Private airport transfers',
-               'Haikou or Sanya — whichever suits your flights · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting when you land', 'Included', 'free');
-    out += row('Our team, throughout the trip',
-               'One number for the whole stay — session changes, restaurants, transport, whatever your crew needs', 'Included', 'free');
-    out += row('Premium board quiver', 'Performance boards for the whole stay, or bring your own favourites', 'Included', 'free');
-    out += row('Service fee', '5% — already inside every price shown, for building the trip and holding the pool', usd(p.fee));
-    out += row('<strong>Your price</strong>', 'Standard price ' + usd(p.was) + ' · you save ' + usd(p.save) + ' · ' + usd(p.pp) + ' per person', usd(p.now), 'tot');
-    $('bd').innerHTML = out;
-
   }
 
   // Everything a buyout carries whatever you choose. Stated plainly, in front of
@@ -852,26 +824,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('ctaWa').href = 'https://wa.me/8613893402173?text=' + encodeURIComponent("Hi Surf China — I've put together a private pool buyout on your site: " + s);
   }
 
-  // ── Steps ──────────────────────────────────────────────────────────────
-  function go(n) {
-    step = Math.min(3, Math.max(1, n));
-    [1, 2, 3].forEach(function (i) { $('step' + i).classList.toggle('is-active', i === step); });
-    Array.prototype.forEach.call(document.querySelectorAll('.rail__step'), function (el, i) {
-      el.classList.toggle('is-now', i + 1 === step);
-      el.classList.toggle('is-done', i + 1 < step);
-    });
-    $('btnBack').classList.toggle('gone', step === 1);
-    $('btnNext').classList.toggle('gone', step === 3);
-    $('btnNext').textContent = step === 2 ? 'See your price' : 'Continue';
-    if (step === 3) { var p3 = price(); paintStage(p3); trackPrice(p3); }
-    try { history.replaceState(null, '', '#step-' + step); } catch (_) { /* fine without it */ }
-    var top = document.querySelector('.rail');
-    if (top) window.scrollTo({ top: top.offsetTop - 90, behavior: 'smooth' });
-  }
-
   // ── Wiring ─────────────────────────────────────────────────────────────
   document.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-room],[data-wave],[data-dec],[data-inc],[data-goto]');
+    var t = e.target.closest('[data-room],[data-wave],[data-dec],[data-inc],[data-edit]');
     if (!t) return;
     if (t.dataset.room)  { state.room = t.dataset.room;
                            var cap = 2;
@@ -880,19 +835,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     if (t.dataset.wave)  { state.wave = t.dataset.wave; render(); return; }
     if (t.dataset.dec)   { nudge(t.dataset.dec, -1); return; }
     if (t.dataset.inc)   { nudge(t.dataset.inc, 1); return; }
-    if (t.dataset.goto)  { go(parseInt(t.dataset.goto, 10)); return; }
+    if (t.dataset.edit)  {
+      var panel = $(t.dataset.edit);
+      var on = !panel.classList.contains('on');
+      panel.classList.toggle('on', on);
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-expanded', on);
+      t.textContent = on ? 'Done' : 'Adjust';
+      return;
+    }
   });
 
   $('togPhoto').addEventListener('click', function () { state.photo = !state.photo; render(); });
   $('togCoach').addEventListener('click', function () { state.coach = !state.coach; render(); });
-  $('btnNext').addEventListener('click', function () { go(step + 1); });
-  $('btnBack').addEventListener('click', function () { go(step - 1); });
 
   render();
-
-  // Deep link straight to a step — /design#step-2 picks up where a share left off.
-  var m = /^#step-([123])$/.exec(window.location.hash || '');
-  if (m) go(parseInt(m[1], 10));
+  trackPrice(price());
 })();
 </script>
 </body>
