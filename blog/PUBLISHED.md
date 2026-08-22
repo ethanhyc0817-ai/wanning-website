@@ -6,3 +6,4 @@
 2026-08-16 | v3.rtf | blog-private-wave-pool-sessions-hainan | Private Wave Pool Sessions in Hainan: Book the Pool for Your Crew
 2026-08-17 | backlog: Riyue Bay surf season & ocean surf guide | blog-riyue-bay-surf-season-ocean-surf-guide | Riyue Bay Surf Guide: Seasons & Ocean Surfing in Hainan
 2026-08-21 | backlog: PerfectSwell wave pool explained | blog-perfectswell-wave-pool-explained | PerfectSwell® Wave Pool Explained: Settings, Barrels & Beginner Waves
+2026-08-22 | backlog: Hainan 30-day visa-free policy travel guide | blog-hainan-30-day-visa-free-travel-guide | Hainan 30-Day Visa-Free Entry: Travel Guide for Surfers & Golfers
