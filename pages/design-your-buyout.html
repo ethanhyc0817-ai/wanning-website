@@ -570,8 +570,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
         </div>
         <div class="ctaRow">
-          <a class="btn btn--gold" id="ctaQuote" href="/contact">Hold these dates &rarr;</a>
-          <a class="btn btn--ghost" id="ctaWa" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Plan it with us on WhatsApp</a>
+          <a class="btn btn--gold" id="ctaWa" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Plan it with us on WhatsApp</a>
         </div>
         <p class="fine">Prices are in US dollars at an indicative rate and cover the whole crew. The 5% service fee is already inside every price shown — nothing is added afterwards. The pool closes for scheduled maintenance from 24 August to 23 September 2026.</p>
       </div>
@@ -865,7 +864,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   }
   function buildLinks(p) {
     var s = summary(p);
-    $('ctaQuote').href = '/contact?package=private-escape&design=' + encodeURIComponent(s);
     $('ctaWa').href = 'https://wa.me/8613893402173?text=' + encodeURIComponent("Hi Surf China — I've put together a private pool buyout on your site: " + s);
   }
 
