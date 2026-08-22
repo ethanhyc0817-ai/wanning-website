@@ -770,6 +770,10 @@ nav.scrolled { padding: 0.7rem 0; }
 .rate-group__note { font-size: 0.84rem; line-height: 1.65; color: var(--warm-gray); margin: 0.9rem 0 0; }
 .rate-group__link { display: inline-block; margin-top: 1rem; font-size: 0.86rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: opacity 0.25s ease; }
 .rate-group__link:hover { opacity: 0.7; }
+.addons-toggle { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ocean); padding: 0; transition: opacity 0.25s ease; }
+.addons-toggle:hover { opacity: 0.7; }
+.addons-toggle__icon { display: inline-flex; align-items: center; justify-content: center; width: 1.35rem; height: 1.35rem; border: 1px solid currentColor; border-radius: 50%; font-size: 0.95rem; font-weight: 500; line-height: 1; }
+.addons-body { margin-top: 1.1rem; }
 .rate-row__price--note { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.76rem; letter-spacing: 0.02em; color: var(--teal); white-space: normal; text-align: right; max-width: 10.5rem; }
 
 /* Featured private-session row + settings scroller */
@@ -2563,22 +2567,28 @@ footer::before {
         </div>
 
         <div class="rate-group">
-          <h3>Extras</h3>
-          <p class="rate-group__meta">Add any of these to a session</p>
-          <ul class="rate-list">
-            <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> CNY 268</span></li>
-            <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
-            <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
-          </ul>
-        </div>
-
-        <div class="rate-group">
           <h3>Rooms at the Surf Pool</h3>
           <p class="rate-group__meta">Per room &middot; per night</p>
           <ul class="rate-list">
             <li class="rate-row"><span class="rate-row__name">Surf pool resort room<small>Steps from the wave</small></span><span class="rate-row__price"><em>from</em> CNY 700</span></li>
           </ul>
           <a href="/accommodation.html" class="rate-group__link">Accommodation details &rarr;</a>
+        </div>
+
+        <div class="rate-group">
+          <button type="button" class="addons-toggle" aria-expanded="false"
+                  onclick="var b=this.nextElementSibling; var open=b.hidden; b.hidden=!open; this.setAttribute('aria-expanded', open); this.querySelector('.addons-toggle__icon').textContent=open?'&minus;':'+';">
+            Coaching, Boards &amp; Video <span class="addons-toggle__icon">+</span>
+          </button>
+          <div class="addons-body" hidden>
+            <p class="rate-group__meta">Add any of these to a session</p>
+            <ul class="rate-list">
+              <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> CNY 268</span></li>
+              <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
+              <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
+            </ul>
+            <a href="/board-rentals.html" class="rate-group__link">See our equipment &rarr;</a>
+          </div>
         </div>
 
       </div>
