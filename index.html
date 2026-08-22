@@ -2200,7 +2200,9 @@ footer::before {
     .gh-section h2 em { color: var(--gold); font-style: italic; }
     .gh-lead { color: rgba(236,227,212,0.82); max-width: 62ch; margin: 0 auto; line-height: 1.75; }
     .gh-header { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.2rem); }
-    .gh-map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 4px; cursor: zoom-in; }
+    .gh-map-scroll { overflow: auto; -webkit-overflow-scrolling: touch; border-radius: 4px; cursor: zoom-in; touch-action: pan-x pan-y; }
+    .gh-hint-mobile { display: none; }
+    @media (hover: none) and (pointer: coarse) { .gh-hint-desktop { display: none; } .gh-hint-mobile { display: inline; } .gh-map-scroll { cursor: default; } }
     .gh-map-scroll svg { min-width: 760px; width: 100%; height: auto; display: block; }
     .gh-zoom-hint { text-align: center; color: rgba(236,227,212,0.45); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.7rem; }
     .gh-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; margin-top: 0.9rem; }
@@ -2310,7 +2312,7 @@ footer::before {
           </g>
         </svg>
       </div>
-      <p class="gh-zoom-hint">Click map to enlarge</p>
+      <p class="gh-zoom-hint"><span class="gh-hint-desktop">Click map to enlarge</span><span class="gh-hint-mobile">Pinch to zoom</span></p>
       <div class="gh-legend">
         <span><i class="gh-leg-au"></i>Direct from Australia (~9 h)</span>
         <span><i class="gh-leg-direct"></i>Direct international flights</span>
@@ -2347,11 +2349,61 @@ footer::before {
   <script>
   (function () {
     var wrap = document.getElementById('gh-map-scroll');
-    function centerMap() { wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) / 2; }
+    var svgEl = wrap.querySelector('svg');
+    function baseWidth() { return Math.max(760, wrap.clientWidth); }
+    function isZoomed() { return svgEl.getBoundingClientRect().width > baseWidth() + 2; }
+    function centerMap() { if (!isZoomed()) wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) / 2; }
     centerMap();
     window.addEventListener('load', centerMap);
     window.addEventListener('resize', centerMap);
 
+    /* Pinch-to-zoom on the map (mobile) */
+    var pinching = false, startDist = 0, startW = 0, lastPinch = 0;
+    function dist(t) {
+      var dx = t[0].clientX - t[1].clientX, dy = t[0].clientY - t[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+    wrap.addEventListener('touchstart', function (e) {
+      if (e.touches.length === 2) {
+        pinching = true;
+        startDist = dist(e.touches);
+        startW = svgEl.getBoundingClientRect().width;
+        wrap.style.height = wrap.clientHeight + 'px';
+      }
+    }, { passive: true });
+    wrap.addEventListener('touchmove', function (e) {
+      if (e.touches.length !== 2) return;
+      e.preventDefault();
+      var bw = baseWidth();
+      var newW = Math.min(bw * 4, Math.max(bw, startW * dist(e.touches) / startDist));
+      var r = wrap.getBoundingClientRect();
+      var midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - r.left;
+      var midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - r.top;
+      var oldW = svgEl.getBoundingClientRect().width;
+      var k = newW / oldW;
+      var sl = (wrap.scrollLeft + midX) * k - midX;
+      var st = (wrap.scrollTop + midY) * k - midY;
+      svgEl.style.width = newW + 'px';
+      svgEl.style.minWidth = newW + 'px';
+      svgEl.style.maxWidth = 'none';
+      wrap.scrollLeft = sl;
+      wrap.scrollTop = st;
+      lastPinch = Date.now();
+    }, { passive: false });
+    wrap.addEventListener('touchend', function (e) {
+      if (pinching && e.touches.length < 2) {
+        pinching = false;
+        if (!isZoomed()) {
+          svgEl.style.width = '';
+          svgEl.style.minWidth = '';
+          svgEl.style.maxWidth = '';
+          wrap.style.height = '';
+          centerMap();
+        }
+      }
+    });
+
+    /* Details toggle */
     var btn = document.getElementById('gh-details-btn');
     var det = document.getElementById('gh-details');
     btn.addEventListener('click', function () {
@@ -2360,6 +2412,7 @@ footer::before {
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    /* Click-to-enlarge lightbox (desktop only) */
     var overlay = document.getElementById('gh-lightbox');
     var inner = document.getElementById('gh-lightbox-inner');
     var zoom = 1600;
@@ -2369,7 +2422,10 @@ footer::before {
       if (s) { s.style.width = zoom + 'px'; s.style.minWidth = zoom + 'px'; s.style.maxWidth = 'none'; }
     }
     function openLightbox() {
-      var svg = wrap.querySelector('svg').cloneNode(true);
+      if (window.matchMedia('(hover: none)').matches) return;
+      if (Date.now() - lastPinch < 600) return;
+      var svg = svgEl.cloneNode(true);
+      svg.removeAttribute('style');
       inner.innerHTML = '';
       inner.appendChild(svg);
       overlay.classList.add('open');
