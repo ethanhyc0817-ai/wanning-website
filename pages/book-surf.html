@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book The Surf Escape — PerfectSwell® Hainan | Surf China Co.</title>
+<meta name="description" content="Book your PerfectSwell® Hainan surf trip in three steps — pick your dates, add private pool time or coaching, and reserve. Live pricing, no deposit to hold your dates.">
+<meta name="robots" content="noindex">
+
+<!-- Google Analytics (GA4). Loaded after <title> so the pageview carries a real page_title. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<link rel="canonical" href="https://www.surfchina.co/book/surf">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--charcoal); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+a { color: inherit; }
+
+/* ---------- Header: stripped back, this is a checkout ---------- */
+.bk-head { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--sand-dark); }
+.bk-head-inner { max-width: 1120px; margin: 0 auto; padding: 0.85rem clamp(1rem, 4vw, 2.5rem); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.bk-logo { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+.bk-logo svg { width: 34px; height: 34px; }
+.bk-help { font-size: 0.8rem; color: var(--warm-gray); text-decoration: none; white-space: nowrap; }
+.bk-help strong { color: var(--ocean); }
+
+/* ---------- Shell ---------- */
+.bk-wrap { max-width: 1120px; margin: 0 auto; padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem) 8rem; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+@media (max-width: 900px) { .bk-wrap { grid-template-columns: 1fr; padding-bottom: 7.5rem; } }
+
+.bk-title { margin-bottom: 0.4rem; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.bk-sub { color: var(--warm-gray); font-size: 0.95rem; margin-bottom: 1.8rem; }
+
+/* ---------- Progress ---------- */
+.bk-steps { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; }
+.bk-steps li { list-style: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); }
+.bk-steps li + li::before { content: ''; width: clamp(12px, 4vw, 40px); height: 1px; background: var(--sand-dark); }
+.bk-steps b { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--sand); color: var(--warm-gray); font-family: 'Montserrat', sans-serif; font-size: 0.7rem; }
+.bk-steps li.is-on { color: var(--charcoal); }
+.bk-steps li.is-on b { background: var(--ocean); color: var(--white); }
+.bk-steps li.is-done b { background: var(--teal); color: var(--white); }
+@media (max-width: 560px) { .bk-steps span { display: none; } .bk-steps li + li::before { width: 28px; } }
+
+/* ---------- Panels ---------- */
+.bk-panel[hidden] { display: none; }
+.bk-panel h2 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+.bk-panel .bk-panel-note { color: var(--warm-gray); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.bk-field { margin-bottom: 1.3rem; }
+.bk-field > label, .bk-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 0.5rem; }
+.bk-field input[type="text"], .bk-field input[type="email"], .bk-field input[type="tel"], .bk-field input[type="date"], .bk-field input[type="number"], .bk-field textarea, .bk-field select {
+  width: 100%; padding: 0.85rem 0.95rem; border: 1px solid var(--sand-dark); border-radius: 4px; font-family: inherit; font-size: 1rem; color: var(--charcoal); background: var(--white);
+}
+.bk-field input:focus, .bk-field textarea:focus, .bk-field select:focus { outline: none; border-color: var(--ocean); box-shadow: 0 0 0 3px rgba(10,77,104,0.08); }
+.bk-field textarea { min-height: 90px; resize: vertical; }
+.bk-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.9rem; }
+.bk-hint { font-size: 0.8rem; color: var(--warm-gray); margin-top: 0.4rem; }
+.bk-error { display: none; margin: 0.6rem 0 0; padding: 0.7rem 0.9rem; border-left: 3px solid var(--coral); background: rgba(212,133,106,0.08); font-size: 0.86rem; color: var(--charcoal); }
+.bk-error.show { display: block; }
+
+/* Choice pills */
+.bk-choice { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.bk-choice label { position: relative; display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.6rem 1.05rem; border: 1px solid var(--sand-dark); border-radius: 999px; font-size: 0.92rem; cursor: pointer; background: var(--white); transition: border-color .15s, background .15s, color .15s; }
+.bk-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.bk-choice label:hover { border-color: var(--ocean); }
+.bk-choice label:has(input:checked) { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+
+/* Add-on cards */
+.bk-addon { border: 1px solid var(--sand-dark); border-left: 3px solid var(--sand-dark); border-radius: 3px; padding: 1.1rem 1.15rem; margin-bottom: 0.9rem; transition: border-color .15s; }
+.bk-addon.is-on { border-left-color: var(--gold); }
+.bk-addon-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; }
+.bk-addon-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; }
+.bk-addon-price { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.98rem; white-space: nowrap; }
+.bk-addon-price s { font-weight: 500; font-size: 0.8rem; color: var(--warm-gray); }
+.bk-addon-price em { font-style: normal; font-weight: 500; font-size: 0.78rem; color: var(--warm-gray); }
+.bk-addon-copy { font-size: 0.86rem; color: var(--warm-gray); margin: 0.5rem 0 0; }
+.bk-addon-body[hidden] { display: none; }
+.bk-addon-body { margin-top: 0.9rem; }
+.bk-addon-step { margin-top: 0.8rem; }
+.bk-addon-step[hidden] { display: none; }
+.bk-add { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ocean); cursor: pointer; border: 1px solid var(--sand-dark); border-radius: 999px; padding: 0.4rem 0.85rem; }
+.bk-add input { accent-color: var(--ocean); margin: 0; }
+.is-on .bk-add { border-color: var(--ocean); }
+.bk-count { width: 110px !important; }
+
+/* ---------- Actions ---------- */
+.bk-actions { display: flex; align-items: center; gap: 0.9rem; margin-top: 1.8rem; }
+.bk-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 1.9rem; border: 1px solid var(--ocean); border-radius: 3px; background: var(--ocean); color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background .2s, border-color .2s; }
+.bk-btn:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+.bk-btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.bk-btn-ghost { background: transparent; color: var(--warm-gray); border-color: transparent; padding-left: 0; }
+.bk-btn-ghost:hover { background: transparent; color: var(--charcoal); border-color: transparent; }
+
+/* ---------- Summary ---------- */
+.bk-summary { position: sticky; top: 92px; border: 1px solid var(--sand-dark); border-radius: 3px; background: var(--sand); padding: 1.4rem 1.4rem 1.5rem; }
+.bk-summary h3 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-gray); font-weight: 600; font-family: 'Inter', sans-serif; margin-bottom: 1rem; }
+.bk-sum-line { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid var(--sand-dark); }
+.bk-sum-line span:last-child { font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
+.bk-sum-line small { display: block; font-size: 0.78rem; color: var(--warm-gray); font-weight: 400; }
+.bk-sum-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--sand-dark); }
+.bk-sum-total b { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--ocean); }
+.bk-sum-pp { font-size: 0.82rem; color: var(--warm-gray); margin-top: 0.2rem; }
+.bk-sum-was { font-size: 0.8rem; color: var(--warm-gray); }
+.bk-sum-was s { color: var(--warm-gray); }
+.bk-sum-foot { font-size: 0.78rem; color: var(--warm-gray); line-height: 1.55; margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--sand-dark); }
+@media (max-width: 900px) { .bk-summary { display: none; } }
+
+/* Mobile price bar */
+.bk-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: none; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.8rem clamp(1rem, 4vw, 2rem); background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-top: 1px solid var(--sand-dark); }
+.bk-bar-total { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--ocean); line-height: 1.1; }
+.bk-bar-meta { font-size: 0.75rem; color: var(--warm-gray); }
+.bk-bar .bk-btn { padding: 0.8rem 1.4rem; }
+@media (max-width: 900px) { .bk-bar { display: flex; } }
+
+/* ---------- Confirmation ---------- */
+.bk-done { text-align: center; max-width: 620px; margin: 0 auto; }
+.bk-done-mark { width: 56px; height: 56px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.4rem; font-size: 1.6rem; }
+.bk-done h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 0.7rem; }
+.bk-done p { color: var(--warm-gray); }
+.bk-done-card { text-align: left; border: 1px solid var(--sand-dark); border-radius: 3px; background: var(--sand); padding: 1.3rem 1.4rem; margin: 1.8rem 0; }
+.bk-done-card .bk-sum-line:last-of-type { border-bottom: none; }
+.bk-next { text-align: left; list-style: none; margin: 1.6rem 0 0; }
+.bk-next li { position: relative; padding: 0 0 0 2rem; margin-bottom: 0.9rem; font-size: 0.92rem; color: var(--warm-gray); }
+.bk-next li b { display: block; color: var(--charcoal); font-family: 'Inter', sans-serif; font-weight: 600; }
+.bk-next li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0.1rem; width: 22px; height: 22px; border-radius: 50%; background: var(--ocean); color: var(--white); font-size: 0.72rem; display: flex; align-items: center; justify-content: center; }
+.bk-next { counter-reset: n; }
+</style>
+</head>
+<body>
+
+<header class="bk-head">
+  <div class="bk-head-inner">
+    <a href="/" class="bk-logo">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#0a4d68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#0a4d68" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      Surf China Co.
+    </a>
+    <a class="bk-help" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Questions? <strong>WhatsApp us</strong></a>
+  </div>
+</header>
+
+<main class="bk-wrap">
+  <div>
+    <div id="bkFlow">
+      <h1 class="bk-title">The Surf Escape</h1>
+      <p class="bk-sub">Garden View room at the surf pool resort, two PerfectSwell&reg; sessions a day, breakfast, airport transfers and a video session &mdash; all in.</p>
+
+      <ol class="bk-steps" id="bkSteps">
+        <li data-step="1" class="is-on"><b>1</b><span>Dates &amp; guests</span></li>
+        <li data-step="2"><b>2</b><span>Make it yours</span></li>
+        <li data-step="3"><b>3</b><span>Your details</span></li>
+      </ol>
+
+      <form id="bkForm" novalidate>
+        <!-- ============ STEP 1 ============ -->
+        <section class="bk-panel" data-panel="1">
+          <h2>When are you coming?</h2>
+          <p class="bk-panel-note">Pick your start date and we price it live. Trips run 3 or 4 nights as standard &mdash; longer is no problem.</p>
+
+          <div class="bk-field">
+            <label for="bkStart">Arrival date</label>
+            <input type="date" id="bkStart" name="trip_start_date" required>
+            <p class="bk-hint">The surf pool is closed for maintenance 24 Aug &ndash; 23 Sep 2026.</p>
+          </div>
+
+          <div class="bk-field">
+            <span class="bk-label">How many nights?</span>
+            <div class="bk-choice" id="bkNightsChoice">
+              <label><input type="radio" name="nights_choice" value="3" checked> 3 nights</label>
+              <label><input type="radio" name="nights_choice" value="4"> 4 nights</label>
+              <label><input type="radio" name="nights_choice" value="custom"> More</label>
+            </div>
+            <div class="bk-field" id="bkNightsCustom" hidden style="margin-top:0.8rem; margin-bottom:0;">
+              <input type="number" id="bkNights" name="num_nights" value="5" min="1" max="30" step="1" inputmode="numeric" aria-label="Number of nights">
+            </div>
+          </div>
+
+          <div class="bk-field">
+            <span class="bk-label">Who&rsquo;s surfing?</span>
+            <div class="bk-row">
+              <div>
+                <label for="bkAdults" style="font-size:0.7rem;">Adults</label>
+                <input type="number" id="bkAdults" name="adults" value="2" min="1" max="20" step="1" inputmode="numeric">
+              </div>
+              <div>
+                <label for="bkChildren" style="font-size:0.7rem;">Children</label>
+                <input type="number" id="bkChildren" name="children" value="0" min="0" max="12" step="1" inputmode="numeric">
+              </div>
+              <div>
+                <label for="bkRooms" style="font-size:0.7rem;">Rooms</label>
+                <input type="number" id="bkRooms" name="rooms" value="1" min="1" max="12" step="1" inputmode="numeric">
+              </div>
+            </div>
+            <p class="bk-hint">Rooms follow your group automatically &mdash; change it if you want it different.</p>
+          </div>
+
+          <div class="bk-field">
+            <label for="bkPerDay">Surf sessions per day <span style="text-transform:none; letter-spacing:0; font-weight:400;">(for the whole group)</span></label>
+            <input type="number" id="bkPerDay" name="sessions_per_day" value="2" min="0" max="6" step="1" inputmode="numeric">
+          </div>
+
+          <p class="bk-error" id="bkError1"></p>
+          <div class="bk-actions">
+            <button type="button" class="bk-btn" data-next="2">Continue &rarr;</button>
+          </div>
+        </section>
+
+        <!-- ============ STEP 2 ============ -->
+        <section class="bk-panel" data-panel="2" hidden>
+          <h2>Make it yours</h2>
+          <p class="bk-panel-note">Optional &mdash; your trip is already complete without these.</p>
+
+          <div class="bk-addon" data-addon="pool">
+            <div class="bk-addon-head">
+              <span class="bk-addon-name">Private pool buyout</span>
+              <span class="bk-addon-price" data-price><em>from</em> $776 <s>$1,109</s> <em>/ session</em></span>
+              <label class="bk-add"><input type="checkbox" data-toggle> Add</label>
+            </div>
+            <p class="bk-addon-copy">One session = the whole PerfectSwell&reg; pool to your group for an hour, at one wave setting. Priced per session, not per person &mdash; 30% off while the promo lasts.</p>
+            <div class="bk-addon-body" hidden>
+              <div class="bk-addon-step">
+                <span class="bk-label">Which wave?</span>
+                <div class="bk-choice">
+                  <label><input type="radio" name="private_pool_wave" value="Intermediate" data-promo="5432" data-list="7760"> Intermediate</label>
+                  <label><input type="radio" name="private_pool_wave" value="Advanced" data-promo="6972" data-list="9960"> Advanced</label>
+                  <label><input type="radio" name="private_pool_wave" value="Pro (barrels &amp; airs)" data-promo="6972" data-list="9960"> Pro</label>
+                </div>
+              </div>
+              <div class="bk-addon-step" data-countstep hidden>
+                <span class="bk-label">How many sessions?</span>
+                <input type="number" class="bk-count" name="private_pool_sessions" data-count value="1" min="0" max="12" step="1" inputmode="numeric" disabled>
+              </div>
+            </div>
+          </div>
+
+          <div class="bk-addon" data-addon="coaching">
+            <div class="bk-addon-head">
+              <span class="bk-addon-name">Coaching</span>
+              <span class="bk-addon-price" data-price><em>from</em> $53 <em>/ session</em></span>
+              <label class="bk-add"><input type="checkbox" data-toggle> Add</label>
+            </div>
+            <p class="bk-addon-copy">An hour with our surf park&rsquo;s own coaches &mdash; the team that runs the pool every day. English-speaking coaches on request.</p>
+            <div class="bk-addon-body" hidden>
+              <div class="bk-addon-step">
+                <span class="bk-label">Which kind?</span>
+                <div class="bk-choice">
+                  <label><input type="radio" name="coaching_type" value="One-on-one" data-promo="368" data-list="368"> One-on-one</label>
+                  <label><input type="radio" name="coaching_type" value="One-on-two" data-promo="536" data-list="536"> One-on-two</label>
+                </div>
+              </div>
+              <div class="bk-addon-step" data-countstep hidden>
+                <span class="bk-label">How many sessions?</span>
+                <input type="number" class="bk-count" name="coaching_sessions" data-count value="1" min="0" max="20" step="1" inputmode="numeric" disabled>
+              </div>
+            </div>
+          </div>
+
+          <div class="bk-field" style="margin-top:1.4rem;">
+            <label for="bkLevel">Surf level <span style="text-transform:none; letter-spacing:0; font-weight:400;">(so we set the right waves)</span></label>
+            <select id="bkLevel" name="surf_level">
+              <option value="">Choose if you like&hellip;</option>
+              <option>First time surfing</option>
+              <option>Beginner &mdash; standing up</option>
+              <option>Intermediate &mdash; riding the face</option>
+              <option>Advanced &mdash; turns and sections</option>
+              <option>Mixed group</option>
+            </select>
+          </div>
+
+          <div class="bk-actions">
+            <button type="button" class="bk-btn" data-next="3">Continue &rarr;</button>
+            <button type="button" class="bk-btn bk-btn-ghost" data-back="1">Back</button>
+          </div>
+        </section>
+
+        <!-- ============ STEP 3 ============ -->
+        <section class="bk-panel" data-panel="3" hidden>
+          <h2>Who are we holding it for?</h2>
+          <p class="bk-panel-note">No payment now. We hold your dates, confirm the room and the sessions, then send the booking details.</p>
+
+          <div class="bk-field">
+            <label for="bkName">Full name</label>
+            <input type="text" id="bkName" name="full_name" autocomplete="name" placeholder="Your full name" required>
+          </div>
+          <div class="bk-row">
+            <div class="bk-field">
+              <label for="bkEmail">Email</label>
+              <input type="email" id="bkEmail" name="email" autocomplete="email" placeholder="your@email.com" required>
+            </div>
+            <div class="bk-field">
+              <label for="bkPhone">WhatsApp <span style="text-transform:none; letter-spacing:0; font-weight:400;">(optional)</span></label>
+              <input type="tel" id="bkPhone" name="whatsapp" autocomplete="tel" placeholder="+86 138 0000 0000">
+            </div>
+          </div>
+          <div class="bk-field">
+            <label for="bkNotes">Anything we should know?</label>
+            <textarea id="bkNotes" name="message" placeholder="Optional"></textarea>
+          </div>
+
+          <p class="bk-error" id="bkError3"></p>
+          <div class="bk-actions">
+            <button type="submit" class="bk-btn" id="bkSubmit">Reserve these dates &rarr;</button>
+            <button type="button" class="bk-btn bk-btn-ghost" data-back="2">Back</button>
+          </div>
+          <p class="bk-hint" style="margin-top:1rem;">Holding your dates is free and commits you to nothing. We confirm availability before any payment is due.</p>
+        </section>
+
+        <!-- hidden context for the inbox / tracker -->
+        <input type="hidden" name="_subject" value="Booking request — The Surf Escape (surfchina.co)">
+        <input type="hidden" name="interested_in" value="The Surf Escape (3 nights+)">
+        <input type="hidden" name="flow" value="book-surf">
+        <input type="hidden" name="quoted_estimate" id="bkQuoted">
+      </form>
+    </div>
+
+    <!-- ============ CONFIRMATION ============ -->
+    <div id="bkDone" class="bk-done" hidden>
+      <div class="bk-done-mark">&#10003;</div>
+      <h2 id="bkDoneTitle">Your dates are held.</h2>
+      <p>We&rsquo;ve got your request &mdash; nothing is charged, and nothing is locked in until you say so.</p>
+      <div class="bk-done-card" id="bkDoneSummary"></div>
+      <ol class="bk-next">
+        <li><b>We check the room and the sessions</b>Within 24 hours on a working day, sooner on WhatsApp.</li>
+        <li><b>You get the confirmed booking</b>Exact price, what&rsquo;s included, and the payment details &mdash; with the cancellation terms before anything is due.</li>
+        <li><b>We handle the rest</b>Airport transfer, session times, and someone on the ground for the whole trip.</li>
+      </ol>
+      <div class="bk-actions" style="justify-content:center;">
+        <a class="bk-btn" href="https://wa.me/8613893402173" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="bk-btn bk-btn-ghost" href="/">Back to the site</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SUMMARY RAIL ============ -->
+  <aside class="bk-summary" id="bkSummary">
+    <h3>Your trip</h3>
+    <div id="bkSumLines"></div>
+    <div class="bk-sum-total">
+      <div>
+        <div style="font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-gray);">Total</div>
+        <div class="bk-sum-pp" id="bkSumPP">&mdash;</div>
+      </div>
+      <div style="text-align:right;">
+        <b id="bkSumTotal">&mdash;</b>
+        <div class="bk-sum-was" id="bkSumWas"></div>
+      </div>
+    </div>
+    <p class="bk-sum-foot">Prices in USD for the whole party. Final figure is confirmed with your dates before anything is due &mdash; holding costs nothing.</p>
+  </aside>
+</main>
+
+<div class="bk-bar">
+  <div>
+    <div class="bk-bar-total" id="bkBarTotal">&mdash;</div>
+    <div class="bk-bar-meta" id="bkBarMeta">Pick your dates</div>
+  </div>
+  <button type="button" class="bk-btn" id="bkBarBtn" data-next="2">Continue &rarr;</button>
+</div>
+
+<script>
+(function () {
+  var FX = 7;
+  var form = document.getElementById('bkForm');
+  var panels = form.querySelectorAll('.bk-panel');
+  var steps = document.querySelectorAll('#bkSteps li');
+  var current = 1;
+
+  var el = function (id) { return document.getElementById(id); };
+  var usd = function (n) { return '$' + Math.round(n).toLocaleString(); };
+  var num = function (id, d) { var v = parseFloat((el(id) || {}).value); return isNaN(v) ? d : v; };
+
+  /* ---------- pricing (same model as the site estimator) ---------- */
+  function coordPerRoom(n, solo) {
+    if (solo) return n === 4 ? 388 : n === 3 ? 279 : 93 * n;
+    return n === 4 ? 391 : n === 3 ? 282 : 94 * n;
+  }
+  function nightsValue() {
+    var pick = form.querySelector('input[name="nights_choice"]:checked');
+    if (pick && pick.value !== 'custom') return parseInt(pick.value, 10);
+    return Math.max(1, Math.round(num('bkNights', 5)));
+  }
+  function addons() {
+    var promo = 0, list = 0, parts = [];
+    document.querySelectorAll('[data-addon]').forEach(function (b) {
+      var on = b.querySelector('[data-toggle]').checked;
+      var r = b.querySelector('input[type="radio"]:checked');
+      var c = b.querySelector('[data-count]');
+      var n = on && r && c ? Math.max(0, Math.round(parseFloat(c.value) || 0)) : 0;
+      if (!n) return;
+      promo += n * parseFloat(r.dataset.promo);
+      list += n * parseFloat(r.dataset.list || r.dataset.promo);
+      parts.push({ label: n + ' × ' + (b.dataset.addon === 'pool' ? 'private pool' : 'coaching') + ' (' + r.value + ')', amount: n * parseFloat(r.dataset.promo) / FX });
+    });
+    return { promo: promo, list: list, parts: parts };
+  }
+  function price() {
+    var adults = Math.max(1, Math.round(num('bkAdults', 2)));
+    var kids = Math.max(0, Math.round(num('bkChildren', 0)));
+    var people = adults + kids;
+    var rooms = Math.max(1, Math.round(num('bkRooms', Math.ceil(people / 2))));
+    var nights = nightsValue();
+    var perDay = Math.max(0, Math.round(num('bkPerDay', 2)));
+    var sessions = nights * perDay;
+    var base = rooms * nights * (850 * 1.15 / FX)
+             + sessions * (500 * 1.10 / FX)
+             + rooms * (900 * 1.80 / FX)
+             + people * (200 * 2 / FX)
+             + rooms * coordPerRoom(nights, people === 1);
+    var add = addons();
+    return {
+      people: people, rooms: rooms, nights: nights, sessions: sessions,
+      base: base, addons: add,
+      total: base + add.promo / FX,
+      list: base * 1.1 + add.list / FX
+    };
+  }
+
+  /* ---------- summary ---------- */
+  function fmtDate(v) {
+    if (!v) return null;
+    var d = new Date(v + 'T00:00:00');
+    if (isNaN(d)) return null;
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+  function render() {
+    var p = price();
+    var start = fmtDate(el('bkStart').value);
+    var lines = '';
+    lines += line(start ? start : 'Dates to pick', p.nights + ' nights · ' + p.people + ' guest' + (p.people > 1 ? 's' : '') + ' · ' + p.rooms + ' room' + (p.rooms > 1 ? 's' : ''), usd(p.base));
+    lines += line(p.sessions + ' PerfectSwell® sessions', 'Room, breakfast, airport transfers and video included', '');
+    p.addons.parts.forEach(function (a) { lines += line(a.label, '', usd(a.amount)); });
+    el('bkSumLines').innerHTML = lines;
+    el('bkSumTotal').textContent = usd(p.total);
+    el('bkSumPP').textContent = usd(p.total / p.people) + ' per person';
+    el('bkSumWas').innerHTML = p.list > p.total + 1 ? '<s>' + usd(p.list) + '</s>' : '';
+    el('bkBarTotal').textContent = usd(p.total);
+    el('bkBarMeta').textContent = p.nights + ' nights · ' + p.people + ' guest' + (p.people > 1 ? 's' : '') + ' · ' + usd(p.total / p.people) + ' pp';
+    var q = usd(p.total) + ' total · ' + usd(p.total / p.people) + ' pp · ' + p.nights + 'N × ' + Math.round(num('bkPerDay', 2)) + ' sessions/day';
+    p.addons.parts.forEach(function (a) { q += ' + ' + a.label; });
+    el('bkQuoted').value = q;
+  }
+  function line(title, sub, amount) {
+    return '<div class="bk-sum-line"><span>' + title + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + (amount || '') + '</span></div>';
+  }
+
+  /* ---------- add-ons ---------- */
+  function syncAddon(b) {
+    var on = b.querySelector('[data-toggle]').checked;
+    var r = b.querySelector('input[type="radio"]:checked');
+    var body = b.querySelector('.bk-addon-body');
+    var countStep = b.querySelector('[data-countstep]');
+    var count = b.querySelector('[data-count]');
+    var base = r || b.querySelector('input[type="radio"]');
+    var priceEl = b.querySelector('[data-price]');
+    if (priceEl && base) {
+      var promo = Math.round(base.dataset.promo / FX);
+      var list = Math.round((base.dataset.list || base.dataset.promo) / FX);
+      priceEl.innerHTML = (r ? '' : '<em>from</em> ') + '$' + promo.toLocaleString()
+        + (list > promo ? ' <s>$' + list.toLocaleString() + '</s>' : '') + ' <em>/ session</em>';
+    }
+    if (body) body.hidden = !on;
+    if (countStep) countStep.hidden = !on || !r;
+    if (!on) b.querySelectorAll('input[type="radio"]').forEach(function (x) { x.checked = false; });
+    if (count) {
+      count.disabled = !on || !r;
+      if (!on || !r) count.value = '0';
+      else if (count.value === '0' || count.value === '') count.value = '1';
+    }
+    b.classList.toggle('is-on', on);
+  }
+  document.querySelectorAll('[data-addon]').forEach(function (b) {
+    b.addEventListener('change', function () { syncAddon(b); render(); });
+    syncAddon(b);
+  });
+
+  /* ---------- steps ---------- */
+  function show(n) {
+    current = n;
+    panels.forEach(function (p) { p.hidden = parseInt(p.dataset.panel, 10) !== n; });
+    steps.forEach(function (s) {
+      var i = parseInt(s.dataset.step, 10);
+      s.classList.toggle('is-on', i === n);
+      s.classList.toggle('is-done', i < n);
+    });
+    var bar = el('bkBarBtn');
+    if (n < 3) { bar.textContent = 'Continue →'; bar.dataset.next = String(n + 1); bar.type = 'button'; }
+    else { bar.textContent = 'Reserve →'; delete bar.dataset.next; }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function fail(id, msg) { var e = el(id); e.textContent = msg; e.classList.add('show'); return false; }
+  function clear(id) { el(id).classList.remove('show'); }
+
+  var BLACKOUT_FROM = new Date('2026-08-24T00:00:00');
+  var BLACKOUT_TO = new Date('2026-09-23T00:00:00');
+  function validateStep1() {
+    clear('bkError1');
+    var v = el('bkStart').value;
+    if (!v) return fail('bkError1', 'Pick your arrival date so we can check the room and the sessions.');
+    var start = new Date(v + 'T00:00:00');
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    if (start < today) return fail('bkError1', 'That date has already passed — pick a date in the future.');
+    var end = new Date(start.getTime()); end.setDate(end.getDate() + nightsValue());
+    if (start <= BLACKOUT_TO && end >= BLACKOUT_FROM) {
+      return fail('bkError1', 'The surf pool is closed for maintenance 24 Aug – 23 Sep 2026 — those nights overlap the closure.');
+    }
+    return true;
+  }
+  function validateStep3() {
+    clear('bkError3');
+    if (!el('bkName').value.trim()) return fail('bkError3', 'We need a name to hold the booking under.');
+    var email = el('bkEmail').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('bkError3', 'Add an email we can send the confirmation to.');
+    return true;
+  }
+
+  document.addEventListener('click', function (e) {
+    var next = e.target.closest('[data-next]');
+    if (next) {
+      var target = parseInt(next.dataset.next, 10);
+      if (current === 1 && !validateStep1()) return;
+      show(target);
+      return;
+    }
+    var back = e.target.closest('[data-back]');
+    if (back) show(parseInt(back.dataset.back, 10));
+  });
+  el('bkBarBtn').addEventListener('click', function () {
+    if (!this.dataset.next && current === 3) form.requestSubmit();
+  });
+
+  /* ---------- live pricing ---------- */
+  var roomsTouched = false;
+  el('bkRooms').addEventListener('input', function () { roomsTouched = true; });
+  el('bkAdults').addEventListener('input', function () {
+    if (!roomsTouched) el('bkRooms').value = Math.max(1, Math.ceil((parseFloat(el('bkAdults').value) || 1) / 2));
+  });
+  form.addEventListener('input', render);
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'nights_choice') {
+      el('bkNightsCustom').hidden = e.target.value !== 'custom';
+    }
+    render();
+  });
+
+  /* ---------- submit ---------- */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validateStep3()) return;
+    var btn = el('bkSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Holding your dates…';
+    var p = price();
+    var fd = new FormData(form);
+    fd.set('num_nights', String(p.nights));
+    fd.set('rooms', String(p.rooms));
+    fetch('https://formspree.io/f/xbdwrwna', { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r); })
+      .then(function () {
+        try { if (typeof gtag === 'function') gtag('event', 'booking_hold', { flow: 'book-surf', value: Math.round(p.total), currency: 'USD' }); } catch (err) {}
+        var start = fmtDate(el('bkStart').value);
+        el('bkDoneTitle').textContent = start ? 'Your dates are held — ' + start + '.' : 'Your dates are held.';
+        var html = line('The Surf Escape', p.nights + ' nights · ' + p.people + ' guest' + (p.people > 1 ? 's' : '') + ' · ' + p.rooms + ' room' + (p.rooms > 1 ? 's' : ''), usd(p.base));
+        p.addons.parts.forEach(function (a) { html += line(a.label, '', usd(a.amount)); });
+        html += '<div class="bk-sum-total"><div><div style="font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-gray);">Estimated total</div><div class="bk-sum-pp">' + usd(p.total / p.people) + ' per person</div></div><b>' + usd(p.total) + '</b></div>';
+        el('bkDoneSummary').innerHTML = html;
+        el('bkFlow').hidden = true;
+        el('bkSummary').style.display = 'none';
+        document.querySelector('.bk-bar').style.display = 'none';
+        el('bkDone').hidden = false;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Reserve these dates →';
+        fail('bkError3', 'That didn’t go through. Try again, or message us on WhatsApp and we’ll hold it manually.');
+      });
+  });
+
+  /* ---------- boot ---------- */
+  (function initDate() {
+    // Local Y-M-D — toISOString() shifts to UTC and lands a day early east of Greenwich.
+    var ymd = function (d) {
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    };
+    var d = new Date(); d.setDate(d.getDate() + 14);
+    // Don't open on a date the pool is shut — clear the maintenance window and the stay that follows it.
+    if (d <= BLACKOUT_TO) { d = new Date(BLACKOUT_TO.getTime()); d.setDate(d.getDate() + 1); }
+    el('bkStart').min = ymd(new Date());
+    el('bkStart').value = ymd(d);
+  })();
+  show(1);
+  render();
+})();
+</script>
+</body>
+</html>
