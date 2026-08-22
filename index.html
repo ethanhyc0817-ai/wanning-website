@@ -435,6 +435,13 @@ nav.scrolled { padding: 0.7rem 0; }
   text-transform: uppercase; transition: all 0.3s;
 }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+.nav-links a.nav-buyout {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  color: #8a6a2f; border: 1px solid #c4a265; border-radius: 2px;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(196,162,101,0.08);
+}
+.nav-links a.nav-buyout:hover { background: #c4a265; color: #14232b; opacity: 1; }
 /* Plan Your Trip dropdown */
 .nav-dropdown { position: relative; }
 .nav-dropdown-toggle {
@@ -2045,6 +2052,7 @@ footer::before {
           <a href="/blog.html">Blog</a>
         </div>
       </div>
+      <a href="/design-your-buyout.html" class="nav-buyout">Private Buyout</a>
       <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -2059,6 +2067,7 @@ footer::before {
   <a href="/golf.html">Golf</a>
   <a href="/accommodation.html">Accommodation</a>
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
+  <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
@@ -2153,6 +2162,32 @@ footer::before {
           <p>Airport transfers, session bookings, and trip planning &mdash; taken care of, start to finish.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PRIVATE BUYOUT — flagship product, front and centre -->
+  <style>
+    .buyout-promo { position: relative; overflow: hidden; background: #0b1519; padding: clamp(4rem, 9vw, 7rem) 0; }
+    .buyout-promo::before { content:""; position:absolute; inset:0; background: url('Assets/wavepool/wavepool-aerial-twilight-01.jpg') center 40% / cover no-repeat; opacity:.34; }
+    .buyout-promo::after { content:""; position:absolute; inset:0; background: radial-gradient(80% 90% at 50% 10%, rgba(11,21,25,0.15) 0%, rgba(11,21,25,0.9) 78%); }
+    .buyout-promo .container { position: relative; z-index: 2; text-align: center; max-width: 780px; }
+    .buyout-promo .overline { color: #c4a265; }
+    .buyout-promo h2 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.08; margin: 0.9rem 0 1.1rem; }
+    .buyout-promo p { color: rgba(236,227,212,0.85); max-width: 56ch; margin: 0 auto; line-height: 1.75; white-space: normal; }
+    .buyout-promo * { white-space: normal; }
+    .buyout-promo-badge { display: inline-flex; align-items: center; margin-top: 1.4rem; border: 1px solid #c4a265; border-radius: 999px; padding: .45rem 1.1rem; color: #dcc08b; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: rgba(196,162,101,.12); }
+    .buyout-promo-cta { display: inline-block; margin-top: 1.8rem; background: #c4a265; color: #14232b; border-radius: 2px; padding: 1rem 2.2rem; font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: all .35s; box-shadow: 0 14px 34px rgba(196,162,101,.25); }
+    .buyout-promo-cta:hover { background: #dcc08b; transform: translateY(-2px); }
+    .buyout-promo-sub { display: block; margin-top: .9rem; color: rgba(236,227,212,.6); font-size: .8rem; }
+  </style>
+  <section class="buyout-promo" id="private-buyout">
+    <div class="container">
+      <span class="overline">Private Pool Buyout</span>
+      <h2>The whole pool. Just your crew.</h2>
+      <p>Reserve the entire PerfectSwell&reg; Surf Pool &mdash; up to 20 surfers, your choice of waves, and no one else in the lineup. Pick your suite and your sessions, and see your crew&rsquo;s price per person in seconds.</p>
+      <span class="buyout-promo-badge">25% off every private session</span><br>
+      <a class="buyout-promo-cta" href="/design-your-buyout.html">Design Your Buyout &rarr;</a>
+      <span class="buyout-promo-sub">Priced for the whole pool &mdash; bring more of your crew and the price per person comes down.</span>
     </div>
   </section>
 
@@ -3919,7 +3954,8 @@ footer::before {
             <h1>Private Sessions</h1>
           </div>
           <p class="lead">Reserve the entire surf pool just for your group. Our Private Sessions let you rent the pool by the hour, choose any wave from our menu, and even mix between settings within the same session. Our technology delivers a high-volume session of perfect, consistent waves built around your crew.</p>
-          <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Inquire About Private Booking</a>
+          <a href="/design-your-buyout.html" class="btn btn-primary btn-arrow" style="margin-top: 1.5rem;">Design Your Buyout &mdash; See Your Price</a>
+          <a href="#" class="btn btn-outline-dark btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem; margin-left: .6rem;">Inquire</a>
         </div>
 
         <ul class="sd-facts">
