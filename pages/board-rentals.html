@@ -194,7 +194,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
 .nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 2px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
 .nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
-.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; }
+.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
 .mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
@@ -312,8 +312,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
+          <a href="/surf-calendar.html">Surf Calendar</a>
           <a href="/#rates">Rates</a>
           <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="/board-rentals.html">Board Rentals</a>
           <a href="/how-to-get-here.html">Getting Here</a>
           <a href="/blog.html">Blog</a>
         </div>
@@ -333,8 +335,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/surf-calendar.html">Surf Calendar</a>
   <a href="/#rates">Rates</a>
   <a href="/#explore-hainan">Explore Hainan</a>
+  <a href="/board-rentals.html">Board Rentals</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/blog.html">Blog</a>
   <a href="/#contact">Book Now</a>

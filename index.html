@@ -1669,8 +1669,7 @@ footer::before {
 .mobile-menu {
   display: none; position: fixed; inset: 0;
   background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
-  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column;
-}
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
@@ -2072,6 +2071,7 @@ footer::before {
           <a href="/surf-calendar.html">Surf Calendar</a>
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
+          <a href="/board-rentals.html">Board Rentals</a>
           <a href="/how-to-get-here.html">Getting Here</a>
           <a href="/blog.html">Blog</a>
         </div>
@@ -2096,6 +2096,7 @@ footer::before {
   <a href="/surf-calendar.html">Surf Calendar</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
+  <a href="/board-rentals.html">Board Rentals</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/blog.html">Blog</a>
   <a href="#" onclick="showPage('contact'); toggleMobile();">Book Now</a>
@@ -2187,6 +2188,143 @@ footer::before {
           <p>Airport transfers, session bookings, and trip planning &mdash; taken care of, start to finish.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- GETTING HERE — direct international flights to Haikou -->
+  <style>
+    .gh-section { background: #0b1519; padding: clamp(4rem, 9vw, 6.5rem) 0; }
+    .gh-section .overline { color: var(--gold); }
+    .gh-section h2 { color: #fff; font-size: clamp(1.9rem, 4.2vw, 3rem); margin: 0.9rem 0 1rem; }
+    .gh-section h2 em { color: var(--gold); font-style: italic; }
+    .gh-lead { color: rgba(236,227,212,0.82); max-width: 62ch; margin: 0 auto; line-height: 1.75; }
+    .gh-header { text-align: center; margin-bottom: clamp(2rem, 5vw, 3.2rem); }
+    .gh-map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 4px; }
+    .gh-map-scroll svg { min-width: 760px; width: 100%; height: auto; display: block; }
+    .gh-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; margin-top: 1.2rem; }
+    .gh-legend span { display: inline-flex; align-items: center; gap: 0.55rem; color: rgba(236,227,212,0.72); font-size: 0.78rem; letter-spacing: 0.02em; }
+    .gh-legend i { display: inline-block; width: 26px; height: 0; border-top-style: solid; }
+    .gh-leg-au { border-top-width: 3px; border-top-color: var(--gold); }
+    .gh-leg-direct { border-top-width: 2px; border-top-color: #6fb6c9; }
+    .gh-leg-us { border-top-width: 2px; border-top-color: var(--coral); border-top-style: dashed; }
+    .gh-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: clamp(2.2rem, 5vw, 3.4rem); }
+    .gh-col { border: 1px solid rgba(236,227,212,0.14); border-radius: 4px; padding: 1.6rem 1.5rem; background: rgba(255,255,255,0.02); }
+    .gh-col h4 { color: #fff; font-size: 1.02rem; margin-bottom: 0.6rem; }
+    .gh-col h4 span { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.45rem; }
+    .gh-col p { color: rgba(236,227,212,0.75); font-size: 0.9rem; line-height: 1.7; }
+    .gh-col--au { border-color: rgba(196,162,101,0.55); background: rgba(196,162,101,0.07); }
+    .gh-col--au h4 span { color: var(--gold); }
+    .gh-col--us h4 span { color: var(--coral); }
+    .gh-col--asia h4 span { color: #6fb6c9; }
+    .gh-note { text-align: center; color: rgba(236,227,212,0.6); font-size: 0.84rem; margin-top: 2rem; line-height: 1.7; }
+    .gh-note strong { color: rgba(236,227,212,0.9); font-weight: 600; }
+    .gh-svg-label { font-family: 'Inter', sans-serif; paint-order: stroke; stroke: #0b1519; stroke-width: 3px; stroke-linejoin: round; }
+    .gh-pulse { transform-box: fill-box; transform-origin: center; animation: ghPulse 2.4s ease-out infinite; }
+    @keyframes ghPulse { 0% { transform: scale(0.5); opacity: 0.9; } 100% { transform: scale(2.6); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .gh-pulse { animation: none; opacity: 0.25; } }
+    @media (max-width: 900px) { .gh-cols { grid-template-columns: 1fr; } }
+  </style>
+  <section class="gh-section" id="getting-here">
+    <div class="container">
+      <div class="gh-header">
+        <span class="overline">Getting Here</span>
+        <h2>Closer than you think. <em>Fly direct.</em></h2>
+        <p class="gh-lead">Haikou Meilan International (HAK) has nonstop flights from three continents &mdash; including direct Hainan Airlines service from <strong style="color:var(--gold);">Melbourne and Sydney</strong>. Land, and we handle the rest.</p>
+      </div>
+      <div class="gh-map-scroll" role="img" aria-label="Map of direct international flights to Haikou: nonstop from Sydney, Melbourne, Auckland, Hong Kong, Bangkok, Singapore, Kuala Lumpur, Jakarta, Tokyo, Seoul, London and Moscow; one-stop connections from Los Angeles and New York via Asian hubs.">
+        <svg viewBox="0 0 1000 345" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M487 319l3 1l4 -1l1 4l-1 3l-3 1l-4 -3l-2 -4zM564 319l3 0l0 3l-2 3l-3 3l-3 2l-2 3l-3 2l-3 0l-5 -1l1 -3l4 -3l4 -1l4 -3l2 -3l2 -3zM568 306l2 3l4 2l4 -1l1 3l-3 1l-1 3l-3 3l-4 0l1 -3l-3 -2l3 -4l-2 -3l-3 -4l0 -3l4 3zM548 267l-3 0l-4 -3l-2 -3l3 1l4 4zM222 243l1 4l0 3l-1 3l-1 3l-1 3l-2 4l-2 5l-1 4l-1 3l-5 2l-3 -2l-1 -4l-2 -4l2 -3l2 -3l-1 -3l-1 -4l2 -3l3 -1l4 -2l3 -3l2 -3l1 -3l2 4zM482 244l3 1l2 3l0 3l2 4l1 3l3 2l4 2l1 3l1 3l3 0l1 3l3 3l3 4l0 3l1 3l-1 3l0 3l-1 4l-3 3l-1 3l-2 3l-2 4l0 3l-5 1l-4 2l-4 0l-5 0l-4 -1l-4 -1l-2 -4l-5 -2l0 -4l-4 3l2 -4l1 -3l-4 3l-1 3l-2 -3l-3 -3l-3 -2l-5 -2l-5 0l-3 1l-4 1l-5 2l-3 0l-1 3l-3 0l-4 0l-4 0l-3 2l-4 1l-5 -2l1 -3l0 -3l-2 -4l0 -4l-3 -3l-1 -5l0 -4l0 -3l0 -4l3 -2l3 -2l3 -1l4 -1l3 -1l4 -1l4 -4l2 -5l1 3l1 -4l3 -2l2 -3l3 -1l3 1l4 2l2 -4l2 -3l3 0l3 -1l5 0l4 0l3 1l-2 3l-2 4l4 3l4 2l5 3l2 -3l2 -5l-1 -3l1 -3l1 -4l3 2l1 4zM429 234l-3 0l2 -3l3 -1l4 -1l-4 3zM411 228l3 1l-3 1l-3 1l3 -3zM425 228l-5 2l-4 0l3 -1l3 0l3 -1zM385 224l5 1l6 0l5 2l4 2l-3 1l-3 -1l-3 0l-3 0l-6 -2l-3 0l-5 -1l-3 -1l2 -3l3 0l3 1zM506 221l-4 2l-3 0l-4 -1l3 -1l3 0l4 -2zM446 214l-4 1l-3 0l4 -2l3 1zM509 218l-4 -3l-3 -2l3 1l3 3zM456 209l1 4l3 2l2 -3l3 -2l3 0l4 2l3 1l5 2l5 1l3 3l5 4l-1 3l3 2l1 3l4 2l-3 1l-3 0l-4 -4l-5 -3l-4 2l-1 3l-5 -1l-5 -3l-4 1l3 -3l-1 -3l-7 -5l-6 -3l-3 1l-2 -3l3 -1l-3 -2l-3 0l3 -2l6 0zM431 202l-4 3l-3 -1l-4 1l-3 0l2 5l7 -3l-3 3l0 4l2 5l-4 0l-2 -3l0 -3l-1 4l0 4l-3 0l1 -3l-1 -3l-1 -3l1 -3l1 -4l3 -3l6 1l3 0l3 -2zM441 202l0 3l-1 3l-3 -5l2 -3zM377 222l-3 0l-6 -5l-3 -4l-3 -6l-3 -2l-2 -4l-4 -5l-5 -4l6 -1l3 3l3 3l3 3l3 0l4 4l1 4l3 3l3 1l0 6l0 4zM411 201l3 2l-3 0l-1 5l-3 2l0 3l-1 4l-4 0l-3 -2l-4 0l-3 -1l-3 -4l-3 -3l0 -3l2 -4l4 0l5 -3l4 -4l3 -3l4 -4l2 3l4 2l-3 3l-2 3l2 4zM434 182l1 4l-3 1l0 3l-4 -1l0 -3l-3 -1l-3 1l1 -3l3 -2l3 1l3 -1zM309 188l-4 -1l0 -4l1 -5l3 4l2 3l-1 3zM428 177l-2 3l-3 -1l2 -4l3 -1l0 3zM413 180l-4 2l3 -3l3 -5l-1 4zM432 172l1 3l-3 2l-1 -3l0 -3l3 1zM420 154l3 0l1 4l-3 3l0 3l3 2l4 1l0 3l-3 -2l-3 -1l-4 0l-1 -3l-1 -4l2 -3l1 -3zM882 150l5 0l3 2l4 2l-3 0l-4 1l-3 1l-3 -1l-3 1l3 -2l0 -3zM390 154l-3 1l-2 -3l4 -2l3 1l-2 3zM862 142l4 1l3 2l3 2l3 1l-4 2l-4 0l-2 -3l-4 -2l-5 -1l-3 -1l-3 1l-3 1l4 -3l3 -1l3 0l5 1zM420 142l-1 3l-2 -3l2 -5l3 -1l-2 6zM457 111l-3 2l-3 1l2 -3l4 0zM149 106l4 1l3 1l-4 1l-3 -1zM126 99l-1 3l-3 1l-4 -2l3 -1l3 0zM109 91l1 6l-3 0l0 -4zM475 102l-1 3l-1 3l-4 1l-5 0l-3 4l-2 -4l-5 1l-4 1l-3 0l3 3l-2 4l-3 0l-1 -3l1 -3l5 -3l7 -3l3 1l3 -5l6 -1l3 -5l0 -3l4 -2l2 3l-1 3l-2 3zM483 83l4 -1l1 3l-4 1l-3 3l-4 -2l-2 3l-3 0l0 -3l4 -2l1 -4l4 1zM912 69l-5 -1l-3 -1l5 1l3 1zM740 71l-6 -1l-3 -2l-3 -1l3 -1l3 0l5 3zM927 65l1 3l3 1l4 0l1 3l0 4l-3 0l0 -3l-4 2l-5 -2l-5 0l2 -4l3 -4l4 -3l-1 3zM715 55l2 3l2 3l-3 -2l-3 -3zM482 65l3 5l-4 -1l-2 4l3 2l-4 3l0 -5l0 -3l0 -6l-1 -3l0 -3l1 -3l3 4l0 3l1 3zM64 60l-4 2l-4 0l2 -3l-2 -3l4 -2l5 -2l3 2l-1 4l-3 2zM658 47l-4 0l4 -2l3 1l-3 1zM75 43l-3 3l3 -1l3 0l-1 3l3 6l4 3l4 2l-2 3l-1 3l-4 0l-5 0l-3 1l-4 1l2 -4l3 0l-5 -1l3 -2l-1 -3l4 0l-2 -3l-3 -1l-2 -4l-1 -4l5 -2l3 0zM856 31l-3 2l-3 -1l6 -1zM606 28l4 1l5 1l-3 1l-3 -1l-3 -1zM847 23l3 2l3 1l4 1l4 2l-3 0l-4 0l-4 0l-4 1l-5 -1l3 -3l1 -3zM43 21l3 4l-4 2l-8 2l-6 0l-8 -1l3 -1l-6 -2l5 0l-6 -2l6 -2l4 2l4 -2l4 1l4 -1l5 0zM583 14l7 2l7 3l9 1l5 2l-7 2l0 3l-4 0l-6 -2l-3 -1l-3 0l-4 -1l-4 3l-4 0l3 2l3 3l-6 1l-8 2l-6 2l-5 2l-4 -1l-8 2l-4 1l-3 -1l-5 5l4 2l-1 4l-3 2l-4 3l-1 3l-4 0l-1 3l-4 3l-2 -6l-2 -6l1 -4l3 -2l4 -2l5 -3l5 -3l5 -2l2 -4l-3 0l-9 5l-2 -3l-7 1l-7 5l-4 2l-4 0l-5 -2l-3 1l-9 0l-9 1l-9 5l-10 7l4 0l4 2l5 -1l4 3l-2 5l0 4l-2 4l-4 4l-4 5l-4 3l-6 4l-3 -2l-4 2l-3 2l0 3l-3 2l-3 1l2 3l2 4l1 5l-4 2l-4 1l0 -4l1 -3l-4 -3l0 -4l-3 -1l-4 0l-5 3l0 -3l3 -2l-4 0l-3 2l-5 2l0 3l3 0l5 0l4 2l-3 2l-4 3l1 3l1 3l4 5l-1 4l1 3l-4 5l-2 4l-3 3l-4 3l-4 2l-3 1l-3 0l-5 3l-3 0l-1 3l-1 -3l-4 -1l-5 3l-3 3l2 5l3 3l4 4l1 5l0 5l-3 2l-3 2l-6 5l0 -4l-4 -2l-3 -4l-5 -1l1 -3l-3 0l0 3l-1 4l-1 3l3 5l2 4l3 1l4 4l-1 3l1 3l2 3l-5 -1l-3 -2l-2 -3l0 -3l-1 -3l-2 -4l-3 -3l0 -4l1 -4l-1 -5l-2 -5l-1 -3l-3 -1l-3 2l-3 -1l1 -3l-1 -3l-2 -3l-3 -4l-1 -3l-2 -3l-3 3l-3 -1l-3 1l-3 1l-1 4l-4 1l-3 4l-3 2l-2 3l-4 1l-2 3l0 3l-1 5l0 5l-3 2l-2 4l-4 -2l-1 -4l-1 -3l-3 -4l0 -3l-3 -6l-2 -5l0 -4l0 -3l-1 -3l-4 2l-6 -4l-2 -4l-3 -3l-7 -2l-5 1l-4 0l-5 -1l-3 -1l-3 0l-1 -3l-4 0l-3 1l-3 -1l-3 -2l-3 -1l-3 -6l-4 -1l-2 3l2 5l4 2l0 3l1 3l1 -4l2 3l0 3l5 0l3 -2l4 -4l1 3l3 3l3 1l2 3l0 3l-2 3l-2 4l-3 1l-3 2l-2 3l-4 0l-3 1l-4 3l-4 2l-4 2l-4 1l-3 1l-3 1l-3 1l-1 -4l-1 -3l0 -3l-1 -3l-3 -4l-1 -3l-3 -2l-2 -3l0 -3l-2 -3l-3 -2l-1 -4l-4 -4l-2 -4l-2 3l-3 -2l-2 -4l1 3l2 3l2 4l2 3l2 3l3 5l2 3l-1 4l1 3l3 2l2 3l2 4l4 2l3 4l3 2l-1 3l3 3l4 -1l3 0l4 -1l3 -1l3 -1l2 3l-1 4l-2 3l-1 4l-3 4l-2 3l-3 4l-3 2l-4 3l-3 2l-3 3l-3 3l-2 4l-2 3l-2 4l2 3l-1 3l1 3l1 3l2 4l0 3l0 4l0 3l-3 4l-3 1l-3 1l-3 3l-3 3l-1 3l2 3l0 4l0 3l-4 2l-3 1l0 4l-1 4l-3 3l-3 3l-4 5l-4 3l-3 1l-4 1l-4 0l-3 0l-3 1l-4 1l-3 -1l-2 -3l0 -4l-2 -3l-3 -6l-3 -4l-1 -3l-2 -6l0 -3l-1 -3l-3 -6l-3 -4l0 -4l1 -5l1 -4l2 -3l1 -3l0 -3l-2 -3l0 -4l-2 -4l-1 -3l-2 -3l-3 -3l-3 -5l1 -4l0 -3l1 -3l-1 -4l-2 -3l-3 1l-4 1l-3 -4l-4 -2l-4 1l-3 0l-4 2l-4 2l-3 -1l-3 -1l-5 1l-5 2l-4 -2l-5 -3l-4 -4l-2 -4l-3 -3l-2 -3l-3 -1l-2 -3l0 -3l-3 -3l3 -3l0 -3l1 -4l0 -4l-1 -3l-1 -3l2 -3l2 -4l2 -4l3 -2l2 -3l4 -2l3 -2l3 -3l-1 -3l1 -4l5 -3l4 -4l3 -2l4 1l3 1l4 -2l3 0l4 -2l5 -1l5 0l4 0l3 -1l3 1l3 -1l4 1l-1 3l0 3l-1 3l3 2l4 1l3 0l4 1l3 3l4 1l3 2l3 -2l-1 -3l3 -2l6 0l3 2l3 0l4 1l3 1l4 1l3 -2l4 0l4 1l4 0l1 -5l2 -3l1 -4l1 -3l-4 -1l-6 2l-3 -1l-3 0l-5 0l-3 0l-2 -3l0 -4l1 -4l4 0l7 -2l3 -1l3 -1l5 0l5 2l4 1l3 -1l6 -1l-1 -3l-3 -1l-4 -3l-3 -1l-3 -2l5 -3l2 -3l-5 1l-4 1l-3 1l5 2l-4 2l-4 1l-4 -2l4 -2l-5 -1l-3 -1l-3 4l-3 1l0 3l-3 3l1 3l3 1l-4 1l-3 2l-3 -2l-5 1l-3 1l2 3l2 4l-3 1l-3 1l-2 -4l-3 -3l-2 -4l0 -3l-5 -2l-4 -2l-3 -2l0 -3l-3 1l-4 -1l0 3l3 2l4 4l3 0l4 3l3 2l-5 -1l1 3l-3 4l0 -3l-2 -3l-4 -2l-3 -1l-5 -3l-2 -4l-4 -2l-3 2l-4 2l-5 -1l-4 1l0 3l-3 2l-3 1l-3 4l-1 3l-3 3l-5 2l-3 0l-3 2l-3 -3l-3 0l-3 0l0 -4l-2 -3l2 -4l-1 -3l-1 -3l4 -2l4 1l3 0l3 0l3 0l4 0l2 -7l-3 -3l-6 -3l3 -2l5 0l-1 -3l3 2l6 -3l3 -3l3 0l3 -5l4 -1l3 0l3 0l1 -3l-1 -3l0 -3l4 -1l3 -2l-1 3l-2 3l1 3l3 1l3 0l4 0l3 0l5 -1l3 -1l3 1l3 0l4 -2l0 -4l4 -3l4 2l1 -4l-3 0l4 -3l3 0l3 0l3 0l3 -1l-3 -1l-5 0l-5 1l-4 0l-4 -2l0 -3l0 -4l3 -2l6 -3l-2 -3l-5 1l-3 2l-4 4l-5 2l-2 4l5 4l-3 3l-3 0l-1 5l-2 3l-3 -1l-2 3l-3 0l-1 -3l-2 -3l-2 -4l-7 2l-4 0l-4 -1l-1 -3l-1 -7l3 -1l7 -3l6 -3l5 -3l6 -6l5 -2l8 -3l6 -2l4 1l5 -3l5 0l5 0l8 2l-3 1l3 1l3 -1l4 2l8 1l10 3l3 3l-4 1l-4 1l-12 -2l2 3l0 4l4 0l3 0l6 -1l3 0l4 -5l3 0l4 -1l-1 -3l6 -1l-2 3l6 1l7 -3l10 -3l4 1l6 0l4 -1l3 2l3 -2l-3 -2l10 0l4 1l10 3l-1 -3l-4 0l0 -4l5 -3l2 -3l9 0l-2 4l3 3l-1 4l3 2l-7 5l4 1l4 -2l3 -3l-1 -3l-3 0l2 -5l-4 -2l5 -2l3 0l1 3l4 -3l6 0l5 1l-3 -2l0 -3l5 -1l6 1l7 -1l-3 0l3 0l4 0l5 0l7 0l9 0l8 0l5 0l4 0l6 0l5 0l-4 0l6 0l4 0l8 0l6 0l-9 0l6 1l4 1l5 -1l9 0l13 2l6 -2l4 0l5 2l-1 3l4 2l4 1l3 -3l4 1l5 0l5 0l7 0l-2 -3l4 -1l25 2l9 4l11 -1l6 1l2 3l3 1l4 -1l5 0l5 1l6 -1l4 3l4 -1l-1 -3l9 1l5 -1l8 2l4 1zM220 91l3 3l-3 3l0 4l3 1l6 2l4 -1l0 -3l0 -3l-3 -3l3 -1l0 -3l-3 -1l-4 -3l-1 -3l1 -3l5 0l0 -3l-3 -1l-6 0l-4 2l-5 4l3 2l2 5zM818 14l-6 0l-6 -1l3 -1l4 0l3 1zM583 7l3 0l4 1l-3 1l-4 0zM832 13l4 0l3 2l2 4l3 -2l2 -3l0 -3l4 1l4 0l4 1l-2 3l1 3l-5 2l-4 1l-3 -1l-3 3l-4 4l-4 0l-3 1l-3 2l-3 2l-3 3l-2 3l0 3l4 0l2 3l5 1l5 2l3 1l5 2l3 1l5 0l3 0l-1 3l1 3l2 3l4 2l4 -3l-1 -5l2 -3l3 -2l1 -3l-1 -3l-4 -2l4 -3l-3 -7l7 1l3 0l5 0l3 2l6 1l1 6l4 2l4 -2l3 -3l4 1l4 4l3 3l2 4l3 1l4 1l3 3l3 2l1 3l-4 2l-5 1l-3 2l-5 0l-6 0l-4 0l-3 0l-6 3l-4 4l-3 3l7 -5l5 -2l5 0l-1 3l1 3l5 4l4 -1l3 -3l2 3l-3 2l-6 1l-3 2l-3 2l-2 -3l4 -2l-4 0l-3 0l-3 2l-3 1l-4 3l1 3l-4 2l-3 0l-3 2l-3 4l-1 3l-3 -3l0 3l1 3l1 4l-5 3l-3 2l-5 3l-3 3l0 4l1 3l2 3l1 3l0 3l-3 2l-3 -5l-2 -3l0 -3l-2 -3l-4 1l-4 -2l-3 1l-4 -1l-1 3l-4 1l-5 -1l-3 -1l-3 1l-5 3l-2 3l0 3l-1 3l0 6l0 3l1 3l3 4l4 2l3 0l3 0l3 -1l3 -3l1 -3l4 -1l3 0l1 3l-1 3l-1 3l-1 3l-1 3l3 1l3 0l3 -1l3 1l3 1l0 3l-1 3l0 4l1 4l3 3l3 1l3 -1l3 -1l3 1l3 2l3 -3l1 -3l3 -1l5 -2l3 -2l0 3l-1 3l0 3l1 -3l3 -3l4 0l4 2l3 0l4 2l5 -2l3 0l3 4l3 2l4 3l2 3l5 2l5 0l3 1l3 2l4 7l2 3l-2 3l5 0l0 3l6 -1l5 2l0 3l4 -1l5 2l4 0l4 2l4 3l4 1l2 4l0 7l-6 5l-1 3l-2 3l-2 7l0 4l-2 3l0 4l-3 4l0 3l-3 1l-3 1l-5 2l-5 2l-3 2l-2 3l0 3l-1 3l-2 3l-3 5l-3 2l-3 4l-3 3l-3 2l-4 -1l-4 -1l1 3l2 3l-3 5l-4 1l-6 1l-3 0l0 3l-1 3l-3 0l-4 0l3 3l-3 3l0 3l-3 2l-3 1l2 4l3 1l-4 2l-5 0l-3 0l-3 0l-4 0l-3 0l-4 0l2 -3l-4 -1l3 -2l1 -5l3 1l1 -6l-2 3l-1 -4l1 -5l0 -5l0 -3l3 -5l2 -4l1 -4l-1 -4l1 -3l0 -3l1 -4l1 -5l1 -6l1 -6l-1 -4l0 -4l-3 -2l-6 -4l-5 -3l-3 -4l-2 -4l-3 -6l-2 -5l-2 -3l-4 -3l-1 -4l3 -4l1 -3l-3 0l1 -3l1 -3l1 -3l3 -1l1 -3l3 -3l1 -3l-1 -3l0 -3l-3 -4l-3 -2l-1 4l-3 -1l-3 -1l-4 -1l-2 -3l-3 -1l-1 -3l-3 -3l-2 -3l-3 0l-3 -1l-4 -1l-3 -2l-3 -3l-4 -1l-3 1l-4 -1l-5 -1l-5 -2l-3 -2l-4 -1l-4 -3l-2 -3l1 -3l-2 -4l-3 -2l-2 -3l-4 -2l0 -3l-3 -2l-4 -3l-2 -3l-2 -4l-3 -2l-1 4l3 3l2 3l3 4l2 3l1 3l3 3l-4 -2l-3 -2l-1 -4l-3 -2l-3 -1l1 -3l-2 -3l-3 -2l-2 -4l-1 -3l-2 -3l-3 -1l-4 -1l-4 -5l-2 -4l-3 -4l-2 -3l0 -3l-1 -4l1 -3l1 -5l0 -4l-2 -3l4 0l2 3l0 -3l-1 -3l-6 -2l-7 -3l-1 -4l-3 -1l-4 -4l-2 -3l-3 -3l-4 -2l-1 -3l-3 0l-4 0l-3 -1l-6 -3l-3 0l-5 -1l-4 0l-5 -1l-3 -2l-3 1l-5 3l-5 1l1 -4l3 -1l-5 1l-5 4l-1 3l-3 1l-3 1l-5 3l-4 2l-5 1l-5 2l-4 0l5 -2l3 -2l3 0l6 -3l3 -3l-3 -2l-3 0l-5 1l-1 -3l-6 -1l-4 -2l-1 -4l3 -3l4 0l3 -1l4 -1l-5 -2l-3 0l-4 1l-4 -1l-5 -3l4 -1l6 -1l3 0l5 1l-5 -3l-5 -2l-4 -1l7 -2l3 -1l4 -3l8 -1l6 -2l5 1l3 1l5 0l4 1l8 1l6 0l5 0l5 1l3 0l5 1l4 1l3 0l3 -1l3 -1l4 0l4 -1l5 0l4 0l7 2l4 -2l3 1l5 0l4 1l7 1l3 0l3 0l4 2l-4 1l5 1l8 -1l5 1l3 -1l-3 -1l5 -1l5 0l3 2l3 -1l5 2l4 -1l4 0l6 -1l0 3l2 -3l4 -2l-3 -2l-4 -1l1 -3l3 -2l4 0l6 5l3 2zM766 2l5 1l4 1l3 -1l3 1l2 3l-1 -4l3 -1l6 2l2 4l5 2l5 1l-5 1l1 3l-5 -1l-5 -1l-3 1l-5 1l-9 0l-3 0l-6 -2l-6 -2l7 -1l3 1l4 -1l-5 -1l-6 1l-4 0l5 -3l-4 1l-5 -1l4 -3l7 -2l3 0zM793 2l-7 0l5 -1zM871 2l-5 1l-3 0l-4 -1l7 -1l5 1zM843 2l5 0l7 -1l4 3l6 1l8 0l4 1l6 1l3 2l6 1l3 1l-3 4l7 1l4 1l4 3l5 0l-6 5l-4 -1l-4 -3l-4 0l3 4l4 1l3 3l-5 2l-7 -3l4 3l3 2l-7 -1l-6 -1l-3 -2l-3 -2l-5 -1l-8 1l0 -3l5 0l6 0l0 -3l4 -2l-2 -3l-5 -1l-5 -1l-4 -2l-3 -1l-6 1l-10 -1l-6 -1l-4 0l-3 -2l-1 -3l2 -3l3 -1l7 0zM805 0l3 1l5 0l2 3l0 3l-5 1l-3 -1l-8 -3l5 0l-3 -2l4 -2zM482 2l-4 0l-6 0l6 -2l4 1zM824 3l-3 2l-3 0l-1 -3l4 -2l6 0l5 0l-4 3l-4 0zM749 7l-8 2l-7 -3l3 -3l-1 -3l10 0l4 0l7 0l5 1l-3 1l-7 2l-3 2zM243 9l-11 0l-5 -2l2 -4l6 -2l-3 0l7 -1l5 0l9 0l10 0l4 0l6 0l-10 0l-9 0l-8 0l-4 2l-5 3l6 4zM8 0l17 0l-5 0l-10 0zM6 0l8 0l6 0l6 0l14 0l8 0l-10 0l-10 0l6 0l-3 0l-3 0l-5 0l5 0l-5 0l4 1l-5 1l-4 0l3 2l-5 0l6 3l-4 3l-6 -3l-2 3l7 1l4 0l-7 2l-8 2zM998 16l-3 0l-3 1l-4 3l-6 2l-5 1l-4 1l-3 1l-1 4l-5 2l2 3l-3 5l-4 0l-4 -2l-6 0l-4 -5l-5 -3l-2 -4l-4 -3l-1 -3l3 -3l4 -1l2 -4l-3 1l-4 1l-4 -1l1 -3l3 0l6 1l-5 -2l-3 -1l-5 0l3 -3l-4 -3l-3 -1l-3 0l-8 0l-6 0l-7 0l-7 0l-3 0l-5 0l7 0l6 0l-12 0l-6 0l11 0l10 0l-7 0l3 0l9 0l4 0l6 0l8 0l9 0l3 0l7 0l7 0l4 0l6 0l-7 0l10 0l10 0l3 0l10 0z" fill="#1d3440" stroke="none"/>
+          <!-- direct routes (thin) -->
+          <g fill="none" stroke="#6fb6c9" stroke-width="1.3" opacity="0.75">
+            <path d="M82 63 Q240 30 390 150"/>
+            <path d="M187 50 Q300 55 390 150"/>
+            <path d="M473 106 Q438 116 390 150"/>
+            <path d="M435 102 Q408 120 390 150"/>
+            <path d="M400 144 L390 150"/>
+            <path d="M363 168 Q375 158 390 150"/>
+            <path d="M372 202 Q376 173 390 150"/>
+            <path d="M366 198 Q371 170 390 150"/>
+            <path d="M380 223 Q382 185 390 150"/>
+            <path d="M569 308 Q490 205 390 150"/>
+          </g>
+          <!-- one-stop from North America (dashed) -->
+          <g fill="none" stroke="#d4856a" stroke-width="1.6" stroke-dasharray="5 4" opacity="0.85">
+            <path d="M754 111 Q615 40 473 106"/>
+            <path d="M878 93 Q650 -14 435 102"/>
+          </g>
+          <!-- highlighted: direct from Australia -->
+          <g fill="none" stroke="#c4a265" stroke-width="2.8" stroke-linecap="round">
+            <path d="M503 300 Q485 210 390 150"/>
+            <path d="M486 310 Q450 220 390 150"/>
+          </g>
+          <!-- city dots -->
+          <g fill="#a8ccd7">
+            <circle cx="82" cy="63" r="2.6"/><circle cx="187" cy="50" r="2.6"/>
+            <circle cx="473" cy="106" r="2.6"/><circle cx="435" cy="102" r="2.6"/>
+            <circle cx="400" cy="144" r="2.6"/><circle cx="363" cy="168" r="2.6"/>
+            <circle cx="372" cy="202" r="2.6"/><circle cx="366" cy="198" r="2.6"/>
+            <circle cx="380" cy="223" r="2.6"/><circle cx="569" cy="308" r="2.6"/>
+          </g>
+          <g fill="#d4856a">
+            <circle cx="754" cy="111" r="2.8"/><circle cx="878" cy="93" r="2.8"/>
+          </g>
+          <g fill="#c4a265">
+            <circle cx="503" cy="300" r="3.6"/><circle cx="486" cy="310" r="3.6"/>
+          </g>
+          <!-- Haikou hub -->
+          <circle class="gh-pulse" cx="390" cy="150" r="9" fill="none" stroke="#c4a265" stroke-width="1.5"/>
+          <circle cx="390" cy="150" r="5.5" fill="#c4a265"/>
+          <circle cx="390" cy="150" r="2.4" fill="#0b1519"/>
+          <!-- labels -->
+          <g class="gh-svg-label" font-size="10" fill="#a8ccd7">
+            <text x="82" y="53" text-anchor="middle">London</text>
+            <text x="187" y="40" text-anchor="middle">Moscow</text>
+            <text x="481" y="103">Tokyo</text>
+            <text x="435" y="92" text-anchor="middle">Seoul</text>
+            <text x="409" y="141">Hong Kong</text>
+            <text x="355" y="165" text-anchor="end">Bangkok</text>
+            <text x="358" y="199" text-anchor="end">Kuala Lumpur</text>
+            <text x="366" y="215" text-anchor="end">Singapore</text>
+            <text x="388" y="230">Jakarta</text>
+            <text x="577" y="312">Auckland</text>
+          </g>
+          <g class="gh-svg-label" font-size="10.5" font-weight="700" fill="#dcc08b">
+            <text x="512" y="303">Sydney</text>
+            <text x="480" y="324" text-anchor="end">Melbourne</text>
+            <text x="475" y="232" font-weight="600" font-size="9.5" font-style="italic" fill="#c4a265">Hainan Airlines &#183; nonstop ~9 h</text>
+          </g>
+          <g class="gh-svg-label" font-size="10" fill="#e0a58c">
+            <text x="763" y="114">Los Angeles</text>
+            <text x="886" y="96">New York</text>
+            <text x="620" y="58" text-anchor="middle" font-style="italic" font-size="9.5">one stop in Asia</text>
+          </g>
+          <g class="gh-svg-label">
+            <text x="390" y="172" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.05em">HAIKOU &#183; HAK</text>
+            <text x="390" y="185" text-anchor="middle" font-size="9" fill="#a8ccd7">Riyue Bay Resort &#183; 90-min transfer</text>
+          </g>
+        </svg>
+      </div>
+      <div class="gh-legend">
+        <span><i class="gh-leg-au"></i>Nonstop from Australia &mdash; Hainan Airlines</span>
+        <span><i class="gh-leg-direct"></i>Nonstop international routes</span>
+        <span><i class="gh-leg-us"></i>From North America &mdash; one stop, then nonstop</span>
+      </div>
+      <div class="gh-cols">
+        <div class="gh-col gh-col--au">
+          <h4><span>Australia &amp; NZ</span>Nonstop to Haikou</h4>
+          <p>Hainan Airlines flies direct from <strong>Sydney (~9 h)</strong> and <strong>Melbourne (~9.5 h)</strong>, plus Auckland. Board after dinner, wake up on a tropical island &mdash; no connections, no layovers.</p>
+        </div>
+        <div class="gh-col gh-col--us">
+          <h4><span>USA &amp; Canada</span>One easy stop</h4>
+          <p>Fly to any major Asian hub &mdash; Tokyo, Seoul, Hong Kong, Singapore or Bangkok &mdash; then it&rsquo;s a short nonstop hop to Haikou. One booking, one stop, done.</p>
+        </div>
+        <div class="gh-col gh-col--asia">
+          <h4><span>Asia &amp; Europe</span>Nonstop to Haikou</h4>
+          <p>Direct flights from Hong Kong (~1 h), Bangkok, Singapore, Kuala Lumpur, Jakarta, Tokyo and Seoul &mdash; plus nonstop from London Heathrow and Moscow.</p>
+        </div>
+      </div>
+      <p class="gh-note"><strong>We meet you at arrivals.</strong> Every package includes airport pickup at Haikou Meilan (HAK) and the scenic 90-minute transfer to Riyue Bay. Flying into Sanya (SYX) works too.</p>
     </div>
   </section>
 
