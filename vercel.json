@@ -65,6 +65,18 @@
       "destination": "/pages/design-your-buyout.html"
     },
     {
+      "source": "/surf-calendar",
+      "destination": "/pages/surf-calendar.html"
+    },
+    {
+      "source": "/calendar",
+      "destination": "/pages/surf-calendar.html"
+    },
+    {
+      "source": "/wave-calendar",
+      "destination": "/pages/surf-calendar.html"
+    },
+    {
       "source": "/:slug.html",
       "destination": "/pages/:slug.html"
     }

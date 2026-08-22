@@ -791,6 +791,26 @@ nav.scrolled { padding: 0.7rem 0; }
 
 .rates-foot { text-align: center; margin: 3rem auto 0; max-width: 720px; }
 .rates-foot p { font-size: 0.86rem; color: var(--warm-gray); margin: 0 auto 1.6rem; line-height: 1.7; }
+.rates-foot__btns { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+/* Surf calendar teaser band (surf pool page) */
+.wp-calband { background: var(--sand); }
+.calband { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.calband__body h2 { margin-bottom: 1.1rem; }
+.calband__body p { font-size: 0.94rem; line-height: 1.75; color: var(--warm-gray); margin-bottom: 1rem; }
+.calband__body .btn { margin-top: 0.6rem; }
+.calband__peek { list-style: none; margin: 0; padding: 0; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 4px; overflow: hidden; }
+.calband__peek li { display: flex; align-items: center; gap: 0.9rem; padding: 0.78rem 1.1rem; border-bottom: 1px solid var(--sand); }
+.calband__peek li:last-child { border-bottom: none; }
+.calband__peek span { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--charcoal); min-width: 46px; }
+.cb { font-family: 'Montserrat', sans-serif; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; font-style: normal; padding: 0.22rem 0.5rem; border-radius: 2px; border: 1px solid; }
+.cb--b2 { background: #faf1dc; border-color: #e3ca92; color: #856327; }
+.cb--b4 { background: #e3f1f2; border-color: #a3d0d4; color: #1d666e; }
+.cb--i  { background: #e2edf4; border-color: #9fc3d6; color: #0a4d68; }
+.cb--a  { background: #fbe8e0; border-color: #eab9a5; color: #a04c2a; }
+@media (max-width: 860px) {
+  .calband { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 /* Reassurance */
 .reassurance {
@@ -2049,6 +2069,7 @@ footer::before {
       <div class="nav-dropdown">
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
+          <a href="/surf-calendar.html">Surf Calendar</a>
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
           <a href="#" onclick="event.preventDefault(); showPage('home'); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
           <a href="/how-to-get-here.html">Getting Here</a>
@@ -2072,6 +2093,7 @@ footer::before {
   <a href="#" onclick="showPage('packages'); toggleMobile();">Packages</a>
   <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/surf-calendar.html">Surf Calendar</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('rates'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Rates</a>
   <a href="#" onclick="event.preventDefault(); showPage('home'); toggleMobile(); setTimeout(function(){ var el = document.getElementById('explore-hainan'); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 400); return false;">Explore Hainan</a>
   <a href="/how-to-get-here.html">Getting Here</a>
@@ -2304,7 +2326,10 @@ footer::before {
 
       <div class="rates-foot">
         <p>Prices in CNY (Chinese yuan / RMB). We are a PerfectSwell&reg; Destination Partner &mdash; your sessions are booked through our surf park&rsquo;s own system, so the slot, the level and the wave setting are confirmed before you land. Rates move with the season; send us your dates and we&rsquo;ll confirm the exact figure.</p>
-        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+        <div class="rates-foot__btns">
+          <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+          <a href="/surf-calendar.html" class="btn btn-outline-dark btn-arrow">See the Surf Calendar </a>
+        </div>
       </div>
     </div>
   </section>
@@ -2782,6 +2807,28 @@ footer::before {
   </section>
 
 
+  <!-- SURF CALENDAR TEASER -->
+  <section class="wp-calband">
+    <div class="container">
+      <div class="calband">
+        <div class="calband__body">
+          <span class="overline">Surf Calendar</span>
+          <h2>Every session runs<br>one wave setting.</h2>
+          <p>The pool does not run every wave at once &mdash; each session is set to a single wave, and it changes hour by hour. Beginner settings through the middle of the day, advanced first thing in the morning or late at night, and a schedule that shifts between weekdays and weekends.</p>
+          <p>Check what is running on your dates before you commit to them.</p>
+          <a href="/surf-calendar.html" class="btn btn-primary btn-arrow">See the Surf Calendar </a>
+        </div>
+        <ul class="calband__peek" aria-hidden="true">
+          <li><span>08:30</span><em class="cb cb--a">A1 &middot; Advanced</em></li>
+          <li><span>10:30</span><em class="cb cb--b2">B2 &middot; Complete beginner</em></li>
+          <li><span>11:30</span><em class="cb cb--i">I1 &middot; Intermediate</em></li>
+          <li><span>13:30</span><em class="cb cb--b4">B4 &middot; Experienced beginner</em></li>
+          <li><span>14:30</span><em class="cb cb--i">I2 &middot; Intermediate</em></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- RATES BOARD (copy of the homepage board) -->
   <section class="rates-section" id="wp-rates">
     <div class="container">
@@ -2819,7 +2866,10 @@ footer::before {
 
       <div class="rates-foot">
         <p>Prices in CNY (Chinese yuan / RMB). We are a PerfectSwell&reg; Destination Partner &mdash; your sessions are booked through our surf park&rsquo;s own system, so the slot, the level and the wave setting are confirmed before you land. Rates move with the season; send us your dates and we&rsquo;ll confirm the exact figure.</p>
-        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+        <div class="rates-foot__btns">
+          <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+          <a href="/surf-calendar.html" class="btn btn-outline-dark btn-arrow">See the Surf Calendar </a>
+        </div>
       </div>
     </div>
   </section>

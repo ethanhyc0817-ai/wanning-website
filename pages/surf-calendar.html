@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<title>Surf Calendar — Which Wave Runs When | Surf China Co.</title>
+<meta name="description" content="The session-by-session wave calendar for the PerfectSwell&reg; surf pool at Riyue Bay, Hainan. See which wave setting runs at which hour from 24 September to 31 October 2026 — beginner, intermediate and advanced — and plan your trip around the waves you actually want.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.surfchina.co/surf-calendar.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Surf China Co.">
+<meta property="og:url" content="https://www.surfchina.co/surf-calendar.html">
+<meta property="og:title" content="Surf Calendar — Which Wave Runs When">
+<meta property="og:description" content="Every session, every wave setting, 24 September to 31 October 2026. Plan your Hainan surf trip around the waves you actually want.">
+<meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-twilight-01.jpg">
+<meta property="og:image:alt" content="The PerfectSwell&reg; surf pool at Riyue Bay at twilight">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Surf Calendar — Which Wave Runs When">
+<meta name="twitter:description" content="Every session, every wave setting, 24 September to 31 October 2026.">
+<meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-twilight-01.jpg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Surf Calendar — Which Wave Runs When",
+  "description": "Session-by-session wave setting schedule for the PerfectSwell® surf pool at Riyue Bay, Hainan, 24 September to 31 October 2026.",
+  "url": "https://www.surfchina.co/surf-calendar.html",
+  "isPartOf": { "@type": "WebSite", "name": "Surf China Co.", "url": "https://www.surfchina.co/" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Surf China Co.",
+    "url": "https://www.surfchina.co/",
+    "logo": { "@type": "ImageObject", "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png" }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is the surf pool closed until 24 September 2026?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The surf pool is closed from 25 August to 23 September 2026 for a scheduled experience upgrade, and reopens on Thursday 24 September 2026. Ocean surfing, golf and everything else in Wanning carries on as normal during that window." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is a surf session?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The session slot itself is 60 minutes: roughly 30 minutes of instruction on land, about 25 minutes surfing, and a short changeover. The full experience package runs 120 minutes — a 30-minute land warm-up, 60 minutes in and around the pool, and 30 minutes of poolside downtime." }
+    },
+    {
+      "@type": "Question",
+      "name": "How early should I arrive for a session?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Arrive at least 45 minutes before your session starts. That leaves time to collect tickets, change, pick up your board and equipment and warm up, so you do not miss your slot." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I surf the pro barrel and air settings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The pro settings do not run on the public calendar. They are available through a private session, where your group has the pool to itself and can request any wave setting, including the barrel and air waves." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the schedule change?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The surf pool is an outdoor venue and the operator can adjust or cancel sessions — for lightning, typhoon conditions or extreme heat, for example. We confirm your exact sessions with the park before you travel and again on the day." }
+    }
+  ]
+}
+</script>
+
+<!-- Favicon / app icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/Assets/icons/site.webmanifest">
+<meta name="theme-color" content="#0a4d68">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2rem, 5.5vw, 5rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; scroll-margin-top: 80px; }
+
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+.section-divider-center { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem auto 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+nav.scrolled { padding: 0.7rem 0; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
+}
+.nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
+.nav-logo-text { white-space: nowrap; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--charcoal); text-decoration: none;
+  transition: all 0.3s; position: relative;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-cta {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-cta {
+  display: none;
+  font-size: 0.7rem; padding: 0.5rem 0.95rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; transition: all 0.3s;
+  white-space: nowrap;
+}
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--charcoal); text-decoration: none; padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+/* Nav: 5 top-level links stop fitting below ~1010px — switch to the mobile menu there. */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 480px) {
+  .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-logo { font-size: 0.82rem; gap: 0.4rem; }
+  .nav-mobile-cta { font-size: 0.65rem; padding: 0.45rem 0.75rem; }
+}
+@media (max-width: 360px) {
+  .nav-logo-text { display: none; }
+}
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(2.5rem, 8vw, 6rem);
+  padding-top: clamp(2rem, 6vw, 4rem);
+  max-width: 860px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1rem; max-width: 18ch; }
+.page-hero-content .sub {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
+  max-width: 38ch;
+}
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: clamp(0.98rem, 1.6vw, 1.12rem); max-width: 580px; line-height: 1.65; }
+.hero-cta-row { margin-top: clamp(1.6rem, 3vw, 2.4rem); display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+/* ======= INTRO / STORY BLOCK ======= */
+.story { background: var(--sand); }
+.story h2 { margin-bottom: 1rem; max-width: 22ch; }
+.story p + p { margin-top: 1.2rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--charcoal); font-weight: 500; max-width: 720px; padding: 2rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin-top: 2.5rem; font-style: italic; }
+
+/* ======= FEATURED VIDEO ======= */
+.video-feature { background: var(--charcoal); color: var(--white); }
+.video-feature .overline { color: var(--gold); }
+.video-feature h2 { color: var(--white); max-width: 18ch; margin-bottom: 1.2rem; }
+.video-feature .section-divider { background: var(--gold); }
+.video-feature p { color: rgba(255,255,255,0.85); }
+.video-feature .lead { color: rgba(255,255,255,0.92); }
+.video-feature-intro { max-width: 720px; margin: 0 auto 3rem; text-align: center; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.video-feature-intro .section-divider { margin: 1.2rem auto 1.8rem; }
+.video-frame {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+}
+.video-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.video-frame .video-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000;
+}
+.video-frame video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.video-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+/* ======= SEASONS GRID ======= */
+.seasons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.season-card {
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  padding: clamp(2rem, 3vw, 2.6rem);
+  border-radius: 3px;
+  transition: all 0.4s var(--transition);
+}
+.season-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+.season-card .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.6rem; }
+.season-card h3 { margin-bottom: 1rem; }
+.season-card p { color: var(--warm-gray); font-size: 1rem; line-height: 1.7; }
+.season-card .points { list-style: none; margin-top: 1.4rem; padding: 0; }
+.season-card .points li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+.season-card .points li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65rem;
+  width: 8px; height: 1px;
+  background: var(--teal);
+}
+
+/* ======= WAVE-TYPE CARDS (3) ======= */
+.wave-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.wave-type-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  height: 460px;
+  background: var(--charcoal);
+}
+.wave-type-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--transition);
+  opacity: 0.92;
+}
+.wave-type-card:hover img { transform: scale(1.05); opacity: 0.85; }
+.wave-type-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+  padding: 2rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  color: var(--white);
+}
+.wave-type-overlay .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
+.wave-type-overlay h3 { color: var(--white); margin-bottom: 0.6rem; }
+.wave-type-overlay p { font-size: 0.92rem; color: rgba(255,255,255,0.88); max-width: none; line-height: 1.55; }
+
+/* ======= LOCAL KNOWLEDGE ======= */
+.local-knowledge { background: var(--sand); }
+.local-knowledge .knowledge-pull {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+  line-height: 1.4;
+  color: var(--ocean);
+  font-weight: 500;
+  font-style: italic;
+  max-width: 700px;
+  padding: 2rem 0;
+  border-top: 1px solid var(--sand-dark);
+  border-bottom: 1px solid var(--sand-dark);
+  margin: 2.5rem 0;
+}
+
+/* ======= LEVELS GRID (6 cards) ======= */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.level-card {
+  padding: clamp(1.8rem, 2.5vw, 2.2rem);
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+  border-radius: 3px;
+  transition: all 0.4s var(--transition);
+}
+.level-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+.level-card .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.6rem; }
+.level-card h3 { margin-bottom: 0.7rem; font-size: 1.2rem; }
+.level-card p { color: var(--warm-gray); font-size: 0.95rem; line-height: 1.7; max-width: none; }
+
+/* ======= SURF POOL + OCEAN SURF SPLIT ======= */
+.combo { background: var(--charcoal); color: var(--white); }
+.combo .overline { color: var(--gold); }
+.combo h2 { color: var(--white); max-width: 22ch; margin-bottom: 1.2rem; }
+.combo .section-divider { background: var(--gold); }
+.combo p { color: rgba(255,255,255,0.85); }
+.combo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+.combo-block {
+  padding: clamp(1.8rem, 2.6vw, 2.4rem);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+}
+.combo-block .label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.7rem; }
+.combo-block h3 { color: var(--white); margin-bottom: 0.9rem; }
+.combo-block p { color: rgba(255,255,255,0.82); font-size: 0.98rem; line-height: 1.7; max-width: none; }
+
+/* ======= MYSTERY / WHAT WE DON'T SHARE ======= */
+.mystery { background: var(--sand); }
+.mystery h2 { margin-bottom: 1rem; max-width: 22ch; }
+.mystery p + p { margin-top: 1.1rem; }
+
+/* ======= FAQ ======= */
+.faq-list { margin-top: 3rem; max-width: 860px; margin-left: auto; margin-right: auto; }
+.faq-item {
+  border-bottom: 1px solid var(--sand-dark);
+  padding: 1.6rem 0;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+  color: var(--charcoal);
+  line-height: 1.4;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--teal);
+  transition: transform 0.3s var(--transition);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { content: '\2013'; }
+.faq-item p {
+  color: var(--warm-gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+  max-width: none;
+}
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 680px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.9); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 1000px) {
+  .seasons-grid { grid-template-columns: 1fr; }
+  .wave-types-grid { grid-template-columns: 1fr; }
+  .wave-type-card { height: 380px; }
+  .levels-grid { grid-template-columns: repeat(2, 1fr); }
+  .combo-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .video-pair { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .levels-grid { grid-template-columns: 1fr; }
+  .page-hero { min-height: 560px; }
+  .page-hero .hero-bg::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.3) 100%);
+  }
+  .page-hero-content h1 { max-width: 100%; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   SURF CALENDAR
+   ============================================================ */
+
+:root {
+  /* Level ramp: warm sand -> teal -> ocean -> rust -> ink.
+     Reads as a progression, and stays inside the site palette. */
+  --lv-b2-bg: #faf1dc; --lv-b2-br: #e3ca92; --lv-b2-ink: #856327; --lv-b2-dot: #c4a265;
+  --lv-b4-bg: #e3f1f2; --lv-b4-br: #a3d0d4; --lv-b4-ink: #1d666e; --lv-b4-dot: #2d8a94;
+  --lv-i-bg:  #e2edf4; --lv-i-br:  #9fc3d6; --lv-i-ink:  #0a4d68; --lv-i-dot:  #1a7a9b;
+  --lv-a-bg:  #fbe8e0; --lv-a-br:  #eab9a5; --lv-a-ink:  #a04c2a; --lv-a-dot:  #d4856a;
+  --lv-p-bg:  #22252b; --lv-p-br:  #3d424c; --lv-p-ink:  #e2c98d; --lv-p-dot:  #c4a265;
+}
+
+/* --- status banner ---------------------------------------- */
+.cal-status {
+  background: var(--ocean); color: var(--white);
+  padding: 0.9rem clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: center; gap: 0.9rem;
+  flex-wrap: wrap; text-align: center;
+}
+.cal-status__dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: 0 0 8px;
+  box-shadow: 0 0 0 0 rgba(196,162,101,0.7); animation: calPulse 2.6s infinite;
+}
+@keyframes calPulse {
+  0% { box-shadow: 0 0 0 0 rgba(196,162,101,0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(196,162,101,0); }
+  100% { box-shadow: 0 0 0 0 rgba(196,162,101,0); }
+}
+.cal-status p { font-size: 0.86rem; line-height: 1.5; margin: 0; color: rgba(255,255,255,0.92); }
+.cal-status strong { color: var(--white); font-weight: 600; }
+
+/* --- section intro ---------------------------------------- */
+.cal-intro { text-align: center; max-width: 720px; margin: 0 auto 2.6rem; }
+.cal-intro p.lead { margin: 0 auto; }
+
+/* --- month switch ----------------------------------------- */
+.cal-months { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.4rem; }
+.cal-month-btn {
+  font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--warm-gray);
+  background: transparent; border: 1px solid var(--sand-dark); border-radius: 999px;
+  padding: 0.5rem 1.2rem; cursor: pointer; transition: all 0.25s var(--transition);
+}
+.cal-month-btn:hover { border-color: var(--ocean); color: var(--ocean); }
+.cal-month-btn[aria-selected="true"] { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+
+/* --- date strip ------------------------------------------- */
+.cal-strip-wrap { position: relative; }
+.cal-strip {
+  display: flex; gap: 0.5rem; overflow-x: auto; scroll-snap-type: x proximity;
+  padding: 0.3rem 0.2rem 1rem; scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+}
+.cal-strip::-webkit-scrollbar { height: 4px; }
+.cal-strip::-webkit-scrollbar-thumb { background: var(--sand-dark); border-radius: 2px; }
+.cal-day {
+  flex: 0 0 auto; scroll-snap-align: center; width: 62px; padding: 0.6rem 0.2rem 0.65rem;
+  border: 1px solid var(--sand-dark); border-radius: 4px; background: var(--white);
+  cursor: pointer; text-align: center; transition: all 0.2s var(--transition); position: relative;
+}
+.cal-day:hover:not(:disabled) { border-color: var(--ocean-light); transform: translateY(-2px); }
+.cal-day__dow { display: block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--warm-gray); }
+.cal-day__num { display: block; font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--charcoal); line-height: 1.25; }
+.cal-day__mon { display: block; font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--warm-gray); }
+.cal-day[aria-pressed="true"] { background: var(--ocean); border-color: var(--ocean); }
+.cal-day[aria-pressed="true"] .cal-day__dow,
+.cal-day[aria-pressed="true"] .cal-day__num,
+.cal-day[aria-pressed="true"] .cal-day__mon { color: var(--white); }
+.cal-day--today::after {
+  content: ''; position: absolute; left: 50%; bottom: 5px; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%; background: var(--gold);
+}
+.cal-day--holiday .cal-day__num { color: var(--coral); }
+.cal-day[aria-pressed="true"].cal-day--holiday .cal-day__num { color: var(--gold); }
+
+/* --- day panel -------------------------------------------- */
+.cal-panel {
+  border: 1px solid var(--sand-dark); border-radius: 4px; background: var(--white);
+  overflow: hidden; margin-top: 0.4rem;
+}
+.cal-panel__head {
+  padding: 1.3rem clamp(1.1rem, 3vw, 1.9rem);
+  border-bottom: 1px solid var(--sand-dark); background: var(--sand);
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.cal-panel__date { font-family: 'Montserrat', sans-serif; font-size: 1.12rem; font-weight: 700; color: var(--charcoal); letter-spacing: -0.01em; }
+.cal-panel__meta { font-size: 0.79rem; color: var(--warm-gray); letter-spacing: 0.03em; }
+.cal-panel__meta strong { color: var(--ocean); font-weight: 600; }
+.cal-sessions { list-style: none; margin: 0; padding: 0; }
+.cal-sess {
+  display: grid; grid-template-columns: 116px 1fr auto; align-items: center; gap: 1rem;
+  padding: 0.85rem clamp(1.1rem, 3vw, 1.9rem); border-bottom: 1px solid var(--sand);
+  transition: background 0.18s;
+}
+.cal-sess:last-child { border-bottom: none; }
+.cal-sess:hover { background: #fcfbf8; }
+.cal-sess__time { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--charcoal); white-space: nowrap; }
+.cal-foot {
+  padding: 0.9rem clamp(1.1rem, 3vw, 1.9rem); background: var(--sand);
+  border-top: 1px solid var(--sand-dark); font-size: 0.78rem; line-height: 1.6; color: var(--warm-gray);
+}
+.cal-sess__wave { min-width: 0; }
+.cal-sess__name { font-size: 0.95rem; font-weight: 600; color: var(--charcoal); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.cal-sess__sub { font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.15rem; }
+.cal-sess__link {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ocean); text-decoration: none; white-space: nowrap; border-bottom: 1px solid transparent;
+}
+.cal-sess__link:hover { border-bottom-color: var(--ocean); }
+
+/* level chip, shared by the day list and the legend */
+.lv {
+  display: inline-flex; align-items: center; gap: 0.34rem;
+  font-family: 'Montserrat', sans-serif; font-size: 0.64rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem;
+  border-radius: 2px; border: 1px solid transparent; white-space: nowrap;
+}
+.lv--b2 { background: var(--lv-b2-bg); border-color: var(--lv-b2-br); color: var(--lv-b2-ink); }
+.lv--b4 { background: var(--lv-b4-bg); border-color: var(--lv-b4-br); color: var(--lv-b4-ink); }
+.lv--i  { background: var(--lv-i-bg);  border-color: var(--lv-i-br);  color: var(--lv-i-ink); }
+.lv--a  { background: var(--lv-a-bg);  border-color: var(--lv-a-br);  color: var(--lv-a-ink); }
+.lv--p  { background: var(--lv-p-bg);  border-color: var(--lv-p-br);  color: var(--lv-p-ink); }
+
+.cal-empty { padding: 2.6rem 1.9rem; text-align: center; color: var(--warm-gray); font-size: 0.92rem; line-height: 1.7; }
+.cal-empty strong { color: var(--charcoal); display: block; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+/* --- legend ----------------------------------------------- */
+.cal-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: 1rem; margin-top: 2.4rem; }
+.lg-card {
+  border: 1px solid var(--sand-dark); border-radius: 4px; background: var(--white);
+  padding: 1.2rem 1.25rem; border-top: 3px solid var(--sand-dark);
+  display: flex; flex-direction: column;
+}
+.lg-card--b2 { border-top-color: var(--lv-b2-dot); }
+.lg-card--b4 { border-top-color: var(--lv-b4-dot); }
+.lg-card--i  { border-top-color: var(--lv-i-dot); }
+.lg-card--a  { border-top-color: var(--lv-a-dot); }
+.lg-card--p  { border-top-color: var(--lv-p-dot); background: var(--lv-p-bg); border-color: #33373f; }
+.lg-card__top { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.7rem; flex-wrap: wrap; }
+.lg-card__name { font-family: 'Montserrat', sans-serif; font-size: 1.02rem; font-weight: 700; color: var(--charcoal); }
+.lg-card--p .lg-card__name { color: #f3ece0; }
+.lg-card__desc { font-size: 0.85rem; line-height: 1.62; color: var(--warm-gray); margin-bottom: 0.9rem; flex: 1; }
+.lg-card--p .lg-card__desc { color: #a9a49c; }
+.lg-card__facts { list-style: none; margin: 0 0 0.9rem; padding: 0.75rem 0 0; border-top: 1px solid var(--sand); display: grid; gap: 0.32rem; }
+.lg-card--p .lg-card__facts { border-top-color: #33373f; }
+.lg-card__facts li { display: flex; justify-content: space-between; gap: 0.7rem; font-size: 0.76rem; }
+.lg-card__facts span:first-child { color: var(--warm-gray); letter-spacing: 0.03em; }
+.lg-card__facts span:last-child { color: var(--charcoal); font-weight: 600; text-align: right; }
+.lg-card--p .lg-card__facts span:first-child { color: #8c877f; }
+.lg-card--p .lg-card__facts span:last-child { color: #e2c98d; }
+.lg-card__link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ocean); text-decoration: none; }
+.lg-card__link:hover { text-decoration: underline; }
+.lg-card--p .lg-card__link { color: var(--gold); }
+
+/* --- full grid -------------------------------------------- */
+.cal-grid-wrap {
+  margin-top: 2rem; border: 1px solid var(--sand-dark); border-radius: 4px;
+  background: var(--white); overflow: hidden;
+}
+.cal-grid-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cal-grid-scroll::-webkit-scrollbar { height: 8px; }
+.cal-grid-scroll::-webkit-scrollbar-thumb { background: var(--sand-dark); border-radius: 4px; }
+table.cal-grid { border-collapse: separate; border-spacing: 0; font-family: 'Inter', sans-serif; }
+table.cal-grid th, table.cal-grid td { padding: 0; }
+table.cal-grid thead th {
+  position: sticky; top: 0; z-index: 3; background: var(--ocean); color: var(--white);
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.03em; text-align: center;
+  padding: 0.5rem 0.15rem; min-width: 40px; border-right: 1px solid rgba(255,255,255,0.1);
+}
+table.cal-grid thead th .gd-dow { display: block; font-size: 0.54rem; font-weight: 400; opacity: 0.65; letter-spacing: 0.05em; text-transform: uppercase; }
+table.cal-grid thead th.gd-holiday { background: #8f3f2a; }
+table.cal-grid th.gd-time {
+  position: sticky; left: 0; z-index: 4; background: var(--ocean);
+  min-width: 104px; text-align: left; padding-left: 0.75rem; font-size: 0.66rem;
+}
+table.cal-grid tbody th.gd-time {
+  position: sticky; left: 0; z-index: 2; background: var(--sand); color: var(--charcoal);
+  font-size: 0.7rem; font-weight: 600; text-align: left; padding: 0.3rem 0.75rem;
+  border-right: 1px solid var(--sand-dark); border-bottom: 1px solid var(--white); white-space: nowrap;
+}
+table.cal-grid tbody td { border-right: 1px solid var(--white); border-bottom: 1px solid var(--white); background: #fbfaf7; }
+.gc {
+  display: block; text-align: center; font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.02em; padding: 0.34rem 0.1rem;
+}
+.gc--b2 { background: var(--lv-b2-bg); color: var(--lv-b2-ink); }
+.gc--b4 { background: var(--lv-b4-bg); color: var(--lv-b4-ink); }
+.gc--i  { background: var(--lv-i-bg);  color: var(--lv-i-ink); }
+.gc--a  { background: var(--lv-a-bg);  color: var(--lv-a-ink); }
+table.cal-grid td.gd-col-sel { box-shadow: inset 2px 0 0 var(--gold), inset -2px 0 0 var(--gold); }
+table.cal-grid thead th.gd-col-sel { background: var(--gold); color: #2a2110; }
+.cal-grid-foot {
+  padding: 0.85rem clamp(1rem, 3vw, 1.5rem); border-top: 1px solid var(--sand-dark);
+  background: var(--sand); font-size: 0.75rem; color: var(--warm-gray); line-height: 1.6;
+}
+.cal-grid-hint { display: none; }
+@media (max-width: 900px) { .cal-grid-hint { display: block; } }
+
+/* --- how a session works ---------------------------------- */
+.cal-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }
+.flow-step { position: relative; padding-top: 1.5rem; border-top: 2px solid var(--sand-dark); }
+.flow-step__num { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem; }
+.flow-step h3 { font-size: 1.02rem; margin-bottom: 0.45rem; color: var(--charcoal); }
+.flow-step p { font-size: 0.87rem; line-height: 1.65; color: var(--warm-gray); }
+
+/* --- notice cards ----------------------------------------- */
+.cal-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.1rem; margin-top: 2.4rem; }
+.note-card { background: var(--white); border: 1px solid var(--sand-dark); border-left: 3px solid var(--gold); border-radius: 3px; padding: 1.15rem 1.3rem; }
+.note-card h3 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.55rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+.note-card p { font-size: 0.86rem; line-height: 1.65; color: var(--warm-gray); }
+
+/* --- responsive ------------------------------------------- */
+@media (max-width: 640px) {
+  .cal-sess { grid-template-columns: 92px 1fr; gap: 0.7rem; row-gap: 0.3rem; }
+  .cal-sess__link { grid-column: 2; justify-self: start; }
+  .cal-sess__time { font-size: 0.83rem; }
+  .cal-day { width: 56px; }
+  .cal-panel__head { padding: 1.1rem 1.1rem; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+</style>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Surf China Co. — home">
+      <svg class="nav-logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#0a4d68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#0a4d68" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Surf China Co.</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#wavepool">Surf Pool</a>
+      <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/surf-calendar.html">Surf Calendar</a>
+          <a href="/#rates">Rates</a>
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/blog.html">Blog</a>
+        </div>
+      </div>
+      <a href="/design-your-buyout.html" class="nav-buyout">Private Buyout</a>
+      <a href="/#contact" class="nav-cta">Book Now</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/#contact" class="nav-mobile-cta">Book Now</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <a href="/#wavepool">Surf Pool</a>
+  <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
+  <a href="/#packages">Packages</a>
+  <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/surf-calendar.html">Surf Calendar</a>
+  <a href="/#rates">Rates</a>
+  <a href="/#explore-hainan">Explore Hainan</a>
+  <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/#contact">Book Now</a>
+</div>
+
+<!-- 1. HERO -->
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="/Assets/wavepool/wavepool-aerial-twilight-01.jpg" alt="The PerfectSwell&reg; surf pool at Riyue Bay at twilight">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Surf Calendar &middot; Sep &ndash; Oct 2026</span>
+    <h1>Know which wave is running before you book.</h1>
+    <div class="sub">Riyue Bay, Hainan</div>
+    <p>Every session at the PerfectSwell&reg; Surf Pool runs one wave setting, and the setting changes hour by hour. This is the published schedule &mdash; so you can pick the days and the hours that actually match how you surf.</p>
+  </div>
+</section>
+
+<!-- 2. STATUS BANNER -->
+<div class="cal-status" id="calStatus">
+  <span class="cal-status__dot" aria-hidden="true"></span>
+  <p id="calStatusText">Loading the current schedule&hellip;</p>
+</div>
+
+<!-- 3. DAY VIEW -->
+<section id="calendar">
+  <div class="container">
+    <div class="cal-intro">
+      <span class="overline">Pick a Day</span>
+      <h2>What&rsquo;s running, hour by hour.</h2>
+      <div class="section-divider-center"></div>
+      <p class="lead">Choose a date to see every session that day and which wave setting each one runs.</p>
+    </div>
+
+    <div class="cal-months" role="tablist" aria-label="Month">
+      <button type="button" class="cal-month-btn" role="tab" data-month="2026-09" aria-selected="false">September</button>
+      <button type="button" class="cal-month-btn" role="tab" data-month="2026-10" aria-selected="false">October</button>
+    </div>
+
+    <div class="cal-strip-wrap">
+      <div class="cal-strip" id="calStrip" role="group" aria-label="Select a date"></div>
+    </div>
+
+    <div class="cal-panel">
+      <div class="cal-panel__head">
+        <span class="cal-panel__date" id="calPanelDate"></span>
+        <span class="cal-panel__meta" id="calPanelMeta"></span>
+      </div>
+      <ul class="cal-sessions" id="calSessions"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. THE WAVE SETTINGS -->
+<section style="background: var(--sand);" id="settings">
+  <div class="cal-intro container">
+    <span class="overline">The Settings</span>
+    <h2>Six settings on the calendar.<br>Three more on request.</h2>
+    <div class="section-divider-center"></div>
+    <p class="lead">Each setting is a different wave &mdash; a different shape, a different speed, a different board under your feet. Here is what the codes on the calendar mean.</p>
+  </div>
+  <div class="container">
+    <div class="cal-legend" id="calLegend"></div>
+  </div>
+</section>
+
+<!-- 5. FULL GRID -->
+<section id="grid">
+  <div class="cal-intro container">
+    <span class="overline">The Full Board</span>
+    <h2>The whole season<br>on one screen.</h2>
+    <div class="section-divider-center"></div>
+    <p class="lead">The complete published schedule, 24 September to 31 October 2026. Useful if you are choosing your travel dates around a particular wave.</p>
+  </div>
+  <div class="container">
+    <div class="cal-grid-wrap">
+      <div class="cal-grid-scroll" id="calGridScroll">
+        <table class="cal-grid" id="calGrid">
+          <caption class="sr-only">Wave setting by session and date, 24 September to 31 October 2026</caption>
+        </table>
+      </div>
+      <div class="cal-grid-foot">
+        <span class="cal-grid-hint">Swipe the table sideways to see later dates. &nbsp;&middot;&nbsp; </span>
+        Times shown are session slots. Blank means no session at that hour on that day &mdash; opening hours shift between weekdays and weekends.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. HOW A SESSION WORKS -->
+<section style="background: var(--sand);">
+  <div class="cal-intro container">
+    <span class="overline">How It Runs</span>
+    <h2>What two hours<br>at the pool looks like.</h2>
+    <div class="section-divider-center"></div>
+    <p class="lead">A session is not just the time you spend in the water. Here is how the operator builds the slot &mdash; and why you should get there early.</p>
+  </div>
+  <div class="container">
+    <div class="cal-flow">
+      <div class="flow-step">
+        <span class="flow-step__num">Before &middot; 45 min</span>
+        <h3>Arrive early</h3>
+        <p>Come at least 45 minutes before your session. Tickets, changing, wetsuit and board pick-up all happen before the clock starts &mdash; leave yourself the room and you will not miss the slot.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">01 &middot; 30 min</span>
+        <h3>Warm-up on land</h3>
+        <p>Stretch, a briefing, and a run through what you are about to try on the wave that is running. Your coach sets the plan for the session here.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">02 &middot; 60 min</span>
+        <h3>In the water</h3>
+        <p>Your hour at the pool, on that hour&rsquo;s setting, with a short changeover between rotations. This is the block shown on the calendar.</p>
+      </div>
+      <div class="flow-step">
+        <span class="flow-step__num">03 &middot; 30 min</span>
+        <h3>Poolside</h3>
+        <p>Cool down, soak, watch the next rotation go, and talk through what worked. The best coaching conversations tend to happen here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. GOOD TO KNOW -->
+<section>
+  <div class="cal-intro container">
+    <span class="overline">Good to Know</span>
+    <h2>Before you build<br>your trip around it.</h2>
+    <div class="section-divider-center"></div>
+  </div>
+  <div class="container">
+    <div class="cal-notes">
+      <div class="note-card">
+        <h3>Schedules can move</h3>
+        <p>The surf pool is outdoors. The operator can adjust or cancel sessions &mdash; lightning, typhoon conditions or extreme heat will close the park. We confirm your exact sessions before you travel, and again on the day.</p>
+      </div>
+      <div class="note-card">
+        <h3>Staying at the resort helps</h3>
+        <p>Guests staying at the surf pool resort get their own booking window on each session. If a particular wave matters to you, staying on site is the simplest way to get on it.</p>
+      </div>
+      <div class="note-card">
+        <h3>Pro waves are private</h3>
+        <p>The barrel and air settings do not appear on the public calendar. They run in private sessions, where your group has the pool to itself and picks the setting.</p>
+      </div>
+      <div class="note-card">
+        <h3>We book it for you</h3>
+        <p>You do not need to work the calendar alone. Tell us your dates and your level, and we will line up the sessions that suit you and hold them as part of your trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section style="background: var(--sand);">
+  <div class="container">
+    <div style="text-align:center; max-width: 680px; margin: 0 auto;">
+      <span class="overline">Frequently Asked</span>
+      <h2>Questions about<br>the calendar.</h2>
+      <div class="section-divider-center"></div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Why is the surf pool closed until 24 September 2026?</summary>
+        <p>The pool is closed from 25 August to 23 September 2026 for a scheduled experience upgrade, and reopens on Thursday 24 September. Ocean surfing, golf, and everything else in Wanning carries on as normal in that window &mdash; a lot of guests use it as an ocean-surf trip instead.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long is a session?</summary>
+        <p>The slot on the calendar is 60 minutes: about 30 minutes of instruction on land, around 25 minutes surfing, and a short changeover. The full experience package around it runs 120 minutes &mdash; a 30-minute land warm-up, the hour at the pool, and 30 minutes of poolside downtime.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I do more than one session a day?</summary>
+        <p>Yes, and most guests who are here to progress do exactly that &mdash; commonly a beginner or intermediate setting during the day and a harder one in the evening. Tell us how many sessions a day you want and we will build the days around it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if the setting I want is not running on my dates?</summary>
+        <p>Book a private session. Your group takes the whole pool for the hour and chooses the setting &mdash; including the pro barrel and air waves that never appear on the public schedule.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is this the same schedule the park publishes?</summary>
+        <p>Yes. This is the operator&rsquo;s published wave calendar for September and October 2026, laid out so it is readable on a phone. The park is the source of truth, and we re-confirm with them before every booking.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img src="/Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" alt="The surf pool lit up at night">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Plan Around the Waves</span>
+    <h2>Tell us how you surf.<br>We&rsquo;ll pick the sessions.</h2>
+    <p>Send us your dates and your level and we will map them onto this calendar &mdash; which sessions to take, how many a day, and when to book a private hour instead.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="/#contact" class="btn btn-primary btn-arrow">Ask About Your Dates </a>
+      <a href="/design-your-buyout.html" class="btn btn-outline btn-arrow">Design a Private Buyout </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Mobile nav toggle
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  // Shrink nav on scroll
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('nav');
+    if (n) n.classList.toggle('scrolled', window.scrollY > 80);
+  });
+</script>
+
+<script>
+/* ============================================================================
+   SURF CALENDAR — Sep/Oct 2026
+   ----------------------------------------------------------------------------
+   One data model drives the day view, the settings legend and the full grid.
+   When the park publishes the next calendar, edit SEASON + PATTERNS and the
+   whole page follows.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  // --- The published slots. Each is a 90-minute block; the hour reserved for
+  //     resort guests is the last 60 minutes of it.
+  var SLOTS = [
+    ['08:30', '10:00'], ['09:30', '11:00'], ['10:30', '12:00'], ['11:30', '13:00'],
+    ['12:30', '14:00'], ['13:30', '15:00'], ['14:30', '16:00'], ['15:30', '17:00'],
+    ['16:30', '18:00'], ['17:30', '19:00'], ['18:30', '20:00'], ['19:30', '21:00'],
+    ['20:30', '22:00']
+  ];
+
+  // --- Wave settings. `tier` drives colour; `href` deep-links into the
+  //     single-page site's level detail pages.
+  var SETTINGS = {
+    B2: { code: 'B2', name: 'Shmee', tier: 'b2', level: 'Complete beginner', board: 'Longboard',
+          shape: 'Splits left and right', href: '/#session-learn',
+          desc: 'The softest wave in the pool and the one nearly everybody starts on. It peels both ways off the peak, so there is room to stand up, fall off, and go again without anything coming at you fast.' },
+    B4: { code: 'B4', name: 'Malibu', tier: 'b4', level: 'Experienced beginner', board: 'Longboard',
+          shape: 'One direction', href: '/#session-beginner',
+          desc: 'A step up from Shmee once you can stand and trim. Still friendly, but with a real shoulder to ride along instead of just white water — the setting where most people catch their first proper wave.' },
+    I1: { code: 'I1', name: 'Nose Rider', tier: 'i', level: 'Intermediate', board: 'Longboard',
+          shape: 'One direction', href: '/#session-intermediate',
+          desc: 'A long, mellow wall built for longboarding — cross-stepping, hang fives, hang tens. If you came to log, this is your hour.' },
+    I2: { code: 'I2', name: 'Jetty', tier: 'i', level: 'Intermediate', board: 'Shortboard',
+          shape: 'One direction', href: '/#session-intermediate',
+          desc: 'Clean, makeable walls you can actually draw a line on. The best setting in the pool for stringing turns together and dialling in intermediate progressions.' },
+    A1: { code: 'A1', name: 'Stock Stack', tier: 'a', level: 'Advanced', board: 'Long or shortboard',
+          shape: 'One direction', href: '/#session-advanced',
+          desc: 'Where the calendar gets serious. A faster, more demanding wall that rewards commitment off the bottom — and works on either a log or a shortboard.' },
+    A2: { code: 'A2', name: 'Lowers', tier: 'a', level: 'Advanced', board: 'Shortboard',
+          shape: 'One direction', href: '/#session-advanced',
+          desc: 'Punchier again, with more sections to work through in a single ride. Named after the wave every shortboarder wants to surf, and it earns the name.' }
+  };
+
+  // Pro settings never appear on the public calendar — private sessions only.
+  var PRO = [
+    { code: 'A3', name: 'MGO', level: 'Advanced', board: 'Shortboard', href: '/#session-private',
+      desc: 'An advanced setting held back from the public schedule. Available when your group takes the pool privately.' },
+    { code: 'P-A', name: 'Highball', level: 'Pro &middot; air section', board: 'Shortboard', href: '/#session-air',
+      desc: 'A quick take-off, an open face to build speed and a clean ramp to finish on — the setting to work your air game.' },
+    { code: 'P-B', name: 'Drainer', level: 'Pro &middot; barrel', board: 'Shortboard', href: '/#session-barrel',
+      desc: 'The barrel setting. Nothing on the public calendar comes close, and it only runs for a private group.' }
+  ];
+
+  // --- Which slots run on which kind of day.
+  //     Index-aligned with SLOTS; null means no session at that hour.
+  var PATTERNS = {
+    // 24 Sep – 11 Oct: reopening run plus the National Day holiday. Full board.
+    peak:    ['A1', 'A2', 'B2', 'I1', 'B2', 'B4', 'I2', 'B2', 'B4', 'I2', 'B2', 'B4', 'B4'],
+    // Fri + Sat: early start, advanced first thing, last session at 18:30.
+    weekend: ['A1', 'A2', 'B2', 'I1', 'B2', 'B4', 'I2', 'B2', 'B4', 'I2', 'B4', null, null],
+    // Sun – Thu: later start, advanced held back to the end of the night.
+    weekday: [null, null, 'B2', 'I1', 'B2', 'B4', 'I2', 'B2', 'B4', 'I2', 'B4', 'A1', 'A2']
+  };
+
+  var SEASON      = { from: '2026-09-24', to: '2026-10-31' };
+  var PEAK_UNTIL  = '2026-10-11';
+  var CLOSED      = { from: '2026-08-25', to: '2026-09-23' };
+  var HOLIDAY     = { from: '2026-10-01', to: '2026-10-07', name: 'National Day' };
+
+  // --- date helpers (all local, no timezone surprises) ----------------------
+  var DOW   = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var DOWL  = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var MON   = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONL  = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function parseYmd(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function ymd(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function eachDay(fromStr, toStr) {
+    var out = [], d = parseYmd(fromStr), end = parseYmd(toStr);
+    while (d <= end) { out.push(ymd(d)); d.setDate(d.getDate() + 1); }
+    return out;
+  }
+  function plus30(hhmm) {
+    var p = hhmm.split(':'), m = (+p[0]) * 60 + (+p[1]) + 30;
+    return String(Math.floor(m / 60) % 24).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+  }
+  function isHoliday(s) { return s >= HOLIDAY.from && s <= HOLIDAY.to; }
+
+  function dayType(s) {
+    if (s < SEASON.from) return 'closed';
+    if (s > SEASON.to)   return 'unpublished';
+    if (s <= PEAK_UNTIL) return 'peak';
+    var dow = parseYmd(s).getDay();
+    return (dow === 5 || dow === 6) ? 'weekend' : 'weekday';
+  }
+
+  function sessionsFor(s) {
+    var pat = PATTERNS[dayType(s)];
+    if (!pat) return [];
+    var out = [];
+    for (var i = 0; i < SLOTS.length; i++) {
+      if (pat[i]) out.push({ slot: SLOTS[i], set: SETTINGS[pat[i]] });
+    }
+    return out;
+  }
+
+  var DAYS = eachDay(SEASON.from, SEASON.to);
+  var TODAY = ymd(new Date());
+
+  // --- state ---------------------------------------------------------------
+  var selected = (function () {
+    var q = new URLSearchParams(window.location.search).get('date');
+    if (q && DAYS.indexOf(q) !== -1) return q;
+    if (DAYS.indexOf(TODAY) !== -1) return TODAY;
+    return TODAY > SEASON.to ? DAYS[DAYS.length - 1] : DAYS[0];
+  })();
+
+  var elStrip    = document.getElementById('calStrip');
+  var elPanelDay = document.getElementById('calPanelDate');
+  var elPanelMet = document.getElementById('calPanelMeta');
+  var elSessions = document.getElementById('calSessions');
+  var elLegend   = document.getElementById('calLegend');
+  var elGrid     = document.getElementById('calGrid');
+  var elStatus   = document.getElementById('calStatusText');
+  var monthBtns  = Array.prototype.slice.call(document.querySelectorAll('.cal-month-btn'));
+
+  // --- status banner -------------------------------------------------------
+  (function renderStatus() {
+    var d = parseYmd(SEASON.from);
+    var reopen = DOWL[d.getDay()] + ' ' + d.getDate() + ' ' + MONL[d.getMonth()];
+    if (TODAY < CLOSED.from) {
+      var days = Math.round((d - parseYmd(TODAY)) / 86400000);
+      elStatus.innerHTML = 'The surf pool closes <strong>25 August</strong> for a scheduled upgrade and reopens <strong>' +
+        reopen + '</strong> &mdash; ' + days + ' days out. Ocean surfing and golf run right through the closure.';
+    } else if (TODAY <= CLOSED.to) {
+      var days2 = Math.round((d - parseYmd(TODAY)) / 86400000);
+      elStatus.innerHTML = 'The surf pool is closed for a scheduled upgrade and reopens <strong>' + reopen +
+        '</strong> &mdash; ' + days2 + ' days to go. Ocean surfing and golf are running as normal.';
+    } else if (TODAY <= SEASON.to) {
+      elStatus.innerHTML = 'The surf pool is <strong>open</strong>. Schedule shown below is the park&rsquo;s published calendar through <strong>31 October 2026</strong>.';
+    } else {
+      elStatus.innerHTML = 'Showing the published calendar for <strong>24 September &ndash; 31 October 2026</strong>. Ask us for the current schedule for your dates.';
+    }
+  })();
+
+  // --- date strip ----------------------------------------------------------
+  function renderStrip() {
+    elStrip.innerHTML = '';
+    DAYS.forEach(function (s) {
+      var d = parseYmd(s);
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cal-day' + (s === TODAY ? ' cal-day--today' : '') + (isHoliday(s) ? ' cal-day--holiday' : '');
+      b.dataset.date = s;
+      b.setAttribute('aria-pressed', String(s === selected));
+      b.setAttribute('aria-label', DOWL[d.getDay()] + ' ' + d.getDate() + ' ' + MONL[d.getMonth()] + ' 2026');
+      b.innerHTML = '<span class="cal-day__dow">' + DOW[d.getDay()] + '</span>' +
+                    '<span class="cal-day__num">' + d.getDate() + '</span>' +
+                    '<span class="cal-day__mon">' + MON[d.getMonth()] + '</span>';
+      b.addEventListener('click', function () { select(s, true); });
+      elStrip.appendChild(b);
+    });
+  }
+
+  function scrollStripTo(s, smooth) {
+    var b = elStrip.querySelector('[data-date="' + s + '"]');
+    if (!b) return;
+    var left = b.offsetLeft - (elStrip.clientWidth / 2) + (b.offsetWidth / 2);
+    elStrip.scrollTo({ left: Math.max(0, left), behavior: smooth ? 'smooth' : 'auto' });
+  }
+
+  // --- day panel -----------------------------------------------------------
+  function renderPanel() {
+    var d = parseYmd(selected);
+    elPanelDay.textContent = DOWL[d.getDay()] + ' ' + d.getDate() + ' ' + MONL[d.getMonth()] + ' 2026';
+
+    var list = sessionsFor(selected);
+    var bits = [];
+    if (isHoliday(selected)) bits.push('<strong>' + HOLIDAY.name + '</strong>');
+    if (list.length) {
+      bits.push(list.length + ' sessions');
+      bits.push('first ' + list[0].slot[0] + ', last ends ' + list[list.length - 1].slot[1]);
+    }
+    elPanelMet.innerHTML = bits.join(' &nbsp;&middot;&nbsp; ');
+
+    if (!list.length) {
+      elSessions.innerHTML = '<li class="cal-empty"><strong>No published sessions</strong>' +
+        'The surf pool is closed on this date. Tell us your travel window and we will build the trip around ocean surf, golf and the rest of Hainan.</li>';
+      return;
+    }
+
+    elSessions.innerHTML = list.map(function (x) {
+      var s = x.set;
+      return '<li class="cal-sess">' +
+        '<span class="cal-sess__time">' + x.slot[0] + '&ndash;' + x.slot[1] + '</span>' +
+        '<span class="cal-sess__wave">' +
+          '<span class="cal-sess__name">' + s.name +
+            ' <span class="lv lv--' + s.tier + '">' + s.code + ' &middot; ' + s.level + '</span>' +
+          '</span>' +
+          '<span class="cal-sess__sub">' + s.board + ' &middot; ' + s.shape + '</span>' +
+        '</span>' +
+        '<a class="cal-sess__link" href="' + s.href + '">Details</a>' +
+      '</li>';
+    }).join('') +
+    '<li class="cal-foot">Guests staying at the surf pool resort have a reserved hour inside every session &mdash; the final 60 minutes of each slot, so ' +
+    list[0].slot[0] + '&ndash;' + list[0].slot[1] + ' is a ' + plus30(list[0].slot[0]) + '&ndash;' + list[0].slot[1] + ' hour in the water.</li>';
+  }
+
+  // --- legend --------------------------------------------------------------
+  function renderLegend() {
+    var html = Object.keys(SETTINGS).map(function (k) {
+      var s = SETTINGS[k];
+      return '<div class="lg-card lg-card--' + s.tier + '">' +
+        '<div class="lg-card__top"><span class="lv lv--' + s.tier + '">' + s.code + '</span>' +
+          '<span class="lg-card__name">' + s.name + '</span></div>' +
+        '<p class="lg-card__desc">' + s.desc + '</p>' +
+        '<ul class="lg-card__facts">' +
+          '<li><span>Level</span><span>' + s.level + '</span></li>' +
+          '<li><span>Board</span><span>' + s.board + '</span></li>' +
+          '<li><span>Wave</span><span>' + s.shape + '</span></li>' +
+        '</ul>' +
+        '<a class="lg-card__link" href="' + s.href + '">See this level &rarr;</a>' +
+      '</div>';
+    }).join('');
+
+    html += PRO.map(function (s) {
+      return '<div class="lg-card lg-card--p">' +
+        '<div class="lg-card__top"><span class="lv lv--p">' + s.code + '</span>' +
+          '<span class="lg-card__name">' + s.name + '</span></div>' +
+        '<p class="lg-card__desc">' + s.desc + '</p>' +
+        '<ul class="lg-card__facts">' +
+          '<li><span>Level</span><span>' + s.level + '</span></li>' +
+          '<li><span>Board</span><span>' + s.board + '</span></li>' +
+          '<li><span>On the calendar</span><span>Private only</span></li>' +
+        '</ul>' +
+        '<a class="lg-card__link" href="/design-your-buyout.html">Design a private session &rarr;</a>' +
+      '</div>';
+    }).join('');
+
+    elLegend.innerHTML = html;
+  }
+
+  // --- full grid -----------------------------------------------------------
+  function renderGrid() {
+    var head = '<thead><tr><th class="gd-time" scope="col">Session</th>' +
+      DAYS.map(function (s) {
+        var d = parseYmd(s);
+        return '<th scope="col" data-date="' + s + '"' + (isHoliday(s) ? ' class="gd-holiday"' : '') + '>' +
+          (d.getMonth() + 1) + '/' + d.getDate() +
+          '<span class="gd-dow">' + DOW[d.getDay()] + '</span></th>';
+      }).join('') + '</tr></thead>';
+
+    var body = '<tbody>' + SLOTS.map(function (slot, i) {
+      return '<tr><th class="gd-time" scope="row">' + slot[0] + '&ndash;' + slot[1] + '</th>' +
+        DAYS.map(function (s) {
+          var code = (PATTERNS[dayType(s)] || [])[i];
+          if (!code) return '<td data-date="' + s + '"></td>';
+          var set = SETTINGS[code];
+          return '<td data-date="' + s + '"><span class="gc gc--' + set.tier + '" title="' +
+            set.name + ' — ' + set.level + '">' + set.code + '</span></td>';
+        }).join('') + '</tr>';
+    }).join('') + '</tbody>';
+
+    elGrid.innerHTML = elGrid.innerHTML + head + body;
+  }
+
+  function highlightGridColumn() {
+    elGrid.querySelectorAll('.gd-col-sel').forEach(function (el) { el.classList.remove('gd-col-sel'); });
+    elGrid.querySelectorAll('[data-date="' + selected + '"]').forEach(function (el) { el.classList.add('gd-col-sel'); });
+  }
+
+  // --- month tabs ----------------------------------------------------------
+  function syncMonths() {
+    monthBtns.forEach(function (b) {
+      b.setAttribute('aria-selected', String(selected.slice(0, 7) === b.dataset.month));
+    });
+  }
+  monthBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var first = DAYS.filter(function (s) { return s.slice(0, 7) === b.dataset.month; })[0];
+      if (first) select(first, true);
+    });
+  });
+
+  // --- select --------------------------------------------------------------
+  function select(s, fromUser) {
+    selected = s;
+    elStrip.querySelectorAll('.cal-day').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.date === s));
+    });
+    renderPanel();
+    highlightGridColumn();
+    syncMonths();
+    if (fromUser) {
+      scrollStripTo(s, true);
+      try {
+        var u = new URL(window.location.href);
+        u.searchParams.set('date', s);
+        window.history.replaceState(null, '', u);
+      } catch (_) { /* noop */ }
+      if (typeof gtag === 'function') {
+        gtag('event', 'surf_calendar_day', { date: s, day_type: dayType(s) });
+      }
+    }
+  }
+
+  // --- boot ----------------------------------------------------------------
+  renderStrip();
+  renderLegend();
+  renderGrid();
+  select(selected, false);
+  scrollStripTo(selected, false);
+})();
+</script>
+
+</body>
+</html>
