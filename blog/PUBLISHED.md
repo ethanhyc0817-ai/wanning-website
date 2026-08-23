@@ -7,3 +7,4 @@
 2026-08-17 | backlog: Riyue Bay surf season & ocean surf guide | blog-riyue-bay-surf-season-ocean-surf-guide | Riyue Bay Surf Guide: Seasons & Ocean Surfing in Hainan
 2026-08-21 | backlog: PerfectSwell wave pool explained | blog-perfectswell-wave-pool-explained | PerfectSwell® Wave Pool Explained: Settings, Barrels & Beginner Waves
 2026-08-22 | backlog: Hainan 30-day visa-free policy travel guide | blog-hainan-30-day-visa-free-travel-guide | Hainan 30-Day Visa-Free Entry: Travel Guide for Surfers & Golfers
+2026-08-23 | backlog: how to get to Riyue Bay (flights, HAK vs SYX) | blog-how-to-get-to-riyue-bay-hainan | How to Get to Riyue Bay, Hainan: Flights, Airports & Transfers
