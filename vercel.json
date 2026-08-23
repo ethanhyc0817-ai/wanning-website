@@ -112,5 +112,16 @@
       "destination": "/:slug.html",
       "permanent": true
     }
+  ],
+  "headers": [
+    {
+      "source": "/Assets/(.*).(jpg|jpeg|JPG|JPEG|png|PNG|gif|webp|avif|svg|ico|mp4|webm|woff|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
+        }
+      ]
+    }
   ]
 }

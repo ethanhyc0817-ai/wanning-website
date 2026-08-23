@@ -262,10 +262,16 @@
 <meta name="theme-color" content="#0a4d68">
 
 
-<!-- Preload LCP hero image — surf pool panel loads first -->
-<link rel="preload" as="image" href="Assets/hero/hero-wavepool.jpg"
-      imagesrcset="Assets/hero/hero-wavepool.jpg 1751w"
-      imagesizes="100vw" fetchpriority="high">
+<!-- Preload the two LCP hero panels. These MUST mirror the <picture> AVIF sources
+     below (same srcset, same sizes) — otherwise the browser downloads the preloaded
+     file AND the one <picture> actually picks. type="image/avif" makes browsers
+     without AVIF support skip the hint and fall back to the <picture> negotiation. -->
+<link rel="preload" as="image" type="image/avif"
+      imagesrcset="Assets/hero/hero-wavepool-700.avif 700w, Assets/hero/hero-wavepool-1000.avif 1000w, Assets/hero/hero-wavepool-1400.avif 1400w, Assets/hero/hero-wavepool-1751.avif 1751w"
+      imagesizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif"
+      imagesrcset="Assets/hero/hero-golf-600.avif 600w, Assets/hero/hero-golf-900.avif 900w, Assets/hero/hero-golf-1142.avif 1142w"
+      imagesizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high">
 
 <!-- Resource hints: open connections to font + video CDNs early -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2136,7 +2142,7 @@ footer::before {
         <img src="Assets/hero/hero-golf.jpg"
              alt="Top 100 oceanfront golf course in Hainan, China"
              width="1142" height="1600"
-             decoding="async">
+             fetchpriority="high" decoding="async">
       </picture>
       <div class="hero-text">
         <div class="hero-headline">World Top 100<br>Greatest<br>Golf Course</div>
@@ -2478,11 +2484,11 @@ footer::before {
             muted
             loop
             playsinline
-            preload="auto"
-            poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.jpg"
+            preload="none"
+            data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.jpg"
             style="width:100%; height: 500px; object-fit: cover; border-radius: 3px; display: block;">
-            <source media="(max-width: 768px)" src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
-            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
+            <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
+            <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
             <picture><source type="image/avif" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.avif 900w, Assets/wavepool/wavepool-surfer-action-01-1400.avif 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.avif 1920w"><source type="image/webp" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.webp 900w, Assets/wavepool/wavepool-surfer-action-01-1400.webp 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.webp 1920w"><img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding a wave at the PerfectSwell surf pool, Riyue Bay, Wanning" width="2560" height="1440" decoding="async" style="width:100%; height: 500px; object-fit: cover; border-radius: 3px;"></picture>
           </video>
         </div>
@@ -2493,7 +2499,7 @@ footer::before {
   <!-- PRIVATE BUYOUT — flagship product, front and centre -->
   <style>
     .buyout-promo { position: relative; overflow: hidden; background: #0b1519; padding: clamp(4rem, 9vw, 7rem) 0; }
-    .buyout-promo::before { content:""; position:absolute; inset:0; background: url('Assets/wavepool/wavepool-aerial-twilight-01.jpg') center 40% / cover no-repeat; opacity:.34; }
+    .buyout-promo::before { content:""; position:absolute; inset:0; background: url('Assets/wavepool/wavepool-aerial-twilight-01-1600.webp') center 40% / cover no-repeat; opacity:.34; }
     .buyout-promo::after { content:""; position:absolute; inset:0; background: radial-gradient(80% 90% at 50% 10%, rgba(11,21,25,0.15) 0%, rgba(11,21,25,0.9) 78%); }
     .buyout-promo .container { position: relative; z-index: 2; text-align: center; max-width: 780px; }
     .buyout-promo .overline { color: #c4a265; }
@@ -2634,19 +2640,19 @@ footer::before {
       </div>
       <div class="natural-surf-inner">
         <div>
-          <video class="content-video" autoplay muted loop playsinline preload="metadata"
-                 poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528000/ScreenRecording_04-15-2026_22_atofc3.jpg"
+          <video class="content-video" autoplay muted loop playsinline preload="none"
+                 data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528000/ScreenRecording_04-15-2026_22_atofc3.jpg"
                  style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
-            <source media="(max-width: 768px)" src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
-            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
+            <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
+            <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
           </video>
         </div>
         <div>
-          <video class="content-video" autoplay muted loop playsinline preload="metadata"
-                 poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.jpg"
+          <video class="content-video" autoplay muted loop playsinline preload="none"
+                 data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.jpg"
                  style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
-            <source media="(max-width: 768px)" src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
-            <source src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
+            <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
+            <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -3261,7 +3267,7 @@ footer::before {
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-elevated-surfers-01.jpg');"></div>
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-golden-hour-01.jpg');"></div>
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-spectators-01.jpg');"></div>
-          <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-twilight-01.jpg');"></div>
+          <div class="gallery-item tall" style="background-image:url('Assets/wavepool/wavepool-aerial-twilight-01-1600.webp');"></div>
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-kids-training-01.jpg');"></div>
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-dusk-reflection-01.jpg');"></div>
           <div class="gallery-item" style="background-image:url('Assets/wavepool/wavepool-aerial-night-panorama-01.jpg');"></div>
@@ -5126,6 +5132,58 @@ function scrollWpGallery(dir) {
   el.scrollBy({ left: amt * dir, behavior: 'smooth' });
 }
 
+// Swap a single video's data-src -> src and start it if it wants to autoplay.
+function loadVideo(vid) {
+  // The poster is deferred too — otherwise an off-screen video still costs a
+  // full-size still image on arrival.
+  if (vid.dataset.poster) {
+    vid.poster = vid.dataset.poster;
+    delete vid.dataset.poster;
+  }
+  let swapped = false;
+  vid.querySelectorAll('source[data-src]').forEach(s => {
+    s.src = s.dataset.src;
+    s.removeAttribute('data-src');
+    swapped = true;
+  });
+  if (!swapped) return;
+  try { vid.load(); } catch (e) {}
+  if (vid.hasAttribute('autoplay')) {
+    const p = vid.play();
+    if (p && typeof p.catch === 'function') { p.catch(() => {}); }
+  }
+}
+
+// Videos only start downloading once they are near the viewport, and pause again
+// when they scroll away — otherwise the three clips further down the homepage
+// stream megabytes while the visitor is still looking at the hero.
+const lazyVideoObserver = ('IntersectionObserver' in window)
+  ? new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const vid = entry.target;
+        if (entry.isIntersecting) {
+          loadVideo(vid);
+          if (vid.hasAttribute('autoplay') && vid.paused) {
+            const p = vid.play();
+            if (p && typeof p.catch === 'function') { p.catch(() => {}); }
+          }
+        } else if (!vid.paused) {
+          try { vid.pause(); } catch (e) {}
+        }
+      });
+    }, { rootMargin: '300px 0px' })
+  : null;
+
+function observeLazyVideos(scope) {
+  (scope || document).querySelectorAll('video').forEach(vid => {
+    if (vid.dataset.lazyObserved) return;
+    vid.dataset.lazyObserved = '1';
+    // No IntersectionObserver support (very old browsers): just load it.
+    if (!lazyVideoObserver) { loadVideo(vid); return; }
+    lazyVideoObserver.observe(vid);
+  });
+}
+
 function activateLazyMedia(scope) {
   if (!scope) return;
   // Swap data-src -> src on iframes inside the activated page
@@ -5133,23 +5191,9 @@ function activateLazyMedia(scope) {
     ifr.src = ifr.dataset.src;
     ifr.removeAttribute('data-src');
   });
-  // Swap data-src -> src on <source> tags inside <video>, then load+play
-  scope.querySelectorAll('video').forEach(vid => {
-    let swapped = false;
-    vid.querySelectorAll('source[data-src]').forEach(s => {
-      s.src = s.dataset.src;
-      s.removeAttribute('data-src');
-      swapped = true;
-    });
-    if (swapped) {
-      try { vid.load(); } catch (e) {}
-      // Honor autoplay attribute on the video
-      if (vid.hasAttribute('autoplay')) {
-        const p = vid.play();
-        if (p && typeof p.catch === 'function') { p.catch(() => {}); }
-      }
-    }
-  });
+  // Videos go through the viewport observer rather than loading all at once.
+  // Hidden pages are display:none, so nothing in them can intersect until shown.
+  observeLazyVideos(scope);
 }
 function showPage(page, fromPopState) {
   // When called from inline onclick on <a href="#" onclick="showPage(...)">, prevent
@@ -5234,6 +5278,9 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// Register the landing page's videos with the viewport observer. Later pages get
+// registered by activateLazyMedia() when showPage() reveals them.
+observeLazyVideos(document.querySelector('.page.active') || document);
 const pageObserver = new MutationObserver(() => {
   document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
 });
