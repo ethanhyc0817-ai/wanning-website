@@ -51,3 +51,11 @@ _compressed_*
 /*_post.png
 /*_post_*.html
 /*_post_*.png
+
+# Timestamped backups left beside the file they shadow (index.html.bak-YYYYMMDD,
+# *.pdf.stale-*). They are superseded the moment the real file is regenerated.
+*.bak-*
+*.stale-*
+
+# Rendered page previews of the brochure PDF — regenerable, never served.
+/preview_v2/
