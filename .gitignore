@@ -42,3 +42,12 @@ _compressed_*
 *.log
 .env
 .env.*
+
+# Rendered social-post mockups (WeChat / 小红书 graphics). These are marketing
+# outputs, not site content — when they sit in the repo root Vercel serves them
+# publicly at surfchina.co/<name>. Four got committed by accident and were live
+# for two days. Keep them out.
+/*_post.html
+/*_post.png
+/*_post_*.html
+/*_post_*.png
