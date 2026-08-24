@@ -28,6 +28,74 @@
   gtag('js', new Date());
   gtag('config', 'G-8F2F546QPF');
 </script>
+<!-- Core Web Vitals -> GA4. Dependency-free: the web-vitals npm package would
+     mean a build step or a third-party CDN request, and this is ~1.5KB inline.
+     Metrics are only final when the page is hidden, so that is when we report. -->
+<script>
+(function () {
+  if (!('PerformanceObserver' in window)) return;
+  var sent = {}, lcp = 0, cls = 0, clsWin = 0, clsFirst = 0, clsPrev = 0, inp = 0;
+
+  function rate(n, v) {
+    var t = { LCP: [2500, 4000], INP: [200, 500], CLS: [0.1, 0.25], FCP: [1800, 3000], TTFB: [800, 1800] }[n];
+    return !t ? 'unknown' : v <= t[0] ? 'good' : v <= t[1] ? 'needs-improvement' : 'poor';
+  }
+  function send(name, value) {
+    if (sent[name] || typeof gtag !== 'function') return;
+    sent[name] = 1;
+    gtag('event', 'web_vitals', {
+      metric_name: name,
+      // GA4 params must be integers; CLS is a unitless ratio so scale it.
+      metric_value: Math.round(name === 'CLS' ? value * 1000 : value),
+      metric_rating: rate(name, value),
+      page_path: location.pathname + location.hash,
+      non_interaction: true
+    });
+  }
+  function obs(type, cb, opts) {
+    try {
+      var o = new PerformanceObserver(function (l) { l.getEntries().forEach(cb); });
+      o.observe(Object.assign({ type: type, buffered: true }, opts || {}));
+      return o;
+    } catch (e) { return null; }
+  }
+
+  obs('largest-contentful-paint', function (e) { lcp = e.startTime; });
+  obs('paint', function (e) { if (e.name === 'first-contentful-paint') send('FCP', e.startTime); });
+
+  // CLS uses the session-window definition: shifts group into windows of at most
+  // 5s that start over after a 1s gap, and the score is the worst window.
+  obs('layout-shift', function (e) {
+    if (e.hadRecentInput) return;
+    if (clsWin && e.startTime - clsPrev < 1000 && e.startTime - clsFirst < 5000) {
+      clsWin += e.value;
+    } else {
+      clsWin = e.value; clsFirst = e.startTime;
+    }
+    clsPrev = e.startTime;
+    if (clsWin > cls) cls = clsWin;
+  });
+
+  // Approximates INP with the slowest interaction. True INP is a high percentile
+  // across all interactions; on pages with few interactions the two agree.
+  obs('event', function (e) { if (e.duration > inp) inp = e.duration; }, { durationThreshold: 40 });
+
+  try {
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (nav && nav.responseStart > 0) send('TTFB', nav.responseStart);
+  } catch (e) {}
+
+  function flush() {
+    if (document.visibilityState !== 'hidden') return;
+    if (lcp) send('LCP', lcp);
+    if (inp) send('INP', inp);
+    send('CLS', cls);
+  }
+  addEventListener('visibilitychange', flush, true);
+  addEventListener('pagehide', flush, true);
+})();
+</script>
+
 
 <title>Stay with us — UECHAO Hotel Riyuebay | Surf China Co.</title>
 <meta name="description" content="UECHAO Hotel Riyuebay — a premium resort stay at Riyue Bay, inside the surf-park grounds, steps from the PerfectSwell® Surf Pool. Six room types, free breakfast for every guest.">
@@ -88,6 +156,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* --- Modern UX additions (2026-08-24) --- */
+@view-transition { navigation: auto; }
+h1, h2, h3 { text-wrap: balance; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+section:not([id]):not(.page-hero):not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
 picture{display:contents}picture>source{display:none}
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
