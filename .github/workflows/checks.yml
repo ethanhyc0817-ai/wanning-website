@@ -1,0 +1,19 @@
+name: checks
+
+# Runs on every push and PR, so a commit that ships an unoptimised image is
+# visible immediately rather than being found on someone's phone later.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Image and markup checks
+        run: python3 tools/check_images.py

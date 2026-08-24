@@ -159,7 +159,11 @@ def process_html(path):
         # relative to the page (../Assets/...) rather than site-absolute. Resolve
         # it to a repo-relative path for disk work, and remember how to write the
         # variant back out in the same style the page already uses.
-        src_dec = htmlmod.unescape(src)
+        # Decode BOTH HTML entities and percent-encoding. Several assets have
+        # spaces in their filenames and are written as IMG_7781%204.jpg, which
+        # matched no file on disk, so the tool silently skipped them — including
+        # a 1.9MB hero image.
+        src_dec = unquote(htmlmod.unescape(src))
         page_dir_rel = os.path.dirname(rel)
         if src_dec.startswith('/'):
             key = src_dec.lstrip('/')

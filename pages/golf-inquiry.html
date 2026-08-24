@@ -131,6 +131,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+picture{display:contents}picture>source{display:none}
+
 /* --- Modern UX additions (2026-08-24) --- */
 @view-transition { navigation: auto; }
 h1, h2, h3 { text-wrap: balance; }
@@ -550,7 +552,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ HERO ============ -->
 <section class="page-hero">
   <div class="hero-bg">
-    <img src="/Assets/golf/IMG_7781%204.jpg" alt="Hainan golf — exclusive course">
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/IMG_7781%204-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/IMG_7781%204-1440.webp 1440w"><img src="/Assets/golf/IMG_7781%204.jpg" alt="Hainan golf — exclusive course" decoding="async"></picture>
   </div>
   <div class="page-hero-content">
     <span class="overline">Pure Golf Trip Quote</span>

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Optional local guard. Install with:
+#     ln -sf ../../tools/pre-commit .git/hooks/pre-commit
+# CI runs the same script, so this only shortens the feedback loop.
+exec python3 "$(git rev-parse --show-toplevel)/tools/check_images.py"
