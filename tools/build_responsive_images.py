@@ -184,10 +184,18 @@ def process_html(path):
         if max(mw, dw) < MIN_DISPLAY_WIDTH:
             skipped += 1
             continue
-        if len(widths) == 1 and widths[0] >= intrinsic * 0.95:
-            # Nothing to gain: the image is already about the size it is displayed at.
-            skipped += 1
-            continue
+        # Decide on BYTES, not dimensions. An image already served at its display
+        # size still shrinks a lot just from the codec — shop-scene-01.jpg is
+        # 1440px wide and displayed at 1440px, but 450KB as JPEG and ~1/4 that as
+        # AVIF. The old rule compared widths and skipped exactly those images.
+        try:
+            orig_bytes = os.path.getsize(os.path.join(ROOT, key))
+            best = os.path.getsize(os.path.join(ROOT, variant_path(key, widths[-1], 'avif')))
+            if best >= orig_bytes * 0.85:
+                skipped += 1
+                continue
+        except OSError:
+            pass
         def srcset(ext):
             return ', '.join(f'{to_url(variant_path(key, w, ext))} {w}w' for w in widths)
         sizes = f'(max-width: 768px) {mw}px, {dw}px'

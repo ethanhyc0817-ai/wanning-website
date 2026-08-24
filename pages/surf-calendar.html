@@ -182,6 +182,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+picture{display:contents}picture>source{display:none}
+
 /* --- Modern UX additions (2026-08-24) --- */
 @view-transition { navigation: auto; }
 h1, h2, h3 { text-wrap: balance; }
@@ -1076,7 +1078,7 @@ table.cal-grid thead th.gd-col-sel { background: var(--gold); color: #2a2110; }
 <!-- 9. FINAL CTA -->
 <section class="final-cta">
   <div class="hero-bg">
-    <img src="/Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" alt="The surf pool lit up at night">
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-night-panorama-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-night-panorama-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-night-panorama-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-night-panorama-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" alt="The surf pool lit up at night" decoding="async"></picture>
   </div>
   <div class="final-cta-content">
     <span class="overline">Plan Around the Waves</span>
