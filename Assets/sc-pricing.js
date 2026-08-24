@@ -11,11 +11,11 @@
   // >>> SC_PRICING_CONFIG_START (machine-edited — keep format)
   window.SC_PRICING = {
     fx: 7,                 // USD → CNY, client settlement
-    buyoutPromoPct: 25,    // client-facing % off every private buyout
+    buyoutPromoPct: 15,    // client-facing % off every private buyout
     buyout: {              // CNY per 1-hour buyout, off-season public list
-      intermediate: { list: 7760, promo: 5820 },
-      advanced:     { list: 9960, promo: 7470 },
-      master:       { list: 9960, promo: 7470 }
+      intermediate: { list: 7760, promo: 6600 },
+      advanced:     { list: 9960, promo: 8470 },
+      master:       { list: 9960, promo: 8470 }
     }
   };
   // <<< SC_PRICING_CONFIG_END
