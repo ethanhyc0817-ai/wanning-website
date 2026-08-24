@@ -420,6 +420,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   html { scroll-behavior: auto; }
 }
 </style>
+<script src="../Assets/sc-pricing.js"></script>
 </head>
 <body>
 
@@ -462,7 +463,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
       <p class="groupNote">A private session is priced for the whole pool, not per surfer. <b>Bring more of your crew and the price per person comes down.</b></p>
 
-      <div class="offerSeal on" id="seal">25% off every private session</div>
+      <div class="offerSeal on" id="seal"><span data-sc-promopct>25</span>% off every private session</div>
       <div class="saveLine on" id="saveLine">Your crew saves <b id="saveVal">&mdash;</b> on this trip.</div>
 
       <div class="afterOffer on" id="after">
@@ -620,13 +621,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       note: 'The quiet side of the resort, over the gardens. The simple way in.',
       img: "../Assets/hotel/main hotel/main-hotel-room-12.jpg" }
   ];
+  var SCB = window.SC_PRICING.buyout;
   var WAVES = [
-    { key: 'intermediate', name: 'Intermediate', desc: 'Clean, open-face walls with room to turn.',        list: 7760, now: 5820,
+    { key: 'intermediate', name: 'Intermediate', desc: 'Clean, open-face walls with room to turn.',        list: SCB.intermediate.list, now: SCB.intermediate.promo,
       vids: [ { id: 'v1776960205/cfd36751f0daae5f2919b0ee7917d2_bypnzf', label: 'Jetty' },
               { id: 'v1776960841/ScreenRecording_04-23-2026_14-42-35_1_gzeqkd', label: 'Nose Rider' } ] },
-    { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: 9960, now: 7470,
+    { key: 'advanced',     name: 'Advanced',     desc: 'Faster, punchier, more sections to work.',         list: SCB.advanced.list, now: SCB.advanced.promo,
       vids: [ { id: 'v1776959511/ScreenRecording_04-23-2026_15_p2uhe3', label: 'Advanced' } ] },
-    { key: 'master',       name: 'Pro',          desc: 'Barrels and ramps. The full menu opens up.',       list: 9960, now: 7470,
+    { key: 'master',       name: 'Pro',          desc: 'Barrels and ramps. The full menu opens up.',       list: SCB.master.list, now: SCB.master.promo,
       vids: [ { id: 'v1776959778/ScreenRecording_04-23-2026_16_rxa9qq', label: 'Slab Barrel' },
               { id: 'v1776959299/ScreenRecording_04-23-2026_14-16-17_1_rdx9ys', label: 'Air Wave' } ] }
   ];
