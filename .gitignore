@@ -59,3 +59,8 @@ _compressed_*
 
 # Rendered page previews of the brochure PDF — regenerable, never served.
 /preview_v2/
+
+# Build output of build_brochure.py. Regenerable, and when it sits in the repo
+# root Vercel serves it publicly at surfchina.co/<name>. The client-facing
+# brochures that pages actually link to live in Assets/brochures/.
+/Surf_and_Golf_Hainan_Brochure.pdf
