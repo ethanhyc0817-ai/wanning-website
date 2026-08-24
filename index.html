@@ -375,7 +375,12 @@ h1, h2, h3 { text-wrap: balance; }
   --gold: #c4a265;
   --ink-blue: #1f4788;
   --paper: #f4e9d0;
-  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* Motion vocabulary (emilkowal.ski standards): strong ease-out for entrances
+     and hovers, strong ease-in-out for on-screen movement. --transition is the
+     legacy alias used throughout — keep it pointing at the same curve. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --transition: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -416,8 +421,10 @@ section { padding: clamp(3.5rem, 6vw, 6rem) 0; }
   padding: 0.9rem 2rem;
   font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
   letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none;
-  border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px;
+  border: none; cursor: pointer; border-radius: 2px;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.16s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
+.btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
 .btn:disabled, .btn:disabled:hover {
@@ -473,7 +480,7 @@ nav {
   padding: 1rem 0;
   background: var(--white);
   box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-  transition: all 0.4s var(--transition);
+  transition: padding 0.4s var(--transition), background 0.4s var(--transition), box-shadow 0.4s var(--transition);
 }
 nav .nav-logo { color: var(--charcoal); }
 nav .nav-links a { color: var(--charcoal); }
@@ -504,7 +511,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-links a {
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--charcoal); text-decoration: none;
-  transition: all 0.3s; position: relative;
+  transition: opacity 0.3s, color 0.3s; position: relative;
 }
 .nav-links a:hover { opacity: 0.7; }
 .nav-links a.active::after {
@@ -515,9 +522,11 @@ nav.scrolled { padding: 0.7rem 0; }
   background: var(--ocean); color: var(--white);
   border: 1px solid var(--ocean); border-radius: 2px;
   text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
-  text-transform: uppercase; transition: all 0.3s;
+  text-transform: uppercase;
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.16s var(--ease-out);
 }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+.nav-cta:active { transform: scale(0.97); }
 .nav-links a.nav-buyout {
   font-size: 0.75rem; padding: 0.6rem 1.4rem;
   color: #8a6a2f; border: 1px solid #c4a265; border-radius: 2px;
@@ -614,6 +623,23 @@ nav.scrolled { padding: 0.7rem 0; }
   font-weight: 900;
   text-shadow: 0 3px 30px rgba(0,0,0,0.55);
 }
+
+/* Hero entrance — staggered rise of the text layers only. The hero <img> panels
+   stay static so LCP paint is untouched. `translate` (longhand) is used instead
+   of `transform` so it composes with the centering transforms on the partner
+   badge and CTA; browsers without it still get the opacity fade. */
+@keyframes heroRise {
+  from { opacity: 0; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.hero-text, .hero-partner, .hero-cta, .hero-tagline-bar {
+  animation: heroRise 0.9s var(--ease-out) backwards;
+}
+.hero-wave .hero-text { animation-delay: 0.1s; }
+.hero-golf .hero-text { animation-delay: 0.22s; }
+.hero-partner { animation-delay: 0.34s; }
+.hero-cta { animation-delay: 0.46s; }
+.hero-tagline-bar { animation-delay: 0.58s; }
 .hero-headline {
   /* h1 UA defaults (font-weight: bold, font-size: 2em, margin) would clash with
      the .hero-text inherited Montserrat 900 — restate explicitly so h1 + div match */
@@ -693,7 +719,7 @@ nav.scrolled { padding: 0.7rem 0; }
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.2s var(--ease-out);
   cursor: pointer;
   white-space: nowrap;
 }
@@ -709,6 +735,7 @@ nav.scrolled { padding: 0.7rem 0; }
   transform: translate(-50%, calc(-50% - 2px));
 }
 .hero-cta:hover::after { transform: translateX(4px); }
+.hero-cta:active { transform: translate(-50%, -50%) scale(0.97); }
 .hero-cta:focus-visible {
   outline: 2px solid #ffbd59;
   outline-offset: 3px;
@@ -933,7 +960,7 @@ nav.scrolled { padding: 0.7rem 0; }
   border: 1px solid rgba(196,162,101,0.25);
   backdrop-filter: blur(4px);
   padding: 1.4rem 1.4rem; border-radius: 3px;
-  transition: all 0.4s var(--transition);
+  transition: background 0.4s var(--transition), border-color 0.4s var(--transition), transform 0.4s var(--transition);
 }
 .reassurance-pillar:hover {
   background: rgba(255,255,255,0.9);
@@ -1016,7 +1043,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .package-card {
   position: relative; overflow: hidden; border-radius: 3px;
   background: var(--white); border: 1px solid rgba(0,0,0,0.08);
-  transition: all 0.4s var(--transition);
+  transition: box-shadow 0.4s var(--transition), transform 0.4s var(--transition);
   display: flex; flex-direction: column;
 }
 .package-card .package-body { flex: 1; display: flex; flex-direction: column; }
@@ -1707,11 +1734,56 @@ footer .section-divider-center,
 
 /* Page switching */
 .page { display: none; }
-.page.active { display: block; }
+/* SPA page switches used to teleport (display none -> block). A short rise-and-fade
+   entrance bridges the change. Note: while this runs, the page is a containing
+   block for position:fixed descendants (any transform/translate does that) — at
+   0.4s one-shot that window is too short to matter for the lightbox. */
+@keyframes pageIn {
+  from { opacity: 0; translate: 0 10px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.page.active { display: block; animation: pageIn 0.4s var(--ease-out); }
 
 /* Animations */
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--transition); }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* Scroll reveal. Implemented as a one-shot animation (not a transition) so it
+   never overrides an element's own hover transitions — the old transition-based
+   version made card hovers run at 0.8s and killed their box-shadow easing.
+   --stagger is set per-batch by the IntersectionObserver (30-80ms steps). */
+.fade-in { opacity: 0; }
+.fade-in.visible {
+  opacity: 1;
+  animation: fadeUp 0.65s var(--ease-out) backwards;
+  animation-delay: var(--stagger, 0ms);
+}
+@keyframes fadeUp {
+  from { opacity: 0; translate: 0 18px; }
+  to { opacity: 1; translate: 0 0; }
+}
+/* Reveal is decoration for screens — never blank content on paper. */
+@media print {
+  .fade-in { opacity: 1; }
+  .fade-in.visible, .page.active,
+  .hero-text, .hero-partner, .hero-cta, .hero-tagline-bar { animation: none; }
+}
+/* Touch: taps fire false hovers — suppress the pointer-driven lifts/zooms. */
+@media (hover: none) {
+  .facility-card:hover, .package-card:hover, .reassurance-pillar:hover { transform: none; }
+  .facility-card:hover img { transform: none; }
+}
+/* Reduced motion: keep the fades (they aid comprehension), drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  @keyframes fadeOnly {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .fade-in.visible, .page.active,
+  .hero-text, .hero-partner, .hero-cta, .hero-tagline-bar {
+    animation-name: fadeOnly;
+    animation-duration: 0.25s;
+    animation-delay: 0ms;
+  }
+}
 
 /* PerfectSwell inline logo */
 .ps-logo-inline { height: 18px; width: auto; vertical-align: middle; margin: 0 0.2em; }
@@ -5353,8 +5425,25 @@ document.addEventListener('click', (e) => {
   if (faqItem) faqItem.classList.toggle('open');
 });
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  // Elements that enter the viewport in the same batch reveal with a small
+  // stagger (60ms steps, capped) instead of popping in all at once.
+  const entering = entries.filter(e => e.isIntersecting);
+  entering.forEach((entry, i) => {
+    entry.target.style.setProperty('--stagger', (Math.min(i, 5) * 60) + 'ms');
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target); // reveal fires once; re-animating on every scroll-by fights the reader
+  });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+// Section headings and card groups site-wide get the reveal too, not just the
+// elements hand-tagged in the markup. Applied from JS so a no-JS visitor (and
+// search crawlers) never see opacity:0 content. Hero is excluded — it has its
+// own entrance — and anything nested inside an already-tagged element is skipped.
+document.querySelectorAll('.page section h2, .page section .overline, .page section .lead, .intro-card, .reassurance-pillar').forEach(el => {
+  if (el.closest('.hero')) return;
+  const tagged = el.parentElement && el.parentElement.closest('.fade-in');
+  if (tagged) return;
+  el.classList.add('fade-in');
+});
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 // Register the landing page's videos with the viewport observer. Later pages get
 // registered by activateLazyMedia() when showPage() reveals them.
