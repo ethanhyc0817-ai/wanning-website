@@ -552,16 +552,17 @@ nav.scrolled { padding: 0.7rem 0; }
   padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
 }
 .nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
-.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.25s var(--ease-in-out); }
 .nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
 .nav-dropdown-menu {
   position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
   background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
-  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+  opacity: 0; visibility: hidden; scale: 0.97; translate: 0 -4px; transform-origin: top center;
+  transition: opacity 0.22s var(--ease-out), visibility 0.22s, scale 0.22s var(--ease-out), translate 0.22s var(--ease-out); z-index: 1001;
 }
 .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
-.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; scale: 1; translate: 0 0; }
 .nav-dropdown-menu a {
   display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
@@ -572,7 +573,7 @@ nav.scrolled { padding: 0.7rem 0; }
   color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
 }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
-.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: transform 0.3s var(--ease-in-out), opacity 0.3s; }
 .nav-mobile-cta {
   display: none;
   font-size: 0.7rem; padding: 0.5rem 0.95rem;
@@ -1196,7 +1197,7 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .page-hero .hero-bg::after { background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%); }
 .page-hero-content { position: relative; z-index: 2; color: var(--white); }
-.page-hero-content h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 0.5rem; }
+.page-hero-content h1, .page-hero-content h2.page-title { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 0.5rem; }
 .page-hero-content p { opacity: 0.85; font-size: 1.1rem; }
 
 /* Wave Types */
@@ -1222,10 +1223,10 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .faq-question::after {
   content: '+'; font-family: 'Inter', sans-serif; font-size: 1.5rem;
-  font-weight: 300; color: var(--warm-gray); transition: transform 0.3s;
+  font-weight: 300; color: var(--warm-gray); transition: transform 0.3s var(--ease-in-out);
 }
 .faq-item.open .faq-question::after { transform: rotate(45deg); }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--transition); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--transition); }
 .faq-item.open .faq-answer { max-height: 300px; }
 .faq-answer p { padding-top: 1rem; font-size: 0.9rem; color: var(--warm-gray); }
 
@@ -1535,6 +1536,10 @@ nav.scrolled { padding: 0.7rem 0; }
   z-index: 100; display: none;
 }
 .date-popover.open { display: block; }
+.date-popover { opacity: 0; scale: 0.96; translate: 0 -4px; transform-origin: top left;
+  transition: opacity 0.18s var(--ease-out), scale 0.18s var(--ease-out), translate 0.18s var(--ease-out), display 0.18s allow-discrete; }
+.date-popover.open { opacity: 1; scale: 1; translate: 0 0; }
+@starting-style { .date-popover.open { opacity: 0; scale: 0.96; translate: 0 -4px; } }
 .date-popover-header {
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 0.6rem; gap: 0.5rem;
@@ -1753,10 +1758,10 @@ footer .section-divider-center,
    block for position:fixed descendants (any transform/translate does that) — at
    0.4s one-shot that window is too short to matter for the lightbox. */
 @keyframes pageIn {
-  from { opacity: 0; translate: 0 10px; }
+  from { opacity: 0; translate: 0 6px; }
   to { opacity: 1; translate: 0 0; }
 }
-.page.active { display: block; animation: pageIn 0.4s var(--ease-out); }
+.page.active { display: block; animation: pageIn 0.25s var(--ease-out); }
 
 /* Animations */
 /* Scroll reveal. Implemented as a one-shot animation (not a transition) so it
@@ -1824,6 +1829,7 @@ footer .section-divider-center,
     animation-duration: 0.25s;
     animation-delay: 0ms;
   }
+  .mobile-menu, .date-popover { translate: 0 0; scale: 1; transition: opacity 0.2s; }
 }
 
 /* PerfectSwell inline logo */
@@ -1870,7 +1876,10 @@ footer::before {
   display: none; position: fixed; inset: 0;
   background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
   z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
-.mobile-menu.open { display: flex; }
+.mobile-menu { opacity: 0; translate: 0 14px;
+  transition: opacity 0.3s var(--ease-out), translate 0.3s var(--ease-out), display 0.3s allow-discrete; }
+.mobile-menu.open { display: flex; opacity: 1; translate: 0 0; }
+@starting-style { .mobile-menu.open { opacity: 0; translate: 0 14px; } }
 .mobile-menu a {
   display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
   color: var(--charcoal); text-decoration: none; padding: 1rem 0;
@@ -1891,7 +1900,7 @@ footer::before {
   /* Trip Inquiry hero: keep the surfer + lower-left detail in frame on narrow screens */
   .trip-inquiry-hero-img { object-position: left bottom !important; }
   /* Contact hero (mobile): smaller heading, nudged down so the nav doesn't cover it */
-  #page-contact .page-hero-content h1 { font-size: 1.85rem; line-height: 1.25; }
+  #page-contact .page-hero-content h1, #page-contact .page-hero-content h2.page-title { font-size: 1.85rem; line-height: 1.25; }
   #page-contact .page-hero { padding-bottom: 2rem; }
   .intro-grid, .packages-grid, .explore-grid, .wave-types-grid,
   .why-grid, .contact-grid, .plan-grid, .natural-surf-inner,
@@ -2195,7 +2204,7 @@ footer::before {
 .sd-callout { background: var(--sand); border-left: 3px solid var(--teal); padding: 1.5rem 1.8rem; margin-top: 2rem; border-radius: 12px; }
 .sd-callout h4 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; margin: 0 0 0.6rem; color: var(--ocean); }
 .sd-callout p { font-size: 0.97rem; color: var(--charcoal); margin: 0; line-height: 1.6; }
-.sd-hero-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0; }
+.sd-hero-head h1, .sd-hero-head h2.page-title { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0; }
 .sd-hero .lead { font-size: 1.1rem; }
 .sd-hero-intro { max-width: 560px; }
 @media (max-width: 860px) { .sd-hero-intro { max-width: 720px; } }
@@ -2785,6 +2794,7 @@ footer::before {
         <p>Prices in CNY (Chinese yuan / RMB). We are a PerfectSwell&reg; Destination Partner &mdash; your sessions are booked through our surf park&rsquo;s own system, so the slot, the level and the wave setting are confirmed before you land. Rates move with the season; send us your dates and we&rsquo;ll confirm the exact figure.</p>
         <div class="rates-foot__btns">
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+          <a href="/rates.html" class="btn btn-outline-dark btn-arrow">See Full Rates </a>
           <a href="/surf-calendar.html" class="btn btn-outline-dark btn-arrow">See the Surf Calendar </a>
         </div>
       </div>
@@ -3325,6 +3335,7 @@ footer::before {
         <p>Prices in CNY (Chinese yuan / RMB). We are a PerfectSwell&reg; Destination Partner &mdash; your sessions are booked through our surf park&rsquo;s own system, so the slot, the level and the wave setting are confirmed before you land. Rates move with the season; send us your dates and we&rsquo;ll confirm the exact figure.</p>
         <div class="rates-foot__btns">
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;">Get Your Exact Quote </a>
+          <a href="/rates.html" class="btn btn-outline-dark btn-arrow">See Full Rates </a>
           <a href="/surf-calendar.html" class="btn btn-outline-dark btn-arrow">See the Surf Calendar </a>
         </div>
       </div>
@@ -3541,7 +3552,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon easy"></span>
-            <h1>Learn to Surf</h1>
+            <h2 class="page-title">Learn to Surf</h2>
           </div>
           <p class="lead">Start your surfing journey in a safe, fun environment, guided by coaches who genuinely want you to stand up on day one. Perfect for first-timers &mdash; kids and adults alike. We'll cover water safety, surfing fundamentals, and push you into gentle rolling waves so you can feel the magic of that first ride. Small groups or private lessons &mdash; whichever suits you.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Book This Session</a>
@@ -3679,6 +3690,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -3701,7 +3713,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon easy"></span>
-            <h1>Beginner</h1>
+            <h2 class="page-title">Beginner</h2>
           </div>
           <p class="lead">Past your first lesson and ready for more. Our Coaster wave delivers safe, gentle ground-swell waves with a long, easy roll-in &mdash; you'll have plenty of time to find your feet, work on balance, and start to turn the board. Friendly, experienced coaches make sure surfing feels both fun and approachable.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Book This Session</a>
@@ -3830,6 +3842,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -3851,7 +3864,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon medium"></span>
-            <h1>Intermediate</h1>
+            <h2 class="page-title">Intermediate</h2>
           </div>
           <p class="lead">Get tons of reps and level up your surfing on a consistent, chest-to-head-high Trestles-style wave. The Runner has a roll-in take-off that gives you a long, clean wall to work on connecting turns and trying new manoeuvres. With frequent, consistent sets, this is a super fun, safe way to keep progressing.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Book This Session</a>
@@ -3994,6 +4007,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -4015,7 +4029,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon hard"></span>
-            <h1>Advanced</h1>
+            <h2 class="page-title">Advanced</h2>
           </div>
           <p class="lead">Uncrowded, chest-to-head-high Trestles-style waves &mdash; playful and powerful, the kind of session you've been dreaming about. The Peak has a quick take-off and a long, open face that gives you all the room you need to maneuver. Throw big wrapping turns, get barreled, boost airs &mdash; like a great day on the Gold Coast, every session.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Book This Session</a>
@@ -4144,6 +4158,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Book Your Session</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -4165,7 +4180,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon expert"></span>
-            <h1>Pro &mdash; Slab Barrel Wave</h1>
+            <h2 class="page-title">Pro &mdash; Slab Barrel Wave</h2>
           </div>
           <p class="lead">Perfect, uncrowded barrels. Our barrel wave delivers a quick, steep take-off into a large, hollow tube &mdash; the best way to dial in your barrel riding and chase that one perfect, dreamy wave. Designed for elite surfers who want time inside the wave, on every wave.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Inquire About This Session</a>
@@ -4293,6 +4308,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -4314,7 +4330,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon expert"></span>
-            <h1>Pro &mdash; Air Wave</h1>
+            <h2 class="page-title">Pro &mdash; Air Wave</h2>
           </div>
           <p class="lead">Take your air game to the next level on a perfect, consistent ramp. Our air wave delivers a quick take-off, an open face to gain speed, and a clean ramp section to close out the wave &mdash; the best way to work on different styles of airs and new manoeuvres.</p>
           <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact'); return false;" style="margin-top: 1.5rem;">Inquire About This Session</a>
@@ -4442,6 +4458,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -4463,7 +4480,7 @@ footer::before {
         <div class="sd-hero-intro">
           <div class="sd-hero-head">
             <span class="s-icon private"></span>
-            <h1>Private Sessions</h1>
+            <h2 class="page-title">Private Sessions</h2>
           </div>
           <p class="lead">Reserve the entire surf pool just for your group. Our Private Sessions let you rent the pool by the hour, choose any wave from our menu, and even mix between settings within the same session. Our technology delivers a high-volume session of perfect, consistent waves built around your crew.</p>
           <a href="/design-your-buyout.html" class="btn btn-primary btn-arrow" style="margin-top: 1.5rem;">Design Your Buyout &mdash; See Your Price</a>
@@ -4594,6 +4611,7 @@ footer::before {
         <a href="#" class="btn btn-primary btn-arrow" onclick="showPage('contact')">Inquire About Private Booking</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('wavepool')">See All Sessions</a>
       </div>
+      <p style="margin: 1.6rem auto 0; font-size: 0.85rem;"><a href="/wave-settings.html" style="color: rgba(255,255,255,0.75);">Compare all wave settings &amp; session types &rarr;</a></p>
     </div>
   </section>
 
@@ -4609,7 +4627,7 @@ footer::before {
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Packages</span>
-      <h1>Trip packages built<br>around your style.</h1>
+      <h2 class="page-title">Trip packages built<br>around your style.</h2>
       <p>Whether you want a pure surf trip or a full Hainan adventure, we have a package that fits.</p>
     </div>
   </section>
@@ -4702,7 +4720,7 @@ footer::before {
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Explore Hainan</span>
-      <h1>Tropical China,<br>like nothing you'd expect.</h1>
+      <h2 class="page-title">Tropical China,<br>like nothing you'd expect.</h2>
       <p>Waterfalls, coffee plantations, fire shows, night markets, and empty coastlines. A side of China most travelers never see.</p>
     </div>
   </section>
@@ -4830,7 +4848,7 @@ footer::before {
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Plan Your Trip</span>
-      <h1>Everything you need<br>to know.</h1>
+      <h2 class="page-title">Everything you need<br>to know.</h2>
       <p>Getting to Hainan is easier than you think. Here's what to expect.</p>
     </div>
   </section>
@@ -4941,7 +4959,7 @@ footer::before {
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Get Your Quote</span>
-      <h1>Ready to book?<br>Let&rsquo;s build your quote.</h1>
+      <h2 class="page-title">Ready to book?<br>Let&rsquo;s build your quote.</h2>
     </div>
   </section>
 

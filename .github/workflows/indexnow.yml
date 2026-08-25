@@ -1,0 +1,24 @@
+name: IndexNow ping
+on:
+  push:
+    branches: [main]
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Submit changed pages to IndexNow
+        run: |
+          KEY=da871c4474c953d2ff65ddd030275b6d
+          HOST=www.surfchina.co
+          # map changed html files to live URLs (pages/x.html -> /x.html)
+          URLS=$(git diff --name-only HEAD^ HEAD 2>/dev/null | grep -E '^(pages/.*\.html|index\.html)$' \
+            | sed -E 's#^pages/#/#; s#^index\.html$#/#' | sed "s#^#https://$HOST#" | sort -u)
+          [ -z "$URLS" ] && { echo "no page changes"; exit 0; }
+          LIST=$(printf '"%s",' $URLS); LIST="[${LIST%,}]"
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":$LIST}" \
+            -w "\nHTTP %{http_code}\n"
