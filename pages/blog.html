@@ -242,6 +242,7 @@ picture{display:contents}picture>source{display:none}
   --gold: #c4a265;
   --ink-blue: #1f4788;
   --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --radius-media: 14px;
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -265,7 +266,7 @@ p { max-width: 680px; }
 section { padding: clamp(4rem, 8vw, 7rem) 0; }
 
 /* buttons */
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 980px; }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
@@ -278,11 +279,17 @@ section { padding: clamp(4rem, 8vw, 7rem) 0; }
 /* ======= NAV ======= */
 nav {
   position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1rem 0; background: var(--white);
+    padding: 1rem 0;
+  background: rgba(255,255,255,0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 1px 0 rgba(0,0,0,0.06);
   transition: all 0.4s var(--transition);
 }
 nav.scrolled { padding: 0.7rem 0; }
+@media (prefers-reduced-transparency: reduce) {
+  nav { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 .nav-inner {
   max-width: 1400px; margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
@@ -306,7 +313,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-cta {
   font-size: 0.75rem; padding: 0.6rem 1.4rem;
   background: var(--ocean); color: var(--white);
-  border: 1px solid var(--ocean); border-radius: 2px;
+  border: 1px solid var(--ocean); border-radius: 980px;
   text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
   text-transform: uppercase; transition: all 0.3s;
 }
@@ -323,7 +330,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
 .nav-dropdown-menu {
   position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
-  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
   opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
 }
@@ -344,7 +351,7 @@ nav.scrolled { padding: 0.7rem 0; }
   display: none;
   font-size: 0.7rem; padding: 0.5rem 0.95rem;
   background: var(--ocean); color: var(--white);
-  border: 1px solid var(--ocean); border-radius: 2px;
+  border: 1px solid var(--ocean); border-radius: 980px;
   text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; transition: all 0.3s;
   white-space: nowrap;
@@ -389,7 +396,7 @@ nav.scrolled { padding: 0.7rem 0; }
 
 .post-card {
   display: flex; flex-direction: column; text-decoration: none; color: inherit;
-  border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden;
   transition: box-shadow 0.3s, transform 0.3s; background: var(--white);
 }
 .post-card:hover { box-shadow: 0 16px 44px rgba(0,0,0,0.11); transform: translateY(-4px); }

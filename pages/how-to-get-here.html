@@ -209,7 +209,7 @@ p { max-width: 680px; }
 .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
 section { padding: clamp(4rem, 8vw, 7rem) 0; }
 
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 980px; }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
@@ -223,11 +223,17 @@ section { padding: clamp(4rem, 8vw, 7rem) 0; }
 /* ======= NAV ======= */
 nav {
   position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1rem 0; background: var(--white);
+    padding: 1rem 0;
+  background: rgba(255,255,255,0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 1px 0 rgba(0,0,0,0.06);
   transition: all 0.4s var(--transition);
 }
 nav.scrolled { padding: 0.7rem 0; }
+@media (prefers-reduced-transparency: reduce) {
+  nav { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 .nav-inner {
   max-width: 1400px; margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
@@ -251,7 +257,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-cta {
   font-size: 0.75rem; padding: 0.6rem 1.4rem;
   background: var(--ocean); color: var(--white);
-  border: 1px solid var(--ocean); border-radius: 2px;
+  border: 1px solid var(--ocean); border-radius: 980px;
   text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
   text-transform: uppercase; transition: all 0.3s;
 }
@@ -268,7 +274,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
 .nav-dropdown-menu {
   position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
-  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
   opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
 }
@@ -289,7 +295,7 @@ nav.scrolled { padding: 0.7rem 0; }
   display: none;
   font-size: 0.7rem; padding: 0.5rem 0.95rem;
   background: var(--ocean); color: var(--white);
-  border: 1px solid var(--ocean); border-radius: 2px;
+  border: 1px solid var(--ocean); border-radius: 980px;
   text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; transition: all 0.3s;
   white-space: nowrap;
@@ -363,13 +369,13 @@ nav.scrolled { padding: 0.7rem 0; }
 
 /* ======= AIRPORT CARDS (2 cols) ======= */
 .airport-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(1.5rem, 2.5vw, 2.25rem); margin-top: 3rem; }
-.airport-card { position: relative; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 3px; overflow: hidden; transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition); }
+.airport-card { position: relative; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 12px; overflow: hidden; transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition); }
 .airport-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
 .airport-card-img { height: 280px; overflow: hidden; }
 .airport-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition); }
 .airport-card:hover .airport-card-img img { transform: scale(1.04); }
 .airport-card-body { padding: clamp(1.75rem, 2.5vw, 2.5rem); }
-.airport-card-body .tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; padding: 0.3rem 0.7rem; border: 1px solid var(--teal); border-radius: 2px; margin-bottom: 1rem; }
+.airport-card-body .tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); font-weight: 600; padding: 0.3rem 0.7rem; border: 1px solid var(--teal); border-radius: 12px; margin-bottom: 1rem; }
 .airport-card-body .tag-primary { background: var(--ocean); color: var(--white); border-color: var(--ocean); }
 .airport-card-body h3 { margin-bottom: 0.4rem; }
 .airport-card-body .code { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; margin-bottom: 1rem; display: block; }
@@ -381,7 +387,7 @@ nav.scrolled { padding: 0.7rem 0; }
 /* ======= ROUTE GRID (4 region cards) ======= */
 .route-intro { max-width: 680px; }
 .route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
-.route-card { background: var(--white); border: 1px solid var(--sand-dark); padding: clamp(1.5rem, 2vw, 2rem); border-radius: 3px; transition: all 0.4s var(--transition); }
+.route-card { background: var(--white); border: 1px solid var(--sand-dark); padding: clamp(1.5rem, 2vw, 2rem); border-radius: 12px; transition: all 0.4s var(--transition); }
 .route-card:hover { border-color: var(--teal); transform: translateY(-3px); }
 .route-card .num { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; margin-bottom: 0.6rem; display: block; }
 .route-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
@@ -397,7 +403,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .pickup h2 { color: var(--white); margin-bottom: 1rem; max-width: 24ch; }
 .pickup .lead { color: rgba(255,255,255,0.78); }
 .pickup-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; margin-top: 3.5rem; }
-.pickup-image { position: relative; border-radius: 3px; overflow: hidden; aspect-ratio: 4 / 5; }
+.pickup-image { position: relative; border-radius: var(--radius-media); overflow: hidden; aspect-ratio: 4 / 5; }
 .pickup-image img { width: 100%; height: 100%; object-fit: cover; }
 .pickup-steps { display: flex; flex-direction: column; gap: 0; }
 .pickup-step { display: grid; grid-template-columns: 56px 1fr; gap: 1.4rem; padding: 1.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
@@ -408,7 +414,7 @@ nav.scrolled { padding: 0.7rem 0; }
 
 /* ======= DRIVE / VEHICLE ======= */
 .drive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.drive-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
+.drive-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; }
 .drive-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.2rem; padding-top: 2rem; border-top: 1px solid var(--sand-dark); }
 .drive-detail .item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 600; display: block; margin-bottom: 0.3rem; }
 .drive-detail .item .value { font-size: 0.98rem; font-weight: 500; color: var(--charcoal); line-height: 1.5; }

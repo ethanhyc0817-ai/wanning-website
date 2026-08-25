@@ -227,7 +227,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* The Owner's Suite gets the room; everything else is an alternate. */
 .roomHero {
   display: grid; grid-template-columns: 1.15fr 1fr; width: 100%; text-align: left;
-  border: 1px solid var(--line-2); border-radius: 3px; background: var(--surface); overflow: hidden;
+  border: 1px solid var(--line-2); border-radius: var(--radius-media); background: var(--surface); overflow: hidden;
   transition: border-color .45s var(--ease), box-shadow .45s var(--ease), background .45s var(--ease);
 }
 .roomHero:hover { border-color: var(--gold); }
@@ -250,7 +250,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: .9rem; }
 .room {
-  position: relative; text-align: left; border: 1px solid var(--line); border-radius: 3px;
+  position: relative; text-align: left; border: 1px solid var(--line); border-radius: 12px;
   background: var(--surface); overflow: hidden; padding: 0; display: flex; flex-direction: column;
   transition: border-color .45s var(--ease), transform .45s var(--ease), box-shadow .45s var(--ease), background .45s var(--ease);
 }
@@ -263,7 +263,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .room__flag {
   position: absolute; top: .7rem; left: .7rem; z-index: 2;
   font-family: 'Montserrat', sans-serif; font-size: .56rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: #14232b; background: var(--gold); padding: .26rem .5rem; border-radius: 2px;
+  text-transform: uppercase; color: #14232b; background: var(--gold); padding: .26rem .5rem; border-radius: 6px;
 }
 .room__name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; }
 .room__meta { font-size: .78rem; color: var(--cream-faint); }
@@ -280,13 +280,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .room.is-sel .room__tick svg { opacity: 1; transform: none; }
 
 /* ═══ Steppers & choices ════════════════════════════════════════════════ */
-.panel { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: 1.4rem 1.5rem; }
+.panel { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 1.4rem 1.5rem; }
 .panel + .panel { margin-top: 1rem; }
 .panel__lbl { font-family: 'Montserrat', sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 .panel__hint { font-size: .84rem; color: var(--cream-faint); margin-top: .35rem; line-height: 1.55; }
 
 .dials { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-top: 1.1rem; }
-.dial { border: 1px solid var(--line); border-radius: 3px; padding: .9rem 1rem; background: rgba(255,255,255,.02); }
+.dial { border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem; background: rgba(255,255,255,.02); }
 .dial__t { display: block; font-size: .78rem; color: var(--cream-dim); }
 .dial__t em { font-style: normal; color: var(--cream-faint); font-size: .72rem; display: block; margin-top: .1rem; }
 .dial__row { display: flex; align-items: center; justify-content: space-between; gap: .7rem; margin-top: .55rem; }
@@ -294,7 +294,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .dial__val.bump { animation: bump .32s var(--ease-out); }
 @keyframes bump { 0% { transform: scale(1); } 45% { transform: scale(1.18); color: var(--gold); } 100% { transform: scale(1); } }
 .pm {
-  width: 34px; height: 34px; border: 1px solid var(--line-2); border-radius: 2px; display: grid; place-items: center;
+  width: 34px; height: 34px; border: 1px solid var(--line-2); border-radius: 12px; display: grid; place-items: center;
   font-size: 1.05rem; color: var(--cream-dim); transition: all .3s var(--ease); flex: none;
 }
 .pm:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); background: rgba(196,162,101,.10); }
@@ -302,7 +302,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .waves { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; margin-top: 1.1rem; }
 .wave {
-  text-align: left; border: 1px solid var(--line); border-radius: 3px; padding: 1rem 1.05rem;
+  text-align: left; border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.05rem;
   background: rgba(255,255,255,.02); transition: all .4s var(--ease);
   display: flex; flex-direction: column; gap: .3rem;
 }
@@ -310,7 +310,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .wave.is-sel { border-color: var(--gold); background: rgba(196,162,101,.09); }
 .wave__car {
   display: block; position: relative; width: calc(100% + 2.1rem); margin: -1rem -1.05rem .7rem;
-  border-radius: 3px 3px 0 0; overflow: hidden;
+  border-radius: 12px 3px 0 0; overflow: hidden;
 }
 .wave__track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -323,7 +323,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .wave__tab {
   font-family: 'Montserrat', sans-serif; font-size: .58rem; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase; color: var(--cream-faint);
-  background: rgba(255,255,255,.04); padding: .28rem .55rem; border-radius: 2px;
+  background: rgba(255,255,255,.04); padding: .28rem .55rem; border-radius: 980px;
   border: 1px solid var(--line); cursor: pointer; transition: all .3s var(--ease);
 }
 .wave__tab.on { color: var(--gold-lift); border-color: var(--gold); background: rgba(196,162,101,.12); }
@@ -350,7 +350,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .addRow + .tog { border-top: 1px solid var(--line); padding-top: .95rem; }
 
 /* ═══ Step 3 — the price ════════════════════════════════════════════════ */
-.priceStage { border: 1px solid var(--line); border-radius: 3px; background: var(--surface); padding: clamp(1.6rem, 4vw, 2.6rem); text-align: center; position: relative; overflow: hidden; }
+.priceStage { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: clamp(1.6rem, 4vw, 2.6rem); text-align: center; position: relative; overflow: hidden; }
 .priceStage::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
   background: radial-gradient(70% 90% at 50% 0%, rgba(196,162,101,.20) 0%, rgba(196,162,101,0) 68%);
@@ -374,7 +374,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .groupNote {
   margin: 1.4rem auto 0; max-width: 52ch;
-  border: 1px solid var(--gold); border-radius: 3px;
+  border: 1px solid var(--gold); border-radius: 12px;
   background: rgba(196,162,101,.12);
   padding: .9rem 1.2rem;
   font-size: .97rem; line-height: 1.6; color: var(--cream);
@@ -396,7 +396,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .afterOffer { display: none; }
 .afterOffer.on { display: block; animation: rise .9s var(--ease-out) .3s both; }
 
-.bd { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; text-align: left; }
+.bd { margin-top: 1.6rem; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-align: left; }
 .bd__row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .82rem 1.15rem; border-bottom: 1px solid var(--line); font-size: .89rem; }
 .bd__row:last-child { border-bottom: 0; }
 .bd__row span small { display: block; font-size: .76rem; color: var(--cream-faint); margin-top: .1rem; line-height: 1.5; }
@@ -412,7 +412,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bd__adj {
   font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase; color: var(--gold);
-  border: 1px solid var(--line-2); border-radius: 2px; padding: .32rem .6rem;
+  border: 1px solid var(--line-2); border-radius: 980px; padding: .32rem .6rem;
   transition: all .3s var(--ease); white-space: nowrap;
 }
 .bd__adj:hover, .bd__adj.on { border-color: var(--gold); background: rgba(196,162,101,.12); }
@@ -423,7 +423,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bd__edit.on { display: block; animation: rise .5s var(--ease-out) both; }
 .bd__edit .rooms, .bd__edit .waves, .bd__edit .dials { margin-top: 1rem; }
 
-.incl { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 3px; padding: 1.5rem 1.6rem; background: var(--surface); text-align: left; }
+.incl { margin-top: 1.1rem; border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem 1.6rem; background: var(--surface); text-align: left; }
 .incl__lbl { font-family: 'Montserrat', sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 .incl__hint { font-size: .84rem; color: var(--cream-faint); margin-top: .35rem; line-height: 1.55; }
 .incl__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .75rem 1.6rem; margin-top: 1.1rem; }
@@ -432,7 +432,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .incl__grid span::before { content: ""; position: absolute; left: 0; top: .58em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
 
 /* The same promise, stated once on the way in — a strip, not a list. */
-.strip { margin-top: 1rem; border: 1px solid var(--line); border-radius: 3px; padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .9rem; }
+.strip { margin-top: 1rem; border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .9rem; }
 .strip__lbl { font-family: 'Montserrat', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); width: 100%; }
 .strip span { font-size: .84rem; color: var(--cream-dim); }
 .strip span + span::before { content: "·"; color: var(--cream-faint); margin-right: .9rem; }
@@ -440,7 +440,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .ctaRow { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1.8rem; }
 .btn {
-  display: inline-flex; align-items: center; gap: .6rem; border-radius: 2px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: .6rem; border-radius: 980px; text-decoration: none;
   font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .1em;
   text-transform: uppercase; padding: .95rem 1.7rem; transition: all .4s var(--ease);
 }
@@ -470,7 +470,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bar__back:hover { color: var(--cream); }
 .bar__back.gone { display: none; }
 .bar__next {
-  background: var(--gold); color: #14232b; border-radius: 2px; padding: .85rem 1.5rem;
+  background: var(--gold); color: #14232b; border-radius: 980px; padding: .85rem 1.5rem;
   font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase;
   transition: all .35s var(--ease);
 }
