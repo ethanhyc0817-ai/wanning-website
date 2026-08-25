@@ -375,6 +375,10 @@ h1, h2, h3 { text-wrap: balance; }
   --gold: #c4a265;
   --ink-blue: #1f4788;
   --paper: #f4e9d0;
+  /* Dark-section ground: a deep shade of --ocean, so full-bleed dark bands
+     stay in the site's blue family instead of drifting to black. */
+  --ocean-deep: #092e3e;
+  --radius-media: 14px;
   /* Motion vocabulary (emilkowal.ski standards): strong ease-out for entrances
      and hovers, strong ease-in-out for on-screen movement. --transition is the
      legacy alias used throughout — keep it pointing at the same curve. */
@@ -533,7 +537,7 @@ nav.scrolled { padding: 0.7rem 0; }
   font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
   background: rgba(196,162,101,0.08);
 }
-.nav-links a.nav-buyout:hover { background: #c4a265; color: #14232b; opacity: 1; }
+.nav-links a.nav-buyout:hover { background: var(--gold); color: var(--ocean-deep); opacity: 1; }
 /* Plan Your Trip dropdown */
 .nav-dropdown { position: relative; }
 .nav-dropdown-toggle {
@@ -880,16 +884,20 @@ nav.scrolled { padding: 0.7rem 0; }
 .rate-group__note { font-size: 0.84rem; line-height: 1.65; color: var(--warm-gray); margin: 0.9rem 0 0; }
 .rate-group__link { display: inline-block; margin-top: 1rem; font-size: 0.86rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; transition: opacity 0.25s ease; }
 .rate-group__link:hover { opacity: 0.7; }
-.addons-toggle { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--ocean); padding: 0; transition: opacity 0.25s ease; }
-.addons-toggle:hover { opacity: 0.7; }
-.addons-toggle__icon { display: inline-flex; align-items: center; justify-content: center; width: 1.35rem; height: 1.35rem; border: 1px solid currentColor; border-radius: 50%; font-size: 0.95rem; font-weight: 500; line-height: 1; }
-.addons-body { margin-top: 1.1rem; }
+
 .rate-row__price--note { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.76rem; letter-spacing: 0.02em; color: var(--teal); white-space: normal; text-align: right; max-width: 10.5rem; }
 
-/* Featured private-session row + settings scroller */
-.rate-row--featured { display: block; margin: 0.9rem 0 0; padding: 1rem 1rem 1.15rem; background: var(--sand); border: 1px solid var(--coral); border-radius: 3px; }
+/* Featured private-session banner: full width under the three columns so the
+   columns stay balanced, with the wave-setting cards in a row beside the offer. */
 .rates-cols .rate-group { min-width: 0; }
-.rate-row--featured .rate-row__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; }
+.rates-featured { display: grid; grid-template-columns: minmax(240px, 0.9fr) 2fr; gap: clamp(1.4rem, 3.5vw, 3rem); align-items: center; max-width: 1120px; margin: 2.8rem auto 0; padding: 1.5rem clamp(1.2rem, 2.5vw, 2rem); background: var(--sand); border: 1px solid var(--coral); border-radius: 4px; }
+.rates-featured__info h3 { font-size: 1.15rem; margin: 0 0 0.25rem; }
+.rates-featured__desc { font-size: 0.84rem; line-height: 1.55; color: var(--warm-gray); margin: 0 0 0.55rem; }
+.rates-featured__price { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--charcoal); }
+.rates-featured__price em { font-style: normal; font-weight: 500; font-size: 0.76em; color: var(--warm-gray); }
+.rates-featured .ps-scroll { margin-top: 0; }
+.rates-featured .ps-card { flex: 1 1 172px; }
+@media (max-width: 860px) { .rates-featured { grid-template-columns: 1fr; align-items: start; } .rates-featured .ps-card { flex: 0 0 172px; } }
 .ps-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--white); background: var(--coral); border-radius: 2px; padding: 0.22rem 0.5rem; margin-bottom: 0.55rem; }
 .ps-scroll { display: flex; gap: 0.7rem; overflow-x: auto; max-width: 100%; margin-top: 0.95rem; padding-bottom: 0.4rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
 .ps-card { flex: 0 0 172px; scroll-snap-align: start; background: var(--white); border: 1px solid var(--sand-dark); border-radius: 3px; padding: 0.8rem 0.85rem 0.9rem; display: flex; flex-direction: column; text-align: left; }
@@ -1759,6 +1767,33 @@ footer .section-divider-center,
   from { opacity: 0; translate: 0 18px; }
   to { opacity: 1; translate: 0 0; }
 }
+/* Section titles ride the scroll (Chrome/Edge): progress is tied to the
+   heading's position in the viewport, so it tracks in both directions and
+   settles once fully entered. Engines without scroll-driven animations keep
+   the one-shot fadeUp above. */
+@supports (animation-timeline: view()) {
+  .page section h2.fade-in,
+  .page section h2.fade-in.visible {
+    opacity: 1;
+    /* linear: progress is scroll position, so the curve would fight the finger */
+    animation: titleRise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+    animation-delay: 0ms;
+  }
+  @keyframes titleRise {
+    from { opacity: 0; translate: 0 36px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .page section h2.fade-in,
+    .page section h2.fade-in.visible {
+      animation: fadeOnly 0.25s ease both;
+      animation-timeline: auto;
+      translate: none;
+    }
+  }
+}
 /* Reveal is decoration for screens — never blank content on paper. */
 @media print {
   .fade-in { opacity: 1; }
@@ -2354,7 +2389,7 @@ footer::before {
 
   <!-- GETTING HERE — direct international flights to Haikou -->
   <style>
-    .gh-section { background: #0b1519; padding: clamp(4rem, 9vw, 6.5rem) 0; }
+    .gh-section { background: var(--ocean-deep); padding: clamp(4rem, 9vw, 6.5rem) 0; }
     .gh-section .overline { color: var(--gold); }
     .gh-section h2 { color: #fff; font-size: clamp(1.9rem, 4.2vw, 3rem); margin: 0.9rem 0 1rem; }
     .gh-section h2 em { color: var(--gold); font-style: italic; }
@@ -2372,7 +2407,7 @@ footer::before {
     .gh-leg-direct { border-top-width: 2px; border-top-color: #6fb6c9; }
     .gh-leg-us { border-top-width: 2px; border-top-color: var(--coral); border-top-style: dashed; }
     .gh-details-btn { display: inline-block; margin-top: 2rem; background: transparent; color: var(--gold); border: 1px solid var(--gold); border-radius: 2px; padding: 0.85rem 2rem; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
-    .gh-details-btn:hover { background: var(--gold); color: #14232b; }
+    .gh-details-btn:hover { background: var(--gold); color: var(--ocean-deep); }
     .gh-details { display: none; }
     .gh-details.open { display: block; }
     .gh-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 2.2rem; }
@@ -2386,17 +2421,17 @@ footer::before {
     .gh-col--asia h4 span { color: #6fb6c9; }
     .gh-note { text-align: center; color: rgba(236,227,212,0.6); font-size: 0.84rem; margin-top: 2rem; line-height: 1.7; }
     .gh-note strong { color: rgba(236,227,212,0.9); font-weight: 600; }
-    .gh-svg-label { font-family: 'Inter', sans-serif; paint-order: stroke; stroke: #0b1519; stroke-width: 3px; stroke-linejoin: round; }
+    .gh-svg-label { font-family: 'Inter', sans-serif; paint-order: stroke; stroke: #092e3e; stroke-width: 3px; stroke-linejoin: round; }
     .gh-pulse { transform-box: fill-box; transform-origin: center; animation: ghPulse 2.4s ease-out infinite; }
     @keyframes ghPulse { 0% { transform: scale(0.5); opacity: 0.9; } 100% { transform: scale(2.6); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { .gh-pulse { animation: none; opacity: 0.25; } }
     @media (max-width: 900px) { .gh-cols { grid-template-columns: 1fr; } }
-    .gh-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(6,12,15,0.96); }
+    .gh-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(7,32,44,0.96); }
     .gh-lightbox.open { display: block; }
     .gh-lightbox-inner { position: absolute; inset: 0; overflow: auto; -webkit-overflow-scrolling: touch; display: flex; align-items: safe center; }
     .gh-lightbox-inner svg { margin: auto; display: block; height: auto; }
     .gh-lightbox-controls { position: fixed; top: 1rem; right: 1rem; z-index: 2; display: flex; gap: 0.5rem; }
-    .gh-lightbox-controls button { width: 44px; height: 44px; border-radius: 3px; border: 1px solid rgba(236,227,212,0.35); background: rgba(11,21,25,0.85); color: #ece3d4; font-size: 1.25rem; line-height: 1; cursor: pointer; transition: all 0.25s; }
+    .gh-lightbox-controls button { width: 44px; height: 44px; border-radius: 3px; border: 1px solid rgba(236,227,212,0.35); background: rgba(9,46,62,0.88); color: #ece3d4; font-size: 1.25rem; line-height: 1; cursor: pointer; transition: all 0.25s; }
     .gh-lightbox-controls button:hover { border-color: var(--gold); color: var(--gold); }
   </style>
   <section class="gh-section" id="getting-here">
@@ -2408,7 +2443,7 @@ footer::before {
       </div>
       <div class="gh-map-scroll" id="gh-map-scroll" role="img" aria-label="Map of direct international flights to Haikou: direct from Sydney, Melbourne, Auckland, Hong Kong, Bangkok, Singapore, Kuala Lumpur, Jakarta, Tokyo, Seoul, London and Moscow; one-stop connections from Los Angeles and New York via Asian hubs. Click to enlarge.">
         <svg viewBox="0 0 1000 345" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M487 319l3 1l4 -1l1 4l-1 3l-3 1l-4 -3l-2 -4zM564 319l3 0l0 3l-2 3l-3 3l-3 2l-2 3l-3 2l-3 0l-5 -1l1 -3l4 -3l4 -1l4 -3l2 -3l2 -3zM568 306l2 3l4 2l4 -1l1 3l-3 1l-1 3l-3 3l-4 0l1 -3l-3 -2l3 -4l-2 -3l-3 -4l0 -3l4 3zM548 267l-3 0l-4 -3l-2 -3l3 1l4 4zM222 243l1 4l0 3l-1 3l-1 3l-1 3l-2 4l-2 5l-1 4l-1 3l-5 2l-3 -2l-1 -4l-2 -4l2 -3l2 -3l-1 -3l-1 -4l2 -3l3 -1l4 -2l3 -3l2 -3l1 -3l2 4zM482 244l3 1l2 3l0 3l2 4l1 3l3 2l4 2l1 3l1 3l3 0l1 3l3 3l3 4l0 3l1 3l-1 3l0 3l-1 4l-3 3l-1 3l-2 3l-2 4l0 3l-5 1l-4 2l-4 0l-5 0l-4 -1l-4 -1l-2 -4l-5 -2l0 -4l-4 3l2 -4l1 -3l-4 3l-1 3l-2 -3l-3 -3l-3 -2l-5 -2l-5 0l-3 1l-4 1l-5 2l-3 0l-1 3l-3 0l-4 0l-4 0l-3 2l-4 1l-5 -2l1 -3l0 -3l-2 -4l0 -4l-3 -3l-1 -5l0 -4l0 -3l0 -4l3 -2l3 -2l3 -1l4 -1l3 -1l4 -1l4 -4l2 -5l1 3l1 -4l3 -2l2 -3l3 -1l3 1l4 2l2 -4l2 -3l3 0l3 -1l5 0l4 0l3 1l-2 3l-2 4l4 3l4 2l5 3l2 -3l2 -5l-1 -3l1 -3l1 -4l3 2l1 4zM429 234l-3 0l2 -3l3 -1l4 -1l-4 3zM411 228l3 1l-3 1l-3 1l3 -3zM425 228l-5 2l-4 0l3 -1l3 0l3 -1zM385 224l5 1l6 0l5 2l4 2l-3 1l-3 -1l-3 0l-3 0l-6 -2l-3 0l-5 -1l-3 -1l2 -3l3 0l3 1zM506 221l-4 2l-3 0l-4 -1l3 -1l3 0l4 -2zM446 214l-4 1l-3 0l4 -2l3 1zM509 218l-4 -3l-3 -2l3 1l3 3zM456 209l1 4l3 2l2 -3l3 -2l3 0l4 2l3 1l5 2l5 1l3 3l5 4l-1 3l3 2l1 3l4 2l-3 1l-3 0l-4 -4l-5 -3l-4 2l-1 3l-5 -1l-5 -3l-4 1l3 -3l-1 -3l-7 -5l-6 -3l-3 1l-2 -3l3 -1l-3 -2l-3 0l3 -2l6 0zM431 202l-4 3l-3 -1l-4 1l-3 0l2 5l7 -3l-3 3l0 4l2 5l-4 0l-2 -3l0 -3l-1 4l0 4l-3 0l1 -3l-1 -3l-1 -3l1 -3l1 -4l3 -3l6 1l3 0l3 -2zM441 202l0 3l-1 3l-3 -5l2 -3zM377 222l-3 0l-6 -5l-3 -4l-3 -6l-3 -2l-2 -4l-4 -5l-5 -4l6 -1l3 3l3 3l3 3l3 0l4 4l1 4l3 3l3 1l0 6l0 4zM411 201l3 2l-3 0l-1 5l-3 2l0 3l-1 4l-4 0l-3 -2l-4 0l-3 -1l-3 -4l-3 -3l0 -3l2 -4l4 0l5 -3l4 -4l3 -3l4 -4l2 3l4 2l-3 3l-2 3l2 4zM434 182l1 4l-3 1l0 3l-4 -1l0 -3l-3 -1l-3 1l1 -3l3 -2l3 1l3 -1zM309 188l-4 -1l0 -4l1 -5l3 4l2 3l-1 3zM428 177l-2 3l-3 -1l2 -4l3 -1l0 3zM413 180l-4 2l3 -3l3 -5l-1 4zM432 172l1 3l-3 2l-1 -3l0 -3l3 1zM420 154l3 0l1 4l-3 3l0 3l3 2l4 1l0 3l-3 -2l-3 -1l-4 0l-1 -3l-1 -4l2 -3l1 -3zM882 150l5 0l3 2l4 2l-3 0l-4 1l-3 1l-3 -1l-3 1l3 -2l0 -3zM390 154l-3 1l-2 -3l4 -2l3 1l-2 3zM862 142l4 1l3 2l3 2l3 1l-4 2l-4 0l-2 -3l-4 -2l-5 -1l-3 -1l-3 1l-3 1l4 -3l3 -1l3 0l5 1zM420 142l-1 3l-2 -3l2 -5l3 -1l-2 6zM457 111l-3 2l-3 1l2 -3l4 0zM149 106l4 1l3 1l-4 1l-3 -1zM126 99l-1 3l-3 1l-4 -2l3 -1l3 0zM109 91l1 6l-3 0l0 -4zM475 102l-1 3l-1 3l-4 1l-5 0l-3 4l-2 -4l-5 1l-4 1l-3 0l3 3l-2 4l-3 0l-1 -3l1 -3l5 -3l7 -3l3 1l3 -5l6 -1l3 -5l0 -3l4 -2l2 3l-1 3l-2 3zM483 83l4 -1l1 3l-4 1l-3 3l-4 -2l-2 3l-3 0l0 -3l4 -2l1 -4l4 1zM912 69l-5 -1l-3 -1l5 1l3 1zM740 71l-6 -1l-3 -2l-3 -1l3 -1l3 0l5 3zM927 65l1 3l3 1l4 0l1 3l0 4l-3 0l0 -3l-4 2l-5 -2l-5 0l2 -4l3 -4l4 -3l-1 3zM715 55l2 3l2 3l-3 -2l-3 -3zM482 65l3 5l-4 -1l-2 4l3 2l-4 3l0 -5l0 -3l0 -6l-1 -3l0 -3l1 -3l3 4l0 3l1 3zM64 60l-4 2l-4 0l2 -3l-2 -3l4 -2l5 -2l3 2l-1 4l-3 2zM658 47l-4 0l4 -2l3 1l-3 1zM75 43l-3 3l3 -1l3 0l-1 3l3 6l4 3l4 2l-2 3l-1 3l-4 0l-5 0l-3 1l-4 1l2 -4l3 0l-5 -1l3 -2l-1 -3l4 0l-2 -3l-3 -1l-2 -4l-1 -4l5 -2l3 0zM856 31l-3 2l-3 -1l6 -1zM606 28l4 1l5 1l-3 1l-3 -1l-3 -1zM847 23l3 2l3 1l4 1l4 2l-3 0l-4 0l-4 0l-4 1l-5 -1l3 -3l1 -3zM43 21l3 4l-4 2l-8 2l-6 0l-8 -1l3 -1l-6 -2l5 0l-6 -2l6 -2l4 2l4 -2l4 1l4 -1l5 0zM583 14l7 2l7 3l9 1l5 2l-7 2l0 3l-4 0l-6 -2l-3 -1l-3 0l-4 -1l-4 3l-4 0l3 2l3 3l-6 1l-8 2l-6 2l-5 2l-4 -1l-8 2l-4 1l-3 -1l-5 5l4 2l-1 4l-3 2l-4 3l-1 3l-4 0l-1 3l-4 3l-2 -6l-2 -6l1 -4l3 -2l4 -2l5 -3l5 -3l5 -2l2 -4l-3 0l-9 5l-2 -3l-7 1l-7 5l-4 2l-4 0l-5 -2l-3 1l-9 0l-9 1l-9 5l-10 7l4 0l4 2l5 -1l4 3l-2 5l0 4l-2 4l-4 4l-4 5l-4 3l-6 4l-3 -2l-4 2l-3 2l0 3l-3 2l-3 1l2 3l2 4l1 5l-4 2l-4 1l0 -4l1 -3l-4 -3l0 -4l-3 -1l-4 0l-5 3l0 -3l3 -2l-4 0l-3 2l-5 2l0 3l3 0l5 0l4 2l-3 2l-4 3l1 3l1 3l4 5l-1 4l1 3l-4 5l-2 4l-3 3l-4 3l-4 2l-3 1l-3 0l-5 3l-3 0l-1 3l-1 -3l-4 -1l-5 3l-3 3l2 5l3 3l4 4l1 5l0 5l-3 2l-3 2l-6 5l0 -4l-4 -2l-3 -4l-5 -1l1 -3l-3 0l0 3l-1 4l-1 3l3 5l2 4l3 1l4 4l-1 3l1 3l2 3l-5 -1l-3 -2l-2 -3l0 -3l-1 -3l-2 -4l-3 -3l0 -4l1 -4l-1 -5l-2 -5l-1 -3l-3 -1l-3 2l-3 -1l1 -3l-1 -3l-2 -3l-3 -4l-1 -3l-2 -3l-3 3l-3 -1l-3 1l-3 1l-1 4l-4 1l-3 4l-3 2l-2 3l-4 1l-2 3l0 3l-1 5l0 5l-3 2l-2 4l-4 -2l-1 -4l-1 -3l-3 -4l0 -3l-3 -6l-2 -5l0 -4l0 -3l-1 -3l-4 2l-6 -4l-2 -4l-3 -3l-7 -2l-5 1l-4 0l-5 -1l-3 -1l-3 0l-1 -3l-4 0l-3 1l-3 -1l-3 -2l-3 -1l-3 -6l-4 -1l-2 3l2 5l4 2l0 3l1 3l1 -4l2 3l0 3l5 0l3 -2l4 -4l1 3l3 3l3 1l2 3l0 3l-2 3l-2 4l-3 1l-3 2l-2 3l-4 0l-3 1l-4 3l-4 2l-4 2l-4 1l-3 1l-3 1l-3 1l-1 -4l-1 -3l0 -3l-1 -3l-3 -4l-1 -3l-3 -2l-2 -3l0 -3l-2 -3l-3 -2l-1 -4l-4 -4l-2 -4l-2 3l-3 -2l-2 -4l1 3l2 3l2 4l2 3l2 3l3 5l2 3l-1 4l1 3l3 2l2 3l2 4l4 2l3 4l3 2l-1 3l3 3l4 -1l3 0l4 -1l3 -1l3 -1l2 3l-1 4l-2 3l-1 4l-3 4l-2 3l-3 4l-3 2l-4 3l-3 2l-3 3l-3 3l-2 4l-2 3l-2 4l2 3l-1 3l1 3l1 3l2 4l0 3l0 4l0 3l-3 4l-3 1l-3 1l-3 3l-3 3l-1 3l2 3l0 4l0 3l-4 2l-3 1l0 4l-1 4l-3 3l-3 3l-4 5l-4 3l-3 1l-4 1l-4 0l-3 0l-3 1l-4 1l-3 -1l-2 -3l0 -4l-2 -3l-3 -6l-3 -4l-1 -3l-2 -6l0 -3l-1 -3l-3 -6l-3 -4l0 -4l1 -5l1 -4l2 -3l1 -3l0 -3l-2 -3l0 -4l-2 -4l-1 -3l-2 -3l-3 -3l-3 -5l1 -4l0 -3l1 -3l-1 -4l-2 -3l-3 1l-4 1l-3 -4l-4 -2l-4 1l-3 0l-4 2l-4 2l-3 -1l-3 -1l-5 1l-5 2l-4 -2l-5 -3l-4 -4l-2 -4l-3 -3l-2 -3l-3 -1l-2 -3l0 -3l-3 -3l3 -3l0 -3l1 -4l0 -4l-1 -3l-1 -3l2 -3l2 -4l2 -4l3 -2l2 -3l4 -2l3 -2l3 -3l-1 -3l1 -4l5 -3l4 -4l3 -2l4 1l3 1l4 -2l3 0l4 -2l5 -1l5 0l4 0l3 -1l3 1l3 -1l4 1l-1 3l0 3l-1 3l3 2l4 1l3 0l4 1l3 3l4 1l3 2l3 -2l-1 -3l3 -2l6 0l3 2l3 0l4 1l3 1l4 1l3 -2l4 0l4 1l4 0l1 -5l2 -3l1 -4l1 -3l-4 -1l-6 2l-3 -1l-3 0l-5 0l-3 0l-2 -3l0 -4l1 -4l4 0l7 -2l3 -1l3 -1l5 0l5 2l4 1l3 -1l6 -1l-1 -3l-3 -1l-4 -3l-3 -1l-3 -2l5 -3l2 -3l-5 1l-4 1l-3 1l5 2l-4 2l-4 1l-4 -2l4 -2l-5 -1l-3 -1l-3 4l-3 1l0 3l-3 3l1 3l3 1l-4 1l-3 2l-3 -2l-5 1l-3 1l2 3l2 4l-3 1l-3 1l-2 -4l-3 -3l-2 -4l0 -3l-5 -2l-4 -2l-3 -2l0 -3l-3 1l-4 -1l0 3l3 2l4 4l3 0l4 3l3 2l-5 -1l1 3l-3 4l0 -3l-2 -3l-4 -2l-3 -1l-5 -3l-2 -4l-4 -2l-3 2l-4 2l-5 -1l-4 1l0 3l-3 2l-3 1l-3 4l-1 3l-3 3l-5 2l-3 0l-3 2l-3 -3l-3 0l-3 0l0 -4l-2 -3l2 -4l-1 -3l-1 -3l4 -2l4 1l3 0l3 0l3 0l4 0l2 -7l-3 -3l-6 -3l3 -2l5 0l-1 -3l3 2l6 -3l3 -3l3 0l3 -5l4 -1l3 0l3 0l1 -3l-1 -3l0 -3l4 -1l3 -2l-1 3l-2 3l1 3l3 1l3 0l4 0l3 0l5 -1l3 -1l3 1l3 0l4 -2l0 -4l4 -3l4 2l1 -4l-3 0l4 -3l3 0l3 0l3 0l3 -1l-3 -1l-5 0l-5 1l-4 0l-4 -2l0 -3l0 -4l3 -2l6 -3l-2 -3l-5 1l-3 2l-4 4l-5 2l-2 4l5 4l-3 3l-3 0l-1 5l-2 3l-3 -1l-2 3l-3 0l-1 -3l-2 -3l-2 -4l-7 2l-4 0l-4 -1l-1 -3l-1 -7l3 -1l7 -3l6 -3l5 -3l6 -6l5 -2l8 -3l6 -2l4 1l5 -3l5 0l5 0l8 2l-3 1l3 1l3 -1l4 2l8 1l10 3l3 3l-4 1l-4 1l-12 -2l2 3l0 4l4 0l3 0l6 -1l3 0l4 -5l3 0l4 -1l-1 -3l6 -1l-2 3l6 1l7 -3l10 -3l4 1l6 0l4 -1l3 2l3 -2l-3 -2l10 0l4 1l10 3l-1 -3l-4 0l0 -4l5 -3l2 -3l9 0l-2 4l3 3l-1 4l3 2l-7 5l4 1l4 -2l3 -3l-1 -3l-3 0l2 -5l-4 -2l5 -2l3 0l1 3l4 -3l6 0l5 1l-3 -2l0 -3l5 -1l6 1l7 -1l-3 0l3 0l4 0l5 0l7 0l9 0l8 0l5 0l4 0l6 0l5 0l-4 0l6 0l4 0l8 0l6 0l-9 0l6 1l4 1l5 -1l9 0l13 2l6 -2l4 0l5 2l-1 3l4 2l4 1l3 -3l4 1l5 0l5 0l7 0l-2 -3l4 -1l25 2l9 4l11 -1l6 1l2 3l3 1l4 -1l5 0l5 1l6 -1l4 3l4 -1l-1 -3l9 1l5 -1l8 2l4 1zM220 91l3 3l-3 3l0 4l3 1l6 2l4 -1l0 -3l0 -3l-3 -3l3 -1l0 -3l-3 -1l-4 -3l-1 -3l1 -3l5 0l0 -3l-3 -1l-6 0l-4 2l-5 4l3 2l2 5zM818 14l-6 0l-6 -1l3 -1l4 0l3 1zM583 7l3 0l4 1l-3 1l-4 0zM832 13l4 0l3 2l2 4l3 -2l2 -3l0 -3l4 1l4 0l4 1l-2 3l1 3l-5 2l-4 1l-3 -1l-3 3l-4 4l-4 0l-3 1l-3 2l-3 2l-3 3l-2 3l0 3l4 0l2 3l5 1l5 2l3 1l5 2l3 1l5 0l3 0l-1 3l1 3l2 3l4 2l4 -3l-1 -5l2 -3l3 -2l1 -3l-1 -3l-4 -2l4 -3l-3 -7l7 1l3 0l5 0l3 2l6 1l1 6l4 2l4 -2l3 -3l4 1l4 4l3 3l2 4l3 1l4 1l3 3l3 2l1 3l-4 2l-5 1l-3 2l-5 0l-6 0l-4 0l-3 0l-6 3l-4 4l-3 3l7 -5l5 -2l5 0l-1 3l1 3l5 4l4 -1l3 -3l2 3l-3 2l-6 1l-3 2l-3 2l-2 -3l4 -2l-4 0l-3 0l-3 2l-3 1l-4 3l1 3l-4 2l-3 0l-3 2l-3 4l-1 3l-3 -3l0 3l1 3l1 4l-5 3l-3 2l-5 3l-3 3l0 4l1 3l2 3l1 3l0 3l-3 2l-3 -5l-2 -3l0 -3l-2 -3l-4 1l-4 -2l-3 1l-4 -1l-1 3l-4 1l-5 -1l-3 -1l-3 1l-5 3l-2 3l0 3l-1 3l0 6l0 3l1 3l3 4l4 2l3 0l3 0l3 -1l3 -3l1 -3l4 -1l3 0l1 3l-1 3l-1 3l-1 3l-1 3l3 1l3 0l3 -1l3 1l3 1l0 3l-1 3l0 4l1 4l3 3l3 1l3 -1l3 -1l3 1l3 2l3 -3l1 -3l3 -1l5 -2l3 -2l0 3l-1 3l0 3l1 -3l3 -3l4 0l4 2l3 0l4 2l5 -2l3 0l3 4l3 2l4 3l2 3l5 2l5 0l3 1l3 2l4 7l2 3l-2 3l5 0l0 3l6 -1l5 2l0 3l4 -1l5 2l4 0l4 2l4 3l4 1l2 4l0 7l-6 5l-1 3l-2 3l-2 7l0 4l-2 3l0 4l-3 4l0 3l-3 1l-3 1l-5 2l-5 2l-3 2l-2 3l0 3l-1 3l-2 3l-3 5l-3 2l-3 4l-3 3l-3 2l-4 -1l-4 -1l1 3l2 3l-3 5l-4 1l-6 1l-3 0l0 3l-1 3l-3 0l-4 0l3 3l-3 3l0 3l-3 2l-3 1l2 4l3 1l-4 2l-5 0l-3 0l-3 0l-4 0l-3 0l-4 0l2 -3l-4 -1l3 -2l1 -5l3 1l1 -6l-2 3l-1 -4l1 -5l0 -5l0 -3l3 -5l2 -4l1 -4l-1 -4l1 -3l0 -3l1 -4l1 -5l1 -6l1 -6l-1 -4l0 -4l-3 -2l-6 -4l-5 -3l-3 -4l-2 -4l-3 -6l-2 -5l-2 -3l-4 -3l-1 -4l3 -4l1 -3l-3 0l1 -3l1 -3l1 -3l3 -1l1 -3l3 -3l1 -3l-1 -3l0 -3l-3 -4l-3 -2l-1 4l-3 -1l-3 -1l-4 -1l-2 -3l-3 -1l-1 -3l-3 -3l-2 -3l-3 0l-3 -1l-4 -1l-3 -2l-3 -3l-4 -1l-3 1l-4 -1l-5 -1l-5 -2l-3 -2l-4 -1l-4 -3l-2 -3l1 -3l-2 -4l-3 -2l-2 -3l-4 -2l0 -3l-3 -2l-4 -3l-2 -3l-2 -4l-3 -2l-1 4l3 3l2 3l3 4l2 3l1 3l3 3l-4 -2l-3 -2l-1 -4l-3 -2l-3 -1l1 -3l-2 -3l-3 -2l-2 -4l-1 -3l-2 -3l-3 -1l-4 -1l-4 -5l-2 -4l-3 -4l-2 -3l0 -3l-1 -4l1 -3l1 -5l0 -4l-2 -3l4 0l2 3l0 -3l-1 -3l-6 -2l-7 -3l-1 -4l-3 -1l-4 -4l-2 -3l-3 -3l-4 -2l-1 -3l-3 0l-4 0l-3 -1l-6 -3l-3 0l-5 -1l-4 0l-5 -1l-3 -2l-3 1l-5 3l-5 1l1 -4l3 -1l-5 1l-5 4l-1 3l-3 1l-3 1l-5 3l-4 2l-5 1l-5 2l-4 0l5 -2l3 -2l3 0l6 -3l3 -3l-3 -2l-3 0l-5 1l-1 -3l-6 -1l-4 -2l-1 -4l3 -3l4 0l3 -1l4 -1l-5 -2l-3 0l-4 1l-4 -1l-5 -3l4 -1l6 -1l3 0l5 1l-5 -3l-5 -2l-4 -1l7 -2l3 -1l4 -3l8 -1l6 -2l5 1l3 1l5 0l4 1l8 1l6 0l5 0l5 1l3 0l5 1l4 1l3 0l3 -1l3 -1l4 0l4 -1l5 0l4 0l7 2l4 -2l3 1l5 0l4 1l7 1l3 0l3 0l4 2l-4 1l5 1l8 -1l5 1l3 -1l-3 -1l5 -1l5 0l3 2l3 -1l5 2l4 -1l4 0l6 -1l0 3l2 -3l4 -2l-3 -2l-4 -1l1 -3l3 -2l4 0l6 5l3 2zM766 2l5 1l4 1l3 -1l3 1l2 3l-1 -4l3 -1l6 2l2 4l5 2l5 1l-5 1l1 3l-5 -1l-5 -1l-3 1l-5 1l-9 0l-3 0l-6 -2l-6 -2l7 -1l3 1l4 -1l-5 -1l-6 1l-4 0l5 -3l-4 1l-5 -1l4 -3l7 -2l3 0zM793 2l-7 0l5 -1zM871 2l-5 1l-3 0l-4 -1l7 -1l5 1zM843 2l5 0l7 -1l4 3l6 1l8 0l4 1l6 1l3 2l6 1l3 1l-3 4l7 1l4 1l4 3l5 0l-6 5l-4 -1l-4 -3l-4 0l3 4l4 1l3 3l-5 2l-7 -3l4 3l3 2l-7 -1l-6 -1l-3 -2l-3 -2l-5 -1l-8 1l0 -3l5 0l6 0l0 -3l4 -2l-2 -3l-5 -1l-5 -1l-4 -2l-3 -1l-6 1l-10 -1l-6 -1l-4 0l-3 -2l-1 -3l2 -3l3 -1l7 0zM805 0l3 1l5 0l2 3l0 3l-5 1l-3 -1l-8 -3l5 0l-3 -2l4 -2zM482 2l-4 0l-6 0l6 -2l4 1zM824 3l-3 2l-3 0l-1 -3l4 -2l6 0l5 0l-4 3l-4 0zM749 7l-8 2l-7 -3l3 -3l-1 -3l10 0l4 0l7 0l5 1l-3 1l-7 2l-3 2zM243 9l-11 0l-5 -2l2 -4l6 -2l-3 0l7 -1l5 0l9 0l10 0l4 0l6 0l-10 0l-9 0l-8 0l-4 2l-5 3l6 4zM8 0l17 0l-5 0l-10 0zM6 0l8 0l6 0l6 0l14 0l8 0l-10 0l-10 0l6 0l-3 0l-3 0l-5 0l5 0l-5 0l4 1l-5 1l-4 0l3 2l-5 0l6 3l-4 3l-6 -3l-2 3l7 1l4 0l-7 2l-8 2zM998 16l-3 0l-3 1l-4 3l-6 2l-5 1l-4 1l-3 1l-1 4l-5 2l2 3l-3 5l-4 0l-4 -2l-6 0l-4 -5l-5 -3l-2 -4l-4 -3l-1 -3l3 -3l4 -1l2 -4l-3 1l-4 1l-4 -1l1 -3l3 0l6 1l-5 -2l-3 -1l-5 0l3 -3l-4 -3l-3 -1l-3 0l-8 0l-6 0l-7 0l-7 0l-3 0l-5 0l7 0l6 0l-12 0l-6 0l11 0l10 0l-7 0l3 0l9 0l4 0l6 0l8 0l9 0l3 0l7 0l7 0l4 0l6 0l-7 0l10 0l10 0l3 0l10 0z" fill="#1d3440" stroke="none"/>
+          <path d="M487 319l3 1l4 -1l1 4l-1 3l-3 1l-4 -3l-2 -4zM564 319l3 0l0 3l-2 3l-3 3l-3 2l-2 3l-3 2l-3 0l-5 -1l1 -3l4 -3l4 -1l4 -3l2 -3l2 -3zM568 306l2 3l4 2l4 -1l1 3l-3 1l-1 3l-3 3l-4 0l1 -3l-3 -2l3 -4l-2 -3l-3 -4l0 -3l4 3zM548 267l-3 0l-4 -3l-2 -3l3 1l4 4zM222 243l1 4l0 3l-1 3l-1 3l-1 3l-2 4l-2 5l-1 4l-1 3l-5 2l-3 -2l-1 -4l-2 -4l2 -3l2 -3l-1 -3l-1 -4l2 -3l3 -1l4 -2l3 -3l2 -3l1 -3l2 4zM482 244l3 1l2 3l0 3l2 4l1 3l3 2l4 2l1 3l1 3l3 0l1 3l3 3l3 4l0 3l1 3l-1 3l0 3l-1 4l-3 3l-1 3l-2 3l-2 4l0 3l-5 1l-4 2l-4 0l-5 0l-4 -1l-4 -1l-2 -4l-5 -2l0 -4l-4 3l2 -4l1 -3l-4 3l-1 3l-2 -3l-3 -3l-3 -2l-5 -2l-5 0l-3 1l-4 1l-5 2l-3 0l-1 3l-3 0l-4 0l-4 0l-3 2l-4 1l-5 -2l1 -3l0 -3l-2 -4l0 -4l-3 -3l-1 -5l0 -4l0 -3l0 -4l3 -2l3 -2l3 -1l4 -1l3 -1l4 -1l4 -4l2 -5l1 3l1 -4l3 -2l2 -3l3 -1l3 1l4 2l2 -4l2 -3l3 0l3 -1l5 0l4 0l3 1l-2 3l-2 4l4 3l4 2l5 3l2 -3l2 -5l-1 -3l1 -3l1 -4l3 2l1 4zM429 234l-3 0l2 -3l3 -1l4 -1l-4 3zM411 228l3 1l-3 1l-3 1l3 -3zM425 228l-5 2l-4 0l3 -1l3 0l3 -1zM385 224l5 1l6 0l5 2l4 2l-3 1l-3 -1l-3 0l-3 0l-6 -2l-3 0l-5 -1l-3 -1l2 -3l3 0l3 1zM506 221l-4 2l-3 0l-4 -1l3 -1l3 0l4 -2zM446 214l-4 1l-3 0l4 -2l3 1zM509 218l-4 -3l-3 -2l3 1l3 3zM456 209l1 4l3 2l2 -3l3 -2l3 0l4 2l3 1l5 2l5 1l3 3l5 4l-1 3l3 2l1 3l4 2l-3 1l-3 0l-4 -4l-5 -3l-4 2l-1 3l-5 -1l-5 -3l-4 1l3 -3l-1 -3l-7 -5l-6 -3l-3 1l-2 -3l3 -1l-3 -2l-3 0l3 -2l6 0zM431 202l-4 3l-3 -1l-4 1l-3 0l2 5l7 -3l-3 3l0 4l2 5l-4 0l-2 -3l0 -3l-1 4l0 4l-3 0l1 -3l-1 -3l-1 -3l1 -3l1 -4l3 -3l6 1l3 0l3 -2zM441 202l0 3l-1 3l-3 -5l2 -3zM377 222l-3 0l-6 -5l-3 -4l-3 -6l-3 -2l-2 -4l-4 -5l-5 -4l6 -1l3 3l3 3l3 3l3 0l4 4l1 4l3 3l3 1l0 6l0 4zM411 201l3 2l-3 0l-1 5l-3 2l0 3l-1 4l-4 0l-3 -2l-4 0l-3 -1l-3 -4l-3 -3l0 -3l2 -4l4 0l5 -3l4 -4l3 -3l4 -4l2 3l4 2l-3 3l-2 3l2 4zM434 182l1 4l-3 1l0 3l-4 -1l0 -3l-3 -1l-3 1l1 -3l3 -2l3 1l3 -1zM309 188l-4 -1l0 -4l1 -5l3 4l2 3l-1 3zM428 177l-2 3l-3 -1l2 -4l3 -1l0 3zM413 180l-4 2l3 -3l3 -5l-1 4zM432 172l1 3l-3 2l-1 -3l0 -3l3 1zM420 154l3 0l1 4l-3 3l0 3l3 2l4 1l0 3l-3 -2l-3 -1l-4 0l-1 -3l-1 -4l2 -3l1 -3zM882 150l5 0l3 2l4 2l-3 0l-4 1l-3 1l-3 -1l-3 1l3 -2l0 -3zM390 154l-3 1l-2 -3l4 -2l3 1l-2 3zM862 142l4 1l3 2l3 2l3 1l-4 2l-4 0l-2 -3l-4 -2l-5 -1l-3 -1l-3 1l-3 1l4 -3l3 -1l3 0l5 1zM420 142l-1 3l-2 -3l2 -5l3 -1l-2 6zM457 111l-3 2l-3 1l2 -3l4 0zM149 106l4 1l3 1l-4 1l-3 -1zM126 99l-1 3l-3 1l-4 -2l3 -1l3 0zM109 91l1 6l-3 0l0 -4zM475 102l-1 3l-1 3l-4 1l-5 0l-3 4l-2 -4l-5 1l-4 1l-3 0l3 3l-2 4l-3 0l-1 -3l1 -3l5 -3l7 -3l3 1l3 -5l6 -1l3 -5l0 -3l4 -2l2 3l-1 3l-2 3zM483 83l4 -1l1 3l-4 1l-3 3l-4 -2l-2 3l-3 0l0 -3l4 -2l1 -4l4 1zM912 69l-5 -1l-3 -1l5 1l3 1zM740 71l-6 -1l-3 -2l-3 -1l3 -1l3 0l5 3zM927 65l1 3l3 1l4 0l1 3l0 4l-3 0l0 -3l-4 2l-5 -2l-5 0l2 -4l3 -4l4 -3l-1 3zM715 55l2 3l2 3l-3 -2l-3 -3zM482 65l3 5l-4 -1l-2 4l3 2l-4 3l0 -5l0 -3l0 -6l-1 -3l0 -3l1 -3l3 4l0 3l1 3zM64 60l-4 2l-4 0l2 -3l-2 -3l4 -2l5 -2l3 2l-1 4l-3 2zM658 47l-4 0l4 -2l3 1l-3 1zM75 43l-3 3l3 -1l3 0l-1 3l3 6l4 3l4 2l-2 3l-1 3l-4 0l-5 0l-3 1l-4 1l2 -4l3 0l-5 -1l3 -2l-1 -3l4 0l-2 -3l-3 -1l-2 -4l-1 -4l5 -2l3 0zM856 31l-3 2l-3 -1l6 -1zM606 28l4 1l5 1l-3 1l-3 -1l-3 -1zM847 23l3 2l3 1l4 1l4 2l-3 0l-4 0l-4 0l-4 1l-5 -1l3 -3l1 -3zM43 21l3 4l-4 2l-8 2l-6 0l-8 -1l3 -1l-6 -2l5 0l-6 -2l6 -2l4 2l4 -2l4 1l4 -1l5 0zM583 14l7 2l7 3l9 1l5 2l-7 2l0 3l-4 0l-6 -2l-3 -1l-3 0l-4 -1l-4 3l-4 0l3 2l3 3l-6 1l-8 2l-6 2l-5 2l-4 -1l-8 2l-4 1l-3 -1l-5 5l4 2l-1 4l-3 2l-4 3l-1 3l-4 0l-1 3l-4 3l-2 -6l-2 -6l1 -4l3 -2l4 -2l5 -3l5 -3l5 -2l2 -4l-3 0l-9 5l-2 -3l-7 1l-7 5l-4 2l-4 0l-5 -2l-3 1l-9 0l-9 1l-9 5l-10 7l4 0l4 2l5 -1l4 3l-2 5l0 4l-2 4l-4 4l-4 5l-4 3l-6 4l-3 -2l-4 2l-3 2l0 3l-3 2l-3 1l2 3l2 4l1 5l-4 2l-4 1l0 -4l1 -3l-4 -3l0 -4l-3 -1l-4 0l-5 3l0 -3l3 -2l-4 0l-3 2l-5 2l0 3l3 0l5 0l4 2l-3 2l-4 3l1 3l1 3l4 5l-1 4l1 3l-4 5l-2 4l-3 3l-4 3l-4 2l-3 1l-3 0l-5 3l-3 0l-1 3l-1 -3l-4 -1l-5 3l-3 3l2 5l3 3l4 4l1 5l0 5l-3 2l-3 2l-6 5l0 -4l-4 -2l-3 -4l-5 -1l1 -3l-3 0l0 3l-1 4l-1 3l3 5l2 4l3 1l4 4l-1 3l1 3l2 3l-5 -1l-3 -2l-2 -3l0 -3l-1 -3l-2 -4l-3 -3l0 -4l1 -4l-1 -5l-2 -5l-1 -3l-3 -1l-3 2l-3 -1l1 -3l-1 -3l-2 -3l-3 -4l-1 -3l-2 -3l-3 3l-3 -1l-3 1l-3 1l-1 4l-4 1l-3 4l-3 2l-2 3l-4 1l-2 3l0 3l-1 5l0 5l-3 2l-2 4l-4 -2l-1 -4l-1 -3l-3 -4l0 -3l-3 -6l-2 -5l0 -4l0 -3l-1 -3l-4 2l-6 -4l-2 -4l-3 -3l-7 -2l-5 1l-4 0l-5 -1l-3 -1l-3 0l-1 -3l-4 0l-3 1l-3 -1l-3 -2l-3 -1l-3 -6l-4 -1l-2 3l2 5l4 2l0 3l1 3l1 -4l2 3l0 3l5 0l3 -2l4 -4l1 3l3 3l3 1l2 3l0 3l-2 3l-2 4l-3 1l-3 2l-2 3l-4 0l-3 1l-4 3l-4 2l-4 2l-4 1l-3 1l-3 1l-3 1l-1 -4l-1 -3l0 -3l-1 -3l-3 -4l-1 -3l-3 -2l-2 -3l0 -3l-2 -3l-3 -2l-1 -4l-4 -4l-2 -4l-2 3l-3 -2l-2 -4l1 3l2 3l2 4l2 3l2 3l3 5l2 3l-1 4l1 3l3 2l2 3l2 4l4 2l3 4l3 2l-1 3l3 3l4 -1l3 0l4 -1l3 -1l3 -1l2 3l-1 4l-2 3l-1 4l-3 4l-2 3l-3 4l-3 2l-4 3l-3 2l-3 3l-3 3l-2 4l-2 3l-2 4l2 3l-1 3l1 3l1 3l2 4l0 3l0 4l0 3l-3 4l-3 1l-3 1l-3 3l-3 3l-1 3l2 3l0 4l0 3l-4 2l-3 1l0 4l-1 4l-3 3l-3 3l-4 5l-4 3l-3 1l-4 1l-4 0l-3 0l-3 1l-4 1l-3 -1l-2 -3l0 -4l-2 -3l-3 -6l-3 -4l-1 -3l-2 -6l0 -3l-1 -3l-3 -6l-3 -4l0 -4l1 -5l1 -4l2 -3l1 -3l0 -3l-2 -3l0 -4l-2 -4l-1 -3l-2 -3l-3 -3l-3 -5l1 -4l0 -3l1 -3l-1 -4l-2 -3l-3 1l-4 1l-3 -4l-4 -2l-4 1l-3 0l-4 2l-4 2l-3 -1l-3 -1l-5 1l-5 2l-4 -2l-5 -3l-4 -4l-2 -4l-3 -3l-2 -3l-3 -1l-2 -3l0 -3l-3 -3l3 -3l0 -3l1 -4l0 -4l-1 -3l-1 -3l2 -3l2 -4l2 -4l3 -2l2 -3l4 -2l3 -2l3 -3l-1 -3l1 -4l5 -3l4 -4l3 -2l4 1l3 1l4 -2l3 0l4 -2l5 -1l5 0l4 0l3 -1l3 1l3 -1l4 1l-1 3l0 3l-1 3l3 2l4 1l3 0l4 1l3 3l4 1l3 2l3 -2l-1 -3l3 -2l6 0l3 2l3 0l4 1l3 1l4 1l3 -2l4 0l4 1l4 0l1 -5l2 -3l1 -4l1 -3l-4 -1l-6 2l-3 -1l-3 0l-5 0l-3 0l-2 -3l0 -4l1 -4l4 0l7 -2l3 -1l3 -1l5 0l5 2l4 1l3 -1l6 -1l-1 -3l-3 -1l-4 -3l-3 -1l-3 -2l5 -3l2 -3l-5 1l-4 1l-3 1l5 2l-4 2l-4 1l-4 -2l4 -2l-5 -1l-3 -1l-3 4l-3 1l0 3l-3 3l1 3l3 1l-4 1l-3 2l-3 -2l-5 1l-3 1l2 3l2 4l-3 1l-3 1l-2 -4l-3 -3l-2 -4l0 -3l-5 -2l-4 -2l-3 -2l0 -3l-3 1l-4 -1l0 3l3 2l4 4l3 0l4 3l3 2l-5 -1l1 3l-3 4l0 -3l-2 -3l-4 -2l-3 -1l-5 -3l-2 -4l-4 -2l-3 2l-4 2l-5 -1l-4 1l0 3l-3 2l-3 1l-3 4l-1 3l-3 3l-5 2l-3 0l-3 2l-3 -3l-3 0l-3 0l0 -4l-2 -3l2 -4l-1 -3l-1 -3l4 -2l4 1l3 0l3 0l3 0l4 0l2 -7l-3 -3l-6 -3l3 -2l5 0l-1 -3l3 2l6 -3l3 -3l3 0l3 -5l4 -1l3 0l3 0l1 -3l-1 -3l0 -3l4 -1l3 -2l-1 3l-2 3l1 3l3 1l3 0l4 0l3 0l5 -1l3 -1l3 1l3 0l4 -2l0 -4l4 -3l4 2l1 -4l-3 0l4 -3l3 0l3 0l3 0l3 -1l-3 -1l-5 0l-5 1l-4 0l-4 -2l0 -3l0 -4l3 -2l6 -3l-2 -3l-5 1l-3 2l-4 4l-5 2l-2 4l5 4l-3 3l-3 0l-1 5l-2 3l-3 -1l-2 3l-3 0l-1 -3l-2 -3l-2 -4l-7 2l-4 0l-4 -1l-1 -3l-1 -7l3 -1l7 -3l6 -3l5 -3l6 -6l5 -2l8 -3l6 -2l4 1l5 -3l5 0l5 0l8 2l-3 1l3 1l3 -1l4 2l8 1l10 3l3 3l-4 1l-4 1l-12 -2l2 3l0 4l4 0l3 0l6 -1l3 0l4 -5l3 0l4 -1l-1 -3l6 -1l-2 3l6 1l7 -3l10 -3l4 1l6 0l4 -1l3 2l3 -2l-3 -2l10 0l4 1l10 3l-1 -3l-4 0l0 -4l5 -3l2 -3l9 0l-2 4l3 3l-1 4l3 2l-7 5l4 1l4 -2l3 -3l-1 -3l-3 0l2 -5l-4 -2l5 -2l3 0l1 3l4 -3l6 0l5 1l-3 -2l0 -3l5 -1l6 1l7 -1l-3 0l3 0l4 0l5 0l7 0l9 0l8 0l5 0l4 0l6 0l5 0l-4 0l6 0l4 0l8 0l6 0l-9 0l6 1l4 1l5 -1l9 0l13 2l6 -2l4 0l5 2l-1 3l4 2l4 1l3 -3l4 1l5 0l5 0l7 0l-2 -3l4 -1l25 2l9 4l11 -1l6 1l2 3l3 1l4 -1l5 0l5 1l6 -1l4 3l4 -1l-1 -3l9 1l5 -1l8 2l4 1zM220 91l3 3l-3 3l0 4l3 1l6 2l4 -1l0 -3l0 -3l-3 -3l3 -1l0 -3l-3 -1l-4 -3l-1 -3l1 -3l5 0l0 -3l-3 -1l-6 0l-4 2l-5 4l3 2l2 5zM818 14l-6 0l-6 -1l3 -1l4 0l3 1zM583 7l3 0l4 1l-3 1l-4 0zM832 13l4 0l3 2l2 4l3 -2l2 -3l0 -3l4 1l4 0l4 1l-2 3l1 3l-5 2l-4 1l-3 -1l-3 3l-4 4l-4 0l-3 1l-3 2l-3 2l-3 3l-2 3l0 3l4 0l2 3l5 1l5 2l3 1l5 2l3 1l5 0l3 0l-1 3l1 3l2 3l4 2l4 -3l-1 -5l2 -3l3 -2l1 -3l-1 -3l-4 -2l4 -3l-3 -7l7 1l3 0l5 0l3 2l6 1l1 6l4 2l4 -2l3 -3l4 1l4 4l3 3l2 4l3 1l4 1l3 3l3 2l1 3l-4 2l-5 1l-3 2l-5 0l-6 0l-4 0l-3 0l-6 3l-4 4l-3 3l7 -5l5 -2l5 0l-1 3l1 3l5 4l4 -1l3 -3l2 3l-3 2l-6 1l-3 2l-3 2l-2 -3l4 -2l-4 0l-3 0l-3 2l-3 1l-4 3l1 3l-4 2l-3 0l-3 2l-3 4l-1 3l-3 -3l0 3l1 3l1 4l-5 3l-3 2l-5 3l-3 3l0 4l1 3l2 3l1 3l0 3l-3 2l-3 -5l-2 -3l0 -3l-2 -3l-4 1l-4 -2l-3 1l-4 -1l-1 3l-4 1l-5 -1l-3 -1l-3 1l-5 3l-2 3l0 3l-1 3l0 6l0 3l1 3l3 4l4 2l3 0l3 0l3 -1l3 -3l1 -3l4 -1l3 0l1 3l-1 3l-1 3l-1 3l-1 3l3 1l3 0l3 -1l3 1l3 1l0 3l-1 3l0 4l1 4l3 3l3 1l3 -1l3 -1l3 1l3 2l3 -3l1 -3l3 -1l5 -2l3 -2l0 3l-1 3l0 3l1 -3l3 -3l4 0l4 2l3 0l4 2l5 -2l3 0l3 4l3 2l4 3l2 3l5 2l5 0l3 1l3 2l4 7l2 3l-2 3l5 0l0 3l6 -1l5 2l0 3l4 -1l5 2l4 0l4 2l4 3l4 1l2 4l0 7l-6 5l-1 3l-2 3l-2 7l0 4l-2 3l0 4l-3 4l0 3l-3 1l-3 1l-5 2l-5 2l-3 2l-2 3l0 3l-1 3l-2 3l-3 5l-3 2l-3 4l-3 3l-3 2l-4 -1l-4 -1l1 3l2 3l-3 5l-4 1l-6 1l-3 0l0 3l-1 3l-3 0l-4 0l3 3l-3 3l0 3l-3 2l-3 1l2 4l3 1l-4 2l-5 0l-3 0l-3 0l-4 0l-3 0l-4 0l2 -3l-4 -1l3 -2l1 -5l3 1l1 -6l-2 3l-1 -4l1 -5l0 -5l0 -3l3 -5l2 -4l1 -4l-1 -4l1 -3l0 -3l1 -4l1 -5l1 -6l1 -6l-1 -4l0 -4l-3 -2l-6 -4l-5 -3l-3 -4l-2 -4l-3 -6l-2 -5l-2 -3l-4 -3l-1 -4l3 -4l1 -3l-3 0l1 -3l1 -3l1 -3l3 -1l1 -3l3 -3l1 -3l-1 -3l0 -3l-3 -4l-3 -2l-1 4l-3 -1l-3 -1l-4 -1l-2 -3l-3 -1l-1 -3l-3 -3l-2 -3l-3 0l-3 -1l-4 -1l-3 -2l-3 -3l-4 -1l-3 1l-4 -1l-5 -1l-5 -2l-3 -2l-4 -1l-4 -3l-2 -3l1 -3l-2 -4l-3 -2l-2 -3l-4 -2l0 -3l-3 -2l-4 -3l-2 -3l-2 -4l-3 -2l-1 4l3 3l2 3l3 4l2 3l1 3l3 3l-4 -2l-3 -2l-1 -4l-3 -2l-3 -1l1 -3l-2 -3l-3 -2l-2 -4l-1 -3l-2 -3l-3 -1l-4 -1l-4 -5l-2 -4l-3 -4l-2 -3l0 -3l-1 -4l1 -3l1 -5l0 -4l-2 -3l4 0l2 3l0 -3l-1 -3l-6 -2l-7 -3l-1 -4l-3 -1l-4 -4l-2 -3l-3 -3l-4 -2l-1 -3l-3 0l-4 0l-3 -1l-6 -3l-3 0l-5 -1l-4 0l-5 -1l-3 -2l-3 1l-5 3l-5 1l1 -4l3 -1l-5 1l-5 4l-1 3l-3 1l-3 1l-5 3l-4 2l-5 1l-5 2l-4 0l5 -2l3 -2l3 0l6 -3l3 -3l-3 -2l-3 0l-5 1l-1 -3l-6 -1l-4 -2l-1 -4l3 -3l4 0l3 -1l4 -1l-5 -2l-3 0l-4 1l-4 -1l-5 -3l4 -1l6 -1l3 0l5 1l-5 -3l-5 -2l-4 -1l7 -2l3 -1l4 -3l8 -1l6 -2l5 1l3 1l5 0l4 1l8 1l6 0l5 0l5 1l3 0l5 1l4 1l3 0l3 -1l3 -1l4 0l4 -1l5 0l4 0l7 2l4 -2l3 1l5 0l4 1l7 1l3 0l3 0l4 2l-4 1l5 1l8 -1l5 1l3 -1l-3 -1l5 -1l5 0l3 2l3 -1l5 2l4 -1l4 0l6 -1l0 3l2 -3l4 -2l-3 -2l-4 -1l1 -3l3 -2l4 0l6 5l3 2zM766 2l5 1l4 1l3 -1l3 1l2 3l-1 -4l3 -1l6 2l2 4l5 2l5 1l-5 1l1 3l-5 -1l-5 -1l-3 1l-5 1l-9 0l-3 0l-6 -2l-6 -2l7 -1l3 1l4 -1l-5 -1l-6 1l-4 0l5 -3l-4 1l-5 -1l4 -3l7 -2l3 0zM793 2l-7 0l5 -1zM871 2l-5 1l-3 0l-4 -1l7 -1l5 1zM843 2l5 0l7 -1l4 3l6 1l8 0l4 1l6 1l3 2l6 1l3 1l-3 4l7 1l4 1l4 3l5 0l-6 5l-4 -1l-4 -3l-4 0l3 4l4 1l3 3l-5 2l-7 -3l4 3l3 2l-7 -1l-6 -1l-3 -2l-3 -2l-5 -1l-8 1l0 -3l5 0l6 0l0 -3l4 -2l-2 -3l-5 -1l-5 -1l-4 -2l-3 -1l-6 1l-10 -1l-6 -1l-4 0l-3 -2l-1 -3l2 -3l3 -1l7 0zM805 0l3 1l5 0l2 3l0 3l-5 1l-3 -1l-8 -3l5 0l-3 -2l4 -2zM482 2l-4 0l-6 0l6 -2l4 1zM824 3l-3 2l-3 0l-1 -3l4 -2l6 0l5 0l-4 3l-4 0zM749 7l-8 2l-7 -3l3 -3l-1 -3l10 0l4 0l7 0l5 1l-3 1l-7 2l-3 2zM243 9l-11 0l-5 -2l2 -4l6 -2l-3 0l7 -1l5 0l9 0l10 0l4 0l6 0l-10 0l-9 0l-8 0l-4 2l-5 3l6 4zM8 0l17 0l-5 0l-10 0zM6 0l8 0l6 0l6 0l14 0l8 0l-10 0l-10 0l6 0l-3 0l-3 0l-5 0l5 0l-5 0l4 1l-5 1l-4 0l3 2l-5 0l6 3l-4 3l-6 -3l-2 3l7 1l4 0l-7 2l-8 2zM998 16l-3 0l-3 1l-4 3l-6 2l-5 1l-4 1l-3 1l-1 4l-5 2l2 3l-3 5l-4 0l-4 -2l-6 0l-4 -5l-5 -3l-2 -4l-4 -3l-1 -3l3 -3l4 -1l2 -4l-3 1l-4 1l-4 -1l1 -3l3 0l6 1l-5 -2l-3 -1l-5 0l3 -3l-4 -3l-3 -1l-3 0l-8 0l-6 0l-7 0l-7 0l-3 0l-5 0l7 0l6 0l-12 0l-6 0l11 0l10 0l-7 0l3 0l9 0l4 0l6 0l8 0l9 0l3 0l7 0l7 0l4 0l6 0l-7 0l10 0l10 0l3 0l10 0z" fill="#17495e" stroke="none"/>
           <g fill="none" stroke="#6fb6c9" stroke-width="1.3" opacity="0.75">
             <path d="M82 63 Q240 30 390 150"/>
             <path d="M187 50 Q300 55 390 150"/>
@@ -2444,7 +2479,7 @@ footer::before {
           </g>
           <circle class="gh-pulse" cx="390" cy="150" r="9" fill="none" stroke="#c4a265" stroke-width="1.5"/>
           <circle cx="390" cy="150" r="5.5" fill="#c4a265"/>
-          <circle cx="390" cy="150" r="2.4" fill="#0b1519"/>
+          <circle cx="390" cy="150" r="2.4" fill="#092e3e"/>
           <g class="gh-svg-label" font-size="10" fill="#a8ccd7">
             <text x="82" y="53" text-anchor="middle">London</text>
             <text x="187" y="40" text-anchor="middle">Moscow</text>
@@ -2609,12 +2644,6 @@ footer::before {
   })();
   </script>
 
-  <!-- MANIFESTO MOMENT — full-bleed surf pool image, natural ratio, no crop, no text -->
-  <section style="padding:0;">
-    <div class="container">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/IMG_7959%207-1500.avif 1500w, Assets/wavepool/IMG_7959%207-1536.avif 1536w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/IMG_7959%207-1500.webp 1500w, Assets/wavepool/IMG_7959%207-1536.webp 1536w"><img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains and palm trees behind" style="width:100%; height:auto; display:block; border-radius:3px;"></picture>
-    </div>
-  </section>
 
   <!-- SURF POOL TEASER -->
   <section class="pool-teaser">
@@ -2636,10 +2665,10 @@ footer::before {
             playsinline
             preload="none"
             data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.jpg"
-            style="width:100%; height: 500px; object-fit: cover; border-radius: 3px; display: block;">
+            style="width:100%; height: 500px; object-fit: cover; border-radius: var(--radius-media); display: block;">
             <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
             <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528421/88c2e2f982028a914efc5aa8d674c8_wvy29f.mp4" type="video/mp4">
-            <picture><source type="image/avif" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.avif 900w, Assets/wavepool/wavepool-surfer-action-01-1400.avif 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.avif 1920w"><source type="image/webp" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.webp 900w, Assets/wavepool/wavepool-surfer-action-01-1400.webp 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.webp 1920w"><img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding a wave at the PerfectSwell surf pool, Riyue Bay, Wanning" width="2560" height="1440" decoding="async" style="width:100%; height: 500px; object-fit: cover; border-radius: 3px;"></picture>
+            <picture><source type="image/avif" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.avif 900w, Assets/wavepool/wavepool-surfer-action-01-1400.avif 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.avif 1920w"><source type="image/webp" sizes="100vw" srcset="Assets/wavepool/wavepool-surfer-action-01-900.webp 900w, Assets/wavepool/wavepool-surfer-action-01-1400.webp 1400w, Assets/wavepool/wavepool-surfer-action-01-1920.webp 1920w"><img src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer riding a wave at the PerfectSwell surf pool, Riyue Bay, Wanning" width="2560" height="1440" decoding="async" style="width:100%; height: 500px; object-fit: cover; border-radius: var(--radius-media);"></picture>
           </video>
         </div>
       </div>
@@ -2648,16 +2677,16 @@ footer::before {
 
   <!-- PRIVATE BUYOUT — flagship product, front and centre -->
   <style>
-    .buyout-promo { position: relative; overflow: hidden; background: #0b1519; padding: clamp(4rem, 9vw, 7rem) 0; }
+    .buyout-promo { position: relative; overflow: hidden; background: var(--ocean-deep); padding: clamp(4rem, 9vw, 7rem) 0; }
     .buyout-promo::before { content:""; position:absolute; inset:0; background: url('Assets/wavepool/wavepool-aerial-twilight-01-1600.webp') center 40% / cover no-repeat; opacity:.34; }
-    .buyout-promo::after { content:""; position:absolute; inset:0; background: radial-gradient(80% 90% at 50% 10%, rgba(11,21,25,0.15) 0%, rgba(11,21,25,0.9) 78%); }
+    .buyout-promo::after { content:""; position:absolute; inset:0; background: radial-gradient(80% 90% at 50% 10%, rgba(9,46,62,0.15) 0%, rgba(9,46,62,0.92) 78%); }
     .buyout-promo .container { position: relative; z-index: 2; text-align: center; max-width: 780px; }
-    .buyout-promo .overline { color: #c4a265; }
+    .buyout-promo .overline { color: var(--gold); }
     .buyout-promo h2 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.2rem); line-height: 1.08; margin: 0.9rem 0 1.1rem; }
     .buyout-promo p { color: rgba(236,227,212,0.85); max-width: 56ch; margin: 0 auto; line-height: 1.75; white-space: normal; }
     .buyout-promo * { white-space: normal; }
-    .buyout-promo-badge { display: inline-flex; align-items: center; margin-top: 1.4rem; border: 1px solid #c4a265; border-radius: 999px; padding: .45rem 1.1rem; color: #dcc08b; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: rgba(196,162,101,.12); }
-    .buyout-promo-cta { display: inline-block; margin-top: 1.8rem; background: #c4a265; color: #14232b; border-radius: 2px; padding: 1rem 2.2rem; font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: all .35s; box-shadow: 0 14px 34px rgba(196,162,101,.25); }
+    .buyout-promo-badge { display: inline-flex; align-items: center; margin-top: 1.4rem; border: 1px solid var(--gold); border-radius: 999px; padding: .45rem 1.1rem; color: #dcc08b; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: rgba(196,162,101,.12); }
+    .buyout-promo-cta { display: inline-block; margin-top: 1.8rem; background: var(--gold); color: var(--ocean-deep); border-radius: 2px; padding: 1rem 2.2rem; font-weight: 700; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: all .35s; box-shadow: 0 14px 34px rgba(196,162,101,.25); }
     .buyout-promo-cta:hover { background: #dcc08b; transform: translateY(-2px); }
     .buyout-promo-sub { display: block; margin-top: .9rem; color: rgba(236,227,212,.6); font-size: .8rem; }
   </style>
@@ -2691,34 +2720,6 @@ footer::before {
             <li class="rate-row"><span class="rate-row__name">Intermediate</span><span class="rate-row__price">CNY 349</span></li>
             <li class="rate-row"><span class="rate-row__name">Advanced</span><span class="rate-row__price">CNY 448</span></li>
             <li class="rate-row"><span class="rate-row__name">Pro<small>Barrels and aerials</small></span><span class="rate-row__price rate-row__price--note">Available through private sessions</span></li>
-            <li class="rate-row rate-row--featured">
-              <span class="ps-tag">Limited promo &middot; <span data-sc-promopct>15</span>% off</span>
-              <div class="rate-row__head">
-                <span class="rate-row__name"><strong>Private session</strong><small>The whole pool to your group, per hour &middot; any wave setting</small></span>
-                <span class="rate-row__price"><em>from</em> CNY <span data-sc-num="buyout.intermediate.promo">6,600</span></span>
-              </div>
-              <div class="ps-scroll" aria-label="Private session wave settings and prices">
-                <div class="ps-card">
-                  <span class="ps-card__level">Intermediate</span>
-                  <span class="ps-card__desc">Clean, open-face walls</span>
-                  <span class="ps-card__price"><s data-sc-num="buyout.intermediate.list">7,760</s> CNY <span data-sc-num="buyout.intermediate.promo">6,600</span><em>/hr</em></span>
-                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
-                </div>
-                <div class="ps-card">
-                  <span class="ps-card__level">Advanced</span>
-                  <span class="ps-card__desc">Faster, punchier, more sections</span>
-                  <span class="ps-card__price"><s data-sc-num="buyout.advanced.list">9,960</s> CNY <span data-sc-num="buyout.advanced.promo">8,470</span><em>/hr</em></span>
-                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
-                </div>
-                <div class="ps-card">
-                  <span class="ps-card__level">Pro</span>
-                  <span class="ps-card__desc">Barrels and airs</span>
-                  <span class="ps-card__price"><s data-sc-num="buyout.master.list">9,960</s> CNY <span data-sc-num="buyout.master.promo">8,470</span><em>/hr</em></span>
-                  <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
-                </div>
-              </div>
-              <a href="#" class="ps-book" onclick="showPage('contact'); return false;">Book a Private Session &rarr;</a>
-            </li>
           </ul>
         </div>
 
@@ -2732,21 +2733,46 @@ footer::before {
         </div>
 
         <div class="rate-group">
-          <button type="button" class="addons-toggle" aria-expanded="false"
-                  onclick="var b=this.nextElementSibling; var open=b.hidden; b.hidden=!open; this.setAttribute('aria-expanded', open); this.querySelector('.addons-toggle__icon').textContent=open?'&minus;':'+';">
-            Coaching, Boards &amp; Video <span class="addons-toggle__icon">+</span>
-          </button>
-          <div class="addons-body" hidden>
-            <p class="rate-group__meta">Add any of these to a session</p>
-            <ul class="rate-list">
-              <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> CNY 268</span></li>
-              <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
-              <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
-            </ul>
-            <a href="/board-rentals.html" class="rate-group__link">See our equipment &rarr;</a>
-          </div>
+          <h3>Coaching, Boards &amp; Video</h3>
+          <p class="rate-group__meta">Add any of these to a session</p>
+          <ul class="rate-list">
+            <li class="rate-row"><span class="rate-row__name">Coaching<small>Per person, per hour</small></span><span class="rate-row__price"><em>from</em> CNY 268</span></li>
+            <li class="rate-row"><span class="rate-row__name">Board rental<small>Performance board, per day</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
+            <li class="rate-row"><span class="rate-row__name">Photo &amp; video<small>Per surfer, per session</small></span><span class="rate-row__price"><em>from</em> CNY 200</span></li>
+          </ul>
+          <a href="/board-rentals.html" class="rate-group__link">See our equipment &rarr;</a>
         </div>
 
+      </div>
+
+      <div class="rates-featured">
+        <div class="rates-featured__info">
+          <span class="ps-tag">Limited promo &middot; <span data-sc-promopct>15</span>% off</span>
+          <h3>Private session</h3>
+          <p class="rates-featured__desc">The whole pool to your group, per hour &middot; any wave setting</p>
+          <span class="rates-featured__price"><em>from</em> CNY <span data-sc-num="buyout.intermediate.promo">6,600</span></span>
+          <a href="#" class="ps-book" onclick="showPage('contact'); return false;">Book a Private Session &rarr;</a>
+        </div>
+        <div class="ps-scroll" aria-label="Private session wave settings and prices">
+          <div class="ps-card">
+            <span class="ps-card__level">Intermediate</span>
+            <span class="ps-card__desc">Clean, open-face walls</span>
+            <span class="ps-card__price"><s data-sc-num="buyout.intermediate.list">7,760</s> CNY <span data-sc-num="buyout.intermediate.promo">6,600</span><em>/hr</em></span>
+            <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+          </div>
+          <div class="ps-card">
+            <span class="ps-card__level">Advanced</span>
+            <span class="ps-card__desc">Faster, punchier, more sections</span>
+            <span class="ps-card__price"><s data-sc-num="buyout.advanced.list">9,960</s> CNY <span data-sc-num="buyout.advanced.promo">8,470</span><em>/hr</em></span>
+            <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+          </div>
+          <div class="ps-card">
+            <span class="ps-card__level">Pro</span>
+            <span class="ps-card__desc">Barrels and airs</span>
+            <span class="ps-card__price"><s data-sc-num="buyout.master.list">9,960</s> CNY <span data-sc-num="buyout.master.promo">8,470</span><em>/hr</em></span>
+            <a href="#" class="ps-card__link" onclick="showPage('session-private'); return false;">Details &rarr;</a>
+          </div>
+        </div>
       </div>
 
       <div class="rates-foot">
@@ -2792,7 +2818,7 @@ footer::before {
         <div>
           <video class="content-video" autoplay muted loop playsinline preload="none"
                  data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1776528000/ScreenRecording_04-15-2026_22_atofc3.jpg"
-                 style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
+                 style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-media); display:block;">
             <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
             <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1776528000/ScreenRecording_04-15-2026_22_atofc3.mp4" type="video/mp4">
           </video>
@@ -2800,7 +2826,7 @@ footer::before {
         <div>
           <video class="content-video" autoplay muted loop playsinline preload="none"
                  data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_0,w_1280,q_auto:eco,f_jpg/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.jpg"
-                 style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;">
+                 style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-media); display:block;">
             <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_720,br_800k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
             <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,w_1280,br_1500k/v1787430729/%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9__%E6%B5%B7%E5%8D%97%E5%B2%9B%E7%BB%9D%E7%BE%8E%E7%9A%84%E6%B5%AA%E7%82%B9_%E5%B7%A8_%E5%86%B2%E6%B5%AA_%E5%81%B7%E7%AC%91R_%E8%AE%B0%E5%BD%95%E6%88%91%E7%9A%84%E5%86%B2%E6%B5%AA%E7%94%9F%E6%B4%BB_%E4%B8%87%E5%AE%81%E5%86%B2%E6%B5%AA_%E6%88%B7%E5%A4%96%E6%B0%B4%E4%B8%8A%E8%BF%90%E5%8A%A8_oekbv2.mp4" type="video/mp4">
           </video>
@@ -2833,7 +2859,7 @@ footer::before {
           <a href="/accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:3px; display:block;"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-media); display:block;"></picture>
         </div>
       </div>
     </div>
