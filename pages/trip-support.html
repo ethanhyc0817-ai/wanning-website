@@ -268,6 +268,13 @@ nav.scrolled { padding: 0.7rem 0; }
 .nav-cta { font-size: 0.75rem; padding: 0.6rem 1.4rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 980px; text-decoration: none; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.3s; }
 .nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
 /* Plan Your Trip dropdown */
+.nav-links a.nav-buyout {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  color: #8a6a2f; border: 1px solid #c4a265; border-radius: 980px;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(196,162,101,0.08);
+}
+.nav-links a.nav-buyout:hover { background: var(--gold); color: var(--ocean-deep); opacity: 1; }
 .nav-dropdown { position: relative; }
 .nav-dropdown-toggle {
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
@@ -478,13 +485,24 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
         <div class="nav-dropdown-menu">
           <a href="/surf-calendar.html">Surf Calendar</a>
-          <a href="/#rates">Rates</a>
-          <a href="/#explore-hainan">Explore Hainan</a>
-          <a href="/board-rentals.html">Board Rentals</a>
+          <a href="/wave-settings.html">Wave Settings</a>
+          <a href="/rates.html">Rates</a>
           <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/board-rentals.html">Board Rentals</a>
+          <a href="/trip-support.html">Trip Support</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Explore <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/nature.html">Nature &amp; Adventure</a>
+          <a href="/culture.html">Culture</a>
+          <a href="/cuisine.html">Food</a>
+          <a href="/natural-surf.html">Ocean Surf</a>
           <a href="/blog.html">Blog</a>
         </div>
       </div>
+      <a href="/design-your-buyout.html" class="nav-buyout">Private Buyout</a>
       <a href="/#contact" class="nav-cta">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
@@ -499,12 +517,19 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <a href="/golf.html">Golf</a>
   <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
+  <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
   <span class="mobile-menu-label">Plan Your Trip</span>
   <a href="/surf-calendar.html">Surf Calendar</a>
-  <a href="/#rates">Rates</a>
-  <a href="/#explore-hainan">Explore Hainan</a>
-  <a href="/board-rentals.html">Board Rentals</a>
+  <a href="/wave-settings.html">Wave Settings</a>
+  <a href="/rates.html">Rates</a>
   <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/board-rentals.html">Board Rentals</a>
+  <a href="/trip-support.html">Trip Support</a>
+  <span class="mobile-menu-label">Explore</span>
+  <a href="/nature.html">Nature &amp; Adventure</a>
+  <a href="/culture.html">Culture</a>
+  <a href="/cuisine.html">Food</a>
+  <a href="/natural-surf.html">Ocean Surf</a>
   <a href="/blog.html">Blog</a>
   <a href="/#contact">Book Now</a>
 </div>
