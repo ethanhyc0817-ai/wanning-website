@@ -5308,10 +5308,9 @@ function scrollWpGallery(dir) {
   el.scrollBy({ left: amt * dir, behavior: 'smooth' });
 }
 
-// Swap a single video's data-src -> src and start it if it wants to autoplay.
+// Swap a single video's data-src -> src and start buffering. Play is separate:
+// preloading happens well before the viewport, playback only near it.
 function loadVideo(vid) {
-  // The poster is deferred too — otherwise an off-screen video still costs a
-  // full-size still image on arrival.
   if (vid.dataset.poster) {
     vid.poster = vid.dataset.poster;
     delete vid.dataset.poster;
@@ -5323,26 +5322,41 @@ function loadVideo(vid) {
     swapped = true;
   });
   if (!swapped) return;
+  // The markup ships preload="none" so nothing streams on page load; once we
+  // decide to preload, let the browser actually buffer ahead.
+  vid.preload = 'auto';
   try { vid.load(); } catch (e) {}
-  if (vid.hasAttribute('autoplay')) {
+}
+
+function playVideo(vid) {
+  loadVideo(vid); // no-op if already swapped
+  if (vid.hasAttribute('autoplay') && vid.paused) {
     const p = vid.play();
     if (p && typeof p.catch === 'function') { p.catch(() => {}); }
   }
 }
 
-// Videos only start downloading once they are near the viewport, and pause again
-// when they scroll away — otherwise the three clips further down the homepage
-// stream megabytes while the visitor is still looking at the hero.
+// Two tiers. Preload: ~two viewports ahead, the poster and the stream start
+// downloading silently, so by the time the visitor scrolls there the frame is
+// already painted — no blank box on a fast fling. Play: near the viewport the
+// clip starts, and it pauses again once it scrolls well away.
+const videoPreloadObserver = ('IntersectionObserver' in window)
+  ? new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadVideo(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '2000px 0px' })
+  : null;
+
 const lazyVideoObserver = ('IntersectionObserver' in window)
   ? new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const vid = entry.target;
         if (entry.isIntersecting) {
-          loadVideo(vid);
-          if (vid.hasAttribute('autoplay') && vid.paused) {
-            const p = vid.play();
-            if (p && typeof p.catch === 'function') { p.catch(() => {}); }
-          }
+          playVideo(vid);
         } else if (!vid.paused) {
           try { vid.pause(); } catch (e) {}
         }
@@ -5355,7 +5369,8 @@ function observeLazyVideos(scope) {
     if (vid.dataset.lazyObserved) return;
     vid.dataset.lazyObserved = '1';
     // No IntersectionObserver support (very old browsers): just load it.
-    if (!lazyVideoObserver) { loadVideo(vid); return; }
+    if (!lazyVideoObserver) { playVideo(vid); return; }
+    videoPreloadObserver.observe(vid);
     lazyVideoObserver.observe(vid);
   });
 }
