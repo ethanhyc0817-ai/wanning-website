@@ -495,12 +495,109 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .tog { flex-wrap: wrap; }
   .tog__p { margin-left: 0; width: 100%; padding-left: calc(42px + .9rem); }
 }
+/* Static rates + FAQ (crawlable pricing; numbers kept fresh by sc-pricing.js) */
+.rates { padding: 4.5rem 0 5.5rem; border-top: 1px solid var(--line); }
+.rates h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 1rem; }
+.rates__lead { max-width: 62ch; color: var(--cream-dim); line-height: 1.75; margin-bottom: 1.8rem; }
+.rates__list { max-width: 620px; margin: 0 0 2.6rem; border-top: 1px solid var(--line); }
+.rates__row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.rates__row b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rates__row s { color: var(--cream-faint); font-size: .85em; margin-left: .5rem; }
+.rates__pics { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 0 0 3rem; }
+.rates__pics img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.rates__faq { max-width: 62ch; }
+.rates__faq h3 { font-size: 1.02rem; margin: 1.6rem 0 .5rem; }
+.rates__faq p { color: var(--cream-dim); line-height: 1.75; }
+@media (max-width: 640px) { .rates__pics { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   html { scroll-behavior: auto; }
 }
 </style>
 <script src="../Assets/sc-pricing.js"></script>
+
+<!-- Structured data: Service + Offers (CNY, mirrors sc-pricing.js — the
+     update-buyout-promo sync must keep these prices in step) + FAQ + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.surfchina.co/design-your-buyout.html#service",
+      "name": "Private PerfectSwell® Surf Pool Buyout",
+      "serviceType": "Private wave pool session (full-pool buyout)",
+      "description": "Reserve the entire PerfectSwell® Surf Pool at Riyue Bay, Hainan for your own group — up to 20 surfers per one-hour session, priced for the whole pool, not per person.",
+      "url": "https://www.surfchina.co/design-your-buyout.html",
+      "provider": { "@id": "https://www.surfchina.co/#organization" },
+      "areaServed": { "@type": "Place", "name": "Riyue Bay, Wanning, Hainan, China" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Private buyout rates (per one-hour session, whole pool)",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Intermediate wave — one-hour private buyout",
+            "price": "6600",
+            "priceCurrency": "CNY",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "6600", "priceCurrency": "CNY", "unitText": "per one-hour session, whole pool" }
+          },
+          {
+            "@type": "Offer",
+            "name": "Advanced wave — one-hour private buyout",
+            "price": "8470",
+            "priceCurrency": "CNY",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "8470", "priceCurrency": "CNY", "unitText": "per one-hour session, whole pool" }
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro wave (barrels & airs) — one-hour private buyout",
+            "price": "8470",
+            "priceCurrency": "CNY",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "8470", "priceCurrency": "CNY", "unitText": "per one-hour session, whole pool" }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does it cost to book the whole wave pool in Hainan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A one-hour private buyout of the PerfectSwell® Surf Pool at Riyue Bay starts at ¥6,600 on the Intermediate wave setting (15% off the ¥7,760 list rate). Advanced and Pro settings are ¥8,470 per hour (list ¥9,960). The price covers the entire pool for up to 20 surfers — it is per session, not per person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many surfers can join a private buyout session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Up to 20 surfers share the pool in a private session. The whole lineup is yours — no strangers, no drop-ins, every wave goes to someone in your group."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we change wave settings during a private session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each one-hour session runs at the wave setting you choose — from beginner rollers to performance walls, barrels and air sections. Book back-to-back hours to switch settings between sessions; the trip designer on this page prices it live."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Design Your Buyout", "item": "https://www.surfchina.co/design-your-buyout.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -658,6 +755,31 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     </div>
 
     <div class="incl" id="incl"></div>
+  </section>
+
+  <!-- ═══ STATIC RATES + FAQ — crawlable pricing; sc-pricing.js refreshes the numbers ═══ -->
+  <section class="rates" id="rates" aria-labelledby="ratesH">
+    <h2 id="ratesH">Private buyout rates</h2>
+    <p class="rates__lead">A private buyout reserves the <strong>entire PerfectSwell&reg; Surf Pool</strong> at Riyue Bay, Hainan for your group &mdash; up to 20 surfers per session. Buyouts are priced <strong>per one-hour session for the whole pool</strong>, not per person, with <span data-sc-promopct>15</span>% off every private session while the offer lasts. The trip designer above turns these rates into an all-in price for your dates, rooms and crew.</p>
+    <div class="rates__list">
+      <div class="rates__row"><span>Intermediate wave</span><span><b>&yen;<span data-sc-num="buyout.intermediate.promo">6,600</span></b> / hour <s>&yen;<span data-sc-num="buyout.intermediate.list">7,760</span></s></span></div>
+      <div class="rates__row"><span>Advanced wave</span><span><b>&yen;<span data-sc-num="buyout.advanced.promo">8,470</span></b> / hour <s>&yen;<span data-sc-num="buyout.advanced.list">9,960</span></s></span></div>
+      <div class="rates__row"><span>Pro &mdash; barrels &amp; airs</span><span><b>&yen;<span data-sc-num="buyout.master.promo">8,470</span></b> / hour <s>&yen;<span data-sc-num="buyout.master.list">9,960</span></s></span></div>
+    </div>
+    <div class="rates__pics">
+      <picture><source type="image/avif" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-poolside-surfers-01-700.avif 700w, /Assets/wavepool/wavepool-poolside-surfers-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-poolside-surfers-01-700.webp 700w, /Assets/wavepool/wavepool-poolside-surfers-01-1400.webp 1400w"><img loading="lazy" decoding="async" width="2560" height="1438" src="/Assets/wavepool/wavepool-poolside-surfers-01.jpg" alt="Group of surfers poolside during a private PerfectSwell wave pool buyout at Riyue Bay, Hainan"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-surfer-action-01-1500.avif 1500w, /Assets/wavepool/wavepool-surfer-action-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-surfer-action-01-1500.webp 1500w, /Assets/wavepool/wavepool-surfer-action-01-2560.webp 2560w"><img loading="lazy" decoding="async" width="2560" height="1440" src="/Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer carving a turn on a performance wave setting during a private buyout session"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-kids-training-01-700.avif 700w, /Assets/wavepool/wavepool-kids-training-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 640px) 92vw, 330px" srcset="/Assets/wavepool/wavepool-kids-training-01-700.webp 700w, /Assets/wavepool/wavepool-kids-training-01-1400.webp 1400w"><img loading="lazy" decoding="async" width="2560" height="1440" src="/Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids learning on beginner wave settings during a family wave pool buyout in Hainan"></picture>
+    </div>
+    <div class="rates__faq">
+      <h2>Private buyout &mdash; FAQ</h2>
+      <h3>How much does it cost to book the whole wave pool in Hainan?</h3>
+      <p>A one-hour private buyout of the PerfectSwell&reg; Surf Pool at Riyue Bay starts at <strong>&yen;<span data-sc-num="buyout.intermediate.promo">6,600</span> on the Intermediate wave setting</strong> (<span data-sc-promopct>15</span>% off the &yen;<span data-sc-num="buyout.intermediate.list">7,760</span> list rate). Advanced and Pro settings are &yen;<span data-sc-num="buyout.advanced.promo">8,470</span> per hour (list &yen;<span data-sc-num="buyout.advanced.list">9,960</span>). The price covers the entire pool for up to 20 surfers &mdash; it is per session, not per person.</p>
+      <h3>How many surfers can join a private buyout session?</h3>
+      <p>Up to 20 surfers share the pool in a private session. The whole lineup is yours &mdash; no strangers, no drop-ins, every wave goes to someone in your group.</p>
+      <h3>Can we change wave settings during a private session?</h3>
+      <p>Each one-hour session runs at the wave setting you choose &mdash; from beginner rollers to performance walls, barrels and air sections. Book back-to-back hours to switch settings between sessions; the trip designer on this page prices it live.</p>
+    </div>
   </section>
 </div>
 

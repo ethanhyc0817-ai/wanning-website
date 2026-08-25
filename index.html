@@ -339,7 +339,7 @@
       imagesizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high">
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="Assets/hero/hero-golf-600.avif 600w, Assets/hero/hero-golf-900.avif 900w, Assets/hero/hero-golf-1142.avif 1142w"
-      imagesizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high">
+      imagesizes="(max-width: 768px) 100vw, 50vw" fetchpriority="low">
 
 <!-- Resource hints: open connections to font + video CDNs early -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2333,7 +2333,7 @@ footer::before {
         <img src="Assets/hero/hero-golf.jpg"
              alt="Top 100 oceanfront golf course in Hainan, China"
              width="1142" height="1600"
-             fetchpriority="high" decoding="async">
+             decoding="async">
       </picture>
       <div class="hero-text">
         <div class="hero-headline">World Top 100<br>Greatest<br>Golf Course</div>
@@ -2802,7 +2802,7 @@ footer::before {
         <div class="section-divider-center"></div>
         <p class="lead" style="margin: 0 auto;">Mission Hills, Shenzhou Peninsula, and Shanqin Bay &mdash; three of Asia's best courses, all within driving distance of the surf pool.</p>
       </div>
-      <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.avif 1100w, Assets/golf/IMG_7541-1600.avif 1600w"><source type="image/webp" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.webp 1100w, Assets/golf/IMG_7541-1600.webp 1600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_7541.jpg" alt="Oceanfront golf course in Hainan, China" style="width:100%; max-width:1100px; aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-media); display:block; margin:0 auto;"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.avif 1100w, Assets/golf/IMG_7541-1600.avif 1600w"><source type="image/webp" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.webp 1100w, Assets/golf/IMG_7541-1600.webp 1600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_7541.jpg" width="1600" height="900" alt="Oceanfront golf course in Hainan, China" style="width:100%; max-width:1100px; aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-media); display:block; margin:0 auto;"></picture>
       <div style="text-align:center; margin-top:2.5rem;">
         <p style="color:var(--warm-gray); font-size:0.95rem; max-width:640px; margin:0 auto 1.75rem;">Tiger Woods, Rory McIlroy, Greg Norman, Nick Faldo, and Gary Player have all played on Hainan's tropical fairways.</p>
         <a href="/golf.html" class="btn btn-outline-dark btn-arrow">Discover the Golf </a>
@@ -2846,10 +2846,10 @@ footer::before {
 
   <!-- GALLERY STRIP -->
   <div class="gallery-strip">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/nature/IMG_5193%203-700.avif 700w, Assets/nature/IMG_5193%203-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/nature/IMG_5193%203-700.webp 700w, Assets/nature/IMG_5193%203-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/IMG_5193 3.jpg" alt="Hainan nature"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.avif 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.webp 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" alt="Surf pool aerial dusk"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/recovery/IMG_5047-700.avif 700w, Assets/recovery/IMG_5047-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/recovery/IMG_5047-700.webp 700w, Assets/recovery/IMG_5047-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/recovery/IMG_5047.jpg" alt="Recovery"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.avif 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.webp 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surf pool surfer action"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/nature/IMG_5193%203-700.avif 700w, Assets/nature/IMG_5193%203-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/nature/IMG_5193%203-700.webp 700w, Assets/nature/IMG_5193%203-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/IMG_5193 3.jpg" width="1185" height="666" alt="Hainan nature"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.avif 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.webp 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" width="2560" height="1438" alt="Surf pool aerial dusk"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/recovery/IMG_5047-700.avif 700w, Assets/recovery/IMG_5047-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/recovery/IMG_5047-700.webp 700w, Assets/recovery/IMG_5047-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/recovery/IMG_5047.jpg" width="1361" height="907" alt="Recovery"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.avif 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.webp 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" width="2560" height="1440" alt="Surf pool surfer action"></picture>
   </div>
 
   <!-- SURF AND STAY -->
@@ -2865,7 +2865,7 @@ footer::before {
           <a href="/accommodation.html" class="btn btn-primary btn-arrow" style="margin-top:1.5rem;">View Accommodations </a>
         </div>
         <div>
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-media); display:block;"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" width="2560" height="1709" alt="Designer hotel room" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-media); display:block;"></picture>
         </div>
       </div>
     </div>
@@ -2882,7 +2882,7 @@ footer::before {
       </div>
       <div class="packages-grid">
         <div class="package-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" class="package-img" alt="Surf pool daytime"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" width="2560" height="1438" class="package-img" alt="Surf pool daytime"></picture>
           <div class="package-body">
             <span class="package-tag">3 Nights+</span>
             <h3>The Surf Escape</h3>
@@ -2904,7 +2904,7 @@ footer::before {
           </div>
         </div>
         <div class="package-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" class="package-img" alt="Hainan golf course"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" width="2560" height="1429" class="package-img" alt="Hainan golf course"></picture>
           <div class="package-body">
             <span class="package-tag">Essential 5N &middot; Premium 7N &middot; Luxury 11N</span>
             <h3>The Surf &amp; Golf Retreat</h3>
@@ -2964,7 +2964,7 @@ footer::before {
       <p class="lead">Hainan is nothing like what most people picture when they think of China — think waterfalls, coffee plantations, night markets, world-class golf, and empty surfs.</p>
       <div class="explore-grid-4">
         <a href="/culture.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/li-elder-portrait-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/li-elder-portrait-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/culture/li-elder-portrait-01.jpg" alt="Li elder portrait"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/li-elder-portrait-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/li-elder-portrait-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/culture/li-elder-portrait-01.jpg" width="1440" height="2160" alt="Li elder portrait"></picture>
           <div class="explore-card-overlay">
             <h3>Ancient culture</h3>
             <p>Li heritage &amp; indigenous traditions</p>
@@ -2972,7 +2972,7 @@ footer::before {
           </div>
         </a>
         <a href="/golf.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 273px" srcset="Assets/golf/IMG_5512-400.avif 400w, Assets/golf/IMG_5512-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 273px" srcset="Assets/golf/IMG_5512-400.webp 400w, Assets/golf/IMG_5512-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5512.jpg" alt="Golf course"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 273px" srcset="Assets/golf/IMG_5512-400.avif 400w, Assets/golf/IMG_5512-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 273px" srcset="Assets/golf/IMG_5512-400.webp 400w, Assets/golf/IMG_5512-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5512.jpg" width="1222" height="1528" alt="Golf course"></picture>
           <div class="explore-card-overlay">
             <h3>Golf</h3>
             <p>Tiger Woods has played here</p>
@@ -2980,7 +2980,7 @@ footer::before {
           </div>
         </a>
         <a href="/cuisine.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" alt="Cuisine and coffee plantation"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" width="1440" height="1920" alt="Cuisine and coffee plantation"></picture>
           <div class="explore-card-overlay">
             <h3>Cuisine &amp; Coffee Plantation</h3>
             <p>Seafood, markets, coffee &amp; chocolate</p>
@@ -2988,7 +2988,7 @@ footer::before {
           </div>
         </a>
         <a href="/nature.html" class="explore-card fade-in" style="text-decoration:none; color:inherit; display:block;">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.avif 700w, Assets/nature/rainforest-waterfall-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.webp 700w, Assets/nature/rainforest-waterfall-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.avif 700w, Assets/nature/rainforest-waterfall-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.webp 700w, Assets/nature/rainforest-waterfall-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" width="1080" height="1440" alt="Waterfall"></picture>
           <div class="explore-card-overlay">
             <h3>Nature</h3>
             <p>Waterfalls, rivers &amp; mountains</p>
@@ -3033,22 +3033,22 @@ footer::before {
       </div>
       <div class="audience-grid">
         <div class="audience-card fade-in" style="background: var(--white);">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.avif 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.webp 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.avif 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-surfer-action-01-1500.webp 1500w, Assets/wavepool/wavepool-surfer-action-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-surfer-action-01.jpg" width="2560" height="1440" alt="Surfer"></picture>
           <h3>Surfers</h3>
           <p>Consistent, powerful PerfectSwell&reg; waves at every level. No swell windows, no crowds.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.avif 1100w, Assets/golf/IMG_7541-1600.avif 1600w"><source type="image/webp" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.webp 1100w, Assets/golf/IMG_7541-1600.webp 1600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_7541.jpg" alt="Oceanfront golf course in Hainan"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.avif 1100w, Assets/golf/IMG_7541-1600.avif 1600w"><source type="image/webp" sizes="(max-width: 768px) 342px, 1100px" srcset="Assets/golf/IMG_7541-1100.webp 1100w, Assets/golf/IMG_7541-1600.webp 1600w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_7541.jpg" width="1600" height="900" alt="Oceanfront golf course in Hainan"></picture>
           <h3>Golfers</h3>
           <p>Tee off on a Top 100 oceanfront course, then surf perfect waves the same afternoon. Two world-class sports, one trip.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 665px" srcset="Assets/wavepool/wavepool-kids-training-01-700.avif 700w, Assets/wavepool/wavepool-kids-training-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 342px, 665px" srcset="Assets/wavepool/wavepool-kids-training-01-700.webp 700w, Assets/wavepool/wavepool-kids-training-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids training"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 665px" srcset="Assets/wavepool/wavepool-kids-training-01-700.avif 700w, Assets/wavepool/wavepool-kids-training-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 342px, 665px" srcset="Assets/wavepool/wavepool-kids-training-01-700.webp 700w, Assets/wavepool/wavepool-kids-training-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-kids-training-01.jpg" width="2560" height="1440" alt="Kids training"></picture>
           <h3>Families</h3>
           <p>Kid-friendly lessons, safe waves, and a whole island of adventure beyond the pool.</p>
         </div>
         <div class="audience-card fade-in" style="background: var(--white);">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.avif 1316w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.webp 1316w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.avif 1316w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.webp 1316w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-hand-viewpoint-01.jpg" width="1316" height="1974" alt="Rainforest viewpoint"></picture>
           <h3>Explorers</h3>
           <p>Curious about a different side of Asia? This is tropical China most people don't know exists.</p>
         </div>
@@ -3063,7 +3063,7 @@ footer::before {
       <h2>Surf. Recover. Explore. Repeat.</h2>
       <div class="facilities-grid">
         <a href="/trip-support.html#surf-shop" class="facility-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/surf-shop-interior-01-400.avif 400w, Assets/surf-shop/surf-shop-interior-01-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/surf-shop-interior-01-400.webp 400w, Assets/surf-shop/surf-shop-interior-01-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/surf-shop-interior-01.jpg" alt="Surf shop interior"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/surf-shop-interior-01-400.avif 400w, Assets/surf-shop/surf-shop-interior-01-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/surf-shop-interior-01-400.webp 400w, Assets/surf-shop/surf-shop-interior-01-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/surf-shop-interior-01.jpg" width="1440" height="1920" alt="Surf shop interior"></picture>
           <div class="facility-card-body">
             <h3>Surf Shop</h3>
             <p>On-site session essentials, accessories, and travel-friendly gear.</p>
@@ -3071,7 +3071,7 @@ footer::before {
           </div>
         </a>
         <a href="/trip-support.html#board-rentals" class="facility-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/IMG_5146%202-400.avif 400w, Assets/surf-shop/IMG_5146%202-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/IMG_5146%202-400.webp 400w, Assets/surf-shop/IMG_5146%202-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/IMG_5146 2.jpg" alt="Board rentals"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/IMG_5146%202-400.avif 400w, Assets/surf-shop/IMG_5146%202-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/IMG_5146%202-400.webp 400w, Assets/surf-shop/IMG_5146%202-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/IMG_5146 2.jpg" width="1303" height="977" alt="Board rentals"></picture>
           <div class="facility-card-body">
             <h3>Board Rentals</h3>
             <p>On-site boards matched to your level, session type, and goals.</p>
@@ -3079,7 +3079,7 @@ footer::before {
           </div>
         </a>
         <a href="/trip-support.html#surf-cafe" class="facility-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/cafe/IMG_5171%202-400.avif 400w, Assets/surf-shop/cafe/IMG_5171%202-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/cafe/IMG_5171%202-400.webp 400w, Assets/surf-shop/cafe/IMG_5171%202-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/cafe/IMG_5171 2.jpg" alt="Surf cafe"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/cafe/IMG_5171%202-400.avif 400w, Assets/surf-shop/cafe/IMG_5171%202-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/surf-shop/cafe/IMG_5171%202-400.webp 400w, Assets/surf-shop/cafe/IMG_5171%202-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/surf-shop/cafe/IMG_5171 2.jpg" width="1239" height="929" alt="Surf cafe"></picture>
           <div class="facility-card-body">
             <h3>Surf Caf&eacute;</h3>
             <p>Coffee, cold drinks, and a place to reset between sessions.</p>
@@ -3087,7 +3087,7 @@ footer::before {
           </div>
         </a>
         <a href="/trip-support.html#recovery" class="facility-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/recovery/IMG_5050-400.avif 400w, Assets/recovery/IMG_5050-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/recovery/IMG_5050-400.webp 400w, Assets/recovery/IMG_5050-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/recovery/IMG_5050.jpg" alt="Recovery and wellness"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/recovery/IMG_5050-400.avif 400w, Assets/recovery/IMG_5050-600.avif 600w"><source type="image/webp" sizes="(max-width: 768px) 163px, 267px" srcset="Assets/recovery/IMG_5050-400.webp 400w, Assets/recovery/IMG_5050-600.webp 600w"><img loading="lazy" decoding="async" src="Assets/recovery/IMG_5050.jpg" width="1278" height="958" alt="Recovery and wellness"></picture>
           <div class="facility-card-body">
             <h3>Recovery &amp; Wellness</h3>
             <p>Sauna, ice bath, hot bath, and post-session recovery about 20 minutes from the surf pool.</p>
@@ -3129,7 +3129,7 @@ footer::before {
   <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-golden-hour-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-golden-hour-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-golden-hour-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-golden-hour-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="Surf pool golden hour"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-golden-hour-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-golden-hour-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-golden-hour-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-golden-hour-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" width="2560" height="1438" alt="Surf pool golden hour"></picture>
     </div>
     <div class="final-cta-content">
       <span class="overline" style="color:var(--gold);">The World's Only Surf Pool on a Tropical Island</span>
@@ -3509,7 +3509,7 @@ footer::before {
   <!-- 10. FINAL CTA -->
   <section class="wp-final-cta">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-night-panorama-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-night-panorama-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-night-panorama-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-night-panorama-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" alt="Surf pool at night"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-night-panorama-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-night-panorama-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-night-panorama-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-night-panorama-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-night-panorama-01.jpg" width="2560" height="930" alt="Surf pool at night"></picture>
     </div>
     <div class="wp-final-cta-content">
       <span class="overline" style="color: rgba(255,255,255,0.8);">Your Perfect Wave Awaits</span>
@@ -4605,7 +4605,7 @@ footer::before {
 
   <section class="page-hero">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.avif 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.webp 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" alt="Surf pool dusk"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.avif 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-dusk-02-1500.webp 1500w, Assets/wavepool/wavepool-aerial-dusk-02-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-dusk-02.jpg" width="2560" height="1438" alt="Surf pool dusk"></picture>
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Packages</span>
@@ -4624,7 +4624,7 @@ footer::before {
       </div>
       <div class="packages-grid">
         <div class="package-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" class="package-img" alt="Surf pool daytime"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" width="2560" height="1438" class="package-img" alt="Surf pool daytime"></picture>
           <div class="package-body">
             <span class="package-tag">3 Nights+</span>
             <h3>The Surf Escape</h3>
@@ -4646,7 +4646,7 @@ footer::before {
           </div>
         </div>
         <div class="package-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" class="package-img" alt="Hainan golf course"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" width="2560" height="1429" class="package-img" alt="Hainan golf course"></picture>
           <div class="package-body">
             <span class="package-tag">Essential 5N &middot; Premium 7N &middot; Luxury 11N</span>
             <h3>The Surf &amp; Golf Retreat</h3>
@@ -4698,7 +4698,7 @@ footer::before {
 
   <section class="page-hero">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wanning/wanning-river-treehouse-01-1500.avif 1500w, Assets/wanning/wanning-river-treehouse-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wanning/wanning-river-treehouse-01-1500.webp 1500w, Assets/wanning/wanning-river-treehouse-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wanning/wanning-river-treehouse-01.jpg" alt="Wanning river treehouse"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wanning/wanning-river-treehouse-01-1500.avif 1500w, Assets/wanning/wanning-river-treehouse-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wanning/wanning-river-treehouse-01-1500.webp 1500w, Assets/wanning/wanning-river-treehouse-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wanning/wanning-river-treehouse-01.jpg" width="2560" height="1440" alt="Wanning river treehouse"></picture>
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Explore Hainan</span>
@@ -4720,28 +4720,28 @@ footer::before {
     <div class="container">
       <div class="explore-grid-4">
         <div class="explore-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/coffee-plantation-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/culture/coffee-plantation-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/culture/coffee-plantation-01.jpg" width="1440" height="1920" alt="Coffee plantation"></picture>
           <div class="explore-card-overlay">
             <h3>Coffee Plantations</h3>
             <p>Xinglong's tropical coffee culture</p>
           </div>
         </div>
         <div class="explore-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.avif 700w, Assets/nature/rainforest-waterfall-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.webp 700w, Assets/nature/rainforest-waterfall-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" alt="Waterfall"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.avif 700w, Assets/nature/rainforest-waterfall-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/nature/rainforest-waterfall-01-700.webp 700w, Assets/nature/rainforest-waterfall-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-waterfall-01.jpg" width="1080" height="1440" alt="Waterfall"></picture>
           <div class="explore-card-overlay">
             <h3>Waterfalls</h3>
             <p>Hidden cascades in tropical forest</p>
           </div>
         </div>
         <div class="explore-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/culture/fire-performance-01-700.avif 700w, Assets/culture/fire-performance-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/culture/fire-performance-01-700.webp 700w, Assets/culture/fire-performance-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/culture/fire-performance-01.jpg" alt="Fire show"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/culture/fire-performance-01-700.avif 700w, Assets/culture/fire-performance-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 372px" srcset="Assets/culture/fire-performance-01-700.webp 700w, Assets/culture/fire-performance-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/culture/fire-performance-01.jpg" width="1440" height="1920" alt="Fire show"></picture>
           <div class="explore-card-overlay">
             <h3>Night Entertainment</h3>
             <p>Fire performances &amp; cultural shows</p>
           </div>
         </div>
         <div class="explore-card fade-in">
-          <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="Assets/culture/market/market-peppers-01-500.avif 500w, Assets/culture/market/market-peppers-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="Assets/culture/market/market-peppers-01-500.webp 500w, Assets/culture/market/market-peppers-01-1000.webp 1000w"><img loading="lazy" decoding="async" src="Assets/culture/market/market-peppers-01.jpg" alt="Local market"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="Assets/culture/market/market-peppers-01-500.avif 500w, Assets/culture/market/market-peppers-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="Assets/culture/market/market-peppers-01-500.webp 500w, Assets/culture/market/market-peppers-01-1000.webp 1000w"><img loading="lazy" decoding="async" src="Assets/culture/market/market-peppers-01.jpg" width="1440" height="1920" alt="Local market"></picture>
           <div class="explore-card-overlay">
             <h3>Night Markets</h3>
             <p>Tropical flavors &amp; local life</p>
@@ -4752,8 +4752,8 @@ footer::before {
   </section>
 
   <div class="img-duo" style="padding: 0 clamp(1.5rem, 4vw, 4rem);">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 654px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.avif 700w, Assets/nature/coastal-road-beach-aerial-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 342px, 654px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.webp 700w, Assets/nature/coastal-road-beach-aerial-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Coastal road aerial"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.avif 1316w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.webp 1316w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-hand-viewpoint-01.jpg" alt="Rainforest viewpoint"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 654px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.avif 700w, Assets/nature/coastal-road-beach-aerial-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 342px, 654px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.webp 700w, Assets/nature/coastal-road-beach-aerial-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/nature/coastal-road-beach-aerial-01.jpg" width="1440" height="1920" alt="Coastal road aerial"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.avif 1316w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/nature/rainforest-hand-viewpoint-01-1316.webp 1316w"><img loading="lazy" decoding="async" src="Assets/nature/rainforest-hand-viewpoint-01.jpg" width="1316" height="1974" alt="Rainforest viewpoint"></picture>
   </div>
 
   <section>
@@ -4785,10 +4785,10 @@ footer::before {
 
   <!-- Food gallery -->
   <div class="gallery-strip">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" alt="Lobster noodles"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 354px" srcset="Assets/food/crab-dish-01-700.avif 700w, Assets/food/crab-dish-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 354px" srcset="Assets/food/crab-dish-01-700.webp 700w, Assets/food/crab-dish-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/food/crab-dish-01.jpg" alt="Crab dish"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/beach-club/beach-club-aerial-01-700.avif 700w, Assets/beach-club/beach-club-aerial-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/beach-club/beach-club-aerial-01-700.webp 700w, Assets/beach-club/beach-club-aerial-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/beach-club/beach-club-aerial-01.jpg" alt="Beach club"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/wanning/wanning-river-paddleboard-01-700.avif 700w, Assets/wanning/wanning-river-paddleboard-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/wanning/wanning-river-paddleboard-01-700.webp 700w, Assets/wanning/wanning-river-paddleboard-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/wanning/wanning-river-paddleboard-01.jpg" alt="Paddleboarding"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/food/lobster-noodles-01-1440.webp 1440w"><img loading="lazy" decoding="async" src="Assets/food/lobster-noodles-01.jpg" width="1440" height="1920" alt="Lobster noodles"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 354px" srcset="Assets/food/crab-dish-01-700.avif 700w, Assets/food/crab-dish-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 354px" srcset="Assets/food/crab-dish-01-700.webp 700w, Assets/food/crab-dish-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/food/crab-dish-01.jpg" width="1286" height="1715" alt="Crab dish"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/beach-club/beach-club-aerial-01-700.avif 700w, Assets/beach-club/beach-club-aerial-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/beach-club/beach-club-aerial-01-700.webp 700w, Assets/beach-club/beach-club-aerial-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/beach-club/beach-club-aerial-01.jpg" width="1206" height="1583" alt="Beach club"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/wanning/wanning-river-paddleboard-01-700.avif 700w, Assets/wanning/wanning-river-paddleboard-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/wanning/wanning-river-paddleboard-01-700.webp 700w, Assets/wanning/wanning-river-paddleboard-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/wanning/wanning-river-paddleboard-01.jpg" width="2560" height="1440" alt="Paddleboarding"></picture>
   </div>
 
   <section style="background:var(--sand);">
@@ -4802,7 +4802,7 @@ footer::before {
           <p style="color:var(--warm-gray); font-size:0.95rem; margin-top:1rem;">We design itineraries where surfers and non-surfers can split during the day and come back together for incredible shared experiences.</p>
         </div>
         <div>
-          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/outside/hotel-rooftop-lounge-01-700.avif 700w, Assets/hotel/outside/hotel-rooftop-lounge-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/outside/hotel-rooftop-lounge-01-700.webp 700w, Assets/hotel/outside/hotel-rooftop-lounge-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-rooftop-lounge-01.jpg" alt="Rooftop lounge" style="width:100%; height:400px; object-fit:cover; border-radius:var(--radius-media);"></picture>
+          <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/outside/hotel-rooftop-lounge-01-700.avif 700w, Assets/hotel/outside/hotel-rooftop-lounge-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/outside/hotel-rooftop-lounge-01-700.webp 700w, Assets/hotel/outside/hotel-rooftop-lounge-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-rooftop-lounge-01.jpg" width="2560" height="1708" alt="Rooftop lounge" style="width:100%; height:400px; object-fit:cover; border-radius:var(--radius-media);"></picture>
         </div>
       </div>
     </div>
@@ -4810,7 +4810,7 @@ footer::before {
 
   <section class="final-cta" style="height:50vh; min-height:400px;">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-resort-aerial-sunset-01-1500.avif 1500w, Assets/wavepool/wavepool-resort-aerial-sunset-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-resort-aerial-sunset-01-1500.webp 1500w, Assets/wavepool/wavepool-resort-aerial-sunset-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-resort-aerial-sunset-01.jpg" alt="Resort sunset"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-resort-aerial-sunset-01-1500.avif 1500w, Assets/wavepool/wavepool-resort-aerial-sunset-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-resort-aerial-sunset-01-1500.webp 1500w, Assets/wavepool/wavepool-resort-aerial-sunset-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-resort-aerial-sunset-01.jpg" width="2560" height="1440" alt="Resort sunset"></picture>
     </div>
     <div class="final-cta-content">
       <h2>See it for yourself.</h2>
@@ -4826,7 +4826,7 @@ footer::before {
 
   <section class="page-hero">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/hotel/outside/hotel-exterior-aerial-01-1500.avif 1500w, Assets/hotel/outside/hotel-exterior-aerial-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/hotel/outside/hotel-exterior-aerial-01-1500.webp 1500w, Assets/hotel/outside/hotel-exterior-aerial-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-exterior-aerial-01.jpg" alt="Hotel aerial"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/hotel/outside/hotel-exterior-aerial-01-1500.avif 1500w, Assets/hotel/outside/hotel-exterior-aerial-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/hotel/outside/hotel-exterior-aerial-01-1500.webp 1500w, Assets/hotel/outside/hotel-exterior-aerial-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-exterior-aerial-01.jpg" width="2560" height="1440" alt="Hotel aerial"></picture>
     </div>
     <div class="container page-hero-content">
       <span class="overline" style="color:var(--gold);">Plan Your Trip</span>
@@ -4874,10 +4874,10 @@ footer::before {
   </section>
 
   <div class="gallery-strip">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" alt="Designer room"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/hotel/main%20hotel/main-hotel-room-01-700.avif 700w, Assets/hotel/main%20hotel/main-hotel-room-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/hotel/main%20hotel/main-hotel-room-01-700.webp 700w, Assets/hotel/main%20hotel/main-hotel-room-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/hotel/main hotel/main-hotel-room-01.jpg" alt="Hotel room"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/outside/hotel-lobby-dusk-01-700.avif 700w, Assets/hotel/outside/hotel-lobby-dusk-01-900.avif 900w"><source type="image/webp" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/outside/hotel-lobby-dusk-01-700.webp 700w, Assets/hotel/outside/hotel-lobby-dusk-01-900.webp 900w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-lobby-dusk-01.jpg" alt="Lobby dusk"></picture>
-    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/restaurant/restaurant-dining-hall-01-700.avif 700w, Assets/hotel/restaurant/restaurant-dining-hall-01-900.avif 900w"><source type="image/webp" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/restaurant/restaurant-dining-hall-01-700.webp 700w, Assets/hotel/restaurant/restaurant-dining-hall-01-900.webp 900w"><img loading="lazy" decoding="async" src="Assets/hotel/restaurant/restaurant-dining-hall-01.jpg" alt="Restaurant"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.avif 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 550px" srcset="Assets/hotel/designer%20hotel/designer-hotel-room-01-700.webp 700w, Assets/hotel/designer%20hotel/designer-hotel-room-01-1100.webp 1100w"><img loading="lazy" decoding="async" src="Assets/hotel/designer hotel/designer-hotel-room-01.jpg" width="2560" height="1709" alt="Designer room"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/hotel/main%20hotel/main-hotel-room-01-700.avif 700w, Assets/hotel/main%20hotel/main-hotel-room-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 315px, 354px" srcset="Assets/hotel/main%20hotel/main-hotel-room-01-700.webp 700w, Assets/hotel/main%20hotel/main-hotel-room-01-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/hotel/main hotel/main-hotel-room-01.jpg" width="2560" height="1439" alt="Hotel room"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/outside/hotel-lobby-dusk-01-700.avif 700w, Assets/hotel/outside/hotel-lobby-dusk-01-900.avif 900w"><source type="image/webp" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/outside/hotel-lobby-dusk-01-700.webp 700w, Assets/hotel/outside/hotel-lobby-dusk-01-900.webp 900w"><img loading="lazy" decoding="async" src="Assets/hotel/outside/hotel-lobby-dusk-01.jpg" width="2560" height="3838" alt="Lobby dusk"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/restaurant/restaurant-dining-hall-01-700.avif 700w, Assets/hotel/restaurant/restaurant-dining-hall-01-900.avif 900w"><source type="image/webp" sizes="(max-width: 768px) 315px, 440px" srcset="Assets/hotel/restaurant/restaurant-dining-hall-01-700.webp 700w, Assets/hotel/restaurant/restaurant-dining-hall-01-900.webp 900w"><img loading="lazy" decoding="async" src="Assets/hotel/restaurant/restaurant-dining-hall-01.jpg" width="2560" height="1707" alt="Restaurant"></picture>
   </div>
 
   <section style="background:var(--sand);">
@@ -4917,7 +4917,7 @@ footer::before {
 
   <section class="final-cta" style="height:50vh; min-height:400px;">
     <div class="hero-bg">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-dusk-reflection-01-1500.avif 1500w, Assets/wavepool/wavepool-dusk-reflection-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-dusk-reflection-01-1500.webp 1500w, Assets/wavepool/wavepool-dusk-reflection-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-dusk-reflection-01.jpg" alt="Surf pool dusk"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-dusk-reflection-01-1500.avif 1500w, Assets/wavepool/wavepool-dusk-reflection-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-dusk-reflection-01-1500.webp 1500w, Assets/wavepool/wavepool-dusk-reflection-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-dusk-reflection-01.jpg" width="2560" height="1438" alt="Surf pool dusk"></picture>
     </div>
     <div class="final-cta-content">
       <h2>Let's plan your trip.</h2>
@@ -4936,7 +4936,7 @@ footer::before {
       <picture>
         <!-- Desktop: cropped + compressed hero (bottom crop). Mobile keeps the original shot. -->
         <source media="(min-width: 769px)" srcset="Assets/inquiry_desktop.jpg">
-        <img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains behind" class="trip-inquiry-hero-img" style="object-position: center bottom;">
+        <img loading="lazy" decoding="async" src="Assets/wavepool/IMG_7959%207.jpg" width="1536" height="1017" alt="Surfer riding a wave at PerfectSwell Hainan with tropical mountains behind" class="trip-inquiry-hero-img" style="object-position: center bottom;">
       </picture>
     </div>
     <div class="container page-hero-content">

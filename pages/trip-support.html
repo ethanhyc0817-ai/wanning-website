@@ -119,31 +119,38 @@
 <meta name="twitter:description" content="Surf shop, board rentals, surf café, and nearby recovery — everything to make your trip easier.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/surf-shop/shop-scene-01.jpg">
 
-<!-- Structured data: Service -->
+<!-- Structured data: Service + BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Surf China Co. Trip Support & Facilities",
-  "description": "Surf shop, board rentals, surf café, and nearby recovery — everything that makes your PerfectSwell® Hainan surf trip easier.",
-  "image": "https://www.surfchina.co/Assets/surf-shop/shop-scene-01.jpg",
-  "url": "https://www.surfchina.co/trip-support.html",
-  "provider": {
-    "@type": "TravelAgency",
-    "name": "Surf China Co.",
-    "url": "https://www.surfchina.co/"
-  },
-  "areaServed": {
-    "@type": "Place",
-    "name": "PerfectSwell Hainan — Riyue Bay Surf Resort, Wanning",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Wanning",
-      "addressRegion": "Hainan",
-      "addressCountry": "CN"
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Surf China Co. Trip Support & Facilities",
+      "description": "Surf shop, board rentals, surf café, and nearby recovery — everything that makes your PerfectSwell® Hainan surf trip easier.",
+      "image": "https://www.surfchina.co/Assets/surf-shop/shop-scene-01.jpg",
+      "url": "https://www.surfchina.co/trip-support.html",
+      "provider": { "@id": "https://www.surfchina.co/#organization" },
+      "areaServed": {
+        "@type": "Place",
+        "name": "PerfectSwell Hainan — Riyue Bay Surf Resort, Wanning",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Wanning",
+          "addressRegion": "Hainan",
+          "addressCountry": "CN"
+        }
+      },
+      "serviceType": ["Surf shop", "Board rentals", "Surf café", "Recovery facilities"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Trip Support" }
+      ]
     }
-  },
-  "serviceType": ["Surf shop", "Board rentals", "Surf café", "Recovery facilities"]
+  ]
 }
 </script>
 
@@ -159,6 +166,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+<link rel="preload" as="image" type="image/avif" imagesrcset="/Assets/surf-shop/shop-scene-01-1440.avif 1440w" imagesizes="(max-width: 768px) 390px, 1440px" fetchpriority="high">
 <style>
 /* --- Modern UX additions (2026-08-24) --- */
 @view-transition { navigation: auto; }
@@ -474,7 +482,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
   <div class="hero-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/surf-shop/shop-scene-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/surf-shop/shop-scene-01-1440.webp 1440w"><img src="/Assets/surf-shop/shop-scene-01.jpg" alt="Surf shop and facilities at PerfectSwell Hainan" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/surf-shop/shop-scene-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/surf-shop/shop-scene-01-1440.webp 1440w"><img src="/Assets/surf-shop/shop-scene-01.jpg" alt="Surf shop and facilities at PerfectSwell Hainan" width="1440" height="2160" decoding="async" fetchpriority="high"></picture>
   </div>
   <div class="hero-content">
     <span class="hero-eyebrow">Trip Support &amp; Facilities</span>
@@ -713,7 +721,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ 6. FINAL CTA ============ -->
 <section class="final-cta">
   <div class="final-cta-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-twilight-01.jpg" alt="PerfectSwell Hainan at twilight" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-twilight-01.jpg" width="2560" height="1440" alt="PerfectSwell Hainan at twilight" decoding="async"></picture>
   </div>
   <div class="final-cta-content">
     <h2>Travel lighter. Surf easier.</h2>

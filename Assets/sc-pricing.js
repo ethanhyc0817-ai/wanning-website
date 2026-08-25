@@ -4,6 +4,11 @@
    Synced from Pricing/calculator.xlsx (PROMO_BUYOUT_CLIENT +
    SURF-BUYOUT-*-1H-OFF list rates) by the update-buyout-promo
    skill. Change prices there, not by hand-editing pages.
+   NOTE: pages/design-your-buyout.html also carries these CNY
+   prices in static HTML (baked <span data-sc-num> fallbacks —
+   refreshed at runtime by this file) AND in its JSON-LD Offer/
+   FAQPage blocks, which are NOT runtime-refreshed. A price sync
+   must update that page's JSON-LD numbers too.
    ============================================================ */
 (function () {
   'use strict';

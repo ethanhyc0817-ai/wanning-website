@@ -119,29 +119,40 @@
 <meta name="twitter:description" content="Seafood off the boat, jungle-grown coffee, and morning markets where the island actually shops.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/food/lobster-noodles-01.jpg">
 
-<!-- Structured data: Article -->
+<!-- Structured data: Article + BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Cuisine & Coffee Plantation — Hainan's Tropical Table",
-  "description": "Seafood straight off the boat, jungle-grown coffee, bean-to-bar chocolate, and morning markets where the island actually shops. A taste of Hainan beyond the surf.",
-  "image": "https://www.surfchina.co/Assets/food/lobster-noodles-01.jpg",
-  "url": "https://www.surfchina.co/cuisine.html",
-  "datePublished": "2026-04-27",
-  "author": {
-    "@type": "Organization",
-    "name": "Surf China Co.",
-    "url": "https://www.surfchina.co/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Surf China Co.",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Cuisine & Coffee Plantation — Hainan's Tropical Table",
+      "description": "Seafood straight off the boat, jungle-grown coffee, bean-to-bar chocolate, and morning markets where the island actually shops. A taste of Hainan beyond the surf.",
+      "image": "https://www.surfchina.co/Assets/food/lobster-noodles-01.jpg",
+      "url": "https://www.surfchina.co/cuisine.html",
+      "datePublished": "2026-04-27",
+      "author": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "url": "https://www.surfchina.co/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Cuisine & Coffee Plantation" }
+      ]
     }
-  }
+  ]
 }
 </script>
 
@@ -504,7 +515,7 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- HERO -->
 <section class="page-hero">
   <div class="hero-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/food/lobster-noodles-01-1440.webp 1440w"><img src="/Assets/food/lobster-noodles-01.jpg" alt="Hainan seafood" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/food/lobster-noodles-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/food/lobster-noodles-01-1440.webp 1440w"><img src="/Assets/food/lobster-noodles-01.jpg" width="1440" height="1920" alt="Hainan seafood" decoding="async"></picture>
   </div>
   <div class="container page-hero-content">
     <span class="overline">Beyond the Pool &middot; Cuisine &amp; Coffee</span>
@@ -556,7 +567,7 @@ nav.scrolled { padding: 0.7rem 0; }
     </div>
     <div class="cuisine-grid">
       <div class="cuisine-card fade-in">
-        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/market/market-scene-01-600.avif 600w, /Assets/culture/market/market-scene-01-700.avif 700w"><source type="image/webp" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/market/market-scene-01-600.webp 600w, /Assets/culture/market/market-scene-01-700.webp 700w"><img src="/Assets/culture/market/market-scene-01.jpg" alt="Local market" decoding="async"></picture>
+        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/market/market-scene-01-600.avif 600w, /Assets/culture/market/market-scene-01-700.avif 700w"><source type="image/webp" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/market/market-scene-01-600.webp 600w, /Assets/culture/market/market-scene-01-700.webp 700w"><img src="/Assets/culture/market/market-scene-01.jpg" width="1385" height="1846" alt="Local market" decoding="async"></picture>
         <div class="cuisine-card-overlay">
           <span class="num">01 &mdash; Market</span>
           <h3>The Morning Market</h3>
@@ -564,7 +575,7 @@ nav.scrolled { padding: 0.7rem 0; }
         </div>
       </div>
       <div class="cuisine-card fade-in">
-        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 354px" srcset="/Assets/food/crab-dish-01-700.avif 700w, /Assets/food/crab-dish-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 354px" srcset="/Assets/food/crab-dish-01-700.webp 700w, /Assets/food/crab-dish-01-800.webp 800w"><img src="/Assets/food/crab-dish-01.jpg" alt="Local seafood" decoding="async"></picture>
+        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 354px" srcset="/Assets/food/crab-dish-01-700.avif 700w, /Assets/food/crab-dish-01-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 342px, 354px" srcset="/Assets/food/crab-dish-01-700.webp 700w, /Assets/food/crab-dish-01-800.webp 800w"><img src="/Assets/food/crab-dish-01.jpg" width="1286" height="1715" alt="Local seafood" decoding="async"></picture>
         <div class="cuisine-card-overlay">
           <span class="num">02 &mdash; Cuisine</span>
           <h3>Seafood &amp; Hainan Dishes</h3>
@@ -572,7 +583,7 @@ nav.scrolled { padding: 0.7rem 0; }
         </div>
       </div>
       <div class="cuisine-card fade-in">
-        <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.webp 1440w"><img src="/Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation" decoding="async"></picture>
+        <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.webp 1440w"><img src="/Assets/culture/coffee-plantation-01.jpg" width="1440" height="1920" alt="Coffee plantation" decoding="async"></picture>
         <div class="cuisine-card-overlay">
           <span class="num">03 &mdash; Coffee</span>
           <h3>Xinglong Coffee Plantation</h3>
@@ -580,7 +591,7 @@ nav.scrolled { padding: 0.7rem 0; }
         </div>
       </div>
       <div class="cuisine-card fade-in">
-        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/chocolate-making-02-600.avif 600w, /Assets/culture/chocolate-making-02-700.avif 700w"><source type="image/webp" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/chocolate-making-02-600.webp 600w, /Assets/culture/chocolate-making-02-700.webp 700w"><img src="/Assets/culture/chocolate-making-02.jpg" alt="Chocolate making" decoding="async"></picture>
+        <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/chocolate-making-02-600.avif 600w, /Assets/culture/chocolate-making-02-700.avif 700w"><source type="image/webp" sizes="(max-width: 768px) 342px, 276px" srcset="/Assets/culture/chocolate-making-02-600.webp 600w, /Assets/culture/chocolate-making-02-700.webp 700w"><img src="/Assets/culture/chocolate-making-02.jpg" width="1440" height="1920" alt="Chocolate making" decoding="async"></picture>
         <div class="cuisine-card-overlay">
           <span class="num">04 &mdash; Bean to Bar</span>
           <h3>Chocolate Making</h3>
@@ -595,27 +606,27 @@ nav.scrolled { padding: 0.7rem 0; }
 <section style="padding-top:0;">
   <div class="img-six">
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-peppers-01-500.avif 500w, /Assets/culture/market/market-peppers-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-peppers-01-500.webp 500w, /Assets/culture/market/market-peppers-01-1000.webp 1000w"><img src="/Assets/culture/market/market-peppers-01.jpg" alt="Market peppers" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-peppers-01-500.avif 500w, /Assets/culture/market/market-peppers-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-peppers-01-500.webp 500w, /Assets/culture/market/market-peppers-01-1000.webp 1000w"><img src="/Assets/culture/market/market-peppers-01.jpg" width="1440" height="1920" alt="Market peppers" decoding="async"></picture>
       <figcaption>Chilis &amp; pepper &middot; morning market</figcaption>
     </figure>
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/coconut-hotpot-01-500.avif 500w, /Assets/food/coconut-hotpot-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/coconut-hotpot-01-500.webp 500w, /Assets/food/coconut-hotpot-01-1000.webp 1000w"><img src="/Assets/food/coconut-hotpot-01.jpg" alt="Coconut hotpot" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/coconut-hotpot-01-500.avif 500w, /Assets/food/coconut-hotpot-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/coconut-hotpot-01-500.webp 500w, /Assets/food/coconut-hotpot-01-1000.webp 1000w"><img src="/Assets/food/coconut-hotpot-01.jpg" width="1151" height="1535" alt="Coconut hotpot" decoding="async"></picture>
       <figcaption>Coconut hotpot &middot; local classic</figcaption>
     </figure>
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-02-500.avif 500w, /Assets/culture/market/market-scene-02-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-02-500.webp 500w, /Assets/culture/market/market-scene-02-1000.webp 1000w"><img src="/Assets/culture/market/market-scene-02.jpg" alt="Market scene" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-02-500.avif 500w, /Assets/culture/market/market-scene-02-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-02-500.webp 500w, /Assets/culture/market/market-scene-02-1000.webp 1000w"><img src="/Assets/culture/market/market-scene-02.jpg" width="1440" height="1920" alt="Market scene" decoding="async"></picture>
       <figcaption>Wet market &middot; Wanning</figcaption>
     </figure>
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/fresh-fish-catch-01-500.avif 500w, /Assets/food/fresh-fish-catch-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/fresh-fish-catch-01-500.webp 500w, /Assets/food/fresh-fish-catch-01-1000.webp 1000w"><img src="/Assets/food/fresh-fish-catch-01.jpg" alt="Fresh fish" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/fresh-fish-catch-01-500.avif 500w, /Assets/food/fresh-fish-catch-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/fresh-fish-catch-01-500.webp 500w, /Assets/food/fresh-fish-catch-01-1000.webp 1000w"><img src="/Assets/food/fresh-fish-catch-01.jpg" width="1331" height="1775" alt="Fresh fish" decoding="async"></picture>
       <figcaption>Boat-to-table &middot; Shenzhou</figcaption>
     </figure>
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-04-500.avif 500w, /Assets/culture/market/market-scene-04-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-04-500.webp 500w, /Assets/culture/market/market-scene-04-1000.webp 1000w"><img src="/Assets/culture/market/market-scene-04.jpg" alt="Market scene" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-04-500.avif 500w, /Assets/culture/market/market-scene-04-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/culture/market/market-scene-04-500.webp 500w, /Assets/culture/market/market-scene-04-1000.webp 1000w"><img src="/Assets/culture/market/market-scene-04.jpg" width="1334" height="1779" alt="Market scene" decoding="async"></picture>
       <figcaption>Market life &middot; Hainan</figcaption>
     </figure>
     <figure class="fade-in">
-      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/mango-pudding-dessert-01-500.avif 500w, /Assets/food/mango-pudding-dessert-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/mango-pudding-dessert-01-500.webp 500w, /Assets/food/mango-pudding-dessert-01-1000.webp 1000w"><img src="/Assets/food/mango-pudding-dessert-01.jpg" alt="Mango dessert" decoding="async"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/mango-pudding-dessert-01-500.avif 500w, /Assets/food/mango-pudding-dessert-01-1000.avif 1000w"><source type="image/webp" sizes="(max-width: 768px) 165px, 481px" srcset="/Assets/food/mango-pudding-dessert-01-500.webp 500w, /Assets/food/mango-pudding-dessert-01-1000.webp 1000w"><img src="/Assets/food/mango-pudding-dessert-01.jpg" width="1328" height="1770" alt="Mango dessert" decoding="async"></picture>
       <figcaption>Mango &amp; coconut dessert</figcaption>
     </figure>
   </div>
@@ -624,7 +635,7 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="hero-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.webp 1440w"><img src="/Assets/culture/coffee-plantation-01.jpg" alt="Coffee plantation" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.avif 1440w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/culture/coffee-plantation-01-1440.webp 1440w"><img src="/Assets/culture/coffee-plantation-01.jpg" width="1440" height="1920" alt="Coffee plantation" decoding="async"></picture>
   </div>
   <div class="final-cta-content">
     <span class="overline">Add to Your Trip</span>

@@ -119,34 +119,56 @@
 <meta name="twitter:description" content="3 nights or more at the Surf Pool Resort, 2 PerfectSwell® sessions/day, all-in. From US$759/person.">
 <meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg">
 
-<!-- Structured data: TouristTrip -->
+<!-- Structured data: TouristTrip + BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "The Surf Escape — 3 Nights+ at PerfectSwell® Hainan",
-  "description": "Surf-only package built around couples — 3 nights or more at the Surf Pool Resort (Garden View Room), 6 PerfectSwell® surf sessions total (one each per day), daily breakfast, 1 premium video recording session for each surfer, round-trip Premium Car airport transfer, all in.",
-  "image": "https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg",
-  "url": "https://www.surfchina.co/package-1-the-surf-session.html",
-  "touristType": ["Surfers", "International travelers"],
-  "itinerary": {
-    "@type": "ItemList",
-    "itemListElement": [{
-      "@type": "TouristAttraction",
-      "name": "PerfectSwell Hainan Surf Pool",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Wanning",
-        "addressRegion": "Hainan",
-        "addressCountry": "CN"
+  "@graph": [
+    {
+      "@type": "TouristTrip",
+      "name": "The Surf Escape — 3 Nights+ at PerfectSwell® Hainan",
+      "description": "Surf-only package built around couples — 3 nights or more at the Surf Pool Resort (Garden View Room), 6 PerfectSwell® surf sessions total (one each per day), daily breakfast, 1 premium video recording session for each surfer, round-trip Premium Car airport transfer, all in.",
+      "image": "https://www.surfchina.co/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg",
+      "url": "https://www.surfchina.co/package-1-the-surf-session.html",
+      "touristType": ["Surfers", "International travelers"],
+      "itinerary": {
+        "@type": "ItemList",
+        "itemListElement": [{
+          "@type": "TouristAttraction",
+          "name": "PerfectSwell Hainan Surf Pool",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wanning",
+            "addressRegion": "Hainan",
+            "addressCountry": "CN"
+          }
+        }]
+      },
+      "provider": { "@id": "https://www.surfchina.co/#organization" },
+      "offers": {
+        "@type": "Offer",
+        "name": "The Surf Escape — from US$759 per person, couple share",
+        "price": "759",
+        "priceCurrency": "USD",
+        "url": "https://www.surfchina.co/package-1-the-surf-session.html",
+        "availability": "https://schema.org/InStock",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceType": "https://schema.org/MinimumPrice",
+          "price": "759",
+          "priceCurrency": "USD",
+          "description": "From US$759 per person on the 3-night couple share. Final price varies with nights, group size, and add-ons."
+        }
       }
-    }]
-  },
-  "provider": {
-    "@type": "TravelAgency",
-    "name": "Surf China Co.",
-    "url": "https://www.surfchina.co/"
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "The Surf Escape" }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -162,6 +184,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+<link rel="preload" as="image" type="image/avif" imagesrcset="/Assets/wavepool/wavepool-aerial-golden-hour-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-golden-hour-01-2560.avif 2560w" imagesizes="(max-width: 768px) 390px, 1440px" fetchpriority="high">
 <style>
 /* --- Modern UX additions (2026-08-24) --- */
 @view-transition { navigation: auto; }
@@ -545,7 +568,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
   <div class="hero-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-golden-hour-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-golden-hour-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-golden-hour-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-golden-hour-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="PerfectSwell Hainan surf pool at golden hour" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-golden-hour-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-golden-hour-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-golden-hour-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-golden-hour-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="PerfectSwell Hainan surf pool at golden hour" width="2560" height="1438" decoding="async" fetchpriority="high"></picture>
   </div>
   <div class="hero-content">
     <span class="hero-eyebrow">Package 01 &middot; 3 Nights+</span>
@@ -821,7 +844,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
 <!-- ============ 13. FINAL CTA ============ -->
 <section class="final-cta">
   <div class="final-cta-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-twilight-01.jpg" alt="PerfectSwell Hainan at twilight" decoding="async"></picture>
+    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.avif 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/wavepool/wavepool-aerial-twilight-01-1500.webp 1500w, /Assets/wavepool/wavepool-aerial-twilight-01-2560.webp 2560w"><img src="/Assets/wavepool/wavepool-aerial-twilight-01.jpg" width="2560" height="1440" alt="PerfectSwell Hainan at twilight" decoding="async"></picture>
   </div>
   <div class="final-cta-content">
     <h2>Ready for a high-volume<br>surf pool trip?</h2>
