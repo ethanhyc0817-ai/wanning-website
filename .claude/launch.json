@@ -2,9 +2,23 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "surf-china-static-b",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8918"
+      ],
+      "port": 8918
+    },
+    {
       "name": "surf-china-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8917"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8917"
+      ],
       "port": 8917
     }
   ]

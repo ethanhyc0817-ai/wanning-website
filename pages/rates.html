@@ -131,7 +131,7 @@
       "provider": { "@id": "https://www.surfchina.co/#organization" },
       "itemListElement": [
         { "@type": "Offer", "name": "Surf pool session (55 min, per person)", "price": "349", "priceCurrency": "CNY", "category": "Surf session" },
-        { "@type": "Offer", "name": "Private surf pool session (per hour, whole pool)", "price": "6600", "priceCurrency": "CNY", "category": "Private session" },
+        { "@type": "Offer", "name": "Private surf pool session (per hour, whole pool)", "price": "7760", "priceCurrency": "CNY", "category": "Private session" },
         { "@type": "Offer", "name": "Surf coaching (per person, per hour)", "price": "268", "priceCurrency": "CNY", "category": "Coaching" },
         { "@type": "Offer", "name": "Session photography and video (per surfer)", "price": "200", "priceCurrency": "CNY", "category": "Photo and video" },
         { "@type": "Offer", "name": "Performance surfboard rental (per day)", "price": "200", "priceCurrency": "CNY", "category": "Rental" },
@@ -168,7 +168,7 @@
       "name": "How much does it cost to rent the whole wave pool?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A private buyout starts from CNY 6,600 per hour for the Intermediate setting and from CNY 8,470 per hour for the Advanced and Pro settings — the whole pool for your group, however many of you surf."
+        "text": "A private buyout is CNY 7,760 per hour for the Intermediate setting and CNY 9,960 per hour for the Advanced and Pro settings — the whole pool for your group, however many of you surf. Special offers apply on selected dates and group sizes, so send us your dates for your rate."
       }
     },
     {
@@ -199,7 +199,7 @@
 
 <!-- Buyout prices are rendered from Assets/sc-pricing.js (single source of truth);
      the numbers baked below are crawlable fallbacks refreshed at runtime. -->
-<script src="../Assets/sc-pricing.js" defer></script>
+<script src="../Assets/sc-pricing.js?v=2" defer></script>
 <style>
 picture{display:contents}picture>source{display:none}
 
@@ -457,8 +457,6 @@ nav.scrolled { padding: 0.7rem 0; }
 .buyout-table th { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.18); }
 .buyout-table td { padding: 1.1rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); vertical-align: baseline; }
 .buyout-table td small { display: block; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
-.buyout-table .buyout-list { color: rgba(255,255,255,0.55); }
-.buyout-table .buyout-list s { text-decoration-color: rgba(255,255,255,0.45); }
 .buyout-table .buyout-price { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--gold); white-space: nowrap; }
 .buyout-foot { font-size: 0.85rem; color: rgba(255,255,255,0.6); max-width: 720px; margin: 1.8rem auto 0; text-align: center; }
 
@@ -650,7 +648,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
     <span class="overline">The Short Answer</span>
     <h2>How much does it cost to surf the wave pool?</h2>
     <div class="section-divider"></div>
-    <p class="lead">A public 55-minute session at the PerfectSwell&reg; wave pool in Riyue Bay, Hainan costs CNY 349&ndash;448 per person depending on wave level, with rooms at the surf pool resort from CNY 700 per night and full private pool buyouts from CNY <span data-sc-num="buyout.intermediate.promo">6,600</span> per hour.</p>
+    <p class="lead">A public 55-minute session at the PerfectSwell&reg; wave pool in Riyue Bay, Hainan costs CNY 349&ndash;448 per person depending on wave level, with rooms at the surf pool resort from CNY 700 per night and full private pool buyouts from CNY <span data-sc-num="buyout.intermediate.list">7,760</span> per hour.</p>
     <p>Below is the full rate board &mdash; the same one we quote from. Everything is in CNY (Chinese yuan / RMB), and every session is a 55-minute block on a single wave setting matched to your level.</p>
   </div>
 </section>
@@ -710,19 +708,19 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       <h2>The whole pool. Just your crew.</h2>
       <div class="section-divider-center"></div>
       <p class="lead" style="margin: 0 auto;">Reserve the entire PerfectSwell&reg; pool by the hour &mdash; up to 20 surfers, your choice of wave setting, and no one else in the lineup. Priced per session, not per person.</p>
-      <span class="buyout-pill">Limited promo &middot; <span data-sc-promopct>15</span>% off every buyout</span>
+      <span class="buyout-pill">Special offers &middot; ask us for your rate</span>
     </div>
     <table class="buyout-table">
       <thead>
-        <tr><th>Wave setting</th><th>List rate / hour</th><th>Your price / hour</th></tr>
+        <tr><th>Wave setting</th><th>Rate / hour</th></tr>
       </thead>
       <tbody>
-        <tr><td>Intermediate<small>Clean, open-face walls</small></td><td class="buyout-list"><s>CNY <span data-sc-num="buyout.intermediate.list">7,760</span></s></td><td class="buyout-price">CNY <span data-sc-num="buyout.intermediate.promo">6,600</span></td></tr>
-        <tr><td>Advanced<small>Faster, punchier, more sections</small></td><td class="buyout-list"><s>CNY <span data-sc-num="buyout.advanced.list">9,960</span></s></td><td class="buyout-price">CNY <span data-sc-num="buyout.advanced.promo">8,470</span></td></tr>
-        <tr><td>Pro<small>Barrels and airs</small></td><td class="buyout-list"><s>CNY <span data-sc-num="buyout.master.list">9,960</span></s></td><td class="buyout-price">CNY <span data-sc-num="buyout.master.promo">8,470</span></td></tr>
+        <tr><td>Intermediate<small>Clean, open-face walls</small></td><td class="buyout-price">CNY <span data-sc-num="buyout.intermediate.list">7,760</span></td></tr>
+        <tr><td>Advanced<small>Faster, punchier, more sections</small></td><td class="buyout-price">CNY <span data-sc-num="buyout.advanced.list">9,960</span></td></tr>
+        <tr><td>Pro<small>Barrels and airs</small></td><td class="buyout-price">CNY <span data-sc-num="buyout.master.list">9,960</span></td></tr>
       </tbody>
     </table>
-    <p class="buyout-foot">Prices for the whole pool, however many of you are surfing. Coaching, filming and drone footage can be added to any buyout.</p>
+    <p class="buyout-foot">Prices for the whole pool, however many of you are surfing. Coaching, filming and drone footage can be added to any buyout. Special offers apply on selected dates and group sizes &mdash; send us your dates and we&rsquo;ll confirm your rate.</p>
     <div style="text-align:center; margin-top:2rem;">
       <a href="/design-your-buyout.html" class="btn btn-primary btn-arrow">Design Your Buyout &mdash; See Your Price </a>
     </div>
@@ -758,7 +756,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       </details>
       <details class="faq-item">
         <summary>How much does it cost to rent the whole wave pool?</summary>
-        <p>A private buyout starts from CNY <span data-sc-num="buyout.intermediate.promo">6,600</span> per hour for the Intermediate setting and from CNY <span data-sc-num="buyout.advanced.promo">8,470</span> per hour for the Advanced and Pro settings &mdash; the whole pool for your group, however many of you surf.</p>
+        <p>A private buyout is CNY <span data-sc-num="buyout.intermediate.list">7,760</span> per hour for the Intermediate setting and CNY <span data-sc-num="buyout.advanced.list">9,960</span> per hour for the Advanced and Pro settings &mdash; the whole pool for your group, however many of you surf. Special offers apply on selected dates and group sizes, so send us your dates for your rate.</p>
       </details>
       <details class="faq-item">
         <summary>Do prices change through the year?</summary>

@@ -46,10 +46,15 @@
       var v = get(el.getAttribute('data-sc-num'));
       if (v != null) el.textContent = fmt(v);
     });
-    // <input data-sc-wave="advanced"> → sets data-promo / data-list for page calculators
+    // <input data-sc-wave="advanced"> → sets data-promo / data-list for page calculators.
+    // Add data-sc-listonly where the promo must not be advertised (index.html trip
+    // planner): both attributes resolve to the list rate, so the calculator quotes
+    // the public price and renders no struck-through "was" anchor.
     Array.prototype.forEach.call(document.querySelectorAll('input[data-sc-wave]'), function (el) {
       var w = P.buyout[el.getAttribute('data-sc-wave')];
-      if (w) { el.setAttribute('data-promo', w.promo); el.setAttribute('data-list', w.list); }
+      if (!w) return;
+      el.setAttribute('data-promo', el.hasAttribute('data-sc-listonly') ? w.list : w.promo);
+      el.setAttribute('data-list', w.list);
     });
   }
 
