@@ -369,10 +369,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .priceBig.struck { position: relative; color: var(--cream-faint); font-size: clamp(1.3rem, 3.4vw, 1.8rem); }
 .priceSub { margin-top: .6rem; font-size: .9rem; color: var(--cream-dim); font-variant-numeric: tabular-nums; }
 
-.wasLine { display: none; align-items: baseline; justify-content: center; gap: .7rem; margin-bottom: .2rem; }
-.wasLine.on { display: flex; animation: rise .45s var(--ease-out) both; }
-.wasLine s { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(1.1rem, 3vw, 1.5rem); color: var(--cream-faint); font-variant-numeric: tabular-nums; }
-.wasLine em { font-style: normal; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-faint); }
 
 .groupNote {
   margin: 1.4rem auto 0; max-width: 52ch;
@@ -391,9 +387,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .offerSeal.on { display: flex; animation: sealIn .5s var(--ease-out) both; }
 @keyframes sealIn { from { opacity: 0; transform: translateY(10px) scale(.94); } to { opacity: 1; transform: none; } }
-.saveLine { display: none; margin-top: 1rem; font-size: .95rem; color: var(--cream); font-variant-numeric: tabular-nums; }
-.saveLine.on { display: block; animation: rise .5s var(--ease-out) .08s both; }
-.saveLine b { color: var(--gold); font-family: 'Montserrat', sans-serif; }
 
 .afterOffer { display: none; }
 .afterOffer.on { display: block; animation: rise .55s var(--ease-out) .16s both; }
@@ -515,13 +508,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   @keyframes fadeOnlyDb { from { opacity: 0; } to { opacity: 1; } }
   .step.is-active > * { animation: fadeOnlyDb .2s both; }
   .dial__val.bump { animation: none; }
-  .wasLine.on, .offerSeal.on, .saveLine.on, .afterOffer.on, .bd__edit.on { animation: fadeOnlyDb .2s both; }
+  .offerSeal.on, .afterOffer.on, .bd__edit.on { animation: fadeOnlyDb .2s both; }
   .roomHero__img, .room__img { transition: none; }
   .roomHero:hover .roomHero__img, .room:hover .room__img { transform: none; }
   .rail__step::after { transition: none; }
 }
 </style>
-<script src="../Assets/sc-pricing.js?v=2"></script>
+<script src="../Assets/sc-pricing.js?v=3"></script>
 
 <!-- Structured data: Service + Offers (CNY, mirrors sc-pricing.js — the
      update-buyout-promo sync must keep these prices in step) + FAQ + Breadcrumb -->
@@ -640,7 +633,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     </div>
 
     <div class="priceStage is-open" id="stage">
-      <div class="wasLine on" id="wasLine"><em>Standard price</em> <s id="wasVal">&mdash;</s></div>
       <div class="priceStage__lbl" id="stageLbl">Your price, per person</div>
       <div class="priceBig" id="bigVal">&mdash;</div>
       <div class="priceSub" id="bigSub">&nbsp;</div>
@@ -648,7 +640,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       <p class="groupNote">A private session is priced for the whole pool, not per surfer. <b>Bring more of your crew and the price per person comes down.</b></p>
 
       <div class="offerSeal on" id="seal">Special offers &middot; ask us for your rate</div>
-      <div class="saveLine on" id="saveLine">Your crew saves <b id="saveVal">&mdash;</b> on this trip.</div>
 
       <div class="afterOffer on" id="after">
         <div class="bd" id="bd">
@@ -845,7 +836,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   var MEDIA_SESSION = 340;  // photographer, per session, USD — every surfer covered
   var COACH_PER = 368;      // 1-on-1 coach, per surfer per session — sold at cost
   var SERVICE   = 0.05;     // our service fee, carried inside the quoted total
-  var ANCHOR    = 1.10;     // published-rate uplift used across the site
 
   var state = { room: 'garden', guests: 6, rooms: 3, nights: 2, perDay: 2, sessions: 4,
                 wave: 'master', photoCount: 0, coach: false, sessionsTouched: false };
@@ -856,10 +846,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   var wave = function () { return WAVES.filter(function (w) { return w.key === state.wave; })[0]; };
 
   // ── Price ──────────────────────────────────────────────────────────────
-  // The package side (rooms, media, transfer, concierge) sells at its rate and
-  // anchors against the published uplift. The buyout side quotes the LIST rate
-  // on every public page — the 15% promo is negotiated, never advertised
-  // (see CLAUDE.md), so buyNow and buyWas are deliberately the same number.
+  // ONE number, and it is the public one: rooms, media, transfer and concierge
+  // at their rate, plus the buyout at its LIST rate, plus the service fee.
+  // There is deliberately no "was" anchor and no saving to compute — the
+  // negotiated discount is quoted by hand and never reaches the page, so
+  // nothing here can be diffed back into it. See CLAUDE.md.
   function price() {
     var w = wave();
     var vans = Math.max(1, Math.ceil(state.guests / 6));
@@ -867,16 +858,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     var photo  = MEDIA_SESSION * Math.min(state.photoCount, state.sessions);
     var coach  = 0; // the coach is quoted separately — price on request
     var pkg    = rooms + photo + coach;
-    var buyNow = w.now  * state.sessions / FX;
-    var buyWas = w.list * state.sessions / FX;
+    var buyNow = w.now * state.sessions / FX;
     var subNow = pkg + buyNow;
-    var subWas = pkg * ANCHOR + buyWas;
     var feeNow = subNow * SERVICE;
     var now    = subNow + feeNow;
-    var was    = subWas * (1 + SERVICE);
     return { rooms: rooms, photo: photo, coach: coach, vans: vans,
-             buyNow: buyNow, buyWas: buyWas, sub: subNow, fee: feeNow,
-             now: now, was: was, save: was - now, pp: now / Math.max(1, state.guests) };
+             buyNow: buyNow, sub: subNow, fee: feeNow,
+             now: now, pp: now / Math.max(1, state.guests) };
   }
 
   // ── Build the choice cards ─────────────────────────────────────────────
@@ -1011,16 +999,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   }
 
   // ── Stage ──────────────────────────────────────────────────────────────
-  // The offer is on the table from the start: the discounted price is shown
-  // directly, per person, with the whole-party total beneath it. Each line
-  // of the breakdown can be adjusted in place.
+  // One price, on the table from the start: per person, with the whole-party
+  // total beneath it. Each line of the breakdown can be adjusted in place.
   function paintStage(p) {
-    var g = Math.max(1, state.guests);
     var r = room(), w = wave();
-    $('wasVal').textContent = usd(p.was / g) + ' per person';
     $('bigVal').textContent = usd(p.pp);
     $('bigSub').textContent = usd(p.now) + ' total for ' + state.guests + ' guests · 5% service fee included';
-    $('saveVal').textContent = usd(p.save);
 
     $('rRoomsName').textContent = state.rooms + ' × ' + r.name;
     $('rRoomsSub').textContent = state.nights + ' ' + (state.nights === 1 ? 'night' : 'nights') + ' at the resort · daily breakfast included';
@@ -1029,7 +1013,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
     $('rSessVal').textContent = usd(p.buyNow);
     $('rVansSub').textContent = 'Haikou or Sanya — whichever suits your flights · ' + p.vans + ' × private six-seat van to your suite and back, driver waiting when you land';
     $('rFeeVal').textContent = usd(p.fee);
-    $('rTotSub').textContent = 'Standard price ' + usd(p.was) + ' · you save ' + usd(p.save) + ' · ' + usd(p.pp) + ' per person';
+    $('rTotSub').textContent = usd(p.pp) + ' per person · ' + state.guests + ' guests';
     $('rTotVal').textContent = usd(p.now);
   }
 
@@ -1071,7 +1055,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
       state.nights + ' nights, ' + state.sessions + ' × ' + wave().name + ' private sessions' +
       (state.photoCount > 0 ? ', surf photographer on ' + state.photoCount + (state.photoCount === 1 ? ' session' : ' sessions') : '') +
       (state.coach ? ', professional surf coach (price on request)' : '') +
-      ' — ' + usd(p.now) + ' (standard price ' + usd(p.was) + ')';
+      ' — ' + usd(p.now) + ' (' + usd(p.pp) + ' per person)';
   }
   function buildLinks(p) {
     var s = summary(p);
