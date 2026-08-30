@@ -24,6 +24,7 @@
     at line 331 and a `bkSumWas` anchor at line 550. It is a live 200 for anyone
     with the URL. Fix or block it when that redesign lands.
 - Buyout prices live in `Assets/sc-pricing.js` (machine-synced). `pages/design-your-buyout.html` and `pages/rates.html` carry those CNY prices in static HTML (`data-sc-num` spans, runtime-refreshed) AND in JSON-LD blocks that are NOT runtime-refreshed — a price sync must update the JSON-LD numbers on both pages too.
+- Public regular surf-session sell price (Aug 2026): publish CNY 550/person for Beginner, Intermediate and Advanced sessions. Do not restore the old park ticket/reference prices (358 / 349 / 448) on public rate boards or schema.
 - SEO decisions (Aug 2026): prices in client-facing static copy/schema are CNY; no author bylines on blog posts; no About/Team page for now. `index.html` must keep exactly ONE `<h1>` (the hero) — SPA panel titles are `<h2 class="page-title">`.
 - `.github/workflows/indexnow.yml` pings IndexNow (Bing/Yandex) with changed page URLs on every push; the key file `da871c4474c953d2ff65ddd030275b6d.txt` at repo root must stay deployed.
 - `/Assets` images, video and fonts are cached for a week (`vercel.json` headers).
