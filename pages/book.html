@@ -208,10 +208,11 @@
   .rpick:hover { border-color: var(--ocean); }
   .rpick:active { transform: scale(0.985); }
   .rpick.on { border-color: var(--ocean); box-shadow: 0 0 0 1.5px var(--ocean) inset; background: #f4f9fb; }
-  .rpick__flag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 0.46rem; font-weight: 700;
-                 letter-spacing: 0.12em; text-transform: uppercase; color: var(--ocean-deep); background: var(--gold);
-                 border-radius: var(--r-pill); padding: 0.12rem 0.4rem; vertical-align: 0.18em; margin-left: 0.4rem; }
-  .rpick__name { display: block; line-height: 1.25; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.86rem; }
+  .rpick__flag { position: absolute; top: 0.5rem; right: 0.55rem; font-family: 'Montserrat', sans-serif;
+                 font-size: 0.46rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+                 color: var(--ocean-deep); background: var(--gold); border-radius: var(--r-pill);
+                 padding: 0.14rem 0.42rem; }
+  .rpick__name { display: block; line-height: 1.25; padding-right: 3.6rem; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.86rem; }
   .rpick__meta { display: block; font-size: 0.74rem; color: var(--warm-gray); margin-top: 0.1rem; }
   .rpick__meta b { color: var(--charcoal); }
   .rpick.premium:hover { border-color: var(--gold); }
@@ -952,12 +953,13 @@ function renderRooms() {
       <div class="rrow__body">
         <span class="rrow__no">Room ${i + 1}</span>
         <span class="rrow__name">${P.roomName[k]}</span>
-        <span class="rrow__tag">${roomTag(k)}${P.occ[k] ? ' &middot; ' + P.occ[k] : ''}</span>
+        <span class="rrow__tag">${roomTag(k)}</span>
         <div class="rrow__picks">
           ${HERO.map(t => `
             <button type="button" class="rpick${t === 'owner' ? ' premium' : ''}${t === k ? ' on' : ''}" data-pick="${i}:${t}">
-              <span class="rpick__name">${P.roomName[t]}${t === 'owner' ? '<span class="rpick__flag">Our pick</span>' : ''}</span>
-              <span class="rpick__meta">${pickMeta(t)}${P.occ[t] ? ' &middot; ' + P.occ[t] : ''}</span>
+              ${t === 'owner' ? '<span class="rpick__flag">Our pick</span>' : ''}
+              <span class="rpick__name">${P.roomName[t]}</span>
+              <span class="rpick__meta">${pickMeta(t)}</span>
             </button>`).join('')}
         </div>
         <div class="rrow__other">
