@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/book-your-wave",
+      "destination": "/pages/book.html"
+    },
+    {
       "source": "/book/surf",
       "destination": "/pages/book-surf.html"
     },
