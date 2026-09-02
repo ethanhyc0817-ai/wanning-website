@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<title>Best Time for a Hainan Surf Trip: Season-by-Season Guide | Surf China Co.</title>
+<meta name="description" content="When to surf Hainan: how the year-round wave pool, the cooler-month swell season, the typhoon window and holiday crowds shape the best time for a Riyue Bay trip.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.surfchina.co/blog-best-time-for-hainan-surf-trip.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Surf China Co.">
+<meta property="og:url" content="https://www.surfchina.co/blog-best-time-for-hainan-surf-trip.html">
+<meta property="og:title" content="The Best Time of Year for a Hainan Surf Trip">
+<meta property="og:description" content="A season-by-season guide to Riyue Bay: when the ocean pumps, when the wave pool shines, when the crowds come, and why there's no truly bad month to visit.">
+<meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-daytime-02.jpg">
+<meta property="og:image:alt" content="Aerial view of the PerfectSwell wave pool at Riyue Bay on a clear tropical day in Wanning, Hainan, China">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-26">
+<meta property="article:section" content="Trip Planning">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Best Time of Year for a Hainan Surf Trip">
+<meta name="twitter:description" content="Season-by-season: cooler-month ocean swell, the typhoon wildcard, holiday crowds, and a wave pool that makes every month surfable.">
+<meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-aerial-daytime-02.jpg">
+
+<!-- Structured data: BlogPosting + Breadcrumb + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.surfchina.co/blog-best-time-for-hainan-surf-trip.html#article",
+      "mainEntityOfPage": "https://www.surfchina.co/blog-best-time-for-hainan-surf-trip.html",
+      "headline": "The Best Time of Year for a Hainan Surf Trip: A Season-by-Season Guide",
+      "description": "When should you book a surf trip to Riyue Bay, Hainan? A season-by-season guide covering the cooler-month ocean swell window, the summer typhoon wildcard, holiday crowds, golf weather, and why the year-round PerfectSwell wave pool means no month is a bad month.",
+      "image": [
+        "https://www.surfchina.co/Assets/wavepool/wavepool-aerial-daytime-02.jpg",
+        "https://www.surfchina.co/Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg",
+        "https://www.surfchina.co/Assets/wavepool/wavepool-aerial-dusk-01.jpg"
+      ],
+      "url": "https://www.surfchina.co/blog-best-time-for-hainan-surf-trip.html",
+      "datePublished": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "isPartOf": { "@id": "https://www.surfchina.co/blog.html#blog" },
+      "keywords": "best time to surf Hainan, Hainan surf season, best time to visit Riyue Bay, when to surf China, Hainan surf trip planning, wave pool Hainan, Riyue Bay weather, surf and golf Hainan",
+      "author": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "url": "https://www.surfchina.co/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.surfchina.co/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Best Time for a Hainan Surf Trip" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you surf in Hainan all year round?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The PerfectSwell wave pool at Riyue Bay runs on a published schedule year-round with around twenty wave settings, so every month is surfable regardless of the ocean forecast. Ocean surf is seasonal — the dependable swell window falls in the cooler months, with a wilder typhoon-swell window in the warmer part of the year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is the ocean surf season at Riyue Bay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The more dependable ocean window falls in the cooler months — roughly late autumn through winter — when steady seasonal swell wraps into Hainan's east coast and produces the long, organized walls Riyue Bay is known for. Typhoon swells in the warmer months are a second, far less predictable window best suited to experienced surfers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the wave pool ever closed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The pool is outdoors, so the operator can pause sessions for lightning, typhoon conditions or extreme heat. It also closes occasionally for scheduled upgrades — in 2026, from 25 August to 23 September, reopening 24 September. We confirm your exact sessions before you travel and again on the day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the best time for a combined surf and golf trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cooler months are the sweet spot: dependable ocean swell for surf days, comfortable temperatures for walking The Dunes at Shenzhou Peninsula or Blackstone at Mission Hills, and the wave pool running its usual schedule. Just book early around Golden Week in early October and Chinese New Year, when domestic travel peaks."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Favicon / app icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/Assets/icons/site.webmanifest">
+<meta name="theme-color" content="#0a4d68">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 780px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+nav.scrolled { padding: 0.7rem 0; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
+}
+.nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
+.nav-logo-text { white-space: nowrap; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--charcoal); text-decoration: none;
+  transition: all 0.3s; position: relative;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-cta {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-cta {
+  display: none;
+  font-size: 0.7rem; padding: 0.5rem 0.95rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; transition: all 0.3s;
+  white-space: nowrap;
+}
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--charcoal); text-decoration: none; padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 480px) {
+  .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-logo { font-size: 0.82rem; gap: 0.4rem; }
+  .nav-mobile-cta { font-size: 0.65rem; padding: 0.45rem 0.75rem; }
+}
+@media (max-width: 360px) {
+  .nav-logo-text { display: none; }
+}
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  max-width: 900px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 22ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 600px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= BREADCRUMB ======= */
+.breadcrumb { padding: 1.1rem 0 0; font-size: 0.8rem; color: var(--warm-gray); }
+.breadcrumb a { color: var(--warm-gray); text-decoration: none; }
+.breadcrumb a:hover { color: var(--ocean); }
+.breadcrumb span.sep { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ======= ARTICLE ======= */
+.post-body { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.post-body h2 { margin: 2.8rem 0 1rem; }
+.post-body h3 { margin: 2rem 0 0.8rem; color: var(--ocean); }
+.post-body p { margin-bottom: 1.2rem; }
+.post-body p.lead { margin-bottom: 1.4rem; }
+.post-body a { color: var(--ocean); text-decoration: underline; text-decoration-color: rgba(10,77,104,0.3); text-underline-offset: 3px; }
+.post-body a:hover { text-decoration-color: var(--ocean); }
+.post-body figure { margin: 2.2rem 0; }
+.post-body figure img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.post-body figcaption { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); margin-top: 0.8rem; }
+.post-body ul { margin: 0 0 1.2rem 1.2rem; max-width: 680px; }
+.post-body ul li { margin-bottom: 0.5rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.45; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 1.8rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin: 2.4rem 0; font-style: italic; }
+
+/* at-a-glance box */
+.glance {
+  background: var(--sand); border-radius: 3px;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 2.4rem 0;
+}
+.glance h3 { margin: 0 0 1.2rem; color: var(--charcoal); }
+.glance-row { display: flex; gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--sand-dark); }
+.glance-row:first-of-type { border-top: none; }
+.glance-day { flex: 0 0 92px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); padding-top: 2px; }
+.glance-what { font-size: 0.95rem; color: var(--charcoal); }
+
+/* ======= FAQ ======= */
+.faq { background: var(--sand); }
+.faq details {
+  background: var(--white); border-radius: 3px; margin-bottom: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.2rem 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 1.4rem; font-weight: 400; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 1.5rem 1.3rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= RELATED ======= */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.related-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--white);
+}
+.related-card:hover { box-shadow: 0 14px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.related-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.related-card .rc-body { padding: 1.3rem 1.4rem 1.5rem; }
+.related-card .rc-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem; }
+.related-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.related-card p { font-size: 0.88rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Surf China Co. — home">
+      <svg class="nav-logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#0a4d68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#0a4d68" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Surf China Co.</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#wavepool">Surf Pool</a>
+      <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/surf-calendar.html">Surf Calendar</a>
+          <a href="/#rates">Rates</a>
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="/board-rentals.html">Board Rentals</a>
+          <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/blog.html">Blog</a>
+        </div>
+      </div>
+      <a href="/#contact" class="nav-cta">Book Now</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/#contact" class="nav-mobile-cta">Book Now</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <a href="/#wavepool">Surf Pool</a>
+  <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
+  <a href="/#packages">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/surf-calendar.html">Surf Calendar</a>
+  <a href="/#rates">Rates</a>
+  <a href="/#explore-hainan">Explore Hainan</a>
+  <a href="/board-rentals.html">Board Rentals</a>
+  <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/#contact">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero" style="padding:0;">
+  <div class="hero-bg">
+    <img src="/Assets/wavepool/wavepool-aerial-daytime-02.jpg" alt="Aerial view of the PerfectSwell wave pool at Riyue Bay on a clear tropical day in Wanning, Hainan, China">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Surf China Journal &middot; Trip Planning</span>
+    <h1>The best time of year for a Hainan surf trip</h1>
+    <p>Every surf destination has a season &mdash; a window you plan around and pray over. Hainan plays by different rules, because the wave pool doesn't read forecasts. Here's the season-by-season guide.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Published</span>
+        <span class="value">August 26, 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Read Time</span>
+        <span class="value">6 min</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Wave Pool</span>
+        <span class="value">Open year-round</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Ocean Season</span>
+        <span class="value">Cooler months</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="container-narrow breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span><a href="/blog.html">Blog</a><span class="sep">/</span>Best Time for a Hainan Surf Trip
+</div>
+
+<!-- ARTICLE -->
+<article class="container-narrow post-body">
+
+  <p class="lead">Ask when to surf Bali, and you'll get a dry-season answer. Ask when to surf Hainan, and the honest reply is: <strong>it depends on what you want from the trip</strong> &mdash; because the <strong>PerfectSwell&reg; wave pool at Riyue Bay runs year-round</strong>, while the ocean, the golf weather and the crowds each keep their own calendar. This guide walks through the year season by season, so you can pick the window that fits your surfing, your group, and your appetite for a typhoon-swell gamble.</p>
+
+  <h2>Start with the thing that never closes for a season</h2>
+  <p>Most surf trips are built on hope: you book flights months out, then watch the forecast fall apart the week you land. Wanning removes that bet. The wave pool at Riyue Bay &mdash; the <strong>world's only wave pool on a tropical island</strong> &mdash; runs on a <a href="/surf-calendar.html">published schedule</a> with <strong>around twenty wave settings</strong>, from mellow beginner rollers to barrels and air sections. Whatever month you choose, <a href="/package-1-the-surf-session.html">your sessions run</a>.</p>
+  <p>That flips the planning question. Instead of "when are the waves good?", you're really asking: <em>what do I want around the pool?</em> Ocean swell, golf weather, quiet mid-week sessions, a family holiday window &mdash; each points to a different part of the year.</p>
+
+  <div class="story-pull">
+    In Wanning, the forecast doesn't decide whether you surf. It only decides what you surf besides the pool.
+  </div>
+
+  <h2>The cooler months: Hainan's prime window</h2>
+  <p>If you want the full Hainan experience &mdash; pool sessions <em>and</em> real ocean surf &mdash; aim for the <strong>cooler months, roughly late autumn through winter</strong>. This is when the dependable seasonal swell wraps into the east coast and Riyue Bay does what made it the home of Chinese surfing: long, organized walls that suit longboards and mid-lengths beautifully. There are world-class longboard waves on this coast &mdash; the WSL has run competitions here. Our <a href="/blog-riyue-bay-surf-season-ocean-surf-guide.html">Riyue Bay surf guide</a> covers the ocean side in detail.</p>
+  <p>It's also the most comfortable stretch of the year to be outside all day &mdash; which matters if your trip includes 36 holes. The cooler window is peak season for walking <a href="/golf.html">China's two best courses</a>: The Dunes at Shenzhou Peninsula, the country's best links, thirty minutes from the pool; and Blackstone at Mission Hills, the black-lava course Tiger Woods and Rory McIlroy played, up by Haikou airport.</p>
+
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/ocean-surf/ocean-surf-lineup-aerial-01.jpg" alt="Aerial view of surfers waiting in a clean ocean lineup off the Wanning coast during Hainan's seasonal swell window">
+    <figcaption>The seasonal swell window &middot; Wanning coast, Hainan</figcaption>
+  </figure>
+
+  <h2>The warmer months: heat, space, and the typhoon wildcard</h2>
+  <p>The warmer half of the year is classic tropical island: hot, lush, and greener by the week. The pool runs its schedule &mdash; with more of the day's appeal shifting to morning and evening sessions, when the light goes gold and the heat backs off. The operator will pause sessions for lightning, typhoon conditions or extreme heat, and we confirm every booked session before you travel and again on the day.</p>
+  <p>The ocean in this window is a wildcard. When a <strong>typhoon swell</strong> tracks through the South China Sea at the right distance and angle, the coast can light up with faster, more powerful waves suited to experienced surfers. You can't plan a trip around it &mdash; but if it happens while you're here, it's the session you'll talk about for years. The rest of the time, the pool carries the trip, which is exactly what it's for. More on how the ocean windows work on our <a href="/natural-surf.html">ocean surfing page</a>.</p>
+
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-aerial-dusk-01.jpg" alt="PerfectSwell wave pool at Riyue Bay glowing at dusk, the best session light of a hot-season day in Hainan">
+    <figcaption>Evening sessions &middot; the hot-season sweet spot at the pool</figcaption>
+  </figure>
+
+  <h2>Crowds: the two weeks to plan around</h2>
+  <p>Hainan is China's holiday island, and two periods bring the domestic travel peak: <strong>Golden Week</strong>, the national holiday in the first week of October, and <strong>Chinese New Year</strong>, which moves between late January and mid-February. Neither is a reason to stay away &mdash; the island is at its most alive &mdash; but flights and <a href="/accommodation.html">resorts</a> fill earlier and cost more, so book well ahead if your dates land on them.</p>
+  <p>If you want the opposite of a crowd, there's a simple lever: a <a href="/design-your-buyout.html">private session</a>, where your group takes the whole pool for the hour and picks the wave setting &mdash; including the pro barrel and air waves that don't appear on the public calendar.</p>
+
+  <h2>One date to know for 2026</h2>
+  <p>The pool closes occasionally for scheduled upgrades, and there's one such window now: <strong>25 August to 23 September 2026</strong>, reopening on <strong>24 September</strong>. The published <a href="/surf-calendar.html">session calendar</a> for late September and October is already live, so you can see exactly which wave setting runs at which hour before you commit to dates. Ocean surfing, golf and everything else in Wanning carries on as normal during the upgrade window.</p>
+
+  <div class="glance">
+    <h3>The year at a glance</h3>
+    <div class="glance-row"><span class="glance-day">Oct&ndash;Mar</span><span class="glance-what">The prime window &mdash; dependable seasonal ocean swell, comfortable golf weather, pool on its usual schedule. Best months for the full surf &amp; golf trip.</span></div>
+    <div class="glance-row"><span class="glance-day">Apr&ndash;Sep</span><span class="glance-what">Hot tropical season &mdash; the pool carries the surfing, mornings and evenings are the sweet spot, and typhoon swells can light up the coast without warning.</span></div>
+    <div class="glance-row"><span class="glance-day">Peak weeks</span><span class="glance-what">Golden Week (early October) and Chinese New Year &mdash; the island at its busiest. Book flights and resorts early.</span></div>
+    <div class="glance-row"><span class="glance-day">2026 note</span><span class="glance-what">Pool closed 25 Aug &ndash; 23 Sep for a scheduled upgrade; reopens 24 September with the autumn calendar published.</span></div>
+    <div class="glance-row"><span class="glance-day">Any month</span><span class="glance-what">~20 wave settings on demand, 30-day visa-free entry for most passports, and direct flights from Sydney and Melbourne to Haikou (HAK).</span></div>
+  </div>
+
+  <h2>So&hellip; when should you book?</h2>
+  <p>Chasing ocean waves alongside pool sessions? The cooler months, no contest. Building a <a href="/blog-hainan-surf-and-golf-6-day-itinerary.html">surf and golf trip</a>? Same answer. Traveling with kids or beginners who'll live in the pool's gentler settings? Almost any month works &mdash; pick the window that suits your school calendar and skip the peak weeks. And getting here is easier than you'd think: <strong>30 days visa-free</strong> for U.S., Australian, NZ, UK, Canadian and many other passports, with direct flights from Sydney and Melbourne to Haikou and easy routings via Hong Kong, Singapore, Bangkok, Kuala Lumpur and Seoul &mdash; full details in the <a href="/how-to-get-here.html">getting here guide</a>.</p>
+  <p>Tell us your dates and we'll tell you exactly what they unlock &mdash; browse the <a href="/#packages">trip packages</a>, read more on <a href="/blog.html">the journal</a>, or reach us at hello@surfchina.co or WhatsApp +8613893402173.</p>
+
+</article>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container-narrow">
+    <span class="overline">Good to Know</span>
+    <h2>Timing your Hainan trip &mdash; FAQ</h2>
+    <div class="section-divider"></div>
+    <div style="margin-top:2rem;">
+      <details>
+        <summary>Can you surf in Hainan all year round?</summary>
+        <p>Yes. The PerfectSwell wave pool at Riyue Bay runs on a published schedule year-round with around twenty wave settings, so every month is surfable regardless of the ocean forecast. Ocean surf is seasonal — the dependable swell window falls in the cooler months, with a wilder typhoon-swell window in the warmer part of the year.</p>
+      </details>
+      <details>
+        <summary>When is the ocean surf season at Riyue Bay?</summary>
+        <p>The more dependable ocean window falls in the cooler months — roughly late autumn through winter — when steady seasonal swell wraps into Hainan's east coast and produces the long, organized walls Riyue Bay is known for. Typhoon swells in the warmer months are a second, far less predictable window best suited to experienced surfers.</p>
+      </details>
+      <details>
+        <summary>Is the wave pool ever closed?</summary>
+        <p>The pool is outdoors, so the operator can pause sessions for lightning, typhoon conditions or extreme heat. It also closes occasionally for scheduled upgrades — in 2026, from 25 August to 23 September, reopening 24 September. We confirm your exact sessions before you travel and again on the day.</p>
+      </details>
+      <details>
+        <summary>What's the best time for a combined surf and golf trip?</summary>
+        <p>The cooler months are the sweet spot: dependable ocean swell for surf days, comfortable temperatures for walking The Dunes at Shenzhou Peninsula or Blackstone at Mission Hills, and the wave pool running its usual schedule. Just book early around Golden Week in early October and Chinese New Year, when domestic travel peaks.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section>
+  <div class="container">
+    <span class="overline">Keep Planning</span>
+    <h2>More from Surf China Co.</h2>
+    <div class="section-divider"></div>
+    <div class="related-grid">
+      <a href="/blog-riyue-bay-surf-season-ocean-surf-guide.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/ocean-surf/ocean-surf-sunset-silhouette-01.jpg" alt="Surfer silhouetted against a sunset swell at Riyue Bay on Hainan's east coast">
+        <div class="rc-body">
+          <span class="rc-tag">Surf Guide</span>
+          <h3>Riyue Bay Surf Guide</h3>
+          <p>Seasons, swells &amp; the waves nobody talks about.</p>
+        </div>
+      </a>
+      <a href="/blog-perfectswell-wave-pool-explained.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer carving a turn on a PerfectSwell wave at the Riyue Bay surf pool in Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Wave Pool</span>
+          <h3>PerfectSwell&reg; Explained</h3>
+          <p>Settings, barrels and beginner waves — how the pool works.</p>
+        </div>
+      </a>
+      <a href="/blog-hainan-surf-and-golf-6-day-itinerary.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/golf/dunes-shenzhou-headland-aerial.jpg" alt="Aerial view of The Dunes at Shenzhou Peninsula links course wrapping a rocky headland above a turquoise bay in Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Trip Guide</span>
+          <h3>The 6-Day Surf &amp; Golf Itinerary</h3>
+          <p>Morning waves, afternoon fairways — the full plan.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="PerfectSwell wave pool at golden hour, Riyue Bay, Hainan">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">Any Season &middot; Your Wave</span>
+    <h2>Pick your window.<br>We'll fill it with waves.</h2>
+    <p>Tell us your dates and your level, and we'll line up the pool sessions, ocean days and tee times your window does best.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="/#contact" class="btn btn-primary btn-arrow">Book Now </a>
+      <a href="/surf-calendar.html" class="btn btn-outline btn-arrow">See the Surf Calendar </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Mobile nav toggle
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  // Shrink nav on scroll
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('nav');
+    if (n) n.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

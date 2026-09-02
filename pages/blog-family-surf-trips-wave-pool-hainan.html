@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Normalize share links that put the query after the hash (/#contact?utm_source=...)
+     so GA sees the UTM params as a real query string. Must run before gtag config. -->
+<script>
+(function () {
+  var h = window.location.hash;
+  var qi = h.indexOf('?');
+  if (qi === -1) return;
+  var qs = h.slice(qi + 1);
+  var frag = h.slice(0, qi);
+  var sep = window.location.search ? '&' : '?';
+  try {
+    history.replaceState(null, '', window.location.pathname + window.location.search + sep + qs + frag);
+  } catch (_) { /* leave the URL as-is */ }
+})();
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8F2F546QPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8F2F546QPF');
+</script>
+
+<title>Family Surf Trips in a Wave Pool: A Hainan Holiday for Every Age | Surf China Co.</title>
+<meta name="description" content="Plan a family surf trip at Hainan's PerfectSwell wave pool: gentle beginner waves for kids, bigger settings for parents, warm water year-round and no crowds.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.surfchina.co/blog-family-surf-trips-wave-pool-hainan.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Surf China Co.">
+<meta property="og:url" content="https://www.surfchina.co/blog-family-surf-trips-wave-pool-hainan.html">
+<meta property="og:title" content="Family Surf Trips in a Wave Pool: A Hainan Holiday for Every Age">
+<meta property="og:description" content="Kids on gentle rollers, parents chasing barrels — the same pool, the same hour. Why a wave pool on a tropical island is the family surf trip that actually works.">
+<meta property="og:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-kids-training-01.jpg">
+<meta property="og:image:alt" content="Kids learning to surf with coaches in the PerfectSwell wave pool at Riyue Bay, Wanning, Hainan">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-08-28">
+<meta property="article:section" content="Family Travel">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Family Surf Trips in a Wave Pool: A Hainan Holiday for Every Age">
+<meta name="twitter:description" content="Gentle waves for the kids, barrels for the parents, warm water all year — how a family surf trip works at the world's only tropical-island wave pool.">
+<meta name="twitter:image" content="https://www.surfchina.co/Assets/wavepool/wavepool-kids-training-01.jpg">
+
+<!-- Structured data: BlogPosting + Breadcrumb + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.surfchina.co/blog-family-surf-trips-wave-pool-hainan.html#article",
+      "mainEntityOfPage": "https://www.surfchina.co/blog-family-surf-trips-wave-pool-hainan.html",
+      "headline": "Family Surf Trips in a Wave Pool: A Hainan Holiday for Every Age",
+      "description": "Why a wave pool is the family surf trip that actually works: around 20 wave settings mean kids learn on gentle rollers while parents surf real waves in the same session, in warm water on a tropical island, with no crowds, no currents and no waiting for swell.",
+      "image": [
+        "https://www.surfchina.co/Assets/wavepool/wavepool-kids-training-01.jpg",
+        "https://www.surfchina.co/Assets/wavepool/wavepool-surf-lesson-01.jpg",
+        "https://www.surfchina.co/Assets/wavepool/wavepool-spectators-01.jpg"
+      ],
+      "url": "https://www.surfchina.co/blog-family-surf-trips-wave-pool-hainan.html",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "isPartOf": { "@id": "https://www.surfchina.co/blog.html#blog" },
+      "keywords": "family surf trip, wave pool for kids, kids learn to surf, family surf holiday, surf trip with kids, PerfectSwell wave pool, Hainan family holiday, beginner waves, private wave pool session, Riyue Bay",
+      "author": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "url": "https://www.surfchina.co/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Surf China Co.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.surfchina.co/Assets/icons/apple-touch-icon.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.surfchina.co/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.surfchina.co/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Family Surf Trips in a Wave Pool" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is a wave pool a good place for kids to learn to surf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's arguably the best place. There are no rips, no currents and no crowds to navigate — just a predictable, gentle wave arriving on schedule in warm, waist-friendly water, with coaches in the pool. Kids get many more wave attempts per hour than they ever would in the ocean, which is what actually builds the skill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can parents and kids surf in the same session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The PerfectSwell pool has around 20 wave settings, from soft beginner rollers to barreling waves, and the setting can change from one set to the next. In a private session the pool runs waves for your group only, so the kids' waves and the parents' waves share the same hour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can non-surfing family members do in Wanning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plenty. The pool is easy to watch from the side, and around it Wanning offers golf (including China's best links course), morning markets and seafood, Xinglong coffee plantations, a bean-to-bar chocolate workshop, Li culture inland and beach days at Riyue Bay. We build the non-surf side of the trip alongside the sessions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need visas for a family trip to Hainan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most of our guests, no. Hainan offers 30-day visa-free entry for passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries. Fly into Haikou (HAK) — with direct flights from Sydney and Melbourne — or Sanya (SYX), or connect via Hong Kong, Singapore, Bangkok, Kuala Lumpur or Seoul."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+<!-- Favicon / app icons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/Assets/icons/site.webmanifest">
+<meta name="theme-color" content="#0a4d68">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ocean: #0a4d68;
+  --ocean-light: #1a7a9b;
+  --sand: #f5f0e8;
+  --sand-dark: #e8dfd2;
+  --charcoal: #1a1a1a;
+  --warm-gray: #6b6560;
+  --white: #ffffff;
+  --teal: #2d8a94;
+  --coral: #d4856a;
+  --gold: #c4a265;
+  --ink-blue: #1f4788;
+  --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: 'Montserrat', 'Inter', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
+.overline { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; display: block; }
+p { max-width: 680px; }
+.lead { font-size: 1.125rem; color: var(--warm-gray); line-height: 1.8; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+.container-narrow { max-width: 780px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 2.1rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.4s var(--transition); border-radius: 2px; }
+.btn-primary { background: var(--ocean); color: var(--white); }
+.btn-primary:hover { background: var(--ocean-light); }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
+.btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+.btn-outline-dark { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.btn-outline-dark:hover { background: var(--ocean); color: var(--white); }
+.btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+.section-divider { width: 48px; height: 2px; background: var(--teal); margin: 1.2rem 0 1.8rem; }
+
+/* ======= NAV ======= */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1rem 0; background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  transition: all 0.4s var(--transition);
+}
+nav.scrolled { padding: 0.7rem 0; }
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: 'Inter', sans-serif; font-size: 1.02rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); text-decoration: none; transition: color 0.4s;
+}
+.nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
+.nav-logo-text { white-space: nowrap; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--charcoal); text-decoration: none;
+  transition: all 0.3s; position: relative;
+}
+.nav-links a:hover { opacity: 0.7; }
+.nav-cta {
+  font-size: 0.75rem; padding: 0.6rem 1.4rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); color: var(--white); }
+/* Plan Your Trip dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: inherit;
+  padding: 0; display: inline-flex; align-items: center; gap: 0.35rem; transition: opacity 0.3s;
+}
+.nav-dropdown:hover .nav-dropdown-toggle, .nav-dropdown:focus-within .nav-dropdown-toggle { opacity: 0.7; }
+.nav-dropdown-toggle .caret { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-dropdown:hover .nav-dropdown-toggle .caret, .nav-dropdown:focus-within .nav-dropdown-toggle .caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; margin-top: 12px; transform: translateX(-50%);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 0.4rem 0; min-width: 210px;
+  opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; z-index: 1001;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+.nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; }
+.nav-dropdown-menu a {
+  display: block; padding: 0.65rem 1.4rem; font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--charcoal); white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--sand); opacity: 1; }
+.mobile-menu-label {
+  display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
+}
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
+.nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: all 0.3s; }
+.nav-mobile-cta {
+  display: none;
+  font-size: 0.7rem; padding: 0.5rem 0.95rem;
+  background: var(--ocean); color: var(--white);
+  border: 1px solid var(--ocean); border-radius: 2px;
+  text-decoration: none; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; transition: all 0.3s;
+  white-space: nowrap;
+}
+.nav-mobile-cta:hover { background: var(--ocean-light); border-color: var(--ocean-light); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  z-index: 999; padding: 6rem 2rem 2rem; flex-direction: column; overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--charcoal); text-decoration: none; padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--charcoal); cursor: pointer; line-height: 1; }
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; flex-direction: column; justify-content: center; justify-self: start; order: 1; }
+  .nav-mobile-cta { display: inline-flex; align-items: center; justify-self: end; order: 3; }
+  .nav-inner { display: grid; grid-template-columns: auto 1fr auto; gap: 0.5rem; }
+  .nav-logo { order: 2; justify-self: center; }
+}
+@media (max-width: 480px) {
+  .nav-logo-mark { width: 30px; height: 30px; }
+  .nav-logo { font-size: 0.82rem; gap: 0.4rem; }
+  .nav-mobile-cta { font-size: 0.65rem; padding: 0.45rem 0.75rem; }
+}
+@media (max-width: 360px) {
+  .nav-logo-text { display: none; }
+}
+
+/* ======= HERO ======= */
+.page-hero {
+  position: relative;
+  height: 78vh;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-hero .hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.15) 100%);
+}
+.page-hero-content {
+  position: relative; z-index: 2; color: var(--white);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+  max-width: 900px;
+}
+.page-hero-content .overline { color: var(--gold); }
+.page-hero-content h1 { color: var(--white); margin-bottom: 1.2rem; max-width: 22ch; }
+.page-hero-content p { color: rgba(255,255,255,0.88); font-size: 1.12rem; max-width: 600px; line-height: 1.7; }
+
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2); }
+.hero-meta-item { color: rgba(255,255,255,0.85); }
+.hero-meta-item .label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 0.25rem; }
+.hero-meta-item .value { font-size: 0.95rem; font-weight: 500; color: var(--white); }
+
+/* ======= BREADCRUMB ======= */
+.breadcrumb { padding: 1.1rem 0 0; font-size: 0.8rem; color: var(--warm-gray); }
+.breadcrumb a { color: var(--warm-gray); text-decoration: none; }
+.breadcrumb a:hover { color: var(--ocean); }
+.breadcrumb span.sep { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ======= ARTICLE ======= */
+.post-body { padding-top: clamp(2.5rem, 5vw, 4rem); }
+.post-body h2 { margin: 2.8rem 0 1rem; }
+.post-body h3 { margin: 2rem 0 0.8rem; color: var(--ocean); }
+.post-body p { margin-bottom: 1.2rem; }
+.post-body p.lead { margin-bottom: 1.4rem; }
+.post-body a { color: var(--ocean); text-decoration: underline; text-decoration-color: rgba(10,77,104,0.3); text-underline-offset: 3px; }
+.post-body a:hover { text-decoration-color: var(--ocean); }
+.post-body figure { margin: 2.2rem 0; }
+.post-body figure img { width: 100%; height: auto; display: block; border-radius: 3px; }
+.post-body figcaption { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warm-gray); margin-top: 0.8rem; }
+.post-body ul { margin: 0 0 1.2rem 1.2rem; max-width: 680px; }
+.post-body ul li { margin-bottom: 0.5rem; }
+.story-pull { font-family: 'Montserrat', sans-serif; font-size: clamp(1.2rem, 1.9vw, 1.45rem); line-height: 1.45; color: var(--charcoal); font-weight: 500; max-width: 680px; padding: 1.8rem 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); margin: 2.4rem 0; font-style: italic; }
+
+/* at-a-glance box */
+.glance {
+  background: var(--sand); border-radius: 3px;
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 2.4rem 0;
+}
+.glance h3 { margin: 0 0 1.2rem; color: var(--charcoal); }
+.glance-row { display: flex; gap: 1rem; padding: 0.8rem 0; border-top: 1px solid var(--sand-dark); }
+.glance-row:first-of-type { border-top: none; }
+.glance-day { flex: 0 0 92px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); padding-top: 2px; }
+.glance-what { font-size: 0.95rem; color: var(--charcoal); }
+
+/* ======= FAQ ======= */
+.faq { background: var(--sand); }
+.faq details {
+  background: var(--white); border-radius: 3px; margin-bottom: 0.8rem;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 1.2rem 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-size: 1.4rem; font-weight: 400; color: var(--teal); transition: transform 0.3s; flex-shrink: 0; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 1.5rem 1.3rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= RELATED ======= */
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.related-card {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--white);
+}
+.related-card:hover { box-shadow: 0 14px 40px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.related-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.related-card .rc-body { padding: 1.3rem 1.4rem 1.5rem; }
+.related-card .rc-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.5rem; }
+.related-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.related-card p { font-size: 0.88rem; color: var(--warm-gray); max-width: none; }
+
+/* ======= FINAL CTA ======= */
+.final-cta {
+  position: relative; height: 60vh; min-height: 440px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.final-cta .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.final-cta .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.final-cta .hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+.final-cta-content { position: relative; z-index: 2; color: var(--white); max-width: 640px; padding: 0 1.5rem; }
+.final-cta-content h2 { color: var(--white); margin-bottom: 1rem; }
+.final-cta-content p { color: rgba(255,255,255,0.88); margin: 0 auto 2rem; font-size: 1.05rem; }
+.final-cta-content .overline { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 1.2rem; }
+}
+
+/* fade-in */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s var(--transition); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Surf China Co. — home">
+      <svg class="nav-logo-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M 6 26 Q 13 13, 20 26 T 32 26 T 44 26 T 54 26" fill="none" stroke="#0a4d68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="6" y1="40" x2="54" y2="40" stroke="#0a4d68" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Surf China Co.</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#wavepool">Surf Pool</a>
+      <a href="/golf.html">Golf</a>
+      <a href="/accommodation.html">Accommodation</a>
+      <a href="/#packages">Packages</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Plan Your Trip <span class="caret">&#9662;</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/surf-calendar.html">Surf Calendar</a>
+          <a href="/#rates">Rates</a>
+          <a href="/#explore-hainan">Explore Hainan</a>
+          <a href="/board-rentals.html">Board Rentals</a>
+          <a href="/how-to-get-here.html">Getting Here</a>
+          <a href="/blog.html">Blog</a>
+        </div>
+      </div>
+      <a href="/#contact" class="nav-cta">Book Now</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/#contact" class="nav-mobile-cta">Book Now</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobile()" aria-label="Close menu">&times;</button>
+  <a href="/#wavepool">Surf Pool</a>
+  <a href="/golf.html">Golf</a>
+  <a href="/accommodation.html">Accommodation</a>
+  <a href="/#packages">Packages</a>
+  <span class="mobile-menu-label">Plan Your Trip</span>
+  <a href="/surf-calendar.html">Surf Calendar</a>
+  <a href="/#rates">Rates</a>
+  <a href="/#explore-hainan">Explore Hainan</a>
+  <a href="/board-rentals.html">Board Rentals</a>
+  <a href="/how-to-get-here.html">Getting Here</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/#contact">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero" style="padding:0;">
+  <div class="hero-bg">
+    <img src="/Assets/wavepool/wavepool-kids-training-01.jpg" alt="Kids learning to surf with coaches on gentle beginner waves in the PerfectSwell wave pool at Riyue Bay, Wanning, Hainan">
+  </div>
+  <div class="container page-hero-content">
+    <span class="overline">Surf China Journal &middot; Family Travel</span>
+    <h1>Family surf trips in a wave pool</h1>
+    <p>Kids on gentle rollers, parents on real waves &mdash; the same pool, the same hour. Why a wave pool on a tropical island is the family surf holiday that actually works.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Published</span>
+        <span class="value">August 28, 2026</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Read Time</span>
+        <span class="value">6 min</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Wave Settings</span>
+        <span class="value">~20, gentle to barreling</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Water</span>
+        <span class="value">Warm year-round, no crowds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="container-narrow breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span><a href="/blog.html">Blog</a><span class="sep">/</span>Family Surf Trips in a Wave Pool
+</div>
+
+<!-- ARTICLE -->
+<article class="container-narrow post-body">
+
+  <p class="lead">Every surfing parent has run the maths on a family surf trip and watched it fall apart. The ocean doesn't care about your one week of school holidays: the swell arrives early or late, the shorebreak scares the kids, the lineup is crowded, and somebody spends the whole trip on the beach holding towels. A wave pool deletes every one of those problems at once. At <a href="/package-1-the-surf-session.html">the PerfectSwell&reg; pool at Riyue Bay</a> &mdash; the world's only wave pool on a tropical island &mdash; the waves run on a schedule, the water is warm, and around <strong>20 wave settings</strong> mean a seven-year-old and a forty-seven-year-old can both score in the same hour.</p>
+
+  <h2>Why a wave pool beats the ocean for learning</h2>
+  <p>Learning to surf in the ocean is mostly not surfing. It's paddling, waiting, getting caught inside, and hoping the next wave is the right one. In the pool there are <strong>no rips, no currents and no crowds</strong> &mdash; just a predictable wave arriving where the coach said it would, when the coach said it would. That repetition is the whole trick: a kid gets many more wave attempts in one pool session than in days of ocean surfing, and every attempt is on the same wave, so the lesson from the last ride carries straight into the next one.</p>
+  <p>It's also easy on the nervous parent. The pool is contained and watchable &mdash; you can stand at the edge with a coffee and see every wave your kids catch, which is not something Riyue Bay's outside section will ever offer. If you want to know what the machine can actually do, from lake-flat to barreling, we've broken down <a href="/blog-perfectswell-wave-pool-explained.html">the PerfectSwell system and its settings</a> separately.</p>
+
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-surf-lesson-01.jpg" alt="Surf coach giving a lesson on a gentle wave setting in the wave pool at Riyue Bay — ideal conditions for kids and beginners">
+    <figcaption>Lesson conditions on demand &middot; Riyue Bay wave pool</figcaption>
+  </figure>
+
+  <h2>One pool, every ability level</h2>
+  <p>The setting board is what makes this a genuine family trip rather than a kids' camp the adults endure. With <strong>around 20 wave settings</strong>, the pool can serve soft, crumbling rollers for first-timers, punchier open faces for improvers, and barrels and air sections for the best surfer in your family. The settings change between sets &mdash; so a session can be programmed like a menu: the kids' waves, then mum's waves, then the waves dad has been visualising since the flight.</p>
+  <p>Book it as a <a href="/blog-private-wave-pool-sessions-hainan.html">private session</a> and the pool runs for your group only. No strangers in the lineup, no pressure, nobody hassling the slowest paddler in the family &mdash; every wave belongs to someone you brought with you. It's the same format our surf camps and group getaways use, scaled down to one family.</p>
+
+  <div class="story-pull">
+    The kids get their waves, the parents get theirs, and everyone is back at the pool bar for lunch telling the same stories &mdash; that's the trip.
+  </div>
+
+  <h2>The rest of the family is covered too</h2>
+  <p>A family trip lives or dies on the non-surfers' itinerary, and this is where Wanning over-delivers. Golfers in the family can play <a href="/golf.html">China's best links course at The Dunes, Shenzhou Peninsula</a>, twenty-odd minutes from the pool. Everyone else has morning markets, boat-to-table seafood and <a href="/cuisine.html">Xinglong coffee plantations</a> &mdash; plus a bean-to-bar chocolate workshop that is the single easiest win with kids on the island. Add <a href="/culture.html">Li culture inland</a>, beach days on the bay, and when the season delivers, an ocean session at <a href="/natural-surf.html">Riyue Bay's point breaks</a> for the surfers who want a taste of the real thing.</p>
+
+  <figure class="fade-in">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-spectators-01.jpg" alt="Family and friends watching surfers from the edge of the wave pool at Riyue Bay, Wanning — every wave visible from the poolside">
+    <figcaption>Front-row seats to every wave &middot; poolside at Riyue Bay</figcaption>
+  </figure>
+
+  <h2>The logistics are easier than you think</h2>
+  <p>Hainan runs a <strong>30-day visa-free policy</strong> for passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries &mdash; no embassy queues with children's passports, no paperwork week. Fly into Haikou (HAK), with <strong>direct flights from Sydney and Melbourne</strong>, or into Sanya (SYX); from Europe, North America and most of Asia, connect via Hong Kong, Singapore, Bangkok, Kuala Lumpur or Seoul. The full route breakdown is in the <a href="/how-to-get-here.html">getting here guide</a>, and family-friendly resort options at Riyue Bay and Shenzhou Peninsula are covered in <a href="/accommodation.html">accommodation</a>.</p>
+
+  <div class="glance">
+    <h3>A family pool day, at a glance</h3>
+    <div class="glance-row"><span class="glance-day">Morning</span><span class="glance-what">Kids' session on gentle settings with coaches in the water &mdash; parents film from the edge or paddle out alongside.</span></div>
+    <div class="glance-row"><span class="glance-day">Midday</span><span class="glance-what">Long lunch by the pool &mdash; or a seafood run into Wanning while the groms recover.</span></div>
+    <div class="glance-row"><span class="glance-day">Afternoon</span><span class="glance-what">Parents' session &mdash; the settings step up to open faces and barrels while the kids spectate and heckle.</span></div>
+    <div class="glance-row"><span class="glance-day">Evening</span><span class="glance-what">Beach, golf, chocolate workshop or an early dinner &mdash; sessions are scheduled, so nothing collides.</span></div>
+    <div class="glance-row"><span class="glance-day">Fit</span><span class="glance-what">Works as a single day or the spine of a full week &mdash; we build the trip around your family's mix of surfers and spectators.</span></div>
+  </div>
+
+  <h2>Planning a family surf trip</h2>
+  <p>Tell us your dates, your kids' ages and who in the family actually surfs, and we'll shape the sessions, coaches and non-surf days around that &mdash; browse the <a href="/#packages">trip packages</a>, check <a href="/surf-calendar.html">the surf calendar</a>, or read more on <a href="/blog.html">the journal</a>. Reach us at hello@surfchina.co or WhatsApp +8613893402173.</p>
+
+</article>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container-narrow">
+    <span class="overline">Good to Know</span>
+    <h2>Family surf trips &mdash; FAQ</h2>
+    <div class="section-divider"></div>
+    <div style="margin-top:2rem;">
+      <details>
+        <summary>Is a wave pool a good place for kids to learn to surf?</summary>
+        <p>It's arguably the best place. There are no rips, no currents and no crowds to navigate — just a predictable, gentle wave arriving on schedule in warm, waist-friendly water, with coaches in the pool. Kids get many more wave attempts per hour than they ever would in the ocean, which is what actually builds the skill.</p>
+      </details>
+      <details>
+        <summary>Can parents and kids surf in the same session?</summary>
+        <p>Yes. The PerfectSwell pool has around 20 wave settings, from soft beginner rollers to barreling waves, and the setting can change from one set to the next. In a private session the pool runs waves for your group only, so the kids' waves and the parents' waves share the same hour.</p>
+      </details>
+      <details>
+        <summary>What can non-surfing family members do in Wanning?</summary>
+        <p>Plenty. The pool is easy to watch from the side, and around it Wanning offers golf (including China's best links course), morning markets and seafood, Xinglong coffee plantations, a bean-to-bar chocolate workshop, Li culture inland and beach days at Riyue Bay. We build the non-surf side of the trip alongside the sessions.</p>
+      </details>
+      <details>
+        <summary>Do we need visas for a family trip to Hainan?</summary>
+        <p>For most of our guests, no. Hainan offers 30-day visa-free entry for passport holders from the U.S., Australia, New Zealand, the UK, Canada and many other countries. Fly into Haikou (HAK) — with direct flights from Sydney and Melbourne — or Sanya (SYX), or connect via Hong Kong, Singapore, Bangkok, Kuala Lumpur or Seoul.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section>
+  <div class="container">
+    <span class="overline">Keep Planning</span>
+    <h2>More from Surf China Co.</h2>
+    <div class="section-divider"></div>
+    <div class="related-grid">
+      <a href="/blog-private-wave-pool-sessions-hainan.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-elevated-surfers-01.jpg" alt="Surfers with the wave pool at Riyue Bay to themselves during a private session in Wanning, Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Private Sessions</span>
+          <h3>Book the Pool for Your Crew</h3>
+          <p>Private wave pool sessions — no crowds, your waves only.</p>
+        </div>
+      </a>
+      <a href="/blog-perfectswell-wave-pool-explained.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-surfer-action-01.jpg" alt="Surfer carving a turn on a wave in the PerfectSwell wave pool at Riyue Bay, Wanning, Hainan">
+        <div class="rc-body">
+          <span class="rc-tag">Wave Pool</span>
+          <h3>PerfectSwell&reg; Explained</h3>
+          <p>The settings, the barrels, and the beginner waves.</p>
+        </div>
+      </a>
+      <a href="/blog-how-to-get-to-riyue-bay-hainan.html" class="related-card fade-in">
+        <img loading="lazy" decoding="async" src="/Assets/nature/coastal-road-beach-aerial-01.jpg" alt="Aerial view of the coastal road along a Hainan beach on the way to Riyue Bay, Wanning">
+        <div class="rc-body">
+          <span class="rc-tag">Travel Guide</span>
+          <h3>How to Get to Riyue Bay</h3>
+          <p>Flights, airports and transfers — HAK vs SYX.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="hero-bg">
+    <img loading="lazy" decoding="async" src="/Assets/wavepool/wavepool-aerial-golden-hour-01.jpg" alt="Golden hour aerial view of the PerfectSwell wave pool at Riyue Bay, Wanning, Hainan — the world's only tropical-island wave pool">
+  </div>
+  <div class="final-cta-content">
+    <span class="overline">One Pool &middot; Every Age</span>
+    <h2>Bring the whole family.<br>Everyone gets waves.</h2>
+    <p>Tell us your dates and your kids' ages — we'll set the wave menu, book the coaches, and build the beach, golf and chocolate days around the sessions.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="/#contact" class="btn btn-primary btn-arrow">Book Now </a>
+      <a href="/#packages" class="btn btn-outline btn-arrow">See the Packages </a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // Mobile nav toggle
+  function toggleMobile() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  // Shrink nav on scroll
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('nav');
+    if (n) n.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+// simple fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
