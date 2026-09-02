@@ -124,13 +124,16 @@
   #tiers .chip:not(.on):hover { border-color: var(--ocean); }
   @media (max-width: 640px) { #tiers.chips { grid-template-columns: 1fr; } }
   .tier-doc { margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
-  .tier-doc a { display: inline-flex; align-items: center; gap: 0.55rem; background: var(--gold); color: var(--ocean-deep);
-                border-radius: var(--r-pill); padding: 0.8rem 1.4rem; font-weight: 700; font-size: 0.88rem;
-                text-decoration: none; transition: background 0.2s var(--ease-out), transform 0.16s var(--ease-out); }
-  .tier-doc a:hover { background: var(--gold-lift); }
+  .tier-doc a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--ocean); color: var(--white);
+                border-radius: var(--r-pill); padding: 0.85rem 1.5rem; font-weight: 700; font-size: 0.92rem;
+                text-decoration: none; box-shadow: 0 6px 18px rgba(10,77,104,0.22);
+                transition: background 0.2s var(--ease-out), transform 0.16s var(--ease-out), box-shadow 0.2s var(--ease-out); }
+  .tier-doc a:hover { background: var(--ocean-light); box-shadow: 0 8px 22px rgba(10,77,104,0.3); }
   .tier-doc a:active { transform: scale(0.97); }
   .tier-doc a svg { width: 18px; height: 18px; flex: none; }
-  .tier-doc span { font-size: 0.8rem; color: var(--warm-gray); }
+  .tier-doc a .arr { display: inline-block; margin-left: 0.15rem; transition: transform 0.2s var(--ease-out); }
+  .tier-doc a:hover .arr { transform: translateX(4px); }
+  .tier-doc > span { font-size: 0.8rem; color: var(--charcoal); }
   .tier-note { margin-top: 0.85rem; padding: 0.75rem 0.95rem; border-left: 3px solid var(--gold); background: var(--white);
                border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.84rem; line-height: 1.5; color: var(--charcoal); }
   .tier-note b { font-weight: 700; }
@@ -520,7 +523,7 @@
               <button type="button" class="chip" data-tier="premium"><b>Premium</b><small>7 nights &middot; 3 golf rounds</small><strong>$2,705 <small>pp</small></strong></button>
               <button type="button" class="chip" data-tier="luxury"><b>Luxury</b><small>11 nights &middot; 3 golf rounds + yacht</small><strong>$5,850 <small>pp</small></strong></button>
             </div>
-            <p class="tier-doc"><a id="tier-pdf" href="/Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg><span id="tier-pdf-label">See the Essential brochure (PDF)</span></a><span>Day-by-day itinerary, courses, rooms &amp; inclusions</span></p>
+            <p class="tier-doc"><a id="tier-pdf" href="/Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg><span id="tier-pdf-label">See the Essential brochure (PDF)</span><span class="arr" aria-hidden="true">&rarr;</span></a><span>Opens the day-by-day itinerary, courses, rooms &amp; inclusions</span></p>
             <p class="tier-note"><b>These are sample itineraries.</b> Every Surf &amp; Golf trip is built to order &mdash; use the three tiers to see which shape fits you best, then we tailor the courses, rooms, sessions and dates to your crew.</p>
           </div>
           <div class="field" id="f-perday">
