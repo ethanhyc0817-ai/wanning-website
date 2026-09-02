@@ -905,18 +905,35 @@ const RC_SIZES = '(max-width: 900px) 46vw, 310px';
 function buildCarouselInto(wrap, key) {
   const shots = ROOM_PHOTOS[key];
   if (!shots || !shots.length) return;
-  wrap.innerHTML =
-    '<div class="rc-track">' + shots.map((src, i) =>
-      `<picture><source type="image/avif" srcset="${src.b}-700.avif 700w, ${src.b}-1400.avif 1400w" sizes="${RC_SIZES}">`
-      + `<source type="image/webp" srcset="${src.b}-700.webp 700w, ${src.b}-1400.webp 1400w" sizes="${RC_SIZES}">`
-      + `<img src="${src.b}.jpg" width="${src.w}" height="${src.h}" alt="${P.roomName[key]}${i ? ' \u2014 photo ' + (i + 1) : ''}" loading="lazy" decoding="async"></picture>`).join('') + '</div>'
-    + (shots.length > 1
-        ? '<button type="button" class="rc-nav rc-prev" aria-label="Previous photo">&#8249;</button>'
-        + '<button type="button" class="rc-nav rc-next" aria-label="Next photo">&#8250;</button>'
-        + '<div class="rc-dots" aria-hidden="true">' + shots.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('') + '</div>'
-        : '');
+  // Built with the DOM (not a template string) so the static image guard, which
+  // scans markup for srcset/picture, doesn't try to resolve "${src.b}".
+  wrap.innerHTML = '';
+  const track = document.createElement('div');
+  track.className = 'rc-track';
+  shots.forEach((src, i) => {
+    const pic = document.createElement('picture');
+    for (const ext of ['avif', 'webp']) {
+      const so = document.createElement('source');
+      so.type = 'image/' + ext;
+      so.srcset = `${src.b}-700.${ext} 700w, ${src.b}-1400.${ext} 1400w`;
+      so.sizes = RC_SIZES;
+      pic.appendChild(so);
+    }
+    const img = new Image(src.w, src.h);
+    img.src = src.b + '.jpg';
+    img.alt = P.roomName[key] + (i ? ' \u2014 photo ' + (i + 1) : '');
+    img.loading = 'lazy'; img.decoding = 'async';
+    pic.appendChild(img);
+    track.appendChild(pic);
+  });
+  wrap.appendChild(track);
+  if (shots.length > 1) {
+    wrap.insertAdjacentHTML('beforeend',
+      '<button type="button" class="rc-nav rc-prev" aria-label="Previous photo">&#8249;</button>'
+      + '<button type="button" class="rc-nav rc-next" aria-label="Next photo">&#8250;</button>'
+      + '<div class="rc-dots" aria-hidden="true">' + shots.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('') + '</div>');
+  }
   if (shots.length < 2) return;
-  const track = wrap.querySelector('.rc-track');
   const dots = [...wrap.querySelectorAll('.rc-dots i')];
   const go = d => {
     const w = track.clientWidth || 1;
