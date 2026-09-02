@@ -15,5 +15,5 @@
 2026-08-28 | backlog: family surf trips in a wave pool | blog-family-surf-trips-wave-pool-hainan | Family Surf Trips in a Wave Pool: A Hainan Holiday for Every Age
 2026-08-29 | backlog: surf camps at a private wave pool | blog-surf-camps-private-wave-pool-hainan | Surf Camps at a Private Wave Pool: Train Faster in Hainan
 2026-08-30 | backlog-extension: wave pool vs ocean surfing | blog-wave-pool-vs-ocean-surfing-hainan | Wave Pool vs Ocean Surfing in Hainan: Why Riyue Bay Gives You Both
-2026-08-31 | backlog-extension: what to pack for a Hainan surf & golf trip | blog-what-to-pack-hainan-surf-golf-trip | What to Pack for a Hainan Surf & Golf Trip: The Complete Checklist
+2026-08-31 | backlog-extension: what to pack for a Hainan surf & golf trip | blog-what-to-pack-hainan-surf-golf-trip | What to Pack for a Hainan Surf & Golf Trip: The Complete Checklist — REMOVED 2026-09-01 (Ethan's call; URL 301s to /blog.html, do not republish)
 2026-09-01 | backlog-extension: learn to surf in a wave pool (beginner guide) | blog-learn-to-surf-wave-pool-beginners-guide | Learn to Surf in a Wave Pool: A Beginner's Guide to Riyue Bay

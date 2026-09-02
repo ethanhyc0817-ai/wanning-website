@@ -87,6 +87,11 @@
   ],
   "redirects": [
     {
+      "source": "/blog-what-to-pack-hainan-surf-golf-trip.html",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
       "source": "/surf-and-explore",
       "destination": "/#packages",
       "permanent": false
