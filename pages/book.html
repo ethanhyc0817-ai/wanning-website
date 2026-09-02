@@ -140,8 +140,45 @@
                border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.84rem; line-height: 1.5; color: var(--charcoal); }
   .tier-note b { font-weight: 700; }
   /* Surf & Golf: one start date + "not sure yet", then the numbers we must have for a quote */
-  .cal-tbd { margin-top: 0.75rem; }
-  .cal-tbd .chip { font-size: 0.82rem; }
+  /* click-to-open start-date picker (mirrors the inquiry form) */
+  .dpick { position: relative; max-width: 420px; }
+  .dpick-display { width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--sand-dark); border-radius: var(--r-card);
+                   font: inherit; font-size: 0.95rem; color: var(--charcoal); background: var(--white); cursor: pointer;
+                   transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out); }
+  .dpick-display:focus, .dpick-display.open { outline: none; border-color: var(--ocean); box-shadow: 0 0 0 3px rgba(10,77,104,0.12); }
+  .dpick-display.tbd { color: var(--ocean); font-style: italic; }
+  .dpick-display::placeholder { color: rgba(0,0,0,0.4); }
+  .dpick-pop { position: absolute; top: calc(100% + 0.4rem); left: 0; min-width: 300px; background: var(--white);
+               border: 1px solid var(--sand-dark); border-radius: var(--r-card); padding: 1rem;
+               box-shadow: 0 10px 32px rgba(0,0,0,0.15); z-index: 100; display: none; }
+  .dpick-pop.open { display: block; }
+  .dp-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; gap: 0.5rem; }
+  .dp-nav { background: none; border: 1px solid var(--sand-dark); border-radius: 50%; width: 30px; height: 30px; cursor: pointer;
+            font-size: 1rem; color: var(--charcoal); font-family: inherit; display: inline-flex; align-items: center; justify-content: center; }
+  .dp-nav:hover:not(:disabled) { background: var(--sand); border-color: var(--ocean); color: var(--ocean); }
+  .dp-nav:disabled { color: rgba(0,0,0,0.2); cursor: not-allowed; }
+  .dp-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; flex: 1; text-align: center; }
+  .dp-tbd { display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 0.4rem; margin-bottom: 0.6rem; border-radius: 10px;
+            cursor: pointer; font-size: 0.88rem; color: var(--charcoal); }
+  .dp-tbd:hover { background: var(--sand); }
+  .dp-tbd .tbd-check { width: 16px; height: 16px; border: 1.5px solid rgba(0,0,0,0.3); border-radius: 6px; display: inline-flex;
+                       align-items: center; justify-content: center; flex-shrink: 0; }
+  .dp-tbd.active { color: var(--ocean); font-weight: 600; }
+  .dp-tbd.active .tbd-check { background: var(--ocean); border-color: var(--ocean); }
+  .dp-tbd.active .tbd-check::after { content: '\2713'; color: white; font-size: 0.78rem; line-height: 1; font-weight: 700; }
+  .dp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; }
+  .dp-dow { font-size: 0.68rem; font-weight: 600; text-align: center; padding: 0.4rem 0; color: var(--warm-gray); letter-spacing: 0.06em; }
+  .dp-day { padding: 0.55rem 0; text-align: center; font-size: 0.88rem; border-radius: 10px; cursor: pointer; user-select: none;
+            color: var(--charcoal); transition: background 0.1s; }
+  .dp-day:hover:not(.disabled) { background: var(--sand); }
+  .dp-day.disabled { color: rgba(0,0,0,0.18); cursor: not-allowed; }
+  .dp-day.disabled:hover { background: none; }
+  .dp-day.start { background: var(--ocean); color: var(--white); font-weight: 600; }
+  .dp-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--sand-dark); }
+  .dp-foot button { background: none; border: none; font-family: inherit; font-size: 0.76rem; padding: 0.35rem 0; cursor: pointer; letter-spacing: 0.06em; text-transform: uppercase; }
+  .dp-foot .dp-clear { color: var(--warm-gray); }
+  .dp-foot .dp-done { color: var(--ocean); font-weight: 700; }
+  @media (max-width: 480px) { .dpick-pop { left: -0.5rem; right: -0.5rem; min-width: unset; } }
   .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; max-width: 640px; }
   .nums label { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
   .nums label small { font-weight: 400; color: var(--warm-gray); }
@@ -530,18 +567,21 @@
           <div class="field" id="f-golf" hidden>
             <span class="kicker">Which Surf &amp; Golf tier fits you best</span>
             <div class="chips" id="tiers">
-              <button type="button" class="chip on" data-tier="essential"><b>Essential</b><small>5-night sample itinerary</small></button>
-              <button type="button" class="chip" data-tier="premium"><b>Premium</b><small>7-night sample itinerary</small></button>
-              <button type="button" class="chip" data-tier="luxury"><b>Luxury</b><small>11-night sample itinerary</small></button>
+              <button type="button" class="chip on" data-tier="essential"><b>Essential</b><small>5-night sample itinerary</small><strong><span id="tp-essential"></span> <small>pp</small></strong></button>
+              <button type="button" class="chip" data-tier="premium"><b>Premium</b><small>7-night sample itinerary</small><strong><span id="tp-premium"></span> <small>pp</small></strong></button>
+              <button type="button" class="chip" data-tier="luxury"><b>Luxury</b><small>11-night sample itinerary</small><strong><span id="tp-luxury"></span> <small>pp</small></strong></button>
             </div>
             <p class="tier-doc"><a id="tier-pdf" href="/Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg><span id="tier-pdf-label">See the Essential brochure</span><span class="arr" aria-hidden="true">&rarr;</span></a><span>Opens the day-by-day itinerary, courses, rooms &amp; inclusions (PDF)</span></p>
             <p class="tier-note"><b>These are sample itineraries.</b> Every Surf &amp; Golf trip is built to order &mdash; pick the tier that feels closest, then we tailor the courses, rooms, sessions and dates to your crew and send you an exact quote.</p>
           </div>
           <div class="field">
             <span class="kicker" id="cal-kicker">Check-in &middot; check-out</span>
-            <div class="cal" id="cal" aria-label="Pick your dates"></div>
+            <div class="cal price-only" id="cal" aria-label="Pick your check-in and check-out dates"></div>
+            <div class="dpick golf-only" id="dpick">
+              <input type="text" id="gdate" class="dpick-display" readonly placeholder="Click to choose your start date" aria-label="Trip start date">
+              <div class="dpick-pop" id="dpop" role="dialog" aria-label="Pick a trip start date"></div>
+            </div>
             <p class="cal-sum" id="cal-sum"></p>
-            <div class="cal-tbd golf-only"><button type="button" class="chip" id="cal-tbd">I&rsquo;m not sure yet</button></div>
           </div>
           <div class="field golf-only" id="f-golfnums">
             <span class="kicker">Your crew <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; we need these three to quote</em></span>
@@ -716,7 +756,6 @@
 <div class="mobar" id="mobar">
   <span class="price-only"><span class="pk" style="font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(244,233,208,0.6);">Per person</span><br>
   <span class="big" id="m-pp">$300</span></span>
-  <span class="golf-only" style="font-size:0.8rem; color:rgba(244,233,208,0.8);">Tailored quote &middot; no price yet</span>
   <button type="button" class="btn btn-gold" id="m-next">Continue &rarr;</button>
 </div>
 
@@ -811,8 +850,9 @@ const fmt = n => '$' + Math.round(n / FX).toLocaleString('en-US');
 
 /* ---------------- range calendar ---------------- */
 const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const CAL_MIN = new Date(2026, 8, 1), CAL_MAX = new Date(2027, 1, 28);
-let calBase = new Date(2026, 9, 1);           // first visible month
+const TODAY = (d => new Date(d.getFullYear(), d.getMonth(), d.getDate()))(new Date());
+const CAL_MIN = TODAY, CAL_MAX = new Date(TODAY.getFullYear() + 2, TODAY.getMonth(), TODAY.getDate());
+let calBase = new Date(Math.max(TODAY, new Date(2026, 9, 1)).valueOf()); calBase = new Date(calBase.getFullYear(), calBase.getMonth(), 1);
 let pendingIn = null;                          // set while waiting for checkout click
 const day1 = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
 const dEq = (a, b) => a && b && a.getTime() === b.getTime();
@@ -830,7 +870,7 @@ function renderCal() {
     const base = new Date(calBase.getFullYear(), calBase.getMonth() + m, 1);
     const dow = (base.getDay() + 6) % 7;      // Monday-first
     const days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate();
-    const canPrev = m === 0 && calBase > CAL_MIN;
+    const canPrev = m === 0 && calBase > new Date(CAL_MIN.getFullYear(), CAL_MIN.getMonth(), 1);
     const canNext = m === 1 && new Date(calBase.getFullYear(), calBase.getMonth() + 2, 1) <= CAL_MAX;
     html += `<div class="cal-m"><div class="cal-h">`
       + (m === 0 ? `<button type="button" class="cal-nav" data-cal="-1" ${canPrev ? '' : 'disabled'} aria-label="Earlier month">&larr;</button>` : '<span></span>')
@@ -854,9 +894,8 @@ function renderCal() {
   }
   cal.innerHTML = html;
   const sum = document.getElementById('cal-sum');
-  const tbd = document.getElementById('cal-tbd');
   if (isGolf()) {
-    if (tbd) tbd.classList.toggle('on', state.golf.tbd);
+    renderDpick();
     sum.innerHTML = state.golf.tbd
       ? '<b>Dates still open</b> &middot; we&rsquo;ll suggest the best window for surf and tee times'
       : state.golf.start ? `Trip starts <b>${fmtD(state.golf.start)}</b>` : 'Pick the day you&rsquo;d like to arrive &mdash; or tell us you&rsquo;re not sure yet';
@@ -1008,12 +1047,57 @@ document.addEventListener('click', e => {
     paint();
   });
 });
-const tbdBtn = $('cal-tbd');
-if (tbdBtn) tbdBtn.addEventListener('click', () => {
-  state.golf.tbd = !state.golf.tbd;
-  if (state.golf.tbd) state.golf.start = null;
-  renderCal(); paint();
-});
+/* ---- Surf & Golf start-date picker: click the field, a month pops open ---- */
+let dpView = new Date(calBase);
+let dpOpen = false;
+const DOW = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+function renderDpick() {
+  const inp = $('gdate'), pop = $('dpop'); if (!inp || !pop) return;
+  const g = state.golf;
+  inp.value = g.tbd ? 'Not sure yet \u2014 dates are open' : g.start ? (fmtD(g.start) + ', ' + g.start.getFullYear()) : '';
+  inp.classList.toggle('tbd', g.tbd);
+  inp.classList.toggle('open', dpOpen);
+  pop.classList.toggle('open', dpOpen);
+  if (!dpOpen) return;
+  const y = dpView.getFullYear(), m = dpView.getMonth();
+  const first = new Date(y, m, 1), days = new Date(y, m + 1, 0).getDate();
+  const canPrev = new Date(y, m, 0) >= CAL_MIN, canNext = new Date(y, m + 1, 1) <= CAL_MAX;
+  let h = `<div class="dp-head"><button type="button" class="dp-nav" data-dp="prev" aria-label="Previous month" ${canPrev ? '' : 'disabled'}>&lsaquo;</button>`
+        + `<div class="dp-title">${MN[m]} ${y}</div>`
+        + `<button type="button" class="dp-nav" data-dp="next" aria-label="Next month" ${canNext ? '' : 'disabled'}>&rsaquo;</button></div>`
+        + `<div class="dp-tbd${g.tbd ? ' active' : ''}" data-dp="tbd"><span class="tbd-check" aria-hidden="true"></span><span>I&rsquo;m not sure yet</span></div>`
+        + '<div class="dp-grid">' + DOW.map(d => `<div class="dp-dow">${d}</div>`).join('');
+  for (let i = 0; i < first.getDay(); i++) h += '<div></div>';
+  for (let d = 1; d <= days; d++) {
+    const dt = new Date(y, m, d);
+    const off = dt < CAL_MIN || dt > CAL_MAX;
+    h += `<div class="dp-day${off ? ' disabled' : ''}${dEq(dt, g.start) ? ' start' : ''}" data-dp="day" data-t="${dt.getTime()}">${d}</div>`;
+  }
+  h += '</div><div class="dp-foot"><button type="button" class="dp-clear" data-dp="clear">Clear</button><button type="button" class="dp-done" data-dp="done">Done</button></div>';
+  pop.innerHTML = h;
+}
+const gdateEl = $('gdate');
+if (gdateEl) {
+  gdateEl.addEventListener('click', () => {
+    dpOpen = !dpOpen;
+    if (dpOpen) dpView = state.golf.start ? new Date(state.golf.start.getFullYear(), state.golf.start.getMonth(), 1) : new Date(calBase);
+    renderDpick();
+  });
+  $('dpop').addEventListener('click', e => {
+    const t = e.target.closest('[data-dp]'); if (!t) return;
+    const act = t.dataset.dp;
+    if (act === 'prev' || act === 'next') { if (t.disabled) return; dpView = new Date(dpView.getFullYear(), dpView.getMonth() + (act === 'next' ? 1 : -1), 1); renderDpick(); return; }
+    if (act === 'tbd') { state.golf.tbd = !state.golf.tbd; if (state.golf.tbd) state.golf.start = null; dpOpen = false; }
+    else if (act === 'day') { if (t.classList.contains('disabled')) return; state.golf.start = new Date(+t.dataset.t); state.golf.tbd = false; dpOpen = false; }
+    else if (act === 'clear') { state.golf.start = null; state.golf.tbd = false; }
+    else if (act === 'done') { dpOpen = false; }
+    renderCal(); paint();
+  });
+  document.addEventListener('click', e => {
+    if (dpOpen && !e.target.closest('#dpick')) { dpOpen = false; renderDpick(); }
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && dpOpen) { dpOpen = false; renderDpick(); } });
+}
 const notesEl = $('notes');
 if (notesEl) notesEl.addEventListener('input', () => { state.notes = notesEl.value; });
 $('m-next').addEventListener('click', () => { if (golfReady()) go(2); });
@@ -1034,7 +1118,10 @@ document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () =
   document.body.classList.toggle('is-golf', state.pack === 'golf');
   renderCal();
   $('f-golf').hidden = state.pack !== 'golf';
-  $('f-notes').hidden = state.pack !== 'custom';
+  $('f-notes').hidden = !(state.pack === 'custom' || state.pack === 'golf');
+  $('notes').placeholder = state.pack === 'golf'
+    ? 'Handicaps, courses you\u2019d love to play, surf levels in the group, who\u2019s coming, special occasions, anything already booked\u2026'
+    : 'Levels in the group, what you want to work on, days you\u2019d rather be off the water, food, kids, celebrations, anything you already have booked\u2026';
 
   setTimeout(() => go(1), 160); // let the selection register visually first
 }));
@@ -1215,6 +1302,9 @@ document.addEventListener('click', e => {
   $('fp-stay').textContent = pp('escape3');
   $('fp-custom').textContent = pp('escape3');
   $('fp-golf').textContent = pp('sg_essential');
+  $('tp-essential').textContent = pp('sg_essential');
+  $('tp-premium').textContent = pp('sg_premium');
+  $('tp-luxury').textContent = pp('sg_luxury');
 })();
 renderRooms();
 paintTierDoc();

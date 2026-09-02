@@ -64,3 +64,6 @@ _compressed_*
 # root Vercel serves it publicly at surfchina.co/<name>. The client-facing
 # brochures that pages actually link to live in Assets/brochures/.
 /Surf_and_Golf_Hainan_Brochure.pdf
+
+# Local page backups — never deployed
+Backups/
