@@ -364,6 +364,21 @@
   .roomc small { font-size: 0.72rem; color: var(--warm-gray); font-variant-numeric: tabular-nums; }
 
   .mods { display: grid; gap: 0.6rem; }
+  /* collapsible surf add-ons on the golf path */
+  .fold { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 1rem; width: 100%; text-align: left;
+          background: var(--white); border: 1px solid var(--sand-dark); border-radius: var(--r-card); padding: 0.85rem 1rem;
+          cursor: pointer; font: inherit; margin-bottom: 0.6rem;
+          transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out); }
+  .fold:hover { border-color: var(--ocean); }
+  .fold .kicker { display: block; margin: 0; color: var(--charcoal); }
+  .fold small { display: block; grid-column: 1; font-size: 0.78rem; color: var(--warm-gray); margin-top: 0.15rem; }
+  .fold .chev { grid-column: 2; grid-row: 1 / span 2; width: 10px; height: 10px; border-right: 2px solid var(--ocean); border-bottom: 2px solid var(--ocean);
+                transform: rotate(45deg); transition: transform 0.2s var(--ease-out); margin-right: 4px; }
+  .fold[aria-expanded="true"] .chev { transform: rotate(-135deg); }
+  .fold[aria-expanded="true"] { border-color: var(--ocean); }
+  body.is-golf #surf-mods:not(.open), body.is-golf #surf-mods:not(.open) + .rm-sum { display: none; }
+  .mod.inc-row .inc-tag { color: var(--ocean); font-weight: 700; font-size: 0.9rem; }
+  .mod.inc-row .mq { min-height: 0; }
   .mod { display: grid; grid-template-columns: 1fr 9.5rem 10.5rem; align-items: center; gap: 1rem;
          text-align: left; border: 1px solid var(--sand-dark); border-radius: var(--r-card);
          background: var(--white); padding: 0.85rem 1.1rem; }
@@ -621,9 +636,14 @@
             <div id="roomList"></div>
           </div>
           <div class="field" id="f-mods">
-            <span class="kicker"><span class="price-only">Surf add-ons</span><span class="golf-only">Add-ons</span> <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
-            <div class="mods">
-              <div class="mod price-only" data-mod="coaching">
+            <span class="kicker price-only">Surf add-ons <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
+            <button type="button" class="fold golf-only" id="surf-fold" aria-expanded="false" aria-controls="surf-mods">
+              <span class="kicker">Surf add-ons</span>
+              <small>Coaching, board rental, photo &amp; video &middot; optional</small>
+              <i class="chev" aria-hidden="true"></i>
+            </button>
+            <div class="mods" id="surf-mods">
+              <div class="mod" data-mod="coaching">
                 <span class="mtxt"><b>Coaching</b><small>Per guest, per session</small></span>
                 <span class="mp"><span class="amt" id="amt-coaching">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
@@ -643,17 +663,7 @@
                   <em>sessions</em>
                 </span>
               </div>
-              <div class="mod golf-only" data-mod="clubs">
-                <span class="mtxt"><b>Premium golf club rental</b><small>Sets from major brands like TaylorMade and Titleist</small></span>
-                <span class="mp"><span class="amt" id="amt-clubs">&mdash;</span><span class="unit">per set / day</span></span>
-                <span class="mq">
-                  <button type="button" data-modminus="clubs" aria-label="Fewer club rental days">&minus;</button>
-                  <output id="mo-clubs">0</output>
-                  <button type="button" data-modplus="clubs" aria-label="More club rental days">+</button>
-                  <em>days</em>
-                </span>
-              </div>
-              <div class="mod on price-only" data-mod="media">
+              <div class="mod on" data-mod="media">
                 <span class="mtxt"><b>Photo &amp; video</b><small>Per guest, per session &middot; <span class="inc">1 session included with your package</span></small></span>
                 <span class="mp"><span class="amt" id="amt-media">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
@@ -665,6 +675,26 @@
               </div>
             </div>
             <p class="rm-sum" id="mod-sum"></p>
+          </div>
+          <div class="field golf-only" id="f-golfmods">
+            <span class="kicker">Golf add-ons</span>
+            <div class="mods">
+              <div class="mod" data-mod="clubs">
+                <span class="mtxt"><b>Premium golf club rental</b><small>Sets from major brands like TaylorMade and Titleist</small></span>
+                <span class="mp"><span class="amt" id="amt-clubs">&mdash;</span><span class="unit">per set / day</span></span>
+                <span class="mq">
+                  <button type="button" data-modminus="clubs" aria-label="Fewer club rental days">&minus;</button>
+                  <output id="mo-clubs">0</output>
+                  <button type="button" data-modplus="clubs" aria-label="More club rental days">+</button>
+                  <em>days</em>
+                </span>
+              </div>
+              <div class="mod inc-row" data-mod="caddies">
+                <span class="mtxt"><b>Caddies and golf carts</b><small>On every round, at every course</small></span>
+                <span class="mp"><b class="inc-tag">Included</b></span>
+                <span class="mq"></span>
+              </div>
+            </div>
           </div>
           <div class="field" id="f-notes" hidden>
             <span class="kicker">Tell us what you&rsquo;re after <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; the more specific, the better we can build it</em></span>
@@ -977,9 +1007,11 @@ function paintGolf() {
     ['Surfers', n(g.surfers)],
     ['Golfers', n(g.golfers)],
     ['Rooms', rooms],
-    ['Add-ons', [state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
-                 state.mods.clubs ? `Premium golf clubs \u00d7 ${state.mods.clubs} day${state.mods.clubs > 1 ? 's' : ''}` : null]
-                .filter(Boolean).join(' \u00b7 ') || 'None'],
+    ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
+                      state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
+                      state.mods.media ? `Photo & video \u00d7 ${state.mods.media}` : null]
+                     .filter(Boolean).join(' \u00b7 ') || 'None'],
+    ['Golf add-ons', (state.mods.clubs ? `Premium golf clubs \u00d7 ${state.mods.clubs} day${state.mods.clubs > 1 ? 's' : ''} \u00b7 ` : '') + 'Caddies & carts included'],
   ];
   const el = $('golf-sum');
   if (el) el.innerHTML = rows.map(r => `<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('');
@@ -1282,6 +1314,12 @@ if (tiersEl) tiersEl.addEventListener('click', e => {
   document.querySelectorAll('#tiers .chip').forEach(x => x.classList.toggle('on', x === c));
   paintTierDoc(); paint();
 });
+const surfFold = $('surf-fold');
+if (surfFold) surfFold.addEventListener('click', () => {
+  const open = surfFold.getAttribute('aria-expanded') !== 'true';
+  surfFold.setAttribute('aria-expanded', open);
+  $('surf-mods').classList.toggle('open', open);
+});
 const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
 const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'photo & video', clubs: 'premium golf clubs' };
 function setMod(k, d) {
@@ -1304,7 +1342,7 @@ function paintAddonPrices() {
 }
 function paintMods() {
   const sum = $('mod-sum'); if (!sum) return;
-  const parts = Object.keys(state.mods).filter(k => state.mods[k] && (isGolf() ? (k === 'boards' || k === 'clubs') : k !== 'clubs'))
+  const parts = Object.keys(state.mods).filter(k => state.mods[k] && (isGolf() ? k !== 'clubs' : k !== 'clubs'))
     .map(k => state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
   sum.innerHTML = parts.length ? `<b>${parts.join(' &middot; ')}</b>` + (isGolf() ? '' : ' &middot; per guest') : 'No add-ons selected.';
 }
