@@ -930,7 +930,8 @@ function paintGolf() {
   const el = $('golf-sum');
   if (el) el.innerHTML = rows.map(r => `<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('');
   const gs = $('rv-gsum');
-  if (gs) gs.textContent = `${tierName} \u00b7 ${n(g.nights)} nights \u00b7 ${n(g.surfers)} surfers \u00b7 ${n(g.golfers)} golfers \u00b7 ${when}`;
+  const pl = (v, w) => n(v) + ' ' + w + (v === '1' ? '' : 's');
+  if (gs) gs.textContent = `${tierName} \u00b7 ${pl(g.nights, 'night')} \u00b7 ${pl(g.surfers, 'surfer')} \u00b7 ${pl(g.golfers, 'golfer')} \u00b7 ${when}`;
   $('rv-kicker').textContent = PACKS[state.pack];
   $('cfg-kicker').textContent = PACKS[state.pack];
   const n2 = $('notes2');
@@ -1027,6 +1028,7 @@ document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () =
     state.checkout = new Date(state.checkin.getFullYear(), state.checkin.getMonth(), state.checkin.getDate() + state.nights);
   }
   $('f-perday').hidden = state.pack === 'golf';
+  $('f-mods').hidden = state.pack === 'golf';   // add-ons are priced; the golf quote is built by hand
   $('cal-kicker').innerHTML = state.pack === 'golf' ? 'Trip start date' : 'Check-in &middot; check-out';
   pendingIn = null;
   document.body.classList.toggle('is-golf', state.pack === 'golf');
