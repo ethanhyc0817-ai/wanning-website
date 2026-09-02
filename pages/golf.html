@@ -172,7 +172,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"></noscript>
-<link rel="preload" as="image" type="image/avif" imagesrcset="/Assets/golf/beachfront-aerial-01-1306.avif 1306w" imagesizes="(max-width: 768px) 390px, 1440px" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(min-width: 769px)" imagesrcset="/Assets/golf/blackstone-sunrise-1100.avif 1100w, /Assets/golf/blackstone-sunrise-1440.avif 1440w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(max-width: 768px)" imagesrcset="/Assets/golf/beachfront-aerial-01-1306.avif 1306w" imagesizes="390px" fetchpriority="high">
 <style>
 /* --- Modern UX additions (2026-08-24) --- */
 @view-transition { navigation: auto; }
@@ -724,7 +725,7 @@ nav.scrolled { padding: 0.7rem 0; }
 <!-- HERO -->
 <section class="page-hero">
   <div class="hero-bg">
-    <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/beachfront-aerial-01-1306.avif 1306w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/beachfront-aerial-01-1306.webp 1306w"><img src="/Assets/golf/beachfront-aerial-01.jpg" alt="Hainan oceanfront golf course aerial" width="1306" height="1742" decoding="async" fetchpriority="high"></picture>
+    <picture><source media="(min-width: 769px)" type="image/avif" sizes="100vw" srcset="/Assets/golf/blackstone-sunrise-1100.avif 1100w, /Assets/golf/blackstone-sunrise-1440.avif 1440w"><source media="(min-width: 769px)" type="image/webp" sizes="100vw" srcset="/Assets/golf/blackstone-sunrise-1100.webp 1100w, /Assets/golf/blackstone-sunrise-1440.webp 1440w"><source type="image/avif" sizes="390px" srcset="/Assets/golf/beachfront-aerial-01-1306.avif 1306w"><source type="image/webp" sizes="390px" srcset="/Assets/golf/beachfront-aerial-01-1306.webp 1306w"><img src="/Assets/golf/beachfront-aerial-01.jpg" alt="Championship golf course in Hainan" width="1306" height="1742" decoding="async" fetchpriority="high"></picture>
   </div>
   <div class="container page-hero-content">
     <span class="overline">Beyond the Pool &middot; Golf</span>
