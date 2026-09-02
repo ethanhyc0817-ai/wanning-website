@@ -376,7 +376,7 @@
                 transform: rotate(45deg); transition: transform 0.2s var(--ease-out); margin-right: 4px; }
   .fold[aria-expanded="true"] .chev { transform: rotate(-135deg); }
   .fold[aria-expanded="true"] { border-color: var(--ocean); }
-  body.is-golf #surf-mods:not(.open), body.is-golf #surf-mods:not(.open) + .rm-sum { display: none; }
+  body.is-golf #surf-mods:not(.open), body.is-golf #surf-mods:not(.open) + .rm-sum, #golf-mods:not(.open) { display: none; }
   .mod.inc-row .inc-tag { color: var(--ocean); font-weight: 700; font-size: 0.9rem; }
   .mod.inc-row .mq { min-height: 0; }
   .mod { display: grid; grid-template-columns: 1fr 9.5rem 10.5rem; align-items: center; gap: 1rem;
@@ -465,6 +465,12 @@
     padding: 0.75rem 0.9rem; font: inherit; font-size: 0.9rem; background: var(--white);
     transition: border-color 0.2s var(--ease-out); }
   .fields input:focus, .fields textarea:focus { outline: none; border-color: var(--ocean); }
+  .fields input.err { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(212,133,106,0.18); }
+  .fields .opt { display: grid; gap: 0.3rem; }
+  .fields .opt > span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(244,233,208,0.75); }
+  .fields .opt > span small { font-weight: 400; opacity: 0.8; margin-left: 0.3rem; }
+  .fields-err { font-size: 0.76rem; color: var(--coral); font-weight: 600; margin: 0; }
+  .fields-err[hidden] { display: none; }
   .trust { font-size: 0.74rem; color: var(--warm-gray); margin-top: 0.8rem; line-height: 1.6; }
 
   /* success */
@@ -677,8 +683,12 @@
             <p class="rm-sum" id="mod-sum"></p>
           </div>
           <div class="field golf-only" id="f-golfmods">
-            <span class="kicker">Golf add-ons</span>
-            <div class="mods">
+            <button type="button" class="fold" id="golf-fold" aria-expanded="false" aria-controls="golf-mods">
+              <span class="kicker">Golf add-ons</span>
+              <small>Premium club rental &middot; caddies &amp; carts included</small>
+              <i class="chev" aria-hidden="true"></i>
+            </button>
+            <div class="mods" id="golf-mods">
               <div class="mod" data-mod="clubs">
                 <span class="mtxt"><b>Premium golf club rental</b><small>Sets from major brands like TaylorMade and Titleist</small></span>
                 <span class="mp"><span class="amt" id="amt-clubs">&mdash;</span><span class="unit">per set / day</span></span>
@@ -761,9 +771,11 @@
             <span class="pk golf-only">Surf &amp; Golf &middot; tailored quote</span>
             <div class="tot golf-only" id="rv-gsum" style="margin-top:0.4rem;"></div>
             <div class="fields">
-              <input type="text" placeholder="Your name" aria-label="Your name">
-              <input type="text" placeholder="WhatsApp / WeChat / email" aria-label="Contact">
+              <input type="text" id="c-name" placeholder="Your name" aria-label="Your name" autocomplete="name">
+              <input type="email" id="c-email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+              <label class="opt"><span>WhatsApp <small>optional</small></span><input type="tel" id="c-whatsapp" placeholder="+1 555 000 0000" aria-label="WhatsApp (optional)" autocomplete="tel"></label>
               <textarea id="notes2" rows="2" placeholder="Anything else we should know?" aria-label="Notes"></textarea>
+              <p class="fields-err" id="c-err" hidden>Please add your email so we can send the confirmation.</p>
             </div>
             <div class="btnrow">
               <button type="button" class="btn btn-gold" id="reserve"><span class="price-only">Reserve &mdash; nothing charged today</span><span class="golf-only">Request my quote &rarr;</span></button>
@@ -1149,7 +1161,14 @@ if (gdateEl) {
 const notesEl = $('notes');
 if (notesEl) notesEl.addEventListener('input', () => { state.notes = notesEl.value; });
 $('m-next').addEventListener('click', () => { if (golfReady()) go(2); });
-$('reserve').addEventListener('click', () => go(3));
+$('reserve').addEventListener('click', () => {
+  const em = $('c-email'), ok = em.value.trim() !== '' && em.checkValidity();
+  em.classList.toggle('err', !ok);
+  $('c-err').hidden = ok;
+  if (!ok) { em.focus(); return; }
+  go(3);
+});
+$('c-email').addEventListener('input', () => { $('c-email').classList.remove('err'); $('c-err').hidden = true; });
 
 /* ---------------- controls ---------------- */
 document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () => {
@@ -1314,11 +1333,13 @@ if (tiersEl) tiersEl.addEventListener('click', e => {
   document.querySelectorAll('#tiers .chip').forEach(x => x.classList.toggle('on', x === c));
   paintTierDoc(); paint();
 });
-const surfFold = $('surf-fold');
-if (surfFold) surfFold.addEventListener('click', () => {
-  const open = surfFold.getAttribute('aria-expanded') !== 'true';
-  surfFold.setAttribute('aria-expanded', open);
-  $('surf-mods').classList.toggle('open', open);
+[['surf-fold', 'surf-mods'], ['golf-fold', 'golf-mods']].forEach(([fid, lid]) => {
+  const f = $(fid); if (!f) return;
+  f.addEventListener('click', () => {
+    const open = f.getAttribute('aria-expanded') !== 'true';
+    f.setAttribute('aria-expanded', open);
+    $(lid).classList.toggle('open', open);
+  });
 });
 const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
 const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'photo & video', clubs: 'premium golf clubs' };
