@@ -900,8 +900,9 @@ document.querySelectorAll('[data-dial]').forEach(b => b.addEventListener('click'
 }));
 /* ---- room photo carousels: swipe, arrows, dots ---- */
 const ROOM_PHOTOS = {"garden":[{"b":"/Assets/hotel/book/garden-1","w":1280,"h":853},{"b":"/Assets/hotel/book/garden-2","w":1280,"h":853},{"b":"/Assets/hotel/book/garden-3","w":1400,"h":934}],"oceanview":[{"b":"/Assets/hotel/book/oceanview-1","w":1282,"h":855},{"b":"/Assets/hotel/book/oceanview-2","w":1280,"h":853},{"b":"/Assets/hotel/book/oceanview-3","w":1280,"h":853}],"owner":[{"b":"/Assets/hotel/book/owner-1","w":1282,"h":855},{"b":"/Assets/hotel/book/owner-2","w":1281,"h":854},{"b":"/Assets/hotel/book/owner-3","w":1400,"h":934}],"surfyard":[{"b":"/Assets/hotel/book/surfyard-1","w":1206,"h":804},{"b":"/Assets/hotel/book/surfyard-2","w":1400,"h":933},{"b":"/Assets/hotel/book/surfyard-3","w":1206,"h":804}],"familygarden":[{"b":"/Assets/hotel/book/familygarden-1","w":1400,"h":933},{"b":"/Assets/hotel/book/familygarden-2","w":1400,"h":933}],"designersuite":[{"b":"/Assets/hotel/book/designersuite-1","w":1400,"h":934},{"b":"/Assets/hotel/book/designersuite-2","w":1400,"h":933},{"b":"/Assets/hotel/book/designersuite-3","w":1400,"h":934}]};
-/* Room cards sit two-up: ~310px in the desktop config column, ~46vw on phones. */
-const RC_SIZES = '(max-width: 900px) 46vw, 310px';
+/* Room photo column: .rrow gives it 30% (min 190px) of the config column on
+   desktop, full width under 640px. */
+const RC_SIZES = '(max-width: 640px) 92vw, (max-width: 900px) 30vw, 200px';
 function buildCarouselInto(wrap, key) {
   const shots = ROOM_PHOTOS[key];
   if (!shots || !shots.length) return;
