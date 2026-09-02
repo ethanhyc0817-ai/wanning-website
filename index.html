@@ -2127,11 +2127,7 @@ footer::before {
 .coaching-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
 @media (max-width: 860px) { .coaching-grid { grid-template-columns: 1fr; } }
 .coaching-media { width: 100%; aspect-ratio: 4 / 3; background: var(--sand-dark); border-radius: var(--radius-media); background-size: cover; background-position: center; }
-/* Portrait training-camp clip: phone-shaped, centred in its column, never wider than 360px. */
 #training-camp { scroll-margin-top: 90px; }
-.coaching-video { text-align: center; }
-.coaching-video video { display: block; width: 100%; max-width: 360px; height: auto; aspect-ratio: 9 / 16; margin: 0 auto; border-radius: var(--radius-media); background: var(--sand-dark); object-fit: cover; }
-.coaching-video-cap { display: block; margin-top: 0.7rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
 .coaching-list { list-style: none; padding: 0; margin: 1.5rem 0 2rem; }
 .coaching-list li { padding: 0.9rem 0; border-bottom: 1px solid var(--sand-dark); color: var(--charcoal); font-size: 0.98rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
 .coaching-list li strong { font-weight: 600; }
@@ -3389,19 +3385,12 @@ footer::before {
     </div>
   </section>
 
-  <!-- 4. COACHING — deep-linkable as /#training-camp (see hash router) -->
+  <!-- 4. COACHING — deep-linkable as /#training-camp (see hash router). Camp video parked for now (Sep 2026):
+       https://res.cloudinary.com/dk7isqhi7/video/upload/v1788225296/8%E6%9C%8819%E6%97%A5_1_2_1_mhg7ow.mov -->
   <section id="training-camp">
     <div class="container">
       <div class="coaching-grid">
-        <div class="coaching-video">
-          <video controls playsinline preload="none" width="1440" height="2560"
-                 data-poster="https://res.cloudinary.com/dk7isqhi7/video/upload/so_1,h_1280,q_auto:eco,f_jpg/v1788225296/8%E6%9C%8819%E6%97%A5_1_2_1_mhg7ow.jpg"
-                 aria-label="Surf training camp at the Riyue Bay wave pool">
-            <source media="(max-width: 768px)" data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,h_960,br_1200k/v1788225296/8%E6%9C%8819%E6%97%A5_1_2_1_mhg7ow.mp4" type="video/mp4">
-            <source data-src="https://res.cloudinary.com/dk7isqhi7/video/upload/f_mp4,q_auto:eco,vc_h264,h_1280,br_2000k/v1788225296/8%E6%9C%8819%E6%97%A5_1_2_1_mhg7ow.mp4" type="video/mp4">
-          </video>
-          <span class="coaching-video-cap">Training camp &middot; Riyue Bay &middot; 30 sec</span>
-        </div>
+        <div class="coaching-media" style="background-image:url('Assets/wavepool/coach%20team-bg1600.webp');"></div>
         <div>
           <span class="overline">Coaching &amp; Programs</span>
           <h2>Coached by the best.</h2>
