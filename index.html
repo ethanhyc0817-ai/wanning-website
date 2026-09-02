@@ -2297,12 +2297,12 @@ footer::before {
         </div>
       </div>
       <a href="/design-your-buyout.html" class="nav-buyout">Private Buyout</a>
-      <a href="/book-your-wave" class="nav-cta">Book Now</a>
+      <a href="#" onclick="showPage('contact')" class="nav-cta" data-page="contact">Book Now</a>
     </div>
     <button class="nav-mobile-toggle" onclick="toggleMobile()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="/book-your-wave" class="nav-mobile-cta">Book Now</a>
+    <a href="#" class="nav-mobile-cta" onclick="showPage('contact'); document.getElementById('mobileMenu').classList.remove('open'); return false;">Book Now</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
@@ -2325,7 +2325,7 @@ footer::before {
   <a href="/cuisine.html">Food</a>
   <a href="/natural-surf.html">Ocean Surf</a>
   <a href="/blog.html">Blog</a>
-  <a href="/book-your-wave">Book Now</a>
+  <a href="#" onclick="showPage('contact'); toggleMobile();">Book Now</a>
 </div>
 
 
@@ -2371,7 +2371,7 @@ footer::before {
       <span>PerfectSwell&reg; Destination Partner <span class="partner-sep">&bull;</span> Hainan</span>
     </div>
 
-    <a href="/book-your-wave" class="hero-cta">Book Now</a>
+    <a href="#" class="hero-cta" onclick="showPage('contact'); return false;">Book Now</a>
 
     <div class="hero-tagline-bar">
       Most Unexpected <strong>Surf + Golf Trip</strong> on Earth
@@ -3162,7 +3162,7 @@ footer::before {
       <h2>Your Hainan surf trip<br>starts here.</h2>
       <p>Tell us your dates, your crew, and your style. We'll build the rest.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="/book-your-wave" class="btn btn-primary btn-arrow">Book Now </a>
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage(\'contact\')">Book Now </a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('packages')">View Packages </a>
       </div>
     </div>
@@ -3544,7 +3544,7 @@ footer::before {
       <h2>Ready to paddle out?</h2>
       <p>Book a session, plan a trip, or ask about custom coaching. We'll put you on the right wave.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a href="/book-your-wave" class="btn btn-primary btn-arrow">Book Now</a>
+        <a href="#" class="btn btn-primary btn-arrow" onclick="showPage(\'contact\')">Book Now</a>
         <a href="#" class="btn btn-outline btn-arrow" onclick="showPage('packages')">See Trip Packages</a>
       </div>
     </div>
@@ -4850,7 +4850,7 @@ footer::before {
     <div class="final-cta-content">
       <h2>See it for yourself.</h2>
       <p>The best way to understand Hainan is to experience it.</p>
-      <a href="/book-your-wave" class="btn btn-primary btn-arrow">Book Now </a>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage(\'contact\')">Book Now </a>
     </div>
   </section>
 </div>
@@ -4957,7 +4957,7 @@ footer::before {
     <div class="final-cta-content">
       <h2>Let's plan your trip.</h2>
       <p>Tell us about your group and we'll handle the rest.</p>
-      <a href="/book-your-wave" class="btn btn-primary btn-arrow">Book Now </a>
+      <a href="#" class="btn btn-primary btn-arrow" onclick="showPage(\'contact\')">Book Now </a>
     </div>
   </section>
 </div>
