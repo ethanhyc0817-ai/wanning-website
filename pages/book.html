@@ -1212,7 +1212,7 @@ document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () =
 renderCal();
 document.querySelectorAll('[data-dial]').forEach(b => b.addEventListener('click', () => {
   const k = b.dataset.dial, d = +b.dataset.d;
-  const lim = { ppl: [1, 8], perDay: [1, 4] }[k];
+  const lim = { ppl: [1, 8], perDay: [1, 99] }[k];   // sessions per day: no practical cap
   state[k] = Math.min(lim[1], Math.max(lim[0], state[k] + d));
   const o = $('o-' + k);
   o.textContent = state[k];
