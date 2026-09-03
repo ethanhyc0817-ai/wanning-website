@@ -1218,6 +1218,32 @@ function buildLead() {
   fd.set('page', location.href);
   return fd;
 }
+/* After Formspree accepts the request, open the visitor's mail app with a pre-filled
+   draft to us (same behaviour as the homepage contact form) — best-effort, never blocks. */
+const MAIL_LABELS = {
+  interested_in: 'Interested in', trip_start_date: 'Trip start date', num_nights: 'Nights',
+  num_surfers: 'Number of surfers', num_golfers: 'Number of golfers', adults: 'Adults', rooms: 'Rooms',
+  room_types: 'Room types', surf_level: 'Wave level', sessions_per_day: 'Surf sessions / day',
+  addons: 'Add-ons', quoted_estimate: 'Estimate shown on the page', whatsapp: 'WhatsApp', message: 'Notes'
+};
+function openMailDraft(fd) {
+  try {
+    const name = (fd.get('full_name') || '').toString().trim();
+    const lines = [];
+    Object.keys(MAIL_LABELS).forEach(k => {
+      const v = (fd.get(k) || '').toString().trim();
+      if (v) lines.push(MAIL_LABELS[k] + ': ' + v);
+    });
+    if ((fd.get('dates_tbd') || '').toString().trim()) lines.push('Dates: To be decided');
+    const subject = (isGolf() ? 'Surf & Golf quote request' : PACKS[state.pack] + ' booking') + (name ? ' \u2014 ' + name : '') + ' (surfchina.co)';
+    const body = 'Hello Surf China team,\n\nI just sent a request through Book Your Wave on surfchina.co. Here are my details:\n\n'
+      + lines.join('\n') + '\n\nLooking forward to hearing from you.';
+    const a = document.createElement('a');
+    a.href = 'mailto:hello@surfchina.co?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    a.style.display = 'none';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  } catch (_) { /* mail draft is best-effort */ }
+}
 $('reserve').addEventListener('click', async () => {
   const em = $('c-email'), ok = em.value.trim() !== '' && em.checkValidity();
   em.classList.toggle('err', !ok);
@@ -1227,10 +1253,12 @@ $('reserve').addEventListener('click', async () => {
   btn.disabled = true; btn.textContent = 'Sending\u2026';
   $('send-err').hidden = true;
   try {
-    const res = await fetch(FORMSPREE, { method: 'POST', body: buildLead(), headers: { Accept: 'application/json' } });
+    const lead = buildLead();
+    const res = await fetch(FORMSPREE, { method: 'POST', body: lead, headers: { Accept: 'application/json' } });
     if (!res.ok) throw new Error('formspree ' + res.status);
     try { if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_id: 'book_your_wave', package: state.pack, page_location: location.href }); } catch (_) {}
     go(3);
+    openMailDraft(lead);
   } catch (err) {
     $('send-err').hidden = false;
   } finally {
