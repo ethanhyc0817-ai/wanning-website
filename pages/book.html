@@ -490,7 +490,10 @@
   @keyframes rise { from { opacity: 0; translate: 0 16px; } }
   .rise:nth-child(2) { animation-delay: 0.07s; } .rise:nth-child(3) { animation-delay: 0.14s; }
 
+  /* iOS Safari zooms the page when a focused field's font is under 16px — and doesn't zoom
+     back out. Every field on the page gets 16px on touch-sized screens. */
   @media (max-width: 900px) {
+    .dpick-display, .nums input, .notes, .fields input, .fields textarea { font-size: 16px; }
     .packs { grid-template-columns: 1fr; }
     .cfg, .review { grid-template-columns: 1fr; }
     .rail2 { position: static; }
@@ -600,7 +603,7 @@
             <span class="kicker" id="cal-kicker">Check-in &middot; check-out</span>
             <div class="cal price-only" id="cal" aria-label="Pick your check-in and check-out dates"></div>
             <div class="dpick golf-only" id="dpick">
-              <input type="text" id="gdate" class="dpick-display" readonly placeholder="Click to choose your start date" aria-label="Trip start date">
+              <input type="text" id="gdate" class="dpick-display" readonly inputmode="none" placeholder="Click to choose your start date" aria-label="Trip start date">
               <div class="dpick-pop" id="dpop" role="dialog" aria-label="Pick a trip start date"></div>
             </div>
             <p class="cal-sum" id="cal-sum"></p>
