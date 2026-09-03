@@ -573,7 +573,7 @@
             <ul>
               <li>Everything in Surf &amp; Stay</li>
               <li>Coaching and board rental by the hour or day</li>
-              <li>Extra photo &amp; video sessions</li>
+              <li>Extra professional videography sessions</li>
             </ul>
             <span class="fromp"><em>3 nights, per person</em><b id="fp-custom">$300</b> <small>+ your add-ons</small></span>
           </span>
@@ -659,7 +659,7 @@
             <span class="kicker price-only">Surf add-ons <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
             <button type="button" class="fold golf-only" id="surf-fold" aria-expanded="false" aria-controls="surf-mods">
               <span class="kicker">Surf add-ons</span>
-              <small>Coaching, board rental, photo &amp; video &middot; optional</small>
+              <small>Coaching, board rental, professional videography &middot; optional</small>
               <i class="chev" aria-hidden="true"></i>
             </button>
             <div class="mods" id="surf-mods">
@@ -684,12 +684,12 @@
                 </span>
               </div>
               <div class="mod on" data-mod="media">
-                <span class="mtxt"><b>Photo &amp; video</b><small>Per guest, per session &middot; <span class="inc">1 session included with your package</span></small></span>
+                <span class="mtxt"><b>Professional videography</b><small>Per guest, per session &middot; <span class="inc">1 session included with your package</span></small></span>
                 <span class="mp"><span class="amt" id="amt-media">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
-                  <button type="button" data-modminus="media" aria-label="Fewer photo sessions">&minus;</button>
+                  <button type="button" data-modminus="media" aria-label="Fewer videography sessions">&minus;</button>
                   <output id="mo-media">1</output>
-                  <button type="button" data-modplus="media" aria-label="More photo sessions">+</button>
+                  <button type="button" data-modplus="media" aria-label="More videography sessions">+</button>
                   <em>sessions</em>
                 </span>
               </div>
@@ -908,7 +908,7 @@ function calc() {
                                         v: ENGINE.addons.coach_1v1 * s.ppl * s.mods.coaching });
     if (s.mods.boards) changes.push({ k: `Board rental \u00d7 ${s.mods.boards} session${s.mods.boards > 1 ? 's' : ''} \u00d7 ${s.ppl}`,
                                       v: ENGINE.addons.board_session * s.ppl * s.mods.boards });
-    if (s.mods.media > 1) changes.push({ k: `Extra photo \u0026 video \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
+    if (s.mods.media > 1) changes.push({ k: `Extra professional videography \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
                                          v: ENGINE.addons.media_session * (s.mods.media - 1) * s.ppl });
   }
   const total = base + changes.reduce((a, c) => a + (c.v || 0), 0);
@@ -1037,7 +1037,7 @@ function paintGolf() {
     ['Rooms', rooms],
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
                       state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
-                      state.mods.media ? `Photo & video \u00d7 ${state.mods.media}` : null]
+                      state.mods.media ? `Professional videography \u00d7 ${state.mods.media}` : null]
                      .filter(Boolean).join(' \u00b7 ') || 'None'],
     ['Golf add-ons', (state.mods.clubs ? `Premium golf clubs \u00d7 ${state.mods.clubs} day${state.mods.clubs > 1 ? 's' : ''} \u00b7 ` : '') + 'Caddies & carts included'],
   ];
@@ -1366,7 +1366,7 @@ if (levelsEl) levelsEl.addEventListener('click', e => {
   paint();
 });
 const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
-const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'photo & video', clubs: 'premium golf clubs' };
+const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'professional videography', clubs: 'premium golf clubs' };
 function setMod(k, d) {
   const nights = isGolf() ? (parseInt(state.golf.nights, 10) || 14) : state.nights;
   const cap = k === 'clubs' ? nights : nights * 2;
