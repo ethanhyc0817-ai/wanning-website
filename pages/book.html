@@ -555,7 +555,7 @@
     <section class="pane on" id="pane0">
       <div class="headr rise">
         <span class="kicker">Book your wave</span>
-        <h1>Three trips. One perfect pool.</h1>
+        <h1>Pick your trip. We&rsquo;ll shape the rest.</h1>
         <p class="lead">Real prices, real inclusions, no surprises. Pick a shape, tune it to your crew,
            and reserve in about two minutes &mdash; nothing is charged today.</p>
       </div>
@@ -1217,7 +1217,16 @@ function bringIntoView(el) {
 }
 /* ---------------- steps ---------------- */
 let step = 0;
-function go(n, back) {
+window.addEventListener('popstate', e => {
+  const n = e.state && typeof e.state.byw === 'number' ? e.state.byw : 0;
+  if (n !== step) go(n, n < step, true);
+});
+function go(n, back, fromPop) {
+  // Each step is a history entry, so the browser's back button walks back through
+  // the flow (also when embedded in the homepage) instead of leaving the page.
+  if (!fromPop) {
+    try { if (step === 0 && !history.state) history.replaceState({ byw: 0 }, ''); history.pushState({ byw: n }, ''); } catch (_) {}
+  }
   const cur = document.querySelector('.pane.on');
   cur.classList.remove('on', 'back');
   const next = $('pane' + n);
