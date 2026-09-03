@@ -459,7 +459,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .recognition-strip { background: var(--white); padding: clamp(3rem, 5vw, 4.5rem) 0; border-top: 1px solid var(--sand-dark); border-bottom: 1px solid var(--sand-dark); }
 .recognition-strip-inner { max-width: 1180px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
 .recognition-header { text-align: center; max-width: 720px; margin: 0 auto 2.5rem; }
-.recognition-grid { display: grid; grid-template-columns: repeat(3, 1fr); /* was repeat(4,1fr); set back to 4 if the Shanqin card is restored */ gap: 1.25rem; }
+.recognition-grid { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; /* 2 cards since Sep 2026 (#1-in-China card removed); was repeat(4,1fr) with the Shanqin card */ gap: 1.25rem; }
 .recognition-card { text-align: center; padding: 1.8rem 1.2rem; background: var(--sand); border-top: 3px solid var(--gold); border-radius: 12px; }
 .recognition-card .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(2rem, 3.5vw, 2.6rem); line-height: 1; color: var(--ocean); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
 .recognition-card .stat-label { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); line-height: 1.4; }
@@ -774,7 +774,7 @@ nav.scrolled { padding: 0.7rem 0; }
     <h2>Before the surf,<br>there was the swing.</h2>
     <div class="section-divider"></div>
     <p class="lead">Hainan has been China's premier golf destination for more than twenty years &mdash; long before anyone was talking about surfing here. Volcanic terrain in the north, ocean coastlines in the east and south, and within an hour's drive you can tee off in three completely different landscapes.</p>
-    <p class="lead">The result is a quiet collection of world-class courses: <strong>China's #1 and #2 ranked courses</strong>, a Golf Digest World Top 100 layout, and one of Asia's most exclusive private clubs &mdash; all on a single tropical island. The HSBC Champions, the Omega Mission Hills World Cup, the Volvo China Open: if you watch professional golf, you've almost certainly watched a tournament on a Hainan fairway without knowing where you were looking.</p>
+    <p class="lead">The result is a quiet collection of world-class courses: <strong>one of Asia's top-10 courses</strong>, a former Golf Magazine World Top 100 layout, and one of Asia's most exclusive private clubs &mdash; all on a single tropical island. The HSBC Champions, the Omega Mission Hills World Cup, the Volvo China Open: if you watch professional golf, you've almost certainly watched a tournament on a Hainan fairway without knowing where you were looking.</p>
   </div>
 </section>
 
@@ -787,16 +787,12 @@ nav.scrolled { padding: 0.7rem 0; }
     </div>
     <div class="recognition-grid">
       <div class="recognition-card">
-        <div class="stat-num">#1</div>
-        <div class="stat-label">In China<span class="stat-sub">Mission Hills Blackstone &middot; Golf Digest</span></div>
-      </div>
-      <div class="recognition-card">
-        <div class="stat-num">#2</div>
-        <div class="stat-label">In China<span class="stat-sub">The Dunes at Shenzhou &middot; Golf Digest</span></div>
+        <div class="stat-num">Top 10</div>
+        <div class="stat-label">In Asia<span class="stat-sub">The Dunes at Shenzhou &middot; Forbes</span></div>
       </div>
       <div class="recognition-card">
         <div class="stat-num">Top 100</div>
-        <div class="stat-label">In the World<span class="stat-sub">Mission Hills Blackstone &middot; Golf Magazine</span></div>
+        <div class="stat-label">In the World (Former)<span class="stat-sub">Mission Hills Blackstone &middot; Golf Magazine</span></div>
       </div>
       <!-- Shanqin Bay recognition card — HIDDEN 2026-06-29 (not deleted). To restore: remove this comment opener and the closing line below, and set .recognition-grid back to repeat(4,1fr).
       <div class="recognition-card">
@@ -836,9 +832,9 @@ nav.scrolled { padding: 0.7rem 0; }
   <div class="container">
     <div class="courses-intro">
       <span class="overline">Where You'll Play</span>
-      <h2>Four courses,<br>one island.</h2>
+      <h2>Five courses,<br>one island.</h2>
       <div class="section-divider"></div>
-      <p class="lead">A black-lava championship, a coastal links, a headland over the South China Sea, and one of Asia's most exclusive private clubs &mdash; you could spend a week playing Hainan and never repeat a landscape. We'll book tee times, transport, and English-speaking caddies. All you do is show up.</p>
+      <p class="lead">Two black-lava championships, a coastal links, a headland over the South China Sea, and one of Asia's most exclusive private clubs &mdash; you could spend a week playing Hainan and never repeat a landscape. We'll book tee times, transport, and English-speaking caddies. All you do is show up.</p>
     </div>
   </div>
 </section>
@@ -858,7 +854,7 @@ nav.scrolled { padding: 0.7rem 0; }
       <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
-      <span class="course-tag">01 &middot; Haikou &middot; #1 in China</span>
+      <span class="course-tag">01 &middot; Haikou &middot; Tiger &times; Rory &middot; 2013</span>
       <h2>Mission Hills Blackstone</h2>
       <div class="course-meta-line"><strong>Schmidt-Curley</strong> &middot; 2009 &middot; Volcanic lava-rock</div>
       <p>Mission Hills Haikou is the world's largest golf complex &mdash; <strong>ten championship courses</strong> carved out of black volcanic lava rock, all within a single resort. <strong>Blackstone is its featured course</strong>: a dramatic layout through volcanic rock and lush tropical scenery, and the venue where <strong>Tiger Woods and Rory McIlroy went head-to-head in 2013</strong>. A true bucket-list destination for golfers who want real history, world-class design, and a setting you don't find anywhere else.</p>
@@ -877,16 +873,52 @@ nav.scrolled { padding: 0.7rem 0; }
         </div>
       </div>
       <div class="course-recognition">
-        <span class="recognition-tag">#1 in China &middot; Golf Digest</span>
-        <span class="recognition-tag">World Top 100 &middot; Golf Magazine</span>
+        <span class="recognition-tag">Former World Top 100 &middot; Golf Magazine</span>
         <span class="recognition-tag">Best New Course in Asia &middot; Asian Golf Monthly</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COURSE 2 — THE DUNES AT SHENZHOU -->
+<!-- COURSE 2 — MISSION HILLS LAVA FIELDS -->
 <section class="course-row alt-bg reverse">
+  <div class="course-row-grid">
+    <div class="course-row-img gal fade-in">
+      <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/missionhills-lava-dusk-700.avif 700w, /Assets/golf/missionhills-lava-dusk-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/missionhills-lava-dusk-700.webp 700w, /Assets/golf/missionhills-lava-dusk-1100.webp 1100w"><img class="active" decoding="async" src="/Assets/golf/missionhills-lava-dusk.jpg" width="1264" height="696" alt="Dusk over a fairway edged with black lava rock at Mission Hills Haikou"></picture>
+      <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/missionhills-palm-fairway-700.avif 700w, /Assets/golf/missionhills-palm-fairway-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/missionhills-palm-fairway-700.webp 700w, /Assets/golf/missionhills-palm-fairway-1100.webp 1100w"><img loading="lazy" decoding="async" src="/Assets/golf/missionhills-palm-fairway.jpg" width="1440" height="1799" alt="A palm-lined fairway with sand and lava waste areas at Mission Hills Haikou"></picture>
+      <button class="gal-btn prev" aria-label="Previous image">&lsaquo;</button>
+      <button class="gal-btn next" aria-label="Next image">&rsaquo;</button>
+      <div class="gal-dots"></div>
+    </div>
+    <div class="course-row-content">
+      <span class="course-tag">02 &middot; Haikou &middot; Big-Scale Lava Golf</span>
+      <h2>Mission Hills Lava Fields</h2>
+      <div class="course-meta-line"><strong>Schmidt-Curley</strong> &middot; 7,475 yds &middot; Par 72 &middot; Volcanic lava-rock</div>
+      <p>Blackstone's big brother next door. Lava Fields is the second championship course at Mission Hills Haikou &mdash; the same black volcanic rock, but <strong>on a bigger canvas</strong>: wide fairways, enormous sand waste areas, and a layout that stretches to <strong>7,475 yards</strong> from the back tees. Black rock and white sand frame nearly every hole, and the scale of the place is unlike anything else in Asia. If you're already at Mission Hills for Blackstone, this is the second round you don't skip.</p>
+      <div class="course-stats">
+        <div class="course-stat">
+          <span class="label">Designer</span>
+          <span class="value">Schmidt-Curley</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">Terrain</span>
+          <span class="value">Lava rock &amp; sand waste</span>
+        </div>
+        <div class="course-stat">
+          <span class="label">Length</span>
+          <span class="value">7,475 yds &middot; Par 72</span>
+        </div>
+      </div>
+      <div class="course-recognition">
+        <span class="recognition-tag">Same resort as Blackstone</span>
+        <span class="recognition-tag">Championship Layout</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 3 — THE DUNES AT SHENZHOU -->
+<section class="course-row">
   <div class="course-row-grid">
     <div class="course-row-img gal fade-in">
       <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/dunes-shenzhou-headland-aerial-1500.avif 1500w, /Assets/golf/dunes-shenzhou-headland-aerial-1600.avif 1600w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/golf/dunes-shenzhou-headland-aerial-1500.webp 1500w, /Assets/golf/dunes-shenzhou-headland-aerial-1600.webp 1600w"><img class="active" decoding="async" src="/Assets/golf/dunes-shenzhou-headland-aerial.jpg" width="1600" height="900" alt="An aerial view of The Dunes wrapping a rocky headland above a turquoise bay at Shenzhou Peninsula"></picture>
@@ -899,7 +931,7 @@ nav.scrolled { padding: 0.7rem 0; }
       <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
-      <span class="course-tag">02 &middot; Wanning &middot; #2 in China</span>
+      <span class="course-tag">03 &middot; Wanning &middot; Top 10 in Asia</span>
       <h2>The Dunes at Shenzhou</h2>
       <div class="course-meta-line"><strong>Tom Weiskopf &amp; Phil Smith</strong> &middot; 2014 &middot; Coastal links &middot; Par 72</div>
       <p>A coastal links shaped by sand dunes, ocean wind, and the South China Sea. Few golf courses in China have a setting like this &mdash; built along the coast with natural sand dunes, dramatic bunkers, and wide-open ocean views, it delivers a true links experience with a tropical island edge. Raw, cinematic, and deeply connected to the landscape. Just <strong>30 minutes from the surf pool</strong>.</p>
@@ -927,8 +959,8 @@ nav.scrolled { padding: 0.7rem 0; }
   </div>
 </section>
 
-<!-- COURSE 3 — LU HUI TOU -->
-<section class="course-row">
+<!-- COURSE 4 — LU HUI TOU -->
+<section class="course-row alt-bg reverse">
   <div class="course-row-grid">
     <div class="course-row-img gal fade-in">
       <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/1780920060888-700.avif 700w, /Assets/golf/1780920060888-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 768px) 342px, 526px" srcset="/Assets/golf/1780920060888-700.webp 700w, /Assets/golf/1780920060888-1100.webp 1100w"><img class="active" decoding="async" src="/Assets/golf/1780920060888.JPG" width="1440" height="1080" alt="Lu Hui Tou Golf Club — Sanya headland course between sea and mountain"></picture>
@@ -939,7 +971,7 @@ nav.scrolled { padding: 0.7rem 0; }
       <div class="gal-dots"></div>
     </div>
     <div class="course-row-content">
-      <span class="course-tag">03 &middot; Sanya &middot; Headland Routing</span>
+      <span class="course-tag">04 &middot; Sanya &middot; Headland Routing</span>
       <h2>Lu Hui Tou Golf Club</h2>
       <div class="course-meta-line"><strong>Nelson &amp; Haworth</strong> &middot; 2009 &middot; 7,310 yds &middot; Par 72</div>
       <p>Sanya's headland course &mdash; sea on one side, mountain on the other. Eighteen holes draped across the Lu Hui Tou peninsula, between the South China Sea and the green mountain ridge. Nelson &amp; Haworth routed the course with elevation changes that give every approach a different angle. Pair the round with an evening at Rosewood Sanya and the polished island day arranges itself.</p>
@@ -985,7 +1017,7 @@ nav.scrolled { padding: 0.7rem 0; }
       <span class="shanqin-img-tag">Invitation Only</span>
     </div>
     <div class="shanqin-content">
-      <span class="course-tag">04 &middot; Lingshui &middot; By Inquiry Only</span>
+      <span class="course-tag">05 &middot; Lingshui &middot; By Inquiry Only</span>
       <h2>Shanqin Bay Golf Club</h2>
       <div class="shanqin-meta"><strong>Coore &amp; Crenshaw</strong> &middot; The most exclusive private golf club in Asia</div>
 
