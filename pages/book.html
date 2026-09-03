@@ -1185,6 +1185,7 @@ function paintGO() {
   if (n2 && state.notes && !n2.value) n2.value = state.notes;
 }
 function paint() {
+  reportSoon();
   document.body.classList.toggle('is-golf', isGolf());
   document.body.classList.toggle('is-go', isGO());
   if (isGO()) { paintGO(); return; }
@@ -1220,14 +1221,18 @@ function paint() {
 const EMBED = (() => { try { return window.self !== window.top || /[?&]embed=1/.test(location.search); } catch (_) { return true; } })();
 if (EMBED) document.documentElement.classList.add('embedded');
 const tellParent = msg => { if (EMBED) { try { window.parent.postMessage(msg, location.origin); } catch (_) {} } };
+// Measure the body box, not scrollHeight: inside a frame scrollHeight can never be
+// smaller than the frame itself, so the frame would only ever grow (big blank gap
+// after moving from a tall step to a short one).
+const reportHeight = () => { if (EMBED) tellParent({ byw: 'h', h: Math.ceil(document.body.getBoundingClientRect().height) }); };
+// Belt and braces: the observer covers images loading and text reflow; the explicit
+// calls after every step change / repaint cover browsers that throttle observers.
+const reportSoon = () => { if (!EMBED) return; requestAnimationFrame(reportHeight); setTimeout(reportHeight, 120); setTimeout(reportHeight, 450); };
 if (EMBED) {
-  // Measure the body box, not scrollHeight: inside a frame scrollHeight can never be
-  // smaller than the frame itself, so the frame would only ever grow (big blank gap
-  // after moving from a tall step to a short one).
-  const report = () => tellParent({ byw: 'h', h: Math.ceil(document.body.getBoundingClientRect().height) });
-  new ResizeObserver(report).observe(document.body);
-  window.addEventListener('load', report);
-  setTimeout(report, 300);
+  new ResizeObserver(reportHeight).observe(document.body);
+  window.addEventListener('load', reportSoon);
+  window.addEventListener('resize', reportSoon);
+  reportSoon();
 }
 // scrollIntoView from inside a content-sized frame can't move the parent — send it up instead
 function bringIntoView(el) {
@@ -1269,6 +1274,7 @@ function go(n, back, fromPop) {
   syncParentBar();
   if (EMBED) tellParent({ byw: 'top' }); else window.scrollTo({ top: 0, behavior: 'instant' });
   paint();
+  reportSoon();
 }
 function golfReady() {
   if (isGO()) {
