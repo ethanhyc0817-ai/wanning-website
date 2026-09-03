@@ -130,11 +130,12 @@
   .chip.on { border-color: var(--ocean); background: var(--ocean); color: var(--white); }
   /* Surf & Golf tiers: three real cards, not chips — the tier is the biggest decision on this step */
   #tiers.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
-  #tiers .chip { border-radius: var(--r-card); padding: 1rem 1.1rem; text-align: left; font-size: 0.82rem;
+  #gotier.chips { display: grid; grid-template-columns: minmax(0, 420px); }
+  #gotier .chip, #tiers .chip { border-radius: var(--r-card); padding: 1rem 1.1rem; text-align: left; font-size: 0.82rem;
                  display: flex; flex-direction: column; gap: 0.2rem; line-height: 1.3; }
-  #tiers .chip b { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; }
-  #tiers .chip small { font-size: 0.78rem; opacity: 0.8; }
-  #tiers .chip strong { font-size: 0.95rem; font-weight: 700; margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
+  #gotier .chip b, #tiers .chip b { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; }
+  #gotier .chip small, #tiers .chip small { font-size: 0.78rem; opacity: 0.8; }
+  #gotier .chip strong, #tiers .chip strong { font-size: 0.95rem; font-weight: 700; margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
   #tiers .chip:not(.on):hover { border-color: var(--ocean); }
   @media (max-width: 640px) { #tiers.chips { grid-template-columns: 1fr; } }
   .tier-doc { margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
@@ -628,6 +629,14 @@
             <p class="tier-doc"><a id="tier-pdf" href="/Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg><span id="tier-pdf-label">See the Essential brochure</span><span class="arr" aria-hidden="true">&rarr;</span></a><span>Opens the day-by-day itinerary, courses, rooms &amp; inclusions (PDF)</span></p>
             <p class="tier-note"><b>These are sample itineraries.</b> Every Surf &amp; Golf trip is built to order &mdash; pick the tier that feels closest, then we tailor the courses, rooms, sessions and dates to your crew and send you an exact quote.</p>
           </div>
+          <div class="field go-only" id="f-gobrochure">
+            <span class="kicker">Our sample golf itinerary</span>
+            <div class="chips" id="gotier">
+              <button type="button" class="chip on" tabindex="-1" style="cursor:default;"><b>Championship Golf Hainan</b><small>5 nights &middot; 3 championship rounds &middot; Ritz-Carlton Haikou + Grand Hyatt Shenzhou</small><strong>$2,164 <small>pp</small></strong></button>
+            </div>
+            <p class="tier-doc"><a href="/Assets/brochures/hainan-golf.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg><span>See the Hainan golf brochure</span><span class="arr" aria-hidden="true">&rarr;</span></a><span>Opens the day-by-day itinerary, courses, hotels &amp; inclusions (PDF)</span></p>
+            <p class="tier-note"><b>This is a sample itinerary.</b> Every golf trip is built to order &mdash; pick your courses below and we tailor the rounds, hotels and dates to your group, then send you an exact quote.</p>
+          </div>
           <div class="field go-only" id="f-courses">
             <span class="kicker">Courses you&rsquo;d like to play <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; pick one or more</em></span>
             <div class="chips" id="courses">
@@ -637,7 +646,7 @@
               <button type="button" class="chip" data-course="Shanqin Bay Golf Club (invitation-only)"><b>Shanqin Bay Golf Club</b><small class="meta">Wanning &middot; once No. 8 in the world &middot; invitation-only</small></button>
             </div>
             <p class="shanqin"><b>About Shanqin Bay:</b> the most exclusive private golf club in Asia, once ranked No. 8 in the world by Golf Digest. We are not accepting new applications at the moment.</p>
-            <p class="go-links"><a href="/golf.html" target="_blank" rel="noopener">See full details on each course</a><a href="/Assets/brochures/hainan-golf.pdf" target="_blank" rel="noopener">Hainan golf brochure (PDF)</a></p>
+            <p class="go-links"><a href="/golf.html" target="_blank" rel="noopener">See full details on each course</a></p>
           </div>
           <div class="field">
             <span class="kicker" id="cal-kicker">Check-in &middot; check-out</span>
