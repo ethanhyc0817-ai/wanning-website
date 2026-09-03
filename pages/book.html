@@ -20,6 +20,7 @@
   html.embedded .mobar { display: none !important; }
   html.embedded .rail2 { position: static; }
   html.embedded .pane { min-height: 0; }
+  html.embedded body, html.embedded html { min-height: 0; height: auto; }
   :root {
     --ocean: #0a4d68; --ocean-light: #1a7a9b; --ocean-deep: #092e3e;
     --sand: #f5f0e8; --sand-dark: #e8dfd2; --charcoal: #1a1a1a;
@@ -1220,7 +1221,10 @@ const EMBED = (() => { try { return window.self !== window.top || /[?&]embed=1/.
 if (EMBED) document.documentElement.classList.add('embedded');
 const tellParent = msg => { if (EMBED) { try { window.parent.postMessage(msg, location.origin); } catch (_) {} } };
 if (EMBED) {
-  const report = () => tellParent({ byw: 'h', h: document.documentElement.scrollHeight });
+  // Measure the body box, not scrollHeight: inside a frame scrollHeight can never be
+  // smaller than the frame itself, so the frame would only ever grow (big blank gap
+  // after moving from a tall step to a short one).
+  const report = () => tellParent({ byw: 'h', h: Math.ceil(document.body.getBoundingClientRect().height) });
   new ResizeObserver(report).observe(document.body);
   window.addEventListener('load', report);
   setTimeout(report, 300);
