@@ -622,6 +622,16 @@
               <span class="unit">guests on this trip</span>
             </div>
           </div>
+          <div class="field" id="f-level">
+            <span class="kicker">Wave level <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; optional, helps us set the pool</em></span>
+            <div class="chips" id="levels">
+              <button type="button" class="chip" data-level="Beginner">Beginner</button>
+              <button type="button" class="chip" data-level="Intermediate">Intermediate</button>
+              <button type="button" class="chip" data-level="Advanced">Advanced</button>
+              <button type="button" class="chip" data-level="Barrels &amp; Airs">Barrels &amp; Airs <small style="font-weight:400;opacity:0.8;">&middot; private session</small></button>
+              <button type="button" class="chip" data-level="Mixed levels in group">Mixed levels in group</button>
+            </div>
+          </div>
           <div class="field" id="f-perday">
             <span class="kicker">Surf sessions per day <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; for the whole group</em></span>
             <div class="dial">
@@ -843,6 +853,7 @@ const state = { pack: 'stay', checkin: new Date(2026, 9, 12), checkout: new Date
                 mods: { coaching: 0, boards: 0, media: 1, clubs: 0 }, notes: '',
                 // Surf & Golf is quoted by hand (same as the inquiry form): one start date
                 // or "not sure yet", plus the numbers we cannot quote without.
+                level: '',                      // wave level, same options as the inquiry form
                 golf: { start: null, tbd: false, nights: '', surfers: '', golfers: '' } };
 const PACKS = { stay: 'Surf & Stay', golf: 'Surf & Golf', custom: 'Surf & Custom' };
 
@@ -1018,6 +1029,7 @@ function paintGolf() {
     ['Nights', n(g.nights)],
     ['Surfers', n(g.surfers)],
     ['Golfers', n(g.golfers)],
+    ['Wave level', state.level || 'Not set'],
     ['Rooms', rooms],
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
                       state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
@@ -1041,7 +1053,7 @@ function paint() {
   const r = calc();
   countTo($('r-pp'), r.pp);
   $('r-tot').textContent = fmt(r.total);
-  $('r-sum').textContent = `${state.ppl} guest${state.ppl > 1 ? 's' : ''} \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights`;
+  $('r-sum').textContent = `${state.ppl} guest${state.ppl > 1 ? 's' : ''} \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (state.level ? ` \u00b7 ${state.level}` : '');
   $('m-pp').textContent = fmt(r.pp);
   const baseRow = `<li class="base"><span>${PACKS[state.pack]} \u00b7 ${state.nights} night${state.nights > 1 ? 's' : ''}</span><span>${fmt(r.base)}</span></li>`;
   const changeRows = r.changes.length
@@ -1052,7 +1064,7 @@ function paint() {
   // step 3 mirrors
   $('rv-pp').textContent = fmt(r.pp);
   $('rv-tot').textContent = fmt(r.total);
-  $('rv-sum').textContent = `${state.ppl} guests \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights`;
+  $('rv-sum').textContent = `${state.ppl} guests \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (state.level ? ` \u00b7 ${state.level}` : '');
   $('rv-kicker').textContent = PACKS[state.pack];
   const n2 = $('notes2');
   if (n2 && state.notes && !n2.value) n2.value = state.notes;   // carry the brief forward
@@ -1340,6 +1352,14 @@ if (tiersEl) tiersEl.addEventListener('click', e => {
     f.setAttribute('aria-expanded', open);
     $(lid).classList.toggle('open', open);
   });
+});
+const levelsEl = $('levels');
+if (levelsEl) levelsEl.addEventListener('click', e => {
+  const c = e.target.closest('[data-level]'); if (!c) return;
+  const v = c.dataset.level;
+  state.level = state.level === v ? '' : v;           // tap again to clear
+  levelsEl.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x.dataset.level === state.level));
+  paint();
 });
 const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
 const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'photo & video', clubs: 'premium golf clubs' };
