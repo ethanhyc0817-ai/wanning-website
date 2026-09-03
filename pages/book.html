@@ -80,7 +80,10 @@
   .headr .lead { margin-top: 0.7rem; }
 
   /* ---------- step 1: package cards ---------- */
-  .packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; align-items: stretch; }
+  .packs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-items: stretch; }
+  @media (max-width: 1080px) { .packs { grid-template-columns: repeat(2, 1fr); } }
+  .pack-link { text-decoration: none; color: inherit; }
+  .pack-link .fromp b { font-size: 1rem; color: var(--ocean); }
   .pack { position: relative; text-align: left; background: var(--white); border: 1px solid var(--sand-dark);
           border-radius: var(--r-card); overflow: hidden; cursor: pointer; padding: 0;
           display: flex; flex-direction: column;
@@ -579,6 +582,19 @@
             <span class="fromp"><em>3 nights, per person</em><b id="fp-custom">$300</b> <small>+ your add-ons</small></span>
           </span>
         </button>
+        <a class="pack pack-link" href="/golf-inquiry.html">
+          <picture><source type="image/avif" sizes="(max-width: 900px) 92vw, 280px" srcset="/Assets/golf/blackstone-sunrise-700.avif 700w, /Assets/golf/blackstone-sunrise-1100.avif 1100w"><source type="image/webp" sizes="(max-width: 900px) 92vw, 280px" srcset="/Assets/golf/blackstone-sunrise-700.webp 700w, /Assets/golf/blackstone-sunrise-1100.webp 1100w"><img src="/Assets/golf/blackstone-sunrise.jpg" width="1440" height="810" alt="Sunrise over the Blackstone course at Mission Hills Haikou" loading="lazy" decoding="async"></picture>
+          <span class="pb">
+            <h3>Golf Only</h3>
+            <span class="desc">No surf &mdash; a pure golf trip across Hainan&rsquo;s best courses.</span>
+            <ul>
+              <li>Mission Hills Blackstone &mdash; Golf Digest World Top 100</li>
+              <li>The Dunes &mdash; Asia Top 10 Golf Courses</li>
+              <li>Lu Hui Tou &amp; Shanqin Bay tee times arranged</li>
+            </ul>
+            <span class="fromp"><em>Tailored quote</em><b>Golf inquiry &rarr;</b></span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -1268,7 +1284,7 @@ $('reserve').addEventListener('click', async () => {
 $('c-email').addEventListener('input', () => { $('c-email').classList.remove('err'); $('c-err').hidden = true; });
 
 /* ---------------- controls ---------------- */
-document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () => {
+document.querySelectorAll('.pack[data-pack]').forEach(p => p.addEventListener('click', () => {
   state.pack = p.dataset.pack;
   document.querySelectorAll('.pack').forEach(x => x.classList.toggle('on', x === p));
   if (state.nights < minNights()) {
