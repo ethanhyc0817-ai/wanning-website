@@ -791,6 +791,7 @@
               <label class="opt"><span>WhatsApp <small>optional</small></span><input type="tel" id="c-whatsapp" placeholder="+1 555 000 0000" aria-label="WhatsApp (optional)" autocomplete="tel"></label>
               <textarea id="notes2" rows="2" placeholder="Anything else we should know?" aria-label="Notes"></textarea>
               <p class="fields-err" id="c-err" hidden>Please add your email so we can send the confirmation.</p>
+              <p class="fields-err" id="send-err" hidden>That didn&rsquo;t go through. Try again, or email hello@surfchina.co / WhatsApp +86 138 9340 2173.</p>
             </div>
             <div class="btnrow">
               <button type="button" class="btn btn-gold" id="reserve"><span class="price-only">Reserve &mdash; nothing charged today</span><span class="golf-only">Request my quote &rarr;</span></button>
@@ -1178,12 +1179,61 @@ if (gdateEl) {
 const notesEl = $('notes');
 if (notesEl) notesEl.addEventListener('input', () => { state.notes = notesEl.value; });
 $('m-next').addEventListener('click', () => { if (golfReady()) go(2); });
-$('reserve').addEventListener('click', () => {
+/* ---------------- send to Formspree (same form + field names as the inquiry page,
+   so the leads tracker columns and the customer auto-reply keep working) ---------------- */
+const FORMSPREE = 'https://formspree.io/f/xbdwrwna';
+const iso = d => d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` : '';
+function buildLead() {
+  const fd = new FormData();
+  const name = $('c-name').value.trim(), parts = name.split(/\s+/).filter(Boolean);
+  const g = state.golf, golf = isGolf();
+  fd.set('_subject', golf ? 'New Quote Request \u2014 Book Your Wave (Surf & Golf)' : 'New Booking Hold \u2014 Book Your Wave (' + PACKS[state.pack] + ')');
+  fd.set('full_name', name);
+  fd.set('first_name', parts[0] || '');
+  fd.set('last_name', parts.slice(1).join(' '));
+  fd.set('email', $('c-email').value.trim());
+  fd.set('whatsapp', $('c-whatsapp').value.trim());
+  fd.set('interested_in', golf ? `Surf & Golf Retreat \u00b7 ${TIER_LABEL[state.tier]} (${TIER_NIGHTS[state.tier]}-night sample)` : PACKS[state.pack]);
+  fd.set('trip_start_date', golf ? (g.tbd ? '' : iso(g.start)) : iso(state.checkin));
+  fd.set('dates_tbd', golf && g.tbd ? 'yes' : '');
+  fd.set('num_nights', golf ? g.nights : String(state.nights));
+  fd.set('num_surfers', golf ? g.surfers : String(state.ppl));
+  fd.set('num_golfers', golf ? g.golfers : '0');
+  fd.set('adults', golf ? String(Math.max(+g.surfers || 0, +g.golfers || 0) || '') : String(state.ppl));
+  fd.set('rooms', String(state.roomList.length));
+  fd.set('room_types', state.roomList.map((k, i) => `Room ${i + 1}: ${P.roomName[k]}`).join('; '));
+  fd.set('surf_level', state.level);
+  if (!golf) fd.set('sessions_per_day', String(state.perDay));
+  const addons = [];
+  if (state.mods.coaching) addons.push(`Coaching x${state.mods.coaching}`);
+  if (state.mods.boards) addons.push(`Board rental x${state.mods.boards} sessions`);
+  if (state.mods.media) addons.push(`Professional videography x${state.mods.media}`);
+  if (golf && state.mods.clubs) addons.push(`Premium golf clubs x${state.mods.clubs} days`);
+  fd.set('addons', addons.join(', '));
+  if (!golf) { const r = calc(); fd.set('quoted_estimate', fmt(r.total) + ' total \u00b7 ' + fmt(r.pp) + ' pp'); }
+  fd.set('message', [state.notes, $('notes2').value].map(x => (x || '').trim()).filter(Boolean).join('\n\n'));
+  fd.set('source', 'book-your-wave');
+  fd.set('page', location.href);
+  return fd;
+}
+$('reserve').addEventListener('click', async () => {
   const em = $('c-email'), ok = em.value.trim() !== '' && em.checkValidity();
   em.classList.toggle('err', !ok);
   $('c-err').hidden = ok;
   if (!ok) { em.focus(); return; }
-  go(3);
+  const btn = $('reserve'), label = btn.innerHTML;
+  btn.disabled = true; btn.textContent = 'Sending\u2026';
+  $('send-err').hidden = true;
+  try {
+    const res = await fetch(FORMSPREE, { method: 'POST', body: buildLead(), headers: { Accept: 'application/json' } });
+    if (!res.ok) throw new Error('formspree ' + res.status);
+    try { if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_id: 'book_your_wave', package: state.pack, page_location: location.href }); } catch (_) {}
+    go(3);
+  } catch (err) {
+    $('send-err').hidden = false;
+  } finally {
+    btn.disabled = false; btn.innerHTML = label;
+  }
 });
 $('c-email').addEventListener('input', () => { $('c-email').classList.remove('err'); $('c-err').hidden = true; });
 
