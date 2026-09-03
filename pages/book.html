@@ -725,7 +725,7 @@
           <div class="field" id="f-notes" hidden>
             <span class="kicker">Tell us what you&rsquo;re after <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; the more specific, the better we can build it</em></span>
             <textarea id="notes" rows="4" class="notes"
-              placeholder="Levels in the group, what you want to work on, days you&rsquo;d rather be off the water, food, kids, celebrations, anything you already have booked&hellip;"
+              placeholder="Any activities you&rsquo;d love to do, celebrations you&rsquo;re marking, coming with kids, food you can&rsquo;t miss, anything already booked&hellip;"
               aria-label="Your preferences and requests"></textarea>
           </div>
           <div class="btnrow">
@@ -1206,7 +1206,7 @@ document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () =
   $('f-notes').hidden = !(state.pack === 'custom' || state.pack === 'golf');
   $('notes').placeholder = state.pack === 'golf'
     ? 'Handicaps, courses you\u2019d love to play, surf levels in the group, who\u2019s coming, special occasions, anything already booked\u2026'
-    : 'Levels in the group, what you want to work on, days you\u2019d rather be off the water, food, kids, celebrations, anything you already have booked\u2026';
+    : 'Any activities you\u2019d love to do, celebrations you\u2019re marking, coming with kids, food you can\u2019t miss, anything already booked\u2026';
 
   setTimeout(() => go(1), 160); // let the selection register visually first
 }));
