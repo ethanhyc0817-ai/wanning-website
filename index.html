@@ -1239,6 +1239,15 @@ nav.scrolled { padding: 0.7rem 0; }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+#bywBar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between;
+          gap: 1rem; background: #092e3e; color: #f4e9d0; padding: 0.8rem 1.1rem; font-variant-numeric: tabular-nums;
+          box-shadow: 0 -8px 24px rgba(0,0,0,0.18); }
+#bywBar[hidden] { display: none; }
+#bywBar .byw-pk { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,233,208,0.6); }
+#bywBar .byw-pp { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #c4a265; font-size: 1.2rem; }
+#bywBar button { border: none; border-radius: 980px; background: #c4a265; color: #092e3e; font-family: 'Montserrat', sans-serif;
+                 font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.3rem; cursor: pointer; }
+#bywBar button:active { transform: scale(0.97); }
 .contact-aside { padding-left: 2rem; }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
@@ -4984,6 +4993,11 @@ footer::before {
            The frame reports its height and asks us to scroll on step changes (postMessage). -->
       <iframe id="bywFrame" title="Book your wave — request a quote" src="/book-your-wave?embed=1" loading="lazy"
               style="width:100%; min-height:900px; border:0; display:block;"></iframe>
+      <!-- Surf & Stay on phones: price + Continue, pinned to the real screen (the frame asks for it) -->
+      <div id="bywBar" hidden>
+        <span><span class="byw-pk">Per person</span><br><span class="byw-pp" id="bywPP">$650</span></span>
+        <button type="button" id="bywNext">Continue &rarr;</button>
+      </div>
       <div class="contact-grid" style="grid-template-columns:1fr; margin-top:2.5rem;">
         <div class="contact-aside byw-aside">
           <div style="background:var(--sand); padding:2.5rem; border-radius:12px; margin-bottom:2rem;">
@@ -5182,6 +5196,7 @@ function showPage(page, fromPopState) {
   } catch (e) { /* noop */ }
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  if (page !== 'contact') { const bb = document.getElementById('bywBar'); if (bb) bb.hidden = true; }
   const target = document.getElementById('page-' + page);
   if (target) {
     target.classList.add('active');
@@ -6123,10 +6138,18 @@ function requestQuote(key) {
       var y = frame.getBoundingClientRect().top + window.scrollY - 84;
       window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
     }
+    if (e.data.byw === 'bar') {
+      var bar = document.getElementById('bywBar');
+      if (bar) { bar.hidden = !e.data.on; if (e.data.pp) document.getElementById('bywPP').textContent = e.data.pp; }
+    }
     if (e.data.byw === 'scrollTo' && typeof e.data.y === 'number') {
       var yy = frame.getBoundingClientRect().top + window.scrollY + e.data.y - 120;
       window.scrollTo({ top: Math.max(0, yy), behavior: 'smooth' });
     }
+  });
+  var nextBtn = document.getElementById('bywNext');
+  if (nextBtn) nextBtn.addEventListener('click', function () {
+    try { frame.contentWindow.postMessage({ byw: 'next' }, window.location.origin); } catch (e) {}
   });
   if (key) {
     var open = function () { if (document.getElementById('page-contact')) showPage('contact', true); };

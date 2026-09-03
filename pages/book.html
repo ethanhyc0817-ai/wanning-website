@@ -119,6 +119,12 @@
   .pack li { font-size: 0.8rem; color: var(--charcoal); padding-left: 1.2rem; position: relative; }
   .pack li::before { content: "\2713"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
   .pack .fromp { margin-top: auto; font-variant-numeric: tabular-nums; }
+  .pack .cta { display: flex; align-items: center; justify-content: center; margin-top: 1rem; padding: 0.8rem 1rem;
+               border-radius: var(--r-pill); background: var(--ocean); color: var(--white); font-family: 'Montserrat', sans-serif;
+               font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+               transition: background 0.2s var(--ease-out), transform 0.16s var(--ease-out); }
+  .pack:hover .cta { background: var(--ocean-light); }
+  .pack.on .cta { background: var(--gold); color: var(--ocean-deep); }
   .pack .fromp em { font-style: normal; font-size: 0.72rem; color: var(--warm-gray); display: block; }
   .pack .fromp b { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; }
   .pack .fromp small { font-size: 0.75rem; color: var(--warm-gray); font-weight: 400; }
@@ -576,6 +582,7 @@
               <li>Tee times &amp; caddies arranged</li>
             </ul>
             <span class="fromp"><em>5 nights, per person</em><b id="fp-golf">$840</b> <small>couple sharing</small></span>
+            <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
         <button type="button" class="pack" data-pack="stay">
@@ -589,6 +596,7 @@
               <li>Boards, transfers &amp; scheduling</li>
             </ul>
             <span class="fromp"><em>3 nights, per person</em><b id="fp-stay">$300</b> <small>couple sharing</small></span>
+            <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
         <button type="button" class="pack" data-pack="custom">
@@ -602,6 +610,7 @@
               <li>Private guide, car &amp; itinerary built around you</li>
             </ul>
             <span class="fromp"><em>3 nights, per person</em><b id="fp-custom">$300</b> <small>+ your add-ons</small></span>
+            <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
         <button type="button" class="pack" data-pack="golfonly">
@@ -614,7 +623,8 @@
               <li>The Dunes &mdash; Asia Top 10 Golf Courses</li>
               <li>Lu Hui Tou &amp; Shanqin Bay tee times arranged</li>
             </ul>
-            <span class="fromp"><em>Tailored quote</em><b style="font-size:1rem;color:var(--ocean);">Build your golf trip &rarr;</b></span>
+            <span class="fromp"><em>Tailored quote</em><b style="font-size:1rem;">Courses, dates, rounds &mdash; we quote in 24h</b></span>
+            <span class="cta">Plan my golf trip &rarr;</span>
           </span>
         </button>
       </div>
@@ -1181,6 +1191,7 @@ function paint() {
   $('r-tot').textContent = fmt(r.total);
   $('r-sum').textContent = `${state.ppl} guest${state.ppl > 1 ? 's' : ''} \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (state.level ? ` \u00b7 ${state.level}` : '');
   $('m-pp').textContent = fmt(r.pp);
+  syncParentBar();
   const baseRow = `<li class="base"><span>${PACKS[state.pack]} \u00b7 ${state.nights} night${state.nights > 1 ? 's' : ''}</span><span>${fmt(r.base)}</span></li>`;
   const changeRows = r.changes.length
     ? `<li class="chead"><span>Your changes</span><span></span></li>` + r.changes.map(c =>
@@ -1218,6 +1229,17 @@ function bringIntoView(el) {
   if (EMBED) tellParent({ byw: 'scrollTo', y: el.getBoundingClientRect().top + window.scrollY });
   else el.scrollIntoView({ block: 'center', behavior: 'smooth' });
 }
+/* Surf & Stay on a phone: a sticky price + Continue bar. Inside the homepage frame a
+   position:fixed bar can't pin to the real screen, so the parent draws it for us. */
+function syncParentBar() {
+  if (!EMBED) return;
+  const on = step === 1 && state.pack === 'stay' && matchMedia('(max-width: 900px)').matches;
+  tellParent({ byw: 'bar', on, pp: on ? fmt(calc().pp) : '' });
+}
+window.addEventListener('message', e => {
+  if (e.origin !== location.origin || !e.data || e.data.byw !== 'next') return;
+  if (golfReady()) go(2);
+});
 /* ---------------- steps ---------------- */
 let step = 0;
 window.addEventListener('popstate', e => {
@@ -1237,7 +1259,8 @@ function go(n, back, fromPop) {
   next.classList.add('on');
   step = n;
   document.querySelectorAll('.steps span').forEach((el, i) => el.classList.toggle('on', i <= Math.min(n, 2)));
-  $('mobar').style.display = (n === 1 && matchMedia('(max-width: 900px)').matches) ? 'flex' : 'none';
+  $('mobar').style.display = (n === 1 && state.pack === 'stay' && !EMBED && matchMedia('(max-width: 900px)').matches) ? 'flex' : 'none';
+  syncParentBar();
   if (EMBED) tellParent({ byw: 'top' }); else window.scrollTo({ top: 0, behavior: 'instant' });
   paint();
 }
