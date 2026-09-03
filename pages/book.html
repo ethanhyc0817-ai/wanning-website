@@ -1045,12 +1045,14 @@ function renderCal() {
     const base = new Date(calBase.getFullYear(), calBase.getMonth() + m, 1);
     const dow = (base.getDay() + 6) % 7;      // Monday-first
     const days = new Date(base.getFullYear(), base.getMonth() + 1, 0).getDate();
-    const canPrev = m === 0 && calBase > new Date(CAL_MIN.getFullYear(), CAL_MIN.getMonth(), 1);
-    const canNext = m === 1 && new Date(calBase.getFullYear(), calBase.getMonth() + 2, 1) <= CAL_MAX;
+    // Both arrows live on the first month: on phones the second month is hidden,
+    // so a "next" arrow over there was unreachable and the calendar looked stuck.
+    const canPrev = calBase > new Date(CAL_MIN.getFullYear(), CAL_MIN.getMonth(), 1);
+    const canNext = new Date(calBase.getFullYear(), calBase.getMonth() + 2, 1) <= CAL_MAX;
     html += `<div class="cal-m"><div class="cal-h">`
       + (m === 0 ? `<button type="button" class="cal-nav" data-cal="-1" ${canPrev ? '' : 'disabled'} aria-label="Earlier month">&larr;</button>` : '<span></span>')
       + `<b>${MN[base.getMonth()]} ${base.getFullYear()}</b>`
-      + (m === 1 ? `<button type="button" class="cal-nav" data-cal="1" ${canNext ? '' : 'disabled'} aria-label="Later month">&rarr;</button>` : '<span></span>')
+      + (m === 0 ? `<button type="button" class="cal-nav" data-cal="1" ${canNext ? '' : 'disabled'} aria-label="Later month">&rarr;</button>` : '<span></span>')
       + `</div><div class="cal-g">`
       + ['M','T','W','T','F','S','S'].map(x => `<span>${x}</span>`).join('')
       + '<i style="grid-column: span ' + (dow || 1) + '; ' + (dow ? '' : 'display:none') + '"></i>';
