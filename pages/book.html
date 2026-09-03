@@ -16,6 +16,7 @@
   /* embedded inside the homepage's #contact panel: no own header, no fixed bars, parent scrolls */
   html.embedded .top { display: none; }
   html.embedded main { padding-bottom: 1rem; }
+  html.embedded .headr { padding-top: 1.2rem; }
   html.embedded .mobar { display: none !important; }
   html.embedded .rail2 { position: static; }
   html.embedded .pane { min-height: 0; }
@@ -408,6 +409,8 @@
   .mod .mtxt { min-width: 0; }
   .mod b { font-size: 0.9rem; display: block; }
   .mod .inc { color: var(--ocean); font-weight: 600; }
+  .mod .quiver { color: var(--ocean); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; white-space: nowrap; }
+  .mod .quiver:hover { opacity: 0.75; }
   .mod small { font-size: 0.75rem; color: var(--warm-gray); }
   .mod .mp { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
   .mod .amt { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem;
@@ -754,7 +757,7 @@
                 </span>
               </div>
               <div class="mod" data-mod="boards">
-                <span class="mtxt"><b>Board rental</b><small>Performance board, per session</small></span>
+                <span class="mtxt"><b>Board rental</b><small>Performance board, per session &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
                 <span class="mp"><span class="amt" id="amt-boards">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
                   <button type="button" data-modminus="boards" aria-label="Fewer rental sessions">&minus;</button>
