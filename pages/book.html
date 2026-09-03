@@ -1211,7 +1211,9 @@ function buildLead() {
   if (golf && state.mods.clubs) addons.push(`Premium golf clubs x${state.mods.clubs} days`);
   fd.set('addons', addons.join(', '));
   if (!golf) { const r = calc(); fd.set('quoted_estimate', fmt(r.total) + ' total \u00b7 ' + fmt(r.pp) + ' pp'); }
-  fd.set('message', [state.notes, $('notes2').value].map(x => (x || '').trim()).filter(Boolean).join('\n\n'));
+  // the review box is pre-filled from the step-2 notes; only send it if they added something
+  const n1 = (state.notes || '').trim(), n2 = ($('notes2').value || '').trim();
+  fd.set('message', n2 && n2 !== n1 ? (n1 ? n1 + '\n\n' + n2 : n2) : n1);
   fd.set('source', 'book-your-wave');
   fd.set('page', location.href);
   return fd;
