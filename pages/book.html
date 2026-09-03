@@ -1248,20 +1248,25 @@ function syncParentBar() {
   tellParent({ byw: 'bar', on, pp: on ? fmt(calc().pp) : '' });
 }
 window.addEventListener('message', e => {
-  if (e.origin !== location.origin || !e.data || e.data.byw !== 'next') return;
-  if (golfReady()) go(2);
+  if (e.origin !== location.origin || !e.data) return;
+  if (e.data.byw === 'next' && golfReady()) go(2);
+  if (e.data.byw === 'goto' && typeof e.data.n === 'number' && e.data.n !== step) go(e.data.n, e.data.n < step, true);
 });
 /* ---------------- steps ---------------- */
 let step = 0;
 window.addEventListener('popstate', e => {
+  if (EMBED) return;
   const n = e.state && typeof e.state.byw === 'number' ? e.state.byw : 0;
   if (n !== step) go(n, n < step, true);
 });
 function go(n, back, fromPop) {
   // Each step is a history entry, so the browser's back button walks back through
   // the flow (also when embedded in the homepage) instead of leaving the page.
+  // Embedded: the homepage owns the history (Safari shows a never-ending load bar
+  // when Back lands on a frame-only entry). Standalone: our own entries.
   if (!fromPop) {
-    try { if (step === 0 && !history.state) history.replaceState({ byw: 0 }, ''); history.pushState({ byw: n }, ''); } catch (_) {}
+    if (EMBED) tellParent({ byw: 'step', n });
+    else { try { if (step === 0 && !history.state) history.replaceState({ byw: 0 }, ''); history.pushState({ byw: n }, ''); } catch (_) {} }
   }
   const cur = document.querySelector('.pane.on');
   cur.classList.remove('on', 'back');

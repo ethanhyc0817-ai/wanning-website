@@ -5255,6 +5255,12 @@ window.addEventListener('popstate', function (e) {
   } else {
     showPage('home', true);
   }
+  // Booking steps live in this history too: tell the frame which step this entry is.
+  if (page === 'contact') {
+    var fr = document.getElementById('bywFrame');
+    var n = (e && e.state && typeof e.state.byw === 'number') ? e.state.byw : 0;
+    if (fr && fr.contentWindow) { try { fr.contentWindow.postMessage({ byw: 'goto', n: n }, window.location.origin); } catch (err) {} }
+  }
 });
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
@@ -6137,6 +6143,10 @@ function requestQuote(key) {
     if (e.data.byw === 'top') {
       var y = frame.getBoundingClientRect().top + window.scrollY - 84;
       window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+    }
+    if (e.data.byw === 'step' && typeof e.data.n === 'number') {
+      // one history entry per booking step, so Back walks the flow instead of leaving it
+      try { window.history.pushState({ page: 'contact', byw: e.data.n }, '', window.location.href); } catch (err) {}
     }
     if (e.data.byw === 'bar') {
       var bar = document.getElementById('bywBar');
