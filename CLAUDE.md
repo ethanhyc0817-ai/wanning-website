@@ -19,10 +19,15 @@
     no-op marker — the config has no promo to fall back to); design-your-buyout's
     WAVES array uses `now: SCB.<wave>.list`, and its `price()` computes ONE total,
     with no `was`/`save`/`ANCHOR` to diff back into the discount.
-  - EXCEPTION, still outstanding: `pages/book-surf.html` (served at `/book/surf`,
-    `noindex`, no inbound links, mid-redesign) still has a hardcoded struck price
-    at line 331 and a `bkSumWas` anchor at line 550. It is a live 200 for anyone
-    with the URL. Fix or block it when that redesign lands.
+  - `pages/book-surf.html` still carries a hardcoded struck price, but `/book/surf`,
+    `/book-surf.html` and `/pages/book-surf.html` now 307-redirect (vercel.json) to the
+    booking flow, so it no longer ships. Delete the file when convenient.
+- Booking (Sep 2026): the ONE booking entry is the homepage panel `/#contact`, which
+  embeds `pages/book.html` (served unlisted at `/book-your-wave`, noindex) in an iframe.
+  Old form URLs redirect there: `/contact`, `/book`, `/quote`, `/inquiry.html` -> `/#contact`;
+  `/golf-inquiry.html` -> `/?package=golf#contact`; `/book/surf` -> `/?package=wave-pool#contact`.
+  `?package=wave-pool | surf-golf-essential|premium|luxury | custom | golf` preselects the trip.
+  All in-site CTAs use `/#contact` (or `showPage('contact')` inside index.html).
 - Buyout prices live in `Assets/sc-pricing.js` (machine-synced). `pages/design-your-buyout.html` and `pages/rates.html` carry those CNY prices in static HTML (`data-sc-num` spans, runtime-refreshed) AND in JSON-LD blocks that are NOT runtime-refreshed — a price sync must update the JSON-LD numbers on both pages too.
 - Public regular surf-session sell price (Aug 2026): publish CNY 550/person for Beginner, Intermediate and Advanced sessions. Do not restore the old park ticket/reference prices (358 / 349 / 448) on public rate boards or schema.
 - SEO decisions (Aug 2026): prices in client-facing static copy/schema are CNY; no author bylines on blog posts; no About/Team page for now. `index.html` must keep exactly ONE `<h1>` (the hero) — SPA panel titles are `<h2 class="page-title">`.

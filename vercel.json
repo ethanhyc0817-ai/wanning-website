@@ -5,22 +5,6 @@
       "destination": "/pages/book.html"
     },
     {
-      "source": "/book/surf",
-      "destination": "/pages/book-surf.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/pages/inquiry.html"
-    },
-    {
-      "source": "/book",
-      "destination": "/pages/inquiry.html"
-    },
-    {
-      "source": "/quote",
-      "destination": "/pages/inquiry.html"
-    },
-    {
       "source": "/premium-7nights",
       "destination": "/pages/brochure-open.html"
     },
@@ -86,6 +70,56 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/pages/book-surf.html",
+      "destination": "/?package=wave-pool#contact",
+      "permanent": false
+    },
+    {
+      "source": "/book-surf.html",
+      "destination": "/?package=wave-pool#contact",
+      "permanent": false
+    },
+    {
+      "source": "/book/surf",
+      "destination": "/?package=wave-pool#contact",
+      "permanent": false
+    },
+    {
+      "source": "/pages/golf-inquiry.html",
+      "destination": "/?package=golf#contact",
+      "permanent": false
+    },
+    {
+      "source": "/golf-inquiry.html",
+      "destination": "/?package=golf#contact",
+      "permanent": false
+    },
+    {
+      "source": "/pages/inquiry.html",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
+      "source": "/inquiry.html",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
+      "source": "/quote",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
+      "source": "/book",
+      "destination": "/#contact",
+      "permanent": false
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": false
+    },
     {
       "source": "/blog-what-to-pack-hainan-surf-golf-trip.html",
       "destination": "/blog.html",
