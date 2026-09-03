@@ -1204,7 +1204,7 @@ document.querySelectorAll('.pack').forEach(p => p.addEventListener('click', () =
   $('f-golf').hidden = state.pack !== 'golf';
   $('f-notes').hidden = !(state.pack === 'custom' || state.pack === 'golf');
   $('notes').placeholder = state.pack === 'golf'
-    ? 'Handicaps, courses you\u2019d love to play, surf levels in the group, who\u2019s coming, special occasions, anything already booked\u2026'
+    ? 'How many surf sessions? How many rounds of golf? Any other activities you want us to build in?'
     : 'Any activities you\u2019d love to do, celebrations you\u2019re marking, coming with kids, food you can\u2019t miss, anything already booked\u2026';
 
   setTimeout(() => go(1), 160); // let the selection register visually first
