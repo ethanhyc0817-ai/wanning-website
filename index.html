@@ -6148,6 +6148,10 @@ function requestQuote(key) {
       // one history entry per booking step, so Back walks the flow instead of leaving it
       try { window.history.pushState({ page: 'contact', byw: e.data.n }, '', window.location.href); } catch (err) {}
     }
+    if (e.data.byw === 'mailto' && typeof e.data.url === 'string' && e.data.url.indexOf('mailto:hello@surfchina.co') === 0) {
+      // the frame can't open the mail app itself — do it from the top window
+      try { window.location.href = e.data.url; } catch (err) {}
+    }
     if (e.data.byw === 'bar') {
       var bar = document.getElementById('bywBar');
       if (bar) { bar.hidden = !e.data.on; if (e.data.pp) document.getElementById('bywPP').textContent = e.data.pp; }

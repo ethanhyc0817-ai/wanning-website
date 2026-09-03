@@ -506,6 +506,10 @@
   .fields-err[hidden] { display: none; }
   .trust { font-size: 0.74rem; color: var(--warm-gray); margin-top: 0.8rem; line-height: 1.6; }
 
+  .mail-again-wrap { margin-top: 1.6rem; display: grid; gap: 0.5rem; justify-items: center; }
+  .mail-again-wrap .btn { text-decoration: none; display: inline-block; }
+  .mail-again-wrap a[hidden] { display: none; }
+  .mail-again-note { font-size: 0.78rem; color: var(--warm-gray); }
   /* success */
   .done { text-align: center; padding: 5rem 1rem 3rem; }
   .done .ring { width: 84px; height: 84px; border-radius: 50%; background: var(--gold); color: var(--ocean-deep);
@@ -917,7 +921,9 @@
            on WhatsApp or email within 24 hours.</p>
         <p class="golf-only">We&rsquo;re building your Surf &amp; Golf itinerary now &mdash; expect the written plan and exact quote
            on WhatsApp or email within 24 hours.</p>
-        <button type="button" class="btn btn-gold" style="margin-top:1.6rem;" data-go="0" data-dir="back">Plan another trip</button>
+        <p class="mail-again-wrap"><a id="mail-again" class="btn btn-gold" href="#" target="_top" hidden>Email us a copy of this request &rarr;</a>
+          <span class="mail-again-note">Opens your mail app with everything pre-filled &mdash; just tap send.</span></p>
+        <button type="button" class="btn btn-ghost" style="margin-top:1rem;" data-go="0" data-dir="back">Plan another trip</button>
       </div>
     </section>
   </div>
@@ -1470,10 +1476,19 @@ function openMailDraft(fd) {
     const subject = (isGO() ? 'Golf trip quote request' : isGolf() ? 'Surf & Golf quote request' : PACKS[state.pack] + ' booking') + (name ? ' \u2014 ' + name : '') + ' (surfchina.co)';
     const body = 'Hello Surf China team,\n\nI just sent a request through Book Your Wave on surfchina.co. Here are my details:\n\n'
       + lines.join('\n') + '\n\nLooking forward to hearing from you.';
-    const a = document.createElement('a');
-    a.href = 'mailto:hello@surfchina.co?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    a.style.display = 'none';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    const url = 'mailto:hello@surfchina.co?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    // A visible fallback on the success screen: if the browser blocks the automatic
+    // open (Safari does this for frames), one tap still opens the draft.
+    const again = $('mail-again');
+    if (again) { again.href = url; again.hidden = false; }
+    if (EMBED) {
+      // Inside the homepage frame a mailto: navigation must come from the top window.
+      tellParent({ byw: 'mailto', url });
+    } else {
+      const a = document.createElement('a');
+      a.href = url; a.style.display = 'none';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
   } catch (_) { /* mail draft is best-effort */ }
 }
 $('reserve').addEventListener('click', async () => {
