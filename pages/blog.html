@@ -142,6 +142,13 @@
       "blogPost": [
         {
           "@type": "BlogPosting",
+          "headline": "Where to Stay at Riyue Bay: The Surf Hotel Inside the Wave Pool Grounds",
+          "url": "https://www.surfchina.co/blog-where-to-stay-riyue-bay-surf-hotel-hainan.html",
+          "datePublished": "2026-09-02",
+          "image": "https://www.surfchina.co/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02.jpg"
+        },
+        {
+          "@type": "BlogPosting",
           "headline": "Learn to Surf in a Wave Pool: A Beginner's Guide to Riyue Bay",
           "url": "https://www.surfchina.co/blog-learn-to-surf-wave-pool-beginners-guide.html",
           "datePublished": "2026-09-01",
@@ -413,6 +420,14 @@ nav.scrolled { padding: 0.7rem 0; }
   display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
 }
+.mobile-menu-group { border-bottom: 1px solid rgba(0,0,0,0.06); }
+.mobile-menu-group summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); padding: 1rem 0; }
+.mobile-menu-group summary::-webkit-details-marker { display: none; }
+.mobile-menu-group summary::after { content: '\25BE'; font-size: 1rem; color: var(--warm-gray); transition: rotate 0.2s; }
+.mobile-menu-group[open] summary::after { rotate: 180deg; }
+.mobile-menu-group a { font-size: 1.05rem; font-weight: 500; padding: 0.6rem 0 0.6rem 1rem; border-bottom: none; }
+.mobile-menu-group a:last-child { padding-bottom: 1rem; }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: transform 0.3s var(--ease-in-out), opacity 0.3s; }
 .nav-mobile-cta {
@@ -586,19 +601,21 @@ nav.scrolled { padding: 0.7rem 0; }
   <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
   <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
-  <span class="mobile-menu-label">Plan Your Trip</span>
+  <details class="mobile-menu-group"><summary>Plan Your Trip</summary>
   <a href="/surf-calendar.html">Surf Calendar</a>
   <a href="/wave-settings.html">Wave Settings</a>
   <a href="/rates.html">Rates</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/board-rentals.html">Board Rentals</a>
   <a href="/trip-support.html">Trip Support</a>
-  <span class="mobile-menu-label">Explore</span>
+  </details>
+  <details class="mobile-menu-group"><summary>Explore</summary>
   <a href="/nature.html">Nature &amp; Adventure</a>
   <a href="/culture.html">Culture</a>
   <a href="/cuisine.html">Food</a>
   <a href="/natural-surf.html">Ocean Surf</a>
   <a href="/blog.html">Blog</a>
+  </details>
   <a href="/#contact">Book Now</a>
 </div>
 
@@ -616,7 +633,18 @@ nav.scrolled { padding: 0.7rem 0; }
   <div class="container">
     <div class="post-grid">
       <!-- POSTS:START — newest post first; the first card uses class "post-card featured" -->
-      <a href="/blog-learn-to-surf-wave-pool-beginners-guide.html" class="post-card featured fade-in">
+      <a href="/blog-where-to-stay-riyue-bay-surf-hotel-hainan.html" class="post-card featured fade-in">
+        <div class="pc-img">
+          <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02-1500.avif 1500w, /Assets/hotel/outside/outside%20use/hotel-pool-aerial-02-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="/Assets/hotel/outside/outside%20use/hotel-pool-aerial-02-1500.webp 1500w, /Assets/hotel/outside/outside%20use/hotel-pool-aerial-02-2560.webp 2560w"><img src="/Assets/hotel/outside/outside use/hotel-pool-aerial-02.jpg" alt="Aerial view of UECHAO Hotel Riyuebay, the surf resort beside the PerfectSwell wave pool and beach at Riyue Bay, Wanning, Hainan" decoding="async"></picture>
+        </div>
+        <div class="pc-body">
+          <span class="pc-tag">Where to Stay</span>
+          <h2>Where to Stay at Riyue Bay: The Surf Hotel Inside the Wave Pool Grounds</h2>
+          <p class="pc-excerpt">No taxis, no shuttle, no gate between your room and the lineup. Six room types, breakfast included until 1:30 PM, free gym and laundry &mdash; and the PerfectSwell&reg; pool and beach about a minute from your door.</p>
+          <span class="pc-meta">September 2, 2026 <span class="dot"></span> 6 min read</span>
+        </div>
+      </a>
+      <a href="/blog-learn-to-surf-wave-pool-beginners-guide.html" class="post-card fade-in">
         <div class="pc-img">
           <picture><source type="image/avif" sizes="(max-width: 768px) 342px, 665px" srcset="/Assets/wavepool/wavepool-surf-lesson-01-700.avif 700w, /Assets/wavepool/wavepool-surf-lesson-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 342px, 665px" srcset="/Assets/wavepool/wavepool-surf-lesson-01-700.webp 700w, /Assets/wavepool/wavepool-surf-lesson-01-1400.webp 1400w"><img src="/Assets/wavepool/wavepool-surf-lesson-01.jpg" alt="Beginner surf lesson in progress at the PerfectSwell wave pool, Riyue Bay, Wanning, Hainan" decoding="async"></picture>
         </div>

@@ -302,6 +302,14 @@ nav.scrolled { padding: 0.7rem 0; }
   display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--warm-gray); padding: 1.4rem 0 0.4rem; border: none;
 }
+.mobile-menu-group { border-bottom: 1px solid rgba(0,0,0,0.06); }
+.mobile-menu-group summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  font-size: 1.35rem; font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--charcoal); padding: 1rem 0; }
+.mobile-menu-group summary::-webkit-details-marker { display: none; }
+.mobile-menu-group summary::after { content: '\25BE'; font-size: 1rem; color: var(--warm-gray); transition: rotate 0.2s; }
+.mobile-menu-group[open] summary::after { rotate: 180deg; }
+.mobile-menu-group a { font-size: 1.05rem; font-weight: 500; padding: 0.6rem 0 0.6rem 1rem; border-bottom: none; }
+.mobile-menu-group a:last-child { padding-bottom: 1rem; }
 .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px 4px; }
 .nav-mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: transform 0.3s var(--ease-in-out), opacity 0.3s; }
 .nav-mobile-cta { display: none; font-size: 0.7rem; padding: 0.5rem 0.95rem; background: var(--ocean); color: var(--white); border: 1px solid var(--ocean); border-radius: 980px; text-decoration: none; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; white-space: nowrap; }
@@ -518,19 +526,21 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <a href="/accommodation.html">Accommodation</a>
   <a href="/#packages">Packages</a>
   <a href="/design-your-buyout.html" style="color:#8a6a2f; font-weight:700;">Private Buyout</a>
-  <span class="mobile-menu-label">Plan Your Trip</span>
+  <details class="mobile-menu-group"><summary>Plan Your Trip</summary>
   <a href="/surf-calendar.html">Surf Calendar</a>
   <a href="/wave-settings.html">Wave Settings</a>
   <a href="/rates.html">Rates</a>
   <a href="/how-to-get-here.html">Getting Here</a>
   <a href="/board-rentals.html">Board Rentals</a>
   <a href="/trip-support.html">Trip Support</a>
-  <span class="mobile-menu-label">Explore</span>
+  </details>
+  <details class="mobile-menu-group"><summary>Explore</summary>
   <a href="/nature.html">Nature &amp; Adventure</a>
   <a href="/culture.html">Culture</a>
   <a href="/cuisine.html">Food</a>
   <a href="/natural-surf.html">Ocean Surf</a>
   <a href="/blog.html">Blog</a>
+  </details>
   <a href="/#contact">Book Now</a>
 </div>
 
