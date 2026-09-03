@@ -4990,267 +4990,15 @@ footer::before {
     </div>
   </section>
 
-  <section style="padding-top: clamp(2rem, 4vw, 3.5rem);">
+  <section style="padding-top: clamp(1.5rem, 3vw, 2.5rem);">
     <div class="container">
-      <div class="contact-grid">
-        <div>
-          <a href="/golf-inquiry.html" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; text-decoration:none; border:1px solid var(--gold); border-radius:12px; padding:1rem 1.2rem; margin-bottom:1.8rem; background:var(--gold);">
-            <span style="font-size:0.92rem; color:rgba(26,26,26,0.82); line-height:1.5; flex:1; min-width:220px;"><strong style="color:var(--charcoal);">Here for golf only?</strong> No surf &mdash; just championship golf across Hainan.</span>
-            <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); white-space:nowrap;">Golf Inquiry &rarr;</span>
-          </a>
-          <h2>Request a Quote</h2>
-          <div class="section-divider"></div>
-          <form id="contactForm" action="https://formspree.io/f/xbdwrwna" method="POST" novalidate onsubmit="handleSubmit(event)">
-            <input type="hidden" name="_subject" value="New Quote Request — surfchina.co">
-<div class="form-group form-group-lg">
-              <label>First &mdash; What Kind of Trip? <span style="color:var(--coral);">*</span></label>
-              <p class="form-help">These are starting points, not a fixed menu &mdash; we adjust the nights, hotels, rounds, and extras around you. Pick the closest fit, or start from scratch below. <a href="#" onclick="showPage('packages'); return false;">See all packages</a>.</p>
-              <div class="pkg-tabs" role="tablist" aria-label="Trip type">
-                <button type="button" class="pkg-tab" data-section="surf-golf">Surf &amp; Golf</button>
-                <button type="button" class="pkg-tab" data-section="surf">Surf</button>
-                <button type="button" class="pkg-tab" data-section="custom">Custom</button>
-              </div>
-              <div class="pkg-section" data-section="surf" hidden>
-              <div class="package-options">
-                <!-- Surf has a single package, so it is shown as plain copy; the hidden box keeps the
-                     submitted value, the estimate and the ?package=wave-pool deep link working. -->
-                <input type="checkbox" name="interested_in" value="The Surf Escape (3 nights+)" data-nights="3" data-package-key="wave-pool" hidden>
-                <div class="surf-lead">
-                  <div class="package-option-head">
-                    <span class="package-option-name">The Surf Escape</span>
-                    <span class="package-option-price"><span class="package-option-nights">3 nights+</span> &middot; from ~US$759 pp</span>
-                  </div>
-                  <div class="package-option-sub">At Surf Pool Resort (Garden View) &middot; 2 PerfectSwell&reg; sessions/day &middot; room, breakfast, board, transfers, video &mdash; all in</div>
-                  <a href="/package-1-the-surf-session.html" target="_blank" rel="noopener" class="package-option-info">View full details &rarr;</a>
-                </div>
-                <div id="wpeEstimate" class="wpe-est" hidden>
-                  <input type="hidden" name="quoted_estimate" id="wpeQuoted" disabled>
-                  <div class="wpe-est__title">Quick estimate <span>&middot; ballpark, we confirm your exact quote</span></div>
-                  <div class="wpe-est__summary">Estimate for <strong id="wpeBasis">2 guests</strong> <span class="wpe-est__setabove">&mdash; from your details above</span></div>
-                  <div class="wpe-est__inputs">
-                    <label>Nights<input type="number" name="num_nights" id="wpeNights" value="3" min="1" max="30" step="1" inputmode="numeric"></label>
-                    <label>Surf sessions / day <span class="hint">(whole group)</span><input type="number" name="sessions_per_day" id="wpeSessionsPerDay" value="2" min="0" max="4" step="1" inputmode="numeric"></label>
-                  </div>
-                  <div class="wpe-est__out">
-                    <div><span class="wpe-est__from">From</span> <span class="wpe-est__pp" id="wpePP">$759</span> <span class="wpe-est__per">/ person</span></div>
-                    <div class="wpe-est__tot"><span id="wpeTot">$1,518 total</span> &middot; <span class="wpe-est__list" id="wpeList">was $1,670</span></div>
-                  </div>
-                </div>
-                </div>
-              </div>
-              <div class="pkg-section" data-section="surf-golf" hidden>
-              <div class="package-options">
-                <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Essential (5 nights)" data-nights="5" data-package-key="surf-golf-essential">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name"><span class="package-option-nights">5 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-essential">Essential</span></span>
-                      <span class="package-option-price">From ~US$1,403 pp</span>
-                    </div>
-                    <div class="package-option-sub">5N Surf Pool Resort (Ocean &amp; Pool View) &middot; 6 PerfectSwell&reg; sessions + 2 rounds at The Dunes &middot; Wanning only, one golfer</div>
-                    <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
-                  </div>
-                </label>
-                <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Premium (7 nights)" data-nights="7" data-package-key="surf-golf-premium">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name"><span class="package-option-nights">7 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-premium">Premium</span></span>
-                      <span class="package-option-price">From ~US$2,475 pp</span>
-                    </div>
-                    <div class="package-option-sub">5N Surf Pool Resort + 2N Ritz-Carlton Haikou &middot; 4 PerfectSwell&reg; sessions + 3 championship rounds (Dunes &times;2 + Blackstone)</div>
-                    <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
-                  </div>
-                </label>
-                <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Surf & Golf Retreat · Luxury (11 nights)" data-nights="11" data-package-key="surf-golf-luxury">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name"><span class="package-option-nights">11 nights</span> &middot; Surf &amp; Golf &middot; <span class="package-option-tier-luxury">Luxury</span></span>
-                      <span class="package-option-price">From ~US$5,501 pp</span>
-                    </div>
-                    <div class="package-option-sub">4N Wanning Owner&rsquo;s Suite + 5N Rosewood Sanya + 2N Ritz Haikou Golf Suite &middot; 3 rounds across 3 cities &middot; private yacht + cultural day</div>
-                    <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-option-info" onclick="event.stopPropagation()">See the full brochure &rarr;</a>
-                  </div>
-                </label>
-              </div>
-              </div>
-              <div class="pkg-section" data-section="custom" hidden>
-              <div class="package-options">
-                <label class="package-option">
-                  <input type="checkbox" name="interested_in" value="Custom / Build Your Own" data-package-key="custom" data-custom="1">
-                  <div class="package-option-body">
-                    <div class="package-option-head">
-                      <span class="package-option-name">Custom Trip</span>
-                    </div>
-                    <div class="package-option-sub">Start from our packages and tailor it &mdash; tell us your focus below and we&rsquo;ll come back with a built plan, not a blank page.</div>
-                  </div>
-                </label>
-              </div>
-              <div id="customDetail" class="custom-detail" hidden>
-                <div class="custom-detail__q">
-                  <label class="custom-detail__label">Surf and/or Golf <span style="color:var(--coral);">*</span></label>
-                  <div class="custom-choice">
-                    <label><input type="checkbox" name="custom_focus" value="Surf"> Surf</label>
-                    <label><input type="checkbox" name="custom_focus" value="Golf"> Golf</label>
-                  </div>
-                </div>
-                <div class="custom-detail__q" id="customSurfQ" hidden>
-                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many surf sessions? <span class="hint">(total for your group<span id="customSurfPax"></span>)</span></label>
-                  <input type="number" name="custom_surf_sessions" id="customSurfSessions" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 8">
-                </div>
-                <div class="custom-detail__q" id="customGolfQ" hidden>
-                  <label class="custom-detail__label"><span class="lbl-meta">Optional</span> &middot; How many golf rounds? <span class="hint">(total for your group<span id="customGolfPax"></span>)</span></label>
-                  <input type="number" name="custom_golf_rounds" id="customGolfRounds" min="0" max="20" step="1" inputmode="numeric" placeholder="e.g. 3">
-                </div>
-                <div class="custom-detail__q">
-                  <label class="custom-detail__label">Nights <span style="color:var(--coral);">*</span></label>
-                  <input type="number" name="num_nights" id="customNights" min="1" max="30" step="1" inputmode="numeric" placeholder="e.g. 7">
-                </div>
-                <div class="custom-detail__q">
-                  <label class="custom-detail__label">Budget <span style="color:var(--coral);">*</span></label>
-                  <div class="custom-choice">
-                    <label><input type="radio" name="custom_budget" value="Essential"> Essential</label>
-                    <label><input type="radio" name="custom_budget" value="Premium"> Premium</label>
-                    <label><input type="radio" name="custom_budget" value="Luxury"> Luxury</label>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
-<p class="step-hint" id="stepHint">Pick a trip type above and the rest of the form unlocks &mdash; it adapts to what you choose.</p>
-<div id="tripDetails" class="trip-details step-locked">
-            <div class="form-group">
-              <label for="full_name">Full Name</label>
-              <input type="text" id="full_name" name="full_name" placeholder="Your full name" autocomplete="name" autocapitalize="words" required>
-            </div>
-            <!-- Derived from Full Name on submit so the leads tracker's First/Last columns keep working -->
-            <input type="hidden" name="first_name">
-            <input type="hidden" name="last_name">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" autocapitalize="off" required>
-              </div>
-              <div class="form-group">
-                <label for="whatsapp"><span class="lbl-meta">Optional</span> &middot; WhatsApp</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 138 0000 0000" autocomplete="tel">
-              </div>
-            </div>
-            <div class="form-group">
-              <label id="dateLabel">Trip Start Date <span style="color:var(--coral);">*</span></label>
-              <div class="date-picker" id="datePicker">
-                <input type="text" id="dateDisplay" class="date-display" readonly placeholder="Click to choose your start date">
-                <div class="date-popover" id="datePopover" role="dialog" aria-label="Pick a trip start date"></div>
-                <input type="hidden" name="trip_start_date" id="tripStartDate">
-                <input type="hidden" name="dates_tbd" id="datesTbd" value="">
-              </div>
-              <p class="form-help maint-note" id="maintNote" hidden></p>
-              <p class="form-help holiday-note" id="holidayNote" hidden></p>
-              <div class="form-group" id="roughTimingGroup" hidden style="margin-top:0.6rem; margin-bottom:0;">
-                <label><span class="lbl-meta">Optional</span> &middot; Roughly when?</label>
-                <select name="rough_timing" id="roughTiming" disabled>
-                  <option value="">Select if you know&hellip;</option>
-                  <option>Next 3 months</option>
-                  <option>3&ndash;6 months out</option>
-                  <option>6&ndash;12 months out</option>
-                  <option>Just exploring for now</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row form-row-3">
-              <div class="form-group">
-                <label>Adults <span style="color:var(--coral);">*</span></label>
-                <input type="number" name="adults" min="1" max="30" step="1" inputmode="numeric" value="2" required>
-              </div>
-              <div class="form-group">
-                <label>Children</label>
-                <input type="number" name="children" min="0" max="20" step="1" inputmode="numeric" value="0">
-              </div>
-              <div class="form-group">
-                <label>Rooms <span style="color:var(--coral);">*</span></label>
-                <input type="number" name="rooms" min="1" max="20" step="1" inputmode="numeric" value="1" required>
-              </div>
-            </div>
-            <div class="form-group" id="childrenAgesGroup" hidden>
-              <label><span class="lbl-meta">Helps us plan beds &amp; sessions</span> &middot; Ages of children</label>
-              <input type="text" name="children_ages" id="childrenAges" placeholder="e.g. 9 and 12 — or &lsquo;6yo + 1yo infant&rsquo;">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label><span class="lbl-meta">Optional</span> &middot; Surf Level</label>
-                <select name="surf_level">
-                  <option value="">Select if you&rsquo;d like&hellip;</option>
-                  <option>Beginner</option>
-                  <option>Intermediate</option>
-                  <option>Advanced</option>
-                  <option>Barrels &amp; Airs (private session inquiry)</option>
-                  <option>Mixed levels in group</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row" id="paxSplitRow">
-              <div class="form-group">
-                <label><span class="lbl-meta">Optional</span> &middot; Number of Surfers</label>
-                <input type="number" name="num_surfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
-              </div>
-              <div class="form-group" id="golfersGroup">
-                <label><span class="lbl-meta">Optional</span> &middot; Number of Golfers</label>
-                <input type="number" name="num_golfers" id="numGolfers" min="0" max="60" step="1" inputmode="numeric" placeholder="e.g. 2">
-              </div>
-            </div>
-            <div class="addons" id="tripAddons" hidden>
-              <div class="ppool" data-addon="pool">
-                <div class="ppool__head">
-                  <span class="ppool__label">Private Pool Buyout <span class="ppool__tag">Add-on</span></span>
-                  <span class="ppool__price" data-price><span class="ppool__unit">from</span> $1,109 <span class="ppool__unit">/ session</span></span>
-                  <label class="ppool__add"><input type="checkbox" data-toggle> Add</label>
-                </div>
-                <p class="ppool__copy">One session = the whole PerfectSwell&reg; pool to your group for an hour &mdash; priced per session, not per person. Ask us about special offers on your dates.</p>
-                <div class="ppool__step">
-                  <span class="ppool__steplabel">1 &middot; Which wave?</span>
-                  <div class="custom-choice">
-                    <label><input type="radio" name="private_pool_wave" value="Intermediate" data-sc-wave="intermediate" data-sc-listonly data-promo="7760" data-list="7760"> Intermediate</label>
-                    <label><input type="radio" name="private_pool_wave" value="Advanced" data-sc-wave="advanced" data-sc-listonly data-promo="9960" data-list="9960"> Advanced</label>
-                    <label><input type="radio" name="private_pool_wave" value="Pro (barrels &amp; airs)" data-sc-wave="master" data-sc-listonly data-promo="9960" data-list="9960"> Pro &mdash; barrels &amp; airs</label>
-                  </div>
-                </div>
-                <div class="ppool__step" data-countstep hidden>
-                  <span class="ppool__steplabel">2 &middot; How many sessions?</span>
-                  <input type="number" name="private_pool_sessions" data-count value="1" min="0" max="12" step="1" inputmode="numeric" disabled>
-                </div>
-              </div>
-              <div class="ppool" data-addon="coaching">
-                <div class="ppool__head">
-                  <span class="ppool__label">Coaching <span class="ppool__tag">Add-on</span></span>
-                  <span class="ppool__price" data-price><span class="ppool__unit">from</span> $53 <span class="ppool__unit">/ session</span></span>
-                  <label class="ppool__add"><input type="checkbox" data-toggle> Add</label>
-                </div>
-                <p class="ppool__copy">An hour with our surf park&rsquo;s own coaches &mdash; the team that runs the pool every day. English-speaking coaches on request.</p>
-                <div class="ppool__step">
-                  <span class="ppool__steplabel">1 &middot; Which kind?</span>
-                  <div class="custom-choice">
-                    <label><input type="radio" name="coaching_type" value="One-on-one" data-promo="368" data-list="368"> One-on-one</label>
-                    <label><input type="radio" name="coaching_type" value="One-on-two" data-promo="536" data-list="536"> One-on-two <span class="ppool__hint">(2 surfers)</span></label>
-                  </div>
-                </div>
-                <div class="ppool__step" data-countstep hidden>
-                  <span class="ppool__steplabel">2 &middot; How many sessions?</span>
-                  <input type="number" name="coaching_sessions" data-count value="1" min="0" max="20" step="1" inputmode="numeric" disabled>
-                </div>
-              </div>
-            </div>
-            <div class="form-group" id="messageGroup">
-              <label><span class="lbl-meta">Optional</span> &middot; Tell Us More</label>
-              <textarea name="message" id="messageField" placeholder="Tell us about your ideal trip — who&rsquo;s coming, golf handicap, must-dos, special occasions, anything that matters to you. The more you share, the more precisely we can tailor the plan around you."></textarea>
-            </div>
-            <div id="formError" class="form-error" role="alert" hidden></div>
-            <p id="formStatus" role="status" aria-live="polite" style="display:none; margin:1rem 0 0; font-size:0.95rem;"></p>
-            <button type="submit" class="btn btn-primary btn-arrow" style="width:100%; justify-content:center;">Request My Quote </button>
-          </div>
-          </form>
-        </div>
-        <div class="contact-aside">
+      <!-- Book Your Wave: the booking flow lives at /pages/book.html (unlisted, served at
+           /book-your-wave) and is embedded here so /#contact stays the one booking URL.
+           The frame reports its height and asks us to scroll on step changes (postMessage). -->
+      <iframe id="bywFrame" title="Book your wave — request a quote" src="/book-your-wave?embed=1" loading="lazy"
+              style="width:100%; min-height:900px; border:0; display:block;"></iframe>
+      <div class="contact-grid" style="grid-template-columns:1fr; margin-top:2.5rem;">
+        <div class="contact-aside byw-aside">
           <div style="background:var(--sand); padding:2.5rem; border-radius:12px; margin-bottom:2rem;">
             <h3 style="margin-bottom:1.5rem;">Other Ways to Reach Us</h3>
             <div style="margin-bottom:1.5rem;">
@@ -6373,33 +6121,29 @@ function requestQuote(key) {
 }
 
 // Pre-select a package on the quote form when arriving from a package page with
-// ?package=<key> (e.g. /?package=surf-golf-premium#contact). Lets a visitor who has
-// already read the full package details land on a ready-to-book quote request with the
-// right package already chosen.
+// ?package=<key> (e.g. /?package=surf-golf-premium#contact). The booking flow is an
+// embedded frame now: pass the key through so it opens on the right trip.
 (function () {
-  function preselectPackage() {
-    var key;
-    try { key = new URLSearchParams(window.location.search).get('package'); } catch (e) { return; }
-    if (!key) return;
-    var box = document.querySelector('#contactForm input[data-package-key="' + key.replace(/[^a-z0-9-]/gi, '') + '"]');
-    if (!box) return;
-    // Open the tab that holds this package so the checked option is visible.
-    var sec = box.closest('.pkg-section');
-    var tab = sec && document.querySelector('#contactForm .pkg-tab[data-section="' + sec.dataset.section + '"]');
-    if (tab) tab.click();
-    box.checked = true;
-    // The selected-state highlight is pure CSS (:has(input:checked)); firing change
-    // keeps the single-select handler in sync.
-    box.dispatchEvent(new Event('change', { bubbles: true }));
-    // Make sure the contact page is showing, then bring the form into view.
-    if (document.getElementById('page-contact')) showPage('contact', true);
-    var form = document.getElementById('contactForm');
-    if (form) setTimeout(function () { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', preselectPackage);
-  } else {
-    preselectPackage();
+  var frame = document.getElementById('bywFrame');
+  if (!frame) return;
+  var key = '';
+  try { key = new URLSearchParams(window.location.search).get('package') || ''; } catch (e) {}
+  if (key) frame.src = '/book-your-wave?embed=1&package=' + encodeURIComponent(key);
+  window.addEventListener('message', function (e) {
+    if (e.origin !== window.location.origin || !e.data || e.data.byw == null) return;
+    if (e.data.byw === 'h' && e.data.h > 0) frame.style.height = Math.ceil(e.data.h) + 'px';
+    if (e.data.byw === 'top') {
+      var y = frame.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+    }
+    if (e.data.byw === 'scrollTo' && typeof e.data.y === 'number') {
+      var yy = frame.getBoundingClientRect().top + window.scrollY + e.data.y - 120;
+      window.scrollTo({ top: Math.max(0, yy), behavior: 'smooth' });
+    }
+  });
+  if (key) {
+    var open = function () { if (document.getElementById('page-contact')) showPage('contact', true); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', open); else open();
   }
 })();
 

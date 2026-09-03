@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
   picture{display:contents}picture>source{display:none}
+  /* embedded inside the homepage's #contact panel: no own header, no fixed bars, parent scrolls */
+  html.embedded .top { display: none; }
+  html.embedded main { padding-bottom: 1rem; }
+  html.embedded .mobar { display: none !important; }
+  html.embedded .rail2 { position: static; }
+  html.embedded .pane { min-height: 0; }
   :root {
     --ocean: #0a4d68; --ocean-light: #1a7a9b; --ocean-deep: #092e3e;
     --sand: #f5f0e8; --sand-dark: #e8dfd2; --charcoal: #1a1a1a;
@@ -1193,6 +1199,22 @@ function paint() {
     + `<tr><td style="border:none"><small>Per person</small></td><td style="border:none">${fmt(r.pp)}</td></tr>`;
 }
 
+/* ---------------- embedded mode (homepage /#contact) ---------------- */
+const EMBED = (() => { try { return window.self !== window.top || /[?&]embed=1/.test(location.search); } catch (_) { return true; } })();
+if (EMBED) document.documentElement.classList.add('embedded');
+const tellParent = msg => { if (EMBED) { try { window.parent.postMessage(msg, location.origin); } catch (_) {} } };
+if (EMBED) {
+  const report = () => tellParent({ byw: 'h', h: document.documentElement.scrollHeight });
+  new ResizeObserver(report).observe(document.body);
+  window.addEventListener('load', report);
+  setTimeout(report, 300);
+}
+// scrollIntoView from inside a content-sized frame can't move the parent — send it up instead
+function bringIntoView(el) {
+  if (!el) return;
+  if (EMBED) tellParent({ byw: 'scrollTo', y: el.getBoundingClientRect().top + window.scrollY });
+  else el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
 /* ---------------- steps ---------------- */
 let step = 0;
 function go(n, back) {
@@ -1204,7 +1226,7 @@ function go(n, back) {
   step = n;
   document.querySelectorAll('.steps span').forEach((el, i) => el.classList.toggle('on', i <= Math.min(n, 2)));
   $('mobar').style.display = (n === 1 && matchMedia('(max-width: 900px)').matches) ? 'flex' : 'none';
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (EMBED) tellParent({ byw: 'top' }); else window.scrollTo({ top: 0, behavior: 'instant' });
   paint();
 }
 function golfReady() {
@@ -1213,7 +1235,7 @@ function golfReady() {
     const badG = gl.value.trim() === '' || +gl.value < 1, badR = rd.value === '';
     gl.classList.toggle('err', badG); rd.classList.toggle('err', badR);
     $('go-err').hidden = !(badG || badR);
-    if (badG || badR) { const f = badG ? gl : rd; f.scrollIntoView({ block: 'center', behavior: 'smooth' }); f.focus({ preventScroll: true }); return false; }
+    if (badG || badR) { const f = badG ? gl : rd; bringIntoView(f); f.focus({ preventScroll: true }); return false; }
     return true;
   }
   if (!isGolf()) return true;
@@ -1225,7 +1247,7 @@ function golfReady() {
     if (bad) { ok = false; first = first || el; }
   });
   const err = $('nums-err'); if (err) err.hidden = ok;
-  if (!ok) { first.scrollIntoView({ block: 'center', behavior: 'smooth' }); first.focus({ preventScroll: true }); }
+  if (!ok) { bringIntoView(first); first.focus({ preventScroll: true }); }
   return ok;
 }
 document.addEventListener('click', e => {
@@ -1648,6 +1670,18 @@ document.addEventListener('click', e => {
   $('tp-essential').textContent = pp('sg_essential');
   $('tp-premium').textContent = pp('sg_premium');
   $('tp-luxury').textContent = pp('sg_luxury');
+})();
+/* ?package=wave-pool | surf-golf-essential|premium|luxury | custom  (from the package pages) */
+(function deepLink() {
+  let key = '';
+  try { key = new URLSearchParams(location.search).get('package') || ''; } catch (_) { return; }
+  if (!key) return;
+  const m = key.match(/^surf-golf-(essential|premium|luxury)$/);
+  const pack = key === 'wave-pool' ? 'stay' : m ? 'golf' : key === 'custom' ? 'custom' : key === 'golf' ? 'golfonly' : '';
+  if (!pack) return;
+  if (m) { state.tier = m[1]; document.querySelectorAll('#tiers .chip').forEach(x => x.classList.toggle('on', x.dataset.tier === m[1])); }
+  const card = document.querySelector('.pack[data-pack="' + pack + '"]');
+  if (card) setTimeout(() => card.click(), 50);
 })();
 renderRooms();
 paintTierDoc();
