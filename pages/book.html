@@ -119,8 +119,8 @@
   .pack ul { list-style: none; margin: 0.8rem 0 1rem; display: grid; gap: 0.35rem; }
   .pack li { font-size: 0.8rem; color: var(--charcoal); padding-left: 1.2rem; position: relative; }
   .pack li::before { content: "\2713"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-  .pack .fromp { margin-top: auto; font-variant-numeric: tabular-nums; }
-  .pack .cta { display: flex; align-items: center; justify-content: center; margin-top: 1rem; padding: 0.8rem 1rem;
+  .pack .fromp { font-variant-numeric: tabular-nums; margin-bottom: 1rem; }
+  .pack .cta { display: flex; align-items: center; justify-content: center; margin-top: auto; padding: 0.8rem 1rem;
                border-radius: var(--r-pill); background: var(--ocean); color: var(--white); font-family: 'Montserrat', sans-serif;
                font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
                transition: background 0.2s var(--ease-out), transform 0.16s var(--ease-out); }
@@ -582,7 +582,6 @@
               <li>Mission Hills Blackstone &mdash; Golf Digest World Top 100</li>
               <li>Tee times &amp; caddies arranged</li>
             </ul>
-            <span class="fromp"><em>5 nights, per person</em><b id="fp-golf">$840</b> <small>couple sharing</small></span>
             <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
@@ -596,7 +595,6 @@
               <li>Surf Pool Resort, daily breakfast</li>
               <li>Boards, transfers &amp; scheduling</li>
             </ul>
-            <span class="fromp"><em>3 nights, per person</em><b id="fp-stay">$300</b> <small>couple sharing</small></span>
             <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
@@ -610,7 +608,6 @@
               <li>Activities around the island &mdash; yacht days, hot springs, coffee &amp; culture</li>
               <li>Private guide, car &amp; itinerary built around you</li>
             </ul>
-            <span class="fromp"><em>3 nights, per person</em><b id="fp-custom">$300</b> <small>+ your add-ons</small></span>
             <span class="cta">Plan my trip &rarr;</span>
           </span>
         </button>
@@ -1718,9 +1715,6 @@ document.addEventListener('click', e => {
 /* from-prices on the cards come from the same calculator — never hand-typed */
 (function fromPrices() {
   const pp = k => '$' + Math.round(ENGINE.packages[k].cny / ENGINE.fx / ENGINE.packages[k].pax).toLocaleString('en-US');
-  $('fp-stay').textContent = pp('escape3');
-  $('fp-custom').textContent = pp('escape3');
-  $('fp-golf').textContent = pp('sg_essential');
   $('tp-essential').textContent = pp('sg_essential');
   $('tp-premium').textContent = pp('sg_premium');
   $('tp-luxury').textContent = pp('sg_luxury');
