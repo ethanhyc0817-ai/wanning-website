@@ -27,6 +27,9 @@
     --sand: #f5f0e8; --sand-dark: #e8dfd2; --charcoal: #1a1a1a;
     --warm-gray: #6b6560; --gold: #c4a265; --gold-lift: #dcc08b;
     --coral: #d4856a; --paper: #f4e9d0; --white: #fff;
+    /* Surf & Golf tier colours — same as the homepage brochure list (Essential / Premium / Luxury) */
+    --tier-essential: #2d8a94; --tier-premium: #0a4d68; --tier-luxury: #c4a265;
+    --tier-luxury-ink: #8a6a2f; /* gold is too light for text: the Luxury label/price use this */
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --r-card: 12px; --r-pill: 980px;
   }
@@ -175,7 +178,32 @@
   #gotier .chip b, #tiers .chip b { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; }
   #gotier .chip small, #tiers .chip small { font-size: 0.78rem; opacity: 0.8; }
   #gotier .chip strong, #tiers .chip strong { font-size: 0.95rem; font-weight: 700; margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
-  #tiers .chip:not(.on):hover { border-color: var(--ocean); }
+  /* Each tier keeps its own colour (Essential teal, Premium ocean, Luxury gold): a colour band
+     on every card, and the chosen one fills with a tint of its colour instead of the generic navy. */
+  #tiers .chip { --tier: var(--ocean); --tier-ink: var(--tier); position: relative; overflow: hidden; padding-top: 1.15rem; border-color: var(--sand-dark); }
+  #tiers .chip[data-tier="essential"] { --tier: var(--tier-essential); }
+  #tiers .chip[data-tier="premium"]   { --tier: var(--tier-premium); }
+  #tiers .chip[data-tier="luxury"]    { --tier: var(--tier-luxury); --tier-ink: var(--tier-luxury-ink); }
+  #tiers .chip::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--tier); }
+  #tiers .chip b { color: var(--tier-ink); }
+  #tiers .chip small { color: var(--warm-gray); opacity: 1; }
+  #tiers .chip strong { color: var(--charcoal); }
+  #tiers .chip::after { content: "\2713"; position: absolute; top: 0.85rem; right: 0.85rem; width: 22px; height: 22px; border-radius: 50%;
+                        border: 1.5px solid var(--sand-dark); color: transparent; font-size: 0.7rem; font-weight: 700;
+                        display: grid; place-items: center; transition: background 0.2s var(--ease-out), border-color 0.2s var(--ease-out), color 0.2s var(--ease-out); }
+  #tiers .chip:not(.on):hover { border-color: var(--tier); }
+  #tiers .chip:not(.on):hover::after { border-color: var(--tier); }
+  #tiers .chip.on { background: color-mix(in srgb, var(--tier) 9%, var(--white)); border-color: var(--tier);
+                    box-shadow: 0 0 0 1.5px var(--tier) inset, 0 10px 26px color-mix(in srgb, var(--tier) 18%, transparent); color: var(--charcoal); }
+  #tiers .chip.on::after { background: var(--tier); border-color: var(--tier); color: var(--white); }
+  #tiers .chip.on strong { color: var(--tier-ink); }
+  #tiers .chip[data-tier="luxury"].on::after { color: var(--ocean-deep); }
+  @supports not (background: color-mix(in srgb, red 9%, white)) { #tiers .chip.on { background: var(--white); } }
+  /* the brochure button follows the chosen tier's colour (set by paintTierDoc) */
+  #f-golf .tier-doc a { --tier: var(--gold); --tier-ink: var(--tier); color: var(--tier-ink); border-color: var(--tier); box-shadow: 0 6px 18px color-mix(in srgb, var(--tier) 22%, transparent); }
+  #f-golf .tier-doc a[data-tier="luxury"] { --tier-ink: var(--tier-luxury-ink); }
+  #f-golf .tier-doc a:hover { background: var(--tier); color: var(--white); box-shadow: 0 8px 22px color-mix(in srgb, var(--tier) 35%, transparent); }
+  #f-golf .tier-doc a[data-tier="luxury"]:hover { color: var(--ocean-deep); }
   @media (max-width: 640px) { #tiers.chips { grid-template-columns: 1fr; } }
   .tier-doc { margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
   .tier-doc a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); color: var(--gold);
@@ -1675,6 +1703,8 @@ const TIER_LABEL = { essential: 'Essential', premium: 'Premium', luxury: 'Luxury
 function paintTierDoc() {
   const a = $('tier-pdf'); if (!a) return;
   a.href = '/Assets/brochures/' + TIER_PDF[state.tier] + '.pdf';
+  a.dataset.tier = state.tier;
+  a.style.setProperty('--tier', 'var(--tier-' + state.tier + ')');
   $('tier-pdf-label').textContent = 'See the ' + TIER_LABEL[state.tier] + ' brochure';
 }
 const tiersEl = $('tiers');
