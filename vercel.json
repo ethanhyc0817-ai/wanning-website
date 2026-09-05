@@ -71,6 +71,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "surfchina.co"
+        }
+      ],
+      "destination": "https://www.surfchina.co/:path*",
+      "permanent": true
+    },
+    {
       "source": "/pages/book-surf.html",
       "destination": "/?package=wave-pool#contact",
       "permanent": false

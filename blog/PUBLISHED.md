@@ -18,3 +18,4 @@
 2026-08-31 | backlog-extension: what to pack for a Hainan surf & golf trip | blog-what-to-pack-hainan-surf-golf-trip | What to Pack for a Hainan Surf & Golf Trip: The Complete Checklist — REMOVED 2026-09-01 (Ethan's call; URL 301s to /blog.html, do not republish)
 2026-09-01 | backlog-extension: learn to surf in a wave pool (beginner guide) | blog-learn-to-surf-wave-pool-beginners-guide | Learn to Surf in a Wave Pool: A Beginner's Guide to Riyue Bay
 2026-09-02 | backlog-extension: where to stay at Riyue Bay (surf hotel guide) | blog-where-to-stay-riyue-bay-surf-hotel-hainan | Where to Stay at Riyue Bay: The Surf Hotel Inside the Wave Pool Grounds
+2026-09-03 | backlog-extension: surf trip to Hainan from Australia | blog-surf-trip-to-hainan-from-australia | Surf Trip to Hainan from Australia: Direct Flights, No Visa, and a Tropical Wave Pool — ledger/sitemap/blog.html entry added 2026-09-05 (was orphaned)

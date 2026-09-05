@@ -492,7 +492,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   <div class="container">
     <div class="quiver-header">
       <span class="overline">The Rental Quiver</span>
-      <h2>Boards for every level.</h2>
+      <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.01em;">Board rentals at Riyue Bay: boards for every level.</h1>
       <div class="section-divider-center"></div>
     </div>
     <p class="quiver-note">These are the models currently in our rental quiver. The lineup rotates regularly, so exact models, sizes, and availability are subject to change &mdash; ask us what&rsquo;s on the racks for your dates.</p>
@@ -680,7 +680,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       io.unobserve(e.target);
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('section h2, section .overline, section .lead').forEach(function (el) {
+  document.querySelectorAll('section h1, section h2, section .overline, section .lead').forEach(function (el) {
     if (el.closest('form')) return;
     var r = el.getBoundingClientRect();
     if (r.top < window.innerHeight) return; // already on screen — don't blink content the visitor sees
