@@ -501,7 +501,7 @@ nav.scrolled { padding: 0.7rem 0; }
 .amenities { background: var(--sand); }
 .amenity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .amenity-card { background: var(--white); border-radius: 12px; overflow: hidden; }
-.amenity-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.amenity-card img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; display: block; } /* height:auto — otherwise the height= attribute wins and aspect-ratio is ignored */
 .amenity-card-body { padding: 1.2rem 1.4rem 1.4rem; }
 .amenity-card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
 .amenity-card p { font-size: 0.88rem; color: var(--warm-gray); margin: 0; max-width: 100%; }
