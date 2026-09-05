@@ -1092,17 +1092,28 @@ nav.scrolled { padding: 0.7rem 0; }
 .package-foot { margin-top: auto; padding-top: 1.1rem; }
 .package-price { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--charcoal); font-size: 1.1rem; margin: 0 0 0.9rem !important; line-height: 1.3; }
 .package-price span { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--warm-gray); font-size: 0.82rem; }
-.package-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; flex-wrap: wrap; }
-.package-actions .btn { flex: 0 0 auto; }
-.package-more { font-size: 0.82rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; white-space: nowrap; }
-.package-more:hover { border-bottom-color: var(--ocean); }
-.package-brochures { display: inline-flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
-.package-brochures a {
-  font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--tier); border: 1px solid var(--tier); border-radius: 999px; padding: 0.22rem 0.55rem; text-decoration: none;
-  transition: background 0.2s, color 0.2s; white-space: nowrap;
+.package-cta { display: flex; align-items: center; justify-content: center; width: 100%; }
+/* Surf Escape: one text link to the full-details page */
+.package-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.9rem; font-size: 0.84rem; font-weight: 600; color: var(--ocean); text-decoration: none; }
+.package-link span { transition: transform 0.25s var(--transition); }
+.package-link:hover span { transform: translateX(3px); }
+/* Surf & Golf: the three tiers, each with its own PDF brochure */
+.package-tiers { list-style: none; margin: 0; padding: 0.9rem 0 0; border-top: 1px solid rgba(0,0,0,0.06); display: grid; gap: 0.55rem; }
+.package-tier { padding: 0.55rem 0 0.55rem 0.85rem; border-left: 3px solid var(--tier); }
+.package-tier__head { display: flex; align-items: center; gap: 0.5rem; }
+.package-tier__name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--charcoal); }
+.package-tier__nights { font-size: 0.78rem; color: var(--warm-gray); }
+.package-tier__nights::before { content: '\00b7'; margin-right: 0.5rem; }
+.package-tier__pdf {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 0.3rem; flex: 0 0 auto;
+  font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em;
+  color: var(--white); background: var(--tier); border-radius: 6px; padding: 0.32rem 0.5rem 0.3rem; text-decoration: none;
+  transition: filter 0.2s, transform 0.2s;
 }
-.package-brochures a:hover { background: var(--tier); color: var(--white); }
+.package-tier__pdf svg { width: 12px; height: 12px; }
+.package-tier__pdf:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.package-tier__desc { margin: 0.3rem 0 0 !important; font-size: 0.82rem !important; line-height: 1.45 !important; color: var(--warm-gray); }
+.package-tier__desc strong { color: var(--charcoal); font-weight: 600; }
 /* Build a Custom Trip: same skeleton as the other two, on the booking flow's deep-ocean palette */
 .custom-card { background: var(--ocean-deep); border-color: var(--ocean-deep); color: var(--paper); }
 .custom-card .package-img { object-position: center 38%; }
@@ -2967,12 +2978,10 @@ footer::before {
               <li>Surf Pool Resort, Garden View room, breakfast for two</li>
               <li>Softboards, one video session each, premium car transfers</li>
             </ul>
+            <a href="/package-1-the-surf-session.html" class="package-link">Full itinerary &amp; inclusions <span aria-hidden="true">&rarr;</span></a>
             <div class="package-foot">
               <p class="package-price">From US$759 <span>/ person, couple sharing</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('wave-pool')">Get a quote </a>
-                <a href="/package-1-the-surf-session.html" class="package-more">Full details &rarr;</a>
-              </div>
+              <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('wave-pool')">Get a quote </a>
             </div>
           </div>
         </div>
@@ -2981,22 +2990,36 @@ footer::before {
           <div class="package-body">
             <span class="package-tag">5 &middot; 7 &middot; 11 nights &middot; Three tiers</span>
             <h3>The Surf &amp; Golf Retreat</h3>
-            <p>Surf pool mornings, championship golf afternoons &mdash; The Dunes and Mission Hills Blackstone.</p>
-            <ul class="package-includes">
-              <li><strong>Essential</strong> &middot; 5N Wanning, 6 sessions + 2 rounds at The Dunes</li>
-              <li><strong>Premium</strong> &middot; 7N, adds Ritz-Carlton Haikou + Blackstone</li>
-              <li><strong>Luxury</strong> &middot; 11N, adds Rosewood Sanya + a yacht day</li>
+            <p>Surf pool mornings, championship golf afternoons. Pick a tier, open its brochure.</p>
+            <ul class="package-tiers">
+              <li class="package-tier" style="--tier: var(--teal);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Essential</span>
+                  <span class="package-tier__nights">5 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Essential brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$1,403</strong> pp &middot; Wanning only: Surf Pool Resort, 6 surf sessions, 2 rounds at The Dunes</p>
+              </li>
+              <li class="package-tier" style="--tier: var(--ocean);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Premium</span>
+                  <span class="package-tier__nights">7 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Premium brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$2,475</strong> pp &middot; Adds Haikou: Ritz-Carlton stay and Mission Hills Blackstone, World Top 100</p>
+              </li>
+              <li class="package-tier" style="--tier: var(--gold);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Luxury</span>
+                  <span class="package-tier__nights">11 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Luxury brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$5,501</strong> pp &middot; Three cities: adds Rosewood Sanya, a private yacht day and Lu Hui Tou golf</p>
+              </li>
             </ul>
             <div class="package-foot">
-              <p class="package-price">From US$1,403 <span>/ person, Essential</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('surf-golf')">Get a quote </a>
-                <span class="package-brochures" aria-label="Brochure PDFs">
-                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" style="--tier: var(--teal);">Essential</a>
-                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" style="--tier: var(--ocean);">Premium</a>
-                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" style="--tier: var(--gold);">Luxury</a>
-                </span>
-              </div>
+              <p class="package-price">From US$1,403 <span>/ person, Essential tier</span></p>
+              <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('surf-golf')">Get a quote </a>
             </div>
           </div>
         </div>
@@ -3013,9 +3036,7 @@ footer::before {
             </ul>
             <div class="package-foot">
               <p class="package-price">Tailored quote <span>in 24&ndash;48 hours, no commitment</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-arrow" onclick="return requestQuote('custom')">Start planning </a>
-              </div>
+              <a href="#" class="btn btn-arrow package-cta" onclick="return requestQuote('custom')">Start planning </a>
             </div>
           </div>
         </div>
@@ -4717,12 +4738,10 @@ footer::before {
               <li>Surf Pool Resort, Garden View room, breakfast for two</li>
               <li>Softboards, one video session each, premium car transfers</li>
             </ul>
+            <a href="/package-1-the-surf-session.html" class="package-link">Full itinerary &amp; inclusions <span aria-hidden="true">&rarr;</span></a>
             <div class="package-foot">
               <p class="package-price">From US$759 <span>/ person, couple sharing</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('wave-pool')">Get a quote </a>
-                <a href="/package-1-the-surf-session.html" class="package-more">Full details &rarr;</a>
-              </div>
+              <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('wave-pool')">Get a quote </a>
             </div>
           </div>
         </div>
@@ -4731,22 +4750,36 @@ footer::before {
           <div class="package-body">
             <span class="package-tag">5 &middot; 7 &middot; 11 nights &middot; Three tiers</span>
             <h3>The Surf &amp; Golf Retreat</h3>
-            <p>Surf pool mornings, championship golf afternoons &mdash; The Dunes and Mission Hills Blackstone.</p>
-            <ul class="package-includes">
-              <li><strong>Essential</strong> &middot; 5N Wanning, 6 sessions + 2 rounds at The Dunes</li>
-              <li><strong>Premium</strong> &middot; 7N, adds Ritz-Carlton Haikou + Blackstone</li>
-              <li><strong>Luxury</strong> &middot; 11N, adds Rosewood Sanya + a yacht day</li>
+            <p>Surf pool mornings, championship golf afternoons. Pick a tier, open its brochure.</p>
+            <ul class="package-tiers">
+              <li class="package-tier" style="--tier: var(--teal);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Essential</span>
+                  <span class="package-tier__nights">5 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Essential brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$1,403</strong> pp &middot; Wanning only: Surf Pool Resort, 6 surf sessions, 2 rounds at The Dunes</p>
+              </li>
+              <li class="package-tier" style="--tier: var(--ocean);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Premium</span>
+                  <span class="package-tier__nights">7 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Premium brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$2,475</strong> pp &middot; Adds Haikou: Ritz-Carlton stay and Mission Hills Blackstone, World Top 100</p>
+              </li>
+              <li class="package-tier" style="--tier: var(--gold);">
+                <div class="package-tier__head">
+                  <span class="package-tier__name">Luxury</span>
+                  <span class="package-tier__nights">11 nights</span>
+                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="package-tier__pdf" aria-label="Luxury brochure (PDF)">PDF <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+                </div>
+                <p class="package-tier__desc"><strong>US$5,501</strong> pp &middot; Three cities: adds Rosewood Sanya, a private yacht day and Lu Hui Tou golf</p>
+              </li>
             </ul>
             <div class="package-foot">
-              <p class="package-price">From US$1,403 <span>/ person, Essential</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('surf-golf')">Get a quote </a>
-                <span class="package-brochures" aria-label="Brochure PDFs">
-                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" style="--tier: var(--teal);">Essential</a>
-                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" style="--tier: var(--ocean);">Premium</a>
-                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" style="--tier: var(--gold);">Luxury</a>
-                </span>
-              </div>
+              <p class="package-price">From US$1,403 <span>/ person, Essential tier</span></p>
+              <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('surf-golf')">Get a quote </a>
             </div>
           </div>
         </div>
@@ -4763,9 +4796,7 @@ footer::before {
             </ul>
             <div class="package-foot">
               <p class="package-price">Tailored quote <span>in 24&ndash;48 hours, no commitment</span></p>
-              <div class="package-actions">
-                <a href="#" class="btn btn-arrow" onclick="return requestQuote('custom')">Start planning </a>
-              </div>
+              <a href="#" class="btn btn-arrow package-cta" onclick="return requestQuote('custom')">Start planning </a>
             </div>
           </div>
         </div>
