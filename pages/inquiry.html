@@ -190,6 +190,7 @@ section { padding: clamp(3rem, 6vw, 6rem) 0; scroll-margin-top: 80px; }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
 .btn:disabled, .btn:disabled:hover { background: rgba(0,0,0,0.18); color: rgba(255,255,255,0.7); cursor: not-allowed; }
+.btn.btn-success:disabled, .btn.btn-success:disabled:hover { background: var(--teal); color: var(--white); cursor: default; }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
 .btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
@@ -1777,6 +1778,74 @@ function applyTripMode(sec) {
     if (fn) fn.value = parts.length ? parts[0] : '';
     if (ln) ln.value = parts.length > 1 ? parts.slice(1).join(' ') : '';
   }
+
+  // After a successful submission, open the visitor's mail app with a
+  // pre-filled draft addressed to us, so they can also reach out directly.
+  function openInquiryMailDraft(form) {
+    try {
+      const fd = new FormData(form);
+      const labels = {
+        first_name: 'First name',
+        last_name: 'Last name',
+        email: 'Email',
+        whatsapp: 'WhatsApp / phone',
+        custom_budget: 'Budget',
+        trip_start_date: 'Trip start date',
+        num_nights: 'Nights',
+        adults: 'Adults',
+        children: 'Children',
+        children_ages: 'Children ages',
+        rooms: 'Rooms',
+        sessions_per_day: 'Surf sessions / day',
+        private_pool_wave: 'Private pool wave setting',
+        coaching_type: 'Coaching',
+        coaching_sessions: 'Coaching sessions',
+        private_pool_sessions: 'Private pool sessions (whole pool)',
+        quoted_estimate: 'Estimate shown on the form',
+        rough_timing: 'Rough timing',
+        custom_surf_sessions: 'Custom — surf sessions (total)',
+        custom_golf_rounds: 'Custom — golf rounds (total)',
+        surf_level: 'Surf level',
+        num_surfers: 'Number of surfers',
+        num_golfers: 'Number of golfers',
+        message: 'Notes'
+      };
+
+      const first = (fd.get('first_name') || '').toString().trim();
+      const last = (fd.get('last_name') || '').toString().trim();
+      const fullName = [first, last].filter(Boolean).join(' ');
+
+      const lines = [];
+      const interested = fd.getAll('interested_in').filter(Boolean);
+      if (interested.length) lines.push('Interested in: ' + interested.join(', '));
+      const focus = fd.getAll('custom_focus').filter(Boolean);
+      if (focus.length) lines.push('Custom focus: ' + focus.join(' + '));
+      Object.keys(labels).forEach(key => {
+        const val = (fd.get(key) || '').toString().trim();
+        if (val) lines.push(labels[key] + ': ' + val);
+      });
+      if ((fd.get('dates_tbd') || '').toString().trim()) lines.push('Dates: To be decided');
+
+      const subject = 'Trip Inquiry' + (fullName ? ' — ' + fullName : '') + ' (surfchina.co)';
+      const body =
+        'Hello Surf China team,\n\n' +
+        'I just submitted a trip inquiry on surfchina.co. Here are my details:\n\n' +
+        lines.join('\n') +
+        '\n\nLooking forward to hearing from you.';
+
+      const mailto = 'mailto:hello@surfchina.co'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      const a = document.createElement('a');
+      a.href = mailto;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (_) { /* mail draft is best-effort; never block the submission flow */ }
+  }
+
   // Quote-entry bucket for GA reporting: this standalone form is the /book
   // entry; arriving with ?package= from a package page counts as package_quote.
   function quoteEntry() {
@@ -1786,6 +1855,7 @@ function applyTripMode(sec) {
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
+    let submitted = false;
     // GA4: every "Request My Quote" click — fires even when validation fails,
     // so the click -> generate_lead funnel shows where people drop off.
     try {
@@ -1829,6 +1899,7 @@ function applyTripMode(sec) {
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
+        submitted = true;
         // GA4 conversion: a real Trip Inquiry submission (capture which package, before reset).
         try {
           if (typeof gtag === 'function') {
@@ -1841,9 +1912,21 @@ function applyTripMode(sec) {
             });
           }
         } catch (_) { /* analytics is best-effort */ }
+        openInquiryMailDraft(form);
         form.reset();
+        btn.textContent = 'Submitted';
+        btn.classList.remove('btn-arrow');
+        btn.classList.add('btn-success');
+        btn.disabled = true;
+        const sticky = document.getElementById('stickyQuoteBtn');
+        if (sticky) {
+          sticky.textContent = 'Submitted';
+          sticky.classList.remove('btn-arrow');
+          sticky.classList.add('btn-success');
+          sticky.disabled = true;
+        }
         if (status) {
-          status.textContent = 'Thank you! We\'ll get back to you within 24–48 hours.';
+          status.textContent = 'Thank you! We\'ll get back to you within 24–48 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
           status.style.color = 'var(--teal)';
           status.style.display = 'block';
         }
@@ -1861,8 +1944,10 @@ function applyTripMode(sec) {
       if (status) { status.textContent = msg; status.style.color = '#b00020'; status.style.display = 'block'; }
       else { alert(msg); }
     } finally {
-      btn.disabled = false;
-      btn.textContent = originalText;
+      if (!submitted) {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
     }
   }
 </script>

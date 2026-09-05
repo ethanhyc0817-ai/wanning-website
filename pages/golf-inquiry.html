@@ -190,6 +190,7 @@ section { padding: clamp(3rem, 6vw, 6rem) 0; scroll-margin-top: 80px; }
 .btn-primary { background: var(--ocean); color: var(--white); }
 .btn-primary:hover { background: var(--ocean-light); }
 .btn:disabled, .btn:disabled:hover { background: rgba(0,0,0,0.18); color: rgba(255,255,255,0.7); cursor: not-allowed; }
+.btn.btn-success:disabled, .btn.btn-success:disabled:hover { background: var(--teal); color: var(--white); cursor: default; }
 .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.7); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
 .btn-arrow::after { content: '\2192'; transition: transform 0.3s; }
@@ -1150,6 +1151,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
   async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
+    let submitted = false;
     // GA4: every golf-form submit click — fires even when validation fails.
     try {
       if (typeof gtag === 'function') {
@@ -1191,6 +1193,7 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
+        submitted = true;
         // GA4 conversion: a real golf inquiry submission.
         try {
           if (typeof gtag === 'function') {
@@ -1204,6 +1207,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
         } catch (_) { /* analytics is best-effort */ }
         openInquiryMailDraft(form);
         form.reset();
+        btn.textContent = 'Submitted';
+        btn.classList.remove('btn-arrow');
+        btn.classList.add('btn-success');
+        btn.disabled = true;
         if (status) {
           status.textContent = 'Thank you! We\'ll get back to you within 24 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
           status.style.color = 'var(--teal)';
@@ -1223,8 +1230,10 @@ footer { background: var(--charcoal); color: var(--white); padding: 3rem 0 2rem;
       if (status) { status.textContent = msg; status.style.color = '#b00020'; status.style.display = 'block'; }
       else { alert(msg); }
     } finally {
-      btn.disabled = false;
-      btn.textContent = originalText;
+      if (!submitted) {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
     }
   }
 </script>

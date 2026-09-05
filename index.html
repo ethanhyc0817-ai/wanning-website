@@ -436,6 +436,11 @@ section { padding: clamp(3.5rem, 6vw, 6rem) 0; }
   color: rgba(255,255,255,0.7);
   cursor: not-allowed;
 }
+.btn.btn-success:disabled, .btn.btn-success:disabled:hover {
+  background: var(--teal);
+  color: var(--white);
+  cursor: default;
+}
 
 /* Inline validation error block above the Send button */
 .form-error {
@@ -6044,6 +6049,7 @@ function quoteEntry() {
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
+  let submitted = false;
   // GA4: every "Request My Quote" click — fires even when validation fails,
   // so the click -> generate_lead funnel shows where people drop off.
   try {
@@ -6089,6 +6095,7 @@ async function handleSubmit(e) {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      submitted = true;
       // GA4 conversion: a real Trip Inquiry submission (capture which package, before reset).
       try {
         if (typeof gtag === 'function') {
@@ -6103,6 +6110,17 @@ async function handleSubmit(e) {
       } catch (_) { /* analytics is best-effort */ }
       openInquiryMailDraft(form);
       form.reset();
+      btn.textContent = 'Submitted';
+      btn.classList.remove('btn-arrow');
+      btn.classList.add('btn-success');
+      btn.disabled = true;
+      const sticky = document.getElementById('stickyQuoteBtn');
+      if (sticky) {
+        sticky.textContent = 'Submitted';
+        sticky.classList.remove('btn-arrow');
+        sticky.classList.add('btn-success');
+        sticky.disabled = true;
+      }
       if (status) {
         status.textContent = 'Thank you! We\'ll get back to you within 24–48 hours. Your email app should also open with a copy of your inquiry — feel free to send it to reach us directly.';
         status.style.color = 'var(--teal)';
@@ -6128,8 +6146,10 @@ async function handleSubmit(e) {
       status.style.display = 'block';
     } else { alert(msg); }
   } finally {
-    btn.disabled = false;
-    btn.textContent = originalText;
+    if (!submitted) {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
   }
 }
 
