@@ -120,9 +120,19 @@ PICTURE_CSS = 'picture{display:contents}picture>source{display:none}'
 # three rows tall (209px -> 644px at desktop).
 
 
-def ensure_picture_css(html):
+def ensure_picture_css(html, path=None):
     if PICTURE_CSS in html:
         return html
+    # The rule may live in a linked local stylesheet (index.html -> /Assets/site.css).
+    if path:
+        for m in re.finditer(r'<link\b[^>]*rel="stylesheet"[^>]*>', html):
+            href = (re.search(r'href="([^"]*)"', m.group(0)) or [None, ''])[1].split('?')[0]
+            if not href or href.startswith('http'):
+                continue
+            css_path = os.path.join(ROOT, href.lstrip('/')) if href.startswith('/') \
+                else os.path.join(os.path.dirname(path), href)
+            if os.path.exists(css_path) and PICTURE_CSS in open(css_path, encoding='utf-8').read():
+                return html
     i = html.find('<style>')
     if i == -1:
         i = html.find('</head>')
@@ -226,7 +236,7 @@ def process_html(path):
     out.append(html[last:])
     result = ''.join(out)
     if wrapped:
-        result = ensure_picture_css(result)
+        result = ensure_picture_css(result, path)
     if result != original and not DRY:
         open(path, 'w', encoding='utf-8').write(result)
     print(f'{rel}: wrapped {wrapped}, skipped {skipped}')

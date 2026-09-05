@@ -41,6 +41,19 @@ def in_picture(html, pos):
     return before.rfind('<picture') > before.rfind('</picture>')
 
 
+def linked_css(html, page):
+    """Text of every local <link rel="stylesheet"> the page pulls in.
+    index.html keeps its CSS in /Assets/site.css since Sep 2026, so a rule
+    can be present without appearing in the HTML itself."""
+    out = []
+    for m in re.finditer(r'<link\b[^>]*rel="stylesheet"[^>]*>', html):
+        href = (re.search(r'href="([^"]*)"', m.group(0)) or [None, ''])[1]
+        p = resolve(href.split('?')[0], page) if href else None
+        if p and os.path.exists(p):
+            out.append(open(p, encoding='utf-8').read())
+    return '\n'.join(out)
+
+
 # 1. A raster <img> with no <picture> around it, over the byte threshold.
 #    This is the original bug: full-size JPEGs shipped to phones.
 for page in PAGES:
@@ -78,10 +91,12 @@ for page in PAGES:
         failures.append(f'{page}: unbalanced <picture> tags')
     if re.search(r'<picture[^>]*>(?:(?!</picture>).)*<picture', s, re.S):
         failures.append(f'{page}: nested <picture>')
-    # Wrapping an <img> only stays layout-neutral with these two rules present.
-    if '<picture' in s and 'picture{display:contents}' not in s:
+    # Wrapping an <img> only stays layout-neutral with these two rules present
+    # (inline, or in a stylesheet the page links).
+    css = s + linked_css(s, page)
+    if '<picture' in s and 'picture{display:contents}' not in css:
         failures.append(f'{page}: has <picture> but is missing picture{{display:contents}}')
-    if 'picture{display:contents}' in s and 'picture>source{display:none}' not in s:
+    if 'picture{display:contents}' in css and 'picture>source{display:none}' not in css:
         failures.append(f'{page}: display:contents without picture>source{{display:none}} '
                         '(sources become grid items)')
 
