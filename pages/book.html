@@ -320,6 +320,8 @@
   .lvl-sum { margin-top: 0.6rem; font-size: 0.8rem; color: var(--warm-gray); }
   .lvl-sum.ok { color: var(--ocean); font-weight: 600; }
   .lvl-sum.err { color: var(--coral); font-weight: 600; }
+  .lvl-note { margin-top: 0.8rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--gold); background: var(--white); border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.8rem; line-height: 1.5; color: var(--charcoal); max-width: 640px; }
+  .lvl-note a { color: var(--ocean); font-weight: 600; }
   @media (max-width: 480px) { .lvls { grid-template-columns: 1fr; } }
   /* Calendar: surf pool maintenance closures (struck through, not selectable) and
      National Day Golden Week, Oct 1-7 (bookable, marked red: 20% holiday surcharge) */
@@ -827,9 +829,9 @@
               <div class="lvl" data-level="Beginner"><b>Beginner</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer beginner">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more beginner">+</button></span></div>
               <div class="lvl" data-level="Intermediate"><b>Intermediate</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer intermediate surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more intermediate surfer">+</button></span></div>
               <div class="lvl" data-level="Advanced"><b>Advanced</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer advanced surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more advanced surfer">+</button></span></div>
-              <div class="lvl" data-level="Barrels &amp; Airs"><b>Barrels &amp; Airs</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer barrels and airs surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more barrels and airs surfer">+</button></span></div>
             </div>
             <p class="lvl-sum" id="lvl-sum"></p>
+            <p class="lvl-note">Looking for barrels or airs? They run as a private session buyout &mdash; <a href="/design-your-buyout.html" target="_blank" rel="noopener">see the buyout builder&nbsp;&rarr;</a></p>
           </div>
           <div class="field no-go" id="f-mods">
             <span class="kicker price-only">Surf add-ons <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
@@ -840,7 +842,7 @@
             </button>
             <div class="mods" id="surf-mods">
               <div class="mod" data-mod="coaching">
-                <span class="mtxt"><b>Coaching</b><small>Per guest, per session</small></span>
+                <span class="mtxt"><b>Coaching</b><small>Private, one-on-one in the pool</small></span>
                 <span class="mp"><span class="amt" id="amt-coaching">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
                   <button type="button" data-modminus="coaching" aria-label="Fewer coaching hours">&minus;</button>
@@ -850,7 +852,7 @@
                 </span>
               </div>
               <div class="mod" data-mod="boards">
-                <span class="mtxt"><b>Board rental</b><small>Performance board, per session &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
+                <span class="mtxt"><b>Board rental</b><small>Performance boards &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
                 <span class="mp"><span class="amt" id="amt-boards">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
                   <button type="button" data-modminus="boards" aria-label="Fewer rental sessions">&minus;</button>
@@ -860,7 +862,7 @@
                 </span>
               </div>
               <div class="mod on" data-mod="media">
-                <span class="mtxt"><b>Professional videography</b><small>Per guest, per session &middot; <span class="inc">1 session included with your package</span></small></span>
+                <span class="mtxt"><b>Professional videography</b><small><span class="inc">1 session included with your package</span></small></span>
                 <span class="mp"><span class="amt" id="amt-media">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
                   <button type="button" data-modminus="media" aria-label="Fewer videography sessions">&minus;</button>
@@ -1044,7 +1046,7 @@ const state = { pack: 'stay', checkin: new Date(2026, 9, 12), checkout: new Date
                 // Surf & Golf is quoted by hand (same as the inquiry form): one start date
                 // or "not sure yet", plus the numbers we cannot quote without.
                 // wave level: how many surfers at each level (adds up to the surfers), or TBD
-                levels: { 'Beginner': 0, 'Intermediate': 0, 'Advanced': 0, 'Barrels & Airs': 0 }, levelTbd: false,
+                levels: { 'Beginner': 0, 'Intermediate': 0, 'Advanced': 0 }, levelTbd: false,
                 golf: { start: null, tbd: false, nights: '', surfers: '', golfers: '' } };
 const PACKS = { stay: 'Surf & Stay', golf: 'Surf & Golf', custom: 'Surf & Custom', golfonly: 'Golf Only' };
 const isGO = () => state.pack === 'golfonly';
@@ -1807,7 +1809,7 @@ if (tiersEl) tiersEl.addEventListener('click', e => {
   });
 });
 /* Wave level: one count per level; together they must equal the surfers (or TBD). */
-const LEVELS = ['Beginner', 'Intermediate', 'Advanced', 'Barrels & Airs'];
+const LEVELS = ['Beginner', 'Intermediate', 'Advanced'];
 const surferCount = () => isGolf() ? (parseInt(state.golf.surfers, 10) || 0) : state.ppl;
 const levelAssigned = () => LEVELS.reduce((a, k) => a + state.levels[k], 0);
 const levelText = () => state.levelTbd ? 'TBD' : LEVELS.filter(k => state.levels[k]).map(k => state.levels[k] + ' ' + k).join(' \u00b7 ');
