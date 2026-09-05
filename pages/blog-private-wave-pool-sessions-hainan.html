@@ -300,9 +300,9 @@ nav.scrolled { padding: 0.7rem 0; }
   nav { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 .nav-inner {
-  max-width: 1400px; margin: 0 auto;
+  max-width: 1600px; margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; gap: 2.5rem;
 }
 .nav-logo {
   display: inline-flex; align-items: center; gap: 0.6rem;
@@ -312,10 +312,12 @@ nav.scrolled { padding: 0.7rem 0; }
 }
 .nav-logo-mark { width: 38px; height: 38px; flex-shrink: 0; display: block; }
 .nav-logo-text { white-space: nowrap; }
-.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
 .nav-links > a, .nav-dropdown-toggle { white-space: nowrap; }
-/* 1120–1560px: 6 top-level links + 2 dropdowns + 2 buttons need ~1500px at full spacing — tighten. */
-@media (min-width: 1121px) and (max-width: 1560px) { .nav-links { gap: 1rem; } .nav-inner { padding-left: 1.25rem; padding-right: 1.25rem; } .nav-logo-text { display: none; } .nav-cta, .nav-buyout { padding-left: 1rem; padding-right: 1rem; } }
+/* 1120–1600px: 6 top-level links + 2 dropdowns + 2 buttons need ~1420px at full spacing — tighten. */
+@media (min-width: 1121px) and (max-width: 1600px) { .nav-links { gap: 1rem; } .nav-inner { padding-left: 1.25rem; padding-right: 1.25rem; } .nav-logo-text { display: none; } .nav-cta, .nav-buyout { padding-left: 1rem; padding-right: 1rem; } }
+/* ≥1601px: full nav with the logo text; buttons stay a touch tighter so it fits inside 1600px. */
+@media (min-width: 1601px) { .nav-cta, .nav-links a.nav-buyout { padding-left: 1.2rem; padding-right: 1.2rem; } }
 .nav-links a {
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--charcoal); text-decoration: none;

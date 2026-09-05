@@ -497,9 +497,9 @@ nav.scrolled { padding: 0.7rem 0; }
   nav { background: var(--white); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 .nav-inner {
-  max-width: 1400px; margin: 0 auto;
+  max-width: 1600px; margin: 0 auto;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; gap: 2.5rem;
 }
 .nav-logo {
   display: inline-flex; align-items: center; gap: 0.6rem;
@@ -517,10 +517,12 @@ nav.scrolled { padding: 0.7rem 0; }
 @media (max-width: 360px) {
   .nav-logo-text { display: none; } /* logo mark only on very small screens */
 }
-.nav-links { display: flex; gap: 2.2rem; align-items: center; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
 .nav-links > a, .nav-dropdown-toggle { white-space: nowrap; }
-/* 1120–1560px: 6 top-level links + 2 dropdowns + 2 buttons need ~1500px at full spacing — tighten. */
-@media (min-width: 1121px) and (max-width: 1560px) { .nav-links { gap: 1rem; } .nav-inner { padding-left: 1.25rem; padding-right: 1.25rem; } .nav-logo-text { display: none; } .nav-cta, .nav-buyout { padding-left: 1rem; padding-right: 1rem; } }
+/* 1120–1600px: 6 top-level links + 2 dropdowns + 2 buttons need ~1420px at full spacing — tighten. */
+@media (min-width: 1121px) and (max-width: 1600px) { .nav-links { gap: 1rem; } .nav-inner { padding-left: 1.25rem; padding-right: 1.25rem; } .nav-logo-text { display: none; } .nav-cta, .nav-buyout { padding-left: 1rem; padding-right: 1rem; } }
+/* ≥1601px: full nav with the logo text; buttons stay a touch tighter so it fits inside 1600px. */
+@media (min-width: 1601px) { .nav-cta, .nav-links a.nav-buyout { padding-left: 1.2rem; padding-right: 1.2rem; } }
 .nav-links a {
   font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--charcoal); text-decoration: none;
@@ -1252,6 +1254,12 @@ nav.scrolled { padding: 0.7rem 0; }
                  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.3rem; cursor: pointer; }
 #bywBar button:active { transform: scale(0.97); }
 .contact-aside { padding-left: 2rem; }
+/* Booking panel (/#contact): the embedded flow sits on a full-bleed sand section, aligned to .container */
+#page-contact .byw-section { background: var(--sand); padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2.5rem, 4vw, 4rem); }
+#page-contact .byw-more { padding: clamp(2.5rem, 5vw, 4.5rem) 0; }
+.byw-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.byw-col { display: grid; gap: 2rem; }
+@media (max-width: 900px) { .byw-aside { grid-template-columns: 1fr; } }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
   display: block; font-size: 0.8rem; font-weight: 500;
@@ -4989,21 +4997,27 @@ footer::before {
 <div id="page-contact" class="page">
 
 
-  <section style="padding-top: 0.5rem;">
+  <section class="byw-section">
     <div class="container">
       <!-- Book Your Wave: the booking flow lives at /pages/book.html (unlisted, served at
            /book-your-wave) and is embedded here so /#contact stays the one booking URL.
-           The frame reports its height and asks us to scroll on step changes (postMessage). -->
+           The frame is transparent and gutter-less: this sand section and .container give it
+           the page's own background and alignment. It reports its height and asks us to
+           scroll on step changes (postMessage). -->
       <iframe id="bywFrame" title="Book your wave — request a quote" src="/book-your-wave?embed=1" loading="lazy"
-              style="width:100%; min-height:900px; border:0; display:block;"></iframe>
+              style="width:100%; min-height:640px; border:0; display:block; background:transparent;"></iframe>
       <!-- Surf & Stay on phones: price + Continue, pinned to the real screen (the frame asks for it) -->
       <div id="bywBar" hidden>
         <span><span class="byw-pk">Per person</span><br><span class="byw-pp" id="bywPP">$650</span></span>
         <button type="button" id="bywNext">Continue &rarr;</button>
       </div>
-      <div class="contact-grid" style="grid-template-columns:1fr; margin-top:2.5rem;">
-        <div class="contact-aside byw-aside">
-          <div style="background:var(--sand); padding:2.5rem; border-radius:12px; margin-bottom:2rem;">
+    </div>
+  </section>
+  <section class="byw-more">
+    <div class="container">
+      <div class="byw-aside">
+        <div class="byw-col">
+          <div style="background:var(--sand); padding:2.5rem; border-radius:12px;">
             <h3 style="margin-bottom:1.5rem;">Other Ways to Reach Us</h3>
             <div style="margin-bottom:1.5rem;">
               <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">WhatsApp</p>
@@ -5022,7 +5036,13 @@ footer::before {
               <p style="font-size:0.95rem;">We typically respond within 24&ndash;48 hours.</p>
             </div>
           </div>
-          <div style="background:var(--charcoal); color:var(--white); padding:2.5rem; border-radius:12px; margin-bottom:2rem;">
+          <!-- Partner badge -->
+          <div style="background:var(--sand); padding:1.5rem; border-radius:12px; text-align:center;">
+            <img loading="lazy" decoding="async" src="Assets/perfectswell-destination-partner.png" alt="PerfectSwell Destination Partner" style="max-width:190px; width:100%; height:auto;">
+          </div>
+        </div>
+        <div class="byw-col">
+          <div style="background:var(--charcoal); color:var(--white); padding:2.5rem; border-radius:12px;">
             <h3 style="color:var(--white); margin-bottom:1rem;">What Happens Next?</h3>
             <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
               <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">1</span>
@@ -5040,10 +5060,6 @@ footer::before {
               <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">4</span>
               <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">Confirm with a deposit and we handle the rest.</p>
             </div>
-          </div>
-          <!-- Partner badge -->
-          <div style="background:var(--sand); padding:1.5rem; border-radius:12px; text-align:center;">
-            <img loading="lazy" decoding="async" src="Assets/perfectswell-destination-partner.png" alt="PerfectSwell Destination Partner" style="max-width:190px; width:100%; height:auto;">
           </div>
         </div>
       </div>
