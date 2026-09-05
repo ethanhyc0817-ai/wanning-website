@@ -329,6 +329,14 @@
                           padding: 0.45rem 0.95rem; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); cursor: pointer; }
   .mod .mq.mq-yn button:hover { background: var(--sand); border-color: var(--ocean); }
   .mod .mq.mq-yn button.on, .mod .mq.mq-yn button.on:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+  /* Single check (private pool buyout): in or out, no quantity */
+  .mod .mq.mq-chk { display: inline-flex; justify-content: flex-end; }
+  .mod .mq.mq-chk button { width: auto; height: auto; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--sand-dark); background: var(--white);
+                           border-radius: var(--r-pill); padding: 0.4rem 0.9rem 0.4rem 0.5rem; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); cursor: pointer; white-space: nowrap; }
+  .mod .mq.mq-chk button .tick { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--sand-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.68rem; color: transparent; }
+  .mod .mq.mq-chk button:hover { background: var(--sand); border-color: var(--ocean); }
+  .mod .mq.mq-chk button.on, .mod .mq.mq-chk button.on:hover { border-color: var(--ocean); background: rgba(10,77,104,0.06); color: var(--ocean); }
+  .mod .mq.mq-chk button.on .tick { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
   .lvl-sum { margin-top: 0.6rem; font-size: 0.8rem; color: var(--warm-gray); }
   .lvl-sum.ok { color: var(--ocean); font-weight: 600; }
   .lvl-sum.err { color: var(--coral); font-weight: 600; }
@@ -884,12 +892,9 @@
               </div>
               <div class="mod" data-mod="buyout">
                 <span class="mtxt"><b>Private pool buyout</b><small>The whole pool for your crew &mdash; barrels, airs, your choice of wave &middot; <span class="inc">quoted separately</span></small></span>
-                <span class="mp"><span class="amt" id="amt-buyout">&mdash;</span><span class="unit">from, per 1-hour session</span></span>
-                <span class="mq">
-                  <button type="button" data-modminus="buyout" aria-label="Fewer buyout sessions">&minus;</button>
-                  <output id="mo-buyout">0</output>
-                  <button type="button" data-modplus="buyout" aria-label="More buyout sessions">+</button>
-                  <em>sessions</em>
+                <span class="mp"><span class="amt" id="amt-buyout">&mdash;</span><span class="unit">reference, per 1-hour session</span></span>
+                <span class="mq mq-chk">
+                  <button type="button" data-chk="buyout" aria-pressed="false"><span class="tick" aria-hidden="true">&#10003;</span>Add to request</button>
                 </span>
               </div>
             </div>
@@ -1122,7 +1127,7 @@ function calc() {
                                         v: ENGINE.addons.coach_1v1 * s.ppl * s.mods.coaching });
     if (s.mods.boards) { const bs = s.perDay * s.nights;   // every session of the trip, every guest
       changes.push({ k: `Board rental, whole trip \u00d7 ${bs} session${bs > 1 ? 's' : ''} \u00d7 ${s.ppl}`, v: ENGINE.addons.board_session * s.ppl * bs }); }
-    if (s.mods.buyout) changes.push({ k: `Private pool buyout \u00d7 ${s.mods.buyout} session${s.mods.buyout > 1 ? 's' : ''}`, v: 0, req: true });
+    if (s.mods.buyout) changes.push({ k: 'Private pool buyout', v: 0, req: true });
     if (s.mods.media > 1) changes.push({ k: `Extra professional videography \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
                                          v: ENGINE.addons.media_session * (s.mods.media - 1) * s.ppl });
   }
@@ -1296,7 +1301,7 @@ function paintGolf() {
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
                       state.mods.boards ? 'Board rental, whole trip' : null,
                       state.mods.media ? `Professional videography \u00d7 ${state.mods.media}` : null,
-                      state.mods.buyout ? `Private pool buyout \u00d7 ${state.mods.buyout} (quoted separately)` : null]
+                      state.mods.buyout ? 'Private pool buyout (quoted separately)' : null]
                      .filter(Boolean).join(' \u00b7 ') || 'None'],
     ['Golf add-ons', (state.mods.clubs ? `Premium golf clubs \u00d7 ${state.mods.clubs} day${state.mods.clubs > 1 ? 's' : ''} \u00b7 ` : '') + 'Caddies & carts included'],
   ];
@@ -1607,7 +1612,7 @@ function buildLead() {
   if (state.mods.coaching) addons.push(`Coaching x${state.mods.coaching}`);
   if (state.mods.boards) addons.push('Board rental (whole trip)');
   if (state.mods.media) addons.push(`Professional videography x${state.mods.media}`);
-  if (state.mods.buyout) addons.push(`Private pool buyout x${state.mods.buyout} sessions (quote separately)`);
+  if (state.mods.buyout) addons.push('Private pool buyout (quote separately)');
   if (golf && state.mods.clubs) addons.push(`Premium golf clubs x${state.mods.clubs} days`);
   fd.set('addons', addons.join(', '));
   if (!golf) { const r = calc(); fd.set('quoted_estimate', fmt(r.total) + ' total \u00b7 ' + fmt(r.pp) + ' pp'); }
@@ -1900,6 +1905,13 @@ document.querySelectorAll('[data-yn]').forEach(b => b.addEventListener('click', 
   document.querySelector(`[data-mod="${k}"]`).classList.toggle('on', v > 0);
   paintMods(); paint();
 }));
+document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.chk, v = state.mods[k] ? 0 : 1;
+  state.mods[k] = v;
+  b.classList.toggle('on', v > 0); b.setAttribute('aria-pressed', String(v > 0));
+  document.querySelector(`[data-mod="${k}"]`).classList.toggle('on', v > 0);
+  paintMods(); paint();
+}));
 const lvlTbdEl = $('lvl-tbd');
 if (lvlTbdEl) lvlTbdEl.addEventListener('click', () => {
   state.levelTbd = !state.levelTbd;
@@ -1932,7 +1944,7 @@ function paintAddonPrices() {
 function paintMods() {
   const sum = $('mod-sum'); if (!sum) return;
   const parts = Object.keys(state.mods).filter(k => state.mods[k] && (isGolf() ? k !== 'clubs' : k !== 'clubs'))
-    .map(k => k === 'boards' ? 'board rental for the whole trip' : k === 'buyout' ? state.mods[k] + ' private pool buyout session' + (state.mods[k] > 1 ? 's' : '') + ' (quoted separately)' : state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
+    .map(k => k === 'boards' ? 'board rental for the whole trip' : k === 'buyout' ? 'private pool buyout (quoted separately)' : state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
   sum.innerHTML = parts.length ? `<b>${parts.join(' &middot; ')}</b>` + (isGolf() ? '' : ' &middot; per guest') : 'No add-ons selected.';
 }
 document.addEventListener('click', e => {
