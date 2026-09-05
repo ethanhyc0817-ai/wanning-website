@@ -324,8 +324,8 @@
   .lvl-tbd.on { background: rgba(10,77,104,0.06); }
   .lvl-tbd.on .tick { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
   /* Single check (private pool buyout): in or out, no quantity */
-  .mod .mq.mq-chk { display: inline-flex; justify-content: flex-end; }
-  .mod .mq.mq-chk button { width: auto; height: auto; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--sand-dark); background: var(--white);
+  .mod .mq.mq-chk { display: flex; justify-content: flex-start; }
+  .mod .mq.mq-chk button { width: 100%; height: auto; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 1px solid var(--sand-dark); background: var(--white);
                            border-radius: var(--r-pill); padding: 0.4rem 0.9rem 0.4rem 0.5rem; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); cursor: pointer; white-space: nowrap; }
   .mod .mq.mq-chk button .tick { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--sand-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.68rem; color: transparent; }
   .mod .mq.mq-chk button:hover { background: var(--sand); border-color: var(--ocean); }
@@ -523,11 +523,12 @@
   .mod .quiver { color: var(--ocean); font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; white-space: nowrap; }
   .mod .quiver:hover { opacity: 0.75; }
   .mod small { font-size: 0.75rem; color: var(--warm-gray); }
-  .mod .mp { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; }
+  .mod .mp { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; font-variant-numeric: tabular-nums; }
+  .mod .mp .amt small { font-size: 0.72rem; font-weight: 500; color: var(--warm-gray); margin-right: 0.2rem; }
   .mod .amt { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem;
               font-variant-numeric: tabular-nums; }
   .mod .unit { font-size: 0.72rem; color: var(--warm-gray); white-space: nowrap; }
-  .mod .mq { display: flex; align-items: center; gap: 0.5rem; justify-self: end; }
+  .mod .mq { display: flex; align-items: center; gap: 0.5rem; justify-self: stretch; width: 100%; }
   .mod .mq button { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--sand-dark);
                     background: transparent; font-size: 0.95rem; line-height: 1; cursor: pointer;
                     transition: background 0.2s var(--ease-out), border-color 0.2s var(--ease-out), transform 0.16s var(--ease-out); }
@@ -537,7 +538,7 @@
                     text-align: center; font-variant-numeric: tabular-nums; color: var(--warm-gray); }
   .mod.on .mq output { color: var(--ocean); }
   .mod .mq output.bump { animation: bump 0.16s var(--ease-out); }
-  .mod .mq em { font-style: normal; font-size: 0.7rem; color: var(--warm-gray); min-width: 3.6rem; }
+  .mod .mq em { font-style: normal; font-size: 0.7rem; color: var(--warm-gray); min-width: 3.6rem; white-space: nowrap; }
   @media (max-width: 760px) {
     .mod { grid-template-columns: 1fr auto; row-gap: 0.7rem; }
     .mod .mq { grid-column: 1 / -1; justify-self: start; }
@@ -868,13 +869,13 @@
                 </span>
               </div>
               <div class="mod" data-mod="boards">
-                <span class="mtxt"><b>Board rental</b><small>How many of you rent a board &middot; every session of the trip &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
+                <span class="mtxt"><b>Board rental</b><small>Each renter, every session of the trip &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
                 <span class="mp"><span class="amt" id="amt-boards">&mdash;</span><span class="unit">per guest / session</span></span>
                 <span class="mq">
                   <button type="button" data-modminus="boards" aria-label="Fewer guests renting boards">&minus;</button>
                   <output id="mo-boards">0</output>
                   <button type="button" data-modplus="boards" aria-label="More guests renting boards">+</button>
-                  <em>guests, whole trip</em>
+                  <em>guests</em>
                 </span>
               </div>
               <div class="mod on" data-mod="media">
@@ -889,7 +890,7 @@
               </div>
               <div class="mod" data-mod="buyout">
                 <span class="mtxt"><b>Private pool buyout</b><small>The whole pool for your crew &mdash; barrels, airs, your choice of wave &middot; <span class="inc">quoted separately</span></small></span>
-                <span class="mp"><span class="amt" id="amt-buyout">&mdash;</span><span class="unit">reference, per 1-hour session</span></span>
+                <span class="mp"><span class="amt" id="amt-buyout">&mdash;</span><span class="unit">reference &middot; 1-hour session</span></span>
                 <span class="mq mq-chk">
                   <button type="button" data-chk="buyout" aria-pressed="false"><span class="tick" aria-hidden="true">&#10003;</span>Add to request</button>
                 </span>
@@ -1949,7 +1950,7 @@ function paintAddonPrices() {
   set('amt-media', ENGINE.addons.media_session);
   // buyout list rate comes from the shared pricing file (LIST rate only — no promo ships in the bundle)
   const bo = (window.SC_PRICING && window.SC_PRICING.buyout && window.SC_PRICING.buyout.intermediate) ? window.SC_PRICING.buyout.intermediate.list : 7760;
-  const ab = $('amt-buyout'); if (ab) ab.textContent = 'from ' + fmt(bo);
+  const ab = $('amt-buyout'); if (ab) ab.innerHTML = '<small>from</small>' + fmt(bo);
 }
 function paintMods() {
   const sum = $('mod-sum'); if (!sum) return;
