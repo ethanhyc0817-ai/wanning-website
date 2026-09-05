@@ -206,6 +206,9 @@
   #f-golf .tier-doc a[data-tier="luxury"]:hover { color: var(--ocean-deep); }
   @media (max-width: 640px) { #tiers.chips { grid-template-columns: 1fr; } }
   .tier-doc { margin-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+  /* Caption always on its own line: the button label changes width per tier (Essential/Premium/Luxury)
+     and used to sit on the same line for Luxury only, whenever it happened to fit. */
+  .tier-doc > span { flex: 0 0 100%; }
   .tier-doc a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); color: var(--gold);
                 border: 2px solid var(--gold); border-radius: var(--r-pill); padding: 0.85rem 1.5rem; font-weight: 800;
                 font-size: 1rem; font-family: 'Montserrat', sans-serif; text-decoration: none;
