@@ -200,7 +200,7 @@
   #tiers .chip[data-tier="luxury"].on::after { color: var(--ocean-deep); }
   @supports not (background: color-mix(in srgb, red 9%, white)) { #tiers .chip.on { background: var(--white); } }
   /* the brochure button follows the chosen tier's colour (set by paintTierDoc) */
-  #f-golf .tier-doc a { --tier: var(--gold); --tier-ink: var(--tier); color: var(--tier-ink); border-color: var(--tier); box-shadow: 0 6px 18px color-mix(in srgb, var(--tier) 22%, transparent); }
+  #f-golf .tier-doc a { --tier: var(--gold); --tier-ink: var(--tier); color: var(--tier-ink); border-color: var(--tier); box-shadow: none; }
   #f-golf .tier-doc a[data-tier="luxury"] { --tier-ink: var(--tier-luxury-ink); }
   #f-golf .tier-doc a:hover { background: var(--tier); color: var(--white); box-shadow: 0 8px 22px color-mix(in srgb, var(--tier) 35%, transparent); }
   #f-golf .tier-doc a[data-tier="luxury"]:hover { color: var(--ocean-deep); }
@@ -212,7 +212,7 @@
   .tier-doc a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); color: var(--gold);
                 border: 2px solid var(--gold); border-radius: var(--r-pill); padding: 0.85rem 1.5rem; font-weight: 800;
                 font-size: 1rem; font-family: 'Montserrat', sans-serif; text-decoration: none;
-                box-shadow: 0 6px 18px rgba(196,162,101,0.22);
+                box-shadow: none; /* no tinted glow at rest: on the sand background it read as a muddy yellow smear under the pill */
                 transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.16s var(--ease-out), box-shadow 0.2s var(--ease-out); }
   .tier-doc a:hover { background: var(--gold); color: var(--ocean-deep); box-shadow: 0 8px 22px rgba(196,162,101,0.35); }
   .tier-doc a:active { transform: scale(0.97); }
