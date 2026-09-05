@@ -19,7 +19,7 @@
   html.embedded main { max-width: none; padding: 0 0 1rem; }
   html.embedded .headr { padding-top: 0.5rem; }
   html.embedded .mobar { display: none !important; }
-  html.embedded .rail2 { position: static; }
+  html.embedded .rail2 { position: static; align-self: start; will-change: transform; }
   html.embedded .pane { min-height: 0; }
   html.embedded body, html.embedded html { min-height: 0; height: auto; }
   :root {
@@ -263,7 +263,7 @@
   .dp-foot .dp-clear { color: var(--warm-gray); }
   .dp-foot .dp-done { color: var(--ocean); font-weight: 700; }
   @media (max-width: 480px) { .dpick-pop { left: -0.5rem; right: -0.5rem; min-width: unset; } }
-  .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; max-width: 640px; }
+  .nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
   .nums label { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
   .nums label small { font-weight: 400; color: var(--warm-gray); }
   .nums label .req { color: var(--coral); }
@@ -286,7 +286,8 @@
   .req-sum li:last-child { border-bottom: none; padding-bottom: 0; }
   .req-sum li span:first-child { color: var(--warm-gray); }
   .req-sum li span:last-child { font-weight: 700; text-align: right; }
-  .dial { display: inline-flex; align-items: center; gap: 1rem; border: 1px solid var(--sand-dark);
+  .dials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.8rem; margin-bottom: 1rem; }
+  .dial { display: flex; align-items: center; gap: 1rem; border: 1px solid var(--sand-dark);
           border-radius: var(--r-card); padding: 0.6rem 0.9rem; background: var(--white); }
   .dial button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--sand-dark);
                  background: transparent; font-size: 1.1rem; cursor: pointer; line-height: 1;
@@ -300,13 +301,13 @@
   .dial .unit { font-size: 0.78rem; color: var(--warm-gray); }
   /* Surf sessions: per-day dial, then one stepper per wave level (counts add up to the surfers) */
   .sub { margin-bottom: 1.1rem; }
-  .lvl-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem; max-width: 640px; }
+  .lvl-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
   .sub-lbl { font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
   .sub-lbl em { font-style: normal; font-weight: 400; color: var(--warm-gray); }
   .sub-lbl .req { color: var(--coral); }
   .chip-sm { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
-  .lvls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem 0.8rem; max-width: 640px; transition: opacity 0.2s; }
-  .lvls.tbd { opacity: 0.4; pointer-events: none; }
+  .lvls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem 0.8rem; }
+  .lvls.tbd .lvl[data-level] { opacity: 0.4; pointer-events: none; }
   .lvl { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.4rem 0.4rem 0.4rem 0.9rem;
          border: 1px solid var(--sand-dark); border-radius: var(--r-card); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; }
   .lvl.on { border-color: var(--ocean); box-shadow: 0 0 0 1px var(--ocean) inset; }
@@ -317,11 +318,21 @@
   .lvl .st button:hover:not(:disabled) { background: var(--sand); }
   .lvl .st button:disabled { opacity: 0.3; cursor: default; }
   .lvl .st output { min-width: 1.8ch; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; }
+  .lvl-tbd { cursor: pointer; font-family: inherit; justify-content: flex-start; gap: 0.5rem; min-height: 48px; }
+  .lvl-tbd small { font-size: 0.8rem; color: var(--warm-gray); }
+  .lvl-tbd .tick { margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--sand-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.72rem; color: transparent; }
+  .lvl-tbd.on { background: rgba(10,77,104,0.06); }
+  .lvl-tbd.on .tick { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
+  /* Yes / no pair (board rental). Specificity beats .mod .mq button, which makes steppers 30px circles. */
+  .mod .mq.mq-yn { display: inline-flex; gap: 0.35rem; justify-content: flex-end; flex-wrap: nowrap; white-space: nowrap; }
+  .mod .mq.mq-yn button { width: auto; height: auto; border: 1px solid var(--sand-dark); background: var(--white); border-radius: var(--r-pill);
+                          padding: 0.45rem 0.95rem; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); cursor: pointer; }
+  .mod .mq.mq-yn button:hover { background: var(--sand); border-color: var(--ocean); }
+  .mod .mq.mq-yn button.on, .mod .mq.mq-yn button.on:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
   .lvl-sum { margin-top: 0.6rem; font-size: 0.8rem; color: var(--warm-gray); }
   .lvl-sum.ok { color: var(--ocean); font-weight: 600; }
   .lvl-sum.err { color: var(--coral); font-weight: 600; }
-  .lvl-note { margin-top: 0.8rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--gold); background: var(--white); border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.8rem; line-height: 1.5; color: var(--charcoal); max-width: 640px; }
-  .lvl-note a { color: var(--ocean); font-weight: 600; }
+  .lvl-note { margin-top: 0.8rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--gold); background: var(--white); border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.8rem; line-height: 1.5; color: var(--charcoal); }
   @media (max-width: 480px) { .lvls { grid-template-columns: 1fr; } }
   /* Calendar: surf pool maintenance closures (struck through, not selectable) and
      National Day Golden Week, Oct 1-7 (bookable, marked red: 20% holiday surcharge) */
@@ -441,7 +452,7 @@
   /* ---------- inline range calendar ---------- */
   .cal { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; background: var(--white);
          border: 1px solid var(--sand-dark); border-radius: var(--r-card); padding: 1rem 1.1rem 1.15rem;
-         max-width: 620px; }
+         }
   .cal-m { min-width: 0; }
   .cal-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
   .cal-h b { font-family: 'Montserrat', sans-serif; font-size: 0.82rem; }
@@ -797,17 +808,19 @@
           </div>
           <div class="field no-go" id="f-stay">
             <span class="kicker"><span class="price-only">Guests &amp; rooms</span><span class="golf-only">Rooms</span> <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;" id="rm-count"></em></span>
-            <div class="dial price-only" style="margin-bottom:0.8rem;">
-              <button type="button" data-dial="ppl" data-d="-1" aria-label="Fewer guests">&minus;</button>
-              <output id="o-ppl">2</output>
-              <button type="button" data-dial="ppl" data-d="1" aria-label="More guests">+</button>
-              <span class="unit">guests on this trip</span>
-            </div>
-            <div class="dial" style="margin-bottom:1rem;">
-              <button type="button" data-rooms="-1" aria-label="One fewer room">&minus;</button>
-              <output id="o-rooms">1</output>
-              <button type="button" data-rooms="1" aria-label="One more room">+</button>
-              <span class="unit">rooms &middot; each one starts as Garden View</span>
+            <div class="dials">
+              <div class="dial price-only">
+                <button type="button" data-dial="ppl" data-d="-1" aria-label="Fewer guests">&minus;</button>
+                <output id="o-ppl">2</output>
+                <button type="button" data-dial="ppl" data-d="1" aria-label="More guests">+</button>
+                <span class="unit">guests on this trip</span>
+              </div>
+              <div class="dial">
+                <button type="button" data-rooms="-1" aria-label="One fewer room">&minus;</button>
+                <output id="o-rooms">1</output>
+                <button type="button" data-rooms="1" aria-label="One more room">+</button>
+                <span class="unit">rooms &middot; each one starts as Garden View</span>
+              </div>
             </div>
             <div id="roomList"></div>
           </div>
@@ -823,15 +836,15 @@
             </div>
             <div class="lvl-head">
               <span class="sub-lbl">Wave level <span class="req">*</span> <em id="lvl-hint"></em></span>
-              <button type="button" class="chip chip-sm" id="lvl-tbd">TBD &middot; not sure yet</button>
             </div>
             <div class="lvls" id="levels">
               <div class="lvl" data-level="Beginner"><b>Beginner</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer beginner">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more beginner">+</button></span></div>
               <div class="lvl" data-level="Intermediate"><b>Intermediate</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer intermediate surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more intermediate surfer">+</button></span></div>
               <div class="lvl" data-level="Advanced"><b>Advanced</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer advanced surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more advanced surfer">+</button></span></div>
+              <button type="button" class="lvl lvl-tbd" id="lvl-tbd" aria-pressed="false"><b>TBD</b><small>not sure yet</small><span class="tick" aria-hidden="true">&#10003;</span></button>
             </div>
             <p class="lvl-sum" id="lvl-sum"></p>
-            <p class="lvl-note">Looking for barrels or airs? They run as a private session buyout &mdash; <a href="/design-your-buyout.html" target="_blank" rel="noopener">see the buyout builder&nbsp;&rarr;</a></p>
+            <p class="lvl-note">Looking for barrels or airs? Those run as a <b>private pool buyout</b> &mdash; you can add one under Surf add-ons below.</p>
           </div>
           <div class="field no-go" id="f-mods">
             <span class="kicker price-only">Surf add-ons <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
@@ -852,13 +865,11 @@
                 </span>
               </div>
               <div class="mod" data-mod="boards">
-                <span class="mtxt"><b>Board rental</b><small>Performance boards &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
+                <span class="mtxt"><b>Board rental</b><small>Performance boards for every session of the trip &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
                 <span class="mp"><span class="amt" id="amt-boards">&mdash;</span><span class="unit">per guest / session</span></span>
-                <span class="mq">
-                  <button type="button" data-modminus="boards" aria-label="Fewer rental sessions">&minus;</button>
-                  <output id="mo-boards">0</output>
-                  <button type="button" data-modplus="boards" aria-label="More rental sessions">+</button>
-                  <em>sessions</em>
+                <span class="mq mq-yn" id="yn-boards">
+                  <button type="button" data-yn="boards" data-v="0" class="on">No</button>
+                  <button type="button" data-yn="boards" data-v="1">Yes</button>
                 </span>
               </div>
               <div class="mod on" data-mod="media">
@@ -868,6 +879,16 @@
                   <button type="button" data-modminus="media" aria-label="Fewer videography sessions">&minus;</button>
                   <output id="mo-media">1</output>
                   <button type="button" data-modplus="media" aria-label="More videography sessions">+</button>
+                  <em>sessions</em>
+                </span>
+              </div>
+              <div class="mod" data-mod="buyout">
+                <span class="mtxt"><b>Private pool buyout</b><small>The whole pool for your crew &mdash; barrels, airs, your choice of wave &middot; <span class="inc">quoted separately</span></small></span>
+                <span class="mp"><span class="amt" id="amt-buyout">&mdash;</span><span class="unit">from, per 1-hour session</span></span>
+                <span class="mq">
+                  <button type="button" data-modminus="buyout" aria-label="Fewer buyout sessions">&minus;</button>
+                  <output id="mo-buyout">0</output>
+                  <button type="button" data-modplus="buyout" aria-label="More buyout sessions">+</button>
                   <em>sessions</em>
                 </span>
               </div>
@@ -1013,6 +1034,7 @@
   <button type="button" class="btn btn-gold" id="m-next">Continue &rarr;</button>
 </div>
 
+<script src="/Assets/sc-pricing.js?v=3"></script>
 <script>
 /* ---------------- pricing model (single source of truth) ---------------- */
 /* PRICES COME FROM THE ENGINE — surfchina-sales-ops/skills/pricing-engine
@@ -1042,7 +1064,7 @@ const P = {
 };
 const state = { pack: 'stay', checkin: new Date(2026, 9, 12), checkout: new Date(2026, 9, 15), nights: 3, ppl: 2, perDay: 2, tier: 'essential',
                 roomList: ['garden'],           // one entry per room, each holds its room type
-                mods: { coaching: 0, boards: 0, media: 1, clubs: 0 }, notes: '',
+                mods: { coaching: 0, boards: 0, media: 1, clubs: 0, buyout: 0 }, notes: '',   // boards: 0/1 = rent for the whole trip
                 // Surf & Golf is quoted by hand (same as the inquiry form): one start date
                 // or "not sure yet", plus the numbers we cannot quote without.
                 // wave level: how many surfers at each level (adds up to the surfers), or TBD
@@ -1098,8 +1120,9 @@ function calc() {
   if (s.pack === 'custom' || s.pack === 'stay') {   // add-ons price on both surf paths
     if (s.mods.coaching) changes.push({ k: `Private coaching \u00d7 ${s.mods.coaching} \u00d7 ${s.ppl} guest${s.ppl > 1 ? 's' : ''}`,
                                         v: ENGINE.addons.coach_1v1 * s.ppl * s.mods.coaching });
-    if (s.mods.boards) changes.push({ k: `Board rental \u00d7 ${s.mods.boards} session${s.mods.boards > 1 ? 's' : ''} \u00d7 ${s.ppl}`,
-                                      v: ENGINE.addons.board_session * s.ppl * s.mods.boards });
+    if (s.mods.boards) { const bs = s.perDay * s.nights;   // every session of the trip, every guest
+      changes.push({ k: `Board rental, whole trip \u00d7 ${bs} session${bs > 1 ? 's' : ''} \u00d7 ${s.ppl}`, v: ENGINE.addons.board_session * s.ppl * bs }); }
+    if (s.mods.buyout) changes.push({ k: `Private pool buyout \u00d7 ${s.mods.buyout} session${s.mods.buyout > 1 ? 's' : ''}`, v: 0, req: true });
     if (s.mods.media > 1) changes.push({ k: `Extra professional videography \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
                                          v: ENGINE.addons.media_session * (s.mods.media - 1) * s.ppl });
   }
@@ -1271,8 +1294,9 @@ function paintGolf() {
     ['Wave level', levelText() || 'Not set'],
     ['Rooms', rooms],
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
-                      state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
-                      state.mods.media ? `Professional videography \u00d7 ${state.mods.media}` : null]
+                      state.mods.boards ? 'Board rental, whole trip' : null,
+                      state.mods.media ? `Professional videography \u00d7 ${state.mods.media}` : null,
+                      state.mods.buyout ? `Private pool buyout \u00d7 ${state.mods.buyout} (quoted separately)` : null]
                      .filter(Boolean).join(' \u00b7 ') || 'None'],
     ['Golf add-ons', (state.mods.clubs ? `Premium golf clubs \u00d7 ${state.mods.clubs} day${state.mods.clubs > 1 ? 's' : ''} \u00b7 ` : '') + 'Caddies & carts included'],
   ];
@@ -1326,7 +1350,7 @@ function paint() {
   const baseRow = `<li class="base"><span>${PACKS[state.pack]} \u00b7 ${state.nights} night${state.nights > 1 ? 's' : ''}</span><span>${fmt(r.base)}</span></li>`;
   const changeRows = r.changes.length
     ? `<li class="chead"><span>Your changes</span><span></span></li>` + r.changes.map(c =>
-        `<li class="chg"><span>${c.k}</span><span>${c.v >= 0 ? '+' : '\u2212'}${fmt(Math.abs(c.v))}</span></li>`).join('')
+        `<li class="chg"><span>${c.k}</span><span>${c.req ? 'On request' : (c.v >= 0 ? '+' : '\u2212') + fmt(Math.abs(c.v))}</span></li>`).join('')
     : `<li class="chead"><span>Change a room or add coaching to see the difference here</span><span></span></li>`;
   $('r-lines').innerHTML = baseRow + changeRows;
   // step 3 mirrors
@@ -1351,7 +1375,22 @@ const tellParent = msg => { if (EMBED) { try { window.parent.postMessage(msg, lo
 // Measure the body box, not scrollHeight: inside a frame scrollHeight can never be
 // smaller than the frame itself, so the frame would only ever grow (big blank gap
 // after moving from a tall step to a short one).
-const reportHeight = () => { if (EMBED) tellParent({ byw: 'h', h: Math.ceil(document.body.getBoundingClientRect().height) }); };
+const reportHeight = () => { if (EMBED) { tellParent({ byw: 'h', h: Math.ceil(document.body.getBoundingClientRect().height) }); pinRail(); } };
+/* Embedded, the frame never scrolls — the homepage does — so position:sticky is inert.
+   The parent posts where the frame sits in its viewport; we slide the price rail down
+   to stay in view, never past the bottom of the config grid. */
+let parentTop = null, railDy = 0;
+function pinRail() {
+  const rail = document.querySelector('.rail2'); if (!EMBED || !rail || parentTop == null) return;
+  const on = step === 1 && !matchMedia('(max-width: 900px)').matches && getComputedStyle(rail).display !== 'none';
+  if (!on) { if (railDy) { railDy = 0; rail.style.transform = ''; } return; }
+  const cfg = rail.parentElement;
+  const natTop = rail.getBoundingClientRect().top - railDy;          // where the rail sits untransformed
+  const want = -parentTop + 84 - natTop;                              // 84px clears the homepage nav
+  const maxDy = cfg.getBoundingClientRect().bottom - rail.offsetHeight - natTop;
+  const dy = Math.max(0, Math.min(want, maxDy));
+  if (dy !== railDy) { railDy = dy; rail.style.transform = dy ? `translateY(${dy}px)` : ''; }
+}
 // Belt and braces: the observer covers images loading and text reflow; the explicit
 // calls after every step change / repaint cover browsers that throttle observers.
 const reportSoon = () => { if (!EMBED) return; requestAnimationFrame(reportHeight); setTimeout(reportHeight, 120); setTimeout(reportHeight, 450); };
@@ -1378,6 +1417,7 @@ window.addEventListener('message', e => {
   if (e.origin !== location.origin || !e.data) return;
   if (e.data.byw === 'next' && golfReady()) go(2);
   if (e.data.byw === 'goto' && typeof e.data.n === 'number' && e.data.n !== step) go(e.data.n, e.data.n < step, true);
+  if (e.data.byw === 'scroll' && typeof e.data.top === 'number') { parentTop = e.data.top; pinRail(); }
 });
 /* ---------------- steps ---------------- */
 let step = 0;
@@ -1565,8 +1605,9 @@ function buildLead() {
   if (!golf) fd.set('sessions_per_day', String(state.perDay));
   const addons = [];
   if (state.mods.coaching) addons.push(`Coaching x${state.mods.coaching}`);
-  if (state.mods.boards) addons.push(`Board rental x${state.mods.boards} sessions`);
+  if (state.mods.boards) addons.push('Board rental (whole trip)');
   if (state.mods.media) addons.push(`Professional videography x${state.mods.media}`);
+  if (state.mods.buyout) addons.push(`Private pool buyout x${state.mods.buyout} sessions (quote separately)`);
   if (golf && state.mods.clubs) addons.push(`Premium golf clubs x${state.mods.clubs} days`);
   fd.set('addons', addons.join(', '));
   if (!golf) { const r = calc(); fd.set('quoted_estimate', fmt(r.total) + ' total \u00b7 ' + fmt(r.pp) + ' pp'); }
@@ -1821,14 +1862,14 @@ function syncLevels() {
   const wrap = $('levels'); if (!wrap) return;
   const full = n > 0 && levelAssigned() >= n;
   wrap.classList.toggle('tbd', state.levelTbd);
-  wrap.querySelectorAll('.lvl').forEach(row => {
+  wrap.querySelectorAll('.lvl[data-level]').forEach(row => {
     const k = row.dataset.level.replace('&amp;', '&'), v = state.levels[k];
     row.classList.toggle('on', v > 0);
     row.querySelector('output').textContent = v;
     row.querySelector('[data-lvl="-1"]').disabled = v === 0;
     row.querySelector('[data-lvl="1"]').disabled = full;
   });
-  $('lvl-tbd').classList.toggle('on', state.levelTbd);
+  $('lvl-tbd').classList.toggle('on', state.levelTbd); $('lvl-tbd').setAttribute('aria-pressed', String(state.levelTbd));
   const hint = $('lvl-hint'), sum = $('lvl-sum'), a = levelAssigned();
   hint.textContent = n ? '\u00b7 assign your ' + n + ' surfer' + (n > 1 ? 's' : '') : '\u00b7 how many at each level';
   sum.className = 'lvl-sum' + (state.levelTbd || levelOk() ? ' ok' : (sum.classList.contains('err') ? ' err' : ''));
@@ -1852,6 +1893,13 @@ if (levelsEl) levelsEl.addEventListener('click', e => {
   state.levelTbd = false; $('lvl-sum').classList.remove('err');
   paint();
 });
+document.querySelectorAll('[data-yn]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.yn, v = +b.dataset.v;
+  state.mods[k] = v;
+  document.querySelectorAll(`[data-yn="${k}"]`).forEach(x => x.classList.toggle('on', +x.dataset.v === v));
+  document.querySelector(`[data-mod="${k}"]`).classList.toggle('on', v > 0);
+  paintMods(); paint();
+}));
 const lvlTbdEl = $('lvl-tbd');
 if (lvlTbdEl) lvlTbdEl.addEventListener('click', () => {
   state.levelTbd = !state.levelTbd;
@@ -1859,16 +1907,15 @@ if (lvlTbdEl) lvlTbdEl.addEventListener('click', () => {
   $('lvl-sum').classList.remove('err');
   paint();
 });
-const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
-const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'professional videography', clubs: 'premium golf clubs' };
+const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days', buyout: 'sessions' };
+const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'professional videography', clubs: 'premium golf clubs', buyout: 'private pool buyout' };
 function setMod(k, d) {
   const nights = isGolf() ? (parseInt(state.golf.nights, 10) || 14) : state.nights;
   const cap = k === 'clubs' ? nights : nights * 2;
   const next = Math.min(cap, Math.max(0, state.mods[k] + d));
   if (next === state.mods[k]) return;
   state.mods[k] = next;
-  const o = $('mo-' + k); o.textContent = next;
-  o.classList.remove('bump'); void o.offsetWidth; o.classList.add('bump');
+  const o = $('mo-' + k); if (o) { o.textContent = next; o.classList.remove('bump'); void o.offsetWidth; o.classList.add('bump'); }
   document.querySelector(`[data-mod="${k}"]`).classList.toggle('on', next > 0);
   paintMods(); paint();
 }
@@ -1878,11 +1925,14 @@ function paintAddonPrices() {
   set('amt-boards', ENGINE.addons.board_session);
   set('amt-clubs', ENGINE.addons.clubs_set_day);
   set('amt-media', ENGINE.addons.media_session);
+  // buyout list rate comes from the shared pricing file (LIST rate only — no promo ships in the bundle)
+  const bo = (window.SC_PRICING && window.SC_PRICING.buyout && window.SC_PRICING.buyout.intermediate) ? window.SC_PRICING.buyout.intermediate.list : 7760;
+  const ab = $('amt-buyout'); if (ab) ab.textContent = 'from ' + fmt(bo);
 }
 function paintMods() {
   const sum = $('mod-sum'); if (!sum) return;
   const parts = Object.keys(state.mods).filter(k => state.mods[k] && (isGolf() ? k !== 'clubs' : k !== 'clubs'))
-    .map(k => state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
+    .map(k => k === 'boards' ? 'board rental for the whole trip' : k === 'buyout' ? state.mods[k] + ' private pool buyout session' + (state.mods[k] > 1 ? 's' : '') + ' (quoted separately)' : state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
   sum.innerHTML = parts.length ? `<b>${parts.join(' &middot; ')}</b>` + (isGolf() ? '' : ' &middot; per guest') : 'No add-ons selected.';
 }
 document.addEventListener('click', e => {

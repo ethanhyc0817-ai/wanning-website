@@ -6199,6 +6199,7 @@ function requestQuote(key) {
   window.addEventListener('message', function (e) {
     if (e.origin !== window.location.origin || !e.data || e.data.byw == null) return;
     if (e.data.byw === 'h' && e.data.h > 0) frame.style.height = Math.ceil(e.data.h) + 'px';
+    if (e.data.byw === 'h') tellScroll();
     if (e.data.byw === 'top') {
       var y = frame.getBoundingClientRect().top + window.scrollY - 84;
       window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
@@ -6220,6 +6221,20 @@ function requestQuote(key) {
       window.scrollTo({ top: Math.max(0, yy), behavior: 'smooth' });
     }
   });
+  // Tell the frame where it sits in our viewport (rAF-throttled) so its price rail can follow the scroll
+  var scrollPending = false;
+  function tellScroll() {
+    if (scrollPending) return; scrollPending = true;
+    requestAnimationFrame(function () {
+      scrollPending = false;
+      var pc = document.getElementById('page-contact');
+      if (!pc || getComputedStyle(pc).display === 'none') return;
+      try { frame.contentWindow.postMessage({ byw: 'scroll', top: frame.getBoundingClientRect().top }, window.location.origin); } catch (e) {}
+    });
+  }
+  window.addEventListener('scroll', tellScroll, { passive: true });
+  window.addEventListener('resize', tellScroll);
+  frame.addEventListener('load', tellScroll);
   var nextBtn = document.getElementById('bywNext');
   if (nextBtn) nextBtn.addEventListener('click', function () {
     try { frame.contentWindow.postMessage({ byw: 'next' }, window.location.origin); } catch (e) {}
