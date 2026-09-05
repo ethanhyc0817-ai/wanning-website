@@ -323,12 +323,6 @@
   .lvl-tbd .tick { margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--sand-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 0.72rem; color: transparent; }
   .lvl-tbd.on { background: rgba(10,77,104,0.06); }
   .lvl-tbd.on .tick { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
-  /* Yes / no pair (board rental). Specificity beats .mod .mq button, which makes steppers 30px circles. */
-  .mod .mq.mq-yn { display: inline-flex; gap: 0.35rem; justify-content: flex-end; flex-wrap: nowrap; white-space: nowrap; }
-  .mod .mq.mq-yn button { width: auto; height: auto; border: 1px solid var(--sand-dark); background: var(--white); border-radius: var(--r-pill);
-                          padding: 0.45rem 0.95rem; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: var(--charcoal); cursor: pointer; }
-  .mod .mq.mq-yn button:hover { background: var(--sand); border-color: var(--ocean); }
-  .mod .mq.mq-yn button.on, .mod .mq.mq-yn button.on:hover { background: var(--ocean); border-color: var(--ocean); color: var(--white); }
   /* Single check (private pool buyout): in or out, no quantity */
   .mod .mq.mq-chk { display: inline-flex; justify-content: flex-end; }
   .mod .mq.mq-chk button { width: auto; height: auto; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--sand-dark); background: var(--white);
@@ -583,6 +577,7 @@
   /* ---------- step 3: review ---------- */
   .review { display: grid; grid-template-columns: 1fr minmax(300px, 380px); gap: clamp(1.4rem, 4vw, 3rem);
             align-items: start; }
+  .sheet-sub { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--sand-dark); }
   .sheet { background: var(--white); border: 1px solid var(--sand-dark); border-radius: var(--r-card);
            padding: 1.6rem clamp(1.2rem, 3vw, 2rem); }
   .sheet h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; margin-bottom: 0.9rem; }
@@ -662,7 +657,7 @@
   <a class="brand" href="#" onclick="return false">&#x3030; Surf China Co.</a>
   <div class="steps" aria-hidden="true">
     <span class="on" data-step="0">1<i> &middot; Trip</i></span>
-    <span data-step="1">2<i> &middot; Shape it</i></span>
+    <span data-step="1">2<i> &middot; Details</i></span>
     <span data-step="2">3<i> &middot; Review</i></span>
   </div>
   <span class="help">Questions? <b>WhatsApp +86 189&nbsp;7654&nbsp;3210</b></span>
@@ -737,7 +732,7 @@
     <section class="pane" id="pane1">
       <div class="headr">
         <span class="kicker" id="cfg-kicker">Surf &amp; Stay</span>
-        <h1>Shape it to your crew.</h1>
+        <h1>Tailor it to your crew.</h1>
       </div>
       <div class="cfg">
         <div>
@@ -873,11 +868,13 @@
                 </span>
               </div>
               <div class="mod" data-mod="boards">
-                <span class="mtxt"><b>Board rental</b><small>Performance boards for every session of the trip &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
+                <span class="mtxt"><b>Board rental</b><small>How many of you rent a board &middot; every session of the trip &middot; <a class="quiver" href="/board-rentals.html" target="_blank" rel="noopener">See the rental quiver &rarr;</a></small></span>
                 <span class="mp"><span class="amt" id="amt-boards">&mdash;</span><span class="unit">per guest / session</span></span>
-                <span class="mq mq-yn" id="yn-boards">
-                  <button type="button" data-yn="boards" data-v="0" class="on">No</button>
-                  <button type="button" data-yn="boards" data-v="1">Yes</button>
+                <span class="mq">
+                  <button type="button" data-modminus="boards" aria-label="Fewer guests renting boards">&minus;</button>
+                  <output id="mo-boards">0</output>
+                  <button type="button" data-modplus="boards" aria-label="More guests renting boards">+</button>
+                  <em>guests, whole trip</em>
                 </span>
               </div>
               <div class="mod on" data-mod="media">
@@ -952,21 +949,22 @@
       </div>
       <div class="review">
         <div style="display:grid; gap:1.1rem;">
-          <div class="sheet price-only">
+          <div class="sheet">
+          <div class="price-only">
             <h3>Your estimate</h3>
             <table class="bill"><tbody id="bill"></tbody></table>
           </div>
-          <div class="sheet go-only">
+          <div class="go-only">
             <h3>What you&rsquo;ve told us</h3>
             <ul class="req-sum" id="go-sum"></ul>
             <p class="tier-note" style="margin-top:1rem;">We build every golf trip to order &mdash; tee times, caddies, transfers and hotels. You&rsquo;ll get a written itinerary and an exact quote within 24 hours.</p>
           </div>
-          <div class="sheet golf-only">
+          <div class="golf-only">
             <h3>What you&rsquo;ve told us</h3>
             <ul class="req-sum" id="golf-sum"></ul>
             <p class="tier-note" style="margin-top:1rem;">We build every Surf &amp; Golf trip to order. You&rsquo;ll get a written itinerary and an exact quote within 24 hours &mdash; nothing to pay until you&rsquo;re happy with it.</p>
           </div>
-          <div class="sheet">
+          <div class="sheet-sub">
             <h3>Always included</h3>
             <ul class="incl">
               <li>Round-trip premium airport transfers</li>
@@ -976,6 +974,7 @@
               <li>English-speaking concierge on WhatsApp, 7 days</li>
               <li>30-day visa-free entry guidance</li>
             </ul>
+          </div>
           </div>
           <div class="sheet">
             <h3>What happens next</h3>
@@ -1010,7 +1009,7 @@
                Prices are live season rates; we re-confirm the exact figure in writing.</p>
           </div>
           <div class="btnrow">
-            <button type="button" class="btn btn-ghost" data-go="1" data-dir="back" style="width:100%;">&larr; Back to shaping</button>
+            <button type="button" class="btn btn-ghost" data-go="1" data-dir="back" style="width:100%;">&larr; Back to details</button>
           </div>
         </aside>
       </div>
@@ -1069,7 +1068,7 @@ const P = {
 };
 const state = { pack: 'stay', checkin: new Date(2026, 9, 12), checkout: new Date(2026, 9, 15), nights: 3, ppl: 2, perDay: 2, tier: 'essential',
                 roomList: ['garden'],           // one entry per room, each holds its room type
-                mods: { coaching: 0, boards: 0, media: 1, clubs: 0, buyout: 0 }, notes: '',   // boards: 0/1 = rent for the whole trip
+                mods: { coaching: 0, boards: 0, media: 1, clubs: 0, buyout: 0 }, notes: '',   // boards: guests renting, each for the whole trip
                 // Surf & Golf is quoted by hand (same as the inquiry form): one start date
                 // or "not sure yet", plus the numbers we cannot quote without.
                 // wave level: how many surfers at each level (adds up to the surfers), or TBD
@@ -1125,15 +1124,16 @@ function calc() {
   if (s.pack === 'custom' || s.pack === 'stay') {   // add-ons price on both surf paths
     if (s.mods.coaching) changes.push({ k: `Private coaching \u00d7 ${s.mods.coaching} \u00d7 ${s.ppl} guest${s.ppl > 1 ? 's' : ''}`,
                                         v: ENGINE.addons.coach_1v1 * s.ppl * s.mods.coaching });
-    if (s.mods.boards) { const bs = s.perDay * s.nights;   // every session of the trip, every guest
-      changes.push({ k: `Board rental, whole trip \u00d7 ${bs} session${bs > 1 ? 's' : ''} \u00d7 ${s.ppl}`, v: ENGINE.addons.board_session * s.ppl * bs }); }
+    if (s.mods.boards) { const bs = s.perDay * s.nights, g = Math.min(s.mods.boards, s.ppl);   // each renter, every session of the trip
+      changes.push({ k: `Board rental \u00d7 ${g} guest${g > 1 ? 's' : ''} \u00d7 ${bs} session${bs > 1 ? 's' : ''}`, v: ENGINE.addons.board_session * g * bs }); }
     if (s.mods.buyout) changes.push({ k: 'Private pool buyout', v: 0, req: true });
     if (s.mods.media > 1) changes.push({ k: `Extra professional videography \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
                                          v: ENGINE.addons.media_session * (s.mods.media - 1) * s.ppl });
   }
-  if (s.pack !== 'golf' && holidayHit(s.checkin, s.checkout)) {
+  const holName = s.pack !== 'golf' ? holidayHit(s.checkin, s.checkout) : '';
+  if (holName) {
     const sub = base + changes.reduce((a, c) => a + (c.v || 0), 0);
-    changes.push({ k: 'Golden Week holiday surcharge · 20%', v: sub * 0.2 });
+    changes.push({ k: holName + ' holiday surcharge · 20%', v: sub * 0.2 });
   }
   const total = base + changes.reduce((a, c) => a + (c.v || 0), 0);
   return { base, changes, total, pax: q.pax, pp: total / Math.max(1, s.ppl) };
@@ -1150,21 +1150,37 @@ const MAINT_RANGES = [{ start: new Date(2026, 7, 24), end: new Date(2026, 8, 23)
 const inMaint = d => MAINT_RANGES.some(r => d >= r.start && d <= r.end);
 // Nights [a, b) touch a closure? Checking out ON the first closed day is fine (last night is before it).
 const maintHit = (a, b) => MAINT_RANGES.find(r => a <= r.end && b > r.start);
-// National Day Golden Week, Oct 1-7 every year: bookable, 20% holiday surcharge.
-const inHoliday = d => d.getMonth() === 9 && d.getDate() <= 7;
-const holidayHit = (a, b) => { for (let d = new Date(a); d < b; d.setDate(d.getDate() + 1)) if (inHoliday(d)) return true; return false; };
-const HOL_LEGEND = '<div class="cal-legend"><span class="sw" aria-hidden="true"></span><span>Oct 1&ndash;7 &middot; Golden Week &middot; 20% holiday surcharge</span></div>';
+// Chinese public holidays: bookable, 20% holiday surcharge. Golden Week is Oct 1-7 every
+// year. Chinese New Year runs New Year's Eve to day 7; the State Council publishes the
+// exact days each November — update the row when it does (months are 0-based).
+const CNY_HOLIDAY = { 2027: [[1, 5], [1, 12]], 2028: [[0, 25], [1, 1]], 2029: [[1, 12], [1, 19]] };
+function holidayRange(name, year) {
+  if (name === 'Golden Week') return { start: new Date(year, 9, 1), end: new Date(year, 9, 7) };
+  const c = CNY_HOLIDAY[year]; if (!c) return null;
+  return { start: new Date(year, c[0][0], c[0][1]), end: new Date(year, c[1][0], c[1][1]) };
+}
+const HOLIDAY_NAMES = ['Golden Week', 'Chinese New Year'];
+function holidayOf(d) {
+  for (const n of HOLIDAY_NAMES) { const r = holidayRange(n, d.getFullYear()); if (r && d >= r.start && d <= r.end) return n; }
+  return '';
+}
+const inHoliday = d => !!holidayOf(d);
+// first holiday any night [a, b) falls in, or ''
+const holidayHit = (a, b) => { for (let d = new Date(a); d < b; d.setDate(d.getDate() + 1)) { const n = holidayOf(d); if (n) return n; } return ''; };
+const fmtRange = r => MN[r.start.getMonth()] + ' ' + r.start.getDate() + '\u2013' + (r.end.getMonth() === r.start.getMonth() ? '' : MN[r.end.getMonth()] + ' ') + r.end.getDate();
+const holLegend = (name, year) => { const r = holidayRange(name, year); return r ? '<div class="cal-legend"><span class="sw" aria-hidden="true"></span><span>' + fmtRange(r) + ' &middot; ' + name + ' &middot; 20% holiday surcharge</span></div>' : ''; };
 let calMsg = '';
-function renderCalNotes(showLegend) {
+function renderCalNotes(legends) {
   const box = document.getElementById('cal-notes'); if (!box) return;
-  let h = showLegend ? HOL_LEGEND : '';
+  let h = (legends || []).map(l => holLegend(l.name, l.year)).join('');
   const fm = d => MN[d.getMonth()] + ' ' + d.getDate();
   const up = MAINT_RANGES.filter(r => TODAY <= r.end);
   if (up.length) h += '<div class="cal-note">Our surf pool is closed for scheduled maintenance '
     + up.map(r => '<b>' + fm(r.start) + ' &ndash; ' + fm(r.end) + ', ' + r.end.getFullYear() + '</b>').join(' and ')
     + ', so those dates can&rsquo;t be booked.</div>';
-  const hol = (isGolf() || isGO()) ? (state.golf.start && inHoliday(state.golf.start)) : holidayHit(state.checkin, state.checkout);
-  if (hol) h += '<div class="cal-note hol">Your dates fall in <b>Golden Week (Oct 1&ndash;7)</b>, so a <b>20% holiday surcharge</b> applies. Start <b>Oct 8 or later</b> for standard rates.</div>';
+  const hol = (isGolf() || isGO()) ? (state.golf.start ? holidayOf(state.golf.start) : '') : holidayHit(state.checkin, state.checkout);
+  if (hol) { const yr = ((isGolf() || isGO()) ? state.golf.start : state.checkin).getFullYear(); const r = holidayRange(hol, yr) || holidayRange(hol, yr + 1);
+    h += '<div class="cal-note hol">Your dates fall in <b>' + hol + (r ? ' (' + fmtRange(r) + ')' : '') + '</b>, so a <b>20% holiday surcharge</b> applies. Dates outside it are at standard rates.</div>'; }
   box.innerHTML = h;
 }
 let calBase = new Date(Math.max(TODAY, new Date(2026, 9, 1)).valueOf()); calBase = new Date(calBase.getFullYear(), calBase.getMonth(), 1);
@@ -1180,7 +1196,7 @@ const isGolf = () => state.pack === 'golf';
 function renderCal() {
   const cal = document.getElementById('cal');
   if (!cal) return;
-  let html = '', monthHol = false;
+  let html = '', legends = [];
   for (let m = 0; m < 2; m++) {
     const base = new Date(calBase.getFullYear(), calBase.getMonth() + m, 1);
     const dow = (base.getDay() + 6) % 7;      // Monday-first
@@ -1204,17 +1220,17 @@ function renderCal() {
       if (dEq(dt, inSel)) cls = 'start';
       else if (outSel && dEq(dt, outSel)) cls = 'end';
       else if (inSel && outSel && dt > inSel && dt < outSel) cls = 'mid';
-      const maint = inMaint(dt), hol = !maint && inHoliday(dt);
-      if (hol) monthHol = true;
+      const maint = inMaint(dt), hol = maint ? '' : holidayOf(dt);
+      if (hol && !legends.some(l => l.name === hol && l.year === dt.getFullYear())) legends.push({ name: hol, year: dt.getFullYear() });
       const off = dt < CAL_MIN || dt > CAL_MAX || maint;
       cls += maint ? ' maint' : hol ? ' holiday' : '';
-      const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="Golden Week — 20% holiday surcharge"' : '';
+      const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="' + hol + ' — 20% holiday surcharge"' : '';
       html += `<button type="button" class="cal-d ${cls}" data-date="${dt.getTime()}"${title} ${off ? 'disabled' : ''}>${d}</button>`;
     }
     html += '</div></div>';
   }
   cal.innerHTML = html;
-  renderCalNotes(monthHol);
+  renderCalNotes(legends);
   const sum = document.getElementById('cal-sum');
   if (isGolf() || isGO()) {
     renderDpick();
@@ -1299,7 +1315,7 @@ function paintGolf() {
     ['Wave level', levelText() || 'Not set'],
     ['Rooms', rooms],
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
-                      state.mods.boards ? 'Board rental, whole trip' : null,
+                      state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} guest${state.mods.boards > 1 ? 's' : ''}, whole trip` : null,
                       state.mods.media ? `Professional videography \u00d7 ${state.mods.media}` : null,
                       state.mods.buyout ? 'Private pool buyout (quoted separately)' : null]
                      .filter(Boolean).join(' \u00b7 ') || 'None'],
@@ -1342,6 +1358,7 @@ function paintGO() {
 function paint() {
   reportSoon();
   syncLevels();
+  const sc = surferCount(); if (sc && state.mods.boards > sc) { state.mods.boards = sc; const o = $('mo-boards'); if (o) o.textContent = sc; }
   document.body.classList.toggle('is-golf', isGolf());
   document.body.classList.toggle('is-go', isGO());
   if (isGO()) { paintGO(); return; }
@@ -1529,17 +1546,17 @@ function renderDpick() {
         + `<button type="button" class="dp-nav" data-dp="next" aria-label="Next month" ${canNext ? '' : 'disabled'}>&rsaquo;</button></div>`
         + `<div class="dp-tbd${g.tbd ? ' active' : ''}" data-dp="tbd"><span class="tbd-check" aria-hidden="true"></span><span>I&rsquo;m not sure yet</span></div>`
         + '<div class="dp-grid">' + DOW.map(d => `<div class="dp-dow">${d}</div>`).join('');
-  let dpHol = false;
+  let dpLegends = [];
   for (let i = 0; i < first.getDay(); i++) h += '<div></div>';
   for (let d = 1; d <= days; d++) {
     const dt = new Date(y, m, d);
-    const maint = inMaint(dt), hol = !maint && inHoliday(dt);
-    if (hol) dpHol = true;
+    const maint = inMaint(dt), hol = maint ? '' : holidayOf(dt);
+    if (hol && !dpLegends.some(l => l.name === hol)) dpLegends.push({ name: hol, year: dt.getFullYear() });
     const off = dt < CAL_MIN || dt > CAL_MAX || maint;
-    const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="Golden Week — 20% holiday surcharge"' : '';
+    const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="' + hol + ' — 20% holiday surcharge"' : '';
     h += `<div class="dp-day${off ? ' disabled' : ''}${maint ? ' maint' : hol ? ' holiday' : ''}${dEq(dt, g.start) ? ' start' : ''}" data-dp="day" data-t="${dt.getTime()}"${title}>${d}</div>`;
   }
-  h += '</div>' + (dpHol ? HOL_LEGEND : '') + '<div class="dp-foot"><button type="button" class="dp-clear" data-dp="clear">Clear</button><button type="button" class="dp-done" data-dp="done">Done</button></div>';
+  h += '</div>' + dpLegends.map(l => holLegend(l.name, l.year)).join('') + '<div class="dp-foot"><button type="button" class="dp-clear" data-dp="clear">Clear</button><button type="button" class="dp-done" data-dp="done">Done</button></div>';
   pop.innerHTML = h;
 }
 const gdateEl = $('gdate');
@@ -1610,7 +1627,7 @@ function buildLead() {
   if (!golf) fd.set('sessions_per_day', String(state.perDay));
   const addons = [];
   if (state.mods.coaching) addons.push(`Coaching x${state.mods.coaching}`);
-  if (state.mods.boards) addons.push('Board rental (whole trip)');
+  if (state.mods.boards) addons.push(`Board rental x${state.mods.boards} guests (whole trip)`);
   if (state.mods.media) addons.push(`Professional videography x${state.mods.media}`);
   if (state.mods.buyout) addons.push('Private pool buyout (quote separately)');
   if (golf && state.mods.clubs) addons.push(`Premium golf clubs x${state.mods.clubs} days`);
@@ -1898,13 +1915,6 @@ if (levelsEl) levelsEl.addEventListener('click', e => {
   state.levelTbd = false; $('lvl-sum').classList.remove('err');
   paint();
 });
-document.querySelectorAll('[data-yn]').forEach(b => b.addEventListener('click', () => {
-  const k = b.dataset.yn, v = +b.dataset.v;
-  state.mods[k] = v;
-  document.querySelectorAll(`[data-yn="${k}"]`).forEach(x => x.classList.toggle('on', +x.dataset.v === v));
-  document.querySelector(`[data-mod="${k}"]`).classList.toggle('on', v > 0);
-  paintMods(); paint();
-}));
 document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
   const k = b.dataset.chk, v = state.mods[k] ? 0 : 1;
   state.mods[k] = v;
@@ -1923,7 +1933,7 @@ const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', 
 const MOD_NAME = { coaching: 'coaching', boards: 'board rental', media: 'professional videography', clubs: 'premium golf clubs', buyout: 'private pool buyout' };
 function setMod(k, d) {
   const nights = isGolf() ? (parseInt(state.golf.nights, 10) || 14) : state.nights;
-  const cap = k === 'clubs' ? nights : nights * 2;
+  const cap = k === 'clubs' ? nights : k === 'boards' ? Math.max(1, surferCount() || 8) : nights * 2;
   const next = Math.min(cap, Math.max(0, state.mods[k] + d));
   if (next === state.mods[k]) return;
   state.mods[k] = next;
@@ -1944,7 +1954,7 @@ function paintAddonPrices() {
 function paintMods() {
   const sum = $('mod-sum'); if (!sum) return;
   const parts = Object.keys(state.mods).filter(k => state.mods[k] && (isGolf() ? k !== 'clubs' : k !== 'clubs'))
-    .map(k => k === 'boards' ? 'board rental for the whole trip' : k === 'buyout' ? 'private pool buyout (quoted separately)' : state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
+    .map(k => k === 'boards' ? state.mods[k] + ' guest' + (state.mods[k] > 1 ? 's' : '') + ' renting boards for the whole trip' : k === 'buyout' ? 'private pool buyout (quoted separately)' : state.mods[k] + ' ' + MOD_UNIT[k] + ' of ' + MOD_NAME[k]);
   sum.innerHTML = parts.length ? `<b>${parts.join(' &middot; ')}</b>` + (isGolf() ? '' : ' &middot; per guest') : 'No add-ons selected.';
 }
 document.addEventListener('click', e => {
