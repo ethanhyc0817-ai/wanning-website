@@ -298,6 +298,39 @@
   .dial output.bump { animation: bump 0.16s var(--ease-out); }
   @keyframes bump { 45% { transform: scale(1.08); color: var(--gold); } }
   .dial .unit { font-size: 0.78rem; color: var(--warm-gray); }
+  /* Surf sessions: per-day dial, then one stepper per wave level (counts add up to the surfers) */
+  .sub { margin-bottom: 1.1rem; }
+  .lvl-head { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem; max-width: 640px; }
+  .sub-lbl { font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
+  .sub-lbl em { font-style: normal; font-weight: 400; color: var(--warm-gray); }
+  .sub-lbl .req { color: var(--coral); }
+  .chip-sm { padding: 0.45rem 0.9rem; font-size: 0.78rem; }
+  .lvls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem 0.8rem; max-width: 640px; transition: opacity 0.2s; }
+  .lvls.tbd { opacity: 0.4; pointer-events: none; }
+  .lvl { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+         border: 1px solid var(--sand-dark); border-radius: var(--r-card); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; }
+  .lvl.on { border-color: var(--ocean); box-shadow: 0 0 0 1px var(--ocean) inset; }
+  .lvl b { font-size: 0.86rem; font-weight: 600; }
+  .lvl .st { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .lvl .st button { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--sand-dark); background: var(--white); cursor: pointer;
+                    font-size: 1rem; line-height: 1; color: var(--charcoal); }
+  .lvl .st button:hover:not(:disabled) { background: var(--sand); }
+  .lvl .st button:disabled { opacity: 0.3; cursor: default; }
+  .lvl .st output { min-width: 1.8ch; text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; }
+  .lvl-sum { margin-top: 0.6rem; font-size: 0.8rem; color: var(--warm-gray); }
+  .lvl-sum.ok { color: var(--ocean); font-weight: 600; }
+  .lvl-sum.err { color: var(--coral); font-weight: 600; }
+  @media (max-width: 480px) { .lvls { grid-template-columns: 1fr; } }
+  /* Calendar: surf pool maintenance closures (struck through, not selectable) and
+     National Day Golden Week, Oct 1-7 (bookable, marked red: 20% holiday surcharge) */
+  .cal-d.maint, .dp-day.maint { text-decoration: line-through; }
+  .cal-d.holiday:not(.start):not(.end):not(.mid), .dp-day.holiday:not(.start) { color: #b03a2e; font-weight: 600; background: rgba(176,58,46,0.08); }
+  .cal-d.holiday.mid { background: rgba(176,58,46,0.16); }
+  .cal-legend { display: flex; align-items: center; gap: 0.4rem; font-size: 0.74rem; color: var(--warm-gray); margin-top: 0.55rem; }
+  .cal-legend .sw { width: 11px; height: 11px; border-radius: 3px; flex: none; background: rgba(176,58,46,0.22); border: 1px solid rgba(176,58,46,0.5); }
+  .cal-note { margin-top: 0.7rem; padding: 0.6rem 0.85rem; border-left: 3px solid var(--ocean); background: var(--white);
+              border-radius: 0 var(--r-card) var(--r-card) 0; font-size: 0.8rem; line-height: 1.5; color: var(--charcoal); }
+  .cal-note.hol { border-left-color: #b03a2e; background: rgba(176,58,46,0.06); }
 
   /* room counters + "more room types" disclosure */
   .roomc { cursor: pointer; }
@@ -724,6 +757,7 @@
               <div class="dpick-pop" id="dpop" role="dialog" aria-label="Pick a trip start date"></div>
             </div>
             <p class="cal-sum" id="cal-sum"></p>
+            <div id="cal-notes" class="no-go"></div>
           </div>
           <div class="field go-only" id="f-go">
             <span class="kicker">Your trip</span>
@@ -759,36 +793,14 @@
             </div>
             <p class="nums-err" id="nums-err" hidden>Please fill in nights, surfers and golfers &mdash; a 0 is fine for surfers or golfers.</p>
           </div>
-          <div class="field price-only" id="f-guests">
-            <span class="kicker">Guests</span>
-            <div class="dial">
+          <div class="field no-go" id="f-stay">
+            <span class="kicker"><span class="price-only">Guests &amp; rooms</span><span class="golf-only">Rooms</span> <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;" id="rm-count"></em></span>
+            <div class="dial price-only" style="margin-bottom:0.8rem;">
               <button type="button" data-dial="ppl" data-d="-1" aria-label="Fewer guests">&minus;</button>
               <output id="o-ppl">2</output>
               <button type="button" data-dial="ppl" data-d="1" aria-label="More guests">+</button>
               <span class="unit">guests on this trip</span>
             </div>
-          </div>
-          <div class="field no-go" id="f-level">
-            <span class="kicker">Wave level <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; optional, helps us set the pool</em></span>
-            <div class="chips" id="levels">
-              <button type="button" class="chip" data-level="Beginner">Beginner</button>
-              <button type="button" class="chip" data-level="Intermediate">Intermediate</button>
-              <button type="button" class="chip" data-level="Advanced">Advanced</button>
-              <button type="button" class="chip" data-level="Barrels &amp; Airs">Barrels &amp; Airs <small style="font-weight:400;opacity:0.8;">&middot; private session</small></button>
-              <button type="button" class="chip" data-level="Mixed levels in group">Mixed levels in group</button>
-            </div>
-          </div>
-          <div class="field" id="f-perday">
-            <span class="kicker">Surf sessions per day <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; for the whole group</em></span>
-            <div class="dial">
-              <button type="button" data-dial="perDay" data-d="-1" aria-label="Fewer sessions per day">&minus;</button>
-              <output id="o-perDay">2</output>
-              <button type="button" data-dial="perDay" data-d="1" aria-label="More sessions per day">+</button>
-              <span class="unit">surf sessions per day, for the whole group</span>
-            </div>
-          </div>
-          <div class="field no-go">
-            <span class="kicker">Rooms <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;" id="rm-count"></em></span>
             <div class="dial" style="margin-bottom:1rem;">
               <button type="button" data-rooms="-1" aria-label="One fewer room">&minus;</button>
               <output id="o-rooms">1</output>
@@ -796,6 +808,28 @@
               <span class="unit">rooms &middot; each one starts as Garden View</span>
             </div>
             <div id="roomList"></div>
+          </div>
+          <div class="field no-go" id="f-sessions">
+            <span class="kicker">Surf sessions <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; how often, and who surfs at which level</em></span>
+            <div id="f-perday" class="sub">
+              <div class="dial">
+                <button type="button" data-dial="perDay" data-d="-1" aria-label="Fewer sessions per day">&minus;</button>
+                <output id="o-perDay">2</output>
+                <button type="button" data-dial="perDay" data-d="1" aria-label="More sessions per day">+</button>
+                <span class="unit">surf sessions per day, for the whole group</span>
+              </div>
+            </div>
+            <div class="lvl-head">
+              <span class="sub-lbl">Wave level <span class="req">*</span> <em id="lvl-hint"></em></span>
+              <button type="button" class="chip chip-sm" id="lvl-tbd">TBD &middot; not sure yet</button>
+            </div>
+            <div class="lvls" id="levels">
+              <div class="lvl" data-level="Beginner"><b>Beginner</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer beginner">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more beginner">+</button></span></div>
+              <div class="lvl" data-level="Intermediate"><b>Intermediate</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer intermediate surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more intermediate surfer">+</button></span></div>
+              <div class="lvl" data-level="Advanced"><b>Advanced</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer advanced surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more advanced surfer">+</button></span></div>
+              <div class="lvl" data-level="Barrels &amp; Airs"><b>Barrels &amp; Airs</b><span class="st"><button type="button" data-lvl="-1" aria-label="One fewer barrels and airs surfer">&minus;</button><output>0</output><button type="button" data-lvl="1" aria-label="One more barrels and airs surfer">+</button></span></div>
+            </div>
+            <p class="lvl-sum" id="lvl-sum"></p>
           </div>
           <div class="field no-go" id="f-mods">
             <span class="kicker price-only">Surf add-ons <em style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:400;">&middot; choose how many</em></span>
@@ -1009,7 +1043,8 @@ const state = { pack: 'stay', checkin: new Date(2026, 9, 12), checkout: new Date
                 mods: { coaching: 0, boards: 0, media: 1, clubs: 0 }, notes: '',
                 // Surf & Golf is quoted by hand (same as the inquiry form): one start date
                 // or "not sure yet", plus the numbers we cannot quote without.
-                level: '',                      // wave level, same options as the inquiry form
+                // wave level: how many surfers at each level (adds up to the surfers), or TBD
+                levels: { 'Beginner': 0, 'Intermediate': 0, 'Advanced': 0, 'Barrels & Airs': 0 }, levelTbd: false,
                 golf: { start: null, tbd: false, nights: '', surfers: '', golfers: '' } };
 const PACKS = { stay: 'Surf & Stay', golf: 'Surf & Golf', custom: 'Surf & Custom', golfonly: 'Golf Only' };
 const isGO = () => state.pack === 'golfonly';
@@ -1066,6 +1101,10 @@ function calc() {
     if (s.mods.media > 1) changes.push({ k: `Extra professional videography \u00d7 ${s.mods.media - 1} \u00d7 ${s.ppl}`,
                                          v: ENGINE.addons.media_session * (s.mods.media - 1) * s.ppl });
   }
+  if (s.pack !== 'golf' && holidayHit(s.checkin, s.checkout)) {
+    const sub = base + changes.reduce((a, c) => a + (c.v || 0), 0);
+    changes.push({ k: 'Golden Week holiday surcharge · 20%', v: sub * 0.2 });
+  }
   const total = base + changes.reduce((a, c) => a + (c.v || 0), 0);
   return { base, changes, total, pax: q.pax, pp: total / Math.max(1, s.ppl) };
 }
@@ -1076,6 +1115,28 @@ const fmt = n => '$' + Math.round(n / FX).toLocaleString('en-US');
 const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const TODAY = (d => new Date(d.getFullYear(), d.getMonth(), d.getDate()))(new Date());
 const CAL_MIN = TODAY, CAL_MAX = new Date(TODAY.getFullYear() + 2, TODAY.getMonth(), TODAY.getDate());
+// Surf pool maintenance closures: no nights inside these windows. Add future ones here (month is 0-based).
+const MAINT_RANGES = [{ start: new Date(2026, 7, 24), end: new Date(2026, 8, 23) }]; // 24 Aug - 23 Sep 2026
+const inMaint = d => MAINT_RANGES.some(r => d >= r.start && d <= r.end);
+// Nights [a, b) touch a closure? Checking out ON the first closed day is fine (last night is before it).
+const maintHit = (a, b) => MAINT_RANGES.find(r => a <= r.end && b > r.start);
+// National Day Golden Week, Oct 1-7 every year: bookable, 20% holiday surcharge.
+const inHoliday = d => d.getMonth() === 9 && d.getDate() <= 7;
+const holidayHit = (a, b) => { for (let d = new Date(a); d < b; d.setDate(d.getDate() + 1)) if (inHoliday(d)) return true; return false; };
+const HOL_LEGEND = '<div class="cal-legend"><span class="sw" aria-hidden="true"></span><span>Oct 1&ndash;7 &middot; Golden Week &middot; 20% holiday surcharge</span></div>';
+let calMsg = '';
+function renderCalNotes(showLegend) {
+  const box = document.getElementById('cal-notes'); if (!box) return;
+  let h = showLegend ? HOL_LEGEND : '';
+  const fm = d => MN[d.getMonth()] + ' ' + d.getDate();
+  const up = MAINT_RANGES.filter(r => TODAY <= r.end);
+  if (up.length) h += '<div class="cal-note">Our surf pool is closed for scheduled maintenance '
+    + up.map(r => '<b>' + fm(r.start) + ' &ndash; ' + fm(r.end) + ', ' + r.end.getFullYear() + '</b>').join(' and ')
+    + ', so those dates can&rsquo;t be booked.</div>';
+  const hol = (isGolf() || isGO()) ? (state.golf.start && inHoliday(state.golf.start)) : holidayHit(state.checkin, state.checkout);
+  if (hol) h += '<div class="cal-note hol">Your dates fall in <b>Golden Week (Oct 1&ndash;7)</b>, so a <b>20% holiday surcharge</b> applies. Start <b>Oct 8 or later</b> for standard rates.</div>';
+  box.innerHTML = h;
+}
 let calBase = new Date(Math.max(TODAY, new Date(2026, 9, 1)).valueOf()); calBase = new Date(calBase.getFullYear(), calBase.getMonth(), 1);
 let pendingIn = null;                          // set while waiting for checkout click
 const day1 = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -1089,7 +1150,7 @@ const isGolf = () => state.pack === 'golf';
 function renderCal() {
   const cal = document.getElementById('cal');
   if (!cal) return;
-  let html = '';
+  let html = '', monthHol = false;
   for (let m = 0; m < 2; m++) {
     const base = new Date(calBase.getFullYear(), calBase.getMonth() + m, 1);
     const dow = (base.getDay() + 6) % 7;      // Monday-first
@@ -1113,12 +1174,17 @@ function renderCal() {
       if (dEq(dt, inSel)) cls = 'start';
       else if (outSel && dEq(dt, outSel)) cls = 'end';
       else if (inSel && outSel && dt > inSel && dt < outSel) cls = 'mid';
-      const off = dt < CAL_MIN || dt > CAL_MAX;
-      html += `<button type="button" class="cal-d ${cls}" data-date="${dt.getTime()}" ${off ? 'disabled' : ''}>${d}</button>`;
+      const maint = inMaint(dt), hol = !maint && inHoliday(dt);
+      if (hol) monthHol = true;
+      const off = dt < CAL_MIN || dt > CAL_MAX || maint;
+      cls += maint ? ' maint' : hol ? ' holiday' : '';
+      const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="Golden Week — 20% holiday surcharge"' : '';
+      html += `<button type="button" class="cal-d ${cls}" data-date="${dt.getTime()}"${title} ${off ? 'disabled' : ''}>${d}</button>`;
     }
     html += '</div></div>';
   }
   cal.innerHTML = html;
+  renderCalNotes(monthHol);
   const sum = document.getElementById('cal-sum');
   if (isGolf() || isGO()) {
     renderDpick();
@@ -1127,7 +1193,9 @@ function renderCal() {
       : state.golf.start ? `Trip starts <b>${fmtD(state.golf.start)}</b>` : 'Pick the day you&rsquo;d like to arrive &mdash; or tell us you&rsquo;re not sure yet';
     return;
   }
-  if (pendingIn) {
+  if (calMsg) {
+    sum.innerHTML = `<span class="warn">${calMsg}</span>`; calMsg = '';
+  } else if (pendingIn) {
     sum.innerHTML = `<b>${fmtD(pendingIn)}</b> &rarr; now pick your check-out`;
   } else {
     const warn = state.pack === 'golf' && state.nights === 5 ? '' : '';
@@ -1148,6 +1216,14 @@ document.addEventListener('click', e => {
     if (isGolf()) { state.golf.start = dt; state.golf.tbd = false; renderCal(); paint(); return; }
     if (!pendingIn) { pendingIn = dt; renderCal(); return; }
     if (dt <= pendingIn) { pendingIn = dt; renderCal(); return; }
+    const blk = maintHit(pendingIn, dt);
+    if (blk) {                       // the stay would run into a pool closure: stop at the closure
+      dt = new Date(blk.start);
+      if (nightsBetween(pendingIn, dt) < minNights()) {
+        calMsg = 'The pool is closed from ' + fmtD(blk.start) + ' — pick a check-in after ' + fmtD(blk.end);
+        pendingIn = null; renderCal(); return;
+      }
+    }
     state.checkin = pendingIn;
     state.checkout = dt;
     pendingIn = null;
@@ -1190,7 +1266,7 @@ function paintGolf() {
     ['Nights', n(g.nights)],
     ['Surfers', n(g.surfers)],
     ['Golfers', n(g.golfers)],
-    ['Wave level', state.level || 'Not set'],
+    ['Wave level', levelText() || 'Not set'],
     ['Rooms', rooms],
     ['Surf add-ons', [state.mods.coaching ? `Coaching \u00d7 ${state.mods.coaching}` : null,
                       state.mods.boards ? `Board rental \u00d7 ${state.mods.boards} session${state.mods.boards > 1 ? 's' : ''}` : null,
@@ -1234,6 +1310,7 @@ function paintGO() {
 }
 function paint() {
   reportSoon();
+  syncLevels();
   document.body.classList.toggle('is-golf', isGolf());
   document.body.classList.toggle('is-go', isGO());
   if (isGO()) { paintGO(); return; }
@@ -1241,7 +1318,7 @@ function paint() {
   const r = calc();
   countTo($('r-pp'), r.pp);
   $('r-tot').textContent = fmt(r.total);
-  $('r-sum').textContent = `${state.ppl} guest${state.ppl > 1 ? 's' : ''} \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (state.level ? ` \u00b7 ${state.level}` : '');
+  $('r-sum').textContent = `${state.ppl} guest${state.ppl > 1 ? 's' : ''} \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (levelText() ? ` \u00b7 ${levelText()}` : '');
   $('m-pp').textContent = fmt(r.pp);
   syncParentBar();
   const baseRow = `<li class="base"><span>${PACKS[state.pack]} \u00b7 ${state.nights} night${state.nights > 1 ? 's' : ''}</span><span>${fmt(r.base)}</span></li>`;
@@ -1253,7 +1330,7 @@ function paint() {
   // step 3 mirrors
   $('rv-pp').textContent = fmt(r.pp);
   $('rv-tot').textContent = fmt(r.total);
-  $('rv-sum').textContent = `${state.ppl} guests \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (state.level ? ` \u00b7 ${state.level}` : '');
+  $('rv-sum').textContent = `${state.ppl} guests \u00b7 ${fmtD(state.checkin)} \u2192 ${fmtD(state.checkout)} \u00b7 ${state.nights} nights` + (levelText() ? ` \u00b7 ${levelText()}` : '');
   $('rv-kicker').textContent = PACKS[state.pack];
   const n2 = $('notes2');
   if (n2 && state.notes && !n2.value) n2.value = state.notes;   // carry the brief forward
@@ -1354,7 +1431,7 @@ document.addEventListener('click', e => {
   const g = e.target.closest('[data-go]');
   if (!g) return;
   const n = +g.dataset.go, back = g.dataset.dir === 'back';
-  if (n === 2 && !back && !golfReady()) return;
+  if (n === 2 && !back && (!golfReady() || !levelReady())) return;
   go(n, back);
 });
 /* Golf Only inputs */
@@ -1405,13 +1482,17 @@ function renderDpick() {
         + `<button type="button" class="dp-nav" data-dp="next" aria-label="Next month" ${canNext ? '' : 'disabled'}>&rsaquo;</button></div>`
         + `<div class="dp-tbd${g.tbd ? ' active' : ''}" data-dp="tbd"><span class="tbd-check" aria-hidden="true"></span><span>I&rsquo;m not sure yet</span></div>`
         + '<div class="dp-grid">' + DOW.map(d => `<div class="dp-dow">${d}</div>`).join('');
+  let dpHol = false;
   for (let i = 0; i < first.getDay(); i++) h += '<div></div>';
   for (let d = 1; d <= days; d++) {
     const dt = new Date(y, m, d);
-    const off = dt < CAL_MIN || dt > CAL_MAX;
-    h += `<div class="dp-day${off ? ' disabled' : ''}${dEq(dt, g.start) ? ' start' : ''}" data-dp="day" data-t="${dt.getTime()}">${d}</div>`;
+    const maint = inMaint(dt), hol = !maint && inHoliday(dt);
+    if (hol) dpHol = true;
+    const off = dt < CAL_MIN || dt > CAL_MAX || maint;
+    const title = maint ? ' title="Closed for surf pool maintenance"' : hol ? ' title="Golden Week — 20% holiday surcharge"' : '';
+    h += `<div class="dp-day${off ? ' disabled' : ''}${maint ? ' maint' : hol ? ' holiday' : ''}${dEq(dt, g.start) ? ' start' : ''}" data-dp="day" data-t="${dt.getTime()}"${title}>${d}</div>`;
   }
-  h += '</div><div class="dp-foot"><button type="button" class="dp-clear" data-dp="clear">Clear</button><button type="button" class="dp-done" data-dp="done">Done</button></div>';
+  h += '</div>' + (dpHol ? HOL_LEGEND : '') + '<div class="dp-foot"><button type="button" class="dp-clear" data-dp="clear">Clear</button><button type="button" class="dp-done" data-dp="done">Done</button></div>';
   pop.innerHTML = h;
 }
 const gdateEl = $('gdate');
@@ -1478,7 +1559,7 @@ function buildLead() {
   fd.set('adults', golf ? String(Math.max(+g.surfers || 0, +g.golfers || 0) || '') : String(state.ppl));
   fd.set('rooms', String(state.roomList.length));
   fd.set('room_types', state.roomList.map((k, i) => `Room ${i + 1}: ${P.roomName[k]}`).join('; '));
-  fd.set('surf_level', state.level);
+  fd.set('surf_level', levelText());
   if (!golf) fd.set('sessions_per_day', String(state.perDay));
   const addons = [];
   if (state.mods.coaching) addons.push(`Coaching x${state.mods.coaching}`);
@@ -1725,12 +1806,55 @@ if (tiersEl) tiersEl.addEventListener('click', e => {
     $(lid).classList.toggle('open', open);
   });
 });
+/* Wave level: one count per level; together they must equal the surfers (or TBD). */
+const LEVELS = ['Beginner', 'Intermediate', 'Advanced', 'Barrels & Airs'];
+const surferCount = () => isGolf() ? (parseInt(state.golf.surfers, 10) || 0) : state.ppl;
+const levelAssigned = () => LEVELS.reduce((a, k) => a + state.levels[k], 0);
+const levelText = () => state.levelTbd ? 'TBD' : LEVELS.filter(k => state.levels[k]).map(k => state.levels[k] + ' ' + k).join(' \u00b7 ');
+const levelOk = () => state.levelTbd || (surferCount() ? levelAssigned() === surferCount() : levelAssigned() > 0);
+function syncLevels() {
+  const n = surferCount();
+  if (n) { let over = levelAssigned() - n;            // fewer surfers now: trim from the last levels
+    for (let i = LEVELS.length - 1; i >= 0 && over > 0; i--) { const t = Math.min(over, state.levels[LEVELS[i]]); state.levels[LEVELS[i]] -= t; over -= t; } }
+  const wrap = $('levels'); if (!wrap) return;
+  const full = n > 0 && levelAssigned() >= n;
+  wrap.classList.toggle('tbd', state.levelTbd);
+  wrap.querySelectorAll('.lvl').forEach(row => {
+    const k = row.dataset.level.replace('&amp;', '&'), v = state.levels[k];
+    row.classList.toggle('on', v > 0);
+    row.querySelector('output').textContent = v;
+    row.querySelector('[data-lvl="-1"]').disabled = v === 0;
+    row.querySelector('[data-lvl="1"]').disabled = full;
+  });
+  $('lvl-tbd').classList.toggle('on', state.levelTbd);
+  const hint = $('lvl-hint'), sum = $('lvl-sum'), a = levelAssigned();
+  hint.textContent = n ? '\u00b7 assign your ' + n + ' surfer' + (n > 1 ? 's' : '') : '\u00b7 how many at each level';
+  sum.className = 'lvl-sum' + (state.levelTbd || levelOk() ? ' ok' : (sum.classList.contains('err') ? ' err' : ''));
+  sum.textContent = state.levelTbd ? 'No problem \u2014 we\u2019ll set the pool with you before the trip.'
+    : n ? a + ' of ' + n + ' surfer' + (n > 1 ? 's' : '') + ' assigned' + (a === n ? ' \u2713' : '')
+    : a ? a + ' surfer' + (a > 1 ? 's' : '') + ' assigned' : 'Tap + next to a level, or choose TBD.';
+}
+function levelReady() {
+  if (isGO() || levelOk()) return true;
+  const sum = $('lvl-sum'); sum.classList.add('err'); syncLevels();
+  const n = surferCount();
+  sum.textContent = n ? 'Please assign all ' + n + ' surfer' + (n > 1 ? 's' : '') + ' to a wave level, or choose TBD.'
+                      : 'Please tell us who surfs at which level, or choose TBD.';
+  bringIntoView($('f-sessions')); return false;
+}
 const levelsEl = $('levels');
 if (levelsEl) levelsEl.addEventListener('click', e => {
-  const c = e.target.closest('[data-level]'); if (!c) return;
-  const v = c.dataset.level;
-  state.level = state.level === v ? '' : v;           // tap again to clear
-  levelsEl.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x.dataset.level === state.level));
+  const b = e.target.closest('[data-lvl]'); if (!b || b.disabled) return;
+  const k = b.closest('.lvl').dataset.level.replace('&amp;', '&');
+  state.levels[k] = Math.max(0, state.levels[k] + (+b.dataset.lvl));
+  state.levelTbd = false; $('lvl-sum').classList.remove('err');
+  paint();
+});
+const lvlTbdEl = $('lvl-tbd');
+if (lvlTbdEl) lvlTbdEl.addEventListener('click', () => {
+  state.levelTbd = !state.levelTbd;
+  if (state.levelTbd) LEVELS.forEach(k => state.levels[k] = 0);
+  $('lvl-sum').classList.remove('err');
   paint();
 });
 const MOD_UNIT = { coaching: 'sessions', boards: 'sessions', media: 'sessions', clubs: 'days' };
