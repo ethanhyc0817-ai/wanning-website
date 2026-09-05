@@ -1257,9 +1257,36 @@ nav.scrolled { padding: 0.7rem 0; }
 /* Booking panel (/#contact): the embedded flow sits on a full-bleed sand section, aligned to .container */
 #page-contact .byw-section { background: var(--sand); padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2.5rem, 4vw, 4rem); }
 #page-contact .byw-more { padding: clamp(2.5rem, 5vw, 4.5rem) 0; }
-.byw-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-.byw-col { display: grid; gap: 2rem; }
-@media (max-width: 900px) { .byw-aside { grid-template-columns: 1fr; } }
+/* The two cards under the flow. Palette mirrors the flow's price rail / #bywBar
+   (deep ocean, paper, gold) so the whole panel reads as one system. */
+.byw-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+.byw-card { border-radius: 14px; padding: clamp(1.8rem, 3.5vw, 2.6rem); display: flex; flex-direction: column; }
+.byw-card h3 { font-size: 1.35rem; letter-spacing: -0.01em; margin: 0 0 1.5rem; }
+.byw-card--reach { background: var(--sand); border: 1px solid var(--sand-dark); color: var(--charcoal); }
+.byw-reach { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem 1.5rem; margin: 0; }
+.byw-reach dt { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ocean); margin-bottom: 0.3rem; }
+.byw-reach dd { margin: 0; font-size: 0.95rem; line-height: 1.5; }
+.byw-reach a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--gold); transition: color 0.2s, border-color 0.2s; }
+.byw-reach a:hover { color: var(--ocean); border-color: var(--ocean); }
+.byw-partner { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--sand-dark); display: flex; align-items: center; gap: 1.1rem; }
+.byw-partner img { width: 128px; height: auto; flex: 0 0 auto; }
+.byw-partner p { font-size: 0.82rem; line-height: 1.55; color: var(--warm-gray); margin: 0; }
+.byw-card--next { background: var(--ocean-deep); color: var(--paper); }
+.byw-card--next h3 { color: var(--paper); }
+.byw-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.byw-steps li { display: flex; gap: 1rem; align-items: flex-start; }
+.byw-steps span { flex: 0 0 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                  font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--gold); border: 1.5px solid var(--gold); }
+.byw-steps p { margin: 0; padding-top: 0.3rem; font-size: 0.93rem; line-height: 1.55; color: rgba(244,233,208,0.82); }
+.byw-next-note { margin: auto 0 0; padding-top: 1.5rem; border-top: 1px solid rgba(244,233,208,0.14); font-size: 0.82rem; color: rgba(244,233,208,0.6); }
+@media (max-width: 860px) {
+  .byw-aside { grid-template-columns: 1fr; gap: 1.1rem; }
+  .byw-reach { grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; }
+}
+@media (max-width: 480px) {
+  .byw-reach { grid-template-columns: 1fr; }
+  .byw-partner { flex-direction: column; align-items: flex-start; }
+}
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
   display: block; font-size: 0.8rem; font-weight: 500;
@@ -5015,52 +5042,44 @@ footer::before {
   </section>
   <section class="byw-more">
     <div class="container">
+      <!-- Below the booking flow: how to reach us + what happens after you send the request.
+           One component (.byw-aside) so the two cards share the booking flow's palette
+           (deep ocean / paper / gold) instead of the footer's charcoal. -->
       <div class="byw-aside">
-        <div class="byw-col">
-          <div style="background:var(--sand); padding:2.5rem; border-radius:12px;">
-            <h3 style="margin-bottom:1.5rem;">Other Ways to Reach Us</h3>
-            <div style="margin-bottom:1.5rem;">
-              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">WhatsApp</p>
-              <p style="font-size:0.95rem;"><a href="https://wa.me/8613893402173" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--teal);">+86 138 9340 2173</a></p>
-            </div>
-            <div style="margin-bottom:1.5rem;">
-              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Email</p>
-              <p style="font-size:0.95rem;"><a href="mailto:hello@surfchina.co" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--teal);">hello@surfchina.co</a></p>
-            </div>
-            <div style="margin-bottom:1.5rem;">
-              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Instagram</p>
-              <p style="font-size:0.95rem;"><a href="https://www.instagram.com/surfchina.co" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid var(--teal);">@surfchina.co</a></p>
+        <div class="byw-card byw-card--reach">
+          <h3>Other ways to reach us</h3>
+          <dl class="byw-reach">
+            <div>
+              <dt>WhatsApp</dt>
+              <dd><a href="https://wa.me/8613893402173" target="_blank" rel="noopener">+86 138 9340 2173</a></dd>
             </div>
             <div>
-              <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.3rem;">Response Time</p>
-              <p style="font-size:0.95rem;">We typically respond within 24&ndash;48 hours.</p>
+              <dt>Email</dt>
+              <dd><a href="mailto:hello@surfchina.co">hello@surfchina.co</a></dd>
             </div>
-          </div>
-          <!-- Partner badge -->
-          <div style="background:var(--sand); padding:1.5rem; border-radius:12px; text-align:center;">
-            <img loading="lazy" decoding="async" src="Assets/perfectswell-destination-partner.png" alt="PerfectSwell Destination Partner" style="max-width:190px; width:100%; height:auto;">
+            <div>
+              <dt>Instagram</dt>
+              <dd><a href="https://www.instagram.com/surfchina.co" target="_blank" rel="noopener">@surfchina.co</a></dd>
+            </div>
+            <div>
+              <dt>Response time</dt>
+              <dd>We typically reply within 24&ndash;48 hours.</dd>
+            </div>
+          </dl>
+          <div class="byw-partner">
+            <img loading="lazy" decoding="async" src="Assets/perfectswell-destination-partner.png" alt="PerfectSwell Destination Partner">
+            <p>Your sessions are booked through the surf park&rsquo;s own system &mdash; slot, level and wave setting confirmed before you land.</p>
           </div>
         </div>
-        <div class="byw-col">
-          <div style="background:var(--charcoal); color:var(--white); padding:2.5rem; border-radius:12px;">
-            <h3 style="color:var(--white); margin-bottom:1rem;">What Happens Next?</h3>
-            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
-              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">1</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">You send your dates, group size, and the package you want to book.</p>
-            </div>
-            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
-              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">2</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We send your exact quote &mdash; with any customizations &mdash; within 24&ndash;48 hours.</p>
-            </div>
-            <div style="display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start;">
-              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">3</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">We refine it together until it's exactly right.</p>
-            </div>
-            <div style="display:flex; gap:1rem; align-items:flex-start;">
-              <span style="background:var(--teal); color:white; min-width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:600;">4</span>
-              <p style="font-size:0.9rem; color:rgba(255,255,255,0.7);">Confirm with a deposit and we handle the rest.</p>
-            </div>
-          </div>
+        <div class="byw-card byw-card--next">
+          <h3>What happens next</h3>
+          <ol class="byw-steps">
+            <li><span>1</span><p>You send your dates, group size and the package you want.</p></li>
+            <li><span>2</span><p>We reply with your exact quote &mdash; customisations included &mdash; within 24&ndash;48 hours.</p></li>
+            <li><span>3</span><p>We refine it together until it&rsquo;s exactly right.</p></li>
+            <li><span>4</span><p>Confirm with a deposit and we handle the rest.</p></li>
+          </ol>
+          <p class="byw-next-note">No commitment until you confirm. Questions first? Just message us.</p>
         </div>
       </div>
     </div>
