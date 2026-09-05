@@ -1066,63 +1066,57 @@ nav.scrolled { padding: 0.7rem 0; }
 .facility-card:hover .card-cta::after { transform: translateX(5px); }
 
 /* Packages */
-.packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; align-items: stretch; }
 .package-card {
-  position: relative; overflow: hidden; border-radius: 12px;
+  position: relative; overflow: hidden; border-radius: 14px;
   background: var(--white); border: 1px solid rgba(0,0,0,0.08);
   transition: box-shadow 0.4s var(--transition), transform 0.4s var(--transition);
   display: flex; flex-direction: column;
 }
 .package-card .package-body { flex: 1; display: flex; flex-direction: column; }
 .package-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.1); transform: translateY(-2px); }
-.package-img { width: 100%; height: 260px; object-fit: cover; }
-.package-body { padding: 2rem; }
+.package-img { width: 100%; height: 190px; object-fit: cover; }
+.package-body { padding: 1.6rem 1.6rem 1.5rem; }
 .package-tag {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; display: block;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 0.45rem; display: block;
 }
-.package-body h3 { margin-bottom: 0.8rem; }
-.package-body p { color: var(--warm-gray); font-size: 0.9rem; margin-bottom: 1rem; }
-.package-includes { list-style: none; padding: 1rem 0; border-top: 1px solid rgba(0,0,0,0.06); }
+.package-body h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.package-body p { color: var(--warm-gray); font-size: 0.9rem; line-height: 1.55; margin-bottom: 0.9rem; }
+.package-includes { list-style: none; padding: 0.9rem 0 0; margin: 0; border-top: 1px solid rgba(0,0,0,0.06); }
 .package-includes li {
-  font-size: 0.85rem; color: var(--warm-gray); padding: 0.3rem 0;
-  padding-left: 1.2rem; position: relative;
+  font-size: 0.84rem; line-height: 1.45; color: var(--warm-gray); padding: 0.28rem 0 0.28rem 1.25rem; position: relative;
 }
-.package-includes li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-size: 0.8rem; }
-.package-card.featured { border: 2px solid var(--teal); }
-/* Surf & Golf brochure tier picker */
-.brochure-label { margin: 1.2rem 0 0.15rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); }
-.brochure-hint { margin: 0 0 0.6rem; font-size: 0.78rem; color: var(--warm-gray); }
-.brochure-tier__pdf {
-  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.08em;
-  color: var(--tier, var(--teal)); border: 1px solid var(--tier, var(--teal));
-  border-radius: 6px; padding: 0.12rem 0.35rem; opacity: 0.85; white-space: nowrap;
+.package-includes li strong { color: var(--charcoal); font-weight: 600; }
+.package-includes li::before { content: '\2713'; position: absolute; left: 0; top: 0.32rem; color: var(--teal); font-size: 0.78rem; }
+.package-foot { margin-top: auto; padding-top: 1.1rem; }
+.package-price { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--charcoal); font-size: 1.1rem; margin: 0 0 0.9rem !important; line-height: 1.3; }
+.package-price span { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--warm-gray); font-size: 0.82rem; }
+.package-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; flex-wrap: wrap; }
+.package-actions .btn { flex: 0 0 auto; }
+.package-more { font-size: 0.82rem; font-weight: 600; color: var(--ocean); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; white-space: nowrap; }
+.package-more:hover { border-bottom-color: var(--ocean); }
+.package-brochures { display: inline-flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+.package-brochures a {
+  font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--tier); border: 1px solid var(--tier); border-radius: 999px; padding: 0.22rem 0.55rem; text-decoration: none;
+  transition: background 0.2s, color 0.2s; white-space: nowrap;
 }
-.brochure-tiers { display: flex; flex-direction: column; gap: 0.5rem; }
-.brochure-tier {
-  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
-  padding: 0.7rem 0.55rem 0.7rem 0.85rem;
-  background: var(--white); color: var(--charcoal); text-decoration: none;
-  border: 1px solid rgba(0,0,0,0.1); border-left: 3px solid var(--tier, var(--teal));
-  border-radius: 12px; transition: all 0.25s var(--transition);
-}
-.brochure-tier:hover { border-color: var(--tier, var(--teal)); box-shadow: 0 8px 20px rgba(0,0,0,0.08); transform: translateY(-1px); }
-.brochure-tier__name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
-.brochure-tier__meta { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
-.brochure-tier__nights { font-size: 0.76rem; color: var(--warm-gray); white-space: nowrap; }
-.brochure-tier__arrow { color: var(--tier, var(--teal)); font-weight: 700; transition: transform 0.25s var(--transition); }
-.brochure-tier:hover .brochure-tier__arrow { transform: translateX(3px); }
-/* Build a Custom Trip card */
-.custom-card { background: var(--sand); border: 1px dashed rgba(0,0,0,0.18); display: flex; }
-.custom-card .package-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 2rem; }
-.custom-card-icon { width: 54px; height: 54px; border-radius: 50%; background: rgba(45,138,148,0.12); display: flex; align-items: center; justify-content: center; color: var(--teal); margin-bottom: 1.1rem; }
-.custom-card-icon svg { width: 24px; height: 24px; }
-.custom-card .package-tag { margin-bottom: 0.5rem; }
-.custom-card h3 { margin-bottom: 0.7rem; }
-.custom-card p { color: var(--warm-gray); font-size: 0.9rem; max-width: 32ch; margin: 0 auto 1.6rem; }
-.custom-card-cta { margin-top: 0; }
-.package-cta { display: flex; align-items: center; justify-content: center; width: 100%; margin-top: auto; }
-.package-body .brochure-tiers { margin-bottom: 1rem; }
+.package-brochures a:hover { background: var(--tier); color: var(--white); }
+/* Build a Custom Trip: same skeleton as the other two, on the booking flow's deep-ocean palette */
+.custom-card { background: var(--ocean-deep); border-color: var(--ocean-deep); color: var(--paper); }
+.custom-card .package-img { object-position: center 38%; }
+.custom-card .package-tag { color: var(--gold); }
+.custom-card h3 { color: var(--paper); }
+.custom-card .package-body > p { color: rgba(244,233,208,0.72); }
+.custom-card .package-includes { border-top-color: rgba(244,233,208,0.14); }
+.custom-card .package-includes li { color: rgba(244,233,208,0.82); }
+.custom-card .package-includes li::before { color: var(--gold); }
+.custom-card .package-price { color: var(--paper); }
+.custom-card .package-price span { color: rgba(244,233,208,0.6); }
+.custom-card .btn { background: var(--gold); color: var(--ocean-deep); }
+.custom-card .btn:hover { background: #dcc08b; }
+.custom-card:hover { box-shadow: 0 20px 60px rgba(9,46,62,0.35); }
 .package-featured-badge {
   position: absolute; top: calc(32px + 1rem); right: 1rem;
   background: var(--teal); color: var(--white);
@@ -1802,8 +1796,6 @@ footer .section-divider-center,
   background-position: bottom center;
   background-size: 40px 32px;
 }
-/* Flexible/custom card — keep its placeholder look, no band */
-.package-card.no-band::before { display: none; }
 
 /* Page switching */
 .page { display: none; }
@@ -2967,65 +2959,64 @@ footer::before {
         <div class="package-card fade-in">
           <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-700.avif 700w, Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-700.webp 700w, Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" width="2560" height="1438" class="package-img" alt="Surf pool daytime"></picture>
           <div class="package-body">
-            <span class="package-tag">3 Nights+</span>
+            <span class="package-tag">3 nights+ &middot; Surf only</span>
             <h3>The Surf Escape</h3>
-            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
+            <p>Surf pool sessions, resort room and transfers &mdash; nothing else to arrange.</p>
             <ul class="package-includes">
-              <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
-              <li>Surf Pool Resort &mdash; Garden View Room, daily breakfast for two</li>
-              <li>Beginner softboard use for included pool sessions, 1 premium video session per surfer, round-trip Premium Car transfer</li>
+              <li>6 PerfectSwell&reg; sessions for two over 3 nights, more on longer stays</li>
+              <li>Surf Pool Resort, Garden View room, breakfast for two</li>
+              <li>Softboards, one video session each, premium car transfers</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$759 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
-            <p class="brochure-label">See the full details</p>
-            <div class="brochure-tiers">
-              <a href="/package-1-the-surf-session.html" class="brochure-tier" style="--tier: var(--teal);">
-                <span class="brochure-tier__name">The Surf Escape</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__nights">3 nights+</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
+            <div class="package-foot">
+              <p class="package-price">From US$759 <span>/ person, couple sharing</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('wave-pool')">Get a quote </a>
+                <a href="/package-1-the-surf-session.html" class="package-more">Full details &rarr;</a>
+              </div>
             </div>
-            <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('wave-pool')">Get a Quote </a>
           </div>
         </div>
         <div class="package-card fade-in">
           <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" width="2560" height="1429" class="package-img" alt="Hainan golf course"></picture>
           <div class="package-body">
-            <span class="package-tag">Essential 5N &middot; Premium 7N &middot; Luxury 11N</span>
+            <span class="package-tag">5 &middot; 7 &middot; 11 nights &middot; Three tiers</span>
             <h3>The Surf &amp; Golf Retreat</h3>
-            <p>Three tiers. PerfectSwell&reg; mornings paired with championship golf &mdash; The Dunes (#2 in China) and Mission Hills Blackstone (#1, World Top 100).</p>
+            <p>Surf pool mornings, championship golf afternoons &mdash; The Dunes and Mission Hills Blackstone.</p>
             <ul class="package-includes">
-              <li>Essential: 5N Surf Pool Resort &middot; 6 PerfectSwell&reg; sessions + 2 Dunes rounds (Wanning)</li>
-              <li>Premium: + Ritz-Carlton Haikou &middot; 4 sessions + 3 rounds (adds Blackstone)</li>
-              <li>Luxury: + Rosewood Sanya + yacht charter + Lu Hui Tou round &middot; 3 cities</li>
+              <li><strong>Essential</strong> &middot; 5N Wanning, 6 sessions + 2 rounds at The Dunes</li>
+              <li><strong>Premium</strong> &middot; 7N, adds Ritz-Carlton Haikou + Blackstone</li>
+              <li><strong>Luxury</strong> &middot; 11N, adds Rosewood Sanya + a yacht day</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$1,403 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person (Essential) &middot; Premium US$2,475 &middot; Luxury US$5,501</span></p>
-            <p class="brochure-label">See the full brochure</p>
-            <p class="brochure-hint">Tap a tier below to open its PDF brochure &mdash; itinerary, hotels &amp; pricing.</p>
-            <div class="brochure-tiers">
-              <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--teal);">
-                <span class="brochure-tier__name">Essential</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">5 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
-              <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--ocean);">
-                <span class="brochure-tier__name">Premium</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">7 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
-              <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--gold);">
-                <span class="brochure-tier__name">Luxury</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">11 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
+            <div class="package-foot">
+              <p class="package-price">From US$1,403 <span>/ person, Essential</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('surf-golf')">Get a quote </a>
+                <span class="package-brochures" aria-label="Brochure PDFs">
+                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" style="--tier: var(--teal);">Essential</a>
+                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" style="--tier: var(--ocean);">Premium</a>
+                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" style="--tier: var(--gold);">Luxury</a>
+                </span>
+              </div>
             </div>
-            <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('surf-golf')">Get a Quote </a>
           </div>
         </div>
         <div class="package-card custom-card fade-in">
+          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.avif 700w, Assets/nature/coastal-road-beach-aerial-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.webp 700w, Assets/nature/coastal-road-beach-aerial-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/nature/coastal-road-beach-aerial-01.jpg" width="2560" height="1707" class="package-img" alt="Coastal road along a Hainan beach, seen from above"></picture>
           <div class="package-body">
-            <span class="custom-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="10" r="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="6" y1="12" x2="6" y2="20"/><circle cx="12" cy="16" r="2"/><line x1="12" y1="4" x2="12" y2="14"/><line x1="12" y1="18" x2="12" y2="20"/><circle cx="18" cy="7" r="2"/><line x1="18" y1="4" x2="18" y2="5"/><line x1="18" y1="9" x2="18" y2="20"/></svg>
-            </span>
-            <span class="package-tag">Fully Flexible</span>
+            <span class="package-tag">Fully flexible &middot; Any length</span>
             <h3>Build a Custom Trip</h3>
-            <p>Tell us your dates, group, and interests &mdash; we'll build the perfect Hainan surf trip around you.</p>
-            <a href="#" class="btn btn-primary btn-arrow custom-card-cta" onclick="return requestQuote('custom')">Start Planning </a>
+            <p>Start from the surf pool and add what you like. We plan it around your dates, your group and your pace.</p>
+            <ul class="package-includes">
+              <li>Yacht days, hot springs, coffee farms, island road trips</li>
+              <li>Private guide, car and itinerary built around you</li>
+              <li>Any group size, any surf level</li>
+            </ul>
+            <div class="package-foot">
+              <p class="package-price">Tailored quote <span>in 24&ndash;48 hours, no commitment</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-arrow" onclick="return requestQuote('custom')">Start planning </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -4718,65 +4709,64 @@ footer::before {
         <div class="package-card fade-in">
           <picture><source type="image/avif" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.avif 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.avif 2560w"><source type="image/webp" sizes="(max-width: 768px) 390px, 1440px" srcset="Assets/wavepool/wavepool-aerial-daytime-01-1500.webp 1500w, Assets/wavepool/wavepool-aerial-daytime-01-2560.webp 2560w"><img loading="lazy" decoding="async" src="Assets/wavepool/wavepool-aerial-daytime-01.jpg" width="2560" height="1438" class="package-img" alt="Surf pool daytime"></picture>
           <div class="package-body">
-            <span class="package-tag">3 Nights+</span>
+            <span class="package-tag">3 nights+ &middot; Surf only</span>
             <h3>The Surf Escape</h3>
-            <p>The surf-only package. 3 nights or more at the Surf Pool Resort, 6+ PerfectSwell&reg; surf sessions for the couple, all in.</p>
+            <p>Surf pool sessions, resort room and transfers &mdash; nothing else to arrange.</p>
             <ul class="package-includes">
-              <li>6 PerfectSwell&reg; surf sessions total for the couple over 3 nights &mdash; one each per day, more on longer stays</li>
-              <li>Surf Pool Resort &mdash; Garden View Room, daily breakfast for two</li>
-              <li>Beginner softboard use for included pool sessions, 1 premium video session per surfer, round-trip Premium Car transfer</li>
+              <li>6 PerfectSwell&reg; sessions for two over 3 nights, more on longer stays</li>
+              <li>Surf Pool Resort, Garden View room, breakfast for two</li>
+              <li>Softboards, one video session each, premium car transfers</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$759 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person, couple sharing</span></p>
-            <p class="brochure-label">See the full details</p>
-            <div class="brochure-tiers">
-              <a href="/package-1-the-surf-session.html" class="brochure-tier" style="--tier: var(--teal);">
-                <span class="brochure-tier__name">The Surf Escape</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__nights">3 nights+</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
+            <div class="package-foot">
+              <p class="package-price">From US$759 <span>/ person, couple sharing</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('wave-pool')">Get a quote </a>
+                <a href="/package-1-the-surf-session.html" class="package-more">Full details &rarr;</a>
+              </div>
             </div>
-            <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('wave-pool')">Get a Quote </a>
           </div>
         </div>
         <div class="package-card fade-in">
           <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.avif 700w, Assets/golf/IMG_5503-800.avif 800w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/golf/IMG_5503-700.webp 700w, Assets/golf/IMG_5503-800.webp 800w"><img loading="lazy" decoding="async" src="Assets/golf/IMG_5503.jpeg" width="2560" height="1429" class="package-img" alt="Hainan golf course"></picture>
           <div class="package-body">
-            <span class="package-tag">Essential 5N &middot; Premium 7N &middot; Luxury 11N</span>
+            <span class="package-tag">5 &middot; 7 &middot; 11 nights &middot; Three tiers</span>
             <h3>The Surf &amp; Golf Retreat</h3>
-            <p>Three tiers. PerfectSwell&reg; mornings paired with championship golf &mdash; The Dunes (#2 in China) and Mission Hills Blackstone (#1, World Top 100).</p>
+            <p>Surf pool mornings, championship golf afternoons &mdash; The Dunes and Mission Hills Blackstone.</p>
             <ul class="package-includes">
-              <li>Essential: 5N Surf Pool Resort &middot; 6 PerfectSwell&reg; sessions + 2 Dunes rounds (Wanning)</li>
-              <li>Premium: + Ritz-Carlton Haikou &middot; 4 sessions + 3 rounds (adds Blackstone)</li>
-              <li>Luxury: + Rosewood Sanya + yacht charter + Lu Hui Tou round &middot; 3 cities</li>
+              <li><strong>Essential</strong> &middot; 5N Wanning, 6 sessions + 2 rounds at The Dunes</li>
+              <li><strong>Premium</strong> &middot; 7N, adds Ritz-Carlton Haikou + Blackstone</li>
+              <li><strong>Luxury</strong> &middot; 11N, adds Rosewood Sanya + a yacht day</li>
             </ul>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--charcoal); margin:1rem 0 0; font-size:1.1rem;">From US$1,403 <span style="font-weight:400; color:var(--warm-gray); font-size:0.85rem;">/ person (Essential) &middot; Premium US$2,475 &middot; Luxury US$5,501</span></p>
-            <p class="brochure-label">See the full brochure</p>
-            <p class="brochure-hint">Tap a tier below to open its PDF brochure &mdash; itinerary, hotels &amp; pricing.</p>
-            <div class="brochure-tiers">
-              <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--teal);">
-                <span class="brochure-tier__name">Essential</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">5 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
-              <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--ocean);">
-                <span class="brochure-tier__name">Premium</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">7 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
-              <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" class="brochure-tier" style="--tier: var(--gold);">
-                <span class="brochure-tier__name">Luxury</span>
-                <span class="brochure-tier__meta"><span class="brochure-tier__pdf">PDF</span><span class="brochure-tier__nights">11 nights</span><span class="brochure-tier__arrow">&rarr;</span></span>
-              </a>
+            <div class="package-foot">
+              <p class="package-price">From US$1,403 <span>/ person, Essential</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-primary btn-arrow" onclick="return requestQuote('surf-golf')">Get a quote </a>
+                <span class="package-brochures" aria-label="Brochure PDFs">
+                  <a href="Assets/brochures/surf-and-golf-essential.pdf" target="_blank" rel="noopener" style="--tier: var(--teal);">Essential</a>
+                  <a href="Assets/brochures/surf-and-golf-premium.pdf" target="_blank" rel="noopener" style="--tier: var(--ocean);">Premium</a>
+                  <a href="Assets/brochures/surf-and-golf-luxury.pdf" target="_blank" rel="noopener" style="--tier: var(--gold);">Luxury</a>
+                </span>
+              </div>
             </div>
-            <a href="#" class="btn btn-primary btn-arrow package-cta" onclick="return requestQuote('surf-golf')">Get a Quote </a>
           </div>
         </div>
         <div class="package-card custom-card fade-in">
+          <picture><source type="image/avif" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.avif 700w, Assets/nature/coastal-road-beach-aerial-01-1400.avif 1400w"><source type="image/webp" sizes="(max-width: 768px) 340px, 370px" srcset="Assets/nature/coastal-road-beach-aerial-01-700.webp 700w, Assets/nature/coastal-road-beach-aerial-01-1400.webp 1400w"><img loading="lazy" decoding="async" src="Assets/nature/coastal-road-beach-aerial-01.jpg" width="2560" height="1707" class="package-img" alt="Coastal road along a Hainan beach, seen from above"></picture>
           <div class="package-body">
-            <span class="custom-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="10" r="2"/><line x1="6" y1="4" x2="6" y2="8"/><line x1="6" y1="12" x2="6" y2="20"/><circle cx="12" cy="16" r="2"/><line x1="12" y1="4" x2="12" y2="14"/><line x1="12" y1="18" x2="12" y2="20"/><circle cx="18" cy="7" r="2"/><line x1="18" y1="4" x2="18" y2="5"/><line x1="18" y1="9" x2="18" y2="20"/></svg>
-            </span>
-            <span class="package-tag">Fully Flexible</span>
+            <span class="package-tag">Fully flexible &middot; Any length</span>
             <h3>Build a Custom Trip</h3>
-            <p>Tell us your dates, group, and interests &mdash; we'll build the perfect Hainan surf trip around you.</p>
-            <a href="#" class="btn btn-primary btn-arrow custom-card-cta" onclick="return requestQuote('custom')">Start Planning </a>
+            <p>Start from the surf pool and add what you like. We plan it around your dates, your group and your pace.</p>
+            <ul class="package-includes">
+              <li>Yacht days, hot springs, coffee farms, island road trips</li>
+              <li>Private guide, car and itinerary built around you</li>
+              <li>Any group size, any surf level</li>
+            </ul>
+            <div class="package-foot">
+              <p class="package-price">Tailored quote <span>in 24&ndash;48 hours, no commitment</span></p>
+              <div class="package-actions">
+                <a href="#" class="btn btn-arrow" onclick="return requestQuote('custom')">Start planning </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
